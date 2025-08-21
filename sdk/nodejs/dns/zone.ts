@@ -44,63 +44,63 @@ export class Zone extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The etag of the zone.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The maximum number of record sets that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
      * The maximum number of records per record set that can be created in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly maxNumberOfRecordsPerRecordSet!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfRecordsPerRecordSet: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name servers for this DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * The current number of record sets in this DNS zone.  This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
      * A list of references to virtual networks that register hostnames in this DNS zone. This is a only when ZoneType is Private.
      */
-    public readonly registrationVirtualNetworks!: pulumi.Output<outputs.dns.SubResourceResponse[] | undefined>;
+    declare public readonly registrationVirtualNetworks: pulumi.Output<outputs.dns.SubResourceResponse[] | undefined>;
     /**
      * A list of references to virtual networks that resolve records in this DNS zone. This is a only when ZoneType is Private.
      */
-    public readonly resolutionVirtualNetworks!: pulumi.Output<outputs.dns.SubResourceResponse[] | undefined>;
+    declare public readonly resolutionVirtualNetworks: pulumi.Output<outputs.dns.SubResourceResponse[] | undefined>;
     /**
      * The list of signing keys.
      */
-    public /*out*/ readonly signingKeys!: pulumi.Output<outputs.dns.SigningKeyResponse[]>;
+    declare public /*out*/ readonly signingKeys: pulumi.Output<outputs.dns.SigningKeyResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dns.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dns.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The type of this DNS zone (Public or Private).
      */
-    public readonly zoneType!: pulumi.Output<string | undefined>;
+    declare public readonly zoneType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Zone resource with the given unique name, arguments, and options.
@@ -113,16 +113,16 @@ export class Zone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationVirtualNetworks"] = args ? args.registrationVirtualNetworks : undefined;
-            resourceInputs["resolutionVirtualNetworks"] = args ? args.resolutionVirtualNetworks : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
-            resourceInputs["zoneType"] = (args ? args.zoneType : undefined) ?? "Public";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationVirtualNetworks"] = args?.registrationVirtualNetworks;
+            resourceInputs["resolutionVirtualNetworks"] = args?.resolutionVirtualNetworks;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneName"] = args?.zoneName;
+            resourceInputs["zoneType"] = (args?.zoneType) ?? "Public";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["maxNumberOfRecordSets"] = undefined /*out*/;

@@ -44,135 +44,135 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
     /**
      * Gets or sets user configurable app service container database settings.
      */
-    public readonly appSvcContainerSettings!: pulumi.Output<outputs.migrate.AppSvcContainerSettingsResponse | undefined>;
+    declare public readonly appSvcContainerSettings: pulumi.Output<outputs.migrate.AppSvcContainerSettingsResponse | undefined>;
     /**
      * Gets or sets user configurable app service native settings.
      */
-    public readonly appSvcNativeSettings!: pulumi.Output<outputs.migrate.AppSvcNativeSettingsResponse | undefined>;
+    declare public readonly appSvcNativeSettings: pulumi.Output<outputs.migrate.AppSvcNativeSettingsResponse | undefined>;
     /**
      * Assessment type of the assessment.
      */
-    public readonly assessmentType!: pulumi.Output<string | undefined>;
+    declare public readonly assessmentType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    public readonly azureLocation!: pulumi.Output<string | undefined>;
+    declare public readonly azureLocation: pulumi.Output<string | undefined>;
     /**
      * Azure Offer Code.
      */
-    public readonly azureOfferCode!: pulumi.Output<string | undefined>;
+    declare public readonly azureOfferCode: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating azure security offering type.
      */
-    public readonly azureSecurityOfferingType!: pulumi.Output<string | undefined>;
+    declare public readonly azureSecurityOfferingType: pulumi.Output<string | undefined>;
     /**
      * Confidence Rating in Percentage.
      */
-    public readonly confidenceRatingInPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly confidenceRatingInPercentage: pulumi.Output<number | undefined>;
     /**
      * Date and Time when assessment was created.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Currency in which prices should be reported.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    declare public readonly currency: pulumi.Output<string | undefined>;
     /**
      * Custom discount percentage.
      */
-    public readonly discountPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly discountPercentage: pulumi.Output<number | undefined>;
     /**
      * Gets or sets user configurable discovered entity settings.
      */
-    public readonly discoveredEntityLightSummary!: pulumi.Output<outputs.migrate.DiscoveredEntityLightSummaryResponse | undefined>;
+    declare public readonly discoveredEntityLightSummary: pulumi.Output<outputs.migrate.DiscoveredEntityLightSummaryResponse | undefined>;
     /**
      * Gets or sets the Enterprise agreement subscription id.
      */
-    public readonly eaSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly eaSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the duration for which the entity (Web app, VMs) are up in the
      * on-premises environment.
      */
-    public readonly entityUptime!: pulumi.Output<outputs.migrate.EntityUptimeResponse | undefined>;
+    declare public readonly entityUptime: pulumi.Output<outputs.migrate.EntityUptimeResponse | undefined>;
     /**
      * Gets or sets user configurable setting to display the environment type.
      */
-    public readonly environmentType!: pulumi.Output<string | undefined>;
+    declare public readonly environmentType: pulumi.Output<string | undefined>;
     /**
      * Gets the group type for the assessment.
      */
-    public readonly groupType!: pulumi.Output<string | undefined>;
+    declare public readonly groupType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    public readonly percentile!: pulumi.Output<string | undefined>;
+    declare public readonly percentile: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    public readonly perfDataEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataEndTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    public readonly perfDataStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataStartTime: pulumi.Output<string | undefined>;
     /**
      * Last time when rates were queried.
      */
-    public /*out*/ readonly pricesTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly pricesTimestamp: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Reserved instance.
      */
-    public readonly reservedInstance!: pulumi.Output<string | undefined>;
+    declare public readonly reservedInstance: pulumi.Output<string | undefined>;
     /**
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    public readonly scalingFactor!: pulumi.Output<number | undefined>;
+    declare public readonly scalingFactor: pulumi.Output<number | undefined>;
     /**
      * Schema version.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
     /**
      * Assessment sizing criterion.
      */
-    public readonly sizingCriterion!: pulumi.Output<string | undefined>;
+    declare public readonly sizingCriterion: pulumi.Output<string | undefined>;
     /**
      * User configurable setting to display the Stage of Assessment.
      */
-    public /*out*/ readonly stage!: pulumi.Output<string>;
+    declare public /*out*/ readonly stage: pulumi.Output<string>;
     /**
      * Whether assessment is in valid state and all machines have been assessed.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    public readonly timeRange!: pulumi.Output<string | undefined>;
+    declare public readonly timeRange: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Date and Time when assessment was last updated.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a WebAppAssessmentV2Operation resource with the given unique name, arguments, and options.
@@ -185,40 +185,40 @@ export class WebAppAssessmentV2Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appSvcContainerSettings"] = args ? args.appSvcContainerSettings : undefined;
-            resourceInputs["appSvcNativeSettings"] = args ? args.appSvcNativeSettings : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azureSecurityOfferingType"] = args ? args.azureSecurityOfferingType : undefined;
-            resourceInputs["confidenceRatingInPercentage"] = args ? args.confidenceRatingInPercentage : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["discoveredEntityLightSummary"] = args ? args.discoveredEntityLightSummary : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["entityUptime"] = args ? args.entityUptime : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["appSvcContainerSettings"] = args?.appSvcContainerSettings;
+            resourceInputs["appSvcNativeSettings"] = args?.appSvcNativeSettings;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azureSecurityOfferingType"] = args?.azureSecurityOfferingType;
+            resourceInputs["confidenceRatingInPercentage"] = args?.confidenceRatingInPercentage;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["discoveredEntityLightSummary"] = args?.discoveredEntityLightSummary;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["entityUptime"] = args?.entityUptime;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

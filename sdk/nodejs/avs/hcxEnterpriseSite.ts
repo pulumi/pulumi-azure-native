@@ -44,31 +44,31 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
     /**
      * The activation key
      */
-    public /*out*/ readonly activationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly activationKey: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The status of the HCX Enterprise Site
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HcxEnterpriseSite resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class HcxEnterpriseSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hcxEnterpriseSiteName"] = args ? args.hcxEnterpriseSiteName : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["hcxEnterpriseSiteName"] = args?.hcxEnterpriseSiteName;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["activationKey"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

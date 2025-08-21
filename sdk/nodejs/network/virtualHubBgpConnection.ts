@@ -44,39 +44,39 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The current state of the VirtualHub to Peer.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The reference to the HubVirtualNetworkConnection resource.
      */
-    public readonly hubVirtualNetworkConnection!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly hubVirtualNetworkConnection: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * Name of the connection.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Peer ASN.
      */
-    public readonly peerAsn!: pulumi.Output<number | undefined>;
+    declare public readonly peerAsn: pulumi.Output<number | undefined>;
     /**
      * Peer IP.
      */
-    public readonly peerIp!: pulumi.Output<string | undefined>;
+    declare public readonly peerIp: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Connection type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubBgpConnection resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class VirtualHubBgpConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
+            if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["hubVirtualNetworkConnection"] = args ? args.hubVirtualNetworkConnection : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["peerIp"] = args ? args.peerIp : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["hubVirtualNetworkConnection"] = args?.hubVirtualNetworkConnection;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["peerIp"] = args?.peerIp;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

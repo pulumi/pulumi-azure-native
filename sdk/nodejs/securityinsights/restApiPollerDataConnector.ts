@@ -42,64 +42,64 @@ export class RestApiPollerDataConnector extends pulumi.CustomResource {
     /**
      * The add on attributes. The key name will become attribute name (a column) and the value will become the attribute value in the payload.
      */
-    public readonly addOnAttributes!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly addOnAttributes: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The a authentication model.
      */
-    public readonly auth!: pulumi.Output<outputs.securityinsights.AWSAuthModelResponse | outputs.securityinsights.ApiKeyAuthModelResponse | outputs.securityinsights.BasicAuthModelResponse | outputs.securityinsights.GCPAuthModelResponse | outputs.securityinsights.GenericBlobSbsAuthModelResponse | outputs.securityinsights.GitHubAuthModelResponse | outputs.securityinsights.JwtAuthModelResponse | outputs.securityinsights.NoneAuthModelResponse | outputs.securityinsights.OAuthModelResponse | outputs.securityinsights.OracleAuthModelResponse | outputs.securityinsights.SessionAuthModelResponse>;
+    declare public readonly auth: pulumi.Output<outputs.securityinsights.AWSAuthModelResponse | outputs.securityinsights.ApiKeyAuthModelResponse | outputs.securityinsights.BasicAuthModelResponse | outputs.securityinsights.GCPAuthModelResponse | outputs.securityinsights.GenericBlobSbsAuthModelResponse | outputs.securityinsights.GitHubAuthModelResponse | outputs.securityinsights.JwtAuthModelResponse | outputs.securityinsights.NoneAuthModelResponse | outputs.securityinsights.OAuthModelResponse | outputs.securityinsights.OracleAuthModelResponse | outputs.securityinsights.SessionAuthModelResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connector definition name (the dataConnectorDefinition resource id).
      */
-    public readonly connectorDefinitionName!: pulumi.Output<string>;
+    declare public readonly connectorDefinitionName: pulumi.Output<string>;
     /**
      * The Log Analytics table destination.
      */
-    public readonly dataType!: pulumi.Output<string | undefined>;
+    declare public readonly dataType: pulumi.Output<string | undefined>;
     /**
      * The DCR related properties.
      */
-    public readonly dcrConfig!: pulumi.Output<outputs.securityinsights.DCRConfigurationResponse | undefined>;
+    declare public readonly dcrConfig: pulumi.Output<outputs.securityinsights.DCRConfigurationResponse | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the connector is active or not.
      */
-    public readonly isActive!: pulumi.Output<boolean | undefined>;
+    declare public readonly isActive: pulumi.Output<boolean | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'RestApiPoller'.
      */
-    public readonly kind!: pulumi.Output<"RestApiPoller">;
+    declare public readonly kind: pulumi.Output<"RestApiPoller">;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The paging configuration.
      */
-    public readonly paging!: pulumi.Output<outputs.securityinsights.RestApiPollerRequestPagingConfigResponse | undefined>;
+    declare public readonly paging: pulumi.Output<outputs.securityinsights.RestApiPollerRequestPagingConfigResponse | undefined>;
     /**
      * The request configuration.
      */
-    public readonly request!: pulumi.Output<outputs.securityinsights.RestApiPollerRequestConfigResponse>;
+    declare public readonly request: pulumi.Output<outputs.securityinsights.RestApiPollerRequestConfigResponse>;
     /**
      * The response configuration.
      */
-    public readonly response!: pulumi.Output<outputs.securityinsights.CcpResponseConfigResponse | undefined>;
+    declare public readonly response: pulumi.Output<outputs.securityinsights.CcpResponseConfigResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RestApiPollerDataConnector resource with the given unique name, arguments, and options.
@@ -112,37 +112,37 @@ export class RestApiPollerDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.auth === undefined) && !opts.urn) {
+            if (args?.auth === undefined && !opts.urn) {
                 throw new Error("Missing required property 'auth'");
             }
-            if ((!args || args.connectorDefinitionName === undefined) && !opts.urn) {
+            if (args?.connectorDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorDefinitionName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.request === undefined) && !opts.urn) {
+            if (args?.request === undefined && !opts.urn) {
                 throw new Error("Missing required property 'request'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["addOnAttributes"] = args ? args.addOnAttributes : undefined;
-            resourceInputs["auth"] = args ? args.auth : undefined;
-            resourceInputs["connectorDefinitionName"] = args ? args.connectorDefinitionName : undefined;
-            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["dataType"] = args ? args.dataType : undefined;
-            resourceInputs["dcrConfig"] = args ? args.dcrConfig : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
+            resourceInputs["addOnAttributes"] = args?.addOnAttributes;
+            resourceInputs["auth"] = args?.auth;
+            resourceInputs["connectorDefinitionName"] = args?.connectorDefinitionName;
+            resourceInputs["dataConnectorId"] = args?.dataConnectorId;
+            resourceInputs["dataType"] = args?.dataType;
+            resourceInputs["dcrConfig"] = args?.dcrConfig;
+            resourceInputs["isActive"] = args?.isActive;
             resourceInputs["kind"] = "RestApiPoller";
-            resourceInputs["paging"] = args ? args.paging : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["paging"] = args?.paging;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["response"] = args ? (args.response ? pulumi.output(args.response).apply(inputs.securityinsights.ccpResponseConfigArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

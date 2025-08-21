@@ -42,24 +42,24 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the kind of settings.
      * Expected value is 'taginheritance'.
      */
-    public readonly kind!: pulumi.Output<"taginheritance">;
+    declare public readonly kind: pulumi.Output<"taginheritance">;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The properties of the tag inheritance setting.
      */
-    public readonly properties!: pulumi.Output<outputs.costmanagement.TagInheritancePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.costmanagement.TagInheritancePropertiesResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a TagInheritanceSetting resource with the given unique name, arguments, and options.
@@ -72,16 +72,16 @@ export class TagInheritanceSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
             resourceInputs["kind"] = "taginheritance";
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

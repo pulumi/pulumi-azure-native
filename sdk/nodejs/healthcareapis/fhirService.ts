@@ -44,87 +44,87 @@ export class FhirService extends pulumi.CustomResource {
     /**
      * Fhir Service Azure container registry configuration.
      */
-    public readonly acrConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceAcrConfigurationResponse | undefined>;
+    declare public readonly acrConfiguration: pulumi.Output<outputs.healthcareapis.FhirServiceAcrConfigurationResponse | undefined>;
     /**
      * Fhir Service authentication configuration.
      */
-    public readonly authenticationConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceAuthenticationConfigurationResponse | undefined>;
+    declare public readonly authenticationConfiguration: pulumi.Output<outputs.healthcareapis.FhirServiceAuthenticationConfigurationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Fhir Service Cors configuration.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceCorsConfigurationResponse | undefined>;
+    declare public readonly corsConfiguration: pulumi.Output<outputs.healthcareapis.FhirServiceCorsConfigurationResponse | undefined>;
     /**
      * The encryption settings of the FHIR service
      */
-    public readonly encryption!: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Fhir Service event support status.
      */
-    public /*out*/ readonly eventState!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventState: pulumi.Output<string>;
     /**
      * Fhir Service export configuration.
      */
-    public readonly exportConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceExportConfigurationResponse | undefined>;
+    declare public readonly exportConfiguration: pulumi.Output<outputs.healthcareapis.FhirServiceExportConfigurationResponse | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
     /**
      * Implementation Guides configuration.
      */
-    public readonly implementationGuidesConfiguration!: pulumi.Output<outputs.healthcareapis.ImplementationGuidesConfigurationResponse | undefined>;
+    declare public readonly implementationGuidesConfiguration: pulumi.Output<outputs.healthcareapis.ImplementationGuidesConfigurationResponse | undefined>;
     /**
      * Fhir Service import configuration.
      */
-    public readonly importConfiguration!: pulumi.Output<outputs.healthcareapis.FhirServiceImportConfigurationResponse | undefined>;
+    declare public readonly importConfiguration: pulumi.Output<outputs.healthcareapis.FhirServiceImportConfigurationResponse | undefined>;
     /**
      * The kind of the service.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicNetworkAccess: pulumi.Output<string>;
     /**
      * Determines tracking of history for resources.
      */
-    public readonly resourceVersionPolicyConfiguration!: pulumi.Output<outputs.healthcareapis.ResourceVersionPolicyConfigurationResponse | undefined>;
+    declare public readonly resourceVersionPolicyConfiguration: pulumi.Output<outputs.healthcareapis.ResourceVersionPolicyConfigurationResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FhirService resource with the given unique name, arguments, and options.
@@ -137,27 +137,27 @@ export class FhirService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["acrConfiguration"] = args ? args.acrConfiguration : undefined;
-            resourceInputs["authenticationConfiguration"] = args ? args.authenticationConfiguration : undefined;
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["exportConfiguration"] = args ? args.exportConfiguration : undefined;
-            resourceInputs["fhirServiceName"] = args ? args.fhirServiceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["implementationGuidesConfiguration"] = args ? args.implementationGuidesConfiguration : undefined;
-            resourceInputs["importConfiguration"] = args ? args.importConfiguration : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceVersionPolicyConfiguration"] = args ? args.resourceVersionPolicyConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["acrConfiguration"] = args?.acrConfiguration;
+            resourceInputs["authenticationConfiguration"] = args?.authenticationConfiguration;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["exportConfiguration"] = args?.exportConfiguration;
+            resourceInputs["fhirServiceName"] = args?.fhirServiceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["implementationGuidesConfiguration"] = args?.implementationGuidesConfiguration;
+            resourceInputs["importConfiguration"] = args?.importConfiguration;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceVersionPolicyConfiguration"] = args?.resourceVersionPolicyConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["eventState"] = undefined /*out*/;

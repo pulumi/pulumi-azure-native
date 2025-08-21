@@ -44,19 +44,19 @@ export class CostAllocationRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Name of the rule. This is a read only value.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Cost allocation rule properties
      */
-    public readonly properties!: pulumi.Output<outputs.costmanagement.CostAllocationRulePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.costmanagement.CostAllocationRulePropertiesResponse>;
     /**
      * Resource type of the rule. This is a read only value of Microsoft.CostManagement/CostAllocationRule.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CostAllocationRule resource with the given unique name, arguments, and options.
@@ -69,12 +69,12 @@ export class CostAllocationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountId === undefined) && !opts.urn) {
+            if (args?.billingAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountId'");
             }
-            resourceInputs["billingAccountId"] = args ? args.billingAccountId : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["billingAccountId"] = args?.billingAccountId;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

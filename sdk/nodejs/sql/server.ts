@@ -54,91 +54,91 @@ export class Server extends pulumi.CustomResource {
     /**
      * Administrator username for the server. Once created it cannot be changed.
      */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLogin: pulumi.Output<string | undefined>;
     /**
      * The Azure Active Directory administrator of the server. This can only be used at server create time. If used for server update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
-    public readonly administrators!: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
+    declare public readonly administrators: pulumi.Output<outputs.sql.ServerExternalAdministratorResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Status of external governance.
      */
-    public /*out*/ readonly externalGovernanceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalGovernanceStatus: pulumi.Output<string>;
     /**
      * The Client id used for cross tenant CMK scenario
      */
-    public readonly federatedClientId!: pulumi.Output<string | undefined>;
+    declare public readonly federatedClientId: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of the server.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
     /**
      * Whether or not to enable IPv6 support for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public readonly isIPv6Enabled!: pulumi.Output<string | undefined>;
+    declare public readonly isIPv6Enabled: pulumi.Output<string | undefined>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    public readonly keyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyId: pulumi.Output<string | undefined>;
     /**
      * Kind of sql server. This is metadata used for the Azure portal experience.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Minimal TLS version. Allowed values: 'None', 1.0', '1.1', '1.2', '1.3'
      */
-    public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimalTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly primaryUserAssignedIdentityId: pulumi.Output<string | undefined>;
     /**
      * List of private endpoint connections on a server
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.ServerPrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.sql.ServerPrivateEndpointConnectionResponse[]>;
     /**
      * Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled' or 'SecuredByPerimeter'
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public readonly restrictOutboundNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly restrictOutboundNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The state of the server.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The version of the server.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * Whether or not existing server has a workspace created and if it allows connection from workspace
      */
-    public /*out*/ readonly workspaceFeature!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceFeature: pulumi.Output<string>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -151,25 +151,25 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["administrators"] = args ? args.administrators : undefined;
-            resourceInputs["federatedClientId"] = args ? args.federatedClientId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isIPv6Enabled"] = args ? args.isIPv6Enabled : undefined;
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restrictOutboundNetworkAccess"] = args ? args.restrictOutboundNetworkAccess : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["administrators"] = args?.administrators;
+            resourceInputs["federatedClientId"] = args?.federatedClientId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isIPv6Enabled"] = args?.isIPv6Enabled;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
+            resourceInputs["primaryUserAssignedIdentityId"] = args?.primaryUserAssignedIdentityId;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restrictOutboundNetworkAccess"] = args?.restrictOutboundNetworkAccess;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["externalGovernanceStatus"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;

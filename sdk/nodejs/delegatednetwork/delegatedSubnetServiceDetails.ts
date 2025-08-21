@@ -45,43 +45,43 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
      * Defines prefix size of CIDR blocks allocated to nodes in VnetBlock Mode.
      * Delegated subnet's prefix size should be smaller than this by a minimum of 3.
      */
-    public readonly allocationBlockPrefixSize!: pulumi.Output<number | undefined>;
+    declare public readonly allocationBlockPrefixSize: pulumi.Output<number | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties of the controller.
      */
-    public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse | undefined>;
+    declare public readonly controllerDetails: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current state of dnc delegated subnet resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource guid.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * subnet details
      */
-    public readonly subnetDetails!: pulumi.Output<outputs.delegatednetwork.SubnetDetailsResponse | undefined>;
+    declare public readonly subnetDetails: pulumi.Output<outputs.delegatednetwork.SubnetDetailsResponse | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DelegatedSubnetServiceDetails resource with the given unique name, arguments, and options.
@@ -94,16 +94,16 @@ export class DelegatedSubnetServiceDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allocationBlockPrefixSize"] = args ? args.allocationBlockPrefixSize : undefined;
-            resourceInputs["controllerDetails"] = args ? args.controllerDetails : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["subnetDetails"] = args ? args.subnetDetails : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allocationBlockPrefixSize"] = args?.allocationBlockPrefixSize;
+            resourceInputs["controllerDetails"] = args?.controllerDetails;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["subnetDetails"] = args?.subnetDetails;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

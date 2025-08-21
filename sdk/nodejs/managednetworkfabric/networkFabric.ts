@@ -44,99 +44,99 @@ export class NetworkFabric extends pulumi.CustomResource {
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * ASN of CE devices for CE/PE connectivity.
      */
-    public readonly fabricASN!: pulumi.Output<number>;
+    declare public readonly fabricASN: pulumi.Output<number>;
     /**
      * The version of Network Fabric.
      */
-    public readonly fabricVersion!: pulumi.Output<string | undefined>;
+    declare public readonly fabricVersion: pulumi.Output<string | undefined>;
     /**
      * IPv4Prefix for Management Network. Example: 10.1.0.0/19.
      */
-    public readonly ipv4Prefix!: pulumi.Output<string>;
+    declare public readonly ipv4Prefix: pulumi.Output<string>;
     /**
      * IPv6Prefix for Management Network. Example: 3FFE:FFFF:0:CD40::/59
      */
-    public readonly ipv6Prefix!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6Prefix: pulumi.Output<string | undefined>;
     /**
      * List of L2 Isolation Domain resource IDs under the Network Fabric.
      */
-    public /*out*/ readonly l2IsolationDomains!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly l2IsolationDomains: pulumi.Output<string[]>;
     /**
      * List of L3 Isolation Domain resource IDs under the Network Fabric.
      */
-    public /*out*/ readonly l3IsolationDomains!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly l3IsolationDomains: pulumi.Output<string[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Configuration to be used to setup the management network.
      */
-    public readonly managementNetworkConfiguration!: pulumi.Output<outputs.managednetworkfabric.ManagementNetworkConfigurationPropertiesResponse>;
+    declare public readonly managementNetworkConfiguration: pulumi.Output<outputs.managednetworkfabric.ManagementNetworkConfigurationPropertiesResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure resource ID for the NetworkFabricController the NetworkFabric belongs.
      */
-    public readonly networkFabricControllerId!: pulumi.Output<string>;
+    declare public readonly networkFabricControllerId: pulumi.Output<string>;
     /**
      * Supported Network Fabric SKU.Example: Compute / Aggregate racks. Once the user chooses a particular SKU, only supported racks can be added to the Network Fabric. The SKU determines whether it is a single / multi rack Network Fabric.
      */
-    public readonly networkFabricSku!: pulumi.Output<string>;
+    declare public readonly networkFabricSku: pulumi.Output<string>;
     /**
      * Provides you the latest status of the NFC service, whether it is Accepted, updating, Succeeded or Failed. During this process, the states keep changing based on the status of NFC provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Number of compute racks associated to Network Fabric.
      */
-    public readonly rackCount!: pulumi.Output<number | undefined>;
+    declare public readonly rackCount: pulumi.Output<number | undefined>;
     /**
      * List of NetworkRack resource IDs under the Network Fabric. The number of racks allowed depends on the Network Fabric SKU.
      */
-    public /*out*/ readonly racks!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly racks: pulumi.Output<string[]>;
     /**
      * Array of router IDs.
      */
-    public /*out*/ readonly routerIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly routerIds: pulumi.Output<string[]>;
     /**
      * Number of servers.Possible values are from 1-16.
      */
-    public readonly serverCountPerRack!: pulumi.Output<number>;
+    declare public readonly serverCountPerRack: pulumi.Output<number>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Network and credentials configuration currently applied to terminal server.
      */
-    public readonly terminalServerConfiguration!: pulumi.Output<outputs.managednetworkfabric.TerminalServerConfigurationResponse>;
+    declare public readonly terminalServerConfiguration: pulumi.Output<outputs.managednetworkfabric.TerminalServerConfigurationResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NetworkFabric resource with the given unique name, arguments, and options.
@@ -149,45 +149,45 @@ export class NetworkFabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricASN === undefined) && !opts.urn) {
+            if (args?.fabricASN === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricASN'");
             }
-            if ((!args || args.ipv4Prefix === undefined) && !opts.urn) {
+            if (args?.ipv4Prefix === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ipv4Prefix'");
             }
-            if ((!args || args.managementNetworkConfiguration === undefined) && !opts.urn) {
+            if (args?.managementNetworkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementNetworkConfiguration'");
             }
-            if ((!args || args.networkFabricControllerId === undefined) && !opts.urn) {
+            if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
-            if ((!args || args.networkFabricSku === undefined) && !opts.urn) {
+            if (args?.networkFabricSku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricSku'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverCountPerRack === undefined) && !opts.urn) {
+            if (args?.serverCountPerRack === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverCountPerRack'");
             }
-            if ((!args || args.terminalServerConfiguration === undefined) && !opts.urn) {
+            if (args?.terminalServerConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'terminalServerConfiguration'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["fabricASN"] = args ? args.fabricASN : undefined;
-            resourceInputs["fabricVersion"] = args ? args.fabricVersion : undefined;
-            resourceInputs["ipv4Prefix"] = args ? args.ipv4Prefix : undefined;
-            resourceInputs["ipv6Prefix"] = args ? args.ipv6Prefix : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["fabricASN"] = args?.fabricASN;
+            resourceInputs["fabricVersion"] = args?.fabricVersion;
+            resourceInputs["ipv4Prefix"] = args?.ipv4Prefix;
+            resourceInputs["ipv6Prefix"] = args?.ipv6Prefix;
+            resourceInputs["location"] = args?.location;
             resourceInputs["managementNetworkConfiguration"] = args ? (args.managementNetworkConfiguration ? pulumi.output(args.managementNetworkConfiguration).apply(inputs.managednetworkfabric.managementNetworkConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
-            resourceInputs["networkFabricName"] = args ? args.networkFabricName : undefined;
-            resourceInputs["networkFabricSku"] = args ? args.networkFabricSku : undefined;
-            resourceInputs["rackCount"] = args ? args.rackCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverCountPerRack"] = args ? args.serverCountPerRack : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["terminalServerConfiguration"] = args ? args.terminalServerConfiguration : undefined;
+            resourceInputs["networkFabricControllerId"] = args?.networkFabricControllerId;
+            resourceInputs["networkFabricName"] = args?.networkFabricName;
+            resourceInputs["networkFabricSku"] = args?.networkFabricSku;
+            resourceInputs["rackCount"] = args?.rackCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverCountPerRack"] = args?.serverCountPerRack;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["terminalServerConfiguration"] = args?.terminalServerConfiguration;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

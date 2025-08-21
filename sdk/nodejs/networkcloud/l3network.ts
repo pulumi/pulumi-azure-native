@@ -42,97 +42,97 @@ export class L3Network extends pulumi.CustomResource {
     /**
      * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
      */
-    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedResourceIds: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the Network Cloud cluster this L3 network is associated with.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The more detailed status of the L3 network.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the current detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this L3 network.
      */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hybridAksClustersAssociatedIds: pulumi.Output<string[]>;
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The indicator of whether or not to disable IPAM allocation on the network attachment definition injected into the Hybrid AKS Cluster.
      */
-    public readonly hybridAksIpamEnabled!: pulumi.Output<string | undefined>;
+    declare public readonly hybridAksIpamEnabled: pulumi.Output<string | undefined>;
     /**
      * Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS.
      */
-    public readonly hybridAksPluginType!: pulumi.Output<string | undefined>;
+    declare public readonly hybridAksPluginType: pulumi.Output<string | undefined>;
     /**
      * The default interface name for this L3 network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine.
      */
-    public readonly interfaceName!: pulumi.Output<string | undefined>;
+    declare public readonly interfaceName: pulumi.Output<string | undefined>;
     /**
      * The type of the IP address allocation, defaulted to "DualStack".
      */
-    public readonly ipAllocationType!: pulumi.Output<string | undefined>;
+    declare public readonly ipAllocationType: pulumi.Output<string | undefined>;
     /**
      * The IPV4 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
      * is IPV4 or DualStack.
      */
-    public readonly ipv4ConnectedPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly ipv4ConnectedPrefix: pulumi.Output<string | undefined>;
     /**
      * The IPV6 prefix (CIDR) assigned to this L3 network. Required when the IP allocation type
      * is IPV6 or DualStack.
      */
-    public readonly ipv6ConnectedPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly ipv6ConnectedPrefix: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the Network Fabric l3IsolationDomain.
      */
-    public readonly l3IsolationDomainId!: pulumi.Output<string>;
+    declare public readonly l3IsolationDomainId: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the L3 network.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this L3 network.
      */
-    public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualMachinesAssociatedIds: pulumi.Output<string[]>;
     /**
      * The VLAN from the l3IsolationDomain that is used for this network.
      */
-    public readonly vlan!: pulumi.Output<number>;
+    declare public readonly vlan: pulumi.Output<number>;
 
     /**
      * Create a L3Network resource with the given unique name, arguments, and options.
@@ -145,31 +145,31 @@ export class L3Network extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.l3IsolationDomainId === undefined) && !opts.urn) {
+            if (args?.l3IsolationDomainId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlan === undefined) && !opts.urn) {
+            if (args?.vlan === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlan'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hybridAksIpamEnabled"] = (args ? args.hybridAksIpamEnabled : undefined) ?? "True";
-            resourceInputs["hybridAksPluginType"] = (args ? args.hybridAksPluginType : undefined) ?? "SRIOV";
-            resourceInputs["interfaceName"] = args ? args.interfaceName : undefined;
-            resourceInputs["ipAllocationType"] = (args ? args.ipAllocationType : undefined) ?? "DualStack";
-            resourceInputs["ipv4ConnectedPrefix"] = args ? args.ipv4ConnectedPrefix : undefined;
-            resourceInputs["ipv6ConnectedPrefix"] = args ? args.ipv6ConnectedPrefix : undefined;
-            resourceInputs["l3IsolationDomainId"] = args ? args.l3IsolationDomainId : undefined;
-            resourceInputs["l3NetworkName"] = args ? args.l3NetworkName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlan"] = args ? args.vlan : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hybridAksIpamEnabled"] = (args?.hybridAksIpamEnabled) ?? "True";
+            resourceInputs["hybridAksPluginType"] = (args?.hybridAksPluginType) ?? "SRIOV";
+            resourceInputs["interfaceName"] = args?.interfaceName;
+            resourceInputs["ipAllocationType"] = (args?.ipAllocationType) ?? "DualStack";
+            resourceInputs["ipv4ConnectedPrefix"] = args?.ipv4ConnectedPrefix;
+            resourceInputs["ipv6ConnectedPrefix"] = args?.ipv6ConnectedPrefix;
+            resourceInputs["l3IsolationDomainId"] = args?.l3IsolationDomainId;
+            resourceInputs["l3NetworkName"] = args?.l3NetworkName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlan"] = args?.vlan;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

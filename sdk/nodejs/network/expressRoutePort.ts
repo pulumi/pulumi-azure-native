@@ -44,79 +44,79 @@ export class ExpressRoutePort extends pulumi.CustomResource {
     /**
      * Date of the physical port allocation to be used in Letter of Authorization.
      */
-    public /*out*/ readonly allocationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly allocationDate: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Bandwidth of procured ports in Gbps.
      */
-    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    declare public readonly bandwidthInGbps: pulumi.Output<number | undefined>;
     /**
      * The billing type of the ExpressRoutePort resource.
      */
-    public readonly billingType!: pulumi.Output<string | undefined>;
+    declare public readonly billingType: pulumi.Output<string | undefined>;
     /**
      * Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource.
      */
-    public /*out*/ readonly circuits!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly circuits: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * Encapsulation method on physical ports.
      */
-    public readonly encapsulation!: pulumi.Output<string | undefined>;
+    declare public readonly encapsulation: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Ether type of the physical port.
      */
-    public /*out*/ readonly etherType!: pulumi.Output<string>;
+    declare public /*out*/ readonly etherType: pulumi.Output<string>;
     /**
      * The identity of ExpressRoutePort, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
     /**
      * The set of physical links of the ExpressRoutePort resource.
      */
-    public readonly links!: pulumi.Output<outputs.network.ExpressRouteLinkResponse[] | undefined>;
+    declare public readonly links: pulumi.Output<outputs.network.ExpressRouteLinkResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Maximum transmission unit of the physical port pair(s).
      */
-    public /*out*/ readonly mtu!: pulumi.Output<string>;
+    declare public /*out*/ readonly mtu: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name of the peering location that the ExpressRoutePort is mapped to physically.
      */
-    public readonly peeringLocation!: pulumi.Output<string | undefined>;
+    declare public readonly peeringLocation: pulumi.Output<string | undefined>;
     /**
      * Aggregate Gbps of associated circuit bandwidths.
      */
-    public /*out*/ readonly provisionedBandwidthInGbps!: pulumi.Output<number>;
+    declare public /*out*/ readonly provisionedBandwidthInGbps: pulumi.Output<number>;
     /**
      * The provisioning state of the express route port resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the express route port resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExpressRoutePort resource with the given unique name, arguments, and options.
@@ -129,20 +129,20 @@ export class ExpressRoutePort extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["encapsulation"] = args ? args.encapsulation : undefined;
-            resourceInputs["expressRoutePortName"] = args ? args.expressRoutePortName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["encapsulation"] = args?.encapsulation;
+            resourceInputs["expressRoutePortName"] = args?.expressRoutePortName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peeringLocation"] = args?.peeringLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["allocationDate"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuits"] = undefined /*out*/;

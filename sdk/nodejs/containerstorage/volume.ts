@@ -42,39 +42,39 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Requested capacity in GiB
      */
-    public readonly capacityGiB!: pulumi.Output<number>;
+    declare public readonly capacityGiB: pulumi.Output<number>;
     /**
      * String KV pairs indicating labels
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The status of the resource.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.containerstorage.ResourceOperationalStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.containerstorage.ResourceOperationalStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerstorage.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerstorage.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Properties of the volume
      */
-    public /*out*/ readonly volumeType!: pulumi.Output<outputs.containerstorage.VolumeTypeResponse>;
+    declare public /*out*/ readonly volumeType: pulumi.Output<outputs.containerstorage.VolumeTypeResponse>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityGiB === undefined) && !opts.urn) {
+            if (args?.capacityGiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityGiB'");
             }
-            if ((!args || args.labels === undefined) && !opts.urn) {
+            if (args?.labels === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labels'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["capacityGiB"] = args ? args.capacityGiB : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["capacityGiB"] = args?.capacityGiB;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,89 +44,89 @@ export class BatchAccount extends pulumi.CustomResource {
     /**
      * The account endpoint used to interact with the Batch service.
      */
-    public /*out*/ readonly accountEndpoint!: pulumi.Output<string>;
-    public /*out*/ readonly activeJobAndJobScheduleQuota!: pulumi.Output<number>;
+    declare public /*out*/ readonly accountEndpoint: pulumi.Output<string>;
+    declare public /*out*/ readonly activeJobAndJobScheduleQuota: pulumi.Output<number>;
     /**
      * List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
      */
-    public readonly allowedAuthenticationModes!: pulumi.Output<string[]>;
+    declare public readonly allowedAuthenticationModes: pulumi.Output<string[]>;
     /**
      * Contains information about the auto-storage account associated with a Batch account.
      */
-    public readonly autoStorage!: pulumi.Output<outputs.batch.AutoStoragePropertiesResponse>;
+    declare public readonly autoStorage: pulumi.Output<outputs.batch.AutoStoragePropertiesResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
-    public /*out*/ readonly dedicatedCoreQuota!: pulumi.Output<number>;
+    declare public /*out*/ readonly dedicatedCoreQuota: pulumi.Output<number>;
     /**
      * A list of the dedicated core quota per Virtual Machine family for the Batch account. For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
-    public /*out*/ readonly dedicatedCoreQuotaPerVMFamily!: pulumi.Output<outputs.batch.VirtualMachineFamilyCoreQuotaResponse[]>;
+    declare public /*out*/ readonly dedicatedCoreQuotaPerVMFamily: pulumi.Output<outputs.batch.VirtualMachineFamilyCoreQuotaResponse[]>;
     /**
      * If this flag is true, dedicated core quota is enforced via both the dedicatedCoreQuotaPerVMFamily and dedicatedCoreQuota properties on the account. If this flag is false, dedicated core quota is enforced only via the dedicatedCoreQuota property on the account and does not consider Virtual Machine family.
      */
-    public /*out*/ readonly dedicatedCoreQuotaPerVMFamilyEnforced!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly dedicatedCoreQuotaPerVMFamilyEnforced: pulumi.Output<boolean>;
     /**
      * Configures how customer data is encrypted inside the Batch account. By default, accounts are encrypted using a Microsoft managed key. For additional control, a customer-managed key can be used instead.
      */
-    public readonly encryption!: pulumi.Output<outputs.batch.EncryptionPropertiesResponse>;
+    declare public readonly encryption: pulumi.Output<outputs.batch.EncryptionPropertiesResponse>;
     /**
      * The identity of the Batch account.
      */
-    public readonly identity!: pulumi.Output<outputs.batch.BatchAccountIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.batch.BatchAccountIdentityResponse | undefined>;
     /**
      * Identifies the Azure key vault associated with a Batch account.
      */
-    public readonly keyVaultReference!: pulumi.Output<outputs.batch.KeyVaultReferenceResponse>;
+    declare public readonly keyVaultReference: pulumi.Output<outputs.batch.KeyVaultReferenceResponse>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * For accounts with PoolAllocationMode set to UserSubscription, quota is managed on the subscription so this value is not returned.
      */
-    public /*out*/ readonly lowPriorityCoreQuota!: pulumi.Output<number>;
+    declare public /*out*/ readonly lowPriorityCoreQuota: pulumi.Output<number>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The network profile only takes effect when publicNetworkAccess is enabled.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.batch.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.batch.NetworkProfileResponse | undefined>;
     /**
      * The endpoint used by compute node to connect to the Batch node management service.
      */
-    public /*out*/ readonly nodeManagementEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeManagementEndpoint: pulumi.Output<string>;
     /**
      * The allocation mode for creating pools in the Batch account.
      */
-    public readonly poolAllocationMode!: pulumi.Output<string>;
-    public /*out*/ readonly poolQuota!: pulumi.Output<number>;
+    declare public readonly poolAllocationMode: pulumi.Output<string>;
+    declare public /*out*/ readonly poolQuota: pulumi.Output<number>;
     /**
      * List of private endpoint connections associated with the Batch account
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.batch.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.batch.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioned state of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * If not specified, the default value is 'enabled'.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BatchAccount resource with the given unique name, arguments, and options.
@@ -139,21 +139,21 @@ export class BatchAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowedAuthenticationModes"] = args ? args.allowedAuthenticationModes : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowedAuthenticationModes"] = args?.allowedAuthenticationModes;
             resourceInputs["autoStorage"] = args ? (args.autoStorage ? pulumi.output(args.autoStorage).apply(inputs.batch.autoStorageBasePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultReference"] = args ? args.keyVaultReference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["poolAllocationMode"] = args ? args.poolAllocationMode : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultReference"] = args?.keyVaultReference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["poolAllocationMode"] = args?.poolAllocationMode;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountEndpoint"] = undefined /*out*/;
             resourceInputs["activeJobAndJobScheduleQuota"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

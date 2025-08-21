@@ -44,67 +44,67 @@ export class InboundNatRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A reference to backendAddressPool resource.
      */
-    public readonly backendAddressPool!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly backendAddressPool: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * A reference to a private IP address defined on a network interface of a VM. Traffic sent to the frontend port of each of the frontend IP configurations is forwarded to the backend IP.
      */
-    public /*out*/ readonly backendIPConfiguration!: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse>;
+    declare public /*out*/ readonly backendIPConfiguration: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse>;
     /**
      * The port used for the internal endpoint. Acceptable values range from 1 to 65535.
      */
-    public readonly backendPort!: pulumi.Output<number | undefined>;
+    declare public readonly backendPort: pulumi.Output<number | undefined>;
     /**
      * Configures a virtual machine's endpoint for the floating IP capability required to configure a SQL AlwaysOn Availability Group. This setting is required when using the SQL AlwaysOn Availability Groups in SQL server. This setting can't be changed after you create the endpoint.
      */
-    public readonly enableFloatingIP!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFloatingIP: pulumi.Output<boolean | undefined>;
     /**
      * Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP.
      */
-    public readonly enableTcpReset!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTcpReset: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A reference to frontend IP addresses.
      */
-    public readonly frontendIPConfiguration!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly frontendIPConfiguration: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The port for the external endpoint. Port numbers for each rule must be unique within the Load Balancer. Acceptable values range from 1 to 65534.
      */
-    public readonly frontendPort!: pulumi.Output<number | undefined>;
+    declare public readonly frontendPort: pulumi.Output<number | undefined>;
     /**
      * The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
      */
-    public readonly frontendPortRangeEnd!: pulumi.Output<number | undefined>;
+    declare public readonly frontendPortRangeEnd: pulumi.Output<number | undefined>;
     /**
      * The port range start for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeEnd. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534.
      */
-    public readonly frontendPortRangeStart!: pulumi.Output<number | undefined>;
+    declare public readonly frontendPortRangeStart: pulumi.Output<number | undefined>;
     /**
      * The timeout for the TCP idle connection. The value can be set between 4 and 30 minutes. The default value is 4 minutes. This element is only used when the protocol is set to TCP.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The name of the resource that is unique within the set of inbound NAT rules used by the load balancer. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The reference to the transport protocol used by the load balancing rule.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the inbound NAT rule resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a InboundNatRule resource with the given unique name, arguments, and options.
@@ -117,27 +117,27 @@ export class InboundNatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPool"] = args ? args.backendAddressPool : undefined;
-            resourceInputs["backendPort"] = args ? args.backendPort : undefined;
-            resourceInputs["enableFloatingIP"] = args ? args.enableFloatingIP : undefined;
-            resourceInputs["enableTcpReset"] = args ? args.enableTcpReset : undefined;
-            resourceInputs["frontendIPConfiguration"] = args ? args.frontendIPConfiguration : undefined;
-            resourceInputs["frontendPort"] = args ? args.frontendPort : undefined;
-            resourceInputs["frontendPortRangeEnd"] = args ? args.frontendPortRangeEnd : undefined;
-            resourceInputs["frontendPortRangeStart"] = args ? args.frontendPortRangeStart : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["inboundNatRuleName"] = args ? args.inboundNatRuleName : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["backendAddressPool"] = args?.backendAddressPool;
+            resourceInputs["backendPort"] = args?.backendPort;
+            resourceInputs["enableFloatingIP"] = args?.enableFloatingIP;
+            resourceInputs["enableTcpReset"] = args?.enableTcpReset;
+            resourceInputs["frontendIPConfiguration"] = args?.frontendIPConfiguration;
+            resourceInputs["frontendPort"] = args?.frontendPort;
+            resourceInputs["frontendPortRangeEnd"] = args?.frontendPortRangeEnd;
+            resourceInputs["frontendPortRangeStart"] = args?.frontendPortRangeStart;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["inboundNatRuleName"] = args?.inboundNatRuleName;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

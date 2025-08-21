@@ -44,51 +44,51 @@ export class Automation extends pulumi.CustomResource {
     /**
      * A collection of the actions which are triggered if all the configured rules evaluations, within at least one rule set, are true.
      */
-    public readonly actions!: pulumi.Output<(outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse)[] | undefined>;
+    declare public readonly actions: pulumi.Output<(outputs.security.AutomationActionEventHubResponse | outputs.security.AutomationActionLogicAppResponse | outputs.security.AutomationActionWorkspaceResponse)[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The security automation description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the security automation is enabled.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Kind of the resource
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Location where the resource is stored
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of scopes on which the security automations logic is applied. Supported scopes are the subscription itself or a resource group under that subscription. The automation will only apply on defined scopes.
      */
-    public readonly scopes!: pulumi.Output<outputs.security.AutomationScopeResponse[] | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.security.AutomationScopeResponse[] | undefined>;
     /**
      * A collection of the source event types which evaluate the security automation set of rules.
      */
-    public readonly sources!: pulumi.Output<outputs.security.AutomationSourceResponse[] | undefined>;
+    declare public readonly sources: pulumi.Output<outputs.security.AutomationSourceResponse[] | undefined>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Automation resource with the given unique name, arguments, and options.
@@ -101,19 +101,19 @@ export class Automation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["automationName"] = args ? args.automationName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["sources"] = args ? args.sources : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["automationName"] = args?.automationName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["sources"] = args?.sources;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

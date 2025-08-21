@@ -42,51 +42,51 @@ export class BusinessProcess extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The business process mapping.
      */
-    public readonly businessProcessMapping!: pulumi.Output<{[key: string]: outputs.integrationspaces.BusinessProcessMappingItemResponse} | undefined>;
+    declare public readonly businessProcessMapping: pulumi.Output<{[key: string]: outputs.integrationspaces.BusinessProcessMappingItemResponse} | undefined>;
     /**
      * The business process stages.
      */
-    public readonly businessProcessStages!: pulumi.Output<{[key: string]: outputs.integrationspaces.BusinessProcessStageResponse} | undefined>;
+    declare public readonly businessProcessStages: pulumi.Output<{[key: string]: outputs.integrationspaces.BusinessProcessStageResponse} | undefined>;
     /**
      * The description of the business process.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The business process identifier.
      */
-    public readonly identifier!: pulumi.Output<outputs.integrationspaces.BusinessProcessIdentifierResponse | undefined>;
+    declare public readonly identifier: pulumi.Output<outputs.integrationspaces.BusinessProcessIdentifierResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.integrationspaces.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.integrationspaces.SystemDataResponse>;
     /**
      * The table name of the business process.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * The tracking data store reference name.
      */
-    public readonly trackingDataStoreReferenceName!: pulumi.Output<string | undefined>;
+    declare public readonly trackingDataStoreReferenceName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The version of the business process.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a BusinessProcess resource with the given unique name, arguments, and options.
@@ -99,25 +99,25 @@ export class BusinessProcess extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.spaceName === undefined) && !opts.urn) {
+            if (args?.spaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spaceName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["businessProcessMapping"] = args ? args.businessProcessMapping : undefined;
-            resourceInputs["businessProcessName"] = args ? args.businessProcessName : undefined;
-            resourceInputs["businessProcessStages"] = args ? args.businessProcessStages : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spaceName"] = args ? args.spaceName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["trackingDataStoreReferenceName"] = args ? args.trackingDataStoreReferenceName : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["businessProcessMapping"] = args?.businessProcessMapping;
+            resourceInputs["businessProcessName"] = args?.businessProcessName;
+            resourceInputs["businessProcessStages"] = args?.businessProcessStages;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spaceName"] = args?.spaceName;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["trackingDataStoreReferenceName"] = args?.trackingDataStoreReferenceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

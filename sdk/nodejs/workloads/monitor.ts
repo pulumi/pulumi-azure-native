@@ -44,75 +44,75 @@ export class Monitor extends pulumi.CustomResource {
     /**
      * The SAP monitor resources will be deployed in the SAP monitoring region. The subnet region should be same as the SAP monitoring region.
      */
-    public readonly appLocation!: pulumi.Output<string | undefined>;
+    declare public readonly appLocation: pulumi.Output<string | undefined>;
     /**
      * App service plan configuration
      */
-    public readonly appServicePlanConfiguration!: pulumi.Output<outputs.workloads.AppServicePlanConfigurationResponse | undefined>;
+    declare public readonly appServicePlanConfiguration: pulumi.Output<outputs.workloads.AppServicePlanConfigurationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Defines the SAP monitor errors.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.workloads.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.workloads.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The ARM ID of the Log Analytics Workspace that is used for SAP monitoring.
      */
-    public readonly logAnalyticsWorkspaceArmId!: pulumi.Output<string | undefined>;
+    declare public readonly logAnalyticsWorkspaceArmId: pulumi.Output<string | undefined>;
     /**
      * Managed resource group configuration
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.workloads.ManagedResourceGroupConfigurationResponse | undefined>;
+    declare public readonly managedResourceGroupConfiguration: pulumi.Output<outputs.workloads.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
      * The subnet which the SAP monitor will be deployed in
      */
-    public readonly monitorSubnet!: pulumi.Output<string | undefined>;
+    declare public readonly monitorSubnet: pulumi.Output<string | undefined>;
     /**
      * The ARM ID of the MSI used for SAP monitoring.
      */
-    public /*out*/ readonly msiArmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly msiArmId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of provisioning of the SAP monitor.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Sets the routing preference of the SAP monitor. By default only RFC1918 traffic is routed to the customer VNET.
      */
-    public readonly routingPreference!: pulumi.Output<string | undefined>;
+    declare public readonly routingPreference: pulumi.Output<string | undefined>;
     /**
      * The ARM ID of the Storage account used for SAP monitoring.
      */
-    public /*out*/ readonly storageAccountArmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageAccountArmId: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Sets the preference for zone redundancy on resources created for the SAP monitor. By default resources will be created which do not support zone redundancy.
      */
-    public readonly zoneRedundancyPreference!: pulumi.Output<string | undefined>;
+    declare public readonly zoneRedundancyPreference: pulumi.Output<string | undefined>;
 
     /**
      * Create a Monitor resource with the given unique name, arguments, and options.
@@ -125,21 +125,21 @@ export class Monitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appLocation"] = args ? args.appLocation : undefined;
-            resourceInputs["appServicePlanConfiguration"] = args ? args.appServicePlanConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logAnalyticsWorkspaceArmId"] = args ? args.logAnalyticsWorkspaceArmId : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["monitorSubnet"] = args ? args.monitorSubnet : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingPreference"] = args ? args.routingPreference : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancyPreference"] = args ? args.zoneRedundancyPreference : undefined;
+            resourceInputs["appLocation"] = args?.appLocation;
+            resourceInputs["appServicePlanConfiguration"] = args?.appServicePlanConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logAnalyticsWorkspaceArmId"] = args?.logAnalyticsWorkspaceArmId;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["monitorSubnet"] = args?.monitorSubnet;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingPreference"] = args?.routingPreference;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancyPreference"] = args?.zoneRedundancyPreference;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["msiArmId"] = undefined /*out*/;

@@ -44,63 +44,63 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Backup Policy GUID ID
      */
-    public /*out*/ readonly backupPolicyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupPolicyId: pulumi.Output<string>;
     /**
      * Daily backups count to keep
      */
-    public readonly dailyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly dailyBackupsToKeep: pulumi.Output<number | undefined>;
     /**
      * The property to decide policy is enabled or not
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Monthly backups count to keep
      */
-    public readonly monthlyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly monthlyBackupsToKeep: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of volumes assigned to this policy
      */
-    public /*out*/ readonly volumeBackups!: pulumi.Output<outputs.netapp.VolumeBackupsResponse[]>;
+    declare public /*out*/ readonly volumeBackups: pulumi.Output<outputs.netapp.VolumeBackupsResponse[]>;
     /**
      * Volumes using current backup policy
      */
-    public /*out*/ readonly volumesAssigned!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumesAssigned: pulumi.Output<number>;
     /**
      * Weekly backups count to keep
      */
-    public readonly weeklyBackupsToKeep!: pulumi.Output<number | undefined>;
+    declare public readonly weeklyBackupsToKeep: pulumi.Output<number | undefined>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -113,21 +113,21 @@ export class BackupPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            resourceInputs["dailyBackupsToKeep"] = args ? args.dailyBackupsToKeep : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlyBackupsToKeep"] = args ? args.monthlyBackupsToKeep : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklyBackupsToKeep"] = args ? args.weeklyBackupsToKeep : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["backupPolicyName"] = args?.backupPolicyName;
+            resourceInputs["dailyBackupsToKeep"] = args?.dailyBackupsToKeep;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monthlyBackupsToKeep"] = args?.monthlyBackupsToKeep;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["weeklyBackupsToKeep"] = args?.weeklyBackupsToKeep;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupPolicyId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

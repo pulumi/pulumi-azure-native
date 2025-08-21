@@ -44,52 +44,52 @@ export class ManagedClusterApplication extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes the managed identities for an Azure resource.
      */
-    public readonly identity!: pulumi.Output<outputs.servicefabric.ManagedIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.servicefabric.ManagedIdentityResponse | undefined>;
     /**
      * Resource location depends on the parent resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * List of user assigned identities for the application, each mapped to a friendly name.
      */
-    public readonly managedIdentities!: pulumi.Output<outputs.servicefabric.ApplicationUserAssignedIdentityResponse[] | undefined>;
+    declare public readonly managedIdentities: pulumi.Output<outputs.servicefabric.ApplicationUserAssignedIdentityResponse[] | undefined>;
     /**
      * Azure resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of application parameters with overridden values from their default values specified in the application manifest.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The current deployment or provisioning state, which only appears in the response
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Describes the policy for a monitored application upgrade.
      */
-    public readonly upgradePolicy!: pulumi.Output<outputs.servicefabric.ApplicationUpgradePolicyResponse | undefined>;
+    declare public readonly upgradePolicy: pulumi.Output<outputs.servicefabric.ApplicationUpgradePolicyResponse | undefined>;
     /**
      * The version of the application type as defined in the application manifest.
      * This name must be the full Arm Resource ID for the referenced application type version.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedClusterApplication resource with the given unique name, arguments, and options.
@@ -102,22 +102,22 @@ export class ManagedClusterApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentities"] = args ? args.managedIdentities : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentities"] = args?.managedIdentities;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

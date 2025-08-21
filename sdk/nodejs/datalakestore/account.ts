@@ -42,99 +42,99 @@ export class Account extends pulumi.CustomResource {
     /**
      * The unique identifier associated with this Data Lake Store account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The account creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The commitment tier in use for the current month.
      */
-    public /*out*/ readonly currentTier!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentTier: pulumi.Output<string>;
     /**
      * The default owner group for all new folders and files created in the Data Lake Store account.
      */
-    public readonly defaultGroup!: pulumi.Output<string>;
+    declare public readonly defaultGroup: pulumi.Output<string>;
     /**
      * The Key Vault encryption configuration.
      */
-    public readonly encryptionConfig!: pulumi.Output<outputs.datalakestore.EncryptionConfigResponse>;
+    declare public readonly encryptionConfig: pulumi.Output<outputs.datalakestore.EncryptionConfigResponse>;
     /**
      * The current state of encryption provisioning for this Data Lake Store account.
      */
-    public /*out*/ readonly encryptionProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionProvisioningState: pulumi.Output<string>;
     /**
      * The current state of encryption for this Data Lake Store account.
      */
-    public readonly encryptionState!: pulumi.Output<string>;
+    declare public readonly encryptionState: pulumi.Output<string>;
     /**
      * The full CName endpoint for this account.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced.
      */
-    public readonly firewallAllowAzureIps!: pulumi.Output<string>;
+    declare public readonly firewallAllowAzureIps: pulumi.Output<string>;
     /**
      * The list of firewall rules associated with this Data Lake Store account.
      */
-    public readonly firewallRules!: pulumi.Output<outputs.datalakestore.FirewallRuleResponse[]>;
+    declare public readonly firewallRules: pulumi.Output<outputs.datalakestore.FirewallRuleResponse[]>;
     /**
      * The current state of the IP address firewall for this Data Lake Store account.
      */
-    public readonly firewallState!: pulumi.Output<string>;
+    declare public readonly firewallState: pulumi.Output<string>;
     /**
      * The Key Vault encryption identity, if any.
      */
-    public readonly identity!: pulumi.Output<outputs.datalakestore.EncryptionIdentityResponse>;
+    declare public readonly identity: pulumi.Output<outputs.datalakestore.EncryptionIdentityResponse>;
     /**
      * The account last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The commitment tier to use for next month.
      */
-    public readonly newTier!: pulumi.Output<string>;
+    declare public readonly newTier: pulumi.Output<string>;
     /**
      * The provisioning status of the Data Lake Store account.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The state of the Data Lake Store account.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
     /**
      * The current state of the trusted identity provider feature for this Data Lake Store account.
      */
-    public readonly trustedIdProviderState!: pulumi.Output<string>;
+    declare public readonly trustedIdProviderState: pulumi.Output<string>;
     /**
      * The list of trusted identity providers associated with this Data Lake Store account.
      */
-    public readonly trustedIdProviders!: pulumi.Output<outputs.datalakestore.TrustedIdProviderResponse[]>;
+    declare public readonly trustedIdProviders: pulumi.Output<outputs.datalakestore.TrustedIdProviderResponse[]>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The list of virtual network rules associated with this Data Lake Store account.
      */
-    public readonly virtualNetworkRules!: pulumi.Output<outputs.datalakestore.VirtualNetworkRuleResponse[]>;
+    declare public readonly virtualNetworkRules: pulumi.Output<outputs.datalakestore.VirtualNetworkRuleResponse[]>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -147,24 +147,24 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["defaultGroup"] = args ? args.defaultGroup : undefined;
-            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
-            resourceInputs["encryptionState"] = args ? args.encryptionState : undefined;
-            resourceInputs["firewallAllowAzureIps"] = args ? args.firewallAllowAzureIps : undefined;
-            resourceInputs["firewallRules"] = args ? args.firewallRules : undefined;
-            resourceInputs["firewallState"] = args ? args.firewallState : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["newTier"] = args ? args.newTier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedIdProviderState"] = args ? args.trustedIdProviderState : undefined;
-            resourceInputs["trustedIdProviders"] = args ? args.trustedIdProviders : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["defaultGroup"] = args?.defaultGroup;
+            resourceInputs["encryptionConfig"] = args?.encryptionConfig;
+            resourceInputs["encryptionState"] = args?.encryptionState;
+            resourceInputs["firewallAllowAzureIps"] = args?.firewallAllowAzureIps;
+            resourceInputs["firewallRules"] = args?.firewallRules;
+            resourceInputs["firewallState"] = args?.firewallState;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["newTier"] = args?.newTier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedIdProviderState"] = args?.trustedIdProviderState;
+            resourceInputs["trustedIdProviders"] = args?.trustedIdProviders;
+            resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

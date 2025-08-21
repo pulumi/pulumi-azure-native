@@ -42,99 +42,99 @@ export class Discount extends pulumi.CustomResource {
     /**
      * List of applied scopes supported for discounts.
      */
-    public readonly appliedScopeType!: pulumi.Output<string | undefined>;
+    declare public readonly appliedScopeType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Fully-qualified identifier of the benefit under applicable benefit list.
      */
-    public /*out*/ readonly benefitResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly benefitResourceId: pulumi.Output<string>;
     /**
      * Billing account resource id where the discount metadata is present.
      */
-    public /*out*/ readonly billingAccountResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingAccountResourceId: pulumi.Output<string>;
     /**
      * Billing profile resource id where the discount is scoped to.
      */
-    public /*out*/ readonly billingProfileResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingProfileResourceId: pulumi.Output<string>;
     /**
      * Customer resource id where the discount is scoped to.
      */
-    public /*out*/ readonly customerResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerResourceId: pulumi.Output<string>;
     /**
      * This defines a user friendly display name for the discount.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.billingbenefits.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Plan for the resource.
      */
-    public readonly plan!: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
     /**
      * This is the catalog UPN for the product.
      */
-    public readonly productCode!: pulumi.Output<string>;
+    declare public readonly productCode: pulumi.Output<string>;
     /**
      * The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource model definition representing SKU
      */
-    public readonly sku!: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
     /**
      * Start date of the discount. Value is the date the discount started or will start in the future.
      */
-    public readonly startAt!: pulumi.Output<string>;
+    declare public readonly startAt: pulumi.Output<string>;
     /**
      * Represents the current status of the discount.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
     /**
      * This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
      */
-    public readonly systemId!: pulumi.Output<string | undefined>;
+    declare public readonly systemId: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Discount resource with the given unique name, arguments, and options.
@@ -147,33 +147,33 @@ export class Discount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.productCode === undefined) && !opts.urn) {
+            if (args?.productCode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productCode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startAt === undefined) && !opts.urn) {
+            if (args?.startAt === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startAt'");
             }
-            resourceInputs["appliedScopeType"] = args ? args.appliedScopeType : undefined;
-            resourceInputs["discountName"] = args ? args.discountName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["systemId"] = args ? args.systemId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["appliedScopeType"] = args?.appliedScopeType;
+            resourceInputs["discountName"] = args?.discountName;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["startAt"] = args?.startAt;
+            resourceInputs["systemId"] = args?.systemId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["benefitResourceId"] = undefined /*out*/;
             resourceInputs["billingAccountResourceId"] = undefined /*out*/;

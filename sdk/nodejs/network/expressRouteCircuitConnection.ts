@@ -44,47 +44,47 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
     /**
      * /29 IP address space to carve out Customer addresses for tunnels.
      */
-    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly addressPrefix: pulumi.Output<string | undefined>;
     /**
      * The authorization key.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Express Route Circuit connection state.
      */
-    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly circuitConnectionStatus: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the circuit initiating connection.
      */
-    public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly expressRouteCircuitPeering: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * IPv6 Address PrefixProperties of the express route circuit connection.
      */
-    public readonly ipv6CircuitConnectionConfig!: pulumi.Output<outputs.network.Ipv6CircuitConnectionConfigResponse | undefined>;
+    declare public readonly ipv6CircuitConnectionConfig: pulumi.Output<outputs.network.Ipv6CircuitConnectionConfigResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Reference to Express Route Circuit Private Peering Resource of the peered circuit.
      */
-    public readonly peerExpressRouteCircuitPeering!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly peerExpressRouteCircuitPeering: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The provisioning state of the express route circuit connection resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuitConnection resource with the given unique name, arguments, and options.
@@ -97,26 +97,26 @@ export class ExpressRouteCircuitConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.circuitName === undefined) && !opts.urn) {
+            if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.peeringName === undefined) && !opts.urn) {
+            if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipv6CircuitConnectionConfig"] = args ? args.ipv6CircuitConnectionConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerExpressRouteCircuitPeering"] = args ? args.peerExpressRouteCircuitPeering : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["expressRouteCircuitPeering"] = args?.expressRouteCircuitPeering;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipv6CircuitConnectionConfig"] = args?.ipv6CircuitConnectionConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerExpressRouteCircuitPeering"] = args?.peerExpressRouteCircuitPeering;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

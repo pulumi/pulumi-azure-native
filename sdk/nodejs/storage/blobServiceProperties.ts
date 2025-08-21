@@ -44,55 +44,55 @@ export class BlobServiceProperties extends pulumi.CustomResource {
     /**
      * Deprecated in favor of isVersioningEnabled property.
      */
-    public readonly automaticSnapshotPolicyEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly automaticSnapshotPolicyEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The blob service properties for change feed events.
      */
-    public readonly changeFeed!: pulumi.Output<outputs.storage.ChangeFeedResponse | undefined>;
+    declare public readonly changeFeed: pulumi.Output<outputs.storage.ChangeFeedResponse | undefined>;
     /**
      * The blob service properties for container soft delete.
      */
-    public readonly containerDeleteRetentionPolicy!: pulumi.Output<outputs.storage.DeleteRetentionPolicyResponse | undefined>;
+    declare public readonly containerDeleteRetentionPolicy: pulumi.Output<outputs.storage.DeleteRetentionPolicyResponse | undefined>;
     /**
      * Specifies CORS rules for the Blob service. You can include up to five CorsRule elements in the request. If no CorsRule elements are included in the request body, all CORS rules will be deleted, and CORS will be disabled for the Blob service.
      */
-    public readonly cors!: pulumi.Output<outputs.storage.CorsRulesResponse | undefined>;
+    declare public readonly cors: pulumi.Output<outputs.storage.CorsRulesResponse | undefined>;
     /**
      * DefaultServiceVersion indicates the default version to use for requests to the Blob service if an incoming request’s version is not specified. Possible values include version 2008-10-27 and all more recent versions.
      */
-    public readonly defaultServiceVersion!: pulumi.Output<string | undefined>;
+    declare public readonly defaultServiceVersion: pulumi.Output<string | undefined>;
     /**
      * The blob service properties for blob soft delete.
      */
-    public readonly deleteRetentionPolicy!: pulumi.Output<outputs.storage.DeleteRetentionPolicyResponse | undefined>;
+    declare public readonly deleteRetentionPolicy: pulumi.Output<outputs.storage.DeleteRetentionPolicyResponse | undefined>;
     /**
      * Versioning is enabled if set to true.
      */
-    public readonly isVersioningEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isVersioningEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The blob service property to configure last access time based tracking policy.
      */
-    public readonly lastAccessTimeTrackingPolicy!: pulumi.Output<outputs.storage.LastAccessTimeTrackingPolicyResponse | undefined>;
+    declare public readonly lastAccessTimeTrackingPolicy: pulumi.Output<outputs.storage.LastAccessTimeTrackingPolicyResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The blob service properties for blob restore policy.
      */
-    public readonly restorePolicy!: pulumi.Output<outputs.storage.RestorePolicyPropertiesResponse | undefined>;
+    declare public readonly restorePolicy: pulumi.Output<outputs.storage.RestorePolicyPropertiesResponse | undefined>;
     /**
      * Sku name and tier.
      */
-    public /*out*/ readonly sku!: pulumi.Output<outputs.storage.SkuResponse>;
+    declare public /*out*/ readonly sku: pulumi.Output<outputs.storage.SkuResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BlobServiceProperties resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class BlobServiceProperties extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["automaticSnapshotPolicyEnabled"] = args ? args.automaticSnapshotPolicyEnabled : undefined;
-            resourceInputs["blobServicesName"] = args ? args.blobServicesName : undefined;
-            resourceInputs["changeFeed"] = args ? args.changeFeed : undefined;
-            resourceInputs["containerDeleteRetentionPolicy"] = args ? args.containerDeleteRetentionPolicy : undefined;
-            resourceInputs["cors"] = args ? args.cors : undefined;
-            resourceInputs["defaultServiceVersion"] = args ? args.defaultServiceVersion : undefined;
-            resourceInputs["deleteRetentionPolicy"] = args ? args.deleteRetentionPolicy : undefined;
-            resourceInputs["isVersioningEnabled"] = args ? args.isVersioningEnabled : undefined;
-            resourceInputs["lastAccessTimeTrackingPolicy"] = args ? args.lastAccessTimeTrackingPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePolicy"] = args ? args.restorePolicy : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["automaticSnapshotPolicyEnabled"] = args?.automaticSnapshotPolicyEnabled;
+            resourceInputs["blobServicesName"] = args?.blobServicesName;
+            resourceInputs["changeFeed"] = args?.changeFeed;
+            resourceInputs["containerDeleteRetentionPolicy"] = args?.containerDeleteRetentionPolicy;
+            resourceInputs["cors"] = args?.cors;
+            resourceInputs["defaultServiceVersion"] = args?.defaultServiceVersion;
+            resourceInputs["deleteRetentionPolicy"] = args?.deleteRetentionPolicy;
+            resourceInputs["isVersioningEnabled"] = args?.isVersioningEnabled;
+            resourceInputs["lastAccessTimeTrackingPolicy"] = args?.lastAccessTimeTrackingPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePolicy"] = args?.restorePolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;

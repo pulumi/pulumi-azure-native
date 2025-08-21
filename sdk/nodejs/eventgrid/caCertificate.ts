@@ -44,39 +44,39 @@ export class CaCertificate extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description for the CA Certificate resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Base64 encoded PEM (Privacy Enhanced Mail) format certificate data.
      */
-    public readonly encodedCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly encodedCertificate: pulumi.Output<string | undefined>;
     /**
      * Certificate expiry time in UTC. This is a read-only field.
      */
-    public /*out*/ readonly expiryTimeInUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiryTimeInUtc: pulumi.Output<string>;
     /**
      * Certificate issue time in UTC. This is a read-only field.
      */
-    public /*out*/ readonly issueTimeInUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly issueTimeInUtc: pulumi.Output<string>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the CA Certificate resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CaCertificate resource with the given unique name, arguments, and options.
@@ -89,17 +89,17 @@ export class CaCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["caCertificateName"] = args ? args.caCertificateName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["encodedCertificate"] = args ? args.encodedCertificate : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["caCertificateName"] = args?.caCertificateName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["encodedCertificate"] = args?.encodedCertificate;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expiryTimeInUtc"] = undefined /*out*/;
             resourceInputs["issueTimeInUtc"] = undefined /*out*/;

@@ -42,51 +42,51 @@ export class AttestationProvider extends pulumi.CustomResource {
     /**
      * Gets the uri of attestation service
      */
-    public /*out*/ readonly attestUri!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly attestUri: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections associated with the attestation provider.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.attestation.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.attestation.PrivateEndpointConnectionResponse[]>;
     /**
      * Controls whether traffic from the public network is allowed to access the Attestation Provider APIs.
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Status of attestation service.
      */
-    public /*out*/ readonly status!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly status: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to this resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.attestation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.attestation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The setting that controls whether authentication is enabled or disabled for TPM Attestation REST APIs.
      */
-    public /*out*/ readonly tpmAttestationAuthentication!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly tpmAttestationAuthentication: pulumi.Output<string | undefined>;
     /**
      * Trust model for the attestation provider.
      */
-    public /*out*/ readonly trustModel!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly trustModel: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AttestationProvider resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class AttestationProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["providerName"] = args ? args.providerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["providerName"] = args?.providerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attestUri"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class ApplicationGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Unique identifier for application group.Supports SAS(SASKeyName=KeyName) or AAD(AADAppID=Guid)
      */
-    public readonly clientAppGroupIdentifier!: pulumi.Output<string>;
+    declare public readonly clientAppGroupIdentifier: pulumi.Output<string>;
     /**
      * Determines if Application Group is allowed to create connection with namespace or not. Once the isEnabled is set to false, all the existing connections of application group gets dropped and no new connections will be allowed
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of group policies that define the behavior of application group. The policies can support resource governance scenarios such as limiting ingress or egress traffic.
      */
-    public readonly policies!: pulumi.Output<outputs.eventhub.ThrottlingPolicyResponse[] | undefined>;
+    declare public readonly policies: pulumi.Output<outputs.eventhub.ThrottlingPolicyResponse[] | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventhub.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApplicationGroup resource with the given unique name, arguments, and options.
@@ -85,21 +85,21 @@ export class ApplicationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientAppGroupIdentifier === undefined) && !opts.urn) {
+            if (args?.clientAppGroupIdentifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientAppGroupIdentifier'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            resourceInputs["clientAppGroupIdentifier"] = args ? args.clientAppGroupIdentifier : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["applicationGroupName"] = args?.applicationGroupName;
+            resourceInputs["clientAppGroupIdentifier"] = args?.clientAppGroupIdentifier;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

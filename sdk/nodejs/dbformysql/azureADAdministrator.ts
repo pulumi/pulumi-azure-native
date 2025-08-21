@@ -44,39 +44,39 @@ export class AzureADAdministrator extends pulumi.CustomResource {
     /**
      * Type of the sever administrator.
      */
-    public readonly administratorType!: pulumi.Output<string | undefined>;
+    declare public readonly administratorType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource id of the identity used for AAD Authentication.
      */
-    public readonly identityResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly identityResourceId: pulumi.Output<string | undefined>;
     /**
      * Login name of the server administrator.
      */
-    public readonly login!: pulumi.Output<string | undefined>;
+    declare public readonly login: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * SID (object ID) of the server administrator.
      */
-    public readonly sid!: pulumi.Output<string | undefined>;
+    declare public readonly sid: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbformysql.SystemDataResponse>;
     /**
      * Tenant ID of the administrator.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureADAdministrator resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class AzureADAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["administratorName"] = args ? args.administratorName : undefined;
-            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
-            resourceInputs["identityResourceId"] = args ? args.identityResourceId : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["administratorName"] = args?.administratorName;
+            resourceInputs["administratorType"] = args?.administratorType;
+            resourceInputs["identityResourceId"] = args?.identityResourceId;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

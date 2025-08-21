@@ -44,115 +44,115 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
     /**
      * Additional VM Patching solution enabled on the Virtual Machine
      */
-    public /*out*/ readonly additionalVmPatch!: pulumi.Output<string>;
+    declare public /*out*/ readonly additionalVmPatch: pulumi.Output<string>;
     /**
      * SQL best practices Assessment Settings.
      */
-    public readonly assessmentSettings!: pulumi.Output<outputs.sqlvirtualmachine.AssessmentSettingsResponse | undefined>;
+    declare public readonly assessmentSettings: pulumi.Output<outputs.sqlvirtualmachine.AssessmentSettingsResponse | undefined>;
     /**
      * Auto backup settings for SQL Server.
      */
-    public readonly autoBackupSettings!: pulumi.Output<outputs.sqlvirtualmachine.AutoBackupSettingsResponse | undefined>;
+    declare public readonly autoBackupSettings: pulumi.Output<outputs.sqlvirtualmachine.AutoBackupSettingsResponse | undefined>;
     /**
      * Auto patching settings for applying critical security updates to SQL virtual machine.
      */
-    public readonly autoPatchingSettings!: pulumi.Output<outputs.sqlvirtualmachine.AutoPatchingSettingsResponse | undefined>;
+    declare public readonly autoPatchingSettings: pulumi.Output<outputs.sqlvirtualmachine.AutoPatchingSettingsResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Enable automatic upgrade of Sql IaaS extension Agent.
      */
-    public readonly enableAutomaticUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutomaticUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * DO NOT USE. This value will be deprecated. Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.sqlvirtualmachine.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.sqlvirtualmachine.ResourceIdentityResponse | undefined>;
     /**
      * Key vault credential settings.
      */
-    public readonly keyVaultCredentialSettings!: pulumi.Output<outputs.sqlvirtualmachine.KeyVaultCredentialSettingsResponse | undefined>;
+    declare public readonly keyVaultCredentialSettings: pulumi.Output<outputs.sqlvirtualmachine.KeyVaultCredentialSettingsResponse | undefined>;
     /**
      * SQL IaaS Agent least privilege mode.
      */
-    public readonly leastPrivilegeMode!: pulumi.Output<string | undefined>;
+    declare public readonly leastPrivilegeMode: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Operating System of the current SQL Virtual Machine.
      */
-    public /*out*/ readonly osType!: pulumi.Output<string>;
+    declare public /*out*/ readonly osType: pulumi.Output<string>;
     /**
      * Provisioning state to track the async operation status.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SQL Server configuration management settings.
      */
-    public readonly serverConfigurationsManagementSettings!: pulumi.Output<outputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsResponse | undefined>;
+    declare public readonly serverConfigurationsManagementSettings: pulumi.Output<outputs.sqlvirtualmachine.ServerConfigurationsManagementSettingsResponse | undefined>;
     /**
      * SQL image offer. Examples include SQL2016-WS2016, SQL2017-WS2016.
      */
-    public readonly sqlImageOffer!: pulumi.Output<string | undefined>;
+    declare public readonly sqlImageOffer: pulumi.Output<string | undefined>;
     /**
      * SQL Server edition type.
      */
-    public readonly sqlImageSku!: pulumi.Output<string | undefined>;
+    declare public readonly sqlImageSku: pulumi.Output<string | undefined>;
     /**
      * SQL Server Management type. NOTE: This parameter is not used anymore. API will automatically detect the Sql Management, refrain from using it.
      */
-    public readonly sqlManagement!: pulumi.Output<string | undefined>;
+    declare public readonly sqlManagement: pulumi.Output<string | undefined>;
     /**
      * SQL Server license type.
      */
-    public readonly sqlServerLicenseType!: pulumi.Output<string | undefined>;
+    declare public readonly sqlServerLicenseType: pulumi.Output<string | undefined>;
     /**
      * ARM resource id of the SQL virtual machine group this SQL virtual machine is or will be part of.
      */
-    public readonly sqlVirtualMachineGroupResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sqlVirtualMachineGroupResourceId: pulumi.Output<string | undefined>;
     /**
      * Storage Configuration Settings.
      */
-    public readonly storageConfigurationSettings!: pulumi.Output<outputs.sqlvirtualmachine.StorageConfigurationSettingsResponse | undefined>;
+    declare public readonly storageConfigurationSettings: pulumi.Output<outputs.sqlvirtualmachine.StorageConfigurationSettingsResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.sqlvirtualmachine.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Troubleshooting status
      */
-    public /*out*/ readonly troubleshootingStatus!: pulumi.Output<outputs.sqlvirtualmachine.TroubleshootingStatusResponse>;
+    declare public /*out*/ readonly troubleshootingStatus: pulumi.Output<outputs.sqlvirtualmachine.TroubleshootingStatusResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Virtual Machine Identity details used for Sql IaaS extension configurations.
      */
-    public readonly virtualMachineIdentitySettings!: pulumi.Output<outputs.sqlvirtualmachine.VirtualMachineIdentityResponse | undefined>;
+    declare public readonly virtualMachineIdentitySettings: pulumi.Output<outputs.sqlvirtualmachine.VirtualMachineIdentityResponse | undefined>;
     /**
      * ARM Resource id of underlying virtual machine created from SQL marketplace image.
      */
-    public readonly virtualMachineResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualMachineResourceId: pulumi.Output<string | undefined>;
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    public readonly wsfcDomainCredentials!: pulumi.Output<outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse | undefined>;
+    declare public readonly wsfcDomainCredentials: pulumi.Output<outputs.sqlvirtualmachine.WsfcDomainCredentialsResponse | undefined>;
     /**
      * Domain credentials for setting up Windows Server Failover Cluster for SQL availability group.
      */
-    public readonly wsfcStaticIp!: pulumi.Output<string | undefined>;
+    declare public readonly wsfcStaticIp: pulumi.Output<string | undefined>;
 
     /**
      * Create a SqlVirtualMachine resource with the given unique name, arguments, and options.
@@ -165,31 +165,31 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentSettings"] = args ? args.assessmentSettings : undefined;
-            resourceInputs["autoBackupSettings"] = args ? args.autoBackupSettings : undefined;
+            resourceInputs["assessmentSettings"] = args?.assessmentSettings;
+            resourceInputs["autoBackupSettings"] = args?.autoBackupSettings;
             resourceInputs["autoPatchingSettings"] = args ? (args.autoPatchingSettings ? pulumi.output(args.autoPatchingSettings).apply(inputs.sqlvirtualmachine.autoPatchingSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["enableAutomaticUpgrade"] = (args ? args.enableAutomaticUpgrade : undefined) ?? false;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultCredentialSettings"] = args ? args.keyVaultCredentialSettings : undefined;
-            resourceInputs["leastPrivilegeMode"] = (args ? args.leastPrivilegeMode : undefined) ?? "NotSet";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverConfigurationsManagementSettings"] = args ? args.serverConfigurationsManagementSettings : undefined;
-            resourceInputs["sqlImageOffer"] = args ? args.sqlImageOffer : undefined;
-            resourceInputs["sqlImageSku"] = args ? args.sqlImageSku : undefined;
-            resourceInputs["sqlManagement"] = args ? args.sqlManagement : undefined;
-            resourceInputs["sqlServerLicenseType"] = args ? args.sqlServerLicenseType : undefined;
-            resourceInputs["sqlVirtualMachineGroupResourceId"] = args ? args.sqlVirtualMachineGroupResourceId : undefined;
-            resourceInputs["sqlVirtualMachineName"] = args ? args.sqlVirtualMachineName : undefined;
+            resourceInputs["enableAutomaticUpgrade"] = (args?.enableAutomaticUpgrade) ?? false;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultCredentialSettings"] = args?.keyVaultCredentialSettings;
+            resourceInputs["leastPrivilegeMode"] = (args?.leastPrivilegeMode) ?? "NotSet";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverConfigurationsManagementSettings"] = args?.serverConfigurationsManagementSettings;
+            resourceInputs["sqlImageOffer"] = args?.sqlImageOffer;
+            resourceInputs["sqlImageSku"] = args?.sqlImageSku;
+            resourceInputs["sqlManagement"] = args?.sqlManagement;
+            resourceInputs["sqlServerLicenseType"] = args?.sqlServerLicenseType;
+            resourceInputs["sqlVirtualMachineGroupResourceId"] = args?.sqlVirtualMachineGroupResourceId;
+            resourceInputs["sqlVirtualMachineName"] = args?.sqlVirtualMachineName;
             resourceInputs["storageConfigurationSettings"] = args ? (args.storageConfigurationSettings ? pulumi.output(args.storageConfigurationSettings).apply(inputs.sqlvirtualmachine.storageConfigurationSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineIdentitySettings"] = args ? args.virtualMachineIdentitySettings : undefined;
-            resourceInputs["virtualMachineResourceId"] = args ? args.virtualMachineResourceId : undefined;
-            resourceInputs["wsfcDomainCredentials"] = args ? args.wsfcDomainCredentials : undefined;
-            resourceInputs["wsfcStaticIp"] = args ? args.wsfcStaticIp : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineIdentitySettings"] = args?.virtualMachineIdentitySettings;
+            resourceInputs["virtualMachineResourceId"] = args?.virtualMachineResourceId;
+            resourceInputs["wsfcDomainCredentials"] = args?.wsfcDomainCredentials;
+            resourceInputs["wsfcStaticIp"] = args?.wsfcStaticIp;
             resourceInputs["additionalVmPatch"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

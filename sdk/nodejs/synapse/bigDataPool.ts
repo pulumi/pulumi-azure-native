@@ -44,99 +44,99 @@ export class BigDataPool extends pulumi.CustomResource {
     /**
      * Auto-pausing properties
      */
-    public readonly autoPause!: pulumi.Output<outputs.synapse.AutoPausePropertiesResponse | undefined>;
+    declare public readonly autoPause: pulumi.Output<outputs.synapse.AutoPausePropertiesResponse | undefined>;
     /**
      * Auto-scaling properties
      */
-    public readonly autoScale!: pulumi.Output<outputs.synapse.AutoScalePropertiesResponse | undefined>;
+    declare public readonly autoScale: pulumi.Output<outputs.synapse.AutoScalePropertiesResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cache size
      */
-    public readonly cacheSize!: pulumi.Output<number | undefined>;
+    declare public readonly cacheSize: pulumi.Output<number | undefined>;
     /**
      * The time when the Big Data pool was created.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * List of custom libraries/packages associated with the spark pool.
      */
-    public readonly customLibraries!: pulumi.Output<outputs.synapse.LibraryInfoResponse[] | undefined>;
+    declare public readonly customLibraries: pulumi.Output<outputs.synapse.LibraryInfoResponse[] | undefined>;
     /**
      * The default folder where Spark logs will be written.
      */
-    public readonly defaultSparkLogFolder!: pulumi.Output<string | undefined>;
+    declare public readonly defaultSparkLogFolder: pulumi.Output<string | undefined>;
     /**
      * Dynamic Executor Allocation
      */
-    public readonly dynamicExecutorAllocation!: pulumi.Output<outputs.synapse.DynamicExecutorAllocationResponse | undefined>;
+    declare public readonly dynamicExecutorAllocation: pulumi.Output<outputs.synapse.DynamicExecutorAllocationResponse | undefined>;
     /**
      * Whether autotune is required or not.
      */
-    public readonly isAutotuneEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAutotuneEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Whether compute isolation is required or not.
      */
-    public readonly isComputeIsolationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isComputeIsolationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The time when the Big Data pool was updated successfully.
      */
-    public /*out*/ readonly lastSucceededTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSucceededTimestamp: pulumi.Output<string>;
     /**
      * Library version requirements
      */
-    public readonly libraryRequirements!: pulumi.Output<outputs.synapse.LibraryRequirementsResponse | undefined>;
+    declare public readonly libraryRequirements: pulumi.Output<outputs.synapse.LibraryRequirementsResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of nodes in the Big Data pool.
      */
-    public readonly nodeCount!: pulumi.Output<number | undefined>;
+    declare public readonly nodeCount: pulumi.Output<number | undefined>;
     /**
      * The level of compute power that each node in the Big Data pool has.
      */
-    public readonly nodeSize!: pulumi.Output<string | undefined>;
+    declare public readonly nodeSize: pulumi.Output<string | undefined>;
     /**
      * The kind of nodes that the Big Data pool provides.
      */
-    public readonly nodeSizeFamily!: pulumi.Output<string | undefined>;
+    declare public readonly nodeSizeFamily: pulumi.Output<string | undefined>;
     /**
      * The state of the Big Data pool.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Whether session level packages enabled.
      */
-    public readonly sessionLevelPackagesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly sessionLevelPackagesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Spark configuration file to specify additional properties
      */
-    public readonly sparkConfigProperties!: pulumi.Output<outputs.synapse.SparkConfigPropertiesResponse | undefined>;
+    declare public readonly sparkConfigProperties: pulumi.Output<outputs.synapse.SparkConfigPropertiesResponse | undefined>;
     /**
      * The Spark events folder
      */
-    public readonly sparkEventsFolder!: pulumi.Output<string | undefined>;
+    declare public readonly sparkEventsFolder: pulumi.Output<string | undefined>;
     /**
      * The Apache Spark version.
      */
-    public readonly sparkVersion!: pulumi.Output<string | undefined>;
+    declare public readonly sparkVersion: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BigDataPool resource with the given unique name, arguments, and options.
@@ -149,35 +149,35 @@ export class BigDataPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["autoPause"] = args ? args.autoPause : undefined;
-            resourceInputs["autoScale"] = args ? args.autoScale : undefined;
-            resourceInputs["bigDataPoolName"] = args ? args.bigDataPoolName : undefined;
-            resourceInputs["cacheSize"] = args ? args.cacheSize : undefined;
-            resourceInputs["customLibraries"] = args ? args.customLibraries : undefined;
-            resourceInputs["defaultSparkLogFolder"] = args ? args.defaultSparkLogFolder : undefined;
-            resourceInputs["dynamicExecutorAllocation"] = args ? args.dynamicExecutorAllocation : undefined;
-            resourceInputs["force"] = args ? args.force : undefined;
-            resourceInputs["isAutotuneEnabled"] = args ? args.isAutotuneEnabled : undefined;
-            resourceInputs["isComputeIsolationEnabled"] = args ? args.isComputeIsolationEnabled : undefined;
-            resourceInputs["libraryRequirements"] = args ? args.libraryRequirements : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["nodeSize"] = args ? args.nodeSize : undefined;
-            resourceInputs["nodeSizeFamily"] = args ? args.nodeSizeFamily : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sessionLevelPackagesEnabled"] = args ? args.sessionLevelPackagesEnabled : undefined;
-            resourceInputs["sparkConfigProperties"] = args ? args.sparkConfigProperties : undefined;
-            resourceInputs["sparkEventsFolder"] = args ? args.sparkEventsFolder : undefined;
-            resourceInputs["sparkVersion"] = args ? args.sparkVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["autoPause"] = args?.autoPause;
+            resourceInputs["autoScale"] = args?.autoScale;
+            resourceInputs["bigDataPoolName"] = args?.bigDataPoolName;
+            resourceInputs["cacheSize"] = args?.cacheSize;
+            resourceInputs["customLibraries"] = args?.customLibraries;
+            resourceInputs["defaultSparkLogFolder"] = args?.defaultSparkLogFolder;
+            resourceInputs["dynamicExecutorAllocation"] = args?.dynamicExecutorAllocation;
+            resourceInputs["force"] = args?.force;
+            resourceInputs["isAutotuneEnabled"] = args?.isAutotuneEnabled;
+            resourceInputs["isComputeIsolationEnabled"] = args?.isComputeIsolationEnabled;
+            resourceInputs["libraryRequirements"] = args?.libraryRequirements;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["nodeSize"] = args?.nodeSize;
+            resourceInputs["nodeSizeFamily"] = args?.nodeSizeFamily;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sessionLevelPackagesEnabled"] = args?.sessionLevelPackagesEnabled;
+            resourceInputs["sparkConfigProperties"] = args?.sparkConfigProperties;
+            resourceInputs["sparkEventsFolder"] = args?.sparkEventsFolder;
+            resourceInputs["sparkVersion"] = args?.sparkVersion;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["lastSucceededTimestamp"] = undefined /*out*/;

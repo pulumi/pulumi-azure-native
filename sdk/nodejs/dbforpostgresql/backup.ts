@@ -44,31 +44,31 @@ export class Backup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of backup.
      */
-    public /*out*/ readonly backupType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly backupType: pulumi.Output<string | undefined>;
     /**
      * Time(ISO8601 format) at which the backup was completed.
      */
-    public /*out*/ readonly completedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly completedTime: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Source of the backup.
      */
-    public /*out*/ readonly source!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly source: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Backup resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class Backup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["backupName"] = args ? args.backupName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["backupName"] = args?.backupName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupType"] = undefined /*out*/;
             resourceInputs["completedTime"] = undefined /*out*/;

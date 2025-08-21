@@ -44,163 +44,163 @@ export class ApiManagementService extends pulumi.CustomResource {
     /**
      * Additional datacenter locations of the API Management service.
      */
-    public readonly additionalLocations!: pulumi.Output<outputs.apimanagement.AdditionalLocationResponse[] | undefined>;
+    declare public readonly additionalLocations: pulumi.Output<outputs.apimanagement.AdditionalLocationResponse[] | undefined>;
     /**
      * Control Plane Apis version constraint for the API Management service.
      */
-    public readonly apiVersionConstraint!: pulumi.Output<outputs.apimanagement.ApiVersionConstraintResponse | undefined>;
+    declare public readonly apiVersionConstraint: pulumi.Output<outputs.apimanagement.ApiVersionConstraintResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10.
      */
-    public readonly certificates!: pulumi.Output<outputs.apimanagement.CertificateConfigurationResponse[] | undefined>;
+    declare public readonly certificates: pulumi.Output<outputs.apimanagement.CertificateConfigurationResponse[] | undefined>;
     /**
      * Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly createdAtUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAtUtc: pulumi.Output<string>;
     /**
      * Custom properties of the API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.</br>Setting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.</br>Not specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.</br></br>You can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.</br> Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
      */
-    public readonly customProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * DEveloper Portal endpoint URL of the API Management service.
      */
-    public /*out*/ readonly developerPortalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly developerPortalUrl: pulumi.Output<string>;
     /**
      * Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region.
      */
-    public readonly disableGateway!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableGateway: pulumi.Output<boolean | undefined>;
     /**
      * Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway.
      */
-    public readonly enableClientCertificate!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableClientCertificate: pulumi.Output<boolean | undefined>;
     /**
      * ETag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Gateway URL of the API Management service in the Default Region.
      */
-    public /*out*/ readonly gatewayRegionalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayRegionalUrl: pulumi.Output<string>;
     /**
      * Gateway URL of the API Management service.
      */
-    public /*out*/ readonly gatewayUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayUrl: pulumi.Output<string>;
     /**
      * Custom hostname configuration of the API Management service.
      */
-    public readonly hostnameConfigurations!: pulumi.Output<outputs.apimanagement.HostnameConfigurationResponse[] | undefined>;
+    declare public readonly hostnameConfigurations: pulumi.Output<outputs.apimanagement.HostnameConfigurationResponse[] | undefined>;
     /**
      * Managed service identity of the Api Management service.
      */
-    public readonly identity!: pulumi.Output<outputs.apimanagement.ApiManagementServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.apimanagement.ApiManagementServiceIdentityResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Management API endpoint URL of the API Management service.
      */
-    public /*out*/ readonly managementApiUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementApiUrl: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Property can be used to enable NAT Gateway for this API Management service.
      */
-    public readonly natGatewayState!: pulumi.Output<string | undefined>;
+    declare public readonly natGatewayState: pulumi.Output<string | undefined>;
     /**
      * Email address from which the notification will be sent.
      */
-    public readonly notificationSenderEmail!: pulumi.Output<string | undefined>;
+    declare public readonly notificationSenderEmail: pulumi.Output<string | undefined>;
     /**
      * Outbound public IPV4 address prefixes associated with NAT Gateway deployed service. Available only for Premium SKU on stv2 platform.
      */
-    public /*out*/ readonly outboundPublicIPAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundPublicIPAddresses: pulumi.Output<string[]>;
     /**
      * Compute Platform Version running the service in this location.
      */
-    public /*out*/ readonly platformVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly platformVersion: pulumi.Output<string>;
     /**
      * Publisher portal endpoint Url of the API Management service.
      */
-    public /*out*/ readonly portalUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly portalUrl: pulumi.Output<string>;
     /**
      * List of Private Endpoint Connections of this service.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.apimanagement.RemotePrivateEndpointConnectionWrapperResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.apimanagement.RemotePrivateEndpointConnectionWrapperResponse[] | undefined>;
     /**
      * Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU.
      */
-    public /*out*/ readonly privateIPAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly privateIPAddresses: pulumi.Output<string[]>;
     /**
      * The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU.
      */
-    public /*out*/ readonly publicIPAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly publicIPAddresses: pulumi.Output<string[]>;
     /**
      * Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network.
      */
-    public readonly publicIpAddressId!: pulumi.Output<string | undefined>;
+    declare public readonly publicIpAddressId: pulumi.Output<string | undefined>;
     /**
      * Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Publisher email.
      */
-    public readonly publisherEmail!: pulumi.Output<string>;
+    declare public readonly publisherEmail: pulumi.Output<string>;
     /**
      * Publisher name.
      */
-    public readonly publisherName!: pulumi.Output<string>;
+    declare public readonly publisherName: pulumi.Output<string>;
     /**
      * Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored.
      */
-    public readonly restore!: pulumi.Output<boolean | undefined>;
+    declare public readonly restore: pulumi.Output<boolean | undefined>;
     /**
      * SCM endpoint URL of the API Management service.
      */
-    public /*out*/ readonly scmUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly scmUrl: pulumi.Output<string>;
     /**
      * SKU properties of the API Management service.
      */
-    public readonly sku!: pulumi.Output<outputs.apimanagement.ApiManagementServiceSkuPropertiesResponse>;
+    declare public readonly sku: pulumi.Output<outputs.apimanagement.ApiManagementServiceSkuPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apimanagement.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.apimanagement.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The provisioning state of the API Management service, which is targeted by the long running operation started on the service.
      */
-    public /*out*/ readonly targetProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetProvisioningState: pulumi.Output<string>;
     /**
      * Resource type for API Management resource is set to Microsoft.ApiManagement.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Virtual network configuration of the API Management service.
      */
-    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.apimanagement.VirtualNetworkConfigurationResponse | undefined>;
+    declare public readonly virtualNetworkConfiguration: pulumi.Output<outputs.apimanagement.VirtualNetworkConfigurationResponse | undefined>;
     /**
      * The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only.
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ApiManagementService resource with the given unique name, arguments, and options.
@@ -213,42 +213,42 @@ export class ApiManagementService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.publisherEmail === undefined) && !opts.urn) {
+            if (args?.publisherEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherEmail'");
             }
-            if ((!args || args.publisherName === undefined) && !opts.urn) {
+            if (args?.publisherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publisherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["additionalLocations"] = args ? args.additionalLocations : undefined;
-            resourceInputs["apiVersionConstraint"] = args ? args.apiVersionConstraint : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["disableGateway"] = (args ? args.disableGateway : undefined) ?? false;
-            resourceInputs["enableClientCertificate"] = (args ? args.enableClientCertificate : undefined) ?? false;
-            resourceInputs["hostnameConfigurations"] = args ? args.hostnameConfigurations : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["natGatewayState"] = (args ? args.natGatewayState : undefined) ?? "Disabled";
-            resourceInputs["notificationSenderEmail"] = args ? args.notificationSenderEmail : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicIpAddressId"] = args ? args.publicIpAddressId : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["publisherEmail"] = args ? args.publisherEmail : undefined;
-            resourceInputs["publisherName"] = args ? args.publisherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restore"] = (args ? args.restore : undefined) ?? false;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkConfiguration"] = args ? args.virtualNetworkConfiguration : undefined;
-            resourceInputs["virtualNetworkType"] = (args ? args.virtualNetworkType : undefined) ?? "None";
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalLocations"] = args?.additionalLocations;
+            resourceInputs["apiVersionConstraint"] = args?.apiVersionConstraint;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["disableGateway"] = (args?.disableGateway) ?? false;
+            resourceInputs["enableClientCertificate"] = (args?.enableClientCertificate) ?? false;
+            resourceInputs["hostnameConfigurations"] = args?.hostnameConfigurations;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["natGatewayState"] = (args?.natGatewayState) ?? "Disabled";
+            resourceInputs["notificationSenderEmail"] = args?.notificationSenderEmail;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicIpAddressId"] = args?.publicIpAddressId;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["publisherEmail"] = args?.publisherEmail;
+            resourceInputs["publisherName"] = args?.publisherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restore"] = (args?.restore) ?? false;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkConfiguration"] = args?.virtualNetworkConfiguration;
+            resourceInputs["virtualNetworkType"] = (args?.virtualNetworkType) ?? "None";
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["developerPortalUrl"] = undefined /*out*/;

@@ -40,47 +40,47 @@ export class Controller extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * DNS name for accessing DataPlane services
      */
-    public /*out*/ readonly dataPlaneFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataPlaneFqdn: pulumi.Output<string>;
     /**
      * DNS suffix for public endpoints running in the Azure Dev Spaces Controller.
      */
-    public /*out*/ readonly hostSuffix!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostSuffix: pulumi.Output<string>;
     /**
      * Region where the Azure resource is located.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the Azure Dev Spaces Controller.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Model representing SKU for Azure Dev Spaces Controller.
      */
-    public readonly sku!: pulumi.Output<outputs.devspaces.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.devspaces.SkuResponse>;
     /**
      * Tags for the Azure resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * DNS of the target container host's API server
      */
-    public /*out*/ readonly targetContainerHostApiServerFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetContainerHostApiServerFqdn: pulumi.Output<string>;
     /**
      * Resource ID of the target container host
      */
-    public readonly targetContainerHostResourceId!: pulumi.Output<string>;
+    declare public readonly targetContainerHostResourceId: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Controller resource with the given unique name, arguments, and options.
@@ -93,25 +93,25 @@ export class Controller extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.targetContainerHostCredentialsBase64 === undefined) && !opts.urn) {
+            if (args?.targetContainerHostCredentialsBase64 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostCredentialsBase64'");
             }
-            if ((!args || args.targetContainerHostResourceId === undefined) && !opts.urn) {
+            if (args?.targetContainerHostResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetContainerHostResourceId'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetContainerHostCredentialsBase64"] = args ? args.targetContainerHostCredentialsBase64 : undefined;
-            resourceInputs["targetContainerHostResourceId"] = args ? args.targetContainerHostResourceId : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetContainerHostCredentialsBase64"] = args?.targetContainerHostCredentialsBase64;
+            resourceInputs["targetContainerHostResourceId"] = args?.targetContainerHostResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataPlaneFqdn"] = undefined /*out*/;
             resourceInputs["hostSuffix"] = undefined /*out*/;

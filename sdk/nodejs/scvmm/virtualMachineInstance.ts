@@ -44,55 +44,55 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * Availability Sets in vm.
      */
-    public readonly availabilitySets!: pulumi.Output<outputs.scvmm.VirtualMachineInstancePropertiesResponseAvailabilitySets[] | undefined>;
+    declare public readonly availabilitySets: pulumi.Output<outputs.scvmm.VirtualMachineInstancePropertiesResponseAvailabilitySets[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
     /**
      * Hardware properties.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.scvmm.HardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.scvmm.HardwareProfileResponse | undefined>;
     /**
      * Gets the infrastructure profile.
      */
-    public readonly infrastructureProfile!: pulumi.Output<outputs.scvmm.InfrastructureProfileResponse | undefined>;
+    declare public readonly infrastructureProfile: pulumi.Output<outputs.scvmm.InfrastructureProfileResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network properties.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.scvmm.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.scvmm.NetworkProfileResponse | undefined>;
     /**
      * OS properties.
      */
-    public readonly osProfile!: pulumi.Output<outputs.scvmm.OsProfileForVMInstanceResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.scvmm.OsProfileForVMInstanceResponse | undefined>;
     /**
      * Gets the power state of the virtual machine.
      */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
+    declare public /*out*/ readonly powerState: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Storage properties.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.scvmm.StorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.scvmm.StorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.scvmm.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.scvmm.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineInstance resource with the given unique name, arguments, and options.
@@ -105,20 +105,20 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["availabilitySets"] = args ? args.availabilitySets : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["infrastructureProfile"] = args ? args.infrastructureProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["availabilitySets"] = args?.availabilitySets;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["infrastructureProfile"] = args?.infrastructureProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;

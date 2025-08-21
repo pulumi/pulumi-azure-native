@@ -44,67 +44,67 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Duration of the maintenance window in HH:mm format. If not provided, default value will be used based on maintenance scope provided. Example: 05:00.
      */
-    public readonly duration!: pulumi.Output<string | undefined>;
+    declare public readonly duration: pulumi.Output<string | undefined>;
     /**
      * Effective expiration date of the maintenance window in YYYY-MM-DD hh:mm format. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone. Expiration date must be set to a future date. If not provided, it will be set to the maximum datetime 9999-12-31 23:59:59.
      */
-    public readonly expirationDateTime!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDateTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets extensionProperties of the maintenanceConfiguration
      */
-    public readonly extensionProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly extensionProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The input parameters to be passed to the patch run operation.
      */
-    public readonly installPatches!: pulumi.Output<outputs.maintenance.InputPatchConfigurationResponse | undefined>;
+    declare public readonly installPatches: pulumi.Output<outputs.maintenance.InputPatchConfigurationResponse | undefined>;
     /**
      * Gets or sets location of the resource
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Gets or sets maintenanceScope of the configuration
      */
-    public readonly maintenanceScope!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceScope: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets namespace of the resource
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * Rate at which a Maintenance window is expected to recur. The rate can be expressed as daily, weekly, or monthly schedules. Daily schedule are formatted as recurEvery: [Frequency as integer]['Day(s)']. If no frequency is provided, the default frequency is 1. Daily schedule examples are recurEvery: Day, recurEvery: 3Days.  Weekly schedule are formatted as recurEvery: [Frequency as integer]['Week(s)'] [Optional comma separated list of weekdays Monday-Sunday]. Weekly schedule examples are recurEvery: 3Weeks, recurEvery: Week Saturday,Sunday. Monthly schedules are formatted as [Frequency as integer]['Month(s)'] [Comma separated list of month days] or [Frequency as integer]['Month(s)'] [Week of Month (First, Second, Third, Fourth, Last)] [Weekday Monday-Sunday] [Optional Offset(No. of days)]. Offset value must be between -6 to 6 inclusive. Monthly schedule examples are recurEvery: Month, recurEvery: 2Months, recurEvery: Month day23,day24, recurEvery: Month Last Sunday, recurEvery: Month Fourth Monday, recurEvery: Month Last Sunday Offset-3, recurEvery: Month Third Sunday Offset6.
      */
-    public readonly recurEvery!: pulumi.Output<string | undefined>;
+    declare public readonly recurEvery: pulumi.Output<string | undefined>;
     /**
      * Effective start date of the maintenance window in YYYY-MM-DD hh:mm format. The start date can be set to either the current date or future date. The window will be created in the time zone provided and adjusted to daylight savings according to that time zone.
      */
-    public readonly startDateTime!: pulumi.Output<string | undefined>;
+    declare public readonly startDateTime: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.maintenance.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.maintenance.SystemDataResponse>;
     /**
      * Gets or sets tags of the resource
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Name of the timezone. List of timezones can be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell. Example: Pacific Standard Time, UTC, W. Europe Standard Time, Korea Standard Time, Cen. Australia Standard Time.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets the visibility of the configuration. The default value is 'Custom'
      */
-    public readonly visibility!: pulumi.Output<string | undefined>;
+    declare public readonly visibility: pulumi.Output<string | undefined>;
 
     /**
      * Create a MaintenanceConfiguration resource with the given unique name, arguments, and options.
@@ -117,23 +117,23 @@ export class MaintenanceConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["expirationDateTime"] = args ? args.expirationDateTime : undefined;
-            resourceInputs["extensionProperties"] = args ? args.extensionProperties : undefined;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["expirationDateTime"] = args?.expirationDateTime;
+            resourceInputs["extensionProperties"] = args?.extensionProperties;
             resourceInputs["installPatches"] = args ? (args.installPatches ? pulumi.output(args.installPatches).apply(inputs.maintenance.inputPatchConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceScope"] = args ? args.maintenanceScope : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["recurEvery"] = args ? args.recurEvery : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["startDateTime"] = args ? args.startDateTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceScope"] = args?.maintenanceScope;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["recurEvery"] = args?.recurEvery;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["startDateTime"] = args?.startDateTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeZone"] = args?.timeZone;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

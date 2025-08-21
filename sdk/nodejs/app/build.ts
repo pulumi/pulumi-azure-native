@@ -44,47 +44,47 @@ export class Build extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Status of the build once it has been provisioned.
      */
-    public /*out*/ readonly buildStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly buildStatus: pulumi.Output<string>;
     /**
      * Configuration of the build.
      */
-    public readonly configuration!: pulumi.Output<outputs.app.BuildConfigurationResponse | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.app.BuildConfigurationResponse | undefined>;
     /**
      * Container registry that the final image will be uploaded to.
      */
-    public readonly destinationContainerRegistry!: pulumi.Output<outputs.app.ContainerRegistryWithCustomImageResponse | undefined>;
+    declare public readonly destinationContainerRegistry: pulumi.Output<outputs.app.ContainerRegistryWithCustomImageResponse | undefined>;
     /**
      * Endpoint from which the build logs can be streamed.
      */
-    public /*out*/ readonly logStreamEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly logStreamEndpoint: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Build provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Endpoint to use to retrieve an authentication token for log streaming and uploading source code.
      */
-    public /*out*/ readonly tokenEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly tokenEndpoint: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Endpoint to which the source code should be uploaded.
      */
-    public /*out*/ readonly uploadEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly uploadEndpoint: pulumi.Output<string>;
 
     /**
      * Create a Build resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class Build extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.builderName === undefined) && !opts.urn) {
+            if (args?.builderName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'builderName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["buildName"] = args ? args.buildName : undefined;
-            resourceInputs["builderName"] = args ? args.builderName : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["destinationContainerRegistry"] = args ? args.destinationContainerRegistry : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["buildName"] = args?.buildName;
+            resourceInputs["builderName"] = args?.builderName;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["destinationContainerRegistry"] = args?.destinationContainerRegistry;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["buildStatus"] = undefined /*out*/;
             resourceInputs["logStreamEndpoint"] = undefined /*out*/;

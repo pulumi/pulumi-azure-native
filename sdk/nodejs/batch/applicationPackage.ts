@@ -41,43 +41,43 @@ export class ApplicationPackage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The ETag of the resource, used for concurrency statements.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The format of the application package, if the package is active.
      */
-    public /*out*/ readonly format!: pulumi.Output<string>;
+    declare public /*out*/ readonly format: pulumi.Output<string>;
     /**
      * The time at which the package was last activated, if the package is active.
      */
-    public /*out*/ readonly lastActivationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastActivationTime: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current state of the application package.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The URL for the application package in Azure Storage.
      */
-    public /*out*/ readonly storageUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageUrl: pulumi.Output<string>;
     /**
      * The UTC time at which the Azure Storage URL will expire.
      */
-    public /*out*/ readonly storageUrlExpiry!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageUrlExpiry: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApplicationPackage resource with the given unique name, arguments, and options.
@@ -90,20 +90,20 @@ export class ApplicationPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["versionName"] = args?.versionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["format"] = undefined /*out*/;

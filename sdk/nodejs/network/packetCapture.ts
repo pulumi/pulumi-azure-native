@@ -44,59 +44,59 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Number of bytes captured per packet, the remaining bytes are truncated.
      */
-    public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
+    declare public readonly bytesToCapturePerPacket: pulumi.Output<number | undefined>;
     /**
      * The capture setting holds the 'FileCount', 'FileSizeInBytes', 'SessionTimeLimitInSeconds' values.
      */
-    public readonly captureSettings!: pulumi.Output<outputs.network.PacketCaptureSettingsResponse | undefined>;
+    declare public readonly captureSettings: pulumi.Output<outputs.network.PacketCaptureSettingsResponse | undefined>;
     /**
      * This continuous capture is a nullable boolean, which can hold 'null', 'true' or 'false' value. If we do not pass this parameter, it would be consider as 'null', default value is 'null'.
      */
-    public readonly continuousCapture!: pulumi.Output<boolean | undefined>;
+    declare public readonly continuousCapture: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A list of packet capture filters.
      */
-    public readonly filters!: pulumi.Output<outputs.network.PacketCaptureFilterResponse[] | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.network.PacketCaptureFilterResponse[] | undefined>;
     /**
      * Name of the packet capture session.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the packet capture session.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A list of AzureVMSS instances which can be included or excluded to run packet capture. If both included and excluded are empty, then the packet capture will run on all instances of AzureVMSS.
      */
-    public readonly scope!: pulumi.Output<outputs.network.PacketCaptureMachineScopeResponse | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.network.PacketCaptureMachineScopeResponse | undefined>;
     /**
      * The storage location for a packet capture session.
      */
-    public readonly storageLocation!: pulumi.Output<outputs.network.PacketCaptureStorageLocationResponse>;
+    declare public readonly storageLocation: pulumi.Output<outputs.network.PacketCaptureStorageLocationResponse>;
     /**
      * The ID of the targeted resource, only AzureVM and AzureVMSS as target type are currently supported.
      */
-    public readonly target!: pulumi.Output<string>;
+    declare public readonly target: pulumi.Output<string>;
     /**
      * Target type of the resource provided.
      */
-    public readonly targetType!: pulumi.Output<string | undefined>;
+    declare public readonly targetType: pulumi.Output<string | undefined>;
     /**
      * Maximum duration of the capture session in seconds.
      */
-    public readonly timeLimitInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeLimitInSeconds: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture output.
      */
-    public readonly totalBytesPerSession!: pulumi.Output<number | undefined>;
+    declare public readonly totalBytesPerSession: pulumi.Output<number | undefined>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -109,31 +109,31 @@ export class PacketCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageLocation === undefined) && !opts.urn) {
+            if (args?.storageLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageLocation'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
+            resourceInputs["bytesToCapturePerPacket"] = (args?.bytesToCapturePerPacket) ?? 0;
             resourceInputs["captureSettings"] = args ? (args.captureSettings ? pulumi.output(args.captureSettings).apply(inputs.network.packetCaptureSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["continuousCapture"] = args ? args.continuousCapture : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["storageLocation"] = args ? args.storageLocation : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
-            resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 1073741824;
+            resourceInputs["continuousCapture"] = args?.continuousCapture;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["packetCaptureName"] = args?.packetCaptureName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["storageLocation"] = args?.storageLocation;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["timeLimitInSeconds"] = (args?.timeLimitInSeconds) ?? 18000;
+            resourceInputs["totalBytesPerSession"] = (args?.totalBytesPerSession) ?? 1073741824;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

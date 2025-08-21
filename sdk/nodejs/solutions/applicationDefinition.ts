@@ -44,95 +44,95 @@ export class ApplicationDefinition extends pulumi.CustomResource {
     /**
      * The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition.
      */
-    public readonly artifacts!: pulumi.Output<outputs.solutions.ApplicationDefinitionArtifactResponse[] | undefined>;
+    declare public readonly artifacts: pulumi.Output<outputs.solutions.ApplicationDefinitionArtifactResponse[] | undefined>;
     /**
      * The managed application provider authorizations.
      */
-    public readonly authorizations!: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[] | undefined>;
+    declare public readonly authorizations: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string.
      */
-    public readonly createUiDefinition!: pulumi.Output<any | undefined>;
+    declare public readonly createUiDefinition: pulumi.Output<any | undefined>;
     /**
      * The managed application deployment policy.
      */
-    public readonly deploymentPolicy!: pulumi.Output<outputs.solutions.ApplicationDeploymentPolicyResponse | undefined>;
+    declare public readonly deploymentPolicy: pulumi.Output<outputs.solutions.ApplicationDeploymentPolicyResponse | undefined>;
     /**
      * The managed application definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The managed application definition display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * A value indicating whether the package is enabled or not.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The managed application lock level.
      */
-    public readonly lockLevel!: pulumi.Output<string>;
+    declare public readonly lockLevel: pulumi.Output<string>;
     /**
      * The managed application locking policy.
      */
-    public readonly lockingPolicy!: pulumi.Output<outputs.solutions.ApplicationPackageLockingPolicyDefinitionResponse | undefined>;
+    declare public readonly lockingPolicy: pulumi.Output<outputs.solutions.ApplicationPackageLockingPolicyDefinitionResponse | undefined>;
     /**
      * The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string.
      */
-    public readonly mainTemplate!: pulumi.Output<any | undefined>;
+    declare public readonly mainTemplate: pulumi.Output<any | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The managed application management policy that determines publisher's access to the managed resource group.
      */
-    public readonly managementPolicy!: pulumi.Output<outputs.solutions.ApplicationManagementPolicyResponse | undefined>;
+    declare public readonly managementPolicy: pulumi.Output<outputs.solutions.ApplicationManagementPolicyResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The managed application notification policy.
      */
-    public readonly notificationPolicy!: pulumi.Output<outputs.solutions.ApplicationNotificationPolicyResponse | undefined>;
+    declare public readonly notificationPolicy: pulumi.Output<outputs.solutions.ApplicationNotificationPolicyResponse | undefined>;
     /**
      * The managed application definition package file Uri. Use this element
      */
-    public readonly packageFileUri!: pulumi.Output<string | undefined>;
+    declare public readonly packageFileUri: pulumi.Output<string | undefined>;
     /**
      * The managed application provider policies.
      */
-    public readonly policies!: pulumi.Output<outputs.solutions.ApplicationPolicyResponse[] | undefined>;
+    declare public readonly policies: pulumi.Output<outputs.solutions.ApplicationPolicyResponse[] | undefined>;
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.solutions.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.solutions.SkuResponse | undefined>;
     /**
      * The storage account id for bring your own storage scenario.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.solutions.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApplicationDefinition resource with the given unique name, arguments, and options.
@@ -145,33 +145,33 @@ export class ApplicationDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.lockLevel === undefined) && !opts.urn) {
+            if (args?.lockLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lockLevel'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionName"] = args ? args.applicationDefinitionName : undefined;
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["createUiDefinition"] = args ? args.createUiDefinition : undefined;
-            resourceInputs["deploymentPolicy"] = args ? args.deploymentPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockLevel"] = args ? args.lockLevel : undefined;
-            resourceInputs["lockingPolicy"] = args ? args.lockingPolicy : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managementPolicy"] = args ? args.managementPolicy : undefined;
-            resourceInputs["notificationPolicy"] = args ? args.notificationPolicy : undefined;
-            resourceInputs["packageFileUri"] = args ? args.packageFileUri : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDefinitionName"] = args?.applicationDefinitionName;
+            resourceInputs["artifacts"] = args?.artifacts;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["createUiDefinition"] = args?.createUiDefinition;
+            resourceInputs["deploymentPolicy"] = args?.deploymentPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["lockLevel"] = args?.lockLevel;
+            resourceInputs["lockingPolicy"] = args?.lockingPolicy;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managementPolicy"] = args?.managementPolicy;
+            resourceInputs["notificationPolicy"] = args?.notificationPolicy;
+            resourceInputs["packageFileUri"] = args?.packageFileUri;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

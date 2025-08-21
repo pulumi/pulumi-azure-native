@@ -44,23 +44,23 @@ export class ServerTrustGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Group members information for the server trust group.
      */
-    public readonly groupMembers!: pulumi.Output<outputs.sql.ServerInfoResponse[]>;
+    declare public readonly groupMembers: pulumi.Output<outputs.sql.ServerInfoResponse[]>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Trust scope of the server trust group.
      */
-    public readonly trustScopes!: pulumi.Output<string[]>;
+    declare public readonly trustScopes: pulumi.Output<string[]>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerTrustGroup resource with the given unique name, arguments, and options.
@@ -73,23 +73,23 @@ export class ServerTrustGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupMembers === undefined) && !opts.urn) {
+            if (args?.groupMembers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupMembers'");
             }
-            if ((!args || args.locationName === undefined) && !opts.urn) {
+            if (args?.locationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trustScopes === undefined) && !opts.urn) {
+            if (args?.trustScopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trustScopes'");
             }
-            resourceInputs["groupMembers"] = args ? args.groupMembers : undefined;
-            resourceInputs["locationName"] = args ? args.locationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverTrustGroupName"] = args ? args.serverTrustGroupName : undefined;
-            resourceInputs["trustScopes"] = args ? args.trustScopes : undefined;
+            resourceInputs["groupMembers"] = args?.groupMembers;
+            resourceInputs["locationName"] = args?.locationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverTrustGroupName"] = args?.serverTrustGroupName;
+            resourceInputs["trustScopes"] = args?.trustScopes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

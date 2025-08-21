@@ -40,31 +40,31 @@ export class Blob extends pulumi.CustomResource {
     /**
      * The access tier of the storage blob. Only supported for standard storage accounts, not premium.
      */
-    public readonly accessTier!: pulumi.Output<enums.storage.BlobAccessTier | undefined>;
+    declare public readonly accessTier: pulumi.Output<enums.storage.BlobAccessTier | undefined>;
     /**
      * The MD5 sum of the blob contents.
      */
-    public readonly contentMd5!: pulumi.Output<string | undefined>;
+    declare public readonly contentMd5: pulumi.Output<string | undefined>;
     /**
      * The content type of the storage blob.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * A map of custom blob metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string}>;
     /**
      * The name of the storage blob.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The type of the storage blob to be created.
      */
-    public readonly type!: pulumi.Output<enums.storage.BlobType>;
+    declare public readonly type: pulumi.Output<enums.storage.BlobType>;
     /**
      * The URL of the blob.
      */
-    public /*out*/ readonly url!: pulumi.Output<string>;
+    declare public /*out*/ readonly url: pulumi.Output<string>;
 
     /**
      * Create a Blob resource with the given unique name, arguments, and options.
@@ -77,25 +77,25 @@ export class Blob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["blobName"] = args ? args.blobName : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["contentMd5"] = args ? args.contentMd5 : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["type"] = (args ? args.type : undefined) ?? "Block";
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["blobName"] = args?.blobName;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["contentMd5"] = args?.contentMd5;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["type"] = (args?.type) ?? "Block";
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["url"] = undefined /*out*/;
         } else {

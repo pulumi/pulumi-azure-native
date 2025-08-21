@@ -44,83 +44,83 @@ export class VirtualEnclave extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Deploy Bastion service (True or False).
      */
-    public readonly bastionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly bastionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Community Resource Id.
      */
-    public readonly communityResourceId!: pulumi.Output<string>;
+    declare public readonly communityResourceId: pulumi.Output<string>;
     /**
      * Enclave Address Spaces
      */
-    public /*out*/ readonly enclaveAddressSpaces!: pulumi.Output<outputs.mission.EnclaveAddressSpacesModelResponse>;
+    declare public /*out*/ readonly enclaveAddressSpaces: pulumi.Output<outputs.mission.EnclaveAddressSpacesModelResponse>;
     /**
      * Enclave default settings.
      */
-    public readonly enclaveDefaultSettings!: pulumi.Output<outputs.mission.EnclaveDefaultSettingsModelResponse | undefined>;
+    declare public readonly enclaveDefaultSettings: pulumi.Output<outputs.mission.EnclaveDefaultSettingsModelResponse | undefined>;
     /**
      * Enclave role assignments
      */
-    public readonly enclaveRoleAssignments!: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
+    declare public readonly enclaveRoleAssignments: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
     /**
      * Virtual Network.
      */
-    public readonly enclaveVirtualNetwork!: pulumi.Output<outputs.mission.EnclaveVirtualNetworkModelResponse>;
+    declare public readonly enclaveVirtualNetwork: pulumi.Output<outputs.mission.EnclaveVirtualNetworkModelResponse>;
     /**
      * Enclave specific policies
      */
-    public readonly governedServiceList!: pulumi.Output<outputs.mission.GovernedServiceItemResponse[] | undefined>;
+    declare public readonly governedServiceList: pulumi.Output<outputs.mission.GovernedServiceItemResponse[] | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.mission.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mission.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maintenance Mode configuration.
      */
-    public readonly maintenanceModeConfiguration!: pulumi.Output<outputs.mission.MaintenanceModeConfigurationModelResponse | undefined>;
+    declare public readonly maintenanceModeConfiguration: pulumi.Output<outputs.mission.MaintenanceModeConfigurationModelResponse | undefined>;
     /**
      * Managed On Behalf Of Configuration.
      */
-    public /*out*/ readonly managedOnBehalfOfConfiguration!: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
+    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
     /**
      * Managed resource group name.
      */
-    public /*out*/ readonly managedResourceGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of resource ids created by Virtual Enclave.
      */
-    public /*out*/ readonly resourceCollection!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceCollection: pulumi.Output<string[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Workload role assignments
      */
-    public readonly workloadRoleAssignments!: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
+    declare public readonly workloadRoleAssignments: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
 
     /**
      * Create a VirtualEnclave resource with the given unique name, arguments, and options.
@@ -133,28 +133,28 @@ export class VirtualEnclave extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityResourceId === undefined) && !opts.urn) {
+            if (args?.communityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityResourceId'");
             }
-            if ((!args || args.enclaveVirtualNetwork === undefined) && !opts.urn) {
+            if (args?.enclaveVirtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enclaveVirtualNetwork'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bastionEnabled"] = (args ? args.bastionEnabled : undefined) ?? false;
-            resourceInputs["communityResourceId"] = args ? args.communityResourceId : undefined;
+            resourceInputs["bastionEnabled"] = (args?.bastionEnabled) ?? false;
+            resourceInputs["communityResourceId"] = args?.communityResourceId;
             resourceInputs["enclaveDefaultSettings"] = args ? (args.enclaveDefaultSettings ? pulumi.output(args.enclaveDefaultSettings).apply(inputs.mission.enclaveDefaultSettingsModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["enclaveRoleAssignments"] = args ? args.enclaveRoleAssignments : undefined;
+            resourceInputs["enclaveRoleAssignments"] = args?.enclaveRoleAssignments;
             resourceInputs["enclaveVirtualNetwork"] = args ? (args.enclaveVirtualNetwork ? pulumi.output(args.enclaveVirtualNetwork).apply(inputs.mission.enclaveVirtualNetworkModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["governedServiceList"] = args ? args.governedServiceList : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["governedServiceList"] = args?.governedServiceList;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceModeConfiguration"] = args ? (args.maintenanceModeConfiguration ? pulumi.output(args.maintenanceModeConfiguration).apply(inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
-            resourceInputs["workloadRoleAssignments"] = args ? args.workloadRoleAssignments : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
+            resourceInputs["workloadRoleAssignments"] = args?.workloadRoleAssignments;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enclaveAddressSpaces"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;

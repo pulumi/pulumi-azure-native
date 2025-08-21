@@ -42,31 +42,31 @@ export class MongoMIResourceMongoMIRoleDefinition extends pulumi.CustomResource 
     /**
      * A set of fully qualified Scopes at or below which MongoMI Role Assignments may be created using this Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Must have at least one element. Scopes higher than Database account are not enforceable as assignable Scopes. Note that resources referenced in assignable Scopes need not exist.
      */
-    public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly assignableScopes: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The set of operations allowed through this Role Definition.
      */
-    public readonly permissions!: pulumi.Output<outputs.cosmosdb.PermissionResponse[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.cosmosdb.PermissionResponse[] | undefined>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a MongoMIResourceMongoMIRoleDefinition resource with the given unique name, arguments, and options.
@@ -79,20 +79,20 @@ export class MongoMIResourceMongoMIRoleDefinition extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["assignableScopes"] = args?.assignableScopes;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

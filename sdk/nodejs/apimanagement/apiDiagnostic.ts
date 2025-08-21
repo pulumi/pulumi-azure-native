@@ -44,55 +44,55 @@ export class ApiDiagnostic extends pulumi.CustomResource {
     /**
      * Specifies for what type of messages sampling settings should not apply.
      */
-    public readonly alwaysLog!: pulumi.Output<string | undefined>;
+    declare public readonly alwaysLog: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Backend
      */
-    public readonly backend!: pulumi.Output<outputs.apimanagement.PipelineDiagnosticSettingsResponse | undefined>;
+    declare public readonly backend: pulumi.Output<outputs.apimanagement.PipelineDiagnosticSettingsResponse | undefined>;
     /**
      * Diagnostic settings for incoming/outgoing HTTP messages to the Gateway.
      */
-    public readonly frontend!: pulumi.Output<outputs.apimanagement.PipelineDiagnosticSettingsResponse | undefined>;
+    declare public readonly frontend: pulumi.Output<outputs.apimanagement.PipelineDiagnosticSettingsResponse | undefined>;
     /**
      * Sets correlation protocol to use for Application Insights diagnostics.
      */
-    public readonly httpCorrelationProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly httpCorrelationProtocol: pulumi.Output<string | undefined>;
     /**
      * Log the ClientIP. Default is false.
      */
-    public readonly logClientIp!: pulumi.Output<boolean | undefined>;
+    declare public readonly logClientIp: pulumi.Output<boolean | undefined>;
     /**
      * Resource Id of a target logger.
      */
-    public readonly loggerId!: pulumi.Output<string>;
+    declare public readonly loggerId: pulumi.Output<string>;
     /**
      * Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings.
      */
-    public readonly metrics!: pulumi.Output<boolean | undefined>;
+    declare public readonly metrics: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The format of the Operation Name for Application Insights telemetries. Default is Name.
      */
-    public readonly operationNameFormat!: pulumi.Output<string | undefined>;
+    declare public readonly operationNameFormat: pulumi.Output<string | undefined>;
     /**
      * Sampling settings for Diagnostic.
      */
-    public readonly sampling!: pulumi.Output<outputs.apimanagement.SamplingSettingsResponse | undefined>;
+    declare public readonly sampling: pulumi.Output<outputs.apimanagement.SamplingSettingsResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The verbosity level applied to traces emitted by trace policies.
      */
-    public readonly verbosity!: pulumi.Output<string | undefined>;
+    declare public readonly verbosity: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiDiagnostic resource with the given unique name, arguments, and options.
@@ -105,32 +105,32 @@ export class ApiDiagnostic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.loggerId === undefined) && !opts.urn) {
+            if (args?.loggerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["alwaysLog"] = args ? args.alwaysLog : undefined;
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["diagnosticId"] = args ? args.diagnosticId : undefined;
-            resourceInputs["frontend"] = args ? args.frontend : undefined;
-            resourceInputs["httpCorrelationProtocol"] = args ? args.httpCorrelationProtocol : undefined;
-            resourceInputs["logClientIp"] = args ? args.logClientIp : undefined;
-            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
-            resourceInputs["metrics"] = args ? args.metrics : undefined;
-            resourceInputs["operationNameFormat"] = args ? args.operationNameFormat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sampling"] = args ? args.sampling : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["verbosity"] = args ? args.verbosity : undefined;
+            resourceInputs["alwaysLog"] = args?.alwaysLog;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["diagnosticId"] = args?.diagnosticId;
+            resourceInputs["frontend"] = args?.frontend;
+            resourceInputs["httpCorrelationProtocol"] = args?.httpCorrelationProtocol;
+            resourceInputs["logClientIp"] = args?.logClientIp;
+            resourceInputs["loggerId"] = args?.loggerId;
+            resourceInputs["metrics"] = args?.metrics;
+            resourceInputs["operationNameFormat"] = args?.operationNameFormat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sampling"] = args?.sampling;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["verbosity"] = args?.verbosity;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

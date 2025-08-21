@@ -44,75 +44,75 @@ export class VCenter extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the connection status to the vCenter.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * Username / Password Credentials to connect to vcenter.
      */
-    public readonly credentials!: pulumi.Output<outputs.connectedvmwarevsphere.VICredentialResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.connectedvmwarevsphere.VICredentialResponse | undefined>;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly customResourceName: pulumi.Output<string>;
     /**
      * Gets or sets the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
     /**
      * Gets or sets the FQDN/IPAddress of the vCenter.
      */
-    public readonly fqdn!: pulumi.Output<string>;
+    declare public readonly fqdn: pulumi.Output<string>;
     /**
      * Gets or sets the instance UUID of the vCenter.
      */
-    public /*out*/ readonly instanceUuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceUuid: pulumi.Output<string>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Gets or sets the name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the port of the vCenter.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource status information.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
     /**
      * The system data.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
      * Gets or sets the Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets a unique identifier for this resource.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * Gets or sets the version of the vCenter.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a VCenter resource with the given unique name, arguments, and options.
@@ -125,21 +125,21 @@ export class VCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
+            if (args?.fqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdn'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vcenterName"] = args?.vcenterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;

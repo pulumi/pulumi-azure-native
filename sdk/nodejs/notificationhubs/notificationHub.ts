@@ -44,76 +44,76 @@ export class NotificationHub extends pulumi.CustomResource {
     /**
      * Description of a NotificationHub AdmCredential.
      */
-    public readonly admCredential!: pulumi.Output<outputs.notificationhubs.AdmCredentialResponse | undefined>;
+    declare public readonly admCredential: pulumi.Output<outputs.notificationhubs.AdmCredentialResponse | undefined>;
     /**
      * Description of a NotificationHub ApnsCredential.
      */
-    public readonly apnsCredential!: pulumi.Output<outputs.notificationhubs.ApnsCredentialResponse | undefined>;
+    declare public readonly apnsCredential: pulumi.Output<outputs.notificationhubs.ApnsCredentialResponse | undefined>;
     /**
      * Gets or sets the AuthorizationRules of the created NotificationHub
      */
-    public /*out*/ readonly authorizationRules!: pulumi.Output<outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse[]>;
+    declare public /*out*/ readonly authorizationRules: pulumi.Output<outputs.notificationhubs.SharedAccessAuthorizationRulePropertiesResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of a NotificationHub BaiduCredential.
      */
-    public readonly baiduCredential!: pulumi.Output<outputs.notificationhubs.BaiduCredentialResponse | undefined>;
+    declare public readonly baiduCredential: pulumi.Output<outputs.notificationhubs.BaiduCredentialResponse | undefined>;
     /**
      * Description of a NotificationHub BrowserCredential.
      */
-    public readonly browserCredential!: pulumi.Output<outputs.notificationhubs.BrowserCredentialResponse | undefined>;
-    public /*out*/ readonly dailyMaxActiveDevices!: pulumi.Output<number>;
+    declare public readonly browserCredential: pulumi.Output<outputs.notificationhubs.BrowserCredentialResponse | undefined>;
+    declare public /*out*/ readonly dailyMaxActiveDevices: pulumi.Output<number>;
     /**
      * Description of a NotificationHub FcmV1Credential.
      */
-    public readonly fcmV1Credential!: pulumi.Output<outputs.notificationhubs.FcmV1CredentialResponse | undefined>;
+    declare public readonly fcmV1Credential: pulumi.Output<outputs.notificationhubs.FcmV1CredentialResponse | undefined>;
     /**
      * Description of a NotificationHub GcmCredential.
      */
-    public readonly gcmCredential!: pulumi.Output<outputs.notificationhubs.GcmCredentialResponse | undefined>;
+    declare public readonly gcmCredential: pulumi.Output<outputs.notificationhubs.GcmCredentialResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Description of a NotificationHub MpnsCredential.
      */
-    public readonly mpnsCredential!: pulumi.Output<outputs.notificationhubs.MpnsCredentialResponse | undefined>;
+    declare public readonly mpnsCredential: pulumi.Output<outputs.notificationhubs.MpnsCredentialResponse | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the RegistrationTtl of the created NotificationHub
      */
-    public readonly registrationTtl!: pulumi.Output<string | undefined>;
+    declare public readonly registrationTtl: pulumi.Output<string | undefined>;
     /**
      * The Sku description for a namespace
      */
-    public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.notificationhubs.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Description of a NotificationHub WnsCredential.
      */
-    public readonly wnsCredential!: pulumi.Output<outputs.notificationhubs.WnsCredentialResponse | undefined>;
+    declare public readonly wnsCredential: pulumi.Output<outputs.notificationhubs.WnsCredentialResponse | undefined>;
     /**
      * Description of a NotificationHub XiaomiCredential.
      */
-    public readonly xiaomiCredential!: pulumi.Output<outputs.notificationhubs.XiaomiCredentialResponse | undefined>;
+    declare public readonly xiaomiCredential: pulumi.Output<outputs.notificationhubs.XiaomiCredentialResponse | undefined>;
 
     /**
      * Create a NotificationHub resource with the given unique name, arguments, and options.
@@ -126,29 +126,29 @@ export class NotificationHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["admCredential"] = args ? args.admCredential : undefined;
-            resourceInputs["apnsCredential"] = args ? args.apnsCredential : undefined;
-            resourceInputs["baiduCredential"] = args ? args.baiduCredential : undefined;
-            resourceInputs["browserCredential"] = args ? args.browserCredential : undefined;
-            resourceInputs["fcmV1Credential"] = args ? args.fcmV1Credential : undefined;
-            resourceInputs["gcmCredential"] = args ? args.gcmCredential : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mpnsCredential"] = args ? args.mpnsCredential : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            resourceInputs["registrationTtl"] = args ? args.registrationTtl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["wnsCredential"] = args ? args.wnsCredential : undefined;
-            resourceInputs["xiaomiCredential"] = args ? args.xiaomiCredential : undefined;
+            resourceInputs["admCredential"] = args?.admCredential;
+            resourceInputs["apnsCredential"] = args?.apnsCredential;
+            resourceInputs["baiduCredential"] = args?.baiduCredential;
+            resourceInputs["browserCredential"] = args?.browserCredential;
+            resourceInputs["fcmV1Credential"] = args?.fcmV1Credential;
+            resourceInputs["gcmCredential"] = args?.gcmCredential;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mpnsCredential"] = args?.mpnsCredential;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["notificationHubName"] = args?.notificationHubName;
+            resourceInputs["registrationTtl"] = args?.registrationTtl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["wnsCredential"] = args?.wnsCredential;
+            resourceInputs["xiaomiCredential"] = args?.xiaomiCredential;
             resourceInputs["authorizationRules"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dailyMaxActiveDevices"] = undefined /*out*/;
