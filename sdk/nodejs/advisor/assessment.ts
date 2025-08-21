@@ -44,55 +44,55 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Assessment Id.
      */
-    public /*out*/ readonly assessmentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assessmentId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Assessment Type Description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * Assessment Type Locale.
      */
-    public readonly locale!: pulumi.Output<string | undefined>;
+    declare public readonly locale: pulumi.Output<string | undefined>;
     /**
      * Assessment Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Assessment Score.
      */
-    public /*out*/ readonly score!: pulumi.Output<number>;
+    declare public /*out*/ readonly score: pulumi.Output<number>;
     /**
      * Assessment State.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.advisor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.advisor.SystemDataResponse>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Assessment Type Id.
      */
-    public readonly typeId!: pulumi.Output<string | undefined>;
+    declare public readonly typeId: pulumi.Output<string | undefined>;
     /**
      * Assessment Type Version.
      */
-    public /*out*/ readonly typeVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly typeVersion: pulumi.Output<string>;
     /**
      * Workload Id.
      */
-    public readonly workloadId!: pulumi.Output<string | undefined>;
+    declare public readonly workloadId: pulumi.Output<string | undefined>;
     /**
      * Workload Name.
      */
-    public /*out*/ readonly workloadName!: pulumi.Output<string>;
+    declare public /*out*/ readonly workloadName: pulumi.Output<string>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -105,10 +105,10 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["locale"] = args ? args.locale : undefined;
-            resourceInputs["typeId"] = args ? args.typeId : undefined;
-            resourceInputs["workloadId"] = args ? args.workloadId : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["locale"] = args?.locale;
+            resourceInputs["typeId"] = args?.typeId;
+            resourceInputs["workloadId"] = args?.workloadId;
             resourceInputs["assessmentId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

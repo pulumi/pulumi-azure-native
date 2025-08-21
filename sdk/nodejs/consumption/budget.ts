@@ -44,51 +44,51 @@ export class Budget extends pulumi.CustomResource {
     /**
      * The total amount of cost to track with the budget
      */
-    public readonly amount!: pulumi.Output<number>;
+    declare public readonly amount: pulumi.Output<number>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The category of the budget, whether the budget tracks cost or usage.
      */
-    public readonly category!: pulumi.Output<string>;
+    declare public readonly category: pulumi.Output<string>;
     /**
      * The current amount of cost which is being tracked for a budget.
      */
-    public /*out*/ readonly currentSpend!: pulumi.Output<outputs.consumption.CurrentSpendResponse>;
+    declare public /*out*/ readonly currentSpend: pulumi.Output<outputs.consumption.CurrentSpendResponse>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * May be used to filter budgets by user-specified dimensions and/or tags.
      */
-    public readonly filter!: pulumi.Output<outputs.consumption.BudgetFilterResponse | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.consumption.BudgetFilterResponse | undefined>;
     /**
      * The forecasted cost which is being tracked for a budget.
      */
-    public /*out*/ readonly forecastSpend!: pulumi.Output<outputs.consumption.ForecastSpendResponse>;
+    declare public /*out*/ readonly forecastSpend: pulumi.Output<outputs.consumption.ForecastSpendResponse>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Dictionary of notifications associated with the budget. Budget can have up to five notifications.
      */
-    public readonly notifications!: pulumi.Output<{[key: string]: outputs.consumption.NotificationResponse} | undefined>;
+    declare public readonly notifications: pulumi.Output<{[key: string]: outputs.consumption.NotificationResponse} | undefined>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
      */
-    public readonly timeGrain!: pulumi.Output<string>;
+    declare public readonly timeGrain: pulumi.Output<string>;
     /**
      * Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.consumption.BudgetTimePeriodResponse>;
+    declare public readonly timePeriod: pulumi.Output<outputs.consumption.BudgetTimePeriodResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Budget resource with the given unique name, arguments, and options.
@@ -101,30 +101,30 @@ export class Budget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amount === undefined) && !opts.urn) {
+            if (args?.amount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amount'");
             }
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.timeGrain === undefined) && !opts.urn) {
+            if (args?.timeGrain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["budgetName"] = args?.budgetName;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;

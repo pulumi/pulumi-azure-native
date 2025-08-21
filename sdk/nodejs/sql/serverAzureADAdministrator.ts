@@ -44,35 +44,35 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
     /**
      * Type of the sever administrator.
      */
-    public readonly administratorType!: pulumi.Output<string | undefined>;
+    declare public readonly administratorType: pulumi.Output<string | undefined>;
     /**
      * Azure Active Directory only Authentication enabled.
      */
-    public /*out*/ readonly azureADOnlyAuthentication!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly azureADOnlyAuthentication: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Login name of the server administrator.
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * SID (object ID) of the server administrator.
      */
-    public readonly sid!: pulumi.Output<string>;
+    declare public readonly sid: pulumi.Output<string>;
     /**
      * Tenant ID of the administrator.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerAzureADAdministrator resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class ServerAzureADAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.sid === undefined) && !opts.urn) {
+            if (args?.sid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
-            resourceInputs["administratorName"] = args ? args.administratorName : undefined;
-            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["administratorName"] = args?.administratorName;
+            resourceInputs["administratorType"] = args?.administratorType;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureADOnlyAuthentication"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

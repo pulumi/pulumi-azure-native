@@ -41,31 +41,31 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
     /**
      * Workspace active directory administrator type
      */
-    public readonly administratorType!: pulumi.Output<string | undefined>;
+    declare public readonly administratorType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Login of the workspace active directory administrator
      */
-    public readonly login!: pulumi.Output<string | undefined>;
+    declare public readonly login: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Object ID of the workspace active directory administrator
      */
-    public readonly sid!: pulumi.Output<string | undefined>;
+    declare public readonly sid: pulumi.Output<string | undefined>;
     /**
      * Tenant ID of the workspace active directory administrator
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceAadAdmin resource with the given unique name, arguments, and options.
@@ -78,18 +78,18 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["administratorType"] = args?.administratorType;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

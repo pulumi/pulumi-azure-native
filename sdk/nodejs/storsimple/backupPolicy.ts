@@ -42,47 +42,47 @@ export class BackupPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The backup policy creation type. Indicates whether this was created through SaaS or through StorSimple Snapshot Manager.
      */
-    public /*out*/ readonly backupPolicyCreationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupPolicyCreationType: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The time of the last backup for the backup policy.
      */
-    public /*out*/ readonly lastBackupTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastBackupTime: pulumi.Output<string>;
     /**
      * The name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The time of the next backup for the backup policy.
      */
-    public /*out*/ readonly nextBackupTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextBackupTime: pulumi.Output<string>;
     /**
      * Indicates whether at least one of the schedules in the backup policy is active or not.
      */
-    public /*out*/ readonly scheduledBackupStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly scheduledBackupStatus: pulumi.Output<string>;
     /**
      * The count of schedules the backup policy contains.
      */
-    public /*out*/ readonly schedulesCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly schedulesCount: pulumi.Output<number>;
     /**
      * If the backup policy was created by StorSimple Snapshot Manager, then this field indicates the hostname of the StorSimple Snapshot Manager.
      */
-    public /*out*/ readonly ssmHostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly ssmHostName: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The path IDs of the volumes which are part of the backup policy.
      */
-    public readonly volumeIds!: pulumi.Output<string[]>;
+    declare public readonly volumeIds: pulumi.Output<string[]>;
 
     /**
      * Create a BackupPolicy resource with the given unique name, arguments, and options.
@@ -95,24 +95,24 @@ export class BackupPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeIds === undefined) && !opts.urn) {
+            if (args?.volumeIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeIds'");
             }
-            resourceInputs["backupPolicyName"] = args ? args.backupPolicyName : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeIds"] = args ? args.volumeIds : undefined;
+            resourceInputs["backupPolicyName"] = args?.backupPolicyName;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeIds"] = args?.volumeIds;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupPolicyCreationType"] = undefined /*out*/;
             resourceInputs["lastBackupTime"] = undefined /*out*/;

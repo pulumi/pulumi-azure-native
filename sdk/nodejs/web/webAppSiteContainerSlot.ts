@@ -44,67 +44,67 @@ export class WebAppSiteContainerSlot extends pulumi.CustomResource {
     /**
      * Auth Type
      */
-    public readonly authType!: pulumi.Output<string | undefined>;
+    declare public readonly authType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Created Time
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * List of environment variables
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.web.EnvironmentVariableResponse[] | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.web.EnvironmentVariableResponse[] | undefined>;
     /**
      * Image Name
      */
-    public readonly image!: pulumi.Output<string>;
+    declare public readonly image: pulumi.Output<string>;
     /**
      * <code>true</code> if the container is the main site container; <code>false</code> otherwise.
      */
-    public readonly isMain!: pulumi.Output<boolean>;
+    declare public readonly isMain: pulumi.Output<boolean>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Last Modified Time
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Password Secret
      */
-    public readonly passwordSecret!: pulumi.Output<string | undefined>;
+    declare public readonly passwordSecret: pulumi.Output<string | undefined>;
     /**
      * StartUp Command
      */
-    public readonly startUpCommand!: pulumi.Output<string | undefined>;
+    declare public readonly startUpCommand: pulumi.Output<string | undefined>;
     /**
      * Target Port
      */
-    public readonly targetPort!: pulumi.Output<string | undefined>;
+    declare public readonly targetPort: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * UserManagedIdentity ClientId
      */
-    public readonly userManagedIdentityClientId!: pulumi.Output<string | undefined>;
+    declare public readonly userManagedIdentityClientId: pulumi.Output<string | undefined>;
     /**
      * User Name
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
     /**
      * List of volume mounts
      */
-    public readonly volumeMounts!: pulumi.Output<outputs.web.VolumeMountResponse[] | undefined>;
+    declare public readonly volumeMounts: pulumi.Output<outputs.web.VolumeMountResponse[] | undefined>;
 
     /**
      * Create a WebAppSiteContainerSlot resource with the given unique name, arguments, and options.
@@ -117,36 +117,36 @@ export class WebAppSiteContainerSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.isMain === undefined) && !opts.urn) {
+            if (args?.isMain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isMain'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["authType"] = args ? args.authType : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["isMain"] = args ? args.isMain : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["passwordSecret"] = args ? args.passwordSecret : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["startUpCommand"] = args ? args.startUpCommand : undefined;
-            resourceInputs["targetPort"] = args ? args.targetPort : undefined;
-            resourceInputs["userManagedIdentityClientId"] = args ? args.userManagedIdentityClientId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
-            resourceInputs["volumeMounts"] = args ? args.volumeMounts : undefined;
+            resourceInputs["authType"] = args?.authType;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["isMain"] = args?.isMain;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["passwordSecret"] = args?.passwordSecret;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["startUpCommand"] = args?.startUpCommand;
+            resourceInputs["targetPort"] = args?.targetPort;
+            resourceInputs["userManagedIdentityClientId"] = args?.userManagedIdentityClientId;
+            resourceInputs["userName"] = args?.userName;
+            resourceInputs["volumeMounts"] = args?.volumeMounts;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

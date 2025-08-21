@@ -44,87 +44,87 @@ export class AuthorizationServer extends pulumi.CustomResource {
     /**
      * OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2.
      */
-    public readonly authorizationEndpoint!: pulumi.Output<string>;
+    declare public readonly authorizationEndpoint: pulumi.Output<string>;
     /**
      * HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional.
      */
-    public readonly authorizationMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly authorizationMethods: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the mechanism by which access token is passed to the API. 
      */
-    public readonly bearerTokenSendingMethods!: pulumi.Output<string[] | undefined>;
+    declare public readonly bearerTokenSendingMethods: pulumi.Output<string[] | undefined>;
     /**
      * Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format.
      */
-    public readonly clientAuthenticationMethod!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientAuthenticationMethod: pulumi.Output<string[] | undefined>;
     /**
      * Client or app id registered with this authorization server.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced.
      */
-    public readonly clientRegistrationEndpoint!: pulumi.Output<string>;
+    declare public readonly clientRegistrationEndpoint: pulumi.Output<string>;
     /**
      * Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values.
      */
-    public readonly defaultScope!: pulumi.Output<string | undefined>;
+    declare public readonly defaultScope: pulumi.Output<string | undefined>;
     /**
      * Description of the authorization server. Can contain HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * User-friendly authorization server name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Form of an authorization grant, which the client uses to request the access token.
      */
-    public readonly grantTypes!: pulumi.Output<string[]>;
+    declare public readonly grantTypes: pulumi.Output<string[]>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password.
      */
-    public readonly resourceOwnerPassword!: pulumi.Output<string | undefined>;
+    declare public readonly resourceOwnerPassword: pulumi.Output<string | undefined>;
     /**
      * Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username.
      */
-    public readonly resourceOwnerUsername!: pulumi.Output<string | undefined>;
+    declare public readonly resourceOwnerUsername: pulumi.Output<string | undefined>;
     /**
      * If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security.
      */
-    public readonly supportState!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportState: pulumi.Output<boolean | undefined>;
     /**
      * Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {"name" : "name value", "value": "a value"}.
      */
-    public readonly tokenBodyParameters!: pulumi.Output<outputs.apimanagement.TokenBodyParameterContractResponse[] | undefined>;
+    declare public readonly tokenBodyParameters: pulumi.Output<outputs.apimanagement.TokenBodyParameterContractResponse[] | undefined>;
     /**
      * OAuth token endpoint. Contains absolute URI to entity being referenced.
      */
-    public readonly tokenEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly tokenEndpoint: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided.
      */
-    public readonly useInApiDocumentation!: pulumi.Output<boolean | undefined>;
+    declare public readonly useInApiDocumentation: pulumi.Output<boolean | undefined>;
     /**
      * If true, the authorization server may be used in the developer portal test console. True by default if no value is provided.
      */
-    public readonly useInTestConsole!: pulumi.Output<boolean | undefined>;
+    declare public readonly useInTestConsole: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AuthorizationServer resource with the given unique name, arguments, and options.
@@ -137,48 +137,48 @@ export class AuthorizationServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizationEndpoint === undefined) && !opts.urn) {
+            if (args?.authorizationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationEndpoint'");
             }
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientRegistrationEndpoint === undefined) && !opts.urn) {
+            if (args?.clientRegistrationEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientRegistrationEndpoint'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.grantTypes === undefined) && !opts.urn) {
+            if (args?.grantTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'grantTypes'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["authorizationEndpoint"] = args ? args.authorizationEndpoint : undefined;
-            resourceInputs["authorizationMethods"] = args ? args.authorizationMethods : undefined;
-            resourceInputs["authsid"] = args ? args.authsid : undefined;
-            resourceInputs["bearerTokenSendingMethods"] = args ? args.bearerTokenSendingMethods : undefined;
-            resourceInputs["clientAuthenticationMethod"] = args ? args.clientAuthenticationMethod : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientRegistrationEndpoint"] = args ? args.clientRegistrationEndpoint : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["defaultScope"] = args ? args.defaultScope : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["grantTypes"] = args ? args.grantTypes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceOwnerPassword"] = args ? args.resourceOwnerPassword : undefined;
-            resourceInputs["resourceOwnerUsername"] = args ? args.resourceOwnerUsername : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["supportState"] = args ? args.supportState : undefined;
-            resourceInputs["tokenBodyParameters"] = args ? args.tokenBodyParameters : undefined;
-            resourceInputs["tokenEndpoint"] = args ? args.tokenEndpoint : undefined;
-            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
-            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
+            resourceInputs["authorizationEndpoint"] = args?.authorizationEndpoint;
+            resourceInputs["authorizationMethods"] = args?.authorizationMethods;
+            resourceInputs["authsid"] = args?.authsid;
+            resourceInputs["bearerTokenSendingMethods"] = args?.bearerTokenSendingMethods;
+            resourceInputs["clientAuthenticationMethod"] = args?.clientAuthenticationMethod;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientRegistrationEndpoint"] = args?.clientRegistrationEndpoint;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["defaultScope"] = args?.defaultScope;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["grantTypes"] = args?.grantTypes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceOwnerPassword"] = args?.resourceOwnerPassword;
+            resourceInputs["resourceOwnerUsername"] = args?.resourceOwnerUsername;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["supportState"] = args?.supportState;
+            resourceInputs["tokenBodyParameters"] = args?.tokenBodyParameters;
+            resourceInputs["tokenEndpoint"] = args?.tokenEndpoint;
+            resourceInputs["useInApiDocumentation"] = args?.useInApiDocumentation;
+            resourceInputs["useInTestConsole"] = args?.useInTestConsole;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

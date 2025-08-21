@@ -44,56 +44,56 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The DNS servers to signal to UEs to use for this attached data network. This configuration is mandatory - if you don't want DNS servers, you must provide an empty array.
      */
-    public readonly dnsAddresses!: pulumi.Output<string[]>;
+    declare public readonly dnsAddresses: pulumi.Output<string[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The network address and port translation (NAPT) configuration.
      * If this is not specified, the attached data network will use a default NAPT configuration with NAPT enabled.
      */
-    public readonly naptConfiguration!: pulumi.Output<outputs.mobilenetwork.NaptConfigurationResponse | undefined>;
+    declare public readonly naptConfiguration: pulumi.Output<outputs.mobilenetwork.NaptConfigurationResponse | undefined>;
     /**
      * The provisioning state of the attached data network resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will dynamically assign IP addresses to UEs.
      * The packet core instance assigns an IP address to a UE when the UE sets up a PDU session.
      *  You must define at least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix. If you define both, they must be of the same size.
      */
-    public readonly userEquipmentAddressPoolPrefix!: pulumi.Output<string[] | undefined>;
+    declare public readonly userEquipmentAddressPoolPrefix: pulumi.Output<string[] | undefined>;
     /**
      * The user equipment (UE) address pool prefixes for the attached data network from which the packet core instance will assign static IP addresses to UEs.
      * The packet core instance assigns an IP address to a UE when the UE sets up a PDU session. The static IP address for a specific UE is set in StaticIPConfiguration on the corresponding SIM resource.
      * At least one of userEquipmentAddressPoolPrefix and userEquipmentStaticAddressPoolPrefix must be defined. If both are defined, they must be of the same size.
      */
-    public readonly userEquipmentStaticAddressPoolPrefix!: pulumi.Output<string[] | undefined>;
+    declare public readonly userEquipmentStaticAddressPoolPrefix: pulumi.Output<string[] | undefined>;
     /**
      * The user plane interface on the data network. For 5G networks, this is the N6 interface. For 4G networks, this is the SGi interface.
      */
-    public readonly userPlaneDataInterface!: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
+    declare public readonly userPlaneDataInterface: pulumi.Output<outputs.mobilenetwork.InterfacePropertiesResponse>;
 
     /**
      * Create a AttachedDataNetwork resource with the given unique name, arguments, and options.
@@ -106,32 +106,32 @@ export class AttachedDataNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsAddresses === undefined) && !opts.urn) {
+            if (args?.dnsAddresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsAddresses'");
             }
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.packetCoreDataPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreDataPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreDataPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userPlaneDataInterface === undefined) && !opts.urn) {
+            if (args?.userPlaneDataInterface === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userPlaneDataInterface'");
             }
-            resourceInputs["attachedDataNetworkName"] = args ? args.attachedDataNetworkName : undefined;
-            resourceInputs["dnsAddresses"] = args ? args.dnsAddresses : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["attachedDataNetworkName"] = args?.attachedDataNetworkName;
+            resourceInputs["dnsAddresses"] = args?.dnsAddresses;
+            resourceInputs["location"] = args?.location;
             resourceInputs["naptConfiguration"] = args ? (args.naptConfiguration ? pulumi.output(args.naptConfiguration).apply(inputs.mobilenetwork.naptConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["packetCoreDataPlaneName"] = args ? args.packetCoreDataPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userEquipmentAddressPoolPrefix"] = args ? args.userEquipmentAddressPoolPrefix : undefined;
-            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = args ? args.userEquipmentStaticAddressPoolPrefix : undefined;
-            resourceInputs["userPlaneDataInterface"] = args ? args.userPlaneDataInterface : undefined;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["packetCoreDataPlaneName"] = args?.packetCoreDataPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userEquipmentAddressPoolPrefix"] = args?.userEquipmentAddressPoolPrefix;
+            resourceInputs["userEquipmentStaticAddressPoolPrefix"] = args?.userEquipmentStaticAddressPoolPrefix;
+            resourceInputs["userPlaneDataInterface"] = args?.userPlaneDataInterface;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

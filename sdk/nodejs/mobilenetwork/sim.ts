@@ -44,59 +44,59 @@ export class Sim extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An optional free-form text field that can be used to record the device type this SIM is associated with, for example 'Video camera'. The Azure portal allows SIMs to be grouped and filtered based on this value.
      */
-    public readonly deviceType!: pulumi.Output<string | undefined>;
+    declare public readonly deviceType: pulumi.Output<string | undefined>;
     /**
      * The integrated circuit card ID (ICCID) for the SIM.
      */
-    public readonly integratedCircuitCardIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly integratedCircuitCardIdentifier: pulumi.Output<string | undefined>;
     /**
      * The international mobile subscriber identity (IMSI) for the SIM.
      */
-    public readonly internationalMobileSubscriberIdentity!: pulumi.Output<string>;
+    declare public readonly internationalMobileSubscriberIdentity: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the SIM resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SIM policy used by this SIM. The SIM policy must be in the same location as the SIM.
      */
-    public readonly simPolicy!: pulumi.Output<outputs.mobilenetwork.SimPolicyResourceIdResponse | undefined>;
+    declare public readonly simPolicy: pulumi.Output<outputs.mobilenetwork.SimPolicyResourceIdResponse | undefined>;
     /**
      * The state of the SIM resource.
      */
-    public /*out*/ readonly simState!: pulumi.Output<string>;
+    declare public /*out*/ readonly simState: pulumi.Output<string>;
     /**
      * A dictionary of sites to the provisioning state of this SIM on that site.
      */
-    public /*out*/ readonly siteProvisioningState!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly siteProvisioningState: pulumi.Output<{[key: string]: string}>;
     /**
      * A list of static IP addresses assigned to this SIM. Each address is assigned at a defined network scope, made up of {attached data network, slice}.
      */
-    public readonly staticIpConfiguration!: pulumi.Output<outputs.mobilenetwork.SimStaticIpPropertiesResponse[] | undefined>;
+    declare public readonly staticIpConfiguration: pulumi.Output<outputs.mobilenetwork.SimStaticIpPropertiesResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The public key fingerprint of the SIM vendor who provided this SIM, if any.
      */
-    public /*out*/ readonly vendorKeyFingerprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly vendorKeyFingerprint: pulumi.Output<string>;
     /**
      * The name of the SIM vendor who provided this SIM, if any.
      */
-    public /*out*/ readonly vendorName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vendorName: pulumi.Output<string>;
 
     /**
      * Create a Sim resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class Sim extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.internationalMobileSubscriberIdentity === undefined) && !opts.urn) {
+            if (args?.internationalMobileSubscriberIdentity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'internationalMobileSubscriberIdentity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.simGroupName === undefined) && !opts.urn) {
+            if (args?.simGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'simGroupName'");
             }
-            resourceInputs["authenticationKey"] = args ? args.authenticationKey : undefined;
-            resourceInputs["deviceType"] = args ? args.deviceType : undefined;
-            resourceInputs["integratedCircuitCardIdentifier"] = args ? args.integratedCircuitCardIdentifier : undefined;
-            resourceInputs["internationalMobileSubscriberIdentity"] = args ? args.internationalMobileSubscriberIdentity : undefined;
-            resourceInputs["operatorKeyCode"] = args ? args.operatorKeyCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["simGroupName"] = args ? args.simGroupName : undefined;
-            resourceInputs["simName"] = args ? args.simName : undefined;
-            resourceInputs["simPolicy"] = args ? args.simPolicy : undefined;
-            resourceInputs["staticIpConfiguration"] = args ? args.staticIpConfiguration : undefined;
+            resourceInputs["authenticationKey"] = args?.authenticationKey;
+            resourceInputs["deviceType"] = args?.deviceType;
+            resourceInputs["integratedCircuitCardIdentifier"] = args?.integratedCircuitCardIdentifier;
+            resourceInputs["internationalMobileSubscriberIdentity"] = args?.internationalMobileSubscriberIdentity;
+            resourceInputs["operatorKeyCode"] = args?.operatorKeyCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["simGroupName"] = args?.simGroupName;
+            resourceInputs["simName"] = args?.simName;
+            resourceInputs["simPolicy"] = args?.simPolicy;
+            resourceInputs["staticIpConfiguration"] = args?.staticIpConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,51 +44,51 @@ export class PolicyDefinitionVersionAtManagementGroup extends pulumi.CustomResou
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The policy definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy definition.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The policy definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * The policy definition mode. Some examples are All, Indexed, Microsoft.KeyVault.Data.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the policy definition version.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The parameter definitions for parameters used in the policy rule. The keys are the parameter names.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.authorization.ParameterDefinitionsValueResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.authorization.ParameterDefinitionsValueResponse} | undefined>;
     /**
      * The policy rule.
      */
-    public readonly policyRule!: pulumi.Output<any | undefined>;
+    declare public readonly policyRule: pulumi.Output<any | undefined>;
     /**
      * The type of policy definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    declare public readonly policyType: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/policyDefinitions/versions).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The policy definition version in #.#.# format.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a PolicyDefinitionVersionAtManagementGroup resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class PolicyDefinitionVersionAtManagementGroup extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupName === undefined) && !opts.urn) {
+            if (args?.managementGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupName'");
             }
-            if ((!args || args.policyDefinitionName === undefined) && !opts.urn) {
+            if (args?.policyDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["managementGroupName"] = args ? args.managementGroupName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mode"] = (args ? args.mode : undefined) ?? "Indexed";
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionName"] = args ? args.policyDefinitionName : undefined;
-            resourceInputs["policyDefinitionVersion"] = args ? args.policyDefinitionVersion : undefined;
-            resourceInputs["policyRule"] = args ? args.policyRule : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["managementGroupName"] = args?.managementGroupName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mode"] = (args?.mode) ?? "Indexed";
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionName"] = args?.policyDefinitionName;
+            resourceInputs["policyDefinitionVersion"] = args?.policyDefinitionVersion;
+            resourceInputs["policyRule"] = args?.policyRule;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

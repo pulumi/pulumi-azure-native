@@ -44,55 +44,55 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The list of allowed endpoint record types.
      */
-    public readonly allowedEndpointRecordTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedEndpointRecordTypes: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The DNS settings of the Traffic Manager profile.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.trafficmanager.DnsConfigResponse | undefined>;
+    declare public readonly dnsConfig: pulumi.Output<outputs.trafficmanager.DnsConfigResponse | undefined>;
     /**
      * The list of endpoints in the Traffic Manager profile.
      */
-    public readonly endpoints!: pulumi.Output<outputs.trafficmanager.EndpointResponse[] | undefined>;
+    declare public readonly endpoints: pulumi.Output<outputs.trafficmanager.EndpointResponse[] | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Maximum number of endpoints to be returned for MultiValue routing type.
      */
-    public readonly maxReturn!: pulumi.Output<number | undefined>;
+    declare public readonly maxReturn: pulumi.Output<number | undefined>;
     /**
      * The endpoint monitoring settings of the Traffic Manager profile.
      */
-    public readonly monitorConfig!: pulumi.Output<outputs.trafficmanager.MonitorConfigResponse | undefined>;
+    declare public readonly monitorConfig: pulumi.Output<outputs.trafficmanager.MonitorConfigResponse | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The status of the Traffic Manager profile.
      */
-    public readonly profileStatus!: pulumi.Output<string | undefined>;
+    declare public readonly profileStatus: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The traffic routing method of the Traffic Manager profile.
      */
-    public readonly trafficRoutingMethod!: pulumi.Output<string | undefined>;
+    declare public readonly trafficRoutingMethod: pulumi.Output<string | undefined>;
     /**
      * Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile.
      */
-    public readonly trafficViewEnrollmentStatus!: pulumi.Output<string | undefined>;
+    declare public readonly trafficViewEnrollmentStatus: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedEndpointRecordTypes"] = args ? args.allowedEndpointRecordTypes : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxReturn"] = args ? args.maxReturn : undefined;
-            resourceInputs["monitorConfig"] = args ? args.monitorConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileStatus"] = args ? args.profileStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficRoutingMethod"] = args ? args.trafficRoutingMethod : undefined;
-            resourceInputs["trafficViewEnrollmentStatus"] = args ? args.trafficViewEnrollmentStatus : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowedEndpointRecordTypes"] = args?.allowedEndpointRecordTypes;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxReturn"] = args?.maxReturn;
+            resourceInputs["monitorConfig"] = args?.monitorConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileStatus"] = args?.profileStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficRoutingMethod"] = args?.trafficRoutingMethod;
+            resourceInputs["trafficViewEnrollmentStatus"] = args?.trafficViewEnrollmentStatus;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["allowedEndpointRecordTypes"] = undefined /*out*/;

@@ -41,35 +41,35 @@ export class RegisteredPrefix extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The error message associated with the validation state, if any.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The peering service prefix key that is to be shared with the customer.
      */
-    public /*out*/ readonly peeringServicePrefixKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly peeringServicePrefixKey: pulumi.Output<string>;
     /**
      * The customer's prefix from which traffic originates.
      */
-    public readonly prefix!: pulumi.Output<string | undefined>;
+    declare public readonly prefix: pulumi.Output<string | undefined>;
     /**
      * The prefix validation state.
      */
-    public /*out*/ readonly prefixValidationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly prefixValidationState: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RegisteredPrefix resource with the given unique name, arguments, and options.
@@ -82,16 +82,16 @@ export class RegisteredPrefix extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringName === undefined) && !opts.urn) {
+            if (args?.peeringName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["registeredPrefixName"] = args ? args.registeredPrefixName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["registeredPrefixName"] = args?.registeredPrefixName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

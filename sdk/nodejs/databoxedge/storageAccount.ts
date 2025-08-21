@@ -44,43 +44,43 @@ export class StorageAccount extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * BlobEndpoint of Storage Account
      */
-    public /*out*/ readonly blobEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly blobEndpoint: pulumi.Output<string>;
     /**
      * The Container Count. Present only for Storage Accounts with DataPolicy set to Cloud.
      */
-    public /*out*/ readonly containerCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly containerCount: pulumi.Output<number>;
     /**
      * Data policy of the storage Account.
      */
-    public readonly dataPolicy!: pulumi.Output<string>;
+    declare public readonly dataPolicy: pulumi.Output<string>;
     /**
      * Description for the storage Account.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The object name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Storage Account Credential Id
      */
-    public readonly storageAccountCredentialId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountCredentialId: pulumi.Output<string | undefined>;
     /**
      * Current status of the storage account
      */
-    public readonly storageAccountStatus!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountStatus: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of StorageAccount
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a StorageAccount resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class StorageAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataPolicy === undefined) && !opts.urn) {
+            if (args?.dataPolicy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataPolicy'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataPolicy"] = args ? args.dataPolicy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccountStatus"] = args ? args.storageAccountStatus : undefined;
+            resourceInputs["dataPolicy"] = args?.dataPolicy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountCredentialId"] = args?.storageAccountCredentialId;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccountStatus"] = args?.storageAccountStatus;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobEndpoint"] = undefined /*out*/;
             resourceInputs["containerCount"] = undefined /*out*/;

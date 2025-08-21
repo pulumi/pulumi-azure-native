@@ -44,96 +44,96 @@ export class LocalRule extends pulumi.CustomResource {
     /**
      * rule action
      */
-    public readonly actionType!: pulumi.Output<string | undefined>;
+    declare public readonly actionType: pulumi.Output<string | undefined>;
     /**
      * array of rule applications
      */
-    public readonly applications!: pulumi.Output<string[] | undefined>;
+    declare public readonly applications: pulumi.Output<string[] | undefined>;
     /**
      * rule comment
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * rule category
      */
-    public readonly category!: pulumi.Output<outputs.cloudngfw.CategoryResponse | undefined>;
+    declare public readonly category: pulumi.Output<outputs.cloudngfw.CategoryResponse | undefined>;
     /**
      * enable or disable decryption
      */
-    public readonly decryptionRuleType!: pulumi.Output<string | undefined>;
+    declare public readonly decryptionRuleType: pulumi.Output<string | undefined>;
     /**
      * rule description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * destination address
      */
-    public readonly destination!: pulumi.Output<outputs.cloudngfw.DestinationAddrResponse | undefined>;
+    declare public readonly destination: pulumi.Output<outputs.cloudngfw.DestinationAddrResponse | undefined>;
     /**
      * enable or disable logging
      */
-    public readonly enableLogging!: pulumi.Output<string | undefined>;
+    declare public readonly enableLogging: pulumi.Output<string | undefined>;
     /**
      * etag info
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * inbound Inspection Certificate
      */
-    public readonly inboundInspectionCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly inboundInspectionCertificate: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * cidr should not be 'any'
      */
-    public readonly negateDestination!: pulumi.Output<string | undefined>;
+    declare public readonly negateDestination: pulumi.Output<string | undefined>;
     /**
      * cidr should not be 'any'
      */
-    public readonly negateSource!: pulumi.Output<string | undefined>;
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly negateSource: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * any, application-default, TCP:number, UDP:number
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * prot port list
      */
-    public readonly protocolPortList!: pulumi.Output<string[] | undefined>;
+    declare public readonly protocolPortList: pulumi.Output<string[] | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * rule name
      */
-    public readonly ruleName!: pulumi.Output<string>;
+    declare public readonly ruleName: pulumi.Output<string>;
     /**
      * state of this rule
      */
-    public readonly ruleState!: pulumi.Output<string | undefined>;
+    declare public readonly ruleState: pulumi.Output<string | undefined>;
     /**
      * source address
      */
-    public readonly source!: pulumi.Output<outputs.cloudngfw.SourceAddrResponse | undefined>;
+    declare public readonly source: pulumi.Output<outputs.cloudngfw.SourceAddrResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cloudngfw.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cloudngfw.SystemDataResponse>;
     /**
      * tag for rule
      */
-    public readonly tags!: pulumi.Output<outputs.cloudngfw.TagInfoResponse[] | undefined>;
+    declare public readonly tags: pulumi.Output<outputs.cloudngfw.TagInfoResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LocalRule resource with the given unique name, arguments, and options.
@@ -146,35 +146,35 @@ export class LocalRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.localRulestackName === undefined) && !opts.urn) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleName === undefined) && !opts.urn) {
+            if (args?.ruleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleName'");
             }
-            resourceInputs["actionType"] = args ? args.actionType : undefined;
-            resourceInputs["applications"] = args ? args.applications : undefined;
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["decryptionRuleType"] = args ? args.decryptionRuleType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["enableLogging"] = args ? args.enableLogging : undefined;
-            resourceInputs["inboundInspectionCertificate"] = args ? args.inboundInspectionCertificate : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["negateDestination"] = args ? args.negateDestination : undefined;
-            resourceInputs["negateSource"] = args ? args.negateSource : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = (args ? args.protocol : undefined) ?? "application-default";
-            resourceInputs["protocolPortList"] = args ? args.protocolPortList : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["ruleState"] = args ? args.ruleState : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actionType"] = args?.actionType;
+            resourceInputs["applications"] = args?.applications;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["decryptionRuleType"] = args?.decryptionRuleType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["enableLogging"] = args?.enableLogging;
+            resourceInputs["inboundInspectionCertificate"] = args?.inboundInspectionCertificate;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["negateDestination"] = args?.negateDestination;
+            resourceInputs["negateSource"] = args?.negateSource;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = (args?.protocol) ?? "application-default";
+            resourceInputs["protocolPortList"] = args?.protocolPortList;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["ruleState"] = args?.ruleState;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

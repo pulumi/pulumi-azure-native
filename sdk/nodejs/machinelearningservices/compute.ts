@@ -44,39 +44,39 @@ export class Compute extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.machinelearningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Compute properties
      */
-    public readonly properties!: pulumi.Output<outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.KubernetesResponse | outputs.machinelearningservices.SynapseSparkResponse | outputs.machinelearningservices.VirtualMachineResponse>;
+    declare public readonly properties: pulumi.Output<outputs.machinelearningservices.AKSResponse | outputs.machinelearningservices.AmlComputeResponse | outputs.machinelearningservices.ComputeInstanceResponse | outputs.machinelearningservices.DataFactoryResponse | outputs.machinelearningservices.DataLakeAnalyticsResponse | outputs.machinelearningservices.DatabricksResponse | outputs.machinelearningservices.HDInsightResponse | outputs.machinelearningservices.KubernetesResponse | outputs.machinelearningservices.SynapseSparkResponse | outputs.machinelearningservices.VirtualMachineResponse>;
     /**
      * The sku of the workspace.
      */
-    public readonly sku!: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.machinelearningservices.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * Contains resource tags defined as key/value pairs.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Compute resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class Compute extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["computeName"] = args ? args.computeName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["computeName"] = args?.computeName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

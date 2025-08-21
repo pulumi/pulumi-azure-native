@@ -44,83 +44,83 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The name of the app.
      */
-    public readonly appName!: pulumi.Output<string | undefined>;
+    declare public readonly appName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The version of the language image used for building the code in the generated dockerfile.
      */
-    public readonly builderVersion!: pulumi.Output<string | undefined>;
+    declare public readonly builderVersion: pulumi.Output<string | undefined>;
     /**
      * The mode of generation to be used for generating Dockerfiles.
      */
-    public readonly dockerfileGenerationMode!: pulumi.Output<string | undefined>;
+    declare public readonly dockerfileGenerationMode: pulumi.Output<string | undefined>;
     /**
      * The directory to output the generated Dockerfile to.
      */
-    public readonly dockerfileOutputDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly dockerfileOutputDirectory: pulumi.Output<string | undefined>;
     /**
      * The programming language used.
      */
-    public readonly generationLanguage!: pulumi.Output<string | undefined>;
+    declare public readonly generationLanguage: pulumi.Output<string | undefined>;
     /**
      * Profile of a github workflow.
      */
-    public readonly githubWorkflowProfile!: pulumi.Output<outputs.devhub.GitHubWorkflowProfileResponse | undefined>;
+    declare public readonly githubWorkflowProfile: pulumi.Output<outputs.devhub.GitHubWorkflowProfileResponse | undefined>;
     /**
      * The name of the image to be generated.
      */
-    public readonly imageName!: pulumi.Output<string | undefined>;
+    declare public readonly imageName: pulumi.Output<string | undefined>;
     /**
      * The tag to apply to the generated image.
      */
-    public readonly imageTag!: pulumi.Output<string | undefined>;
+    declare public readonly imageTag: pulumi.Output<string | undefined>;
     /**
      * The version of the language image used for execution in the generated dockerfile.
      */
-    public readonly languageVersion!: pulumi.Output<string | undefined>;
+    declare public readonly languageVersion: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The mode of generation to be used for generating Manifest.
      */
-    public readonly manifestGenerationMode!: pulumi.Output<string | undefined>;
+    declare public readonly manifestGenerationMode: pulumi.Output<string | undefined>;
     /**
      * The directory to output the generated manifests to.
      */
-    public readonly manifestOutputDirectory!: pulumi.Output<string | undefined>;
+    declare public readonly manifestOutputDirectory: pulumi.Output<string | undefined>;
     /**
      * Determines the type of manifests to be generated.
      */
-    public readonly manifestType!: pulumi.Output<string | undefined>;
+    declare public readonly manifestType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The namespace to deploy the application to.
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * The port the application is exposed on.
      */
-    public readonly port!: pulumi.Output<string | undefined>;
+    declare public readonly port: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devhub.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -133,27 +133,27 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["builderVersion"] = args ? args.builderVersion : undefined;
-            resourceInputs["dockerfileGenerationMode"] = args ? args.dockerfileGenerationMode : undefined;
-            resourceInputs["dockerfileOutputDirectory"] = args ? args.dockerfileOutputDirectory : undefined;
-            resourceInputs["generationLanguage"] = args ? args.generationLanguage : undefined;
-            resourceInputs["githubWorkflowProfile"] = args ? args.githubWorkflowProfile : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["imageTag"] = args ? args.imageTag : undefined;
-            resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manifestGenerationMode"] = args ? args.manifestGenerationMode : undefined;
-            resourceInputs["manifestOutputDirectory"] = args ? args.manifestOutputDirectory : undefined;
-            resourceInputs["manifestType"] = args ? args.manifestType : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["builderVersion"] = args?.builderVersion;
+            resourceInputs["dockerfileGenerationMode"] = args?.dockerfileGenerationMode;
+            resourceInputs["dockerfileOutputDirectory"] = args?.dockerfileOutputDirectory;
+            resourceInputs["generationLanguage"] = args?.generationLanguage;
+            resourceInputs["githubWorkflowProfile"] = args?.githubWorkflowProfile;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["imageTag"] = args?.imageTag;
+            resourceInputs["languageVersion"] = args?.languageVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manifestGenerationMode"] = args?.manifestGenerationMode;
+            resourceInputs["manifestOutputDirectory"] = args?.manifestOutputDirectory;
+            resourceInputs["manifestType"] = args?.manifestType;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

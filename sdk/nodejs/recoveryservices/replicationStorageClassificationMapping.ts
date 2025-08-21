@@ -44,23 +44,23 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Properties of the storage mapping object.
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.StorageClassificationMappingPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.recoveryservices.StorageClassificationMappingPropertiesResponse>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReplicationStorageClassificationMapping resource with the given unique name, arguments, and options.
@@ -73,24 +73,24 @@ export class ReplicationStorageClassificationMapping extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricName === undefined) && !opts.urn) {
+            if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.storageClassificationName === undefined) && !opts.urn) {
+            if (args?.storageClassificationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageClassificationName'");
             }
-            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["storageClassificationMappingName"] = args ? args.storageClassificationMappingName : undefined;
-            resourceInputs["storageClassificationName"] = args ? args.storageClassificationName : undefined;
+            resourceInputs["fabricName"] = args?.fabricName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["storageClassificationMappingName"] = args?.storageClassificationMappingName;
+            resourceInputs["storageClassificationName"] = args?.storageClassificationName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

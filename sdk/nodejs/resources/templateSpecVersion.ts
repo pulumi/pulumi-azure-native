@@ -44,47 +44,47 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Template Spec version description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An array of linked template artifacts.
      */
-    public readonly linkedTemplates!: pulumi.Output<outputs.resources.LinkedTemplateArtifactResponse[] | undefined>;
+    declare public readonly linkedTemplates: pulumi.Output<outputs.resources.LinkedTemplateArtifactResponse[] | undefined>;
     /**
      * The location of the Template Spec Version. It must match the location of the parent Template Spec.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The main Azure Resource Manager template content.
      */
-    public readonly mainTemplate!: pulumi.Output<any | undefined>;
+    declare public readonly mainTemplate: pulumi.Output<any | undefined>;
     /**
      * The version metadata. Metadata is an open-ended object and is typically a collection of key-value pairs.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.resources.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resources.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Azure Resource Manager template UI definition content.
      */
-    public readonly uiFormDefinition!: pulumi.Output<any | undefined>;
+    declare public readonly uiFormDefinition: pulumi.Output<any | undefined>;
 
     /**
      * Create a TemplateSpecVersion resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class TemplateSpecVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateSpecName === undefined) && !opts.urn) {
+            if (args?.templateSpecName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateSpecName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["linkedTemplates"] = args ? args.linkedTemplates : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateSpecName"] = args ? args.templateSpecName : undefined;
-            resourceInputs["templateSpecVersion"] = args ? args.templateSpecVersion : undefined;
-            resourceInputs["uiFormDefinition"] = args ? args.uiFormDefinition : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["linkedTemplates"] = args?.linkedTemplates;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateSpecName"] = args?.templateSpecName;
+            resourceInputs["templateSpecVersion"] = args?.templateSpecVersion;
+            resourceInputs["uiFormDefinition"] = args?.uiFormDefinition;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

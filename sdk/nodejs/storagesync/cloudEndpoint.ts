@@ -44,59 +44,59 @@ export class CloudEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure file share name
      */
-    public readonly azureFileShareName!: pulumi.Output<string | undefined>;
+    declare public readonly azureFileShareName: pulumi.Output<string | undefined>;
     /**
      * Backup Enabled
      */
-    public /*out*/ readonly backupEnabled!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupEnabled: pulumi.Output<string>;
     /**
      * Cloud endpoint change enumeration status
      */
-    public /*out*/ readonly changeEnumerationStatus!: pulumi.Output<outputs.storagesync.CloudEndpointChangeEnumerationStatusResponse>;
+    declare public /*out*/ readonly changeEnumerationStatus: pulumi.Output<outputs.storagesync.CloudEndpointChangeEnumerationStatusResponse>;
     /**
      * Friendly Name
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastOperationName: pulumi.Output<string | undefined>;
     /**
      * CloudEndpoint lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastWorkflowId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Partnership Id
      */
-    public /*out*/ readonly partnershipId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly partnershipId: pulumi.Output<string | undefined>;
     /**
      * CloudEndpoint Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Storage Account Resource Id
      */
-    public readonly storageAccountResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountResourceId: pulumi.Output<string | undefined>;
     /**
      * Storage Account Tenant Id
      */
-    public readonly storageAccountTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountTenantId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagesync.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CloudEndpoint resource with the given unique name, arguments, and options.
@@ -109,23 +109,23 @@ export class CloudEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
+            if (args?.syncGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            resourceInputs["azureFileShareName"] = args ? args.azureFileShareName : undefined;
-            resourceInputs["cloudEndpointName"] = args ? args.cloudEndpointName : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountResourceId"] = args ? args.storageAccountResourceId : undefined;
-            resourceInputs["storageAccountTenantId"] = args ? args.storageAccountTenantId : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
+            resourceInputs["azureFileShareName"] = args?.azureFileShareName;
+            resourceInputs["cloudEndpointName"] = args?.cloudEndpointName;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountResourceId"] = args?.storageAccountResourceId;
+            resourceInputs["storageAccountTenantId"] = args?.storageAccountTenantId;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupEnabled"] = undefined /*out*/;
             resourceInputs["changeEnumerationStatus"] = undefined /*out*/;

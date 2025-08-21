@@ -44,39 +44,39 @@ export class EnclaveEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of resource ids created by community endpoint.
      */
-    public /*out*/ readonly resourceCollection!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceCollection: pulumi.Output<string[]>;
     /**
      * Enclave Endpoint Rule Collection.
      */
-    public readonly ruleCollection!: pulumi.Output<outputs.mission.EnclaveEndpointDestinationRuleResponse[]>;
+    declare public readonly ruleCollection: pulumi.Output<outputs.mission.EnclaveEndpointDestinationRuleResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EnclaveEndpoint resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class EnclaveEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollection === undefined) && !opts.urn) {
+            if (args?.ruleCollection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollection'");
             }
-            if ((!args || args.virtualEnclaveName === undefined) && !opts.urn) {
+            if (args?.virtualEnclaveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualEnclaveName'");
             }
-            resourceInputs["enclaveEndpointName"] = args ? args.enclaveEndpointName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollection"] = args ? args.ruleCollection : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
+            resourceInputs["enclaveEndpointName"] = args?.enclaveEndpointName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollection"] = args?.ruleCollection;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

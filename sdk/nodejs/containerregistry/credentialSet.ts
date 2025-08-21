@@ -45,39 +45,39 @@ export class CredentialSet extends pulumi.CustomResource {
      * List of authentication credentials stored for an upstream.
      * Usually consists of a primary and an optional secondary credential.
      */
-    public readonly authCredentials!: pulumi.Output<outputs.containerregistry.AuthCredentialResponse[] | undefined>;
+    declare public readonly authCredentials: pulumi.Output<outputs.containerregistry.AuthCredentialResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of credential store resource.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Identities associated with the resource. This is used to access the KeyVault secrets.
      */
-    public readonly identity!: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
     /**
      * The credentials are stored for this upstream or login server.
      */
-    public readonly loginServer!: pulumi.Output<string | undefined>;
+    declare public readonly loginServer: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CredentialSet resource with the given unique name, arguments, and options.
@@ -90,18 +90,18 @@ export class CredentialSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authCredentials"] = args ? args.authCredentials : undefined;
-            resourceInputs["credentialSetName"] = args ? args.credentialSetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["loginServer"] = args ? args.loginServer : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authCredentials"] = args?.authCredentials;
+            resourceInputs["credentialSetName"] = args?.credentialSetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["loginServer"] = args?.loginServer;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

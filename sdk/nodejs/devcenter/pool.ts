@@ -44,79 +44,79 @@ export class Pool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates the number of provisioned Dev Boxes in this pool.
      */
-    public /*out*/ readonly devBoxCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly devBoxCount: pulumi.Output<number>;
     /**
      * Name of a Dev Box definition in parent Project of this Pool
      */
-    public readonly devBoxDefinitionName!: pulumi.Output<string>;
+    declare public readonly devBoxDefinitionName: pulumi.Output<string>;
     /**
      * The display name of the pool.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes.
      */
-    public /*out*/ readonly healthStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly healthStatus: pulumi.Output<string>;
     /**
      * Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state
      */
-    public /*out*/ readonly healthStatusDetails!: pulumi.Output<outputs.devcenter.HealthStatusDetailResponse[]>;
+    declare public /*out*/ readonly healthStatusDetails: pulumi.Output<outputs.devcenter.HealthStatusDetailResponse[]>;
     /**
      * Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created.
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box.
      */
-    public readonly localAdministrator!: pulumi.Output<string>;
+    declare public readonly localAdministrator: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The regions of the managed virtual network (required when managedNetworkType is Managed).
      */
-    public readonly managedVirtualNetworkRegions!: pulumi.Output<string[] | undefined>;
+    declare public readonly managedVirtualNetworkRegions: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name of a Network Connection in parent Project of this Pool
      */
-    public readonly networkConnectionName!: pulumi.Output<string>;
+    declare public readonly networkConnectionName: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Indicates whether Dev Boxes in this pool are created with single sign on enabled. The also requires that single sign on be enabled on the tenant.
      */
-    public readonly singleSignOnStatus!: pulumi.Output<string | undefined>;
+    declare public readonly singleSignOnStatus: pulumi.Output<string | undefined>;
     /**
      * Stop on disconnect configuration settings for Dev Boxes created in this pool.
      */
-    public readonly stopOnDisconnect!: pulumi.Output<outputs.devcenter.StopOnDisconnectConfigurationResponse | undefined>;
+    declare public readonly stopOnDisconnect: pulumi.Output<outputs.devcenter.StopOnDisconnectConfigurationResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Indicates whether the pool uses a Virtual Network managed by Microsoft or a customer provided network.
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -129,38 +129,38 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devBoxDefinitionName === undefined) && !opts.urn) {
+            if (args?.devBoxDefinitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devBoxDefinitionName'");
             }
-            if ((!args || args.licenseType === undefined) && !opts.urn) {
+            if (args?.licenseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.localAdministrator === undefined) && !opts.urn) {
+            if (args?.localAdministrator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localAdministrator'");
             }
-            if ((!args || args.networkConnectionName === undefined) && !opts.urn) {
+            if (args?.networkConnectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConnectionName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["localAdministrator"] = args ? args.localAdministrator : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedVirtualNetworkRegions"] = args ? args.managedVirtualNetworkRegions : undefined;
-            resourceInputs["networkConnectionName"] = args ? args.networkConnectionName : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["singleSignOnStatus"] = args ? args.singleSignOnStatus : undefined;
-            resourceInputs["stopOnDisconnect"] = args ? args.stopOnDisconnect : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["devBoxDefinitionName"] = args?.devBoxDefinitionName;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["localAdministrator"] = args?.localAdministrator;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedVirtualNetworkRegions"] = args?.managedVirtualNetworkRegions;
+            resourceInputs["networkConnectionName"] = args?.networkConnectionName;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["singleSignOnStatus"] = args?.singleSignOnStatus;
+            resourceInputs["stopOnDisconnect"] = args?.stopOnDisconnect;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkType"] = args?.virtualNetworkType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["devBoxCount"] = undefined /*out*/;
             resourceInputs["healthStatus"] = undefined /*out*/;

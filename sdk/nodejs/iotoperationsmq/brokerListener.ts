@@ -42,67 +42,67 @@ export class BrokerListener extends pulumi.CustomResource {
     /**
      * The flag for enabling Authentication rules on Listener Port.
      */
-    public readonly authenticationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly authenticationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The flag for enabling Authorization policies on Listener Port. false - AllowAll, true - Use Authorization resource rules if present.
      */
-    public readonly authorizationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly authorizationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The k8s cr/resource reference of mq/broker.
      */
-    public readonly brokerRef!: pulumi.Output<string>;
+    declare public readonly brokerRef: pulumi.Output<string>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The node port to use on the Host node.
      */
-    public readonly nodePort!: pulumi.Output<number | undefined>;
+    declare public readonly nodePort: pulumi.Output<number | undefined>;
     /**
      * The port to start Listening for connections on.
      */
-    public readonly port!: pulumi.Output<number>;
+    declare public readonly port: pulumi.Output<number>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The service name to expose Listener port on.
      */
-    public readonly serviceName!: pulumi.Output<string | undefined>;
+    declare public readonly serviceName: pulumi.Output<string | undefined>;
     /**
      * The Kubernetes Service type to deploy for Listener.
      */
-    public readonly serviceType!: pulumi.Output<string | undefined>;
+    declare public readonly serviceType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Defines configuration of a TLS server certificate. NOTE Enum - Only one TLS Cert method is supported
      */
-    public readonly tls!: pulumi.Output<outputs.iotoperationsmq.TlsCertMethodResponse | undefined>;
+    declare public readonly tls: pulumi.Output<outputs.iotoperationsmq.TlsCertMethodResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BrokerListener resource with the given unique name, arguments, and options.
@@ -115,38 +115,38 @@ export class BrokerListener extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.brokerName === undefined) && !opts.urn) {
+            if (args?.brokerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerName'");
             }
-            if ((!args || args.brokerRef === undefined) && !opts.urn) {
+            if (args?.brokerRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'brokerRef'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.port === undefined) && !opts.urn) {
+            if (args?.port === undefined && !opts.urn) {
                 throw new Error("Missing required property 'port'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationEnabled"] = (args ? args.authenticationEnabled : undefined) ?? false;
-            resourceInputs["authorizationEnabled"] = (args ? args.authorizationEnabled : undefined) ?? false;
-            resourceInputs["brokerName"] = args ? args.brokerName : undefined;
-            resourceInputs["brokerRef"] = args ? args.brokerRef : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["listenerName"] = args ? args.listenerName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodePort"] = args ? args.nodePort : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = (args ? args.serviceName : undefined) ?? "aio-mq-dmqtt-frontend";
-            resourceInputs["serviceType"] = (args ? args.serviceType : undefined) ?? "clusterIp";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authenticationEnabled"] = (args?.authenticationEnabled) ?? false;
+            resourceInputs["authorizationEnabled"] = (args?.authorizationEnabled) ?? false;
+            resourceInputs["brokerName"] = args?.brokerName;
+            resourceInputs["brokerRef"] = args?.brokerRef;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["listenerName"] = args?.listenerName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodePort"] = args?.nodePort;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = (args?.serviceName) ?? "aio-mq-dmqtt-frontend";
+            resourceInputs["serviceType"] = (args?.serviceType) ?? "clusterIp";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.iotoperationsmq.tlsCertMethodArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

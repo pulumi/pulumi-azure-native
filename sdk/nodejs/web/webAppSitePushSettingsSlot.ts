@@ -41,38 +41,38 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets a JSON string containing a list of dynamic tags that will be evaluated from user claims in the push registration endpoint.
      */
-    public readonly dynamicTagsJson!: pulumi.Output<string | undefined>;
+    declare public readonly dynamicTagsJson: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a flag indicating whether the Push endpoint is enabled.
      */
-    public readonly isPushEnabled!: pulumi.Output<boolean>;
+    declare public readonly isPushEnabled: pulumi.Output<boolean>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Gets or sets a JSON string containing a list of tags that are whitelisted for use by the push registration endpoint.
      */
-    public readonly tagWhitelistJson!: pulumi.Output<string | undefined>;
+    declare public readonly tagWhitelistJson: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a JSON string containing a list of tags that require user authentication to be used in the push registration endpoint.
      * Tags can consist of alphanumeric characters and the following:
      * '_', '@', '#', '.', ':', '-'. 
      * Validation should be performed at the PushRequestHandler.
      */
-    public readonly tagsRequiringAuth!: pulumi.Output<string | undefined>;
+    declare public readonly tagsRequiringAuth: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppSitePushSettingsSlot resource with the given unique name, arguments, and options.
@@ -85,26 +85,26 @@ export class WebAppSitePushSettingsSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.isPushEnabled === undefined) && !opts.urn) {
+            if (args?.isPushEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPushEnabled'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["dynamicTagsJson"] = args ? args.dynamicTagsJson : undefined;
-            resourceInputs["isPushEnabled"] = args ? args.isPushEnabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["tagWhitelistJson"] = args ? args.tagWhitelistJson : undefined;
-            resourceInputs["tagsRequiringAuth"] = args ? args.tagsRequiringAuth : undefined;
+            resourceInputs["dynamicTagsJson"] = args?.dynamicTagsJson;
+            resourceInputs["isPushEnabled"] = args?.isPushEnabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["tagWhitelistJson"] = args?.tagWhitelistJson;
+            resourceInputs["tagsRequiringAuth"] = args?.tagsRequiringAuth;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

@@ -52,83 +52,83 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
     /**
      * The approvalId of the role eligibility schedule request.
      */
-    public /*out*/ readonly approvalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly approvalId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'
      */
-    public readonly condition!: pulumi.Output<string | undefined>;
+    declare public readonly condition: pulumi.Output<string | undefined>;
     /**
      * Version of the condition. Currently accepted value is '2.0'
      */
-    public readonly conditionVersion!: pulumi.Output<string | undefined>;
+    declare public readonly conditionVersion: pulumi.Output<string | undefined>;
     /**
      * DateTime when role eligibility schedule request was created
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Additional properties of principal, scope and role definition
      */
-    public /*out*/ readonly expandedProperties!: pulumi.Output<outputs.authorization.ExpandedPropertiesResponse>;
+    declare public /*out*/ readonly expandedProperties: pulumi.Output<outputs.authorization.ExpandedPropertiesResponse>;
     /**
      * Justification for the role eligibility
      */
-    public readonly justification!: pulumi.Output<string | undefined>;
+    declare public readonly justification: pulumi.Output<string | undefined>;
     /**
      * The role eligibility schedule request name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The principal ID.
      */
-    public readonly principalId!: pulumi.Output<string>;
+    declare public readonly principalId: pulumi.Output<string>;
     /**
      * The principal type of the assigned principal ID.
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalType: pulumi.Output<string>;
     /**
      * The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc
      */
-    public /*out*/ readonly requestType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly requestType: pulumi.Output<string | undefined>;
     /**
      * Id of the user who created this request
      */
-    public /*out*/ readonly requestorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly requestorId: pulumi.Output<string>;
     /**
      * The role definition ID.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string>;
+    declare public readonly roleDefinitionId: pulumi.Output<string>;
     /**
      * Schedule info of the role eligibility schedule
      */
-    public readonly scheduleInfo!: pulumi.Output<outputs.authorization.RoleEligibilityScheduleRequestPropertiesResponseScheduleInfo | undefined>;
+    declare public readonly scheduleInfo: pulumi.Output<outputs.authorization.RoleEligibilityScheduleRequestPropertiesResponseScheduleInfo | undefined>;
     /**
      * The role eligibility schedule request scope.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * The status of the role eligibility schedule request.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The resultant role eligibility schedule id or the role eligibility schedule id being updated
      */
-    public readonly targetRoleEligibilityScheduleId!: pulumi.Output<string | undefined>;
+    declare public readonly targetRoleEligibilityScheduleId: pulumi.Output<string | undefined>;
     /**
      * The role eligibility schedule instance id being updated
      */
-    public readonly targetRoleEligibilityScheduleInstanceId!: pulumi.Output<string | undefined>;
+    declare public readonly targetRoleEligibilityScheduleInstanceId: pulumi.Output<string | undefined>;
     /**
      * Ticket Info of the role eligibility
      */
-    public readonly ticketInfo!: pulumi.Output<outputs.authorization.RoleEligibilityScheduleRequestPropertiesResponseTicketInfo | undefined>;
+    declare public readonly ticketInfo: pulumi.Output<outputs.authorization.RoleEligibilityScheduleRequestPropertiesResponseTicketInfo | undefined>;
     /**
      * The role eligibility schedule request type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PimRoleEligibilitySchedule resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class PimRoleEligibilitySchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.principalId === undefined) && !opts.urn) {
+            if (args?.principalId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalId'");
             }
-            if ((!args || args.roleDefinitionId === undefined) && !opts.urn) {
+            if (args?.roleDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleDefinitionId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["conditionVersion"] = args ? args.conditionVersion : undefined;
-            resourceInputs["justification"] = args ? args.justification : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scheduleInfo"] = args ? args.scheduleInfo : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["targetRoleEligibilityScheduleId"] = args ? args.targetRoleEligibilityScheduleId : undefined;
-            resourceInputs["targetRoleEligibilityScheduleInstanceId"] = args ? args.targetRoleEligibilityScheduleInstanceId : undefined;
-            resourceInputs["ticketInfo"] = args ? args.ticketInfo : undefined;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["conditionVersion"] = args?.conditionVersion;
+            resourceInputs["justification"] = args?.justification;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scheduleInfo"] = args?.scheduleInfo;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["targetRoleEligibilityScheduleId"] = args?.targetRoleEligibilityScheduleId;
+            resourceInputs["targetRoleEligibilityScheduleInstanceId"] = args?.targetRoleEligibilityScheduleInstanceId;
+            resourceInputs["ticketInfo"] = args?.ticketInfo;
             resourceInputs["approvalId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

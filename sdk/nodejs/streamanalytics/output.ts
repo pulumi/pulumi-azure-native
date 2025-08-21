@@ -44,39 +44,39 @@ export class Output extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes the data source that output will be written to. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly datasource!: pulumi.Output<outputs.streamanalytics.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.AzureTableOutputDataSourceResponse | outputs.streamanalytics.BlobOutputDataSourceResponse | outputs.streamanalytics.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.EventHubOutputDataSourceResponse | outputs.streamanalytics.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.GatewayMessageBusOutputDataSourceResponse | outputs.streamanalytics.PowerBIOutputDataSourceResponse | outputs.streamanalytics.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.ServiceBusTopicOutputDataSourceResponse | undefined>;
+    declare public readonly datasource: pulumi.Output<outputs.streamanalytics.AzureDataLakeStoreOutputDataSourceResponse | outputs.streamanalytics.AzureFunctionOutputDataSourceResponse | outputs.streamanalytics.AzureSqlDatabaseOutputDataSourceResponse | outputs.streamanalytics.AzureSynapseOutputDataSourceResponse | outputs.streamanalytics.AzureTableOutputDataSourceResponse | outputs.streamanalytics.BlobOutputDataSourceResponse | outputs.streamanalytics.DocumentDbOutputDataSourceResponse | outputs.streamanalytics.EventHubOutputDataSourceResponse | outputs.streamanalytics.EventHubV2OutputDataSourceResponse | outputs.streamanalytics.GatewayMessageBusOutputDataSourceResponse | outputs.streamanalytics.PowerBIOutputDataSourceResponse | outputs.streamanalytics.ServiceBusQueueOutputDataSourceResponse | outputs.streamanalytics.ServiceBusTopicOutputDataSourceResponse | undefined>;
     /**
      * Describes conditions applicable to the Input, Output, or the job overall, that warrant customer attention.
      */
-    public /*out*/ readonly diagnostics!: pulumi.Output<outputs.streamanalytics.DiagnosticsResponse>;
+    declare public /*out*/ readonly diagnostics: pulumi.Output<outputs.streamanalytics.DiagnosticsResponse>;
     /**
      * The current entity tag for the output. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Describes how data from an input is serialized or how data is serialized when written to an output. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly serialization!: pulumi.Output<outputs.streamanalytics.AvroSerializationResponse | outputs.streamanalytics.CsvSerializationResponse | outputs.streamanalytics.JsonSerializationResponse | outputs.streamanalytics.ParquetSerializationResponse | undefined>;
+    declare public readonly serialization: pulumi.Output<outputs.streamanalytics.AvroSerializationResponse | outputs.streamanalytics.CsvSerializationResponse | outputs.streamanalytics.JsonSerializationResponse | outputs.streamanalytics.ParquetSerializationResponse | undefined>;
     /**
      * The size window to constrain a Stream Analytics output to.
      */
-    public readonly sizeWindow!: pulumi.Output<number | undefined>;
+    declare public readonly sizeWindow: pulumi.Output<number | undefined>;
     /**
      * The time frame for filtering Stream Analytics job outputs.
      */
-    public readonly timeWindow!: pulumi.Output<string | undefined>;
+    declare public readonly timeWindow: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Output resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class Output extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.jobName === undefined) && !opts.urn) {
+            if (args?.jobName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'jobName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["datasource"] = args ? args.datasource : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outputName"] = args ? args.outputName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialization"] = args ? args.serialization : undefined;
-            resourceInputs["sizeWindow"] = args ? args.sizeWindow : undefined;
-            resourceInputs["timeWindow"] = args ? args.timeWindow : undefined;
+            resourceInputs["datasource"] = args?.datasource;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outputName"] = args?.outputName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialization"] = args?.serialization;
+            resourceInputs["sizeWindow"] = args?.sizeWindow;
+            resourceInputs["timeWindow"] = args?.timeWindow;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diagnostics"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

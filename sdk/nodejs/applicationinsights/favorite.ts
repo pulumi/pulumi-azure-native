@@ -42,51 +42,51 @@ export class Favorite extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Favorite category, as defined by the user at creation time.
      */
-    public readonly category!: pulumi.Output<string | undefined>;
+    declare public readonly category: pulumi.Output<string | undefined>;
     /**
      * Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON
      */
-    public readonly config!: pulumi.Output<string | undefined>;
+    declare public readonly config: pulumi.Output<string | undefined>;
     /**
      * Internally assigned unique id of the favorite definition.
      */
-    public readonly favoriteId!: pulumi.Output<string>;
+    declare public readonly favoriteId: pulumi.Output<string>;
     /**
      * Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly favoriteType!: pulumi.Output<string | undefined>;
+    declare public readonly favoriteType: pulumi.Output<string | undefined>;
     /**
      * Flag denoting wether or not this favorite was generated from a template.
      */
-    public readonly isGeneratedFromTemplate!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGeneratedFromTemplate: pulumi.Output<boolean | undefined>;
     /**
      * The user-defined name of the favorite.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The source of the favorite definition.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * A list of 0 or more tags that are associated with this favorite definition
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
     /**
      * Date and time in UTC of the last modification that was made to this favorite definition.
      */
-    public /*out*/ readonly timeModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeModified: pulumi.Output<string>;
     /**
      * Unique user id of the specific user that owns this favorite.
      */
-    public /*out*/ readonly userId!: pulumi.Output<string>;
+    declare public /*out*/ readonly userId: pulumi.Output<string>;
     /**
      * This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Favorite resource with the given unique name, arguments, and options.
@@ -99,23 +99,23 @@ export class Favorite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["favoriteId"] = args ? args.favoriteId : undefined;
-            resourceInputs["favoriteType"] = args ? args.favoriteType : undefined;
-            resourceInputs["isGeneratedFromTemplate"] = args ? args.isGeneratedFromTemplate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["favoriteId"] = args?.favoriteId;
+            resourceInputs["favoriteType"] = args?.favoriteType;
+            resourceInputs["isGeneratedFromTemplate"] = args?.isGeneratedFromTemplate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;
             resourceInputs["userId"] = undefined /*out*/;

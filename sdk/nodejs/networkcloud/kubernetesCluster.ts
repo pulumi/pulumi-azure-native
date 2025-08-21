@@ -42,103 +42,103 @@ export class KubernetesCluster extends pulumi.CustomResource {
     /**
      * The Azure Active Directory Integration properties.
      */
-    public readonly aadConfiguration!: pulumi.Output<outputs.networkcloud.AadConfigurationResponse | undefined>;
+    declare public readonly aadConfiguration: pulumi.Output<outputs.networkcloud.AadConfigurationResponse | undefined>;
     /**
      * The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values.
      */
-    public readonly administratorConfiguration!: pulumi.Output<outputs.networkcloud.AdministratorConfigurationResponse | undefined>;
+    declare public readonly administratorConfiguration: pulumi.Output<outputs.networkcloud.AdministratorConfigurationResponse | undefined>;
     /**
      * The full list of network resource IDs that are attached to this cluster, including those attached only to specific agent pools.
      */
-    public /*out*/ readonly attachedNetworkIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly attachedNetworkIds: pulumi.Output<string[]>;
     /**
      * The list of versions that this Kubernetes cluster can be upgraded to.
      */
-    public /*out*/ readonly availableUpgrades!: pulumi.Output<outputs.networkcloud.AvailableUpgradeResponse[]>;
+    declare public /*out*/ readonly availableUpgrades: pulumi.Output<outputs.networkcloud.AvailableUpgradeResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the Network Cloud cluster.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The resource ID of the connected cluster set up when this Kubernetes cluster is created.
      */
-    public /*out*/ readonly connectedClusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectedClusterId: pulumi.Output<string>;
     /**
      * The current running version of Kubernetes on the control plane.
      */
-    public /*out*/ readonly controlPlaneKubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly controlPlaneKubernetesVersion: pulumi.Output<string>;
     /**
      * The defining characteristics of the control plane for this Kubernetes Cluster.
      */
-    public readonly controlPlaneNodeConfiguration!: pulumi.Output<outputs.networkcloud.ControlPlaneNodeConfigurationResponse>;
+    declare public readonly controlPlaneNodeConfiguration: pulumi.Output<outputs.networkcloud.ControlPlaneNodeConfigurationResponse>;
     /**
      * The current status of the Kubernetes cluster.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the current detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The current feature settings.
      */
-    public /*out*/ readonly featureStatuses!: pulumi.Output<outputs.networkcloud.FeatureStatusResponse[]>;
+    declare public /*out*/ readonly featureStatuses: pulumi.Output<outputs.networkcloud.FeatureStatusResponse[]>;
     /**
      * The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource.
      */
-    public readonly initialAgentPoolConfigurations!: pulumi.Output<outputs.networkcloud.InitialAgentPoolConfigurationResponse[]>;
+    declare public readonly initialAgentPoolConfigurations: pulumi.Output<outputs.networkcloud.InitialAgentPoolConfigurationResponse[]>;
     /**
      * The Kubernetes version for this cluster.
      */
-    public readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The configuration of the managed resource group associated with the resource.
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.networkcloud.ManagedResourceGroupConfigurationResponse | undefined>;
+    declare public readonly managedResourceGroupConfiguration: pulumi.Output<outputs.networkcloud.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.networkcloud.NetworkConfigurationResponse>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.networkcloud.NetworkConfigurationResponse>;
     /**
      * The details of the nodes in this cluster.
      */
-    public /*out*/ readonly nodes!: pulumi.Output<outputs.networkcloud.KubernetesClusterNodeResponse[]>;
+    declare public /*out*/ readonly nodes: pulumi.Output<outputs.networkcloud.KubernetesClusterNodeResponse[]>;
     /**
      * The provisioning state of the Kubernetes cluster resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KubernetesCluster resource with the given unique name, arguments, and options.
@@ -151,36 +151,36 @@ export class KubernetesCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controlPlaneNodeConfiguration === undefined) && !opts.urn) {
+            if (args?.controlPlaneNodeConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controlPlaneNodeConfiguration'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.initialAgentPoolConfigurations === undefined) && !opts.urn) {
+            if (args?.initialAgentPoolConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'initialAgentPoolConfigurations'");
             }
-            if ((!args || args.kubernetesVersion === undefined) && !opts.urn) {
+            if (args?.kubernetesVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesVersion'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aadConfiguration"] = args ? args.aadConfiguration : undefined;
-            resourceInputs["administratorConfiguration"] = args ? args.administratorConfiguration : undefined;
-            resourceInputs["controlPlaneNodeConfiguration"] = args ? args.controlPlaneNodeConfiguration : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["initialAgentPoolConfigurations"] = args ? args.initialAgentPoolConfigurations : undefined;
-            resourceInputs["kubernetesClusterName"] = args ? args.kubernetesClusterName : undefined;
-            resourceInputs["kubernetesVersion"] = args ? args.kubernetesVersion : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
+            resourceInputs["aadConfiguration"] = args?.aadConfiguration;
+            resourceInputs["administratorConfiguration"] = args?.administratorConfiguration;
+            resourceInputs["controlPlaneNodeConfiguration"] = args?.controlPlaneNodeConfiguration;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["initialAgentPoolConfigurations"] = args?.initialAgentPoolConfigurations;
+            resourceInputs["kubernetesClusterName"] = args?.kubernetesClusterName;
+            resourceInputs["kubernetesVersion"] = args?.kubernetesVersion;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
             resourceInputs["networkConfiguration"] = args ? (args.networkConfiguration ? pulumi.output(args.networkConfiguration).apply(inputs.networkcloud.networkConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["attachedNetworkIds"] = undefined /*out*/;
             resourceInputs["availableUpgrades"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
