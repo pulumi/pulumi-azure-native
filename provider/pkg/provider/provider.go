@@ -190,7 +190,14 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azureNativeProvider) Configure(ctx context.Context,
-	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
+	req *rpc.ConfigureRequest) (r *rpc.ConfigureResponse, err error) {
+
+	defer func() {
+		if r := recover(); r != nil {
+			r = nil
+			err = fmt.Errorf("panic recovered in Configure: %v", r)
+		}
+	}()
 
 	if k.getVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
 		// https://github.com/pulumi/pulumi-azure-native/issues/2686
