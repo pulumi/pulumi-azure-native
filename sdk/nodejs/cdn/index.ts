@@ -35,6 +35,11 @@ export type CustomDomain = import("./customDomain").CustomDomain;
 export const CustomDomain: typeof import("./customDomain").CustomDomain = null as any;
 utilities.lazyLoad(exports, ["CustomDomain"], () => require("./customDomain"));
 
+export { CustomDomainHttpsArgs } from "./customDomainHttps";
+export type CustomDomainHttps = import("./customDomainHttps").CustomDomainHttps;
+export const CustomDomainHttps: typeof import("./customDomainHttps").CustomDomainHttps = null as any;
+utilities.lazyLoad(exports, ["CustomDomainHttps"], () => require("./customDomainHttps"));
+
 export { EndpointArgs } from "./endpoint";
 export type Endpoint = import("./endpoint").Endpoint;
 export const Endpoint: typeof import("./endpoint").Endpoint = null as any;
@@ -210,6 +215,8 @@ const _module = {
                 return new AFDTargetGroup(name, <any>undefined, { urn })
             case "azure-native:cdn:CustomDomain":
                 return new CustomDomain(name, <any>undefined, { urn })
+            case "azure-native:cdn:CustomDomainHttps":
+                return new CustomDomainHttps(name, <any>undefined, { urn })
             case "azure-native:cdn:Endpoint":
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:cdn:KeyGroup":
