@@ -108,6 +108,24 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
 func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
+	if authConf.useDefault {
+		logging.V(9).Infof("[auth] Using default Azure credential")
+		fmtErrorMessage := "A %s must be configured when authenticating using the Default Azure Credential."
+		if authConf.subscriptionId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+		}
+		options := &azidentity.DefaultAzureCredentialOptions{
+			ClientOptions:              baseClientOpts,
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+		}
+		if authConf.tenantId != "" {
+			options.TenantID = authConf.tenantId
+		}
+		return azidentity.NewDefaultAzureCredential(options)
+	} else {
+		logging.V(11).Infof("Default Azure Credential is not enabled, skipping")
+	}
+
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
 		fmtErrorMessage := "A %s must be configured when authenticating as a Service Principal using a Client Certificate."
@@ -130,7 +148,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, options)
 	} else {
-		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
+		logging.V(11).Infof("SP with client certificate credential is not enabled, skipping")
 	}
 
 	if authConf.clientSecret != "" {
@@ -151,14 +169,14 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
-		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
+		logging.V(11).Infof("SP with client secret credential is not enabled, skipping")
 	}
 
 	if authConf.useOidc {
 		logging.V(9).Infof("[auth] Using OIDC credential")
 		return newOidcCredential(authConf, baseClientOpts)
 	} else {
-		logging.V(9).Infof("OIDC credential is not enabled, skipping")
+		logging.V(11).Infof("OIDC credential is not enabled, skipping")
 	}
 
 	if authConf.useMsi {
@@ -175,25 +193,14 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewManagedIdentityCredential(&msiOpts)
 	} else {
-		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
-	}
-
-	if authConf.useDefault {
-		logging.V(9).Infof("[auth] Using default Azure credential")
-		options := &azidentity.DefaultAzureCredentialOptions{
-			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
-			ClientOptions:              baseClientOpts,
-		}
-		cli, err := azidentity.NewDefaultAzureCredential(options)
-		if err == nil {
-			return cli, nil
-		}
+		logging.V(11).Infof("Managed Identity (MSI) credential is not enabled, skipping")
 	}
 
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
 	options := &azidentity.AzureCLICredentialOptions{
 		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 	}
+	// note that the subscription ID is discoverable when using the Azure CLI credential and hence optional.
 	if authConf.subscriptionId != "" {
 		options.Subscription = authConf.subscriptionId
 	}
@@ -383,7 +390,7 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		}
 	}
 
-	return &authConfiguration{
+	authConf := &authConfiguration{
 		clientId:   getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:   getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
@@ -404,10 +411,12 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 
-		useDefault: getConfig("useDefaultAzureCredential", "PULUMI_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
+		useDefault: getConfig("useDefaultAzureCredential", "ARM_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 
 		showSubscription: defaultAzSubscriptionProvider,
-	}, nil
+	}
+
+	return authConf, nil
 }
 
 // getCloud returns the configured Azure cloud (environment).

@@ -298,6 +298,21 @@ func TestAzidentity(t *testing.T) {
 		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientToken["appid"])
 		assert.Equal(t, "user", clientToken["idtyp"])
 	})
+
+	t.Run("Default Azure Credential", func(t *testing.T) {
+		t.Setenv("ARM_USE_DEFAULT_AZURE_CREDENTIAL", "true")
+
+		pt := newPulumiTest(t, "azidentity")
+		up := pt.Up(t, optup.DebugLogging(debugLogging()))
+		clientConfig, clientToken := validate(t, up)
+
+		// the default credential strategy is expected to use SP auth in the CI environment based on the ARM_CLIENT_ID
+		if _, ok := os.LookupEnv("CI"); ok {
+			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
+			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
+			assert.Equal(t, "app", clientToken["idtyp"])
+		}
+	})
 }
 
 func TestAutorest(t *testing.T) {
