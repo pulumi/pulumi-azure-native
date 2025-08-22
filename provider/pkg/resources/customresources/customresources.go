@@ -8,6 +8,7 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
+	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
 	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
 	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
@@ -205,10 +206,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 	lookupResource ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
-	bearerAuth autorest.Authorizer,
-	tokenAuth autorest.Authorizer,
-	kvBearerAuth autorest.Authorizer,
-	userAgent string,
+	bearerAuth autorest.Authorizer, // autorest
+	tokenAuth autorest.Authorizer, // autorest
+	kvBearerAuth autorest.Authorizer, // autorest
+	userAgent string, // autorest
+	cloud azcloud.Configuration,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
@@ -263,10 +265,9 @@ func BuildCustomResources(env *azureEnv.Environment,
 	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
 	// work here because KV needs a different token source for the KV endpoint.
 	if util.EnableAzcoreBackend() {
-		resources = append(resources, keyVaultSecret(env.KeyVaultDNSSuffix, tokenCred))
-		resources = append(resources, keyVaultKey(env.KeyVaultDNSSuffix, tokenCred))
+		resources = append(resources, keyVaultSecret(cloud, tokenCred))
+		resources = append(resources, keyVaultKey(cloud, tokenCred))
 
-		cloud := azure.GetCloudByName(env.Name)
 		resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
 		resources = append(resources, newBlob_azidentity(cloud, tokenCred))
 	} else {
@@ -292,7 +293,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", nil)
+var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", azcloud.Configuration{}, nil)
 
 // IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
 // the given API version should be included.

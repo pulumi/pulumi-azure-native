@@ -3,12 +3,15 @@ package provider
 import (
 	"context"
 	"fmt"
+	"os"
 	"reflect"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
-	"github.com/Azure/go-autorest/autorest/azure"
+	azureEnv "github.com/Azure/go-autorest/autorest/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 
@@ -473,27 +476,27 @@ func TestReadAfterWrite(t *testing.T) {
 }
 
 func TestUsesCorrectAzureClient(t *testing.T) {
-	p := azureNativeProvider{}
-
 	t.Run("default", func(t *testing.T) {
-		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
-		require.NoError(t, err)
-		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
+		_, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND")
+		if ok {
+			t.Skip("PULUMI_ENABLE_AZCORE_BACKEND is set, cannot test default behavior")
+		}
+		assert.True(t, util.EnableAzcoreBackend(), "azcore backend should be enabled by default")
 	})
 
-	t.Run("Autorest and legacy auth disabled explicitly", func(t *testing.T) {
+	t.Run("azcore backend disabled explicitly", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "")
+		assert.False(t, util.EnableAzcoreBackend())
+	})
+
+	t.Run("azcore backend disabled explicitly", func(t *testing.T) {
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
-		require.NoError(t, err)
-		assert.Equal(t, "azureClientImpl", reflect.TypeOf(client).Elem().Name())
+		assert.False(t, util.EnableAzcoreBackend())
 	})
 
 	t.Run("Azcore enabled", func(t *testing.T) {
 		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
-		require.NoError(t, err)
-		assert.Equal(t, "azCoreClient", reflect.TypeOf(client).Elem().Name())
+		assert.True(t, util.EnableAzcoreBackend())
 	})
 }
 
@@ -507,11 +510,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
 		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
 	} {
-		p := azureNativeProvider{
-			cloud: cloudInstance,
-		}
-
-		client, err := p.newAzureClient(nil, &fake.TokenCredential{}, "pulumi")
+		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance, nil)
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
@@ -525,18 +524,12 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 }
 
 func TestAutorestAzureClientUsesCorrectCloud(t *testing.T) {
-	for expectedEnv, environment := range map[string]azure.Environment{
-		azure.PublicCloud.Name:       azure.PublicCloud,
-		azure.ChinaCloud.Name:        azure.ChinaCloud,
-		azure.USGovernmentCloud.Name: azure.USGovernmentCloud,
+	for expectedEnv, environment := range map[string]azureEnv.Environment{
+		azureEnv.PublicCloud.Name:       azureEnv.PublicCloud,
+		azureEnv.ChinaCloud.Name:        azureEnv.ChinaCloud,
+		azureEnv.USGovernmentCloud.Name: azureEnv.USGovernmentCloud,
 	} {
-		p := azureNativeProvider{
-			environment: environment,
-		}
-		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
-
-		client, err := p.newAzureClient(nil, nil, "pulumi")
-		require.NoError(t, err)
+		client := azure.NewAzureClient(environment, nil, "pulumi")
 		require.NotNil(t, client)
 
 		// Use reflection to get the value of the private 'environment' field
@@ -563,7 +556,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 	t.Run("implicit public", func(t *testing.T) {
 		t.Parallel()
 		p := azureNativeProvider{
-			environment: azure.PublicCloud,
+			cloud: cloud.AzurePublic,
 		}
 		endpoint := p.tokenEndpoint(resource.NewNullProperty())
 		assert.Equal(t, "https://management.azure.com/", endpoint)
@@ -572,7 +565,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 	t.Run("implicit usgov", func(t *testing.T) {
 		t.Parallel()
 		p := azureNativeProvider{
-			environment: azure.USGovernmentCloud,
+			cloud: cloud.AzureGovernment,
 		}
 		endpoint := p.tokenEndpoint(resource.NewNullProperty())
 		assert.Equal(t, "https://management.usgovcloudapi.net/", endpoint)
@@ -581,7 +574,7 @@ func TestGetTokenEndpoint(t *testing.T) {
 	t.Run("implicit with empty string, public", func(t *testing.T) {
 		t.Parallel()
 		p := azureNativeProvider{
-			environment: azure.PublicCloud,
+			cloud: cloud.AzurePublic,
 		}
 		endpoint := p.tokenEndpoint(resource.NewStringProperty(""))
 		assert.Equal(t, "https://management.azure.com/", endpoint)
