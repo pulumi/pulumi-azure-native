@@ -1084,13 +1084,7 @@
     "2024-04-01-preview",
     "2024-11-01"
   ],
-  "RedisEnterprise": [
-    "2024-06-01-preview",
-    "2024-09-01-preview",
-    "2024-10-01",
-    "2025-04-01",
-    "2025-05-01-preview"
-  ],
+  "RedisEnterprise": [],
   "Relationships": [],
   "Relay": [],
   "ResourceConnector": [

@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.RedisEnterprise.Outputs
 {
 
     /// <summary>
-    /// Persistence-related configuration for the RedisEnterprise database
+    /// Persistence-related configuration for the Redis Enterprise database
     /// </summary>
     [OutputType]
     public sealed class PersistenceResponse
     {
         /// <summary>
-        /// Sets whether AOF is enabled.
+        /// Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         /// </summary>
         public readonly bool? AofEnabled;
         /// <summary>
-        /// Sets the frequency at which data is written to disk.
+        /// Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         /// </summary>
         public readonly string? AofFrequency;
         /// <summary>
-        /// Sets whether RDB is enabled.
+        /// Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         /// </summary>
         public readonly bool? RdbEnabled;
         /// <summary>

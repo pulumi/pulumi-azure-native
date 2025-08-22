@@ -25,6 +25,7 @@ class DatabaseArgs:
     def __init__(__self__, *,
                  cluster_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
+                 access_keys_authentication: Optional[pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']]] = None,
                  client_protocol: Optional[pulumi.Input[Union[builtins.str, 'Protocol']]] = None,
                  clustering_policy: Optional[pulumi.Input[Union[builtins.str, 'ClusteringPolicy']]] = None,
                  database_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -36,12 +37,13 @@ class DatabaseArgs:
                  port: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a Database resource.
-        :param pulumi.Input[builtins.str] cluster_name: The name of the Redis Enterprise cluster.
+        :param pulumi.Input[builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']] access_keys_authentication: This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
         :param pulumi.Input[Union[builtins.str, 'Protocol']] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-        :param pulumi.Input[Union[builtins.str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
+        :param pulumi.Input[Union[builtins.str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         :param pulumi.Input[builtins.str] database_name: The name of the Redis Enterprise database.
-        :param pulumi.Input[Union[builtins.str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        :param pulumi.Input[Union[builtins.str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         :param pulumi.Input[Union[builtins.str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
         :param pulumi.Input['DatabasePropertiesGeoReplicationArgs'] geo_replication: Optional set of properties to configure geo replication for this database.
         :param pulumi.Input[Sequence[pulumi.Input['ModuleArgs']]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
@@ -50,6 +52,8 @@ class DatabaseArgs:
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if access_keys_authentication is not None:
+            pulumi.set(__self__, "access_keys_authentication", access_keys_authentication)
         if client_protocol is not None:
             pulumi.set(__self__, "client_protocol", client_protocol)
         if clustering_policy is not None:
@@ -73,7 +77,7 @@ class DatabaseArgs:
     @pulumi.getter(name="clusterName")
     def cluster_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Redis Enterprise cluster.
+        The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         """
         return pulumi.get(self, "cluster_name")
 
@@ -94,6 +98,18 @@ class DatabaseArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="accessKeysAuthentication")
+    def access_keys_authentication(self) -> Optional[pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']]]:
+        """
+        This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+        """
+        return pulumi.get(self, "access_keys_authentication")
+
+    @access_keys_authentication.setter
+    def access_keys_authentication(self, value: Optional[pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']]]):
+        pulumi.set(self, "access_keys_authentication", value)
+
+    @property
     @pulumi.getter(name="clientProtocol")
     def client_protocol(self) -> Optional[pulumi.Input[Union[builtins.str, 'Protocol']]]:
         """
@@ -109,7 +125,7 @@ class DatabaseArgs:
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> Optional[pulumi.Input[Union[builtins.str, 'ClusteringPolicy']]]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time.
+        Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -133,7 +149,7 @@ class DatabaseArgs:
     @pulumi.getter(name="deferUpgrade")
     def defer_upgrade(self) -> Optional[pulumi.Input[Union[builtins.str, 'DeferUpgradeSetting']]]:
         """
-        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         """
         return pulumi.get(self, "defer_upgrade")
 
@@ -208,6 +224,7 @@ class Database(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_keys_authentication: Optional[pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']]] = None,
                  client_protocol: Optional[pulumi.Input[Union[builtins.str, 'Protocol']]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  clustering_policy: Optional[pulumi.Input[Union[builtins.str, 'ClusteringPolicy']]] = None,
@@ -221,19 +238,20 @@ class Database(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
-        Describes a database on the RedisEnterprise cluster
+        Describes a database on the Redis Enterprise cluster
 
-        Uses Azure REST API version 2024-03-01-preview.
+        Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']] access_keys_authentication: This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
         :param pulumi.Input[Union[builtins.str, 'Protocol']] client_protocol: Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
-        :param pulumi.Input[builtins.str] cluster_name: The name of the Redis Enterprise cluster.
-        :param pulumi.Input[Union[builtins.str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. Specified at create time.
+        :param pulumi.Input[builtins.str] cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
+        :param pulumi.Input[Union[builtins.str, 'ClusteringPolicy']] clustering_policy: Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         :param pulumi.Input[builtins.str] database_name: The name of the Redis Enterprise database.
-        :param pulumi.Input[Union[builtins.str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        :param pulumi.Input[Union[builtins.str, 'DeferUpgradeSetting']] defer_upgrade: Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         :param pulumi.Input[Union[builtins.str, 'EvictionPolicy']] eviction_policy: Redis eviction policy - default is VolatileLRU
         :param pulumi.Input[Union['DatabasePropertiesGeoReplicationArgs', 'DatabasePropertiesGeoReplicationArgsDict']] geo_replication: Optional set of properties to configure geo replication for this database.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModuleArgs', 'ModuleArgsDict']]]] modules: Optional set of redis modules to enable in this database - modules can only be added at creation time.
@@ -248,11 +266,11 @@ class Database(pulumi.CustomResource):
                  args: DatabaseArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes a database on the RedisEnterprise cluster
+        Describes a database on the Redis Enterprise cluster
 
-        Uses Azure REST API version 2024-03-01-preview.
+        Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DatabaseArgs args: The arguments to use to populate this resource's properties.
@@ -269,6 +287,7 @@ class Database(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 access_keys_authentication: Optional[pulumi.Input[Union[builtins.str, 'AccessKeysAuthentication']]] = None,
                  client_protocol: Optional[pulumi.Input[Union[builtins.str, 'Protocol']]] = None,
                  cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                  clustering_policy: Optional[pulumi.Input[Union[builtins.str, 'ClusteringPolicy']]] = None,
@@ -289,6 +308,7 @@ class Database(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
+            __props__.__dict__["access_keys_authentication"] = access_keys_authentication
             __props__.__dict__["client_protocol"] = client_protocol
             if cluster_name is None and not opts.urn:
                 raise TypeError("Missing required property 'cluster_name'")
@@ -309,6 +329,7 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["redis_version"] = None
             __props__.__dict__["resource_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20230301preview:Database"), pulumi.Alias(type_="azure-native:cache/v20230701:Database"), pulumi.Alias(type_="azure-native:cache/v20230801preview:Database"), pulumi.Alias(type_="azure-native:cache/v20231001preview:Database"), pulumi.Alias(type_="azure-native:cache/v20231101:Database"), pulumi.Alias(type_="azure-native:cache/v20240201:Database"), pulumi.Alias(type_="azure-native:cache/v20240301preview:Database"), pulumi.Alias(type_="azure-native:cache/v20240601preview:Database"), pulumi.Alias(type_="azure-native:cache/v20240901preview:Database"), pulumi.Alias(type_="azure-native:cache/v20241001:Database"), pulumi.Alias(type_="azure-native:cache:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20201001preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20210201preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20210301:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20210801:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20220101:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20221101preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20230301preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20230701:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20230801preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20231001preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20231101:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20240201:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20240301preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20240601preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20240901preview:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20241001:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20250401:Database"), pulumi.Alias(type_="azure-native:redisenterprise/v20250501preview:Database")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -334,6 +355,7 @@ class Database(pulumi.CustomResource):
 
         __props__ = DatabaseArgs.__new__(DatabaseArgs)
 
+        __props__.__dict__["access_keys_authentication"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["client_protocol"] = None
         __props__.__dict__["clustering_policy"] = None
@@ -347,8 +369,17 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["redis_version"] = None
         __props__.__dict__["resource_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return Database(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="accessKeysAuthentication")
+    def access_keys_authentication(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+        """
+        return pulumi.get(self, "access_keys_authentication")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -370,7 +401,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time.
+        Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -378,7 +409,7 @@ class Database(pulumi.CustomResource):
     @pulumi.getter(name="deferUpgrade")
     def defer_upgrade(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         """
         return pulumi.get(self, "defer_upgrade")
 
@@ -453,6 +484,14 @@ class Database(pulumi.CustomResource):
         Current resource status of the database
         """
         return pulumi.get(self, "resource_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a RedisEnterprise cluster
+ * Gets information about a Redis Enterprise cluster
  *
- * Uses Azure REST API version 2024-03-01-preview.
+ * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -24,7 +24,7 @@ export function getRedisEnterprise(args: GetRedisEnterpriseArgs, opts?: pulumi.I
 
 export interface GetRedisEnterpriseArgs {
     /**
-     * The name of the Redis Enterprise cluster.
+     * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
     clusterName: string;
     /**
@@ -34,7 +34,7 @@ export interface GetRedisEnterpriseArgs {
 }
 
 /**
- * Describes the RedisEnterprise cluster
+ * Describes the Redis Enterprise cluster
  */
 export interface GetRedisEnterpriseResult {
     /**
@@ -45,6 +45,10 @@ export interface GetRedisEnterpriseResult {
      * Encryption-at-rest configuration for the cluster.
      */
     readonly encryption?: outputs.redisenterprise.ClusterPropertiesResponseEncryption;
+    /**
+     * Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+     */
+    readonly highAvailability?: string;
     /**
      * DNS name of the cluster endpoint
      */
@@ -58,11 +62,15 @@ export interface GetRedisEnterpriseResult {
      */
     readonly identity?: outputs.redisenterprise.ManagedServiceIdentityResponse;
     /**
+     * Distinguishes the kind of cluster. Read-only.
+     */
+    readonly kind: string;
+    /**
      * The geo-location where the resource lives
      */
     readonly location: string;
     /**
-     * The minimum TLS version for the cluster to support, e.g. '1.2'
+     * The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
      */
     readonly minimumTlsVersion?: string;
     /**
@@ -70,7 +78,7 @@ export interface GetRedisEnterpriseResult {
      */
     readonly name: string;
     /**
-     * List of private endpoint connections associated with the specified RedisEnterprise cluster
+     * List of private endpoint connections associated with the specified Redis Enterprise cluster
      */
     readonly privateEndpointConnections: outputs.redisenterprise.PrivateEndpointConnectionResponse[];
     /**
@@ -81,6 +89,10 @@ export interface GetRedisEnterpriseResult {
      * Version of redis the cluster supports, e.g. '6'
      */
     readonly redisVersion: string;
+    /**
+     * Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+     */
+    readonly redundancyMode: string;
     /**
      * Current resource status of the cluster
      */
@@ -103,11 +115,11 @@ export interface GetRedisEnterpriseResult {
     readonly zones?: string[];
 }
 /**
- * Gets information about a RedisEnterprise cluster
+ * Gets information about a Redis Enterprise cluster
  *
- * Uses Azure REST API version 2024-03-01-preview.
+ * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRedisEnterpriseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -119,7 +131,7 @@ export function getRedisEnterpriseOutput(args: GetRedisEnterpriseOutputArgs, opt
 
 export interface GetRedisEnterpriseOutputArgs {
     /**
-     * The name of the Redis Enterprise cluster.
+     * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
     clusterName: pulumi.Input<string>;
     /**

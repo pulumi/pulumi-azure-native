@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public static class GetRedisEnterprise
     {
         /// <summary>
-        /// Gets information about a RedisEnterprise cluster
+        /// Gets information about a Redis Enterprise cluster
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRedisEnterpriseResult> InvokeAsync(GetRedisEnterpriseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRedisEnterpriseResult>("azure-native:redisenterprise:getRedisEnterprise", args ?? new GetRedisEnterpriseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a RedisEnterprise cluster
+        /// Gets information about a Redis Enterprise cluster
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:redisenterprise:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a RedisEnterprise cluster
+        /// Gets information about a Redis Enterprise cluster
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRedisEnterpriseResult> Invoke(GetRedisEnterpriseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRedisEnterpriseResult>("azure-native:redisenterprise:getRedisEnterprise", args ?? new GetRedisEnterpriseInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public sealed class GetRedisEnterpriseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public sealed class GetRedisEnterpriseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -96,6 +96,10 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         public readonly Outputs.ClusterPropertiesResponseEncryption? Encryption;
         /// <summary>
+        /// Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        /// </summary>
+        public readonly string? HighAvailability;
+        /// <summary>
         /// DNS name of the cluster endpoint
         /// </summary>
         public readonly string HostName;
@@ -108,11 +112,15 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
+        /// Distinguishes the kind of cluster. Read-only.
+        /// </summary>
+        public readonly string Kind;
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// The minimum TLS version for the cluster to support, e.g. '1.2'
+        /// The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
@@ -120,7 +128,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// List of private endpoint connections associated with the specified RedisEnterprise cluster
+        /// List of private endpoint connections associated with the specified Redis Enterprise cluster
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
@@ -131,6 +139,10 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// Version of redis the cluster supports, e.g. '6'
         /// </summary>
         public readonly string RedisVersion;
+        /// <summary>
+        /// Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+        /// </summary>
+        public readonly string RedundancyMode;
         /// <summary>
         /// Current resource status of the cluster
         /// </summary>
@@ -158,11 +170,15 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             Outputs.ClusterPropertiesResponseEncryption? encryption,
 
+            string? highAvailability,
+
             string hostName,
 
             string id,
 
             Outputs.ManagedServiceIdentityResponse? identity,
+
+            string kind,
 
             string location,
 
@@ -176,6 +192,8 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             string redisVersion,
 
+            string redundancyMode,
+
             string resourceState,
 
             Outputs.SkuResponse sku,
@@ -188,15 +206,18 @@ namespace Pulumi.AzureNative.RedisEnterprise
         {
             AzureApiVersion = azureApiVersion;
             Encryption = encryption;
+            HighAvailability = highAvailability;
             HostName = hostName;
             Id = id;
             Identity = identity;
+            Kind = kind;
             Location = location;
             MinimumTlsVersion = minimumTlsVersion;
             Name = name;
             PrivateEndpointConnections = privateEndpointConnections;
             ProvisioningState = provisioningState;
             RedisVersion = redisVersion;
+            RedundancyMode = redundancyMode;
             ResourceState = resourceState;
             Sku = sku;
             Tags = tags;

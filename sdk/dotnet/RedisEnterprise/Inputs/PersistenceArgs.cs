@@ -11,24 +11,24 @@ namespace Pulumi.AzureNative.RedisEnterprise.Inputs
 {
 
     /// <summary>
-    /// Persistence-related configuration for the RedisEnterprise database
+    /// Persistence-related configuration for the Redis Enterprise database
     /// </summary>
     public sealed class PersistenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Sets whether AOF is enabled.
+        /// Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         /// </summary>
         [Input("aofEnabled")]
         public Input<bool>? AofEnabled { get; set; }
 
         /// <summary>
-        /// Sets the frequency at which data is written to disk.
+        /// Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         /// </summary>
         [Input("aofFrequency")]
         public InputUnion<string, Pulumi.AzureNative.RedisEnterprise.AofFrequency>? AofFrequency { get; set; }
 
         /// <summary>
-        /// Sets whether RDB is enabled.
+        /// Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         /// </summary>
         [Input("rdbEnabled")]
         public Input<bool>? RdbEnabled { get; set; }

@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// Gets information about access policy assignment for database.
         /// 
-        /// Uses Azure REST API version 2024-09-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-09-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAccessPolicyAssignmentResult> InvokeAsync(GetAccessPolicyAssignmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccessPolicyAssignmentResult>("azure-native:redisenterprise:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// Gets information about access policy assignment for database.
         /// 
-        /// Uses Azure REST API version 2024-09-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-09-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:redisenterprise:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// <summary>
         /// Gets information about access policy assignment for database.
         /// 
-        /// Uses Azure REST API version 2024-09-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-09-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAccessPolicyAssignmentResult> Invoke(GetAccessPolicyAssignmentInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccessPolicyAssignmentResult>("azure-native:redisenterprise:getAccessPolicyAssignment", args ?? new GetAccessPolicyAssignmentInvokeArgs(), options.WithDefaults());
@@ -52,7 +52,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         public string AccessPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
         public Input<string> AccessPolicyAssignmentName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
