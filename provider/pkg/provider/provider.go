@@ -11,7 +11,6 @@ import (
 	"reflect"
 	"regexp"
 	"strings"
-	"sync"
 	"time"
 
 	"github.com/blang/semver"
@@ -206,24 +205,26 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.setLoggingContext(ctx)
 
 	if util.EnableAzcoreBackend() {
-		var (
-			result *rpc.ConfigureResponse
-			err    error
-		)
-		var wg sync.WaitGroup
-		wg.Add(1)
-		go func() {
-			defer wg.Done()
-			defer func() {
-				if r := recover(); r != nil {
-					err = fmt.Errorf("panic in configure: %v", r)
-				}
-			}()
-			result, err = k.configure(ctx)
-		}()
-		wg.Wait()
+		// var (
+		// 	result *rpc.ConfigureResponse
+		// 	err    error
+		// )
+		// var wg sync.WaitGroup
+		// wg.Add(1)
+		// go func() {
+		// 	defer wg.Done()
+		// 	defer func() {
+		// 		if r := recover(); r != nil {
+		// 			err = fmt.Errorf("panic in configure: %v", r)
+		// 		}
+		// 	}()
+		// 	result, err = k.configure(ctx)
+		// }()
+		// wg.Wait()
+
+		_, err := k.configure(ctx)
 		if err != nil {
-			return result, err
+			return nil, err
 		}
 
 		return &rpc.ConfigureResponse{
