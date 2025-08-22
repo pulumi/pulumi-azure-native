@@ -26,21 +26,33 @@ __all__ = [
 @pulumi.output_type
 class GetServiceResult:
     """
-    Describes a search service and its current state.
+    Describes an Azure AI Search service and its current state.
     """
-    def __init__(__self__, auth_options=None, azure_api_version=None, disable_local_auth=None, encryption_with_cmk=None, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, semantic_search=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, tags=None, type=None):
+    def __init__(__self__, auth_options=None, azure_api_version=None, compute_type=None, data_exfiltration_protections=None, disable_local_auth=None, e_tag=None, encryption_with_cmk=None, endpoint=None, hosting_mode=None, id=None, identity=None, location=None, name=None, network_rule_set=None, partition_count=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, replica_count=None, semantic_search=None, service_upgraded_at=None, shared_private_link_resources=None, sku=None, status=None, status_details=None, system_data=None, tags=None, type=None, upgrade_available=None):
         if auth_options and not isinstance(auth_options, dict):
             raise TypeError("Expected argument 'auth_options' to be a dict")
         pulumi.set(__self__, "auth_options", auth_options)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if compute_type and not isinstance(compute_type, str):
+            raise TypeError("Expected argument 'compute_type' to be a str")
+        pulumi.set(__self__, "compute_type", compute_type)
+        if data_exfiltration_protections and not isinstance(data_exfiltration_protections, list):
+            raise TypeError("Expected argument 'data_exfiltration_protections' to be a list")
+        pulumi.set(__self__, "data_exfiltration_protections", data_exfiltration_protections)
         if disable_local_auth and not isinstance(disable_local_auth, bool):
             raise TypeError("Expected argument 'disable_local_auth' to be a bool")
         pulumi.set(__self__, "disable_local_auth", disable_local_auth)
+        if e_tag and not isinstance(e_tag, str):
+            raise TypeError("Expected argument 'e_tag' to be a str")
+        pulumi.set(__self__, "e_tag", e_tag)
         if encryption_with_cmk and not isinstance(encryption_with_cmk, dict):
             raise TypeError("Expected argument 'encryption_with_cmk' to be a dict")
         pulumi.set(__self__, "encryption_with_cmk", encryption_with_cmk)
+        if endpoint and not isinstance(endpoint, str):
+            raise TypeError("Expected argument 'endpoint' to be a str")
+        pulumi.set(__self__, "endpoint", endpoint)
         if hosting_mode and not isinstance(hosting_mode, str):
             raise TypeError("Expected argument 'hosting_mode' to be a str")
         pulumi.set(__self__, "hosting_mode", hosting_mode)
@@ -77,6 +89,9 @@ class GetServiceResult:
         if semantic_search and not isinstance(semantic_search, str):
             raise TypeError("Expected argument 'semantic_search' to be a str")
         pulumi.set(__self__, "semantic_search", semantic_search)
+        if service_upgraded_at and not isinstance(service_upgraded_at, str):
+            raise TypeError("Expected argument 'service_upgraded_at' to be a str")
+        pulumi.set(__self__, "service_upgraded_at", service_upgraded_at)
         if shared_private_link_resources and not isinstance(shared_private_link_resources, list):
             raise TypeError("Expected argument 'shared_private_link_resources' to be a list")
         pulumi.set(__self__, "shared_private_link_resources", shared_private_link_resources)
@@ -89,12 +104,18 @@ class GetServiceResult:
         if status_details and not isinstance(status_details, str):
             raise TypeError("Expected argument 'status_details' to be a str")
         pulumi.set(__self__, "status_details", status_details)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if upgrade_available and not isinstance(upgrade_available, str):
+            raise TypeError("Expected argument 'upgrade_available' to be a str")
+        pulumi.set(__self__, "upgrade_available", upgrade_available)
 
     @property
     @pulumi.getter(name="authOptions")
@@ -113,6 +134,22 @@ class GetServiceResult:
         return pulumi.get(self, "azure_api_version")
 
     @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[builtins.str]:
+        """
+        Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="dataExfiltrationProtections")
+    def data_exfiltration_protections(self) -> Optional[Sequence[builtins.str]]:
+        """
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+        """
+        return pulumi.get(self, "data_exfiltration_protections")
+
+    @property
     @pulumi.getter(name="disableLocalAuth")
     def disable_local_auth(self) -> Optional[builtins.bool]:
         """
@@ -121,12 +158,28 @@ class GetServiceResult:
         return pulumi.get(self, "disable_local_auth")
 
     @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> builtins.str:
+        """
+        A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
     @pulumi.getter(name="encryptionWithCmk")
     def encryption_with_cmk(self) -> Optional['outputs.EncryptionWithCmkResponse']:
         """
         Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         """
         return pulumi.get(self, "encryption_with_cmk")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[builtins.str]:
+        """
+        The endpoint of the Azure AI Search service.
+        """
+        return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="hostingMode")
@@ -140,7 +193,7 @@ class GetServiceResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -172,7 +225,7 @@ class GetServiceResult:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> Optional['outputs.NetworkRuleSetResponse']:
         """
-        Network-specific rules that determine how the search service may be reached.
+        Network specific rules that determine how the Azure AI Search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -188,7 +241,7 @@ class GetServiceResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        The list of private endpoint connections to the search service.
+        The list of private endpoint connections to the Azure AI Search service.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -196,7 +249,7 @@ class GetServiceResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> builtins.str:
         """
-        The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
+        The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -220,15 +273,23 @@ class GetServiceResult:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[builtins.str]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
+
+    @property
+    @pulumi.getter(name="serviceUpgradedAt")
+    def service_upgraded_at(self) -> builtins.str:
+        """
+        The date and time the search service was last upgraded. This field will be null until the service gets upgraded for the first time.
+        """
+        return pulumi.get(self, "service_upgraded_at")
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
     def shared_private_link_resources(self) -> Sequence['outputs.SharedPrivateLinkResourceResponse']:
         """
-        The list of shared private link resources managed by the search service.
+        The list of shared private link resources managed by the Azure AI Search service.
         """
         return pulumi.get(self, "shared_private_link_resources")
 
@@ -236,7 +297,7 @@ class GetServiceResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -244,7 +305,7 @@ class GetServiceResult:
     @pulumi.getter
     def status(self) -> builtins.str:
         """
-        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure AI Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         """
         return pulumi.get(self, "status")
 
@@ -255,6 +316,14 @@ class GetServiceResult:
         The details of the search service status.
         """
         return pulumi.get(self, "status_details")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -272,6 +341,14 @@ class GetServiceResult:
         """
         return pulumi.get(self, "type")
 
+    @property
+    @pulumi.getter(name="upgradeAvailable")
+    def upgrade_available(self) -> Optional[builtins.str]:
+        """
+        Indicates if the search service has an upgrade available.
+        """
+        return pulumi.get(self, "upgrade_available")
+
 
 class AwaitableGetServiceResult(GetServiceResult):
     # pylint: disable=using-constant-test
@@ -281,8 +358,12 @@ class AwaitableGetServiceResult(GetServiceResult):
         return GetServiceResult(
             auth_options=self.auth_options,
             azure_api_version=self.azure_api_version,
+            compute_type=self.compute_type,
+            data_exfiltration_protections=self.data_exfiltration_protections,
             disable_local_auth=self.disable_local_auth,
+            e_tag=self.e_tag,
             encryption_with_cmk=self.encryption_with_cmk,
+            endpoint=self.endpoint,
             hosting_mode=self.hosting_mode,
             id=self.id,
             identity=self.identity,
@@ -295,12 +376,15 @@ class AwaitableGetServiceResult(GetServiceResult):
             public_network_access=self.public_network_access,
             replica_count=self.replica_count,
             semantic_search=self.semantic_search,
+            service_upgraded_at=self.service_upgraded_at,
             shared_private_link_resources=self.shared_private_link_resources,
             sku=self.sku,
             status=self.status,
             status_details=self.status_details,
+            system_data=self.system_data,
             tags=self.tags,
-            type=self.type)
+            type=self.type,
+            upgrade_available=self.upgrade_available)
 
 
 def get_service(resource_group_name: Optional[builtins.str] = None,
@@ -309,13 +393,13 @@ def get_service(resource_group_name: Optional[builtins.str] = None,
     """
     Gets the search service with the given name in the given resource group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -326,8 +410,12 @@ def get_service(resource_group_name: Optional[builtins.str] = None,
     return AwaitableGetServiceResult(
         auth_options=pulumi.get(__ret__, 'auth_options'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        compute_type=pulumi.get(__ret__, 'compute_type'),
+        data_exfiltration_protections=pulumi.get(__ret__, 'data_exfiltration_protections'),
         disable_local_auth=pulumi.get(__ret__, 'disable_local_auth'),
+        e_tag=pulumi.get(__ret__, 'e_tag'),
         encryption_with_cmk=pulumi.get(__ret__, 'encryption_with_cmk'),
+        endpoint=pulumi.get(__ret__, 'endpoint'),
         hosting_mode=pulumi.get(__ret__, 'hosting_mode'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -340,25 +428,28 @@ def get_service(resource_group_name: Optional[builtins.str] = None,
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         replica_count=pulumi.get(__ret__, 'replica_count'),
         semantic_search=pulumi.get(__ret__, 'semantic_search'),
+        service_upgraded_at=pulumi.get(__ret__, 'service_upgraded_at'),
         shared_private_link_resources=pulumi.get(__ret__, 'shared_private_link_resources'),
         sku=pulumi.get(__ret__, 'sku'),
         status=pulumi.get(__ret__, 'status'),
         status_details=pulumi.get(__ret__, 'status_details'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
-        type=pulumi.get(__ret__, 'type'))
+        type=pulumi.get(__ret__, 'type'),
+        upgrade_available=pulumi.get(__ret__, 'upgrade_available'))
 def get_service_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                        search_service_name: Optional[pulumi.Input[builtins.str]] = None,
                        opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServiceResult]:
     """
     Gets the search service with the given name in the given resource group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -368,8 +459,12 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[builtins.str]]
     return __ret__.apply(lambda __response__: GetServiceResult(
         auth_options=pulumi.get(__response__, 'auth_options'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        compute_type=pulumi.get(__response__, 'compute_type'),
+        data_exfiltration_protections=pulumi.get(__response__, 'data_exfiltration_protections'),
         disable_local_auth=pulumi.get(__response__, 'disable_local_auth'),
+        e_tag=pulumi.get(__response__, 'e_tag'),
         encryption_with_cmk=pulumi.get(__response__, 'encryption_with_cmk'),
+        endpoint=pulumi.get(__response__, 'endpoint'),
         hosting_mode=pulumi.get(__response__, 'hosting_mode'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -382,9 +477,12 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[builtins.str]]
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         replica_count=pulumi.get(__response__, 'replica_count'),
         semantic_search=pulumi.get(__response__, 'semantic_search'),
+        service_upgraded_at=pulumi.get(__response__, 'service_upgraded_at'),
         shared_private_link_resources=pulumi.get(__response__, 'shared_private_link_resources'),
         sku=pulumi.get(__response__, 'sku'),
         status=pulumi.get(__response__, 'status'),
         status_details=pulumi.get(__response__, 'status_details'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
-        type=pulumi.get(__response__, 'type')))
+        type=pulumi.get(__response__, 'type'),
+        upgrade_available=pulumi.get(__response__, 'upgrade_available')))

@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Search
 {
     /// <summary>
-    /// Describes a search service and its current state.
+    /// Describes an Azure AI Search service and its current state.
     /// 
-    /// Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+    /// Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
     /// 
-    /// Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:search:Service")]
     public partial class Service : global::Pulumi.CustomResource
@@ -32,16 +32,40 @@ namespace Pulumi.AzureNative.Search
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
+        /// Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        /// </summary>
+        [Output("computeType")]
+        public Output<string?> ComputeType { get; private set; } = null!;
+
+        /// <summary>
+        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+        /// </summary>
+        [Output("dataExfiltrationProtections")]
+        public Output<ImmutableArray<string>> DataExfiltrationProtections { get; private set; } = null!;
+
+        /// <summary>
         /// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         /// </summary>
         [Output("disableLocalAuth")]
         public Output<bool?> DisableLocalAuth { get; private set; } = null!;
 
         /// <summary>
+        /// A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
+        /// </summary>
+        [Output("eTag")]
+        public Output<string> ETag { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         /// </summary>
         [Output("encryptionWithCmk")]
         public Output<Outputs.EncryptionWithCmkResponse?> EncryptionWithCmk { get; private set; } = null!;
+
+        /// <summary>
+        /// The endpoint of the Azure AI Search service.
+        /// </summary>
+        [Output("endpoint")]
+        public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -68,7 +92,7 @@ namespace Pulumi.AzureNative.Search
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network-specific rules that determine how the search service may be reached.
+        /// Network specific rules that determine how the Azure AI Search service may be reached.
         /// </summary>
         [Output("networkRuleSet")]
         public Output<Outputs.NetworkRuleSetResponse?> NetworkRuleSet { get; private set; } = null!;
@@ -80,13 +104,13 @@ namespace Pulumi.AzureNative.Search
         public Output<int?> PartitionCount { get; private set; } = null!;
 
         /// <summary>
-        /// The list of private endpoint connections to the search service.
+        /// The list of private endpoint connections to the Azure AI Search service.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
+        /// The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
@@ -104,25 +128,31 @@ namespace Pulumi.AzureNative.Search
         public Output<int?> ReplicaCount { get; private set; } = null!;
 
         /// <summary>
-        /// Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         /// </summary>
         [Output("semanticSearch")]
         public Output<string?> SemanticSearch { get; private set; } = null!;
 
         /// <summary>
-        /// The list of shared private link resources managed by the search service.
+        /// The date and time the search service was last upgraded. This field will be null until the service gets upgraded for the first time.
+        /// </summary>
+        [Output("serviceUpgradedAt")]
+        public Output<string> ServiceUpgradedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// The list of shared private link resources managed by the Azure AI Search service.
         /// </summary>
         [Output("sharedPrivateLinkResources")]
         public Output<ImmutableArray<Outputs.SharedPrivateLinkResourceResponse>> SharedPrivateLinkResources { get; private set; } = null!;
 
         /// <summary>
-        /// The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        /// The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        /// The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure AI Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -132,6 +162,12 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         [Output("statusDetails")]
         public Output<string> StatusDetails { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -144,6 +180,12 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// Indicates if the search service has an upgrade available.
+        /// </summary>
+        [Output("upgradeAvailable")]
+        public Output<string?> UpgradeAvailable { get; private set; } = null!;
 
 
         /// <summary>
@@ -212,6 +254,24 @@ namespace Pulumi.AzureNative.Search
         public Input<Inputs.DataPlaneAuthOptionsArgs>? AuthOptions { get; set; }
 
         /// <summary>
+        /// Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        /// </summary>
+        [Input("computeType")]
+        public InputUnion<string, Pulumi.AzureNative.Search.ComputeType>? ComputeType { get; set; }
+
+        [Input("dataExfiltrationProtections")]
+        private InputList<Union<string, Pulumi.AzureNative.Search.SearchDataExfiltrationProtection>>? _dataExfiltrationProtections;
+
+        /// <summary>
+        /// A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+        /// </summary>
+        public InputList<Union<string, Pulumi.AzureNative.Search.SearchDataExfiltrationProtection>> DataExfiltrationProtections
+        {
+            get => _dataExfiltrationProtections ?? (_dataExfiltrationProtections = new InputList<Union<string, Pulumi.AzureNative.Search.SearchDataExfiltrationProtection>>());
+            set => _dataExfiltrationProtections = value;
+        }
+
+        /// <summary>
         /// When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         /// </summary>
         [Input("disableLocalAuth")]
@@ -222,6 +282,12 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         [Input("encryptionWithCmk")]
         public Input<Inputs.EncryptionWithCmkArgs>? EncryptionWithCmk { get; set; }
+
+        /// <summary>
+        /// The endpoint of the Azure AI Search service.
+        /// </summary>
+        [Input("endpoint")]
+        public Input<string>? Endpoint { get; set; }
 
         /// <summary>
         /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
@@ -242,7 +308,7 @@ namespace Pulumi.AzureNative.Search
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Network-specific rules that determine how the search service may be reached.
+        /// Network specific rules that determine how the Azure AI Search service may be reached.
         /// </summary>
         [Input("networkRuleSet")]
         public Input<Inputs.NetworkRuleSetArgs>? NetworkRuleSet { get; set; }
@@ -257,7 +323,7 @@ namespace Pulumi.AzureNative.Search
         /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         /// </summary>
         [Input("publicNetworkAccess")]
-        public Input<Pulumi.AzureNative.Search.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Search.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
 
         /// <summary>
         /// The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
@@ -272,19 +338,19 @@ namespace Pulumi.AzureNative.Search
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://&lt;name&gt;.search.windows.net). You cannot change the service name after the service is created.
+        /// The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://&lt;name&gt;.search.windows.net). You cannot change the service name after the service is created.
         /// </summary>
         [Input("searchServiceName")]
         public Input<string>? SearchServiceName { get; set; }
 
         /// <summary>
-        /// Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         /// </summary>
         [Input("semanticSearch")]
         public InputUnion<string, Pulumi.AzureNative.Search.SearchSemanticSearch>? SemanticSearch { get; set; }
 
         /// <summary>
-        /// The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        /// The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
@@ -301,11 +367,17 @@ namespace Pulumi.AzureNative.Search
             set => _tags = value;
         }
 
+        /// <summary>
+        /// Indicates if the search service has an upgrade available.
+        /// </summary>
+        [Input("upgradeAvailable")]
+        public InputUnion<string, Pulumi.AzureNative.Search.UpgradeAvailable>? UpgradeAvailable { get; set; }
+
         public ServiceArgs()
         {
             HostingMode = Pulumi.AzureNative.Search.HostingMode.Default;
             PartitionCount = 1;
-            PublicNetworkAccess = Pulumi.AzureNative.Search.PublicNetworkAccess.Enabled;
+            PublicNetworkAccess = "enabled";
             ReplicaCount = 1;
         }
         public static new ServiceArgs Empty => new ServiceArgs();

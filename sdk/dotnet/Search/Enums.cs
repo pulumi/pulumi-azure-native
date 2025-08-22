@@ -45,6 +45,43 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
+    /// Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+    /// </summary>
+    [EnumType]
+    public readonly struct ComputeType : IEquatable<ComputeType>
+    {
+        private readonly string _value;
+
+        private ComputeType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Create the service with the Default Compute.
+        /// </summary>
+        public static ComputeType Default { get; } = new ComputeType("default");
+        /// <summary>
+        /// Create the service with Azure Confidential Compute.
+        /// </summary>
+        public static ComputeType Confidential { get; } = new ComputeType("confidential");
+
+        public static bool operator ==(ComputeType left, ComputeType right) => left.Equals(right);
+        public static bool operator !=(ComputeType left, ComputeType right) => !left.Equals(right);
+
+        public static explicit operator string(ComputeType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ComputeType other && Equals(other);
+        public bool Equals(ComputeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
     /// </summary>
     [EnumType]
@@ -82,7 +119,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// The identity type.
+    /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
     /// </summary>
     [EnumType]
     public readonly struct IdentityType : IEquatable<IdentityType>
@@ -94,8 +131,22 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Indicates that any identity associated with the search service needs to be removed.
+        /// </summary>
         public static IdentityType None { get; } = new IdentityType("None");
+        /// <summary>
+        /// Indicates that system-assigned identity for the search service will be enabled.
+        /// </summary>
         public static IdentityType SystemAssigned { get; } = new IdentityType("SystemAssigned");
+        /// <summary>
+        /// Indicates that one or more user assigned identities will be assigned to the search service.
+        /// </summary>
+        public static IdentityType UserAssigned { get; } = new IdentityType("UserAssigned");
+        /// <summary>
+        /// Indicates that system-assigned identity for the search service will be enabled along with the assignment of one or more user assigned identities.
+        /// </summary>
+        public static IdentityType SystemAssigned_UserAssigned { get; } = new IdentityType("SystemAssigned, UserAssigned");
 
         public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
         public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
@@ -113,7 +164,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
+    /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
     /// </summary>
     [EnumType]
     public readonly struct PrivateLinkServiceConnectionProvisioningState : IEquatable<PrivateLinkServiceConnectionProvisioningState>
@@ -146,7 +197,7 @@ namespace Pulumi.AzureNative.Search
         /// </summary>
         public static PrivateLinkServiceConnectionProvisioningState Incomplete { get; } = new PrivateLinkServiceConnectionProvisioningState("Incomplete");
         /// <summary>
-        /// Provisioning request for the private link service connection resource has been canceled
+        /// Provisioning request for the private link service connection resource has been canceled.
         /// </summary>
         public static PrivateLinkServiceConnectionProvisioningState Canceled { get; } = new PrivateLinkServiceConnectionProvisioningState("Canceled");
 
@@ -223,8 +274,18 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The search service is accessible from traffic originating from the public internet.
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("enabled");
+        /// <summary>
+        /// The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("disabled");
+        /// <summary>
+        /// The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
+        /// </summary>
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("securedByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
@@ -242,7 +303,77 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Describes how a search service should enforce having one or more non-customer-encrypted resources.
+    /// Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+    /// </summary>
+    [EnumType]
+    public readonly struct SearchBypass : IEquatable<SearchBypass>
+    {
+        private readonly string _value;
+
+        private SearchBypass(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
+        /// </summary>
+        public static SearchBypass None { get; } = new SearchBypass("None");
+        /// <summary>
+        /// Indicates that requests originating from Azure trusted services can bypass the rules defined in the 'ipRules' section.
+        /// </summary>
+        public static SearchBypass AzureServices { get; } = new SearchBypass("AzureServices");
+
+        public static bool operator ==(SearchBypass left, SearchBypass right) => left.Equals(right);
+        public static bool operator !=(SearchBypass left, SearchBypass right) => !left.Equals(right);
+
+        public static explicit operator string(SearchBypass value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SearchBypass other && Equals(other);
+        public bool Equals(SearchBypass other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// A specific data exfiltration scenario that is disabled for the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct SearchDataExfiltrationProtection : IEquatable<SearchDataExfiltrationProtection>
+    {
+        private readonly string _value;
+
+        private SearchDataExfiltrationProtection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates that all data exfiltration scenarios are disabled.
+        /// </summary>
+        public static SearchDataExfiltrationProtection BlockAll { get; } = new SearchDataExfiltrationProtection("BlockAll");
+
+        public static bool operator ==(SearchDataExfiltrationProtection left, SearchDataExfiltrationProtection right) => left.Equals(right);
+        public static bool operator !=(SearchDataExfiltrationProtection left, SearchDataExfiltrationProtection right) => !left.Equals(right);
+
+        public static explicit operator string(SearchDataExfiltrationProtection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SearchDataExfiltrationProtection other && Equals(other);
+        public bool Equals(SearchDataExfiltrationProtection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
     /// </summary>
     [EnumType]
     public readonly struct SearchEncryptionWithCmk : IEquatable<SearchEncryptionWithCmk>
@@ -255,11 +386,11 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// No enforcement will be made and the search service can have non-customer-encrypted resources.
+        /// No enforcement of customer-managed key encryption will be made. Only the built-in service-managed encryption is used.
         /// </summary>
         public static SearchEncryptionWithCmk Disabled { get; } = new SearchEncryptionWithCmk("Disabled");
         /// <summary>
-        /// Search service will be marked as non-compliant if there are one or more non-customer-encrypted resources.
+        /// Search service will be marked as non-compliant if one or more objects aren't encrypted with a customer-managed key.
         /// </summary>
         public static SearchEncryptionWithCmk Enabled { get; } = new SearchEncryptionWithCmk("Enabled");
         /// <summary>
@@ -283,7 +414,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+    /// Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
     /// </summary>
     [EnumType]
     public readonly struct SearchSemanticSearch : IEquatable<SearchSemanticSearch>
@@ -296,15 +427,15 @@ namespace Pulumi.AzureNative.Search
         }
 
         /// <summary>
-        /// Indicates that semantic ranking is disabled for the search service.
+        /// Indicates that semantic reranker is disabled for the search service. This is the default.
         /// </summary>
         public static SearchSemanticSearch Disabled { get; } = new SearchSemanticSearch("disabled");
         /// <summary>
-        /// Enables semantic ranking on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+        /// Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
         /// </summary>
         public static SearchSemanticSearch Free { get; } = new SearchSemanticSearch("free");
         /// <summary>
-        /// Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
+        /// Enables semantic reranker on a search service as a billable feature, with higher throughput and volume of semantically reranked queries.
         /// </summary>
         public static SearchSemanticSearch Standard { get; } = new SearchSemanticSearch("standard");
 
@@ -336,10 +467,25 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Updating { get; } = new SharedPrivateLinkResourceProvisioningState("Updating");
+        /// <summary>
+        /// The shared private link resource is in the process of being deleted.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Deleting { get; } = new SharedPrivateLinkResourceProvisioningState("Deleting");
+        /// <summary>
+        /// The shared private link resource has failed to be provisioned or deleted.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Failed { get; } = new SharedPrivateLinkResourceProvisioningState("Failed");
+        /// <summary>
+        /// The shared private link resource has finished provisioning and is ready for approval.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Succeeded { get; } = new SharedPrivateLinkResourceProvisioningState("Succeeded");
+        /// <summary>
+        /// Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
+        /// </summary>
         public static SharedPrivateLinkResourceProvisioningState Incomplete { get; } = new SharedPrivateLinkResourceProvisioningState("Incomplete");
 
         public static bool operator ==(SharedPrivateLinkResourceProvisioningState left, SharedPrivateLinkResourceProvisioningState right) => left.Equals(right);
@@ -370,9 +516,21 @@ namespace Pulumi.AzureNative.Search
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The shared private link resource has been created and is pending approval.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Pending { get; } = new SharedPrivateLinkResourceStatus("Pending");
+        /// <summary>
+        /// The shared private link resource is approved and is ready for use.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Approved { get; } = new SharedPrivateLinkResourceStatus("Approved");
+        /// <summary>
+        /// The shared private link resource has been rejected and cannot be used.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Rejected { get; } = new SharedPrivateLinkResourceStatus("Rejected");
+        /// <summary>
+        /// The shared private link resource has been removed from the service.
+        /// </summary>
         public static SharedPrivateLinkResourceStatus Disconnected { get; } = new SharedPrivateLinkResourceStatus("Disconnected");
 
         public static bool operator ==(SharedPrivateLinkResourceStatus left, SharedPrivateLinkResourceStatus right) => left.Equals(right);
@@ -440,6 +598,43 @@ namespace Pulumi.AzureNative.Search
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuName other && Equals(other);
         public bool Equals(SkuName other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates if the search service has an upgrade available.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpgradeAvailable : IEquatable<UpgradeAvailable>
+    {
+        private readonly string _value;
+
+        private UpgradeAvailable(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// An upgrade is currently not available for the service.
+        /// </summary>
+        public static UpgradeAvailable NotAvailable { get; } = new UpgradeAvailable("notAvailable");
+        /// <summary>
+        /// There is an upgrade available for the service.
+        /// </summary>
+        public static UpgradeAvailable Available { get; } = new UpgradeAvailable("available");
+
+        public static bool operator ==(UpgradeAvailable left, UpgradeAvailable right) => left.Equals(right);
+        public static bool operator !=(UpgradeAvailable left, UpgradeAvailable right) => !left.Equals(right);
+
+        public static explicit operator string(UpgradeAvailable value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpgradeAvailable other && Equals(other);
+        public bool Equals(UpgradeAvailable other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

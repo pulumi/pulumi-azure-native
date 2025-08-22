@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Describes a policy that determines how resources within the search service are to be encrypted with customer=managed keys.
+    /// Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
     /// </summary>
     public sealed class EncryptionWithCmkArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Describes how a search service should enforce having one or more non-customer-encrypted resources.
+        /// Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
         /// </summary>
         [Input("enforcement")]
         public Input<Pulumi.AzureNative.Search.SearchEncryptionWithCmk>? Enforcement { get; set; }

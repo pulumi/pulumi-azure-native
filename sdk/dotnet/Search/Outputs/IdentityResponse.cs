@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Details about the search service identity. A null value indicates that the search service has no identity assigned.
     /// </summary>
     [OutputType]
     public sealed class IdentityResponse
@@ -25,9 +25,13 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// The identity type.
+        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public readonly ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? UserAssignedIdentities;
 
         [OutputConstructor]
         private IdentityResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.Search.Outputs
 
             string tenantId,
 
-            string type)
+            string type,
+
+            ImmutableDictionary<string, Outputs.UserAssignedIdentityResponse>? userAssignedIdentities)
         {
             PrincipalId = principalId;
             TenantId = tenantId;
             Type = type;
+            UserAssignedIdentities = userAssignedIdentities;
         }
     }
 }

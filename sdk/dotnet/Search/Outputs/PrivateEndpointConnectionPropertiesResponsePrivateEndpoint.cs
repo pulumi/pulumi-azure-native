@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Search.Outputs
     public sealed class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint
     {
         /// <summary>
-        /// The resource id of the private endpoint resource from Microsoft.Network provider.
+        /// The resource ID of the private endpoint resource from Microsoft.Network provider.
         /// </summary>
         public readonly string? Id;
 

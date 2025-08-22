@@ -8,16 +8,20 @@ from enum import Enum
 
 __all__ = [
     'AadAuthFailureMode',
+    'ComputeType',
     'HostingMode',
     'IdentityType',
     'PrivateLinkServiceConnectionProvisioningState',
     'PrivateLinkServiceConnectionStatus',
     'PublicNetworkAccess',
+    'SearchBypass',
+    'SearchDataExfiltrationProtection',
     'SearchEncryptionWithCmk',
     'SearchSemanticSearch',
     'SharedPrivateLinkResourceProvisioningState',
     'SharedPrivateLinkResourceStatus',
     'SkuName',
+    'UpgradeAvailable',
 ]
 
 
@@ -33,6 +37,21 @@ class AadAuthFailureMode(builtins.str, Enum):
     HTTP401_WITH_BEARER_CHALLENGE = "http401WithBearerChallenge"
     """
     Indicates that requests that failed authentication should be presented with an HTTP status code of 401 (Unauthorized) and present a Bearer Challenge.
+    """
+
+
+@pulumi.type_token("azure-native:search:ComputeType")
+class ComputeType(builtins.str, Enum):
+    """
+    Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+    """
+    DEFAULT = "default"
+    """
+    Create the service with the Default Compute.
+    """
+    CONFIDENTIAL = "confidential"
+    """
+    Create the service with Azure Confidential Compute.
     """
 
 
@@ -54,16 +73,30 @@ class HostingMode(builtins.str, Enum):
 @pulumi.type_token("azure-native:search:IdentityType")
 class IdentityType(builtins.str, Enum):
     """
-    The identity type.
+    The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
     """
     NONE = "None"
+    """
+    Indicates that any identity associated with the search service needs to be removed.
+    """
     SYSTEM_ASSIGNED = "SystemAssigned"
+    """
+    Indicates that system-assigned identity for the search service will be enabled.
+    """
+    USER_ASSIGNED = "UserAssigned"
+    """
+    Indicates that one or more user assigned identities will be assigned to the search service.
+    """
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    """
+    Indicates that system-assigned identity for the search service will be enabled along with the assignment of one or more user assigned identities.
+    """
 
 
 @pulumi.type_token("azure-native:search:PrivateLinkServiceConnectionProvisioningState")
 class PrivateLinkServiceConnectionProvisioningState(builtins.str, Enum):
     """
-    The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
+    The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
     """
     UPDATING = "Updating"
     """
@@ -87,7 +120,7 @@ class PrivateLinkServiceConnectionProvisioningState(builtins.str, Enum):
     """
     CANCELED = "Canceled"
     """
-    Provisioning request for the private link service connection resource has been canceled
+    Provisioning request for the private link service connection resource has been canceled.
     """
 
 
@@ -120,21 +153,57 @@ class PublicNetworkAccess(builtins.str, Enum):
     This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
     """
     ENABLED = "enabled"
+    """
+    The search service is accessible from traffic originating from the public internet.
+    """
     DISABLED = "disabled"
+    """
+    The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
+    """
+    SECURED_BY_PERIMETER = "securedByPerimeter"
+    """
+    The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
+    """
+
+
+@pulumi.type_token("azure-native:search:SearchBypass")
+class SearchBypass(builtins.str, Enum):
+    """
+    Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+    """
+    NONE = "None"
+    """
+    Indicates that no origin can bypass the rules defined in the 'ipRules' section. This is the default.
+    """
+    AZURE_SERVICES = "AzureServices"
+    """
+    Indicates that requests originating from Azure trusted services can bypass the rules defined in the 'ipRules' section.
+    """
+
+
+@pulumi.type_token("azure-native:search:SearchDataExfiltrationProtection")
+class SearchDataExfiltrationProtection(builtins.str, Enum):
+    """
+    A specific data exfiltration scenario that is disabled for the service.
+    """
+    BLOCK_ALL = "BlockAll"
+    """
+    Indicates that all data exfiltration scenarios are disabled.
+    """
 
 
 @pulumi.type_token("azure-native:search:SearchEncryptionWithCmk")
 class SearchEncryptionWithCmk(builtins.str, Enum):
     """
-    Describes how a search service should enforce having one or more non-customer-encrypted resources.
+    Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
     """
     DISABLED = "Disabled"
     """
-    No enforcement will be made and the search service can have non-customer-encrypted resources.
+    No enforcement of customer-managed key encryption will be made. Only the built-in service-managed encryption is used.
     """
     ENABLED = "Enabled"
     """
-    Search service will be marked as non-compliant if there are one or more non-customer-encrypted resources.
+    Search service will be marked as non-compliant if one or more objects aren't encrypted with a customer-managed key.
     """
     UNSPECIFIED = "Unspecified"
     """
@@ -145,19 +214,19 @@ class SearchEncryptionWithCmk(builtins.str, Enum):
 @pulumi.type_token("azure-native:search:SearchSemanticSearch")
 class SearchSemanticSearch(builtins.str, Enum):
     """
-    Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+    Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
     """
     DISABLED = "disabled"
     """
-    Indicates that semantic ranking is disabled for the search service.
+    Indicates that semantic reranker is disabled for the search service. This is the default.
     """
     FREE = "free"
     """
-    Enables semantic ranking on a search service and indicates that it is to be used within the limits of the free tier. This would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
+    Enables semantic reranker on a search service and indicates that it is to be used within the limits of the free plan. The free plan would cap the volume of semantic ranking requests and is offered at no extra charge. This is the default for newly provisioned search services.
     """
     STANDARD = "standard"
     """
-    Enables semantic ranking on a search service as a billable feature, with higher throughput and volume of semantic ranking requests.
+    Enables semantic reranker on a search service as a billable feature, with higher throughput and volume of semantically reranked queries.
     """
 
 
@@ -167,10 +236,25 @@ class SharedPrivateLinkResourceProvisioningState(builtins.str, Enum):
     The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
     """
     UPDATING = "Updating"
+    """
+    The shared private link resource is in the process of being created along with other resources for it to be fully functional.
+    """
     DELETING = "Deleting"
+    """
+    The shared private link resource is in the process of being deleted.
+    """
     FAILED = "Failed"
+    """
+    The shared private link resource has failed to be provisioned or deleted.
+    """
     SUCCEEDED = "Succeeded"
+    """
+    The shared private link resource has finished provisioning and is ready for approval.
+    """
     INCOMPLETE = "Incomplete"
+    """
+    Provisioning request for the shared private link resource has been accepted but the process of creation has not commenced yet.
+    """
 
 
 @pulumi.type_token("azure-native:search:SharedPrivateLinkResourceStatus")
@@ -179,9 +263,21 @@ class SharedPrivateLinkResourceStatus(builtins.str, Enum):
     Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
     """
     PENDING = "Pending"
+    """
+    The shared private link resource has been created and is pending approval.
+    """
     APPROVED = "Approved"
+    """
+    The shared private link resource is approved and is ready for use.
+    """
     REJECTED = "Rejected"
+    """
+    The shared private link resource has been rejected and cannot be used.
+    """
     DISCONNECTED = "Disconnected"
+    """
+    The shared private link resource has been removed from the service.
+    """
 
 
 @pulumi.type_token("azure-native:search:SkuName")
@@ -216,4 +312,19 @@ class SkuName(builtins.str, Enum):
     STORAGE_OPTIMIZED_L2 = "storage_optimized_l2"
     """
     Billable tier for a dedicated service that supports 2TB per partition, up to 12 partitions.
+    """
+
+
+@pulumi.type_token("azure-native:search:UpgradeAvailable")
+class UpgradeAvailable(builtins.str, Enum):
+    """
+    Indicates if the search service has an upgrade available.
+    """
+    NOT_AVAILABLE = "notAvailable"
+    """
+    An upgrade is currently not available for the service.
+    """
+    AVAILABLE = "available"
+    """
+    There is an upgrade available for the service.
     """

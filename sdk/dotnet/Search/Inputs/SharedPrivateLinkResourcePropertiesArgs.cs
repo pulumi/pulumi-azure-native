@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Describes the properties of an existing Shared Private Link Resource managed by the search service.
+    /// Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
     /// </summary>
     public sealed class SharedPrivateLinkResourcePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The group id from the provider of resource the shared private link resource is for.
+        /// The group ID from the provider of resource the shared private link resource is for.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
 
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         [Input("privateLinkResourceId")]
         public Input<string>? PrivateLinkResourceId { get; set; }
@@ -31,16 +31,16 @@ namespace Pulumi.AzureNative.Search.Inputs
         /// The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
         /// </summary>
         [Input("provisioningState")]
-        public Input<Pulumi.AzureNative.Search.SharedPrivateLinkResourceProvisioningState>? ProvisioningState { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Search.SharedPrivateLinkResourceProvisioningState>? ProvisioningState { get; set; }
 
         /// <summary>
-        /// The request message for requesting approval of the shared private link resource.
+        /// The message for requesting approval of the shared private link resource.
         /// </summary>
         [Input("requestMessage")]
         public Input<string>? RequestMessage { get; set; }
 
         /// <summary>
-        /// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        /// Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
         /// </summary>
         [Input("resourceRegion")]
         public Input<string>? ResourceRegion { get; set; }
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.Search.Inputs
         /// Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         /// </summary>
         [Input("status")]
-        public Input<Pulumi.AzureNative.Search.SharedPrivateLinkResourceStatus>? Status { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.Search.SharedPrivateLinkResourceStatus>? Status { get; set; }
 
         public SharedPrivateLinkResourcePropertiesArgs()
         {

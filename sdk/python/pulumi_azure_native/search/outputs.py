@@ -32,6 +32,8 @@ __all__ = [
     'SharedPrivateLinkResourcePropertiesResponse',
     'SharedPrivateLinkResourceResponse',
     'SkuResponse',
+    'SystemDataResponse',
+    'UserAssignedIdentityResponse',
 ]
 
 @pulumi.output_type
@@ -131,7 +133,7 @@ class DataPlaneAuthOptionsResponse(dict):
 @pulumi.output_type
 class EncryptionWithCmkResponse(dict):
     """
-    Describes a policy that determines how resources within the search service are to be encrypted with customer=managed keys.
+    Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -154,9 +156,9 @@ class EncryptionWithCmkResponse(dict):
                  encryption_compliance_status: builtins.str,
                  enforcement: Optional[builtins.str] = None):
         """
-        Describes a policy that determines how resources within the search service are to be encrypted with customer=managed keys.
-        :param builtins.str encryption_compliance_status: Describes whether the search service is compliant or not with respect to having non-customer-encrypted resources. If a service has more than one non-customer-encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
-        :param builtins.str enforcement: Describes how a search service should enforce having one or more non-customer-encrypted resources.
+        Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
+        :param builtins.str encryption_compliance_status: Returns the status of search service compliance with respect to non-CMK-encrypted objects. If a service has more than one unencrypted object, and enforcement is enabled, the service is marked as noncompliant.
+        :param builtins.str enforcement: Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
         """
         pulumi.set(__self__, "encryption_compliance_status", encryption_compliance_status)
         if enforcement is not None:
@@ -166,7 +168,7 @@ class EncryptionWithCmkResponse(dict):
     @pulumi.getter(name="encryptionComplianceStatus")
     def encryption_compliance_status(self) -> builtins.str:
         """
-        Describes whether the search service is compliant or not with respect to having non-customer-encrypted resources. If a service has more than one non-customer-encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
+        Returns the status of search service compliance with respect to non-CMK-encrypted objects. If a service has more than one unencrypted object, and enforcement is enabled, the service is marked as noncompliant.
         """
         return pulumi.get(self, "encryption_compliance_status")
 
@@ -174,7 +176,7 @@ class EncryptionWithCmkResponse(dict):
     @pulumi.getter
     def enforcement(self) -> Optional[builtins.str]:
         """
-        Describes how a search service should enforce having one or more non-customer-encrypted resources.
+        Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
         """
         return pulumi.get(self, "enforcement")
 
@@ -182,7 +184,7 @@ class EncryptionWithCmkResponse(dict):
 @pulumi.output_type
 class IdentityResponse(dict):
     """
-    Identity for the resource.
+    Details about the search service identity. A null value indicates that the search service has no identity assigned.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -191,6 +193,8 @@ class IdentityResponse(dict):
             suggest = "principal_id"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in IdentityResponse. Access the value via the '{suggest}' property getter instead.")
@@ -206,16 +210,20 @@ class IdentityResponse(dict):
     def __init__(__self__, *,
                  principal_id: builtins.str,
                  tenant_id: builtins.str,
-                 type: builtins.str):
+                 type: builtins.str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
         """
-        Identity for the resource.
+        Details about the search service identity. A null value indicates that the search service has no identity assigned.
         :param builtins.str principal_id: The principal ID of the system-assigned identity of the search service.
         :param builtins.str tenant_id: The tenant ID of the system-assigned identity of the search service.
-        :param builtins.str type: The identity type.
+        :param builtins.str type: The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
 
     @property
     @pulumi.getter(name="principalId")
@@ -237,21 +245,29 @@ class IdentityResponse(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The identity type.
+        The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
 class IpRuleResponse(dict):
     """
-    The IP restriction rule of the search service.
+    The IP restriction rule of the Azure AI Search service.
     """
     def __init__(__self__, *,
                  value: Optional[builtins.str] = None):
         """
-        The IP restriction rule of the search service.
-        :param builtins.str value: Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
+        The IP restriction rule of the Azure AI Search service.
+        :param builtins.str value: Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
         """
         if value is not None:
             pulumi.set(__self__, "value", value)
@@ -260,7 +276,7 @@ class IpRuleResponse(dict):
     @pulumi.getter
     def value(self) -> Optional[builtins.str]:
         """
-        Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
+        Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
         """
         return pulumi.get(self, "value")
 
@@ -268,7 +284,7 @@ class IpRuleResponse(dict):
 @pulumi.output_type
 class NetworkRuleSetResponse(dict):
     """
-    Network-specific rules that determine how the search service can be reached.
+    Network specific rules that determine how the Azure AI Search service may be reached.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -288,19 +304,31 @@ class NetworkRuleSetResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 bypass: Optional[builtins.str] = None,
                  ip_rules: Optional[Sequence['outputs.IpRuleResponse']] = None):
         """
-        Network-specific rules that determine how the search service can be reached.
-        :param Sequence['IpRuleResponse'] ip_rules: A list of IP restriction rules used for an IP firewall. Any IPs that do not match the rules are blocked by the firewall. These rules are only applied when the 'publicNetworkAccess' of the search service is 'enabled'.
+        Network specific rules that determine how the Azure AI Search service may be reached.
+        :param builtins.str bypass: Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+        :param Sequence['IpRuleResponse'] ip_rules: A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
+        if bypass is not None:
+            pulumi.set(__self__, "bypass", bypass)
         if ip_rules is not None:
             pulumi.set(__self__, "ip_rules", ip_rules)
+
+    @property
+    @pulumi.getter
+    def bypass(self) -> Optional[builtins.str]:
+        """
+        Possible origins of inbound traffic that can bypass the rules defined in the 'ipRules' section.
+        """
+        return pulumi.get(self, "bypass")
 
     @property
     @pulumi.getter(name="ipRules")
     def ip_rules(self) -> Optional[Sequence['outputs.IpRuleResponse']]:
         """
-        A list of IP restriction rules used for an IP firewall. Any IPs that do not match the rules are blocked by the firewall. These rules are only applied when the 'publicNetworkAccess' of the search service is 'enabled'.
+        A list of IP restriction rules that defines the inbound network(s) with allowing access to the search service endpoint. At the meantime, all other public IP networks are blocked by the firewall. These restriction rules are applied only when the 'publicNetworkAccess' of the search service is 'enabled'; otherwise, traffic over public interface is not allowed even with any public IP rules, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "ip_rules")
 
@@ -308,7 +336,7 @@ class NetworkRuleSetResponse(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponse(dict):
     """
-    Describes the properties of an existing Private Endpoint connection to the search service.
+    Describes the properties of an existing private endpoint connection to the search service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -339,11 +367,11 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
                  private_link_service_connection_state: Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState'] = None,
                  provisioning_state: Optional[builtins.str] = None):
         """
-        Describes the properties of an existing Private Endpoint connection to the search service.
-        :param builtins.str group_id: The group id from the provider of resource the private link service connection is for.
+        Describes the properties of an existing private endpoint connection to the search service.
+        :param builtins.str group_id: The group ID of the Azure resource for which the private link service is for.
         :param 'PrivateEndpointConnectionPropertiesResponsePrivateEndpoint' private_endpoint: The private endpoint resource from Microsoft.Network provider.
-        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
-        :param builtins.str provisioning_state: The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
+        :param 'PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState' private_link_service_connection_state: Describes the current state of an existing Azure Private Link service connection to the private endpoint.
+        :param builtins.str provisioning_state: The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
         """
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
@@ -358,7 +386,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[builtins.str]:
         """
-        The group id from the provider of resource the private link service connection is for.
+        The group ID of the Azure resource for which the private link service is for.
         """
         return pulumi.get(self, "group_id")
 
@@ -374,7 +402,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @pulumi.getter(name="privateLinkServiceConnectionState")
     def private_link_service_connection_state(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState']:
         """
-        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
         """
         return pulumi.get(self, "private_link_service_connection_state")
 
@@ -382,7 +410,7 @@ class PrivateEndpointConnectionPropertiesResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[builtins.str]:
         """
-        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
+        The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -396,7 +424,7 @@ class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint(dict):
                  id: Optional[builtins.str] = None):
         """
         The private endpoint resource from Microsoft.Network provider.
-        :param builtins.str id: The resource id of the private endpoint resource from Microsoft.Network provider.
+        :param builtins.str id: The resource ID of the private endpoint resource from Microsoft.Network provider.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -405,7 +433,7 @@ class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint(dict):
     @pulumi.getter
     def id(self) -> Optional[builtins.str]:
         """
-        The resource id of the private endpoint resource from Microsoft.Network provider.
+        The resource ID of the private endpoint resource from Microsoft.Network provider.
         """
         return pulumi.get(self, "id")
 
@@ -413,7 +441,7 @@ class PrivateEndpointConnectionPropertiesResponsePrivateEndpoint(dict):
 @pulumi.output_type
 class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionState(dict):
     """
-    Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+    Describes the current state of an existing Azure Private Link service connection to the private endpoint.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -437,7 +465,7 @@ class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionSta
                  description: Optional[builtins.str] = None,
                  status: Optional[builtins.str] = None):
         """
-        Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        Describes the current state of an existing Azure Private Link service connection to the private endpoint.
         :param builtins.str actions_required: A description of any extra actions that may be required.
         :param builtins.str description: The description for the private link service connection state.
         :param builtins.str status: Status of the the private link service connection. Valid values are Pending, Approved, Rejected, or Disconnected.
@@ -479,22 +507,42 @@ class PrivateEndpointConnectionPropertiesResponsePrivateLinkServiceConnectionSta
 @pulumi.output_type
 class PrivateEndpointConnectionResponse(dict):
     """
-    Describes an existing private endpoint connection to the search service.
+    Describes an existing private endpoint connection to the Azure AI Search service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrivateEndpointConnectionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrivateEndpointConnectionResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: builtins.str,
                  name: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str,
                  properties: Optional['outputs.PrivateEndpointConnectionPropertiesResponse'] = None):
         """
-        Describes an existing private endpoint connection to the search service.
-        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Describes an existing private endpoint connection to the Azure AI Search service.
+        :param builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Describes the properties of an existing private endpoint connection to the search service.
+        :param 'PrivateEndpointConnectionPropertiesResponse' properties: Describes the properties of an existing private endpoint connection to the Azure AI Search service.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -503,7 +551,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -514,6 +562,14 @@ class PrivateEndpointConnectionResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -527,7 +583,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def properties(self) -> Optional['outputs.PrivateEndpointConnectionPropertiesResponse']:
         """
-        Describes the properties of an existing private endpoint connection to the search service.
+        Describes the properties of an existing private endpoint connection to the Azure AI Search service.
         """
         return pulumi.get(self, "properties")
 
@@ -535,15 +591,15 @@ class PrivateEndpointConnectionResponse(dict):
 @pulumi.output_type
 class QueryKeyResponse(dict):
     """
-    Describes an API key for a given search service that has permissions for query operations only.
+    Describes an API key for a given Azure AI Search service that conveys read-only permissions on the docs collection of an index.
     """
     def __init__(__self__, *,
                  key: builtins.str,
                  name: builtins.str):
         """
-        Describes an API key for a given search service that has permissions for query operations only.
+        Describes an API key for a given Azure AI Search service that conveys read-only permissions on the docs collection of an index.
         :param builtins.str key: The value of the query API key.
-        :param builtins.str name: The name of the query API key; may be empty.
+        :param builtins.str name: The name of the query API key. Query names are optional, but assigning a name can help you remember how it's used.
         """
         pulumi.set(__self__, "key", key)
         pulumi.set(__self__, "name", name)
@@ -560,7 +616,7 @@ class QueryKeyResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the query API key; may be empty.
+        The name of the query API key. Query names are optional, but assigning a name can help you remember how it's used.
         """
         return pulumi.get(self, "name")
 
@@ -568,7 +624,7 @@ class QueryKeyResponse(dict):
 @pulumi.output_type
 class SharedPrivateLinkResourcePropertiesResponse(dict):
     """
-    Describes the properties of an existing Shared Private Link Resource managed by the search service.
+    Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -603,12 +659,12 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
                  resource_region: Optional[builtins.str] = None,
                  status: Optional[builtins.str] = None):
         """
-        Describes the properties of an existing Shared Private Link Resource managed by the search service.
-        :param builtins.str group_id: The group id from the provider of resource the shared private link resource is for.
-        :param builtins.str private_link_resource_id: The resource id of the resource the shared private link resource is for.
+        Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
+        :param builtins.str group_id: The group ID from the provider of resource the shared private link resource is for.
+        :param builtins.str private_link_resource_id: The resource ID of the resource the shared private link resource is for.
         :param builtins.str provisioning_state: The provisioning state of the shared private link resource. Valid values are Updating, Deleting, Failed, Succeeded or Incomplete.
-        :param builtins.str request_message: The request message for requesting approval of the shared private link resource.
-        :param builtins.str resource_region: Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        :param builtins.str request_message: The message for requesting approval of the shared private link resource.
+        :param builtins.str resource_region: Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
         :param builtins.str status: Status of the shared private link resource. Valid values are Pending, Approved, Rejected or Disconnected.
         """
         if group_id is not None:
@@ -628,7 +684,7 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
     @pulumi.getter(name="groupId")
     def group_id(self) -> Optional[builtins.str]:
         """
-        The group id from the provider of resource the shared private link resource is for.
+        The group ID from the provider of resource the shared private link resource is for.
         """
         return pulumi.get(self, "group_id")
 
@@ -636,7 +692,7 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
     @pulumi.getter(name="privateLinkResourceId")
     def private_link_resource_id(self) -> Optional[builtins.str]:
         """
-        The resource id of the resource the shared private link resource is for.
+        The resource ID of the resource the shared private link resource is for.
         """
         return pulumi.get(self, "private_link_resource_id")
 
@@ -652,7 +708,7 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
     @pulumi.getter(name="requestMessage")
     def request_message(self) -> Optional[builtins.str]:
         """
-        The request message for requesting approval of the shared private link resource.
+        The message for requesting approval of the shared private link resource.
         """
         return pulumi.get(self, "request_message")
 
@@ -660,7 +716,7 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
     @pulumi.getter(name="resourceRegion")
     def resource_region(self) -> Optional[builtins.str]:
         """
-        Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
         """
         return pulumi.get(self, "resource_region")
 
@@ -676,22 +732,42 @@ class SharedPrivateLinkResourcePropertiesResponse(dict):
 @pulumi.output_type
 class SharedPrivateLinkResourceResponse(dict):
     """
-    Describes a Shared Private Link Resource managed by the search service.
+    Describes a shared private link resource managed by the Azure AI Search service.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "systemData":
+            suggest = "system_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SharedPrivateLinkResourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SharedPrivateLinkResourceResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
                  id: builtins.str,
                  name: builtins.str,
+                 system_data: 'outputs.SystemDataResponse',
                  type: builtins.str,
                  properties: Optional['outputs.SharedPrivateLinkResourcePropertiesResponse'] = None):
         """
-        Describes a Shared Private Link Resource managed by the search service.
-        :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Describes a shared private link resource managed by the Azure AI Search service.
+        :param builtins.str id: Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         :param builtins.str name: The name of the resource
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
         :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        :param 'SharedPrivateLinkResourcePropertiesResponse' properties: Describes the properties of a Shared Private Link Resource managed by the search service.
+        :param 'SharedPrivateLinkResourcePropertiesResponse' properties: Describes the properties of a shared private link resource managed by the Azure AI Search service.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "system_data", system_data)
         pulumi.set(__self__, "type", type)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -700,7 +776,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -711,6 +787,14 @@ class SharedPrivateLinkResourceResponse(dict):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -724,7 +808,7 @@ class SharedPrivateLinkResourceResponse(dict):
     @pulumi.getter
     def properties(self) -> Optional['outputs.SharedPrivateLinkResourcePropertiesResponse']:
         """
-        Describes the properties of a Shared Private Link Resource managed by the search service.
+        Describes the properties of a shared private link resource managed by the Azure AI Search service.
         """
         return pulumi.get(self, "properties")
 
@@ -750,5 +834,167 @@ class SkuResponse(dict):
         The SKU of the search service. Valid values include: 'free': Shared service. 'basic': Dedicated service with up to 3 replicas. 'standard': Dedicated service with up to 12 partitions and 12 replicas. 'standard2': Similar to standard, but with more capacity per search unit. 'standard3': The largest Standard offering with up to 12 partitions and 12 replicas (or up to 3 partitions with more indexes if you also set the hostingMode property to 'highDensity'). 'storage_optimized_l1': Supports 1TB per partition, up to 12 partitions. 'storage_optimized_l2': Supports 2TB per partition, up to 12 partitions.'
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[builtins.str] = None,
+                 created_by: Optional[builtins.str] = None,
+                 created_by_type: Optional[builtins.str] = None,
+                 last_modified_at: Optional[builtins.str] = None,
+                 last_modified_by: Optional[builtins.str] = None,
+                 last_modified_by_type: Optional[builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
+        :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: builtins.str,
+                 principal_id: builtins.str):
+        """
+        User assigned identity properties
+        :param builtins.str client_id: The client ID of the assigned identity.
+        :param builtins.str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 

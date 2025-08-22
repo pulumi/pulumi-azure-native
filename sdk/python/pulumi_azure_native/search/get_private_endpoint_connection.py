@@ -26,9 +26,9 @@ __all__ = [
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
-    Describes an existing private endpoint connection to the search service.
+    Describes an existing private endpoint connection to the Azure AI Search service.
     """
-    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, type=None):
+    def __init__(__self__, azure_api_version=None, id=None, name=None, properties=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -41,6 +41,9 @@ class GetPrivateEndpointConnectionResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -57,7 +60,7 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -73,9 +76,17 @@ class GetPrivateEndpointConnectionResult:
     @pulumi.getter
     def properties(self) -> 'outputs.PrivateEndpointConnectionPropertiesResponse':
         """
-        Describes the properties of an existing private endpoint connection to the search service.
+        Describes the properties of an existing private endpoint connection to the Azure AI Search service.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -96,6 +107,7 @@ class AwaitableGetPrivateEndpointConnectionResult(GetPrivateEndpointConnectionRe
             id=self.id,
             name=self.name,
             properties=self.properties,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -106,14 +118,14 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[b
     """
     Gets the details of the private endpoint connection to the search service in the given resource group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
+    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -127,6 +139,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[b
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         properties=pulumi.get(__ret__, 'properties'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_private_endpoint_connection_output(private_endpoint_connection_name: Optional[pulumi.Input[builtins.str]] = None,
                                            resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -135,14 +148,14 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     """
     Gets the details of the private endpoint connection to the search service in the given resource group.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the search service with the specified resource group.
+    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection to the Azure AI Search service with the specified resource group.
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -155,4 +168,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         properties=pulumi.get(__response__, 'properties'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

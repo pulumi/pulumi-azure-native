@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Returns the list of query API keys for the given search service.
+ * Returns the list of query API keys for the given Azure AI Search service.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listQueryKeyBySearchService(args: ListQueryKeyBySearchServiceArgs, opts?: pulumi.InvokeOptions): Promise<ListQueryKeyBySearchServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,13 +28,13 @@ export interface ListQueryKeyBySearchServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the search service associated with the specified resource group.
+     * The name of the Azure AI Search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Response containing the query API keys for a given search service.
+ * Response containing the query API keys for a given Azure AI Search service.
  */
 export interface ListQueryKeyBySearchServiceResult {
     /**
@@ -42,16 +42,16 @@ export interface ListQueryKeyBySearchServiceResult {
      */
     readonly nextLink: string;
     /**
-     * The query keys for the search service.
+     * The query keys for the Azure AI Search service.
      */
     readonly value: outputs.search.QueryKeyResponse[];
 }
 /**
- * Returns the list of query API keys for the given search service.
+ * Returns the list of query API keys for the given Azure AI Search service.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function listQueryKeyBySearchServiceOutput(args: ListQueryKeyBySearchServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<ListQueryKeyBySearchServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -67,7 +67,7 @@ export interface ListQueryKeyBySearchServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the search service associated with the specified resource group.
+     * The name of the Azure AI Search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }

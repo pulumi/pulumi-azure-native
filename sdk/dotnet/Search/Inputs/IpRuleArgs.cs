@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// The IP restriction rule of the search service.
+    /// The IP restriction rule of the Azure AI Search service.
     /// </summary>
     public sealed class IpRuleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Value corresponding to a single IPv4 address (for example, 123.1.2.3) or an IP range in CIDR format (for example, 123.1.2.3/24) to be allowed.
+        /// Value corresponding to a single IPv4 address (eg., 123.1.2.3) or an IP range in CIDR format (eg., 123.1.2.3/24) to be allowed.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

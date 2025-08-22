@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Describes the properties of an existing Private Endpoint connection to the search service.
+    /// Describes the properties of an existing private endpoint connection to the search service.
     /// </summary>
     public sealed class PrivateEndpointConnectionPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The group id from the provider of resource the private link service connection is for.
+        /// The group ID of the Azure resource for which the private link service is for.
         /// </summary>
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.Search.Inputs
         public Input<Inputs.PrivateEndpointConnectionPropertiesPrivateEndpointArgs>? PrivateEndpoint { get; set; }
 
         /// <summary>
-        /// Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint.
+        /// Describes the current state of an existing Azure Private Link service connection to the private endpoint.
         /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
         /// <summary>
-        /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete
+        /// The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, Incomplete, or Canceled.
         /// </summary>
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.Search.PrivateLinkServiceConnectionProvisioningState>? ProvisioningState { get; set; }

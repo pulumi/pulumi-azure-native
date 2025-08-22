@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class ListAdminKeyResult:
     """
-    Response containing the primary and secondary admin API keys for a given search service.
+    Response containing the primary and secondary admin API keys for a given Azure AI Search service.
     """
     def __init__(__self__, primary_key=None, secondary_key=None):
         if primary_key and not isinstance(primary_key, str):
@@ -66,15 +66,15 @@ def list_admin_key(resource_group_name: Optional[builtins.str] = None,
                    search_service_name: Optional[builtins.str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListAdminKeyResult:
     """
-    Gets the primary and secondary admin API keys for the specified search service.
+    Gets the primary and secondary admin API keys for the specified Azure AI Search service.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -89,15 +89,15 @@ def list_admin_key_output(resource_group_name: Optional[pulumi.Input[builtins.st
                           search_service_name: Optional[pulumi.Input[builtins.str]] = None,
                           opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[ListAdminKeyResult]:
     """
-    Gets the primary and secondary admin API keys for the specified search service.
+    Gets the primary and secondary admin API keys for the specified Azure AI Search service.
 
-    Uses Azure REST API version 2023-11-01.
+    Uses Azure REST API version 2025-05-01.
 
-    Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-    :param builtins.str search_service_name: The name of the search service associated with the specified resource group.
+    :param builtins.str search_service_name: The name of the Azure AI Search service associated with the specified resource group.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
