@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // Subscription represents a Subscription from the Azure CLI
@@ -37,7 +38,7 @@ type subscriptionUnavailableError struct {
 }
 
 func (e *subscriptionUnavailableError) Error() string {
-	return e.message
+	return "az account show: " + e.message
 }
 
 func newSubscriptionUnavailableError(message string) error {
@@ -65,6 +66,8 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		// subscription needs quotes because it may contain spaces
 		commandLine += ` --subscription "` + subscriptionID + `"`
 	}
+	logging.V(9).Infof("Running command: %s", commandLine)
+
 	var cliCmd *exec.Cmd
 	if runtime.GOOS == "windows" {
 		dir := os.Getenv("SYSTEMROOT")
@@ -84,6 +87,8 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 	output, err := cliCmd.Output()
 	if err != nil {
 		msg := stderr.String()
+		logging.Errorf("Command error: %v: %s", err, msg)
+
 		var exErr *exec.ExitError
 		if errors.As(err, &exErr) && exErr.ExitCode() == 127 || strings.HasPrefix(msg, "'az' is not recognized") {
 			msg = "Azure CLI not found on path"
