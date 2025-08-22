@@ -11,6 +11,7 @@ import (
 	"reflect"
 	"regexp"
 	"strings"
+	"sync"
 	"time"
 
 	"github.com/blang/semver"
@@ -205,55 +206,25 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.setLoggingContext(ctx)
 
 	if util.EnableAzcoreBackend() {
-		logging.V(9).Infof("Using azcore authentication")
-
-		userAgent := k.getUserAgent()
-
-		_, err := k.getAuthConfig()
+		var (
+			result *rpc.ConfigureResponse
+			err    error
+		)
+		var wg sync.WaitGroup
+		wg.Add(1)
+		go func() {
+			defer wg.Done()
+			defer func() {
+				if r := recover(); r != nil {
+					err = fmt.Errorf("panic in configure: %v", r)
+				}
+			}()
+			result, err = k.configure(ctx)
+		}()
+		wg.Wait()
 		if err != nil {
-			return nil, err
+			return result, err
 		}
-
-		// k.environment, err = authConfigLegacy.autorestEnvironment()
-		// if err != nil {
-		// 	return nil, err
-		// }
-
-		// k.cloud = authConfigLegacy.cloud()
-
-		// _ = k.autorestEnvToHamiltonEnv()
-
-		authConfig, err := readAuthConfig(k.getConfig)
-		if err != nil {
-			return nil, err
-		}
-		k.authConfig = *authConfig
-
-		clientOpts := azcore.ClientOptions{}
-		credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
-		if err != nil {
-			return nil, err
-		}
-		k.credential = credential
-		k.cloud = credential.Cloud
-		k.subscriptionID = credential.SubscriptionId
-
-		k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
-		if err != nil {
-			return nil, err
-		}
-
-		// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
-		if !k.isParameterized() {
-			var err error
-			k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-				nil, nil, nil, "", k.cloud, credential)
-			if err != nil {
-				return nil, fmt.Errorf("initializing custom resources: %w", err)
-			}
-		}
-
-		k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
 		return &rpc.ConfigureResponse{
 			SupportsPreview:                 true,
@@ -326,6 +297,45 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		SupportsPreview:                 true,
 		SupportsAutonamingConfiguration: true,
 	}, nil
+}
+
+func (k *azureNativeProvider) configure(ctx context.Context) (*rpc.ConfigureResponse, error) {
+	logging.V(9).Infof("Using azcore authentication")
+
+	userAgent := k.getUserAgent()
+
+	authConfig, err := readAuthConfig(k.getConfig)
+	if err != nil {
+		return nil, err
+	}
+	k.authConfig = *authConfig
+
+	clientOpts := azcore.ClientOptions{}
+	credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
+	if err != nil {
+		return nil, err
+	}
+	k.credential = credential
+	k.cloud = credential.Cloud
+	k.subscriptionID = credential.SubscriptionId
+
+	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
+	if !k.isParameterized() {
+		var err error
+		k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+			nil, nil, nil, "", k.cloud, credential)
+		if err != nil {
+			return nil, fmt.Errorf("initializing custom resources: %w", err)
+		}
+	}
+
+	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
+	return nil, nil
 }
 
 func (k *azureNativeProvider) isParameterized() bool {
