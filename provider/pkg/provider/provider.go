@@ -190,14 +190,7 @@ func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAtt
 
 // Configure configures the resource provider with "globals" that control its behavior.
 func (k *azureNativeProvider) Configure(ctx context.Context,
-	req *rpc.ConfigureRequest) (r *rpc.ConfigureResponse, err error) {
-
-	defer func() {
-		if r := recover(); r != nil {
-			r = nil
-			err = fmt.Errorf("panic recovered in Configure: %v", r)
-		}
-	}()
+	req *rpc.ConfigureRequest) (*rpc.ConfigureResponse, error) {
 
 	if k.getVersion().Major >= 3 && (!req.GetSendsOldInputs() || !req.GetSendsOldInputsToDelete()) {
 		// https://github.com/pulumi/pulumi-azure-native/issues/2686
@@ -404,13 +397,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *ClientConfig, err error) {
-	defer func() {
-		if r := recover(); r != nil {
-			config = nil
-			err = fmt.Errorf("panic recovered in getClientConfig: %v", r)
-		}
-	}()
-
 	if !util.EnableAzcoreBackend() {
 		auth, err := k.getAuthConfig()
 		if err != nil {
@@ -440,13 +426,6 @@ func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *Clie
 }
 
 func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (token string, err error) {
-	defer func() {
-		if r := recover(); r != nil {
-			token = ""
-			err = fmt.Errorf("panic recovered in getClientToken: %v", r)
-		}
-	}()
-
 	endpoint := k.tokenEndpoint(endpointArg)
 	logging.V(9).Infof("getting a token credential for %s", endpoint)
 

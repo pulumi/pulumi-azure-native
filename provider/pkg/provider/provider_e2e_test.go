@@ -377,7 +377,7 @@ func parseJwtUnverified(tokenString string) (jwt.MapClaims, error) {
 }
 
 func debugLogging() debug.LoggingOptions {
-	var level uint = 9
+	var level uint = 11
 	return debug.LoggingOptions{
 		LogLevel:      &level,
 		Debug:         true,
