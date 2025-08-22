@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes an existing private endpoint connection to the search service.
+    /// Describes an existing private endpoint connection to the Azure AI Search service.
     /// </summary>
     [OutputType]
     public sealed class PrivateEndpointConnectionResponse
     {
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -25,9 +25,13 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Describes the properties of an existing private endpoint connection to the search service.
+        /// Describes the properties of an existing private endpoint connection to the Azure AI Search service.
         /// </summary>
         public readonly Outputs.PrivateEndpointConnectionPropertiesResponse? Properties;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.Search.Outputs
 
             Outputs.PrivateEndpointConnectionPropertiesResponse? properties,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
             Name = name;
             Properties = properties;
+            SystemData = systemData;
             Type = type;
         }
     }

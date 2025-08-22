@@ -1120,12 +1120,7 @@
   ],
   "Scheduler": [],
   "Scom": [],
-  "Search": [
-    "2024-03-01-preview",
-    "2024-06-01-preview",
-    "2025-02-01-preview",
-    "2025-05-01"
-  ],
+  "Search": [],
   "SecretSyncController": [],
   "Security": [
     "2019-01-01",

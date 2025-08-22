@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Search.Inputs
     public sealed class PrivateEndpointConnectionPropertiesPrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The resource id of the private endpoint resource from Microsoft.Network provider.
+        /// The resource ID of the private endpoint resource from Microsoft.Network provider.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

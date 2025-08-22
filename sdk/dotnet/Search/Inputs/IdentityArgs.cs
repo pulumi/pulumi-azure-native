@@ -11,15 +11,27 @@ namespace Pulumi.AzureNative.Search.Inputs
 {
 
     /// <summary>
-    /// Identity for the resource.
+    /// Details about the search service identity. A null value indicates that the search service has no identity assigned.
     /// </summary>
     public sealed class IdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity type.
+        /// The type of identity used for the resource. The type 'SystemAssigned, UserAssigned' includes both an identity created by the system and a set of user assigned identities. The type 'None' will remove all identities from the service.
         /// </summary>
         [Input("type", required: true)]
-        public Input<Pulumi.AzureNative.Search.IdentityType> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Search.IdentityType> Type { get; set; } = null!;
+
+        [Input("userAssignedIdentities")]
+        private InputList<string>? _userAssignedIdentities;
+
+        /// <summary>
+        /// The list of user identities associated with the resource. The user identity dictionary key references will be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// </summary>
+        public InputList<string> UserAssignedIdentities
+        {
+            get => _userAssignedIdentities ?? (_userAssignedIdentities = new InputList<string>());
+            set => _userAssignedIdentities = value;
+        }
 
         public IdentityArgs()
         {
