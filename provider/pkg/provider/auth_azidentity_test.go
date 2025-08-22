@@ -363,16 +363,14 @@ func TestNewCredential(t *testing.T) {
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
 
-	t.Run("CLI with tenant ids", func(t *testing.T) {
+	t.Run("CLI with aux tenants", func(t *testing.T) {
 		conf := &authConfiguration{
-			tenantId:   "tenant-id",
 			auxTenants: []string{"123", "456"},
 		}
 		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
-		require.Equal(t, "tenant-id", optsVal.FieldByName("TenantID").String())
 		require.Equal(t, "123", optsVal.FieldByName("AdditionallyAllowedTenants").Index(0).String())
 		require.Equal(t, "456", optsVal.FieldByName("AdditionallyAllowedTenants").Index(1).String())
 	})

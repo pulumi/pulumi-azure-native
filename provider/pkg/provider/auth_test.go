@@ -132,8 +132,15 @@ func TestOidcWithTokenFileFromEnv(t *testing.T) {
 func TestOidcEmptyConfig(t *testing.T) {
 	p := azureNativeProvider{}
 
+	t.Setenv("ARM_OIDC_TOKEN", "")
+	t.Setenv("ARM_OIDC_TOKEN_FILE_PATH", "")
+	t.Setenv("ARM_OIDC_REQUEST_TOKEN", "")
+	t.Setenv("ARM_OIDC_REQUEST_URL", "")
+	t.Setenv("ACTIONS_ID_TOKEN_REQUEST_TOKEN", "")
+	t.Setenv("ACTIONS_ID_TOKEN_REQUEST_URL", "")
+
 	_, err := p.determineOidcConfig()
-	assert.NotNil(t, err)
+	assert.Error(t, err)
 }
 
 func TestOidcUrlTokenPairValidation(t *testing.T) {
@@ -141,9 +148,10 @@ func TestOidcUrlTokenPairValidation(t *testing.T) {
 
 	// With a request token we also need a request URL.
 	t.Setenv("ARM_OIDC_REQUEST_TOKEN", "t1")
+	t.Setenv("ARM_OIDC_REQUEST_URL", "")
 
 	_, err := p.determineOidcConfig()
-	assert.NotNil(t, err)
+	assert.Error(t, err)
 }
 
 func TestOidcPrefersToken(t *testing.T) {
