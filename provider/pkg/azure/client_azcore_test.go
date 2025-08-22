@@ -5,6 +5,7 @@ package azure
 import (
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -17,6 +18,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
@@ -134,7 +136,7 @@ func TestNormalizeLocationHeader(t *testing.T) {
 }
 
 func TestInitRequestQueryParams(t *testing.T) {
-	c, err := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, nil)
+	c, err := NewAzCoreClient(&fake.TokenCredential{}, "", cloud.AzurePublic, nil)
 	require.NoError(t, err)
 	client := c.(*azCoreClient)
 
@@ -161,7 +163,7 @@ func TestInitRequestQueryParams(t *testing.T) {
 }
 
 func TestInitRequestHeaders(t *testing.T) {
-	c, err := NewAzCoreClient(&fake.TokenCredential{}, "pulumi-agent", cloud.AzurePublic, nil)
+	c, err := NewAzCoreClient(&fake.TokenCredential{}, "extra", cloud.AzurePublic, nil)
 	require.NoError(t, err)
 	client := c.(*azCoreClient)
 
@@ -178,7 +180,7 @@ func TestInitRequestHeaders(t *testing.T) {
 		require.NoError(t, err)
 
 		headers := req.Raw().Header
-		assert.Equal(t, "pulumi-agent", headers.Get("User-Agent"))
+		assert.Equal(t, "extra", headers.Get("User-Agent"))
 		assert.Equal(t, "application/json", headers.Get("Accept"))
 		assert.Equal(t, contentType, headers.Get("Content-Type"))
 	}
@@ -252,6 +254,17 @@ func TestRequestQueryParams(t *testing.T) {
 				"foo":         11,
 			}, "")
 	})
+}
+
+func TestRequestUserAgent(t *testing.T) {
+	fake := &fakeTransporter{
+		responses: []*http.Response{{StatusCode: 200}},
+	}
+	client := newClientWithFakeTransport(fake)
+	_, err := client.Post(context.Background(), "/subscriptions/123", nil, map[string]any{"api-version": "2022-09-01"})
+	require.NoError(t, err)
+
+	require.Regexp(t, `^pulumi-azure-native/(.+) azsdk-go-azcore/(.+) \(.+\) pid-12345$`, fake.requests[0].Header.Get("User-Agent"))
 }
 
 func TestErrorStatusCodes(t *testing.T) {
@@ -652,31 +665,41 @@ func TestCanCreate_Responses(t *testing.T) {
 
 // Implements azcore's policy.Transporter by returning the given responses in order.
 type fakeTransporter struct {
+	requests  []*http.Request
 	responses []*http.Response
 	index     int
 }
 
 func (f *fakeTransporter) Do(req *http.Request) (*http.Response, error) {
+	f.requests = append(f.requests, req)
 	cur := f.responses[f.index]
 	f.index++
 	return cur, nil
 }
 
-func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
+func newClientWithFakeTransport(transport *fakeTransporter) *azCoreClient {
 	opts := arm.ClientOptions{
 		ClientOptions: policy.ClientOptions{
-			Transport: &fakeTransporter{
-				responses: responses,
+			Transport: transport,
+			Retry:     policy.RetryOptions{MaxRetries: -1},
+			Cloud:     cloud.AzurePublic,
+			Telemetry: policy.TelemetryOptions{
+				ApplicationID: fmt.Sprintf("pulumi-azure-native/%s", version.GetVersion()),
 			},
-			Retry: policy.RetryOptions{MaxRetries: -1},
 		},
 	}
 
-	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+	client, _ := NewAzCoreClient(&fake.TokenCredential{}, "pid-12345", cloud.AzurePublic, &opts)
 	azCoreClient := client.(*azCoreClient)
 	azCoreClient.updatePollingIntervalSeconds = 1
 	azCoreClient.deletePollingIntervalSeconds = 1
 	return azCoreClient
+}
+
+func newClientWithPreparedResponses(responses []*http.Response) *azCoreClient {
+	return newClientWithFakeTransport(&fakeTransporter{
+		responses: responses,
+	})
 }
 
 func TestHandleResponseError(t *testing.T) {
