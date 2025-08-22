@@ -1,0 +1,13 @@
+name: azidentity
+runtime: yaml
+description: Tests the azidentity subsystem of the provider.
+variables:
+ clientConfig:
+   fn::invoke:
+     function: azure-native:authorization:getClientConfig
+ clientToken:
+   fn::invoke:
+     function: azure-native:authorization:getClientToken
+outputs:
+  clientConfig: ${clientConfig}
+  clientToken: ${clientToken}
