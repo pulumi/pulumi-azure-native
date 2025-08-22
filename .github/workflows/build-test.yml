@@ -325,7 +325,7 @@ jobs:
       - run: make ensure
 
       - name: Build schema and binaries
-        run: make codegen schema provider
+        run: make codegen schema provider install_provider
 
       # - name: Prerequisites artifact restore
       #   uses: ./.github/actions/prerequisites-artifact-restore
