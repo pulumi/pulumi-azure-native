@@ -204,6 +204,49 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.setLoggingContext(ctx)
 
+	if util.EnableAzcoreBackend() {
+		logging.V(9).Infof("Using azcore authentication")
+
+		userAgent := k.getUserAgent()
+
+		authConfig, err := readAuthConfig(k.getConfig)
+		if err != nil {
+			return nil, err
+		}
+		k.authConfig = *authConfig
+
+		clientOpts := azcore.ClientOptions{}
+		credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
+		if err != nil {
+			return nil, err
+		}
+		k.credential = credential
+		k.cloud = credential.Cloud
+		k.subscriptionID = credential.SubscriptionId
+
+		k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
+		if err != nil {
+			return nil, err
+		}
+
+		// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
+		if !k.isParameterized() {
+			var err error
+			k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+				nil, nil, nil, "", k.cloud, credential)
+			if err != nil {
+				return nil, fmt.Errorf("initializing custom resources: %w", err)
+			}
+		}
+
+		k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
+
+		return &rpc.ConfigureResponse{
+			SupportsPreview:                 true,
+			SupportsAutonamingConfiguration: true,
+		}, nil
+	}
+
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
 		return nil, err
@@ -246,33 +289,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	var credential azcore.TokenCredential
-	if util.EnableAzcoreBackend() {
-		logging.V(9).Infof("Using azcore authentication")
-
-		authConfig, err := readAuthConfig(k.getConfig)
-		if err != nil {
-			return nil, err
-		}
-		k.authConfig = *authConfig
-
-		clientOpts := azcore.ClientOptions{}
-		credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
-		if err != nil {
-			return nil, err
-		}
-		k.credential = credential
-		k.cloud = credential.Cloud
-		k.subscriptionID = credential.SubscriptionId
-
-		k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
-		if err != nil {
-			return nil, fmt.Errorf("creating Azure client: %w", err)
-		}
-	} else {
-		logging.V(9).Infof("Using legacy authentication")
-		credential = azCoreTokenCredential{p: k}
-	}
+	logging.V(9).Infof("Using legacy authentication")
+	credential := azCoreTokenCredential{p: k}
 
 	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
 	if err != nil {
