@@ -28,9 +28,9 @@ import (
 )
 
 type azCoreClient struct {
-	host      string
-	pipeline  runtime.Pipeline
-	userAgent string
+	host           string
+	pipeline       runtime.Pipeline
+	extraUserAgent string
 
 	// Exposed internally for tests, to set it at the minimum value for fast tests.
 	deletePollingIntervalSeconds int64
@@ -42,6 +42,9 @@ func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *
 		opts = &arm.ClientOptions{
 			ClientOptions: policy.ClientOptions{
 				Cloud: azureCloud,
+				Telemetry: policy.TelemetryOptions{
+					ApplicationID: fmt.Sprintf("pulumi-azure-native/%s", version.Version),
+				},
 			},
 		}
 	}
@@ -86,7 +89,7 @@ func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *
 
 // NewAzCoreClient creates a new AzureClient using the azcore SDK. For general use, leave userOpts
 // nil to use the default options. If you do set it, make sure to set its ClientOptions.Cloud field.
-func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, azureCloud cloud.Configuration, userOpts *arm.ClientOptions,
+func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent string, azureCloud cloud.Configuration, userOpts *arm.ClientOptions,
 ) (AzureClient, error) {
 	// Hook our logging up to the azcore logger.
 	log.SetListener(func(event log.Event, msg string) {
@@ -98,7 +101,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	})
 
 	opts := initPipelineOpts(azureCloud, userOpts)
-	pipeline, err := armruntime.NewPipeline("pulumi-azure-native", version.Version, tokenCredential,
+	pipeline, err := armruntime.NewPipeline("azcore", "v1.17.0", tokenCredential,
 		runtime.PipelineOptions{}, opts)
 	if err != nil {
 		return nil, err
@@ -107,7 +110,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, userAgent string, a
 	return &azCoreClient{
 		host:                         azureCloud.Services[cloud.ResourceManager].Endpoint,
 		pipeline:                     pipeline,
-		userAgent:                    userAgent,
+		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
 	}, nil
@@ -127,7 +130,7 @@ func shouldRetryConflict(resp *http.Response) bool {
 
 func (c *azCoreClient) setHeaders(req *policy.Request, contentTypeJson bool) {
 	req.Raw().Header.Set("Accept", "application/json")
-	req.Raw().Header.Set("User-Agent", c.userAgent)
+	req.Raw().Header.Set("User-Agent", c.extraUserAgent) // note: azure-sdk-for-go will append standard info to this header
 	if contentTypeJson {
 		req.Raw().Header.Set("Content-Type", "application/json; charset=utf-8")
 	}
@@ -520,7 +523,7 @@ func CreateTestClient(t *testing.T, assertions func(t *testing.T, req *http.Requ
 		},
 		DisableRPRegistration: true,
 	}
-	return NewAzCoreClient(&fake.TokenCredential{}, "pulumi", cloud.AzurePublic, &opts)
+	return NewAzCoreClient(&fake.TokenCredential{}, "pid-12345", cloud.AzurePublic, &opts)
 }
 
 type requestAssertingTransporter struct {
