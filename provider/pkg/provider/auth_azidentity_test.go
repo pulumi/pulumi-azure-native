@@ -9,9 +9,10 @@ import (
 	"net/http/httptest"
 	"os"
 	"path/filepath"
+	"reflect"
 	"testing"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -19,6 +20,17 @@ import (
 
 //go:embed test.pfx
 var testPfxCert []byte
+
+type testProvider struct {
+	config map[string]string
+}
+
+func (k *testProvider) getConfig(configName, envName string) string {
+	if val, ok := k.config[configName]; ok {
+		return val
+	}
+	return os.Getenv(envName)
+}
 
 func TestGetAuthConfig(t *testing.T) {
 	setAuthEnvVariables := func(value, boolValue string) {
@@ -41,8 +53,9 @@ func TestGetAuthConfig(t *testing.T) {
 
 	t.Run("empty", func(t *testing.T) {
 		setAuthEnvVariables("", "")
-		p := azureNativeProvider{}
-		c, err := p.readAuthConfig()
+		p := &testProvider{}
+		c, err := readAuthConfig(p.getConfig)
+
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Empty(t, c.auxTenants)
@@ -58,12 +71,14 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Empty(t, c.tenantId)
 		require.False(t, c.useOidc)
 		require.False(t, c.useMsi)
+		require.Nil(t, c.cloud)
 	})
 
 	t.Run("values from config take precedence", func(t *testing.T) {
 		setAuthEnvVariables("env", "false")
+		t.Setenv("ARM_ENVIRONMENT", "public")
 
-		p := azureNativeProvider{
+		p := &testProvider{
 			config: map[string]string{
 				"auxiliaryTenantIds":        `["conf"]`,
 				"clientCertificatePassword": "conf",
@@ -80,10 +95,9 @@ func TestGetAuthConfig(t *testing.T) {
 				"useMsi":                    "true",
 				"useOidc":                   "true",
 			},
-			cloud: cloud.AzureGovernment,
 		}
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
@@ -97,17 +111,18 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "conf", c.oidcTokenRequestToken)
 		require.Equal(t, "conf", c.oidcTokenRequestUrl)
 		require.Equal(t, "conf", c.tenantId)
+		require.NotNil(t, c.cloud)
+		require.Equal(t, "https://login.microsoftonline.us/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
 	})
 
 	t.Run("values from env", func(t *testing.T) {
-		p := azureNativeProvider{
-			cloud: cloud.AzureChina,
-		}
+		p := &testProvider{}
 		setAuthEnvVariables("env", "true")
+		t.Setenv("ARM_ENVIRONMENT", "usgovernment")
 
-		c, err := p.readAuthConfig()
+		c, err := readAuthConfig(p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"env"}, c.auxTenants)
@@ -121,6 +136,8 @@ func TestGetAuthConfig(t *testing.T) {
 		require.Equal(t, "env", c.oidcTokenRequestToken)
 		require.Equal(t, "env", c.oidcTokenRequestUrl)
 		require.Equal(t, "env", c.tenantId)
+		require.NotNil(t, c.cloud)
+		require.Equal(t, "https://login.microsoftonline.us/", c.cloud.ActiveDirectoryAuthorityHost)
 		require.True(t, c.useOidc)
 		require.True(t, c.useMsi)
 	})
@@ -129,23 +146,39 @@ func TestGetAuthConfig(t *testing.T) {
 func TestNewCredential(t *testing.T) {
 	t.Run("SP with client secret", func(t *testing.T) {
 		conf := &authConfiguration{
+			clientId:       "client-id",
+			clientSecret:   "client-secret",
+			tenantId:       "tenant-id",
+			subscriptionId: "subscription-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
+		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
+		require.Equal(t, "client-id", clientVal.Elem().FieldByName("clientID").String())
+		require.Equal(t, "tenant-id", clientVal.Elem().FieldByName("tenantID").String())
+	})
+
+	t.Run("Incomplete SP missing subscription id", func(t *testing.T) {
+		conf := &authConfiguration{
 			clientId:     "client-id",
 			clientSecret: "client-secret",
 			tenantId:     "tenant-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
-		require.NoError(t, err)
-		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		require.Error(t, err)
+		require.Contains(t, err.Error(), "Subscription")
 	})
 
 	t.Run("Incomplete SP with client secret conf missing tenant id", func(t *testing.T) {
 		conf := &authConfiguration{
-			clientId:     "client-id",
-			clientSecret: "client-secret",
+			clientId:       "client-id",
+			clientSecret:   "client-secret",
+			subscriptionId: "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
-		require.Contains(t, err.Error(), "tenant")
+		require.Contains(t, err.Error(), "Tenant")
 	})
 
 	t.Run("SP with client cert", func(t *testing.T) {
@@ -157,10 +190,14 @@ func TestNewCredential(t *testing.T) {
 			clientCertPath:     certPath,
 			clientCertPassword: "pulumi",
 			tenantId:           "tenant-id",
+			subscriptionId:     "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientCertificateCredential{}, cred)
+		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
+		require.Equal(t, "client-id", clientVal.Elem().FieldByName("clientID").String())
+		require.Equal(t, "tenant-id", clientVal.Elem().FieldByName("tenantID").String())
 	})
 
 	t.Run("SP with invalid client cert", func(t *testing.T) {
@@ -171,8 +208,9 @@ func TestNewCredential(t *testing.T) {
 			clientId:       "client-id",
 			clientCertPath: certPath,
 			tenantId:       "tenant-id",
+			subscriptionId: "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 	})
@@ -186,8 +224,9 @@ func TestNewCredential(t *testing.T) {
 			clientCertPath:     certPath,
 			clientCertPassword: "wrong",
 			tenantId:           "tenant-id",
+			subscriptionId:     "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 		require.Contains(t, err.Error(), "password incorrect")
@@ -195,14 +234,18 @@ func TestNewCredential(t *testing.T) {
 
 	t.Run("OIDC with token", func(t *testing.T) {
 		conf := &authConfiguration{
-			useOidc:   true,
-			oidcToken: "oidc-token",
-			clientId:  "client-id",
-			tenantId:  "tenant-id",
+			useOidc:        true,
+			oidcToken:      "oidc-token",
+			clientId:       "client-id",
+			tenantId:       "tenant-id",
+			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
+		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
+		require.Equal(t, "client-id", clientVal.Elem().FieldByName("clientID").String())
+		require.Equal(t, "tenant-id", clientVal.Elem().FieldByName("tenantID").String())
 	})
 
 	t.Run("OIDC with token file", func(t *testing.T) {
@@ -214,8 +257,9 @@ func TestNewCredential(t *testing.T) {
 			oidcTokenFilePath: tokenPath,
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
+			subscriptionId:    "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -226,9 +270,11 @@ func TestNewCredential(t *testing.T) {
 			oidcTokenFilePath: filepath.Join(t.TempDir(), "foo"),
 			clientId:          "client-id",
 			tenantId:          "tenant-id",
+			subscriptionId:    "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf)
+		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.Error(t, err)
+		require.ErrorIs(t, err, os.ErrNotExist)
 	})
 
 	t.Run("OIDC with token exchange URL", func(t *testing.T) {
@@ -238,8 +284,9 @@ func TestNewCredential(t *testing.T) {
 			oidcTokenRequestUrl:   "oidc-token-url",
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
+			subscriptionId:        "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -252,36 +299,46 @@ func TestNewCredential(t *testing.T) {
 			oidcTokenRequestUrl:   "oidc-token-url",
 			clientId:              "client-id",
 			tenantId:              "tenant-id",
+			subscriptionId:        "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
 
 	t.Run("Incomplete OIDC conf", func(t *testing.T) {
 		for _, conf := range []*authConfiguration{
-			{
-				useOidc:   true,
-				oidcToken: "oidc-token",
-				clientId:  "client-id",
+			{ // missing tenantId
+				useOidc:        true,
+				oidcToken:      "oidc-token",
+				clientId:       "client-id",
+				subscriptionId: "subscription-id",
 			},
-			{
+			{ // missing oidcTokenRequestToken
 				useOidc:             true,
 				oidcTokenRequestUrl: "oidc-token-url",
 				clientId:            "client-id",
 				tenantId:            "tenant-id",
+				subscriptionId:      "subscription-id",
+			},
+			{ // missing subscriptionId
+				useOidc:   true,
+				oidcToken: "oidc-token",
+				clientId:  "client-id",
+				tenantId:  "tenant-id",
 			},
 		} {
-			_, err := newSingleMethodAuthCredential(conf)
+			_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 			require.Error(t, err)
 		}
 	})
 
 	t.Run("MSI", func(t *testing.T) {
 		conf := &authConfiguration{
-			useMsi: true,
+			useMsi:         true,
+			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
@@ -289,29 +346,44 @@ func TestNewCredential(t *testing.T) {
 	// Used for user-assigned managed identity
 	t.Run("MSI with client id", func(t *testing.T) {
 		conf := &authConfiguration{
-			clientId: "123",
-			useMsi:   true,
+			useMsi:         true,
+			clientId:       "123",
+			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
+		// FUTURE: assert cred.client.id = "123"
 	})
 
 	t.Run("CLI", func(t *testing.T) {
 		conf := &authConfiguration{}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
 
-	t.Run("CLI with tenant ids", func(t *testing.T) {
+	t.Run("CLI with aux tenants", func(t *testing.T) {
 		conf := &authConfiguration{
-			tenantId:   "tenant-id",
 			auxTenants: []string{"123", "456"},
 		}
-		cred, err := newSingleMethodAuthCredential(conf)
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
+		require.Equal(t, "123", optsVal.FieldByName("AdditionallyAllowedTenants").Index(0).String())
+		require.Equal(t, "456", optsVal.FieldByName("AdditionallyAllowedTenants").Index(1).String())
+	})
+
+	t.Run("CLI with subscription id", func(t *testing.T) {
+		conf := &authConfiguration{
+			subscriptionId: "subscription-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
+		require.Equal(t, "subscription-id", optsVal.FieldByName("Subscription").String())
 	})
 }
 
