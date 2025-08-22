@@ -209,6 +209,20 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 		userAgent := k.getUserAgent()
 
+		authConfigLegacy, err := k.getAuthConfig()
+		if err != nil {
+			return nil, err
+		}
+
+		k.environment, err = authConfigLegacy.autorestEnvironment()
+		if err != nil {
+			return nil, err
+		}
+
+		k.cloud = authConfigLegacy.cloud()
+
+		_ = k.autorestEnvToHamiltonEnv()
+
 		authConfig, err := readAuthConfig(k.getConfig)
 		if err != nil {
 			return nil, err
