@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Describes a database on the RedisEnterprise cluster
+ * Describes a database on the Redis Enterprise cluster
  *
- * Uses Azure REST API version 2024-03-01-preview.
+ * Uses Azure REST API version 2025-05-01-preview.
  *
- * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Database extends pulumi.CustomResource {
     /**
@@ -42,6 +42,10 @@ export class Database extends pulumi.CustomResource {
     }
 
     /**
+     * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+     */
+    public readonly accessKeysAuthentication!: pulumi.Output<string | undefined>;
+    /**
      * The Azure API version of the resource.
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
@@ -50,11 +54,11 @@ export class Database extends pulumi.CustomResource {
      */
     public readonly clientProtocol!: pulumi.Output<string | undefined>;
     /**
-     * Clustering policy - default is OSSCluster. Specified at create time.
+     * Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
      */
     public readonly clusteringPolicy!: pulumi.Output<string | undefined>;
     /**
-     * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+     * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
      */
     public readonly deferUpgrade!: pulumi.Output<string | undefined>;
     /**
@@ -94,6 +98,10 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.redisenterprise.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -115,6 +123,7 @@ export class Database extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["accessKeysAuthentication"] = args ? args.accessKeysAuthentication : undefined;
             resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
             resourceInputs["clusterName"] = args ? args.clusterName : undefined;
             resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
@@ -131,8 +140,10 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["accessKeysAuthentication"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientProtocol"] = undefined /*out*/;
             resourceInputs["clusteringPolicy"] = undefined /*out*/;
@@ -146,6 +157,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["redisVersion"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -160,15 +172,19 @@ export class Database extends pulumi.CustomResource {
  */
 export interface DatabaseArgs {
     /**
+     * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+     */
+    accessKeysAuthentication?: pulumi.Input<string | enums.redisenterprise.AccessKeysAuthentication>;
+    /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
     clientProtocol?: pulumi.Input<string | enums.redisenterprise.Protocol>;
     /**
-     * The name of the Redis Enterprise cluster.
+     * The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
      */
     clusterName: pulumi.Input<string>;
     /**
-     * Clustering policy - default is OSSCluster. Specified at create time.
+     * Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
      */
     clusteringPolicy?: pulumi.Input<string | enums.redisenterprise.ClusteringPolicy>;
     /**
@@ -176,7 +192,7 @@ export interface DatabaseArgs {
      */
     databaseName?: pulumi.Input<string>;
     /**
-     * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+     * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
      */
     deferUpgrade?: pulumi.Input<string | enums.redisenterprise.DeferUpgradeSetting>;
     /**

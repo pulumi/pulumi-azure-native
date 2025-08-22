@@ -10743,28 +10743,28 @@ Redis:
         RpNamespace: Microsoft.Cache
 RedisEnterprise:
     AccessPolicyAssignment:
-        ApiVersion: 2024-09-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-09-01-preview/redisenterprise.json
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/accessPolicyAssignments/{accessPolicyAssignmentName}
         RpNamespace: Microsoft.Cache
     Database:
-        ApiVersion: 2024-03-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}
         RpNamespace: Microsoft.Cache
     PrivateEndpointConnection:
-        ApiVersion: 2024-03-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Cache
     RedisEnterprise:
-        ApiVersion: 2024-03-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}
         RpNamespace: Microsoft.Cache
     listDatabaseKeys:
-        ApiVersion: 2024-03-01-preview
-        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2024-03-01-preview/redisenterprise.json
+        ApiVersion: 2025-05-01-preview
+        SpecFilePath: specification/redisenterprise/resource-manager/Microsoft.Cache/preview/2025-05-01-preview/redisenterprise.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cache/redisEnterprise/{clusterName}/databases/{databaseName}/listKeys
         RpNamespace: Microsoft.Cache
     listRedisEnterpriseSkusForScaling:

@@ -2,23 +2,43 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AccessKeysAuthentication = {
+    Disabled: "Disabled",
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+ */
+export type AccessKeysAuthentication = (typeof AccessKeysAuthentication)[keyof typeof AccessKeysAuthentication];
+
 export const AofFrequency = {
     AofFrequency_1s: "1s",
     Always: "always",
 } as const;
 
 /**
- * Sets the frequency at which data is written to disk.
+ * Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
  */
 export type AofFrequency = (typeof AofFrequency)[keyof typeof AofFrequency];
 
 export const ClusteringPolicy = {
+    /**
+     * Enterprise clustering policy uses only the classic redis protocol, which does not support redis cluster commands.
+     */
     EnterpriseCluster: "EnterpriseCluster",
+    /**
+     * OSS clustering policy follows the redis cluster specification, and requires all clients to support redis clustering.
+     */
     OSSCluster: "OSSCluster",
+    /**
+     * The NoCluster policy is used for non-clustered Redis instances that do not require clustering features.
+     */
+    NoCluster: "NoCluster",
 } as const;
 
 /**
- * Clustering policy - default is OSSCluster. Specified at create time.
+ * Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
  */
 export type ClusteringPolicy = (typeof ClusteringPolicy)[keyof typeof ClusteringPolicy];
 
@@ -38,7 +58,7 @@ export const DeferUpgradeSetting = {
 } as const;
 
 /**
- * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+ * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
  */
 export type DeferUpgradeSetting = (typeof DeferUpgradeSetting)[keyof typeof DeferUpgradeSetting];
 
@@ -57,6 +77,16 @@ export const EvictionPolicy = {
  * Redis eviction policy - default is VolatileLRU
  */
 export type EvictionPolicy = (typeof EvictionPolicy)[keyof typeof EvictionPolicy];
+
+export const HighAvailability = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+ */
+export type HighAvailability = (typeof HighAvailability)[keyof typeof HighAvailability];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -103,18 +133,65 @@ export const RdbFrequency = {
 export type RdbFrequency = (typeof RdbFrequency)[keyof typeof RdbFrequency];
 
 export const SkuName = {
+    Enterprise_E1: "Enterprise_E1",
     Enterprise_E5: "Enterprise_E5",
     Enterprise_E10: "Enterprise_E10",
     Enterprise_E20: "Enterprise_E20",
     Enterprise_E50: "Enterprise_E50",
     Enterprise_E100: "Enterprise_E100",
+    Enterprise_E200: "Enterprise_E200",
+    Enterprise_E400: "Enterprise_E400",
     EnterpriseFlash_F300: "EnterpriseFlash_F300",
     EnterpriseFlash_F700: "EnterpriseFlash_F700",
     EnterpriseFlash_F1500: "EnterpriseFlash_F1500",
+    Balanced_B0: "Balanced_B0",
+    Balanced_B1: "Balanced_B1",
+    Balanced_B3: "Balanced_B3",
+    Balanced_B5: "Balanced_B5",
+    Balanced_B10: "Balanced_B10",
+    Balanced_B20: "Balanced_B20",
+    Balanced_B50: "Balanced_B50",
+    Balanced_B100: "Balanced_B100",
+    Balanced_B150: "Balanced_B150",
+    Balanced_B250: "Balanced_B250",
+    Balanced_B350: "Balanced_B350",
+    Balanced_B500: "Balanced_B500",
+    Balanced_B700: "Balanced_B700",
+    Balanced_B1000: "Balanced_B1000",
+    MemoryOptimized_M10: "MemoryOptimized_M10",
+    MemoryOptimized_M20: "MemoryOptimized_M20",
+    MemoryOptimized_M50: "MemoryOptimized_M50",
+    MemoryOptimized_M100: "MemoryOptimized_M100",
+    MemoryOptimized_M150: "MemoryOptimized_M150",
+    MemoryOptimized_M250: "MemoryOptimized_M250",
+    MemoryOptimized_M350: "MemoryOptimized_M350",
+    MemoryOptimized_M500: "MemoryOptimized_M500",
+    MemoryOptimized_M700: "MemoryOptimized_M700",
+    MemoryOptimized_M1000: "MemoryOptimized_M1000",
+    MemoryOptimized_M1500: "MemoryOptimized_M1500",
+    MemoryOptimized_M2000: "MemoryOptimized_M2000",
+    ComputeOptimized_X3: "ComputeOptimized_X3",
+    ComputeOptimized_X5: "ComputeOptimized_X5",
+    ComputeOptimized_X10: "ComputeOptimized_X10",
+    ComputeOptimized_X20: "ComputeOptimized_X20",
+    ComputeOptimized_X50: "ComputeOptimized_X50",
+    ComputeOptimized_X100: "ComputeOptimized_X100",
+    ComputeOptimized_X150: "ComputeOptimized_X150",
+    ComputeOptimized_X250: "ComputeOptimized_X250",
+    ComputeOptimized_X350: "ComputeOptimized_X350",
+    ComputeOptimized_X500: "ComputeOptimized_X500",
+    ComputeOptimized_X700: "ComputeOptimized_X700",
+    FlashOptimized_A250: "FlashOptimized_A250",
+    FlashOptimized_A500: "FlashOptimized_A500",
+    FlashOptimized_A700: "FlashOptimized_A700",
+    FlashOptimized_A1000: "FlashOptimized_A1000",
+    FlashOptimized_A1500: "FlashOptimized_A1500",
+    FlashOptimized_A2000: "FlashOptimized_A2000",
+    FlashOptimized_A4500: "FlashOptimized_A4500",
 } as const;
 
 /**
- * The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+ * The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
@@ -125,6 +202,6 @@ export const TlsVersion = {
 } as const;
 
 /**
- * The minimum TLS version for the cluster to support, e.g. '1.2'
+ * The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
  */
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];

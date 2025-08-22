@@ -26,15 +26,18 @@ __all__ = [
 @pulumi.output_type
 class GetRedisEnterpriseResult:
     """
-    Describes the RedisEnterprise cluster
+    Describes the Redis Enterprise cluster
     """
-    def __init__(__self__, azure_api_version=None, encryption=None, host_name=None, id=None, identity=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
+    def __init__(__self__, azure_api_version=None, encryption=None, high_availability=None, host_name=None, id=None, identity=None, kind=None, location=None, minimum_tls_version=None, name=None, private_endpoint_connections=None, provisioning_state=None, redis_version=None, redundancy_mode=None, resource_state=None, sku=None, tags=None, type=None, zones=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
+        if high_availability and not isinstance(high_availability, str):
+            raise TypeError("Expected argument 'high_availability' to be a str")
+        pulumi.set(__self__, "high_availability", high_availability)
         if host_name and not isinstance(host_name, str):
             raise TypeError("Expected argument 'host_name' to be a str")
         pulumi.set(__self__, "host_name", host_name)
@@ -44,6 +47,9 @@ class GetRedisEnterpriseResult:
         if identity and not isinstance(identity, dict):
             raise TypeError("Expected argument 'identity' to be a dict")
         pulumi.set(__self__, "identity", identity)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -62,6 +68,9 @@ class GetRedisEnterpriseResult:
         if redis_version and not isinstance(redis_version, str):
             raise TypeError("Expected argument 'redis_version' to be a str")
         pulumi.set(__self__, "redis_version", redis_version)
+        if redundancy_mode and not isinstance(redundancy_mode, str):
+            raise TypeError("Expected argument 'redundancy_mode' to be a str")
+        pulumi.set(__self__, "redundancy_mode", redundancy_mode)
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
@@ -95,6 +104,14 @@ class GetRedisEnterpriseResult:
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="highAvailability")
+    def high_availability(self) -> Optional[builtins.str]:
+        """
+        Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+        """
+        return pulumi.get(self, "high_availability")
+
+    @property
     @pulumi.getter(name="hostName")
     def host_name(self) -> builtins.str:
         """
@@ -120,6 +137,14 @@ class GetRedisEnterpriseResult:
 
     @property
     @pulumi.getter
+    def kind(self) -> builtins.str:
+        """
+        Distinguishes the kind of cluster. Read-only.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
     def location(self) -> builtins.str:
         """
         The geo-location where the resource lives
@@ -130,7 +155,7 @@ class GetRedisEnterpriseResult:
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[builtins.str]:
         """
-        The minimum TLS version for the cluster to support, e.g. '1.2'
+        The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -146,7 +171,7 @@ class GetRedisEnterpriseResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        List of private endpoint connections associated with the specified RedisEnterprise cluster
+        List of private endpoint connections associated with the specified Redis Enterprise cluster
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -165,6 +190,14 @@ class GetRedisEnterpriseResult:
         Version of redis the cluster supports, e.g. '6'
         """
         return pulumi.get(self, "redis_version")
+
+    @property
+    @pulumi.getter(name="redundancyMode")
+    def redundancy_mode(self) -> builtins.str:
+        """
+        Explains the current redundancy strategy of the cluster, which affects the expected SLA.
+        """
+        return pulumi.get(self, "redundancy_mode")
 
     @property
     @pulumi.getter(name="resourceState")
@@ -215,15 +248,18 @@ class AwaitableGetRedisEnterpriseResult(GetRedisEnterpriseResult):
         return GetRedisEnterpriseResult(
             azure_api_version=self.azure_api_version,
             encryption=self.encryption,
+            high_availability=self.high_availability,
             host_name=self.host_name,
             id=self.id,
             identity=self.identity,
+            kind=self.kind,
             location=self.location,
             minimum_tls_version=self.minimum_tls_version,
             name=self.name,
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             redis_version=self.redis_version,
+            redundancy_mode=self.redundancy_mode,
             resource_state=self.resource_state,
             sku=self.sku,
             tags=self.tags,
@@ -235,14 +271,14 @@ def get_redis_enterprise(cluster_name: Optional[builtins.str] = None,
                          resource_group_name: Optional[builtins.str] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRedisEnterpriseResult:
     """
-    Gets information about a RedisEnterprise cluster
+    Gets information about a Redis Enterprise cluster
 
-    Uses Azure REST API version 2024-03-01-preview.
+    Uses Azure REST API version 2025-05-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str cluster_name: The name of the Redis Enterprise cluster.
+    :param builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -254,15 +290,18 @@ def get_redis_enterprise(cluster_name: Optional[builtins.str] = None,
     return AwaitableGetRedisEnterpriseResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         encryption=pulumi.get(__ret__, 'encryption'),
+        high_availability=pulumi.get(__ret__, 'high_availability'),
         host_name=pulumi.get(__ret__, 'host_name'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
+        kind=pulumi.get(__ret__, 'kind'),
         location=pulumi.get(__ret__, 'location'),
         minimum_tls_version=pulumi.get(__ret__, 'minimum_tls_version'),
         name=pulumi.get(__ret__, 'name'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         redis_version=pulumi.get(__ret__, 'redis_version'),
+        redundancy_mode=pulumi.get(__ret__, 'redundancy_mode'),
         resource_state=pulumi.get(__ret__, 'resource_state'),
         sku=pulumi.get(__ret__, 'sku'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -272,14 +311,14 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[builtins.str
                                 resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                                 opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetRedisEnterpriseResult]:
     """
-    Gets information about a RedisEnterprise cluster
+    Gets information about a Redis Enterprise cluster
 
-    Uses Azure REST API version 2024-03-01-preview.
+    Uses Azure REST API version 2025-05-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str cluster_name: The name of the Redis Enterprise cluster.
+    :param builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -290,15 +329,18 @@ def get_redis_enterprise_output(cluster_name: Optional[pulumi.Input[builtins.str
     return __ret__.apply(lambda __response__: GetRedisEnterpriseResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         encryption=pulumi.get(__response__, 'encryption'),
+        high_availability=pulumi.get(__response__, 'high_availability'),
         host_name=pulumi.get(__response__, 'host_name'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
+        kind=pulumi.get(__response__, 'kind'),
         location=pulumi.get(__response__, 'location'),
         minimum_tls_version=pulumi.get(__response__, 'minimum_tls_version'),
         name=pulumi.get(__response__, 'name'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         redis_version=pulumi.get(__response__, 'redis_version'),
+        redundancy_mode=pulumi.get(__response__, 'redundancy_mode'),
         resource_state=pulumi.get(__response__, 'resource_state'),
         sku=pulumi.get(__response__, 'sku'),
         tags=pulumi.get(__response__, 'tags'),

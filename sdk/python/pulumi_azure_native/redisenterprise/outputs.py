@@ -32,6 +32,7 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'SkuDetailsResponse',
     'SkuResponse',
+    'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
 
@@ -436,7 +437,7 @@ class ModuleResponse(dict):
 @pulumi.output_type
 class PersistenceResponse(dict):
     """
-    Persistence-related configuration for the RedisEnterprise database
+    Persistence-related configuration for the Redis Enterprise database
     """
     @staticmethod
     def __key_warning(key: str):
@@ -467,10 +468,10 @@ class PersistenceResponse(dict):
                  rdb_enabled: Optional[builtins.bool] = None,
                  rdb_frequency: Optional[builtins.str] = None):
         """
-        Persistence-related configuration for the RedisEnterprise database
-        :param builtins.bool aof_enabled: Sets whether AOF is enabled.
-        :param builtins.str aof_frequency: Sets the frequency at which data is written to disk.
-        :param builtins.bool rdb_enabled: Sets whether RDB is enabled.
+        Persistence-related configuration for the Redis Enterprise database
+        :param builtins.bool aof_enabled: Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
+        :param builtins.str aof_frequency: Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
+        :param builtins.bool rdb_enabled: Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         :param builtins.str rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
         if aof_enabled is not None:
@@ -486,7 +487,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="aofEnabled")
     def aof_enabled(self) -> Optional[builtins.bool]:
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "aof_enabled")
 
@@ -494,7 +495,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="aofFrequency")
     def aof_frequency(self) -> Optional[builtins.str]:
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         return pulumi.get(self, "aof_frequency")
 
@@ -502,7 +503,7 @@ class PersistenceResponse(dict):
     @pulumi.getter(name="rdbEnabled")
     def rdb_enabled(self) -> Optional[builtins.bool]:
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "rdb_enabled")
 
@@ -736,15 +737,15 @@ class SkuDetailsResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    SKU parameters supplied to the create RedisEnterprise operation.
+    SKU parameters supplied to the create Redis Enterprise cluster operation.
     """
     def __init__(__self__, *,
                  name: builtins.str,
                  capacity: Optional[builtins.int] = None):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param builtins.str name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param builtins.int capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
+        :param builtins.str name: The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
+        :param builtins.int capacity: This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -754,7 +755,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         return pulumi.get(self, "name")
 
@@ -762,9 +763,119 @@ class SkuResponse(dict):
     @pulumi.getter
     def capacity(self) -> Optional[builtins.int]:
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         return pulumi.get(self, "capacity")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[builtins.str] = None,
+                 created_by: Optional[builtins.str] = None,
+                 created_by_type: Optional[builtins.str] = None,
+                 last_modified_at: Optional[builtins.str] = None,
+                 last_modified_by: Optional[builtins.str] = None,
+                 last_modified_by_type: Optional[builtins.str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
+        :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[builtins.str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[builtins.str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[builtins.str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[builtins.str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
