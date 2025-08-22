@@ -22,6 +22,7 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
@@ -205,23 +206,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.setLoggingContext(ctx)
 
 	if util.EnableAzcoreBackend() {
-		// var (
-		// 	result *rpc.ConfigureResponse
-		// 	err    error
-		// )
-		// var wg sync.WaitGroup
-		// wg.Add(1)
-		// go func() {
-		// 	defer wg.Done()
-		// 	defer func() {
-		// 		if r := recover(); r != nil {
-		// 			err = fmt.Errorf("panic in configure: %v", r)
-		// 		}
-		// 	}()
-		// 	result, err = k.configure(ctx)
-		// }()
-		// wg.Wait()
-
 		_, err := k.configure(ctx)
 		if err != nil {
 			return nil, err
@@ -304,6 +288,11 @@ func (k *azureNativeProvider) configure(ctx context.Context) (*rpc.ConfigureResp
 	logging.V(9).Infof("Using azcore authentication")
 
 	userAgent := k.getUserAgent()
+
+	// _, err := k.getAuthConfig()
+	// if err != nil {
+	// 	return nil, err
+	// }
 
 	authConfig, err := readAuthConfig(k.getConfig)
 	if err != nil {
