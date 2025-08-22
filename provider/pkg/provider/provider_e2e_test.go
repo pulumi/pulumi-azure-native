@@ -32,6 +32,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/debug"
 	"github.com/pulumi/pulumi/sdk/v3/go/auto/optup"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/apitype"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 	pulumirpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 )
 
@@ -49,6 +50,8 @@ func init() {
 	if err != nil {
 		fmt.Printf("failed to read metadata file, run `make schema` before running tests: %v", err)
 	}
+
+	logging.InitLogging(true, 9, true)
 }
 
 func TestStorageBlob(t *testing.T) {
