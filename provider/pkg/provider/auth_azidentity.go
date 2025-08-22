@@ -14,6 +14,7 @@ import (
 	"os"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"

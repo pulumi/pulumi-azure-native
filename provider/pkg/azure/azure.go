@@ -13,6 +13,7 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/runtime"
 	"github.com/Azure/go-autorest/autorest"
