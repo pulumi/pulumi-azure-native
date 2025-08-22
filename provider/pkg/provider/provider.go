@@ -206,8 +206,9 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	k.setLoggingContext(ctx)
 
 	if util.EnableAzcoreBackend() {
-		_, err := k.configure(ctx)
+		_, err := k.configureAzidentity(ctx)
 		if err != nil {
+			logging.Errorf("configureAzidentity: %v", err)
 			return nil, err
 		}
 
@@ -284,10 +285,11 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
-func (k *azureNativeProvider) configure(ctx context.Context) (*rpc.ConfigureResponse, error) {
+func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.ConfigureResponse, error) {
 	logging.V(9).Infof("Using azcore authentication")
 
 	userAgent := k.getUserAgent()
+	logging.V(9).Infof("User agent: %s", userAgent)
 
 	// _, err := k.getAuthConfig()
 	// if err != nil {
@@ -299,20 +301,25 @@ func (k *azureNativeProvider) configure(ctx context.Context) (*rpc.ConfigureResp
 		return nil, err
 	}
 	k.authConfig = *authConfig
+	logging.V(9).Infof("Auth config: %+v", k.authConfig)
 
 	clientOpts := azcore.ClientOptions{}
 	credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
 	if err != nil {
 		return nil, err
 	}
+	logging.V(9).Infof("credential: %+v", credential)
+
 	k.credential = credential
 	k.cloud = credential.Cloud
 	k.subscriptionID = credential.SubscriptionId
+	logging.V(9).Infof("cloud: %+v", k.cloud)
 
 	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
 	if err != nil {
 		return nil, err
 	}
+	logging.V(9).Infof("client: %+v", k.azureClient)
 
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
@@ -322,6 +329,7 @@ func (k *azureNativeProvider) configure(ctx context.Context) (*rpc.ConfigureResp
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
+		logging.V(9).Infof("custom resources initialized")
 	}
 
 	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
