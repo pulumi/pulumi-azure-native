@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes an API key for a given search service that has permissions for query operations only.
+    /// Describes an API key for a given Azure AI Search service that conveys read-only permissions on the docs collection of an index.
     /// </summary>
     [OutputType]
     public sealed class QueryKeyResponse
@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string Key;
         /// <summary>
-        /// The name of the query API key; may be empty.
+        /// The name of the query API key. Query names are optional, but assigning a name can help you remember how it's used.
         /// </summary>
         public readonly string Name;
 

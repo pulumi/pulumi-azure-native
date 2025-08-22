@@ -1413,7 +1413,7 @@ Scheduler:
 Scom:
     tracking: 2023-07-07-preview
 Search:
-    tracking: "2023-11-01"
+    tracking: "2025-05-01"
 SecretSyncController:
     tracking: 2024-08-21-preview
 Security:

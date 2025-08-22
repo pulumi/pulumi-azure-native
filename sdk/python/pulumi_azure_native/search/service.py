@@ -25,44 +25,58 @@ class ServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[builtins.str],
                  auth_options: Optional[pulumi.Input['DataPlaneAuthOptionsArgs']] = None,
+                 compute_type: Optional[pulumi.Input[Union[builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
                  disable_local_auth: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_with_cmk: Optional[pulumi.Input['EncryptionWithCmkArgs']] = None,
+                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input['IdentityArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  network_rule_set: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  search_service_name: Optional[pulumi.Input[builtins.str]] = None,
                  semantic_search: Optional[pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 upgrade_available: Optional[pulumi.Input[Union[builtins.str, 'UpgradeAvailable']]] = None):
         """
         The set of arguments for constructing a Service resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input['DataPlaneAuthOptionsArgs'] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input[Union[builtins.str, 'ComputeType']] compute_type: Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]] data_exfiltration_protections: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         :param pulumi.Input[builtins.bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         :param pulumi.Input['EncryptionWithCmkArgs'] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        :param pulumi.Input[builtins.str] endpoint: The endpoint of the Azure AI Search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network-specific rules that determine how the search service may be reached.
+        :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
         :param pulumi.Input[builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-        :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
-        :param pulumi.Input[builtins.str] search_service_name: The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
-        :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        :param pulumi.Input[builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        :param pulumi.Input['SkuArgs'] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Union[builtins.str, 'UpgradeAvailable']] upgrade_available: Indicates if the search service has an upgrade available.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auth_options is not None:
             pulumi.set(__self__, "auth_options", auth_options)
+        if compute_type is not None:
+            pulumi.set(__self__, "compute_type", compute_type)
+        if data_exfiltration_protections is not None:
+            pulumi.set(__self__, "data_exfiltration_protections", data_exfiltration_protections)
         if disable_local_auth is not None:
             pulumi.set(__self__, "disable_local_auth", disable_local_auth)
         if encryption_with_cmk is not None:
             pulumi.set(__self__, "encryption_with_cmk", encryption_with_cmk)
+        if endpoint is not None:
+            pulumi.set(__self__, "endpoint", endpoint)
         if hosting_mode is None:
             hosting_mode = 'default'
         if hosting_mode is not None:
@@ -93,6 +107,8 @@ class ServiceArgs:
             pulumi.set(__self__, "sku", sku)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if upgrade_available is not None:
+            pulumi.set(__self__, "upgrade_available", upgrade_available)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -119,6 +135,30 @@ class ServiceArgs:
         pulumi.set(self, "auth_options", value)
 
     @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ComputeType']]]:
+        """
+        Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @compute_type.setter
+    def compute_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ComputeType']]]):
+        pulumi.set(self, "compute_type", value)
+
+    @property
+    @pulumi.getter(name="dataExfiltrationProtections")
+    def data_exfiltration_protections(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]]]:
+        """
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+        """
+        return pulumi.get(self, "data_exfiltration_protections")
+
+    @data_exfiltration_protections.setter
+    def data_exfiltration_protections(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]]]):
+        pulumi.set(self, "data_exfiltration_protections", value)
+
+    @property
     @pulumi.getter(name="disableLocalAuth")
     def disable_local_auth(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -141,6 +181,18 @@ class ServiceArgs:
     @encryption_with_cmk.setter
     def encryption_with_cmk(self, value: Optional[pulumi.Input['EncryptionWithCmkArgs']]):
         pulumi.set(self, "encryption_with_cmk", value)
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The endpoint of the Azure AI Search service.
+        """
+        return pulumi.get(self, "endpoint")
+
+    @endpoint.setter
+    def endpoint(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "endpoint", value)
 
     @property
     @pulumi.getter(name="hostingMode")
@@ -182,7 +234,7 @@ class ServiceArgs:
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
         """
-        Network-specific rules that determine how the search service may be reached.
+        Network specific rules that determine how the Azure AI Search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -204,14 +256,14 @@ class ServiceArgs:
 
     @property
     @pulumi.getter(name="publicNetworkAccess")
-    def public_network_access(self) -> Optional[pulumi.Input['PublicNetworkAccess']]:
+    def public_network_access(self) -> Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]:
         """
         This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
     @public_network_access.setter
-    def public_network_access(self, value: Optional[pulumi.Input['PublicNetworkAccess']]):
+    def public_network_access(self, value: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]):
         pulumi.set(self, "public_network_access", value)
 
     @property
@@ -230,7 +282,7 @@ class ServiceArgs:
     @pulumi.getter(name="searchServiceName")
     def search_service_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
         """
         return pulumi.get(self, "search_service_name")
 
@@ -242,7 +294,7 @@ class ServiceArgs:
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> Optional[pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']]]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
 
@@ -254,7 +306,7 @@ class ServiceArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -274,6 +326,18 @@ class ServiceArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="upgradeAvailable")
+    def upgrade_available(self) -> Optional[pulumi.Input[Union[builtins.str, 'UpgradeAvailable']]]:
+        """
+        Indicates if the search service has an upgrade available.
+        """
+        return pulumi.get(self, "upgrade_available")
+
+    @upgrade_available.setter
+    def upgrade_available(self, value: Optional[pulumi.Input[Union[builtins.str, 'UpgradeAvailable']]]):
+        pulumi.set(self, "upgrade_available", value)
+
 
 @pulumi.type_token("azure-native:search:Service")
 class Service(pulumi.CustomResource):
@@ -282,45 +346,53 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_options: Optional[pulumi.Input[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
+                 compute_type: Optional[pulumi.Input[Union[builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
                  disable_local_auth: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_with_cmk: Optional[pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
+                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  search_service_name: Optional[pulumi.Input[builtins.str]] = None,
                  semantic_search: Optional[pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 upgrade_available: Optional[pulumi.Input[Union[builtins.str, 'UpgradeAvailable']]] = None,
                  __props__=None):
         """
-        Describes a search service and its current state.
+        Describes an Azure AI Search service and its current state.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']] auth_options: Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
+        :param pulumi.Input[Union[builtins.str, 'ComputeType']] compute_type: Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]] data_exfiltration_protections: A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
         :param pulumi.Input[builtins.bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         :param pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
+        :param pulumi.Input[builtins.str] endpoint: The endpoint of the Azure AI Search service.
         :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network-specific rules that determine how the search service may be reached.
+        :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
         :param pulumi.Input[builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-        :param pulumi.Input['PublicNetworkAccess'] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
-        :param pulumi.Input[builtins.str] search_service_name: The name of the search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be globally unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
-        :param pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        :param pulumi.Input[builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
+        :param pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
+        :param pulumi.Input[Union[builtins.str, 'UpgradeAvailable']] upgrade_available: Indicates if the search service has an upgrade available.
         """
         ...
     @overload
@@ -329,11 +401,11 @@ class Service(pulumi.CustomResource):
                  args: ServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Describes a search service and its current state.
+        Describes an Azure AI Search service and its current state.
 
-        Uses Azure REST API version 2023-11-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
+        Uses Azure REST API version 2025-05-01. In version 2.x of the Azure Native provider, it used API version 2022-09-01.
 
-        Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServiceArgs args: The arguments to use to populate this resource's properties.
@@ -351,20 +423,24 @@ class Service(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  auth_options: Optional[pulumi.Input[Union['DataPlaneAuthOptionsArgs', 'DataPlaneAuthOptionsArgsDict']]] = None,
+                 compute_type: Optional[pulumi.Input[Union[builtins.str, 'ComputeType']]] = None,
+                 data_exfiltration_protections: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'SearchDataExfiltrationProtection']]]]] = None,
                  disable_local_auth: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption_with_cmk: Optional[pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']]] = None,
+                 endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  hosting_mode: Optional[pulumi.Input['HostingMode']] = None,
                  identity: Optional[pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']]] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  network_rule_set: Optional[pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']]] = None,
                  partition_count: Optional[pulumi.Input[builtins.int]] = None,
-                 public_network_access: Optional[pulumi.Input['PublicNetworkAccess']] = None,
+                 public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  replica_count: Optional[pulumi.Input[builtins.int]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  search_service_name: Optional[pulumi.Input[builtins.str]] = None,
                  semantic_search: Optional[pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 upgrade_available: Optional[pulumi.Input[Union[builtins.str, 'UpgradeAvailable']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -375,8 +451,11 @@ class Service(pulumi.CustomResource):
             __props__ = ServiceArgs.__new__(ServiceArgs)
 
             __props__.__dict__["auth_options"] = auth_options
+            __props__.__dict__["compute_type"] = compute_type
+            __props__.__dict__["data_exfiltration_protections"] = data_exfiltration_protections
             __props__.__dict__["disable_local_auth"] = disable_local_auth
             __props__.__dict__["encryption_with_cmk"] = encryption_with_cmk
+            __props__.__dict__["endpoint"] = endpoint
             if hosting_mode is None:
                 hosting_mode = 'default'
             __props__.__dict__["hosting_mode"] = hosting_mode
@@ -399,13 +478,17 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["semantic_search"] = semantic_search
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["upgrade_available"] = upgrade_available
             __props__.__dict__["azure_api_version"] = None
+            __props__.__dict__["e_tag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["service_upgraded_at"] = None
             __props__.__dict__["shared_private_link_resources"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["status_details"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:search/v20150819:Service"), pulumi.Alias(type_="azure-native:search/v20191001preview:Service"), pulumi.Alias(type_="azure-native:search/v20200313:Service"), pulumi.Alias(type_="azure-native:search/v20200801:Service"), pulumi.Alias(type_="azure-native:search/v20200801preview:Service"), pulumi.Alias(type_="azure-native:search/v20210401preview:Service"), pulumi.Alias(type_="azure-native:search/v20220901:Service"), pulumi.Alias(type_="azure-native:search/v20231101:Service"), pulumi.Alias(type_="azure-native:search/v20240301preview:Service"), pulumi.Alias(type_="azure-native:search/v20240601preview:Service"), pulumi.Alias(type_="azure-native:search/v20250201preview:Service"), pulumi.Alias(type_="azure-native:search/v20250501:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -433,8 +516,12 @@ class Service(pulumi.CustomResource):
 
         __props__.__dict__["auth_options"] = None
         __props__.__dict__["azure_api_version"] = None
+        __props__.__dict__["compute_type"] = None
+        __props__.__dict__["data_exfiltration_protections"] = None
         __props__.__dict__["disable_local_auth"] = None
+        __props__.__dict__["e_tag"] = None
         __props__.__dict__["encryption_with_cmk"] = None
+        __props__.__dict__["endpoint"] = None
         __props__.__dict__["hosting_mode"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -446,12 +533,15 @@ class Service(pulumi.CustomResource):
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["replica_count"] = None
         __props__.__dict__["semantic_search"] = None
+        __props__.__dict__["service_upgraded_at"] = None
         __props__.__dict__["shared_private_link_resources"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["status"] = None
         __props__.__dict__["status_details"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
+        __props__.__dict__["upgrade_available"] = None
         return Service(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -471,6 +561,22 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "azure_api_version")
 
     @property
+    @pulumi.getter(name="computeType")
+    def compute_type(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+        """
+        return pulumi.get(self, "compute_type")
+
+    @property
+    @pulumi.getter(name="dataExfiltrationProtections")
+    def data_exfiltration_protections(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        """
+        A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+        """
+        return pulumi.get(self, "data_exfiltration_protections")
+
+    @property
     @pulumi.getter(name="disableLocalAuth")
     def disable_local_auth(self) -> pulumi.Output[Optional[builtins.bool]]:
         """
@@ -479,12 +585,28 @@ class Service(pulumi.CustomResource):
         return pulumi.get(self, "disable_local_auth")
 
     @property
+    @pulumi.getter(name="eTag")
+    def e_tag(self) -> pulumi.Output[builtins.str]:
+        """
+        A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
+        """
+        return pulumi.get(self, "e_tag")
+
+    @property
     @pulumi.getter(name="encryptionWithCmk")
     def encryption_with_cmk(self) -> pulumi.Output[Optional['outputs.EncryptionWithCmkResponse']]:
         """
         Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         """
         return pulumi.get(self, "encryption_with_cmk")
+
+    @property
+    @pulumi.getter
+    def endpoint(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The endpoint of the Azure AI Search service.
+        """
+        return pulumi.get(self, "endpoint")
 
     @property
     @pulumi.getter(name="hostingMode")
@@ -522,7 +644,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="networkRuleSet")
     def network_rule_set(self) -> pulumi.Output[Optional['outputs.NetworkRuleSetResponse']]:
         """
-        Network-specific rules that determine how the search service may be reached.
+        Network specific rules that determine how the Azure AI Search service may be reached.
         """
         return pulumi.get(self, "network_rule_set")
 
@@ -538,7 +660,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        The list of private endpoint connections to the search service.
+        The list of private endpoint connections to the Azure AI Search service.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -546,7 +668,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[builtins.str]:
         """
-        The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
+        The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -570,15 +692,23 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="semanticSearch")
     def semantic_search(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+        Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
         """
         return pulumi.get(self, "semantic_search")
+
+    @property
+    @pulumi.getter(name="serviceUpgradedAt")
+    def service_upgraded_at(self) -> pulumi.Output[builtins.str]:
+        """
+        The date and time the search service was last upgraded. This field will be null until the service gets upgraded for the first time.
+        """
+        return pulumi.get(self, "service_upgraded_at")
 
     @property
     @pulumi.getter(name="sharedPrivateLinkResources")
     def shared_private_link_resources(self) -> pulumi.Output[Sequence['outputs.SharedPrivateLinkResourceResponse']]:
         """
-        The list of shared private link resources managed by the search service.
+        The list of shared private link resources managed by the Azure AI Search service.
         """
         return pulumi.get(self, "shared_private_link_resources")
 
@@ -586,7 +716,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+        The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
         """
         return pulumi.get(self, "sku")
 
@@ -594,7 +724,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         """
-        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+        The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure AI Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
         """
         return pulumi.get(self, "status")
 
@@ -605,6 +735,14 @@ class Service(pulumi.CustomResource):
         The details of the search service status.
         """
         return pulumi.get(self, "status_details")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -621,4 +759,12 @@ class Service(pulumi.CustomResource):
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="upgradeAvailable")
+    def upgrade_available(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Indicates if the search service has an upgrade available.
+        """
+        return pulumi.get(self, "upgrade_available")
 

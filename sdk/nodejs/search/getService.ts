@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets the search service with the given name in the given resource group.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -28,13 +28,13 @@ export interface GetServiceArgs {
      */
     resourceGroupName: string;
     /**
-     * The name of the search service associated with the specified resource group.
+     * The name of the Azure AI Search service associated with the specified resource group.
      */
     searchServiceName: string;
 }
 
 /**
- * Describes a search service and its current state.
+ * Describes an Azure AI Search service and its current state.
  */
 export interface GetServiceResult {
     /**
@@ -46,19 +46,35 @@ export interface GetServiceResult {
      */
     readonly azureApiVersion: string;
     /**
+     * Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
+     */
+    readonly computeType?: string;
+    /**
+     * A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
+     */
+    readonly dataExfiltrationProtections?: string[];
+    /**
      * When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
      */
     readonly disableLocalAuth?: boolean;
+    /**
+     * A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
+     */
+    readonly eTag: string;
     /**
      * Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
      */
     readonly encryptionWithCmk?: outputs.search.EncryptionWithCmkResponse;
     /**
+     * The endpoint of the Azure AI Search service.
+     */
+    readonly endpoint?: string;
+    /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
      */
     readonly hostingMode?: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -74,7 +90,7 @@ export interface GetServiceResult {
      */
     readonly name: string;
     /**
-     * Network-specific rules that determine how the search service may be reached.
+     * Network specific rules that determine how the Azure AI Search service may be reached.
      */
     readonly networkRuleSet?: outputs.search.NetworkRuleSetResponse;
     /**
@@ -82,11 +98,11 @@ export interface GetServiceResult {
      */
     readonly partitionCount?: number;
     /**
-     * The list of private endpoint connections to the search service.
+     * The list of private endpoint connections to the Azure AI Search service.
      */
     readonly privateEndpointConnections: outputs.search.PrivateEndpointConnectionResponse[];
     /**
-     * The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'succeeded' or 'failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
+     * The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
      */
     readonly provisioningState: string;
     /**
@@ -98,25 +114,33 @@ export interface GetServiceResult {
      */
     readonly replicaCount?: number;
     /**
-     * Sets options that control the availability of semantic search. This configuration is only possible for certain search SKUs in certain locations.
+     * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
      */
     readonly semanticSearch?: string;
     /**
-     * The list of shared private link resources managed by the search service.
+     * The date and time the search service was last upgraded. This field will be null until the service gets upgraded for the first time.
+     */
+    readonly serviceUpgradedAt: string;
+    /**
+     * The list of shared private link resources managed by the Azure AI Search service.
      */
     readonly sharedPrivateLinkResources: outputs.search.SharedPrivateLinkResourceResponse[];
     /**
-     * The SKU of the search service, which determines billing rate and capacity limits. This property is required when creating a new search service.
+     * The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
      */
     readonly sku?: outputs.search.SkuResponse;
     /**
-     * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. If your service is in the degraded, disabled, or error states, Microsoft is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
+     * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure AI Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
      */
     readonly status: string;
     /**
      * The details of the search service status.
      */
     readonly statusDetails: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.search.SystemDataResponse;
     /**
      * Resource tags.
      */
@@ -125,13 +149,17 @@ export interface GetServiceResult {
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
+    /**
+     * Indicates if the search service has an upgrade available.
+     */
+    readonly upgradeAvailable?: string;
 }
 /**
  * Gets the search service with the given name in the given resource group.
  *
- * Uses Azure REST API version 2023-11-01.
+ * Uses Azure REST API version 2025-05-01.
  *
- * Other available API versions: 2022-09-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-09-01, 2023-11-01, 2024-03-01-preview, 2024-06-01-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native search [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServiceOutput(args: GetServiceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServiceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -147,7 +175,7 @@ export interface GetServiceOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the search service associated with the specified resource group.
+     * The name of the Azure AI Search service associated with the specified resource group.
      */
     searchServiceName: pulumi.Input<string>;
 }
