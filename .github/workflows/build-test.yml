@@ -365,7 +365,7 @@ jobs:
           PULUMITEST_RETAIN_FILES_ON_FAILURE: true
         run: |
           set -euo pipefail
-          cd provider && go test -test.v -tags all -run ^TestAzidentity$ -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... -args -logtostderr -v=9 2>&1 | tee /tmp/gotest.log
+          cd provider && go test -test.v -tags all -run ^TestAzidentity|TestDefaultAzSubscriptionProvider$ -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... -args -logtostderr -v=9 2>&1 | tee /tmp/gotest.log
 
       - name: Upload test log
         uses: actions/upload-artifact@v4

@@ -7,6 +7,7 @@
 package provider
 
 import (
+	"context"
 	"encoding/json"
 	"fmt"
 	"os"
@@ -137,6 +138,21 @@ func TestTagging(t *testing.T) {
 	assert.Equal(t, map[string]any{"owner": "tag_1"}, rg1Tags)
 	rg2Tags, _ := up.Outputs["rg_2_tags"].Value.(map[string]any)
 	assert.Equal(t, map[string]any{"owner": "tag_2"}, rg2Tags)
+}
+
+func TestDefaultAzSubscriptionProvider(t *testing.T) {
+	// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
+	// to provide an isolated configuration directory for the Azure CLI.
+	configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
+	if configDir == "" {
+		t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+	}
+	t.Setenv("AZURE_CONFIG_DIR", configDir)
+
+	ctx := context.Background()
+	subscription, err := defaultAzSubscriptionProvider(ctx, os.Getenv("ARM_SUBSCRIPTION_ID"))
+	require.NoError(t, err)
+	assert.NotNil(t, subscription)
 }
 
 func TestAzidentity(t *testing.T) {
