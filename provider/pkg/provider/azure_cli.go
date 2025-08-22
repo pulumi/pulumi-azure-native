@@ -81,17 +81,22 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		cliCmd.Dir = "/bin"
 	}
 	cliCmd.Env = os.Environ()
-	var stderr bytes.Buffer
+	var stdout, stderr bytes.Buffer
 	cliCmd.Stderr = &stderr
+	cliCmd.Stdout = &stdout
 
-	output, err := cliCmd.Output()
+	err := cliCmd.Run()
 	if err != nil {
 		msg := stderr.String()
+		msg += "\n" + stdout.String()
+
 		logging.Errorf("Command error: %v: %s", err, msg)
 
 		var exErr *exec.ExitError
 		if errors.As(err, &exErr) && exErr.ExitCode() == 127 || strings.HasPrefix(msg, "'az' is not recognized") {
 			msg = "Azure CLI not found on path"
+		} else if errors.As(err, &exErr) {
+			msg += string(exErr.Stderr)
 		}
 		if msg == "" {
 			msg = err.Error()
@@ -99,6 +104,8 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		return nil, newSubscriptionUnavailableError(msg)
 	}
 
+	output := stdout.Bytes()
+	logging.V(9).Infof("Command output: %s", output)
 	s := Subscription{}
 	err = json.Unmarshal(output, &s)
 	if err != nil {
