@@ -56,11 +56,13 @@ const cliTimeout = 10 * time.Second
 // https://github.com/Azure/azure-sdk-for-go/blob/519e8ab1a0e433b755c31ebaa6b177dfc83cb838/sdk/azidentity/azure_cli_credential.go#L117-L172
 var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID string) (*Subscription, error) {
 	// set a default timeout for this authentication iff the application hasn't done so already
-	var cancel context.CancelFunc
-	if _, hasDeadline := ctx.Deadline(); !hasDeadline {
-		ctx, cancel = context.WithTimeout(ctx, cliTimeout)
-		defer cancel()
-	}
+	// var cancel context.CancelFunc
+	// if _, hasDeadline := ctx.Deadline(); !hasDeadline {
+	// 	ctx, cancel = context.WithTimeout(ctx, cliTimeout)
+	// 	defer cancel()
+	// }
+	// ctx = context.Background()
+
 	commandLine := "az account show -o json "
 	if subscriptionID != "" {
 		// subscription needs quotes because it may contain spaces
@@ -84,11 +86,21 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 	var stdout, stderr bytes.Buffer
 	cliCmd.Stderr = &stderr
 	cliCmd.Stdout = &stdout
+	cliCmd.WaitDelay = 100 * time.Millisecond
 
-	err := cliCmd.Run()
+	output, err := func() ([]byte, error) {
+		err := cliCmd.Run()
+		stdout := stdout.Bytes()
+		if errors.Is(err, exec.ErrWaitDelay) && len(stdout) > 0 {
+			// The child process wrote to stdout and exited without closing it.
+			// Swallow this error and return stdout because it may contain a token.
+			return stdout, nil
+		}
+		return stdout, err
+	}()
 	if err != nil {
 		msg := stderr.String()
-		msg += "\n" + stdout.String()
+		msg += "\n" + string(output)
 
 		logging.Errorf("Command error: %v: %s", err, msg)
 
@@ -96,6 +108,7 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		if errors.As(err, &exErr) && exErr.ExitCode() == 127 || strings.HasPrefix(msg, "'az' is not recognized") {
 			msg = "Azure CLI not found on path"
 		} else if errors.As(err, &exErr) {
+			logging.Errorf("Exit code: %d %s", exErr.ExitCode(), string(exErr.Stderr))
 			msg += string(exErr.Stderr)
 		}
 		if msg == "" {
@@ -104,7 +117,6 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		return nil, newSubscriptionUnavailableError(msg)
 	}
 
-	output := stdout.Bytes()
 	logging.V(9).Infof("Command output: %s", output)
 	s := Subscription{}
 	err = json.Unmarshal(output, &s)

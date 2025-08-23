@@ -151,7 +151,12 @@ func TestDefaultAzSubscriptionProvider(t *testing.T) {
 
 	ctx := context.Background()
 	subscription, err := defaultAzSubscriptionProvider(ctx, os.Getenv("ARM_SUBSCRIPTION_ID"))
-	require.NoError(t, err)
+	assert.NoError(t, err, "first try")
+	assert.NotNil(t, subscription)
+
+	// try it again
+	subscription, err = defaultAzSubscriptionProvider(ctx, os.Getenv("ARM_SUBSCRIPTION_ID"))
+	assert.NoError(t, err, "second try")
 	assert.NotNil(t, subscription)
 }
 
