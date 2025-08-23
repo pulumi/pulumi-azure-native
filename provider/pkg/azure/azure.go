@@ -4,6 +4,8 @@ package azure
 
 import (
 	"context"
+	"encoding/base64"
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net/http"
@@ -11,26 +13,36 @@ import (
 	"strings"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
+	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // BuildUserAgent composes a User Agent string with the provided partner ID.
+// see: https://azure.github.io/azure-sdk/general_azurecore.html#telemetry-policy
 func BuildUserAgent(partnerID string) (userAgent string) {
-	userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
-		autorest.UserAgent(), version.Version))
+	if !util.EnableAzcoreBackend() {
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
+			autorest.UserAgent(), version.GetVersion()))
+	}
+
+	// azure-sdk-for-go sets a user agent string as per the telemetry policy, resembling:
+	//   pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
+	// Anything we add here will be appended to that.
 
 	// append the CloudShell version to the user agent if it exists
+	// https://github.com/Azure/azure-cli/issues/21808
 	if azureAgent := os.Getenv("AZURE_HTTP_USER_AGENT"); azureAgent != "" {
-		userAgent = fmt.Sprintf("%s %s", userAgent, azureAgent)
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s %s", userAgent, azureAgent))
 	}
 
 	// Append partner ID, if it's defined.
 	if partnerID != "" {
-		userAgent = fmt.Sprintf("%s pid-%s", userAgent, partnerID)
+		userAgent = strings.TrimSpace(fmt.Sprintf("%s pid-%s", userAgent, partnerID))
 	}
 
 	logging.V(9).Infof("AzureNative User Agent: %s", userAgent)
@@ -92,4 +104,52 @@ func GetCloudByName(cloudName string) azcloud.Configuration {
 		return azcloud.AzureGovernment
 	}
 	return azcloud.AzurePublic
+}
+
+// GetCloudName returns the standard name for a given azcloud.Configuration.
+func GetCloudName(cloud azcloud.Configuration) string {
+	switch cloud.ActiveDirectoryAuthorityHost {
+	case azcloud.AzureChina.ActiveDirectoryAuthorityHost:
+		return "AzureChinaCloud"
+	case azcloud.AzureGovernment.ActiveDirectoryAuthorityHost:
+		return "AzureUSGovernment"
+	case azcloud.AzurePublic.ActiveDirectoryAuthorityHost:
+		return "AzureCloud"
+	}
+	return "AzureCloud"
+}
+
+// Claims is used to unmarshall the claims from a JWT issued by the Microsoft Identity Platform.
+type Claims struct {
+	Audience          string   `json:"aud"`
+	Issuer            string   `json:"iss"`
+	IdentityProvider  string   `json:"idp"`
+	ObjectId          string   `json:"oid"`
+	Roles             []string `json:"roles"`
+	Scopes            string   `json:"scp"`
+	Subject           string   `json:"sub"`
+	TenantRegionScope string   `json:"tenant_region_scope"`
+	TenantId          string   `json:"tid"`
+	Version           string   `json:"ver"`
+
+	AppDisplayName string `json:"app_displayname,omitempty"`
+	AppId          string `json:"appid,omitempty"`
+	IdType         string `json:"idtyp,omitempty"`
+}
+
+// ParseClaims retrieves and parses the claims from a JWT issued by the Microsoft Identity Platform.
+func ParseClaims(token azcore.AccessToken) (Claims, error) {
+	jwt := strings.Split(token.Token, ".")
+	if len(jwt) != 3 {
+		return Claims{}, errors.New("unexpected token format: does not have 3 parts")
+	}
+
+	payload, err := base64.RawURLEncoding.DecodeString(jwt[1])
+	if err != nil {
+		return Claims{}, err
+	}
+
+	var claims Claims
+	err = json.Unmarshal(payload, &claims)
+	return claims, err
 }

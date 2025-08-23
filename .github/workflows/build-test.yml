@@ -103,7 +103,7 @@ jobs:
           status: ${{ job.status }}
 
   build_sdks:
-    needs: prerequisites
+    needs: [prerequisites,test_provider]
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
     strategy:
@@ -217,6 +217,7 @@ jobs:
         # We store the base64-encoded cert as a secret, decode it here, and write it out to a file.
         run: |
           echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
+          echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> "$GITHUB_ENV"
 
       - name: Write .azure.tmp folder
         # We write to .azure.tmp, not directly to .azure, because we want only one test to use
@@ -229,13 +230,13 @@ jobs:
           # We only want one specific test to use it.
           unzip -d "$HOME/.azure.tmp" "${{ runner.temp }}/azure-cli-folder.zip"
           rm "${{ runner.temp }}/azure-cli-folder.zip"
+          echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
 
       - name: Run tests
         if: ${{ ! inputs.short_test }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
-          ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST: "${{ runner.temp }}/azure-client-certificate.pfx"
         run: |
           set -euo pipefail
           cd examples && go test -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
@@ -303,6 +304,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Test Provider
     needs: prerequisites
+    permissions:
+      id-token: write # required for OIDC auth
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -327,7 +330,30 @@ jobs:
           make --touch codegen schema
           make provider_prebuild
 
+      - name: Write client certificate
+        # The provider wants the cert as a path to a cert file but GH secrets can only be strings.
+        # We store the base64-encoded cert as a secret, decode it here, and write it out to a file.
+        run: |
+          echo "${{ secrets.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
+          echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> "$GITHUB_ENV"
+
+      - name: Write .azure.tmp folder
+        # We write to .azure.tmp, not directly to .azure, because we want only one test to use
+        # this folder. The test needs to rename it to .azure and then back. This is to avoid other
+        # tests using it unintentionally since CLI is the fallback auth method.
+        run: |
+          set -euxo pipefail
+          echo "${{ secrets.AZURE_CLI_FOLDER }}" | base64 -d > "${{ runner.temp }}/azure-cli-folder.zip"
+          # Unzip it to a temp folder to avoid other tests using it unintentionally (since CLI auth is the fallback method).
+          # We only want one specific test to use it.
+          unzip -d "$HOME/.azure.tmp" "${{ runner.temp }}/azure-cli-folder.zip"
+          rm "${{ runner.temp }}/azure-cli-folder.zip"
+          echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
+
       - name: Test Provider Library
+        env:
+          # specifying this id will cause the OIDC test(s) to run against this AD application
+          OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
         run: |
           set -euo pipefail
           cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
