@@ -64,7 +64,6 @@ env:
 
 jobs:
   prerequisites:
-    if: false
     runs-on: ubuntu-latest
     name: Build binaries and schema
     steps:
@@ -104,7 +103,6 @@ jobs:
           status: ${{ job.status }}
 
   build_sdks:
-    if: false
     needs: [prerequisites,test_provider]
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
@@ -186,7 +184,6 @@ jobs:
           status: ${{ job.status }}
 
   test_sdks:
-    if: false
     needs: build_sdks
     # Use big runner for dotnet and nodejs because we need more memory and more compute, respectively
     runs-on: ${{ (matrix.language == 'dotnet' || matrix.language == 'nodejs' || matrix.language == 'go') && 'pulumi-ubuntu-8core' || 'ubuntu-latest' }}
@@ -251,7 +248,6 @@ jobs:
           cd examples && go test -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
   test_examples:
-    if: false
     needs: build_sdks
     runs-on: ubuntu-latest
     name: Test pulumi/examples
@@ -307,7 +303,7 @@ jobs:
   test_provider:
     runs-on: ubuntu-latest
     name: Test Provider
-    # needs: prerequisites
+    needs: prerequisites
     permissions:
       id-token: write # required for OIDC auth
     steps:
@@ -324,18 +320,15 @@ jobs:
 
       - run: make ensure
 
-      - name: Build schema and binaries
-        run: make codegen schema provider install_provider
-
-      # - name: Prerequisites artifact restore
-      #   uses: ./.github/actions/prerequisites-artifact-restore
+      - name: Prerequisites artifact restore
+        uses: ./.github/actions/prerequisites-artifact-restore
 
       # This is essentially just copying files from bin to the provider folder
-      # - name: Prebuild provider prerequisites
-      #   run: |
-      #     make prebuild
-      #     make --touch codegen schema
-      #     make provider_prebuild
+      - name: Prebuild provider prerequisites
+        run: |
+          make prebuild
+          make --touch codegen schema
+          make provider_prebuild
 
       - name: Write client certificate
         # The provider wants the cert as a path to a cert file but GH secrets can only be strings.
@@ -361,18 +354,9 @@ jobs:
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
-          PULUMITEST_SKIP_DESTROY_ON_FAILURE: true
-          PULUMITEST_RETAIN_FILES_ON_FAILURE: true
         run: |
           set -euo pipefail
-          cd provider && go test -test.v -tags all -run "^TestAzidentity|TestDefaultAzSubscriptionProvider$" -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
-
-      - name: Upload test log
-        uses: actions/upload-artifact@v4
-        with:
-          name: provider-gotest-log
-          path: /tmp/gotest.log
-          retention-days: ${{ inputs.retention_days }}
+          cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
@@ -381,7 +365,6 @@ jobs:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   dist:
-    if: false
     runs-on: ubuntu-latest
     name: Provider Dist
     needs: prerequisites

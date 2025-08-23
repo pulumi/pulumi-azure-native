@@ -205,6 +205,8 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.setLoggingContext(ctx)
 
+	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
+
 	if util.EnableAzcoreBackend() {
 		_, err := k.configureAzidentity(ctx)
 		if err != nil {
@@ -277,8 +279,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		}
 	}
 
-	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
-
 	return &rpc.ConfigureResponse{
 		SupportsPreview:                 true,
 		SupportsAutonamingConfiguration: true,
@@ -291,35 +291,28 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 	userAgent := k.getUserAgent()
 	logging.V(9).Infof("User agent: %s", userAgent)
 
-	// _, err := k.getAuthConfig()
-	// if err != nil {
-	// 	return nil, err
-	// }
-
 	authConfig, err := readAuthConfig(k.getConfig)
 	if err != nil {
 		return nil, err
 	}
 	k.authConfig = *authConfig
-	logging.V(9).Infof("Auth config: %+v", k.authConfig)
+	logging.V(9).Infof("Provider auth configuration: %+v", k.authConfig)
 
 	clientOpts := azcore.ClientOptions{}
 	credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
 	if err != nil {
 		return nil, err
 	}
-	logging.V(9).Infof("credential: %+v", credential)
-
 	k.credential = credential
 	k.cloud = credential.Cloud
 	k.subscriptionID = credential.SubscriptionId
-	logging.V(9).Infof("cloud: %+v", k.cloud)
+	logging.V(9).Infof("Azure cloud: %+v", k.cloud)
+	logging.V(9).Infof("Azure subscription ID: %s", k.subscriptionID)
 
 	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
 	if err != nil {
 		return nil, err
 	}
-	logging.V(9).Infof("client: %+v", k.azureClient)
 
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
@@ -329,10 +322,8 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
-		logging.V(9).Infof("custom resources initialized")
 	}
 
-	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 	return nil, nil
 }
 
