@@ -38,7 +38,7 @@ type subscriptionUnavailableError struct {
 }
 
 func (e *subscriptionUnavailableError) Error() string {
-	return "az account show: " + e.message
+	return e.message
 }
 
 func newSubscriptionUnavailableError(message string) error {
@@ -93,30 +93,23 @@ var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID str
 		stdout := stdout.Bytes()
 		if errors.Is(err, exec.ErrWaitDelay) && len(stdout) > 0 {
 			// The child process wrote to stdout and exited without closing it.
-			// Swallow this error and return stdout because it may contain a token.
+			// Swallow this error and return stdout because it may contain output.
 			return stdout, nil
 		}
 		return stdout, err
 	}()
 	if err != nil {
 		msg := stderr.String()
-		msg += "\n" + string(output)
-
-		logging.Errorf("Command error: %v: %s", err, msg)
-
+		logging.Errorf("az command error %v: %s", err, msg)
 		var exErr *exec.ExitError
 		if errors.As(err, &exErr) && exErr.ExitCode() == 127 || strings.HasPrefix(msg, "'az' is not recognized") {
 			msg = "Azure CLI not found on path"
-		} else if errors.As(err, &exErr) {
-			logging.Errorf("Exit code: %d %s", exErr.ExitCode(), string(exErr.Stderr))
-			msg += string(exErr.Stderr)
 		}
 		if msg == "" {
 			msg = err.Error()
 		}
 		return nil, newSubscriptionUnavailableError(msg)
 	}
-
 	logging.V(9).Infof("Command output: %s", output)
 	s := Subscription{}
 	err = json.Unmarshal(output, &s)

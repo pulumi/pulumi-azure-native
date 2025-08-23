@@ -1,4 +1,4 @@
-// Copyright 2016-2022, Pulumi Corporation.
+// Copyright 2016-2025, Pulumi Corporation.
 
 package provider
 
