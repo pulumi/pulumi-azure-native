@@ -6,7 +6,7 @@ toolchain go1.24.1
 
 require (
 	github.com/Azure/azure-sdk-for-go v68.0.0+incompatible
-	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.17.0
+	github.com/Azure/azure-sdk-for-go/sdk/azcore v1.18.1
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.8.2
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v3 v3.0.0-beta.2
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault v1.4.0
@@ -24,6 +24,7 @@ require (
 	github.com/go-openapi/jsonreference v0.19.6
 	github.com/go-openapi/spec v0.20.4
 	github.com/go-openapi/swag v0.21.1
+	github.com/golang-jwt/jwt v3.2.1+incompatible
 	github.com/golang/protobuf v1.5.4
 	github.com/google/uuid v1.6.0
 	github.com/hashicorp/go-azure-helpers v0.51.0
@@ -31,6 +32,8 @@ require (
 	github.com/hashicorp/hcl/v2 v2.23.0
 	github.com/manicminer/hamilton v0.57.1
 	github.com/manicminer/hamilton-autorest v0.3.0
+	github.com/microsoftgraph/msgraph-sdk-go v1.81.0
+	github.com/microsoftgraph/msgraph-sdk-go-core v1.3.2
 	github.com/pkg/errors v0.9.1
 	github.com/pulumi/providertest v0.1.5
 	github.com/pulumi/pulumi-java/pkg v1.16.0
@@ -58,12 +61,12 @@ require (
 	cloud.google.com/go/longrunning v0.5.5 // indirect
 	cloud.google.com/go/storage v1.39.1 // indirect
 	dario.cat/mergo v1.0.1 // indirect
-	github.com/Azure/azure-sdk-for-go/sdk/internal v1.10.0 // indirect
+	github.com/Azure/azure-sdk-for-go/sdk/internal v1.11.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/azkeys v0.10.0 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/keyvault/internal v0.7.1 // indirect
 	github.com/Azure/azure-sdk-for-go/sdk/security/keyvault/internal v1.0.1 // indirect
 	github.com/Azure/go-autorest/autorest/adal v0.9.23 // indirect
-	github.com/AzureAD/microsoft-authentication-library-for-go v1.3.3 // indirect
+	github.com/AzureAD/microsoft-authentication-library-for-go v1.4.2 // indirect
 	github.com/BurntSushi/toml v1.4.0 // indirect
 	github.com/apparentlymart/go-textseg/v15 v15.0.0 // indirect
 	github.com/atotto/clipboard v0.1.4 // indirect
@@ -120,6 +123,13 @@ require (
 	github.com/kylelemons/godebug v1.1.0 // indirect
 	github.com/lucasb-eyer/go-colorful v1.2.0 // indirect
 	github.com/mattn/go-localereader v0.0.1 // indirect
+	github.com/microsoft/kiota-abstractions-go v1.9.3 // indirect
+	github.com/microsoft/kiota-authentication-azure-go v1.3.0 // indirect
+	github.com/microsoft/kiota-http-go v1.5.2 // indirect
+	github.com/microsoft/kiota-serialization-form-go v1.1.2 // indirect
+	github.com/microsoft/kiota-serialization-json-go v1.1.2 // indirect
+	github.com/microsoft/kiota-serialization-multipart-go v1.1.2 // indirect
+	github.com/microsoft/kiota-serialization-text-go v1.1.2 // indirect
 	github.com/mitchellh/copystructure v1.2.0 // indirect
 	github.com/mitchellh/mapstructure v1.5.0 // indirect
 	github.com/mitchellh/reflectwalk v1.0.2 // indirect
@@ -136,6 +146,7 @@ require (
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
+	github.com/std-uritemplate/std-uritemplate/go/v2 v2.0.3 // indirect
 	github.com/tidwall/gjson v1.17.0 // indirect
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.1 // indirect

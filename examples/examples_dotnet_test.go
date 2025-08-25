@@ -80,6 +80,13 @@ func TestDeletePostgresConfiguration(t *testing.T) {
 }
 
 func TestPulumiExamples(t *testing.T) {
+	if _, err := os.Stat(pulumiExamplesPath); os.IsNotExist(err) {
+		if os.Getenv("CI") != "" {
+			t.Errorf("pulumi examples not found at %q", pulumiExamplesPath)
+		}
+		t.Skipf("skipping: pulumi examples not found at %q", pulumiExamplesPath)
+	}
+
 	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {
 			test := getCsharpBaseOptions(t).
