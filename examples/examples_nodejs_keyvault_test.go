@@ -20,7 +20,7 @@ func TestAccKeyVaultTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccKeyVaultTs_OICD(t *testing.T) {
+func TestAccKeyVaultTs_OIDC(t *testing.T) {
 	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 	if oidcClientId == "" {
 		t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
@@ -39,9 +39,9 @@ func TestAccKeyVaultTs_OICD(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-// This test is almost like TestAccKeyVaultTs_OICD but uses an explicit provider.
+// This test is almost like TestAccKeyVaultTs_OIDC but uses an explicit provider.
 // We want to test configuring the provider via its arguments, not the environment.
-func TestAccKeyVaultTs_OICDExplicit(t *testing.T) {
+func TestAccKeyVaultTs_OIDCExplicit(t *testing.T) {
 	skipIfShort(t)
 
 	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
