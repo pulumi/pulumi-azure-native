@@ -47,22 +47,11 @@ func newSubscriptionUnavailableError(message string) error {
 
 type azSubscriptionProvider func(ctx context.Context, subscriptionID string) (*Subscription, error)
 
-// cliTimeout is the default timeout for authentication attempts via CLI tools
-const cliTimeout = 10 * time.Second
-
 // defaultAzSubscriptionProvider invokes the Azure CLI to acquire a subscription. It assumes
 // callers have verified that all string arguments are safe to pass to the CLI.
 // this code is derived from "CLI token provider" code in the Azure SDK for Go:
 // https://github.com/Azure/azure-sdk-for-go/blob/519e8ab1a0e433b755c31ebaa6b177dfc83cb838/sdk/azidentity/azure_cli_credential.go#L117-L172
 var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID string) (*Subscription, error) {
-	// set a default timeout for this authentication iff the application hasn't done so already
-	// var cancel context.CancelFunc
-	// if _, hasDeadline := ctx.Deadline(); !hasDeadline {
-	// 	ctx, cancel = context.WithTimeout(ctx, cliTimeout)
-	// 	defer cancel()
-	// }
-	// ctx = context.Background()
-
 	commandLine := "az account show -o json "
 	if subscriptionID != "" {
 		// subscription needs quotes because it may contain spaces
