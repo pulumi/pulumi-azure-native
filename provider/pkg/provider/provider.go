@@ -24,7 +24,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -263,7 +262,7 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	logging.V(9).Infof("Using legacy authentication")
 	credential := azCoreTokenCredential{p: k}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
+	k.azureClient, err = azure.NewAzureClient(k.environment, resourceManagerAuth, userAgent), nil
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
@@ -327,15 +326,6 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 
 func (k *azureNativeProvider) isParameterized() bool {
 	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
-}
-
-func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	if util.EnableAzcoreBackend() {
-		logging.V(9).Infof("AzureClient: using azcore and azidentity")
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
-	}
-	logging.V(9).Infof("AzureClient: using autorest")
-	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
 }
 
 // Invoke dynamically executes a built-in function in the provider.
