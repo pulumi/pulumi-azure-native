@@ -15,21 +15,12 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
-	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // BuildUserAgent composes a User Agent string with the provided partner ID.
 // see: https://azure.github.io/azure-sdk/general_azurecore.html#telemetry-policy
 func BuildUserAgent(partnerID string) (userAgent string) {
-	if !util.EnableAzcoreBackend() {
-		userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
-			autorest.UserAgent(), version.GetVersion()))
-	}
-
 	// azure-sdk-for-go sets a user agent string as per the telemetry policy, resembling:
 	//   pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
 	// Anything we add here will be appended to that.
@@ -51,13 +42,6 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 
 // IsNotFound returns true if the error is a HTTP 404.
 func IsNotFound(err error) bool {
-	if requestError, ok := err.(azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
-	}
-	if requestError, ok := err.(*azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
-	}
-
 	if responseError, ok := err.(*azcore.ResponseError); ok {
 		return responseError.StatusCode == http.StatusNotFound
 	}
@@ -73,11 +57,6 @@ func IsNotFound(err error) bool {
 func AzureError(err error) error {
 	if errors.Is(err, context.DeadlineExceeded) {
 		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
 	}
 	return err
 }
