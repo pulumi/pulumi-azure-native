@@ -44,31 +44,31 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The database name for which access is being granted for this Role Definition.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
     /**
      * The name of the database account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A set of privileges contained by the Role Definition. This will allow application of this Role Definition on the entire database account or any underlying Database / Collection. Scopes higher than Database are not enforceable as privilege.
      */
-    public readonly privileges!: pulumi.Output<outputs.cosmosdb.PrivilegeResponse[] | undefined>;
+    declare public readonly privileges: pulumi.Output<outputs.cosmosdb.PrivilegeResponse[] | undefined>;
     /**
      * A user-friendly name for the Role Definition. Must be unique for the database account.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * The set of roles inherited by this Role Definition.
      */
-    public readonly roles!: pulumi.Output<outputs.cosmosdb.RoleResponse[] | undefined>;
+    declare public readonly roles: pulumi.Output<outputs.cosmosdb.RoleResponse[] | undefined>;
     /**
      * The type of Azure resource.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a MongoDBResourceMongoRoleDefinition resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class MongoDBResourceMongoRoleDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["mongoRoleDefinitionId"] = args ? args.mongoRoleDefinitionId : undefined;
-            resourceInputs["privileges"] = args ? args.privileges : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["mongoRoleDefinitionId"] = args?.mongoRoleDefinitionId;
+            resourceInputs["privileges"] = args?.privileges;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

@@ -44,47 +44,47 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * Specifies the list of features that are enabled for this Gateway.
      */
-    public readonly allowedFeatures!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedFeatures: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The endpoint fqdn for the Gateway.
      */
-    public /*out*/ readonly gatewayEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayEndpoint: pulumi.Output<string>;
     /**
      * A unique, immutable, identifier for the Gateway.
      */
-    public /*out*/ readonly gatewayId!: pulumi.Output<string>;
+    declare public /*out*/ readonly gatewayId: pulumi.Output<string>;
     /**
      * The type of the Gateway resource.
      */
-    public readonly gatewayType!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayType: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -97,15 +97,15 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedFeatures"] = args ? args.allowedFeatures : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["gatewayType"] = args ? args.gatewayType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedFeatures"] = args?.allowedFeatures;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["gatewayType"] = args?.gatewayType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["gatewayEndpoint"] = undefined /*out*/;
             resourceInputs["gatewayId"] = undefined /*out*/;

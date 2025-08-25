@@ -41,47 +41,47 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Premier add on Marketplace offer.
      */
-    public readonly marketplaceOffer!: pulumi.Output<string | undefined>;
+    declare public readonly marketplaceOffer: pulumi.Output<string | undefined>;
     /**
      * Premier add on Marketplace publisher.
      */
-    public readonly marketplacePublisher!: pulumi.Output<string | undefined>;
+    declare public readonly marketplacePublisher: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Premier add on Product.
      */
-    public readonly product!: pulumi.Output<string | undefined>;
+    declare public readonly product: pulumi.Output<string | undefined>;
     /**
      * Premier add on SKU.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Premier add on Vendor.
      */
-    public readonly vendor!: pulumi.Output<string | undefined>;
+    declare public readonly vendor: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppPremierAddOnSlot resource with the given unique name, arguments, and options.
@@ -94,27 +94,27 @@ export class WebAppPremierAddOnSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceOffer"] = args ? args.marketplaceOffer : undefined;
-            resourceInputs["marketplacePublisher"] = args ? args.marketplacePublisher : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["premierAddOnName"] = args ? args.premierAddOnName : undefined;
-            resourceInputs["product"] = args ? args.product : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vendor"] = args ? args.vendor : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceOffer"] = args?.marketplaceOffer;
+            resourceInputs["marketplacePublisher"] = args?.marketplacePublisher;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["premierAddOnName"] = args?.premierAddOnName;
+            resourceInputs["product"] = args?.product;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vendor"] = args?.vendor;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

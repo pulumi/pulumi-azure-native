@@ -44,147 +44,147 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The cluster's accepted audiences.
      */
-    public readonly acceptedAudiences!: pulumi.Output<outputs.kusto.AcceptedAudiencesResponse[] | undefined>;
+    declare public readonly acceptedAudiences: pulumi.Output<outputs.kusto.AcceptedAudiencesResponse[] | undefined>;
     /**
      * List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster.
      */
-    public readonly allowedFqdnList!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedFqdnList: pulumi.Output<string[] | undefined>;
     /**
      * The list of ips in the format of CIDR allowed to connect to the cluster.
      */
-    public readonly allowedIpRangeList!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedIpRangeList: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of callout policies for egress from Cluster.
      */
-    public readonly calloutPolicies!: pulumi.Output<outputs.kusto.CalloutPolicyResponse[] | undefined>;
+    declare public readonly calloutPolicies: pulumi.Output<outputs.kusto.CalloutPolicyResponse[] | undefined>;
     /**
      * The cluster data ingestion URI.
      */
-    public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataIngestionUri: pulumi.Output<string>;
     /**
      * A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days).
      */
-    public readonly enableAutoStop!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutoStop: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if the cluster's disks are encrypted.
      */
-    public readonly enableDiskEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDiskEncryption: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if double encryption is enabled.
      */
-    public readonly enableDoubleEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDoubleEncryption: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if the purge operations are enabled.
      */
-    public readonly enablePurge!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePurge: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableStreamingIngest: pulumi.Output<boolean | undefined>;
     /**
      * The engine type
      */
-    public readonly engineType!: pulumi.Output<string | undefined>;
+    declare public readonly engineType: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The identity of the cluster, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.kusto.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.kusto.IdentityResponse | undefined>;
     /**
      * KeyVault properties for the cluster encryption.
      */
-    public readonly keyVaultProperties!: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
+    declare public readonly keyVaultProperties: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
     /**
      * List of the cluster's language extensions.
      */
-    public readonly languageExtensions!: pulumi.Output<outputs.kusto.LanguageExtensionsListResponse | undefined>;
+    declare public readonly languageExtensions: pulumi.Output<outputs.kusto.LanguageExtensionsListResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Properties of the peer cluster involved in a migration to/from this cluster.
      */
-    public /*out*/ readonly migrationCluster!: pulumi.Output<outputs.kusto.MigrationClusterPropertiesResponse>;
+    declare public /*out*/ readonly migrationCluster: pulumi.Output<outputs.kusto.MigrationClusterPropertiesResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optimized auto scale definition.
      */
-    public readonly optimizedAutoscale!: pulumi.Output<outputs.kusto.OptimizedAutoscaleResponse | undefined>;
+    declare public readonly optimizedAutoscale: pulumi.Output<outputs.kusto.OptimizedAutoscaleResponse | undefined>;
     /**
      * A list of private endpoint connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.kusto.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.kusto.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)
      */
-    public readonly publicIPType!: pulumi.Output<string | undefined>;
+    declare public readonly publicIPType: pulumi.Output<string | undefined>;
     /**
      * Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public readonly restrictOutboundNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly restrictOutboundNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The SKU of the cluster.
      */
-    public readonly sku!: pulumi.Output<outputs.kusto.AzureSkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.kusto.AzureSkuResponse>;
     /**
      * The state of the resource.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The reason for the cluster's current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kusto.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kusto.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The cluster's external tenants.
      */
-    public readonly trustedExternalTenants!: pulumi.Output<outputs.kusto.TrustedExternalTenantResponse[] | undefined>;
+    declare public readonly trustedExternalTenants: pulumi.Output<outputs.kusto.TrustedExternalTenantResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The cluster URI.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
     /**
      * Virtual network definition.
      */
-    public readonly virtualNetworkConfiguration!: pulumi.Output<outputs.kusto.VirtualNetworkConfigurationResponse | undefined>;
+    declare public readonly virtualNetworkConfiguration: pulumi.Output<outputs.kusto.VirtualNetworkConfigurationResponse | undefined>;
     /**
      * Indicates whether the cluster is zonal or non-zonal.
      */
-    public /*out*/ readonly zoneStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly zoneStatus: pulumi.Output<string>;
     /**
      * The availability zones of the cluster.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -197,38 +197,38 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["acceptedAudiences"] = args ? args.acceptedAudiences : undefined;
-            resourceInputs["allowedFqdnList"] = args ? args.allowedFqdnList : undefined;
-            resourceInputs["allowedIpRangeList"] = args ? args.allowedIpRangeList : undefined;
-            resourceInputs["calloutPolicies"] = args ? args.calloutPolicies : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["enableAutoStop"] = (args ? args.enableAutoStop : undefined) ?? true;
-            resourceInputs["enableDiskEncryption"] = (args ? args.enableDiskEncryption : undefined) ?? false;
-            resourceInputs["enableDoubleEncryption"] = (args ? args.enableDoubleEncryption : undefined) ?? false;
-            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
-            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            resourceInputs["engineType"] = (args ? args.engineType : undefined) ?? "V3";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["languageExtensions"] = args ? args.languageExtensions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
-            resourceInputs["publicIPType"] = (args ? args.publicIPType : undefined) ?? "IPv4";
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restrictOutboundNetworkAccess"] = (args ? args.restrictOutboundNetworkAccess : undefined) ?? "Disabled";
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedExternalTenants"] = args ? args.trustedExternalTenants : undefined;
-            resourceInputs["virtualClusterGraduationProperties"] = args ? args.virtualClusterGraduationProperties : undefined;
+            resourceInputs["acceptedAudiences"] = args?.acceptedAudiences;
+            resourceInputs["allowedFqdnList"] = args?.allowedFqdnList;
+            resourceInputs["allowedIpRangeList"] = args?.allowedIpRangeList;
+            resourceInputs["calloutPolicies"] = args?.calloutPolicies;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["enableAutoStop"] = (args?.enableAutoStop) ?? true;
+            resourceInputs["enableDiskEncryption"] = (args?.enableDiskEncryption) ?? false;
+            resourceInputs["enableDoubleEncryption"] = (args?.enableDoubleEncryption) ?? false;
+            resourceInputs["enablePurge"] = (args?.enablePurge) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args?.enableStreamingIngest) ?? false;
+            resourceInputs["engineType"] = (args?.engineType) ?? "V3";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["languageExtensions"] = args?.languageExtensions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["optimizedAutoscale"] = args?.optimizedAutoscale;
+            resourceInputs["publicIPType"] = (args?.publicIPType) ?? "IPv4";
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restrictOutboundNetworkAccess"] = (args?.restrictOutboundNetworkAccess) ?? "Disabled";
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedExternalTenants"] = args?.trustedExternalTenants;
+            resourceInputs["virtualClusterGraduationProperties"] = args?.virtualClusterGraduationProperties;
             resourceInputs["virtualNetworkConfiguration"] = args ? (args.virtualNetworkConfiguration ? pulumi.output(args.virtualNetworkConfiguration).apply(inputs.kusto.virtualNetworkConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

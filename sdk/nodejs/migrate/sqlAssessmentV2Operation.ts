@@ -44,176 +44,176 @@ export class SqlAssessmentV2Operation extends pulumi.CustomResource {
     /**
      * Assessment type of the assessment.
      */
-    public readonly assessmentType!: pulumi.Output<string | undefined>;
+    declare public readonly assessmentType: pulumi.Output<string | undefined>;
     /**
      * Gets or sets user preference indicating intent of async commit mode.
      */
-    public readonly asyncCommitModeIntent!: pulumi.Output<string | undefined>;
+    declare public readonly asyncCommitModeIntent: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    public readonly azureLocation!: pulumi.Output<string | undefined>;
+    declare public readonly azureLocation: pulumi.Output<string | undefined>;
     /**
      * Azure Offer Code.
      */
-    public readonly azureOfferCode!: pulumi.Output<string | undefined>;
+    declare public readonly azureOfferCode: pulumi.Output<string | undefined>;
     /**
      * Gets or sets Azure Offer Code for VM.
      */
-    public readonly azureOfferCodeForVm!: pulumi.Output<string | undefined>;
+    declare public readonly azureOfferCodeForVm: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating azure security offering type.
      */
-    public readonly azureSecurityOfferingType!: pulumi.Output<string | undefined>;
+    declare public readonly azureSecurityOfferingType: pulumi.Output<string | undefined>;
     /**
      * Gets or sets user configurable SQL database settings.
      */
-    public readonly azureSqlDatabaseSettings!: pulumi.Output<outputs.migrate.SqlDbSettingsResponse | undefined>;
+    declare public readonly azureSqlDatabaseSettings: pulumi.Output<outputs.migrate.SqlDbSettingsResponse | undefined>;
     /**
      * Gets or sets user configurable SQL managed instance settings.
      */
-    public readonly azureSqlManagedInstanceSettings!: pulumi.Output<outputs.migrate.SqlMiSettingsResponse | undefined>;
+    declare public readonly azureSqlManagedInstanceSettings: pulumi.Output<outputs.migrate.SqlMiSettingsResponse | undefined>;
     /**
      * Gets or sets user configurable SQL VM settings.
      */
-    public readonly azureSqlVmSettings!: pulumi.Output<outputs.migrate.SqlVmSettingsResponse | undefined>;
+    declare public readonly azureSqlVmSettings: pulumi.Output<outputs.migrate.SqlVmSettingsResponse | undefined>;
     /**
      * Confidence Rating in Percentage.
      */
-    public readonly confidenceRatingInPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly confidenceRatingInPercentage: pulumi.Output<number | undefined>;
     /**
      * Date and Time when assessment was created.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Currency in which prices should be reported.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    declare public readonly currency: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Azure Location or Azure region where to which the machines
      * will be migrated.
      */
-    public readonly disasterRecoveryLocation!: pulumi.Output<string | undefined>;
+    declare public readonly disasterRecoveryLocation: pulumi.Output<string | undefined>;
     /**
      * Custom discount percentage.
      */
-    public readonly discountPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly discountPercentage: pulumi.Output<number | undefined>;
     /**
      * Gets or sets the Enterprise agreement subscription id.
      */
-    public readonly eaSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly eaSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating whether HADR assessments needs to be created.
      */
-    public readonly enableHadrAssessment!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHadrAssessment: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the duration for which the entity (SQL, VMs) are up in the
      * on-premises environment.
      */
-    public readonly entityUptime!: pulumi.Output<outputs.migrate.EntityUptimeResponse | undefined>;
+    declare public readonly entityUptime: pulumi.Output<outputs.migrate.EntityUptimeResponse | undefined>;
     /**
      * Gets or sets user configurable setting to display the environment type.
      */
-    public readonly environmentType!: pulumi.Output<string | undefined>;
+    declare public readonly environmentType: pulumi.Output<string | undefined>;
     /**
      * Gets the group type for the assessment.
      */
-    public readonly groupType!: pulumi.Output<string | undefined>;
+    declare public readonly groupType: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating whether internet access is available.
      */
-    public readonly isInternetAccessAvailable!: pulumi.Output<boolean | undefined>;
+    declare public readonly isInternetAccessAvailable: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets user preference indicating intent of multi-subnet configuration.
      */
-    public readonly multiSubnetIntent!: pulumi.Output<string | undefined>;
+    declare public readonly multiSubnetIntent: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets SQL optimization logic.
      */
-    public readonly optimizationLogic!: pulumi.Output<string | undefined>;
+    declare public readonly optimizationLogic: pulumi.Output<string | undefined>;
     /**
      * Gets or sets user configurable setting to display the azure hybrid use benefit.
      */
-    public readonly osLicense!: pulumi.Output<string | undefined>;
+    declare public readonly osLicense: pulumi.Output<string | undefined>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    public readonly percentile!: pulumi.Output<string | undefined>;
+    declare public readonly percentile: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    public readonly perfDataEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataEndTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    public readonly perfDataStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataStartTime: pulumi.Output<string | undefined>;
     /**
      * Last time when rates were queried.
      */
-    public /*out*/ readonly pricesTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly pricesTimestamp: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Reserved instance.
      */
-    public readonly reservedInstance!: pulumi.Output<string | undefined>;
+    declare public readonly reservedInstance: pulumi.Output<string | undefined>;
     /**
      * Gets or sets azure reserved instance for VM.
      */
-    public readonly reservedInstanceForVm!: pulumi.Output<string | undefined>;
+    declare public readonly reservedInstanceForVm: pulumi.Output<string | undefined>;
     /**
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    public readonly scalingFactor!: pulumi.Output<number | undefined>;
+    declare public readonly scalingFactor: pulumi.Output<number | undefined>;
     /**
      * Schema version.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
     /**
      * Assessment sizing criterion.
      */
-    public readonly sizingCriterion!: pulumi.Output<string | undefined>;
+    declare public readonly sizingCriterion: pulumi.Output<string | undefined>;
     /**
      * SQL server license.
      */
-    public readonly sqlServerLicense!: pulumi.Output<string | undefined>;
+    declare public readonly sqlServerLicense: pulumi.Output<string | undefined>;
     /**
      * User configurable setting to display the Stage of Assessment.
      */
-    public /*out*/ readonly stage!: pulumi.Output<string>;
+    declare public /*out*/ readonly stage: pulumi.Output<string>;
     /**
      * Whether assessment is in valid state and all machines have been assessed.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    public readonly timeRange!: pulumi.Output<string | undefined>;
+    declare public readonly timeRange: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Date and Time when assessment was last updated.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a SqlAssessmentV2Operation resource with the given unique name, arguments, and options.
@@ -226,51 +226,51 @@ export class SqlAssessmentV2Operation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["asyncCommitModeIntent"] = args ? args.asyncCommitModeIntent : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azureOfferCodeForVm"] = args ? args.azureOfferCodeForVm : undefined;
-            resourceInputs["azureSecurityOfferingType"] = args ? args.azureSecurityOfferingType : undefined;
-            resourceInputs["azureSqlDatabaseSettings"] = args ? args.azureSqlDatabaseSettings : undefined;
-            resourceInputs["azureSqlManagedInstanceSettings"] = args ? args.azureSqlManagedInstanceSettings : undefined;
-            resourceInputs["azureSqlVmSettings"] = args ? args.azureSqlVmSettings : undefined;
-            resourceInputs["confidenceRatingInPercentage"] = args ? args.confidenceRatingInPercentage : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["disasterRecoveryLocation"] = args ? args.disasterRecoveryLocation : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["enableHadrAssessment"] = args ? args.enableHadrAssessment : undefined;
-            resourceInputs["entityUptime"] = args ? args.entityUptime : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
-            resourceInputs["isInternetAccessAvailable"] = args ? args.isInternetAccessAvailable : undefined;
-            resourceInputs["multiSubnetIntent"] = args ? args.multiSubnetIntent : undefined;
-            resourceInputs["optimizationLogic"] = args ? args.optimizationLogic : undefined;
-            resourceInputs["osLicense"] = args ? args.osLicense : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["reservedInstanceForVm"] = args ? args.reservedInstanceForVm : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["sqlServerLicense"] = args ? args.sqlServerLicense : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["asyncCommitModeIntent"] = args?.asyncCommitModeIntent;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azureOfferCodeForVm"] = args?.azureOfferCodeForVm;
+            resourceInputs["azureSecurityOfferingType"] = args?.azureSecurityOfferingType;
+            resourceInputs["azureSqlDatabaseSettings"] = args?.azureSqlDatabaseSettings;
+            resourceInputs["azureSqlManagedInstanceSettings"] = args?.azureSqlManagedInstanceSettings;
+            resourceInputs["azureSqlVmSettings"] = args?.azureSqlVmSettings;
+            resourceInputs["confidenceRatingInPercentage"] = args?.confidenceRatingInPercentage;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["disasterRecoveryLocation"] = args?.disasterRecoveryLocation;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["enableHadrAssessment"] = args?.enableHadrAssessment;
+            resourceInputs["entityUptime"] = args?.entityUptime;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["isInternetAccessAvailable"] = args?.isInternetAccessAvailable;
+            resourceInputs["multiSubnetIntent"] = args?.multiSubnetIntent;
+            resourceInputs["optimizationLogic"] = args?.optimizationLogic;
+            resourceInputs["osLicense"] = args?.osLicense;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["reservedInstanceForVm"] = args?.reservedInstanceForVm;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["sqlServerLicense"] = args?.sqlServerLicense;
+            resourceInputs["timeRange"] = args?.timeRange;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

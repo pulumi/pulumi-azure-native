@@ -41,31 +41,31 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The monthly retention policy for an LTR backup in an ISO 8601 format.
      */
-    public readonly monthlyRetention!: pulumi.Output<string | undefined>;
+    declare public readonly monthlyRetention: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The week of year to take the yearly backup in an ISO 8601 format.
      */
-    public readonly weekOfYear!: pulumi.Output<number | undefined>;
+    declare public readonly weekOfYear: pulumi.Output<number | undefined>;
     /**
      * The weekly retention policy for an LTR backup in an ISO 8601 format.
      */
-    public readonly weeklyRetention!: pulumi.Output<string | undefined>;
+    declare public readonly weeklyRetention: pulumi.Output<string | undefined>;
     /**
      * The yearly retention policy for an LTR backup in an ISO 8601 format.
      */
-    public readonly yearlyRetention!: pulumi.Output<string | undefined>;
+    declare public readonly yearlyRetention: pulumi.Output<string | undefined>;
 
     /**
      * Create a LongTermRetentionPolicy resource with the given unique name, arguments, and options.
@@ -78,23 +78,23 @@ export class LongTermRetentionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["monthlyRetention"] = args ? args.monthlyRetention : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["weekOfYear"] = args ? args.weekOfYear : undefined;
-            resourceInputs["weeklyRetention"] = args ? args.weeklyRetention : undefined;
-            resourceInputs["yearlyRetention"] = args ? args.yearlyRetention : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["monthlyRetention"] = args?.monthlyRetention;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["weekOfYear"] = args?.weekOfYear;
+            resourceInputs["weeklyRetention"] = args?.weeklyRetention;
+            resourceInputs["yearlyRetention"] = args?.yearlyRetention;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

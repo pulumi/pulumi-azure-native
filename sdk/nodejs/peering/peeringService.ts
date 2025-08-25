@@ -44,51 +44,51 @@ export class PeeringService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The Log Analytics Workspace Properties
      */
-    public /*out*/ readonly logAnalyticsWorkspaceProperties!: pulumi.Output<outputs.peering.LogAnalyticsWorkspacePropertiesResponse | undefined>;
+    declare public /*out*/ readonly logAnalyticsWorkspaceProperties: pulumi.Output<outputs.peering.LogAnalyticsWorkspacePropertiesResponse | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The location (state/province) of the customer.
      */
-    public readonly peeringServiceLocation!: pulumi.Output<string | undefined>;
+    declare public readonly peeringServiceLocation: pulumi.Output<string | undefined>;
     /**
      * The name of the service provider.
      */
-    public readonly peeringServiceProvider!: pulumi.Output<string | undefined>;
+    declare public readonly peeringServiceProvider: pulumi.Output<string | undefined>;
     /**
      * The backup peering (Microsoft/service provider) location to be used for customer traffic.
      */
-    public readonly providerBackupPeeringLocation!: pulumi.Output<string | undefined>;
+    declare public readonly providerBackupPeeringLocation: pulumi.Output<string | undefined>;
     /**
      * The primary peering (Microsoft/service provider) location to be used for customer traffic.
      */
-    public readonly providerPrimaryPeeringLocation!: pulumi.Output<string | undefined>;
+    declare public readonly providerPrimaryPeeringLocation: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU that defines the type of the peering service.
      */
-    public readonly sku!: pulumi.Output<outputs.peering.PeeringServiceSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.peering.PeeringServiceSkuResponse | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PeeringService resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class PeeringService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peeringServiceLocation"] = args ? args.peeringServiceLocation : undefined;
-            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            resourceInputs["peeringServiceProvider"] = args ? args.peeringServiceProvider : undefined;
-            resourceInputs["providerBackupPeeringLocation"] = args ? args.providerBackupPeeringLocation : undefined;
-            resourceInputs["providerPrimaryPeeringLocation"] = args ? args.providerPrimaryPeeringLocation : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peeringServiceLocation"] = args?.peeringServiceLocation;
+            resourceInputs["peeringServiceName"] = args?.peeringServiceName;
+            resourceInputs["peeringServiceProvider"] = args?.peeringServiceProvider;
+            resourceInputs["providerBackupPeeringLocation"] = args?.providerBackupPeeringLocation;
+            resourceInputs["providerPrimaryPeeringLocation"] = args?.providerPrimaryPeeringLocation;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["logAnalyticsWorkspaceProperties"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

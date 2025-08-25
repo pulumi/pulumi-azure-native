@@ -44,39 +44,39 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A custom definition for the USer Definition.
      */
-    public readonly customData!: pulumi.Output<string | undefined>;
+    declare public readonly customData: pulumi.Output<string | undefined>;
     /**
      * The database name for which access is being granted for this User Definition.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
     /**
      * The Mongo Auth mechanism. For now, we only support auth mechanism SCRAM-SHA-256.
      */
-    public readonly mechanisms!: pulumi.Output<string | undefined>;
+    declare public readonly mechanisms: pulumi.Output<string | undefined>;
     /**
      * The name of the database account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The password for User Definition. Response does not contain user password.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The set of roles inherited by the User Definition.
      */
-    public readonly roles!: pulumi.Output<outputs.cosmosdb.RoleResponse[] | undefined>;
+    declare public readonly roles: pulumi.Output<outputs.cosmosdb.RoleResponse[] | undefined>;
     /**
      * The type of Azure resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The user name for User Definition.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
 
     /**
      * Create a MongoDBResourceMongoUserDefinition resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class MongoDBResourceMongoUserDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["customData"] = args ? args.customData : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["mechanisms"] = args ? args.mechanisms : undefined;
-            resourceInputs["mongoUserDefinitionId"] = args ? args.mongoUserDefinitionId : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["customData"] = args?.customData;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["mechanisms"] = args?.mechanisms;
+            resourceInputs["mongoUserDefinitionId"] = args?.mongoUserDefinitionId;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roles"] = args?.roles;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

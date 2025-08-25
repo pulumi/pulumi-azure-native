@@ -44,56 +44,56 @@ export class PartnerDestination extends pulumi.CustomResource {
     /**
      * Activation state of the partner destination.
      */
-    public readonly activationState!: pulumi.Output<string | undefined>;
+    declare public readonly activationState: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Endpoint Base URL of the partner destination
      */
-    public readonly endpointBaseUrl!: pulumi.Output<string | undefined>;
+    declare public readonly endpointBaseUrl: pulumi.Output<string | undefined>;
     /**
      * Endpoint context associated with this partner destination.
      */
-    public readonly endpointServiceContext!: pulumi.Output<string | undefined>;
+    declare public readonly endpointServiceContext: pulumi.Output<string | undefined>;
     /**
      * Expiration time of the partner destination. If this timer expires and the partner destination was never activated,
      * the partner destination and corresponding channel are deleted.
      */
-    public readonly expirationTimeIfNotActivatedUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationTimeIfNotActivatedUtc: pulumi.Output<string | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Context or helpful message that can be used during the approval process.
      */
-    public readonly messageForActivation!: pulumi.Output<string | undefined>;
+    declare public readonly messageForActivation: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The immutable Id of the corresponding partner registration.
      */
-    public readonly partnerRegistrationImmutableId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerRegistrationImmutableId: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the partner destination.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PartnerDestination resource with the given unique name, arguments, and options.
@@ -106,19 +106,19 @@ export class PartnerDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activationState"] = args ? args.activationState : undefined;
-            resourceInputs["endpointBaseUrl"] = args ? args.endpointBaseUrl : undefined;
-            resourceInputs["endpointServiceContext"] = args ? args.endpointServiceContext : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerDestinationName"] = args ? args.partnerDestinationName : undefined;
-            resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activationState"] = args?.activationState;
+            resourceInputs["endpointBaseUrl"] = args?.endpointBaseUrl;
+            resourceInputs["endpointServiceContext"] = args?.endpointServiceContext;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerDestinationName"] = args?.partnerDestinationName;
+            resourceInputs["partnerRegistrationImmutableId"] = args?.partnerRegistrationImmutableId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,23 +44,23 @@ export class ReplicationvCenter extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * VCenter related data.
      */
-    public readonly properties!: pulumi.Output<outputs.recoveryservices.VCenterPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.recoveryservices.VCenterPropertiesResponse>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReplicationvCenter resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class ReplicationvCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fabricName === undefined) && !opts.urn) {
+            if (args?.fabricName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fabricName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["fabricName"] = args ? args.fabricName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["vcenterName"] = args ? args.vcenterName : undefined;
+            resourceInputs["fabricName"] = args?.fabricName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["vcenterName"] = args?.vcenterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

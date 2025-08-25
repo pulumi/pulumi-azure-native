@@ -42,32 +42,32 @@ export class ImageDefinition extends pulumi.CustomResource {
     /**
      * Custom image architecture.
      */
-    public readonly architecture!: pulumi.Output<string>;
+    declare public readonly architecture: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Custom image OS state.
      */
-    public readonly osState!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public readonly osState: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Custom image security type.
      */
-    public readonly securityType!: pulumi.Output<string>;
+    declare public readonly securityType: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ImageDefinition resource with the given unique name, arguments, and options.
@@ -80,27 +80,27 @@ export class ImageDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.architecture === undefined) && !opts.urn) {
+            if (args?.architecture === undefined && !opts.urn) {
                 throw new Error("Missing required property 'architecture'");
             }
-            if ((!args || args.osState === undefined) && !opts.urn) {
+            if (args?.osState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.securityType === undefined) && !opts.urn) {
+            if (args?.securityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityType'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["imageDefinitionName"] = args ? args.imageDefinitionName : undefined;
-            resourceInputs["osState"] = args ? args.osState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["imageDefinitionName"] = args?.imageDefinitionName;
+            resourceInputs["osState"] = args?.osState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityType"] = args?.securityType;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

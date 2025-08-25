@@ -44,138 +44,138 @@ export class HostPool extends pulumi.CustomResource {
     /**
      * The session host configuration for updating agent, monitoring agent, and stack component.
      */
-    public readonly agentUpdate!: pulumi.Output<outputs.desktopvirtualization.AgentUpdatePropertiesResponse | undefined>;
+    declare public readonly agentUpdate: pulumi.Output<outputs.desktopvirtualization.AgentUpdatePropertiesResponse | undefined>;
     /**
      * List of App Attach Package links.
      */
-    public /*out*/ readonly appAttachPackageReferences!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly appAttachPackageReferences: pulumi.Output<string[]>;
     /**
      * List of applicationGroup links.
      */
-    public /*out*/ readonly applicationGroupReferences!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly applicationGroupReferences: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Is cloud pc resource.
      */
-    public /*out*/ readonly cloudPcResource!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly cloudPcResource: pulumi.Output<boolean>;
     /**
      * Custom rdp property of HostPool.
      */
-    public readonly customRdpProperty!: pulumi.Output<string | undefined>;
+    declare public readonly customRdpProperty: pulumi.Output<string | undefined>;
     /**
      * Description of HostPool.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Friendly name of HostPool.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * HostPool type for desktop.
      */
-    public readonly hostPoolType!: pulumi.Output<string>;
-    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    declare public readonly hostPoolType: pulumi.Output<string>;
+    declare public readonly identity: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The type of the load balancer.
      */
-    public readonly loadBalancerType!: pulumi.Output<string>;
+    declare public readonly loadBalancerType: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The max session limit of HostPool.
      */
-    public readonly maxSessionLimit!: pulumi.Output<number | undefined>;
+    declare public readonly maxSessionLimit: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ObjectId of HostPool. (internal use)
      */
-    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly objectId: pulumi.Output<string>;
     /**
      * PersonalDesktopAssignment type for HostPool.
      */
-    public readonly personalDesktopAssignmentType!: pulumi.Output<string | undefined>;
-    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    declare public readonly personalDesktopAssignmentType: pulumi.Output<string | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * The type of preferred application group type, default to Desktop Application Group
      */
-    public readonly preferredAppGroupType!: pulumi.Output<string>;
+    declare public readonly preferredAppGroupType: pulumi.Output<string>;
     /**
      * List of private endpoint connection associated with the specified resource
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.desktopvirtualization.PrivateEndpointConnectionResponse[]>;
     /**
      * Enabled allows this resource to be accessed from both public and private networks, Disabled allows this resource to only be accessed via private endpoints
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The registration info of HostPool.
      */
-    public readonly registrationInfo!: pulumi.Output<outputs.desktopvirtualization.RegistrationInfoResponse | undefined>;
+    declare public readonly registrationInfo: pulumi.Output<outputs.desktopvirtualization.RegistrationInfoResponse | undefined>;
     /**
      * The ring number of HostPool.
      */
-    public readonly ring!: pulumi.Output<number | undefined>;
-    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    declare public readonly ring: pulumi.Output<number | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * ClientId for the registered Relying Party used to issue WVD SSO certificates.
      */
-    public readonly ssoClientId!: pulumi.Output<string | undefined>;
+    declare public readonly ssoClientId: pulumi.Output<string | undefined>;
     /**
      * Path to Azure KeyVault storing the secret used for communication to ADFS.
      */
-    public readonly ssoClientSecretKeyVaultPath!: pulumi.Output<string | undefined>;
+    declare public readonly ssoClientSecretKeyVaultPath: pulumi.Output<string | undefined>;
     /**
      * The type of single sign on Secret Type.
      */
-    public readonly ssoSecretType!: pulumi.Output<string | undefined>;
+    declare public readonly ssoSecretType: pulumi.Output<string | undefined>;
     /**
      * URL to customer ADFS server for signing WVD SSO certificates.
      */
-    public readonly ssoadfsAuthority!: pulumi.Output<string | undefined>;
+    declare public readonly ssoadfsAuthority: pulumi.Output<string | undefined>;
     /**
      * The flag to turn on/off StartVMOnConnect feature.
      */
-    public readonly startVMOnConnect!: pulumi.Output<boolean | undefined>;
+    declare public readonly startVMOnConnect: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Is validation environment.
      */
-    public readonly validationEnvironment!: pulumi.Output<boolean | undefined>;
+    declare public readonly validationEnvironment: pulumi.Output<boolean | undefined>;
     /**
      * VM template for sessionhosts configuration within hostpool.
      */
-    public readonly vmTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly vmTemplate: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostPool resource with the given unique name, arguments, and options.
@@ -188,46 +188,46 @@ export class HostPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostPoolType === undefined) && !opts.urn) {
+            if (args?.hostPoolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolType'");
             }
-            if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
+            if (args?.loadBalancerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerType'");
             }
-            if ((!args || args.preferredAppGroupType === undefined) && !opts.urn) {
+            if (args?.preferredAppGroupType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'preferredAppGroupType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentUpdate"] = args ? args.agentUpdate : undefined;
-            resourceInputs["customRdpProperty"] = args ? args.customRdpProperty : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            resourceInputs["hostPoolType"] = args ? args.hostPoolType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["loadBalancerType"] = args ? args.loadBalancerType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["maxSessionLimit"] = args ? args.maxSessionLimit : undefined;
-            resourceInputs["personalDesktopAssignmentType"] = args ? args.personalDesktopAssignmentType : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["preferredAppGroupType"] = args ? args.preferredAppGroupType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["registrationInfo"] = args ? args.registrationInfo : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ring"] = args ? args.ring : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["ssoClientId"] = args ? args.ssoClientId : undefined;
-            resourceInputs["ssoClientSecretKeyVaultPath"] = args ? args.ssoClientSecretKeyVaultPath : undefined;
-            resourceInputs["ssoSecretType"] = args ? args.ssoSecretType : undefined;
-            resourceInputs["ssoadfsAuthority"] = args ? args.ssoadfsAuthority : undefined;
-            resourceInputs["startVMOnConnect"] = args ? args.startVMOnConnect : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validationEnvironment"] = args ? args.validationEnvironment : undefined;
-            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
+            resourceInputs["agentUpdate"] = args?.agentUpdate;
+            resourceInputs["customRdpProperty"] = args?.customRdpProperty;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPoolName"] = args?.hostPoolName;
+            resourceInputs["hostPoolType"] = args?.hostPoolType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["loadBalancerType"] = args?.loadBalancerType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["maxSessionLimit"] = args?.maxSessionLimit;
+            resourceInputs["personalDesktopAssignmentType"] = args?.personalDesktopAssignmentType;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["preferredAppGroupType"] = args?.preferredAppGroupType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["registrationInfo"] = args?.registrationInfo;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ring"] = args?.ring;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["ssoClientId"] = args?.ssoClientId;
+            resourceInputs["ssoClientSecretKeyVaultPath"] = args?.ssoClientSecretKeyVaultPath;
+            resourceInputs["ssoSecretType"] = args?.ssoSecretType;
+            resourceInputs["ssoadfsAuthority"] = args?.ssoadfsAuthority;
+            resourceInputs["startVMOnConnect"] = args?.startVMOnConnect;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validationEnvironment"] = args?.validationEnvironment;
+            resourceInputs["vmTemplate"] = args?.vmTemplate;
             resourceInputs["appAttachPackageReferences"] = undefined /*out*/;
             resourceInputs["applicationGroupReferences"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

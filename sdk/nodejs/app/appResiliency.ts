@@ -44,43 +44,43 @@ export class AppResiliency extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Policy that defines circuit breaker conditions
      */
-    public readonly circuitBreakerPolicy!: pulumi.Output<outputs.app.CircuitBreakerPolicyResponse | undefined>;
+    declare public readonly circuitBreakerPolicy: pulumi.Output<outputs.app.CircuitBreakerPolicyResponse | undefined>;
     /**
      * Defines parameters for http connection pooling
      */
-    public readonly httpConnectionPool!: pulumi.Output<outputs.app.HttpConnectionPoolResponse | undefined>;
+    declare public readonly httpConnectionPool: pulumi.Output<outputs.app.HttpConnectionPoolResponse | undefined>;
     /**
      * Policy that defines http request retry conditions
      */
-    public readonly httpRetryPolicy!: pulumi.Output<outputs.app.HttpRetryPolicyResponse | undefined>;
+    declare public readonly httpRetryPolicy: pulumi.Output<outputs.app.HttpRetryPolicyResponse | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Defines parameters for tcp connection pooling
      */
-    public readonly tcpConnectionPool!: pulumi.Output<outputs.app.TcpConnectionPoolResponse | undefined>;
+    declare public readonly tcpConnectionPool: pulumi.Output<outputs.app.TcpConnectionPoolResponse | undefined>;
     /**
      * Policy that defines tcp request retry conditions
      */
-    public readonly tcpRetryPolicy!: pulumi.Output<outputs.app.TcpRetryPolicyResponse | undefined>;
+    declare public readonly tcpRetryPolicy: pulumi.Output<outputs.app.TcpRetryPolicyResponse | undefined>;
     /**
      * Policy to set request timeouts
      */
-    public readonly timeoutPolicy!: pulumi.Output<outputs.app.TimeoutPolicyResponse | undefined>;
+    declare public readonly timeoutPolicy: pulumi.Output<outputs.app.TimeoutPolicyResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AppResiliency resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class AppResiliency extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.appName === undefined) && !opts.urn) {
+            if (args?.appName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'appName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["appName"] = args ? args.appName : undefined;
-            resourceInputs["circuitBreakerPolicy"] = args ? args.circuitBreakerPolicy : undefined;
-            resourceInputs["httpConnectionPool"] = args ? args.httpConnectionPool : undefined;
-            resourceInputs["httpRetryPolicy"] = args ? args.httpRetryPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tcpConnectionPool"] = args ? args.tcpConnectionPool : undefined;
-            resourceInputs["tcpRetryPolicy"] = args ? args.tcpRetryPolicy : undefined;
-            resourceInputs["timeoutPolicy"] = args ? args.timeoutPolicy : undefined;
+            resourceInputs["appName"] = args?.appName;
+            resourceInputs["circuitBreakerPolicy"] = args?.circuitBreakerPolicy;
+            resourceInputs["httpConnectionPool"] = args?.httpConnectionPool;
+            resourceInputs["httpRetryPolicy"] = args?.httpRetryPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tcpConnectionPool"] = args?.tcpConnectionPool;
+            resourceInputs["tcpRetryPolicy"] = args?.tcpRetryPolicy;
+            resourceInputs["timeoutPolicy"] = args?.timeoutPolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

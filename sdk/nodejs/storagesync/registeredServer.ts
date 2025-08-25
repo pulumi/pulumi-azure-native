@@ -44,127 +44,127 @@ export class RegisteredServer extends pulumi.CustomResource {
     /**
      * Server auth type.
      */
-    public /*out*/ readonly activeAuthType!: pulumi.Output<string>;
+    declare public /*out*/ readonly activeAuthType: pulumi.Output<string>;
     /**
      * Registered Server Agent Version
      */
-    public readonly agentVersion!: pulumi.Output<string | undefined>;
+    declare public readonly agentVersion: pulumi.Output<string | undefined>;
     /**
      * Registered Server Agent Version Expiration Date
      */
-    public /*out*/ readonly agentVersionExpirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersionExpirationDate: pulumi.Output<string>;
     /**
      * Registered Server Agent Version Status
      */
-    public /*out*/ readonly agentVersionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersionStatus: pulumi.Output<string>;
     /**
      * Server Application Id
      */
-    public readonly applicationId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Registered Server clusterId
      */
-    public readonly clusterId!: pulumi.Output<string | undefined>;
+    declare public readonly clusterId: pulumi.Output<string | undefined>;
     /**
      * Registered Server clusterName
      */
-    public readonly clusterName!: pulumi.Output<string | undefined>;
+    declare public readonly clusterName: pulumi.Output<string | undefined>;
     /**
      * Resource discoveryEndpointUri
      */
-    public /*out*/ readonly discoveryEndpointUri!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly discoveryEndpointUri: pulumi.Output<string | undefined>;
     /**
      * Friendly Name
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Apply server with newly discovered ApplicationId if available.
      */
-    public readonly identity!: pulumi.Output<boolean>;
+    declare public readonly identity: pulumi.Output<boolean>;
     /**
      * Registered Server last heart beat
      */
-    public readonly lastHeartBeat!: pulumi.Output<string | undefined>;
+    declare public readonly lastHeartBeat: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastOperationName: pulumi.Output<string | undefined>;
     /**
      * Registered Server lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastWorkflowId: pulumi.Output<string | undefined>;
     /**
      * Latest Server Application Id discovered from the server. It is not yet applied.
      */
-    public /*out*/ readonly latestApplicationId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly latestApplicationId: pulumi.Output<string | undefined>;
     /**
      * Management Endpoint Uri
      */
-    public /*out*/ readonly managementEndpointUri!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly managementEndpointUri: pulumi.Output<string | undefined>;
     /**
      * Monitoring Configuration
      */
-    public /*out*/ readonly monitoringConfiguration!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly monitoringConfiguration: pulumi.Output<string | undefined>;
     /**
      * Telemetry Endpoint Uri
      */
-    public /*out*/ readonly monitoringEndpointUri!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly monitoringEndpointUri: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Registered Server Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Resource Location
      */
-    public /*out*/ readonly resourceLocation!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly resourceLocation: pulumi.Output<string | undefined>;
     /**
      * Registered Server Certificate
      */
-    public readonly serverCertificate!: pulumi.Output<string | undefined>;
+    declare public readonly serverCertificate: pulumi.Output<string | undefined>;
     /**
      * Registered Server serverId
      */
-    public readonly serverId!: pulumi.Output<string | undefined>;
+    declare public readonly serverId: pulumi.Output<string | undefined>;
     /**
      * Registered Server Management Error Code
      */
-    public /*out*/ readonly serverManagementErrorCode!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly serverManagementErrorCode: pulumi.Output<number | undefined>;
     /**
      * Server name
      */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverName: pulumi.Output<string>;
     /**
      * Registered Server OS Version
      */
-    public readonly serverOSVersion!: pulumi.Output<string | undefined>;
+    declare public readonly serverOSVersion: pulumi.Output<string | undefined>;
     /**
      * Registered Server serverRole
      */
-    public readonly serverRole!: pulumi.Output<string | undefined>;
+    declare public readonly serverRole: pulumi.Output<string | undefined>;
     /**
      * Service Location
      */
-    public /*out*/ readonly serviceLocation!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly serviceLocation: pulumi.Output<string | undefined>;
     /**
      * Registered Server storageSyncServiceUid
      */
-    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly storageSyncServiceUid: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagesync.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RegisteredServer resource with the given unique name, arguments, and options.
@@ -177,25 +177,25 @@ export class RegisteredServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            resourceInputs["agentVersion"] = args ? args.agentVersion : undefined;
-            resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["lastHeartBeat"] = args ? args.lastHeartBeat : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverCertificate"] = args ? args.serverCertificate : undefined;
-            resourceInputs["serverId"] = args ? args.serverId : undefined;
-            resourceInputs["serverOSVersion"] = args ? args.serverOSVersion : undefined;
-            resourceInputs["serverRole"] = args ? args.serverRole : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
+            resourceInputs["agentVersion"] = args?.agentVersion;
+            resourceInputs["applicationId"] = args?.applicationId;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["lastHeartBeat"] = args?.lastHeartBeat;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverCertificate"] = args?.serverCertificate;
+            resourceInputs["serverId"] = args?.serverId;
+            resourceInputs["serverOSVersion"] = args?.serverOSVersion;
+            resourceInputs["serverRole"] = args?.serverRole;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
             resourceInputs["activeAuthType"] = undefined /*out*/;
             resourceInputs["agentVersionExpirationDate"] = undefined /*out*/;
             resourceInputs["agentVersionStatus"] = undefined /*out*/;

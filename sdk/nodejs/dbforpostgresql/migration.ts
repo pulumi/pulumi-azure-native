@@ -44,123 +44,123 @@ export class Migration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates if cancel must be triggered for the entire migration.
      */
-    public readonly cancel!: pulumi.Output<string | undefined>;
+    declare public readonly cancel: pulumi.Output<string | undefined>;
     /**
      * Current status of a migration.
      */
-    public /*out*/ readonly currentStatus!: pulumi.Output<outputs.dbforpostgresql.MigrationStatusResponse>;
+    declare public /*out*/ readonly currentStatus: pulumi.Output<outputs.dbforpostgresql.MigrationStatusResponse>;
     /**
      * When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
-    public readonly dbsToCancelMigrationOn!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbsToCancelMigrationOn: pulumi.Output<string[] | undefined>;
     /**
      * Names of databases to migrate.
      */
-    public readonly dbsToMigrate!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbsToMigrate: pulumi.Output<string[] | undefined>;
     /**
      * When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
      */
-    public readonly dbsToTriggerCutoverOn!: pulumi.Output<string[] | undefined>;
+    declare public readonly dbsToTriggerCutoverOn: pulumi.Output<string[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Indicates if roles and permissions must be migrated.
      */
-    public readonly migrateRoles!: pulumi.Output<string | undefined>;
+    declare public readonly migrateRoles: pulumi.Output<string | undefined>;
     /**
      * Identifier of a migration.
      */
-    public /*out*/ readonly migrationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly migrationId: pulumi.Output<string>;
     /**
      * Identifier of the private endpoint migration instance.
      */
-    public readonly migrationInstanceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly migrationInstanceResourceId: pulumi.Output<string | undefined>;
     /**
      * Mode used to perform the migration: Online or Offline.
      */
-    public readonly migrationMode!: pulumi.Output<string | undefined>;
+    declare public readonly migrationMode: pulumi.Output<string | undefined>;
     /**
      * Supported option for a migration.
      */
-    public readonly migrationOption!: pulumi.Output<string | undefined>;
+    declare public readonly migrationOption: pulumi.Output<string | undefined>;
     /**
      * End time (UTC) for migration window.
      */
-    public readonly migrationWindowEndTimeInUtc!: pulumi.Output<string | undefined>;
+    declare public readonly migrationWindowEndTimeInUtc: pulumi.Output<string | undefined>;
     /**
      * Start time (UTC) for migration window.
      */
-    public readonly migrationWindowStartTimeInUtc!: pulumi.Output<string | undefined>;
+    declare public readonly migrationWindowStartTimeInUtc: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
      */
-    public readonly overwriteDbsInTarget!: pulumi.Output<string | undefined>;
+    declare public readonly overwriteDbsInTarget: pulumi.Output<string | undefined>;
     /**
      * Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
      */
-    public readonly setupLogicalReplicationOnSourceDbIfNeeded!: pulumi.Output<string | undefined>;
+    declare public readonly setupLogicalReplicationOnSourceDbIfNeeded: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
      */
-    public readonly sourceDbServerFullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly sourceDbServerFullyQualifiedDomainName: pulumi.Output<string | undefined>;
     /**
      * Metadata of source database server.
      */
-    public /*out*/ readonly sourceDbServerMetadata!: pulumi.Output<outputs.dbforpostgresql.DbServerMetadataResponse>;
+    declare public /*out*/ readonly sourceDbServerMetadata: pulumi.Output<outputs.dbforpostgresql.DbServerMetadataResponse>;
     /**
      * Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
      */
-    public readonly sourceDbServerResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceDbServerResourceId: pulumi.Output<string | undefined>;
     /**
      * Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
      */
-    public readonly sslMode!: pulumi.Output<string | undefined>;
+    declare public readonly sslMode: pulumi.Output<string | undefined>;
     /**
      * Indicates if data migration must start right away.
      */
-    public readonly startDataMigration!: pulumi.Output<string | undefined>;
+    declare public readonly startDataMigration: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
      */
-    public readonly targetDbServerFullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly targetDbServerFullyQualifiedDomainName: pulumi.Output<string | undefined>;
     /**
      * Metadata of target database server.
      */
-    public /*out*/ readonly targetDbServerMetadata!: pulumi.Output<outputs.dbforpostgresql.DbServerMetadataResponse>;
+    declare public /*out*/ readonly targetDbServerMetadata: pulumi.Output<outputs.dbforpostgresql.DbServerMetadataResponse>;
     /**
      * Identifier of the target database server resource.
      */
-    public /*out*/ readonly targetDbServerResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetDbServerResourceId: pulumi.Output<string>;
     /**
      * Indicates if cutover must be triggered for the entire migration.
      */
-    public readonly triggerCutover!: pulumi.Output<string | undefined>;
+    declare public readonly triggerCutover: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Migration resource with the given unique name, arguments, and options.
@@ -173,38 +173,38 @@ export class Migration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetDbServerName === undefined) && !opts.urn) {
+            if (args?.targetDbServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDbServerName'");
             }
-            resourceInputs["cancel"] = args ? args.cancel : undefined;
-            resourceInputs["dbsToCancelMigrationOn"] = args ? args.dbsToCancelMigrationOn : undefined;
-            resourceInputs["dbsToMigrate"] = args ? args.dbsToMigrate : undefined;
-            resourceInputs["dbsToTriggerCutoverOn"] = args ? args.dbsToTriggerCutoverOn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrateRoles"] = args ? args.migrateRoles : undefined;
-            resourceInputs["migrationInstanceResourceId"] = args ? args.migrationInstanceResourceId : undefined;
-            resourceInputs["migrationMode"] = args ? args.migrationMode : undefined;
-            resourceInputs["migrationName"] = args ? args.migrationName : undefined;
-            resourceInputs["migrationOption"] = args ? args.migrationOption : undefined;
-            resourceInputs["migrationWindowEndTimeInUtc"] = args ? args.migrationWindowEndTimeInUtc : undefined;
-            resourceInputs["migrationWindowStartTimeInUtc"] = args ? args.migrationWindowStartTimeInUtc : undefined;
-            resourceInputs["overwriteDbsInTarget"] = args ? args.overwriteDbsInTarget : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secretParameters"] = args ? args.secretParameters : undefined;
-            resourceInputs["setupLogicalReplicationOnSourceDbIfNeeded"] = args ? args.setupLogicalReplicationOnSourceDbIfNeeded : undefined;
-            resourceInputs["sourceDbServerFullyQualifiedDomainName"] = args ? args.sourceDbServerFullyQualifiedDomainName : undefined;
-            resourceInputs["sourceDbServerResourceId"] = args ? args.sourceDbServerResourceId : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["sslMode"] = args ? args.sslMode : undefined;
-            resourceInputs["startDataMigration"] = args ? args.startDataMigration : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDbServerFullyQualifiedDomainName"] = args ? args.targetDbServerFullyQualifiedDomainName : undefined;
-            resourceInputs["targetDbServerName"] = args ? args.targetDbServerName : undefined;
-            resourceInputs["triggerCutover"] = args ? args.triggerCutover : undefined;
+            resourceInputs["cancel"] = args?.cancel;
+            resourceInputs["dbsToCancelMigrationOn"] = args?.dbsToCancelMigrationOn;
+            resourceInputs["dbsToMigrate"] = args?.dbsToMigrate;
+            resourceInputs["dbsToTriggerCutoverOn"] = args?.dbsToTriggerCutoverOn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrateRoles"] = args?.migrateRoles;
+            resourceInputs["migrationInstanceResourceId"] = args?.migrationInstanceResourceId;
+            resourceInputs["migrationMode"] = args?.migrationMode;
+            resourceInputs["migrationName"] = args?.migrationName;
+            resourceInputs["migrationOption"] = args?.migrationOption;
+            resourceInputs["migrationWindowEndTimeInUtc"] = args?.migrationWindowEndTimeInUtc;
+            resourceInputs["migrationWindowStartTimeInUtc"] = args?.migrationWindowStartTimeInUtc;
+            resourceInputs["overwriteDbsInTarget"] = args?.overwriteDbsInTarget;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secretParameters"] = args?.secretParameters;
+            resourceInputs["setupLogicalReplicationOnSourceDbIfNeeded"] = args?.setupLogicalReplicationOnSourceDbIfNeeded;
+            resourceInputs["sourceDbServerFullyQualifiedDomainName"] = args?.sourceDbServerFullyQualifiedDomainName;
+            resourceInputs["sourceDbServerResourceId"] = args?.sourceDbServerResourceId;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["sslMode"] = args?.sslMode;
+            resourceInputs["startDataMigration"] = args?.startDataMigration;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDbServerFullyQualifiedDomainName"] = args?.targetDbServerFullyQualifiedDomainName;
+            resourceInputs["targetDbServerName"] = args?.targetDbServerName;
+            resourceInputs["triggerCutover"] = args?.triggerCutover;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentStatus"] = undefined /*out*/;
             resourceInputs["migrationId"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class Container extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Current status of the container.
      */
-    public /*out*/ readonly containerStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerStatus: pulumi.Output<string>;
     /**
      * The UTC time when container got created.
      */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDateTime: pulumi.Output<string>;
     /**
      * DataFormat for Container
      */
-    public readonly dataFormat!: pulumi.Output<string>;
+    declare public readonly dataFormat: pulumi.Output<string>;
     /**
      * The object name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Details of the refresh job on this container.
      */
-    public /*out*/ readonly refreshDetails!: pulumi.Output<outputs.databoxedge.RefreshDetailsResponse>;
+    declare public /*out*/ readonly refreshDetails: pulumi.Output<outputs.databoxedge.RefreshDetailsResponse>;
     /**
      * Metadata pertaining to creation and last modification of Container
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Container resource with the given unique name, arguments, and options.
@@ -85,23 +85,23 @@ export class Container extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataFormat === undefined) && !opts.urn) {
+            if (args?.dataFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataFormat'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerStatus"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;

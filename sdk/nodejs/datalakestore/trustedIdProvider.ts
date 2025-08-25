@@ -39,19 +39,19 @@ export class TrustedIdProvider extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The URL of this trusted identity provider.
      */
-    public readonly idProvider!: pulumi.Output<string>;
+    declare public readonly idProvider: pulumi.Output<string>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TrustedIdProvider resource with the given unique name, arguments, and options.
@@ -64,19 +64,19 @@ export class TrustedIdProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.idProvider === undefined) && !opts.urn) {
+            if (args?.idProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'idProvider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["idProvider"] = args ? args.idProvider : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["trustedIdProviderName"] = args ? args.trustedIdProviderName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["idProvider"] = args?.idProvider;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["trustedIdProviderName"] = args?.trustedIdProviderName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

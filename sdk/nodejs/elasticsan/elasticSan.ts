@@ -44,75 +44,75 @@ export class ElasticSan extends pulumi.CustomResource {
     /**
      * Logical zone for Elastic San resource; example: ["1"].
      */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Base size of the Elastic San appliance in TiB.
      */
-    public readonly baseSizeTiB!: pulumi.Output<number>;
+    declare public readonly baseSizeTiB: pulumi.Output<number>;
     /**
      * Extended size of the Elastic San appliance in TiB.
      */
-    public readonly extendedCapacitySizeTiB!: pulumi.Output<number>;
+    declare public readonly extendedCapacitySizeTiB: pulumi.Output<number>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of Private Endpoint Connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
     /**
      * State of the operation on the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Allow or disallow public network access to ElasticSan. Value is optional but if passed in, must be 'Enabled' or 'Disabled'.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * resource sku
      */
-    public readonly sku!: pulumi.Output<outputs.elasticsan.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.elasticsan.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total Provisioned IOPS of the Elastic San appliance.
      */
-    public /*out*/ readonly totalIops!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalIops: pulumi.Output<number>;
     /**
      * Total Provisioned MBps Elastic San appliance.
      */
-    public /*out*/ readonly totalMBps!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalMBps: pulumi.Output<number>;
     /**
      * Total size of the Elastic San appliance in TB.
      */
-    public /*out*/ readonly totalSizeTiB!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalSizeTiB: pulumi.Output<number>;
     /**
      * Total size of the provisioned Volumes in GiB.
      */
-    public /*out*/ readonly totalVolumeSizeGiB!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalVolumeSizeGiB: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Total number of volume groups in this Elastic San appliance.
      */
-    public /*out*/ readonly volumeGroupCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumeGroupCount: pulumi.Output<number>;
 
     /**
      * Create a ElasticSan resource with the given unique name, arguments, and options.
@@ -125,27 +125,27 @@ export class ElasticSan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.baseSizeTiB === undefined) && !opts.urn) {
+            if (args?.baseSizeTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'baseSizeTiB'");
             }
-            if ((!args || args.extendedCapacitySizeTiB === undefined) && !opts.urn) {
+            if (args?.extendedCapacitySizeTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedCapacitySizeTiB'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["baseSizeTiB"] = args ? args.baseSizeTiB : undefined;
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["extendedCapacitySizeTiB"] = args ? args.extendedCapacitySizeTiB : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["baseSizeTiB"] = args?.baseSizeTiB;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["extendedCapacitySizeTiB"] = args?.extendedCapacitySizeTiB;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;

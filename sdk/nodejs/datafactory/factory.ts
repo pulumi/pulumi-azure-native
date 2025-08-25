@@ -42,63 +42,63 @@ export class Factory extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time the factory was created in ISO8601 format.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * Etag identifies change in the resource.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Properties to enable Customer Managed Key for the factory.
      */
-    public readonly encryption!: pulumi.Output<outputs.datafactory.EncryptionConfigurationResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.datafactory.EncryptionConfigurationResponse | undefined>;
     /**
      * List of parameters for factory.
      */
-    public readonly globalParameters!: pulumi.Output<{[key: string]: outputs.datafactory.GlobalParameterSpecificationResponse} | undefined>;
+    declare public readonly globalParameters: pulumi.Output<{[key: string]: outputs.datafactory.GlobalParameterSpecificationResponse} | undefined>;
     /**
      * Managed service identity of the factory.
      */
-    public readonly identity!: pulumi.Output<outputs.datafactory.FactoryIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.datafactory.FactoryIdentityResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Factory provisioning state, example Succeeded.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Whether or not public network access is allowed for the data factory.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Purview information of the factory.
      */
-    public readonly purviewConfiguration!: pulumi.Output<outputs.datafactory.PurviewConfigurationResponse | undefined>;
+    declare public readonly purviewConfiguration: pulumi.Output<outputs.datafactory.PurviewConfigurationResponse | undefined>;
     /**
      * Git repo information of the factory.
      */
-    public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.FactoryGitHubConfigurationResponse | outputs.datafactory.FactoryVSTSConfigurationResponse | undefined>;
+    declare public readonly repoConfiguration: pulumi.Output<outputs.datafactory.FactoryGitHubConfigurationResponse | outputs.datafactory.FactoryVSTSConfigurationResponse | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the factory.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Factory resource with the given unique name, arguments, and options.
@@ -111,19 +111,19 @@ export class Factory extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["globalParameters"] = args ? args.globalParameters : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
-            resourceInputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["globalParameters"] = args?.globalParameters;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purviewConfiguration"] = args?.purviewConfiguration;
+            resourceInputs["repoConfiguration"] = args?.repoConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

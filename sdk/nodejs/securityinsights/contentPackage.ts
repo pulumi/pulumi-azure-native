@@ -44,115 +44,115 @@ export class ContentPackage extends pulumi.CustomResource {
     /**
      * The author of the package
      */
-    public readonly author!: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
+    declare public readonly author: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The categories of the package
      */
-    public readonly categories!: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
+    declare public readonly categories: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
     /**
      * The content id of the package
      */
-    public readonly contentId!: pulumi.Output<string>;
+    declare public readonly contentId: pulumi.Output<string>;
     /**
      * The package kind
      */
-    public readonly contentKind!: pulumi.Output<string>;
+    declare public readonly contentKind: pulumi.Output<string>;
     /**
      * Unique ID for the content. It should be generated based on the contentId, contentKind and the contentVersion of the package
      */
-    public readonly contentProductId!: pulumi.Output<string>;
+    declare public readonly contentProductId: pulumi.Output<string>;
     /**
      * The version of the content schema.
      */
-    public readonly contentSchemaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly contentSchemaVersion: pulumi.Output<string | undefined>;
     /**
      * The support tier of the package
      */
-    public readonly dependencies!: pulumi.Output<outputs.securityinsights.MetadataDependenciesResponse | undefined>;
+    declare public readonly dependencies: pulumi.Output<outputs.securityinsights.MetadataDependenciesResponse | undefined>;
     /**
      * The description of the package
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the package
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * first publish date package item
      */
-    public readonly firstPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly firstPublishDate: pulumi.Output<string | undefined>;
     /**
      * the icon identifier. this id can later be fetched from the content metadata
      */
-    public readonly icon!: pulumi.Output<string | undefined>;
+    declare public readonly icon: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this template is deprecated
      */
-    public readonly isDeprecated!: pulumi.Output<string | undefined>;
+    declare public readonly isDeprecated: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this package is among the featured list.
      */
-    public readonly isFeatured!: pulumi.Output<string | undefined>;
+    declare public readonly isFeatured: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this is a newly published package.
      */
-    public readonly isNew!: pulumi.Output<string | undefined>;
+    declare public readonly isNew: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this package is in preview.
      */
-    public readonly isPreview!: pulumi.Output<string | undefined>;
+    declare public readonly isPreview: pulumi.Output<string | undefined>;
     /**
      * last publish date for the package item
      */
-    public readonly lastPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly lastPublishDate: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Providers for the package item
      */
-    public readonly providers!: pulumi.Output<string[] | undefined>;
+    declare public readonly providers: pulumi.Output<string[] | undefined>;
     /**
      * The publisher display name of the package
      */
-    public readonly publisherDisplayName!: pulumi.Output<string | undefined>;
+    declare public readonly publisherDisplayName: pulumi.Output<string | undefined>;
     /**
      * The source of the package
      */
-    public readonly source!: pulumi.Output<outputs.securityinsights.MetadataSourceResponse | undefined>;
+    declare public readonly source: pulumi.Output<outputs.securityinsights.MetadataSourceResponse | undefined>;
     /**
      * The support tier of the package
      */
-    public readonly support!: pulumi.Output<outputs.securityinsights.MetadataSupportResponse | undefined>;
+    declare public readonly support: pulumi.Output<outputs.securityinsights.MetadataSupportResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * the tactics the resource covers
      */
-    public readonly threatAnalysisTactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTactics: pulumi.Output<string[] | undefined>;
     /**
      * the techniques the resource covers, these have to be aligned with the tactics being used
      */
-    public readonly threatAnalysisTechniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTechniques: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * the latest version number of the package
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ContentPackage resource with the given unique name, arguments, and options.
@@ -165,53 +165,53 @@ export class ContentPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentId === undefined) && !opts.urn) {
+            if (args?.contentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentId'");
             }
-            if ((!args || args.contentKind === undefined) && !opts.urn) {
+            if (args?.contentKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
-            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+            if (args?.contentProductId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentProductId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentKind"] = args ? args.contentKind : undefined;
-            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["icon"] = args ? args.icon : undefined;
-            resourceInputs["isDeprecated"] = args ? args.isDeprecated : undefined;
-            resourceInputs["isFeatured"] = args ? args.isFeatured : undefined;
-            resourceInputs["isNew"] = args ? args.isNew : undefined;
-            resourceInputs["isPreview"] = args ? args.isPreview : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["publisherDisplayName"] = args ? args.publisherDisplayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentKind"] = args?.contentKind;
+            resourceInputs["contentProductId"] = args?.contentProductId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["dependencies"] = args?.dependencies;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["icon"] = args?.icon;
+            resourceInputs["isDeprecated"] = args?.isDeprecated;
+            resourceInputs["isFeatured"] = args?.isFeatured;
+            resourceInputs["isNew"] = args?.isNew;
+            resourceInputs["isPreview"] = args?.isPreview;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["publisherDisplayName"] = args?.publisherDisplayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

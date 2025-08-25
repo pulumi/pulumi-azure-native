@@ -44,39 +44,39 @@ export class Route extends pulumi.CustomResource {
     /**
      * The destination CIDR to which the route applies.
      */
-    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly addressPrefix: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A value indicating whether this route overrides overlapping BGP routes regardless of LPM.
      */
-    public /*out*/ readonly hasBgpOverride!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasBgpOverride: pulumi.Output<boolean>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance.
      */
-    public readonly nextHopIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly nextHopIpAddress: pulumi.Output<string | undefined>;
     /**
      * The type of Azure hop the packet should be sent to.
      */
-    public readonly nextHopType!: pulumi.Output<string>;
+    declare public readonly nextHopType: pulumi.Output<string>;
     /**
      * The provisioning state of the route resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.nextHopType === undefined) && !opts.urn) {
+            if (args?.nextHopType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'nextHopType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.routeTableName === undefined) && !opts.urn) {
+            if (args?.routeTableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'routeTableName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["nextHopIpAddress"] = args ? args.nextHopIpAddress : undefined;
-            resourceInputs["nextHopType"] = args ? args.nextHopType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["nextHopIpAddress"] = args?.nextHopIpAddress;
+            resourceInputs["nextHopType"] = args?.nextHopType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["routeTableName"] = args?.routeTableName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hasBgpOverride"] = undefined /*out*/;

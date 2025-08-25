@@ -42,51 +42,51 @@ export class StandardAssignment extends pulumi.CustomResource {
     /**
      * Standard item with key as applied to this standard assignment over the given scope
      */
-    public readonly assignedStandard!: pulumi.Output<outputs.security.AssignedStandardItemResponse | undefined>;
+    declare public readonly assignedStandard: pulumi.Output<outputs.security.AssignedStandardItemResponse | undefined>;
     /**
      * Additional data about assignment that has Attest effect
      */
-    public readonly attestationData!: pulumi.Output<outputs.security.StandardAssignmentPropertiesResponseAttestationData | undefined>;
+    declare public readonly attestationData: pulumi.Output<outputs.security.StandardAssignmentPropertiesResponseAttestationData | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the standardAssignment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Display name of the standardAssignment
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Expected effect of this assignment (Audit/Exempt/Attest)
      */
-    public readonly effect!: pulumi.Output<string | undefined>;
+    declare public readonly effect: pulumi.Output<string | undefined>;
     /**
      * Excluded scopes, filter out the descendants of the scope (on management scopes)
      */
-    public readonly excludedScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedScopes: pulumi.Output<string[] | undefined>;
     /**
      * Additional data about assignment that has Exempt effect
      */
-    public readonly exemptionData!: pulumi.Output<outputs.security.StandardAssignmentPropertiesResponseExemptionData | undefined>;
+    declare public readonly exemptionData: pulumi.Output<outputs.security.StandardAssignmentPropertiesResponseExemptionData | undefined>;
     /**
      * Expiration date of this assignment as a full ISO date
      */
-    public readonly expiresOn!: pulumi.Output<string | undefined>;
+    declare public readonly expiresOn: pulumi.Output<string | undefined>;
     /**
      * The standard assignment metadata.
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.security.StandardAssignmentMetadataResponse | undefined>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.security.StandardAssignmentMetadataResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a StandardAssignment resource with the given unique name, arguments, and options.
@@ -99,19 +99,19 @@ export class StandardAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["assignedStandard"] = args ? args.assignedStandard : undefined;
-            resourceInputs["attestationData"] = args ? args.attestationData : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["effect"] = args ? args.effect : undefined;
-            resourceInputs["excludedScopes"] = args ? args.excludedScopes : undefined;
-            resourceInputs["exemptionData"] = args ? args.exemptionData : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["standardAssignmentName"] = args ? args.standardAssignmentName : undefined;
+            resourceInputs["assignedStandard"] = args?.assignedStandard;
+            resourceInputs["attestationData"] = args?.attestationData;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["effect"] = args?.effect;
+            resourceInputs["excludedScopes"] = args?.excludedScopes;
+            resourceInputs["exemptionData"] = args?.exemptionData;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["standardAssignmentName"] = args?.standardAssignmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

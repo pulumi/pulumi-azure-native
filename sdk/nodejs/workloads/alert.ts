@@ -42,47 +42,47 @@ export class Alert extends pulumi.CustomResource {
     /**
      * Describes the properties of an alert.
      */
-    public readonly alertRuleProperties!: pulumi.Output<outputs.workloads.AlertRulePropertiesResponse | undefined>;
+    declare public readonly alertRuleProperties: pulumi.Output<outputs.workloads.AlertRulePropertiesResponse | undefined>;
     /**
      * ID of the alert rule resource created.
      */
-    public /*out*/ readonly alertRuleResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly alertRuleResourceId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Defines the alert instance errors.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.ErrorDetailResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name of provider instances associated with the alert.
      */
-    public readonly providerNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly providerNames: pulumi.Output<string[] | undefined>;
     /**
      * The provider type for alert. For example, the value can be SapHana.
      */
-    public readonly providerType!: pulumi.Output<string | undefined>;
+    declare public readonly providerType: pulumi.Output<string | undefined>;
     /**
      * State of provisioning of the alert instance
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Name of the alert template from which it was created.
      */
-    public readonly templateName!: pulumi.Output<string | undefined>;
+    declare public readonly templateName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Alert resource with the given unique name, arguments, and options.
@@ -95,19 +95,19 @@ export class Alert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorName === undefined) && !opts.urn) {
+            if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alertName"] = args ? args.alertName : undefined;
-            resourceInputs["alertRuleProperties"] = args ? args.alertRuleProperties : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["providerNames"] = args ? args.providerNames : undefined;
-            resourceInputs["providerType"] = args ? args.providerType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
+            resourceInputs["alertName"] = args?.alertName;
+            resourceInputs["alertRuleProperties"] = args?.alertRuleProperties;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["providerNames"] = args?.providerNames;
+            resourceInputs["providerType"] = args?.providerType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["templateName"] = args?.templateName;
             resourceInputs["alertRuleResourceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;

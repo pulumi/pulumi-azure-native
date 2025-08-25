@@ -44,39 +44,39 @@ export class Workload extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Managed On Behalf Of Configuration.
      */
-    public /*out*/ readonly managedOnBehalfOfConfiguration!: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
+    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of resource group ids.
      */
-    public readonly resourceGroupCollection!: pulumi.Output<string[] | undefined>;
+    declare public readonly resourceGroupCollection: pulumi.Output<string[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Workload resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class Workload extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualEnclaveName === undefined) && !opts.urn) {
+            if (args?.virtualEnclaveName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualEnclaveName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupCollection"] = args ? args.resourceGroupCollection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualEnclaveName"] = args ? args.virtualEnclaveName : undefined;
-            resourceInputs["workloadName"] = args ? args.workloadName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupCollection"] = args?.resourceGroupCollection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualEnclaveName"] = args?.virtualEnclaveName;
+            resourceInputs["workloadName"] = args?.workloadName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,55 +44,55 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Custom domain configuration for the environment
      */
-    public readonly customDomainConfiguration!: pulumi.Output<outputs.app.CustomDomainConfigurationResponse | undefined>;
+    declare public readonly customDomainConfiguration: pulumi.Output<outputs.app.CustomDomainConfigurationResponse | undefined>;
     /**
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry
      */
-    public readonly daprAIConnectionString!: pulumi.Output<string | undefined>;
+    declare public readonly daprAIConnectionString: pulumi.Output<string | undefined>;
     /**
      * Default Domain Name for the cluster
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
     /**
      * Any errors that occurred during deployment or deployment validation
      */
-    public /*out*/ readonly deploymentErrors!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentErrors: pulumi.Output<string>;
     /**
      * The complex type of the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the Kubernetes Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Static IP of the connectedEnvironment
      */
-    public readonly staticIp!: pulumi.Output<string | undefined>;
+    declare public readonly staticIp: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectedEnvironment resource with the given unique name, arguments, and options.
@@ -105,17 +105,17 @@ export class ConnectedEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectedEnvironmentName"] = args ? args.connectedEnvironmentName : undefined;
-            resourceInputs["customDomainConfiguration"] = args ? args.customDomainConfiguration : undefined;
-            resourceInputs["daprAIConnectionString"] = args ? args.daprAIConnectionString : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticIp"] = args ? args.staticIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectedEnvironmentName"] = args?.connectedEnvironmentName;
+            resourceInputs["customDomainConfiguration"] = args?.customDomainConfiguration;
+            resourceInputs["daprAIConnectionString"] = args?.daprAIConnectionString;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticIp"] = args?.staticIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;

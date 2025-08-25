@@ -44,115 +44,115 @@ export class Device extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of compute roles configured.
      */
-    public /*out*/ readonly configuredRoleTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly configuredRoleTypes: pulumi.Output<string[]>;
     /**
      * The Data Box Edge/Gateway device culture.
      */
-    public /*out*/ readonly culture!: pulumi.Output<string>;
+    declare public /*out*/ readonly culture: pulumi.Output<string>;
     /**
      * The status of the Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly dataBoxEdgeDeviceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataBoxEdgeDeviceStatus: pulumi.Output<string>;
     /**
      * The details of data-residency related properties for this resource
      */
-    public readonly dataResidency!: pulumi.Output<outputs.databoxedge.DataResidencyResponse | undefined>;
+    declare public readonly dataResidency: pulumi.Output<outputs.databoxedge.DataResidencyResponse | undefined>;
     /**
      * The Description of the Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The device software version number of the device (eg: 1.2.18105.6).
      */
-    public /*out*/ readonly deviceHcsVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceHcsVersion: pulumi.Output<string>;
     /**
      * The Data Box Edge/Gateway device local capacity in MB.
      */
-    public /*out*/ readonly deviceLocalCapacity!: pulumi.Output<number>;
+    declare public /*out*/ readonly deviceLocalCapacity: pulumi.Output<number>;
     /**
      * The Data Box Edge/Gateway device model.
      */
-    public /*out*/ readonly deviceModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceModel: pulumi.Output<string>;
     /**
      * The Data Box Edge/Gateway device software version.
      */
-    public /*out*/ readonly deviceSoftwareVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceSoftwareVersion: pulumi.Output<string>;
     /**
      * The type of the Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly deviceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceType: pulumi.Output<string>;
     /**
      * The details of Edge Profile for this resource
      */
-    public /*out*/ readonly edgeProfile!: pulumi.Output<outputs.databoxedge.EdgeProfileResponse>;
+    declare public /*out*/ readonly edgeProfile: pulumi.Output<outputs.databoxedge.EdgeProfileResponse>;
     /**
      * The etag for the devices.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The Data Box Edge/Gateway device name.
      */
-    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly friendlyName: pulumi.Output<string>;
     /**
      * Msi identity of the resource
      */
-    public readonly identity!: pulumi.Output<outputs.databoxedge.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.databoxedge.ResourceIdentityResponse | undefined>;
     /**
      * The kind of the device.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Kubernetes Workload Profile
      */
-    public /*out*/ readonly kubernetesWorkloadProfile!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesWorkloadProfile: pulumi.Output<string>;
     /**
      * The location of the device. This is a supported and registered Azure geographical region (for example, West US, East US, or Southeast Asia). The geographical region of a device cannot be changed once it is created, but if an identical geographical region is specified on update, the request will succeed.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The description of the Data Box Edge/Gateway device model.
      */
-    public /*out*/ readonly modelDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelDescription: pulumi.Output<string>;
     /**
      * The object name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of nodes in the cluster.
      */
-    public /*out*/ readonly nodeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly nodeCount: pulumi.Output<number>;
     /**
      * The details of the move operation on this resource.
      */
-    public /*out*/ readonly resourceMoveDetails!: pulumi.Output<outputs.databoxedge.ResourceMoveDetailsResponse>;
+    declare public /*out*/ readonly resourceMoveDetails: pulumi.Output<outputs.databoxedge.ResourceMoveDetailsResponse>;
     /**
      * The Serial Number of Data Box Edge/Gateway device.
      */
-    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
     /**
      * The SKU type.
      */
-    public readonly sku!: pulumi.Output<outputs.databoxedge.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.databoxedge.SkuResponse | undefined>;
     /**
      * DataBoxEdge Resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The list of tags that describe the device. These tags can be used to view and group this device (across resource groups).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Data Box Edge/Gateway device timezone.
      */
-    public /*out*/ readonly timeZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeZone: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Device resource with the given unique name, arguments, and options.
@@ -165,16 +165,16 @@ export class Device extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataResidency"] = args ? args.dataResidency : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataResidency"] = args?.dataResidency;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configuredRoleTypes"] = undefined /*out*/;
             resourceInputs["culture"] = undefined /*out*/;

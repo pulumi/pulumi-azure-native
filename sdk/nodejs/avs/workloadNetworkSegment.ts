@@ -44,47 +44,47 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gateway which to connect segment to.
      */
-    public readonly connectedGateway!: pulumi.Output<string | undefined>;
+    declare public readonly connectedGateway: pulumi.Output<string | undefined>;
     /**
      * Display name of the segment.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Port Vif which segment is associated with.
      */
-    public /*out*/ readonly portVif!: pulumi.Output<outputs.avs.WorkloadNetworkSegmentPortVifResponse[]>;
+    declare public /*out*/ readonly portVif: pulumi.Output<outputs.avs.WorkloadNetworkSegmentPortVifResponse[]>;
     /**
      * The provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * NSX revision number.
      */
-    public readonly revision!: pulumi.Output<number | undefined>;
+    declare public readonly revision: pulumi.Output<number | undefined>;
     /**
      * Segment status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Subnet which to connect segment to.
      */
-    public readonly subnet!: pulumi.Output<outputs.avs.WorkloadNetworkSegmentSubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.avs.WorkloadNetworkSegmentSubnetResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkloadNetworkSegment resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class WorkloadNetworkSegment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectedGateway"] = args ? args.connectedGateway : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
-            resourceInputs["segmentId"] = args ? args.segmentId : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
+            resourceInputs["connectedGateway"] = args?.connectedGateway;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
+            resourceInputs["segmentId"] = args?.segmentId;
+            resourceInputs["subnet"] = args?.subnet;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["portVif"] = undefined /*out*/;

@@ -42,43 +42,43 @@ export class Video extends pulumi.CustomResource {
     /**
      * Video archival properties.
      */
-    public readonly archival!: pulumi.Output<outputs.videoanalyzer.VideoArchivalResponse | undefined>;
+    declare public readonly archival: pulumi.Output<outputs.videoanalyzer.VideoArchivalResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Set of URLs to the video content.
      */
-    public /*out*/ readonly contentUrls!: pulumi.Output<outputs.videoanalyzer.VideoContentUrlsResponse>;
+    declare public /*out*/ readonly contentUrls: pulumi.Output<outputs.videoanalyzer.VideoContentUrlsResponse>;
     /**
      * Optional video description provided by the user. Value can be up to 2048 characters long.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Video flags contain information about the available video actions and its dynamic properties based on the current video state.
      */
-    public /*out*/ readonly flags!: pulumi.Output<outputs.videoanalyzer.VideoFlagsResponse>;
+    declare public /*out*/ readonly flags: pulumi.Output<outputs.videoanalyzer.VideoFlagsResponse>;
     /**
      * Contains information about the video and audio content.
      */
-    public readonly mediaInfo!: pulumi.Output<outputs.videoanalyzer.VideoMediaInfoResponse | undefined>;
+    declare public readonly mediaInfo: pulumi.Output<outputs.videoanalyzer.VideoMediaInfoResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
      * Optional video title provided by the user. Value can be up to 256 characters long.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Video resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class Video extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["archival"] = args ? args.archival : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["mediaInfo"] = args ? args.mediaInfo : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["videoName"] = args ? args.videoName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["archival"] = args?.archival;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["mediaInfo"] = args?.mediaInfo;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["videoName"] = args?.videoName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contentUrls"] = undefined /*out*/;
             resourceInputs["flags"] = undefined /*out*/;

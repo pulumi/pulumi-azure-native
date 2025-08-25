@@ -44,39 +44,39 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * FHIR Mappings
      */
-    public readonly fhirMapping!: pulumi.Output<outputs.healthcareapis.IotMappingPropertiesResponse>;
+    declare public readonly fhirMapping: pulumi.Output<outputs.healthcareapis.IotMappingPropertiesResponse>;
     /**
      * Fully qualified resource id of the FHIR service to connect to.
      */
-    public readonly fhirServiceResourceId!: pulumi.Output<string>;
+    declare public readonly fhirServiceResourceId: pulumi.Output<string>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Determines how resource identity is resolved on the destination.
      */
-    public readonly resourceIdentityResolutionType!: pulumi.Output<string>;
+    declare public readonly resourceIdentityResolutionType: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IotConnectorFhirDestination resource with the given unique name, arguments, and options.
@@ -89,32 +89,32 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fhirMapping === undefined) && !opts.urn) {
+            if (args?.fhirMapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fhirMapping'");
             }
-            if ((!args || args.fhirServiceResourceId === undefined) && !opts.urn) {
+            if (args?.fhirServiceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fhirServiceResourceId'");
             }
-            if ((!args || args.iotConnectorName === undefined) && !opts.urn) {
+            if (args?.iotConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotConnectorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceIdentityResolutionType === undefined) && !opts.urn) {
+            if (args?.resourceIdentityResolutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceIdentityResolutionType'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["fhirDestinationName"] = args ? args.fhirDestinationName : undefined;
-            resourceInputs["fhirMapping"] = args ? args.fhirMapping : undefined;
-            resourceInputs["fhirServiceResourceId"] = args ? args.fhirServiceResourceId : undefined;
-            resourceInputs["iotConnectorName"] = args ? args.iotConnectorName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceIdentityResolutionType"] = args ? args.resourceIdentityResolutionType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["fhirDestinationName"] = args?.fhirDestinationName;
+            resourceInputs["fhirMapping"] = args?.fhirMapping;
+            resourceInputs["fhirServiceResourceId"] = args?.fhirServiceResourceId;
+            resourceInputs["iotConnectorName"] = args?.iotConnectorName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceIdentityResolutionType"] = args?.resourceIdentityResolutionType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

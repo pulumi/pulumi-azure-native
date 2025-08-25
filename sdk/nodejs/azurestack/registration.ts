@@ -44,39 +44,39 @@ export class Registration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the billing mode for the Azure Stack registration.
      */
-    public /*out*/ readonly billingModel!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly billingModel: pulumi.Output<string | undefined>;
     /**
      * The identifier of the registered Azure Stack.
      */
-    public /*out*/ readonly cloudId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly cloudId: pulumi.Output<string | undefined>;
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The object identifier associated with the Azure Stack connecting to Azure.
      */
-    public /*out*/ readonly objectId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly objectId: pulumi.Output<string | undefined>;
     /**
      * Custom tags for the resource.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of Resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Registration resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class Registration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registrationToken === undefined) && !opts.urn) {
+            if (args?.registrationToken === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationToken'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationName"] = args ? args.registrationName : undefined;
-            resourceInputs["registrationToken"] = args ? args.registrationToken : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationName"] = args?.registrationName;
+            resourceInputs["registrationToken"] = args?.registrationToken;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;

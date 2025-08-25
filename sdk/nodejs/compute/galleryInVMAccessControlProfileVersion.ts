@@ -42,59 +42,59 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * This property allows you to specify if the requests will be allowed to access the host endpoints. Possible values are: 'Allow', 'Deny'.
      */
-    public readonly defaultAccess!: pulumi.Output<string>;
+    declare public readonly defaultAccess: pulumi.Output<string>;
     /**
      * If set to true, Virtual Machines deployed from the latest version of the Resource Profile won't use this Profile version.
      */
-    public readonly excludeFromLatest!: pulumi.Output<boolean | undefined>;
+    declare public readonly excludeFromLatest: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * This property allows you to specify whether the access control rules are in Audit mode, in Enforce mode or Disabled. Possible values are: 'Audit', 'Enforce' or 'Disabled'.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The timestamp for when the Resource Profile Version is published.
      */
-    public /*out*/ readonly publishedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly publishedDate: pulumi.Output<string>;
     /**
      * This is the replication status of the gallery image version.
      */
-    public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
+    declare public /*out*/ readonly replicationStatus: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
     /**
      * This is the Access Control Rules specification for an inVMAccessControlProfile version.
      */
-    public readonly rules!: pulumi.Output<outputs.compute.AccessControlRulesResponse | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.compute.AccessControlRulesResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The target regions where the Resource Profile version is going to be replicated to. This property is updatable.
      */
-    public readonly targetLocations!: pulumi.Output<outputs.compute.TargetRegionResponse[] | undefined>;
+    declare public readonly targetLocations: pulumi.Output<outputs.compute.TargetRegionResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GalleryInVMAccessControlProfileVersion resource with the given unique name, arguments, and options.
@@ -107,32 +107,32 @@ export class GalleryInVMAccessControlProfileVersion extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultAccess === undefined) && !opts.urn) {
+            if (args?.defaultAccess === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultAccess'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.inVMAccessControlProfileName === undefined) && !opts.urn) {
+            if (args?.inVMAccessControlProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'inVMAccessControlProfileName'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultAccess"] = args ? args.defaultAccess : undefined;
-            resourceInputs["excludeFromLatest"] = args ? args.excludeFromLatest : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["inVMAccessControlProfileName"] = args ? args.inVMAccessControlProfileName : undefined;
-            resourceInputs["inVMAccessControlProfileVersionName"] = args ? args.inVMAccessControlProfileVersionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetLocations"] = args ? args.targetLocations : undefined;
+            resourceInputs["defaultAccess"] = args?.defaultAccess;
+            resourceInputs["excludeFromLatest"] = args?.excludeFromLatest;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["inVMAccessControlProfileName"] = args?.inVMAccessControlProfileName;
+            resourceInputs["inVMAccessControlProfileVersionName"] = args?.inVMAccessControlProfileVersionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetLocations"] = args?.targetLocations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

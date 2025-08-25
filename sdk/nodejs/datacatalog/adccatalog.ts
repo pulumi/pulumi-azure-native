@@ -42,51 +42,51 @@ export class ADCCatalog extends pulumi.CustomResource {
     /**
      * Azure data catalog admin list.
      */
-    public readonly admins!: pulumi.Output<outputs.datacatalog.PrincipalsResponse[] | undefined>;
+    declare public readonly admins: pulumi.Output<outputs.datacatalog.PrincipalsResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Automatic unit adjustment enabled or not.
      */
-    public readonly enableAutomaticUnitAdjustment!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutomaticUnitAdjustment: pulumi.Output<boolean | undefined>;
     /**
      * Resource etag
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure data catalog SKU.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * Azure data catalog provision status.
      */
-    public readonly successfullyProvisioned!: pulumi.Output<boolean | undefined>;
+    declare public readonly successfullyProvisioned: pulumi.Output<boolean | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Azure data catalog units.
      */
-    public readonly units!: pulumi.Output<number | undefined>;
+    declare public readonly units: pulumi.Output<number | undefined>;
     /**
      * Azure data catalog user list.
      */
-    public readonly users!: pulumi.Output<outputs.datacatalog.PrincipalsResponse[] | undefined>;
+    declare public readonly users: pulumi.Output<outputs.datacatalog.PrincipalsResponse[] | undefined>;
 
     /**
      * Create a ADCCatalog resource with the given unique name, arguments, and options.
@@ -99,19 +99,19 @@ export class ADCCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["admins"] = args ? args.admins : undefined;
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["enableAutomaticUnitAdjustment"] = args ? args.enableAutomaticUnitAdjustment : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["successfullyProvisioned"] = args ? args.successfullyProvisioned : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["units"] = args ? args.units : undefined;
-            resourceInputs["users"] = args ? args.users : undefined;
+            resourceInputs["admins"] = args?.admins;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["enableAutomaticUnitAdjustment"] = args?.enableAutomaticUnitAdjustment;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["successfullyProvisioned"] = args?.successfullyProvisioned;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["units"] = args?.units;
+            resourceInputs["users"] = args?.users;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

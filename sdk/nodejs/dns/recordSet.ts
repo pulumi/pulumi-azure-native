@@ -44,99 +44,99 @@ export class RecordSet extends pulumi.CustomResource {
     /**
      * The list of A records in the record set.
      */
-    public readonly aRecords!: pulumi.Output<outputs.dns.ARecordResponse[] | undefined>;
+    declare public readonly aRecords: pulumi.Output<outputs.dns.ARecordResponse[] | undefined>;
     /**
      * The list of AAAA records in the record set.
      */
-    public readonly aaaaRecords!: pulumi.Output<outputs.dns.AaaaRecordResponse[] | undefined>;
+    declare public readonly aaaaRecords: pulumi.Output<outputs.dns.AaaaRecordResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of CAA records in the record set.
      */
-    public readonly caaRecords!: pulumi.Output<outputs.dns.CaaRecordResponse[] | undefined>;
+    declare public readonly caaRecords: pulumi.Output<outputs.dns.CaaRecordResponse[] | undefined>;
     /**
      * The CNAME record in the  record set.
      */
-    public readonly cnameRecord!: pulumi.Output<outputs.dns.CnameRecordResponse | undefined>;
+    declare public readonly cnameRecord: pulumi.Output<outputs.dns.CnameRecordResponse | undefined>;
     /**
      * The list of DS records in the record set.
      */
-    public readonly dsRecords!: pulumi.Output<outputs.dns.DsRecordResponse[] | undefined>;
+    declare public readonly dsRecords: pulumi.Output<outputs.dns.DsRecordResponse[] | undefined>;
     /**
      * The etag of the record set.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Fully qualified domain name of the record set.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The metadata attached to the record set.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of MX records in the record set.
      */
-    public readonly mxRecords!: pulumi.Output<outputs.dns.MxRecordResponse[] | undefined>;
+    declare public readonly mxRecords: pulumi.Output<outputs.dns.MxRecordResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of NAPTR records in the record set.
      */
-    public readonly naptrRecords!: pulumi.Output<outputs.dns.NaptrRecordResponse[] | undefined>;
+    declare public readonly naptrRecords: pulumi.Output<outputs.dns.NaptrRecordResponse[] | undefined>;
     /**
      * The list of NS records in the record set.
      */
-    public readonly nsRecords!: pulumi.Output<outputs.dns.NsRecordResponse[] | undefined>;
+    declare public readonly nsRecords: pulumi.Output<outputs.dns.NsRecordResponse[] | undefined>;
     /**
      * provisioning State of the record set.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The list of PTR records in the record set.
      */
-    public readonly ptrRecords!: pulumi.Output<outputs.dns.PtrRecordResponse[] | undefined>;
+    declare public readonly ptrRecords: pulumi.Output<outputs.dns.PtrRecordResponse[] | undefined>;
     /**
      * The SOA record in the record set.
      */
-    public readonly soaRecord!: pulumi.Output<outputs.dns.SoaRecordResponse | undefined>;
+    declare public readonly soaRecord: pulumi.Output<outputs.dns.SoaRecordResponse | undefined>;
     /**
      * The list of SRV records in the record set.
      */
-    public readonly srvRecords!: pulumi.Output<outputs.dns.SrvRecordResponse[] | undefined>;
+    declare public readonly srvRecords: pulumi.Output<outputs.dns.SrvRecordResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dns.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dns.SystemDataResponse>;
     /**
      * A reference to an azure resource from where the dns resource value is taken.
      */
-    public readonly targetResource!: pulumi.Output<outputs.dns.SubResourceResponse | undefined>;
+    declare public readonly targetResource: pulumi.Output<outputs.dns.SubResourceResponse | undefined>;
     /**
      * The list of TLSA records in the record set.
      */
-    public readonly tlsaRecords!: pulumi.Output<outputs.dns.TlsaRecordResponse[] | undefined>;
+    declare public readonly tlsaRecords: pulumi.Output<outputs.dns.TlsaRecordResponse[] | undefined>;
     /**
      * A reference to an azure traffic manager profile resource from where the dns resource value is taken.
      */
-    public readonly trafficManagementProfile!: pulumi.Output<outputs.dns.SubResourceResponse | undefined>;
+    declare public readonly trafficManagementProfile: pulumi.Output<outputs.dns.SubResourceResponse | undefined>;
     /**
      * The TTL (time-to-live) of the records in the record set.
      */
-    public readonly ttl!: pulumi.Output<number | undefined>;
+    declare public readonly ttl: pulumi.Output<number | undefined>;
     /**
      * The list of TXT records in the record set.
      */
-    public readonly txtRecords!: pulumi.Output<outputs.dns.TxtRecordResponse[] | undefined>;
+    declare public readonly txtRecords: pulumi.Output<outputs.dns.TxtRecordResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RecordSet resource with the given unique name, arguments, and options.
@@ -149,36 +149,36 @@ export class RecordSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recordType === undefined) && !opts.urn) {
+            if (args?.recordType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recordType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.zoneName === undefined) && !opts.urn) {
+            if (args?.zoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneName'");
             }
-            resourceInputs["aRecords"] = args ? args.aRecords : undefined;
-            resourceInputs["aaaaRecords"] = args ? args.aaaaRecords : undefined;
-            resourceInputs["caaRecords"] = args ? args.caaRecords : undefined;
-            resourceInputs["cnameRecord"] = args ? args.cnameRecord : undefined;
-            resourceInputs["dsRecords"] = args ? args.dsRecords : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["mxRecords"] = args ? args.mxRecords : undefined;
-            resourceInputs["naptrRecords"] = args ? args.naptrRecords : undefined;
-            resourceInputs["nsRecords"] = args ? args.nsRecords : undefined;
-            resourceInputs["ptrRecords"] = args ? args.ptrRecords : undefined;
-            resourceInputs["recordType"] = args ? args.recordType : undefined;
-            resourceInputs["relativeRecordSetName"] = args ? args.relativeRecordSetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["soaRecord"] = args ? args.soaRecord : undefined;
-            resourceInputs["srvRecords"] = args ? args.srvRecords : undefined;
-            resourceInputs["targetResource"] = args ? args.targetResource : undefined;
-            resourceInputs["tlsaRecords"] = args ? args.tlsaRecords : undefined;
-            resourceInputs["trafficManagementProfile"] = args ? args.trafficManagementProfile : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
-            resourceInputs["txtRecords"] = args ? args.txtRecords : undefined;
-            resourceInputs["zoneName"] = args ? args.zoneName : undefined;
+            resourceInputs["aRecords"] = args?.aRecords;
+            resourceInputs["aaaaRecords"] = args?.aaaaRecords;
+            resourceInputs["caaRecords"] = args?.caaRecords;
+            resourceInputs["cnameRecord"] = args?.cnameRecord;
+            resourceInputs["dsRecords"] = args?.dsRecords;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["mxRecords"] = args?.mxRecords;
+            resourceInputs["naptrRecords"] = args?.naptrRecords;
+            resourceInputs["nsRecords"] = args?.nsRecords;
+            resourceInputs["ptrRecords"] = args?.ptrRecords;
+            resourceInputs["recordType"] = args?.recordType;
+            resourceInputs["relativeRecordSetName"] = args?.relativeRecordSetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["soaRecord"] = args?.soaRecord;
+            resourceInputs["srvRecords"] = args?.srvRecords;
+            resourceInputs["targetResource"] = args?.targetResource;
+            resourceInputs["tlsaRecords"] = args?.tlsaRecords;
+            resourceInputs["trafficManagementProfile"] = args?.trafficManagementProfile;
+            resourceInputs["ttl"] = args?.ttl;
+            resourceInputs["txtRecords"] = args?.txtRecords;
+            resourceInputs["zoneName"] = args?.zoneName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["fqdn"] = undefined /*out*/;

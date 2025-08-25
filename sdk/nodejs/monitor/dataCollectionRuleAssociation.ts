@@ -42,43 +42,43 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the data collection endpoint that is to be associated.
      */
-    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionEndpointId: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the data collection rule that is to be associated.
      */
-    public readonly dataCollectionRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionRuleId: pulumi.Output<string | undefined>;
     /**
      * Description of the association.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Resource entity tag (ETag).
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Metadata about the resource
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.monitor.DataCollectionRuleAssociationResponseMetadata>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.monitor.DataCollectionRuleAssociationResponseMetadata>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.monitor.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.DataCollectionRuleAssociationProxyOnlyResourceResponseSystemData>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataCollectionRuleAssociation resource with the given unique name, arguments, and options.
@@ -91,14 +91,14 @@ export class DataCollectionRuleAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["associationName"] = args ? args.associationName : undefined;
-            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleId"] = args ? args.dataCollectionRuleId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["associationName"] = args?.associationName;
+            resourceInputs["dataCollectionEndpointId"] = args?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleId"] = args?.dataCollectionRuleId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;

@@ -42,36 +42,36 @@ export class FileEventTrigger extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module.
      */
-    public readonly customContextTag!: pulumi.Output<string | undefined>;
+    declare public readonly customContextTag: pulumi.Output<string | undefined>;
     /**
      * Trigger Kind.
      * Expected value is 'FileEvent'.
      */
-    public readonly kind!: pulumi.Output<"FileEvent">;
+    declare public readonly kind: pulumi.Output<"FileEvent">;
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Role sink info.
      */
-    public readonly sinkInfo!: pulumi.Output<outputs.databoxedge.RoleSinkInfoResponse>;
+    declare public readonly sinkInfo: pulumi.Output<outputs.databoxedge.RoleSinkInfoResponse>;
     /**
      * File event source details.
      */
-    public readonly sourceInfo!: pulumi.Output<outputs.databoxedge.FileSourceInfoResponse>;
+    declare public readonly sourceInfo: pulumi.Output<outputs.databoxedge.FileSourceInfoResponse>;
     /**
      * Metadata pertaining to creation and last modification of Trigger
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FileEventTrigger resource with the given unique name, arguments, and options.
@@ -84,28 +84,28 @@ export class FileEventTrigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sinkInfo === undefined) && !opts.urn) {
+            if (args?.sinkInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sinkInfo'");
             }
-            if ((!args || args.sourceInfo === undefined) && !opts.urn) {
+            if (args?.sourceInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceInfo'");
             }
-            resourceInputs["customContextTag"] = args ? args.customContextTag : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["customContextTag"] = args?.customContextTag;
+            resourceInputs["deviceName"] = args?.deviceName;
             resourceInputs["kind"] = "FileEvent";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sinkInfo"] = args ? args.sinkInfo : undefined;
-            resourceInputs["sourceInfo"] = args ? args.sourceInfo : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sinkInfo"] = args?.sinkInfo;
+            resourceInputs["sourceInfo"] = args?.sourceInfo;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

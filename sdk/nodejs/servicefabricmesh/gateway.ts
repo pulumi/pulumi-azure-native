@@ -42,59 +42,59 @@ export class Gateway extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * User readable description of the gateway.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Network that the Application is using.
      */
-    public readonly destinationNetwork!: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
+    declare public readonly destinationNetwork: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
     /**
      * Configuration for http connectivity for this gateway.
      */
-    public readonly http!: pulumi.Output<outputs.servicefabricmesh.HttpConfigResponse[] | undefined>;
+    declare public readonly http: pulumi.Output<outputs.servicefabricmesh.HttpConfigResponse[] | undefined>;
     /**
      * IP address of the gateway. This is populated in the response and is ignored for incoming requests.
      */
-    public /*out*/ readonly ipAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipAddress: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Network the gateway should listen on for requests.
      */
-    public readonly sourceNetwork!: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
+    declare public readonly sourceNetwork: pulumi.Output<outputs.servicefabricmesh.NetworkRefResponse>;
     /**
      * Status of the resource.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Gives additional information about the current status of the gateway.
      */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDetails: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration for tcp connectivity for this gateway.
      */
-    public readonly tcp!: pulumi.Output<outputs.servicefabricmesh.TcpConfigResponse[] | undefined>;
+    declare public readonly tcp: pulumi.Output<outputs.servicefabricmesh.TcpConfigResponse[] | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Gateway resource with the given unique name, arguments, and options.
@@ -107,24 +107,24 @@ export class Gateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.destinationNetwork === undefined) && !opts.urn) {
+            if (args?.destinationNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationNetwork'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceNetwork === undefined) && !opts.urn) {
+            if (args?.sourceNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceNetwork'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationNetwork"] = args ? args.destinationNetwork : undefined;
-            resourceInputs["gatewayResourceName"] = args ? args.gatewayResourceName : undefined;
-            resourceInputs["http"] = args ? args.http : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceNetwork"] = args ? args.sourceNetwork : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tcp"] = args ? args.tcp : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationNetwork"] = args?.destinationNetwork;
+            resourceInputs["gatewayResourceName"] = args?.gatewayResourceName;
+            resourceInputs["http"] = args?.http;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceNetwork"] = args?.sourceNetwork;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tcp"] = args?.tcp;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipAddress"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,63 +44,63 @@ export class MSIXPackage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * User friendly Name to be displayed in the portal. 
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * VHD/CIM image path on Network Share.
      */
-    public readonly imagePath!: pulumi.Output<string | undefined>;
+    declare public readonly imagePath: pulumi.Output<string | undefined>;
     /**
      * Make this version of the package the active one across the hostpool. 
      */
-    public readonly isActive!: pulumi.Output<boolean | undefined>;
+    declare public readonly isActive: pulumi.Output<boolean | undefined>;
     /**
      * Specifies how to register Package in feed.
      */
-    public readonly isRegularRegistration!: pulumi.Output<boolean | undefined>;
+    declare public readonly isRegularRegistration: pulumi.Output<boolean | undefined>;
     /**
      * Date Package was last updated, found in the appxmanifest.xml. 
      */
-    public readonly lastUpdated!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdated: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of package applications. 
      */
-    public readonly packageApplications!: pulumi.Output<outputs.desktopvirtualization.MsixPackageApplicationsResponse[] | undefined>;
+    declare public readonly packageApplications: pulumi.Output<outputs.desktopvirtualization.MsixPackageApplicationsResponse[] | undefined>;
     /**
      * List of package dependencies. 
      */
-    public readonly packageDependencies!: pulumi.Output<outputs.desktopvirtualization.MsixPackageDependenciesResponse[] | undefined>;
+    declare public readonly packageDependencies: pulumi.Output<outputs.desktopvirtualization.MsixPackageDependenciesResponse[] | undefined>;
     /**
      * Package Family Name from appxmanifest.xml. Contains Package Name and Publisher name. 
      */
-    public readonly packageFamilyName!: pulumi.Output<string | undefined>;
+    declare public readonly packageFamilyName: pulumi.Output<string | undefined>;
     /**
      * Package Name from appxmanifest.xml. 
      */
-    public readonly packageName!: pulumi.Output<string | undefined>;
+    declare public readonly packageName: pulumi.Output<string | undefined>;
     /**
      * Relative Path to the package inside the image. 
      */
-    public readonly packageRelativePath!: pulumi.Output<string | undefined>;
+    declare public readonly packageRelativePath: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Package version found in the appxmanifest.xml. 
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a MSIXPackage resource with the given unique name, arguments, and options.
@@ -113,26 +113,26 @@ export class MSIXPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostPoolName === undefined) && !opts.urn) {
+            if (args?.hostPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hostPoolName"] = args ? args.hostPoolName : undefined;
-            resourceInputs["imagePath"] = args ? args.imagePath : undefined;
-            resourceInputs["isActive"] = args ? args.isActive : undefined;
-            resourceInputs["isRegularRegistration"] = args ? args.isRegularRegistration : undefined;
-            resourceInputs["lastUpdated"] = args ? args.lastUpdated : undefined;
-            resourceInputs["msixPackageFullName"] = args ? args.msixPackageFullName : undefined;
-            resourceInputs["packageApplications"] = args ? args.packageApplications : undefined;
-            resourceInputs["packageDependencies"] = args ? args.packageDependencies : undefined;
-            resourceInputs["packageFamilyName"] = args ? args.packageFamilyName : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["packageRelativePath"] = args ? args.packageRelativePath : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hostPoolName"] = args?.hostPoolName;
+            resourceInputs["imagePath"] = args?.imagePath;
+            resourceInputs["isActive"] = args?.isActive;
+            resourceInputs["isRegularRegistration"] = args?.isRegularRegistration;
+            resourceInputs["lastUpdated"] = args?.lastUpdated;
+            resourceInputs["msixPackageFullName"] = args?.msixPackageFullName;
+            resourceInputs["packageApplications"] = args?.packageApplications;
+            resourceInputs["packageDependencies"] = args?.packageDependencies;
+            resourceInputs["packageFamilyName"] = args?.packageFamilyName;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["packageRelativePath"] = args?.packageRelativePath;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

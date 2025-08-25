@@ -44,163 +44,163 @@ export class Machine extends pulumi.CustomResource {
     /**
      * Specifies the AD fully qualified display name.
      */
-    public /*out*/ readonly adFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly adFqdn: pulumi.Output<string>;
     /**
      * Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM.
      */
-    public /*out*/ readonly agentConfiguration!: pulumi.Output<outputs.hybridcompute.AgentConfigurationResponse>;
+    declare public /*out*/ readonly agentConfiguration: pulumi.Output<outputs.hybridcompute.AgentConfigurationResponse>;
     /**
      * The info of the machine w.r.t Agent Upgrade
      */
-    public readonly agentUpgrade!: pulumi.Output<outputs.hybridcompute.AgentUpgradeResponse | undefined>;
+    declare public readonly agentUpgrade: pulumi.Output<outputs.hybridcompute.AgentUpgradeResponse | undefined>;
     /**
      * The hybrid machine agent full version.
      */
-    public /*out*/ readonly agentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Public Key that the client provides to be used during initial resource onboarding
      */
-    public readonly clientPublicKey!: pulumi.Output<string | undefined>;
+    declare public readonly clientPublicKey: pulumi.Output<string | undefined>;
     /**
      * The metadata of the cloud environment (Azure/GCP/AWS/OCI...).
      */
-    public /*out*/ readonly cloudMetadata!: pulumi.Output<outputs.hybridcompute.CloudMetadataResponse | undefined>;
+    declare public /*out*/ readonly cloudMetadata: pulumi.Output<outputs.hybridcompute.CloudMetadataResponse | undefined>;
     /**
      * Detected properties from the machine.
      */
-    public /*out*/ readonly detectedProperties!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly detectedProperties: pulumi.Output<{[key: string]: string}>;
     /**
      * Specifies the hybrid machine display name.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * Specifies the DNS fully qualified display name.
      */
-    public /*out*/ readonly dnsFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsFqdn: pulumi.Output<string>;
     /**
      * Specifies the Windows domain name.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * Details about the error state.
      */
-    public /*out*/ readonly errorDetails!: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse[]>;
+    declare public /*out*/ readonly errorDetails: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse[]>;
     /**
      * Machine Extensions information (deprecated field)
      */
-    public readonly extensions!: pulumi.Output<outputs.hybridcompute.MachineExtensionInstanceViewResponse[] | undefined>;
+    declare public readonly extensions: pulumi.Output<outputs.hybridcompute.MachineExtensionInstanceViewResponse[] | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.hybridcompute.IdentityResponse | undefined>;
     /**
      * Indicates which kind of Arc machine placement on-premises, such as HCI, SCVMM or VMware etc.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The time of the last status change.
      */
-    public /*out*/ readonly lastStatusChange!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastStatusChange: pulumi.Output<string>;
     /**
      * Specifies the License related properties for a machine.
      */
-    public readonly licenseProfile!: pulumi.Output<outputs.hybridcompute.LicenseProfileMachineInstanceViewResponse | undefined>;
+    declare public readonly licenseProfile: pulumi.Output<outputs.hybridcompute.LicenseProfileMachineInstanceViewResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Metadata pertaining to the geographic location of the resource.
      */
-    public readonly locationData!: pulumi.Output<outputs.hybridcompute.LocationDataResponse | undefined>;
+    declare public readonly locationData: pulumi.Output<outputs.hybridcompute.LocationDataResponse | undefined>;
     /**
      * Specifies the hybrid machine FQDN.
      */
-    public /*out*/ readonly machineFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly machineFqdn: pulumi.Output<string>;
     /**
      * Specifies whether any MS SQL instance is discovered on the machine.
      */
-    public readonly mssqlDiscovered!: pulumi.Output<string | undefined>;
+    declare public readonly mssqlDiscovered: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Information about the network the machine is on.
      */
-    public /*out*/ readonly networkProfile!: pulumi.Output<outputs.hybridcompute.NetworkProfileResponse>;
+    declare public /*out*/ readonly networkProfile: pulumi.Output<outputs.hybridcompute.NetworkProfileResponse>;
     /**
      * The edition of the Operating System.
      */
-    public /*out*/ readonly osEdition!: pulumi.Output<string>;
+    declare public /*out*/ readonly osEdition: pulumi.Output<string>;
     /**
      * The Operating System running on the hybrid machine.
      */
-    public /*out*/ readonly osName!: pulumi.Output<string>;
+    declare public /*out*/ readonly osName: pulumi.Output<string>;
     /**
      * Specifies the operating system settings for the hybrid machine.
      */
-    public readonly osProfile!: pulumi.Output<outputs.hybridcompute.OSProfileResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.hybridcompute.OSProfileResponse | undefined>;
     /**
      * Specifies the Operating System product SKU.
      */
-    public /*out*/ readonly osSku!: pulumi.Output<string>;
+    declare public /*out*/ readonly osSku: pulumi.Output<string>;
     /**
      * The type of Operating System (windows/linux).
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * The version of Operating System running on the hybrid machine.
      */
-    public /*out*/ readonly osVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly osVersion: pulumi.Output<string>;
     /**
      * The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any.
      */
-    public readonly parentClusterResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly parentClusterResourceId: pulumi.Output<string | undefined>;
     /**
      * The resource id of the private link scope this machine is assigned to, if any.
      */
-    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkScopeResourceId: pulumi.Output<string | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The list of extensions affiliated to the machine
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.hybridcompute.MachineExtensionResponse[]>;
+    declare public /*out*/ readonly resources: pulumi.Output<outputs.hybridcompute.MachineExtensionResponse[]>;
     /**
      * Statuses of dependent services that are reported back to ARM.
      */
-    public readonly serviceStatuses!: pulumi.Output<outputs.hybridcompute.ServiceStatusesResponse | undefined>;
+    declare public readonly serviceStatuses: pulumi.Output<outputs.hybridcompute.ServiceStatusesResponse | undefined>;
     /**
      * The status of the hybrid machine agent.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies the hybrid machine unique ID.
      */
-    public readonly vmId!: pulumi.Output<string | undefined>;
+    declare public readonly vmId: pulumi.Output<string | undefined>;
     /**
      * Specifies the Arc Machine's unique SMBIOS ID
      */
-    public /*out*/ readonly vmUuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmUuid: pulumi.Output<string>;
 
     /**
      * Create a Machine resource with the given unique name, arguments, and options.
@@ -213,28 +213,28 @@ export class Machine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentUpgrade"] = args ? args.agentUpgrade : undefined;
-            resourceInputs["clientPublicKey"] = args ? args.clientPublicKey : undefined;
-            resourceInputs["expand"] = args ? args.expand : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["licenseProfile"] = args ? args.licenseProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locationData"] = args ? args.locationData : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["mssqlDiscovered"] = args ? args.mssqlDiscovered : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["parentClusterResourceId"] = args ? args.parentClusterResourceId : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceStatuses"] = args ? args.serviceStatuses : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmId"] = args ? args.vmId : undefined;
+            resourceInputs["agentUpgrade"] = args?.agentUpgrade;
+            resourceInputs["clientPublicKey"] = args?.clientPublicKey;
+            resourceInputs["expand"] = args?.expand;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["licenseProfile"] = args?.licenseProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locationData"] = args?.locationData;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["mssqlDiscovered"] = args?.mssqlDiscovered;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["parentClusterResourceId"] = args?.parentClusterResourceId;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceStatuses"] = args?.serviceStatuses;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmId"] = args?.vmId;
             resourceInputs["adFqdn"] = undefined /*out*/;
             resourceInputs["agentConfiguration"] = undefined /*out*/;
             resourceInputs["agentVersion"] = undefined /*out*/;
