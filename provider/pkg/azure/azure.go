@@ -15,7 +15,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
-	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
@@ -43,13 +42,6 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 
 // IsNotFound returns true if the error is a HTTP 404.
 func IsNotFound(err error) bool {
-	if requestError, ok := err.(azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
-	}
-	if requestError, ok := err.(*azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
-	}
-
 	if responseError, ok := err.(*azcore.ResponseError); ok {
 		return responseError.StatusCode == http.StatusNotFound
 	}
@@ -65,11 +57,6 @@ func IsNotFound(err error) bool {
 func AzureError(err error) error {
 	if errors.Is(err, context.DeadlineExceeded) {
 		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
 	}
 	return err
 }
