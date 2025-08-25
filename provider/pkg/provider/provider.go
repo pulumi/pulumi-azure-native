@@ -22,7 +22,6 @@ import (
 	"google.golang.org/protobuf/types/known/emptypb"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
@@ -210,7 +209,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	if util.EnableAzcoreBackend() {
 		_, err := k.configureAzidentity(ctx)
 		if err != nil {
-			logging.Errorf("configureAzidentity: %v", err)
 			return nil, err
 		}
 

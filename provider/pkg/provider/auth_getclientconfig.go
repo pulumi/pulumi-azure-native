@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"strings"
 
-	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	azpolicy "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
