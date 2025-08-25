@@ -302,11 +302,18 @@ func TestAzidentity(t *testing.T) {
 	t.Run("Default Azure Credential", func(t *testing.T) {
 		t.Setenv("ARM_USE_DEFAULT_AZURE_CREDENTIAL", "true")
 
+		if _, ok := os.LookupEnv("CI"); ok {
+			// Configure the default credential chain to use variables provided in build-test.yml, per:
+			// https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-environment-variables
+			t.Setenv("AZURE_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
+			t.Setenv("AZURE_TENANT_ID", os.Getenv("ARM_TENANT_ID"))
+			t.Setenv("AZURE_CLIENT_SECRET", os.Getenv("ARM_CLIENT_SECRET"))
+		}
+
 		pt := newPulumiTest(t, "azidentity")
 		up := pt.Up(t, optup.DebugLogging(debugLogging()))
 		clientConfig, clientToken := validate(t, up)
 
-		// the default credential strategy is expected to use SP auth in the CI environment based on the ARM_CLIENT_ID
 		if _, ok := os.LookupEnv("CI"); ok {
 			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
 			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
