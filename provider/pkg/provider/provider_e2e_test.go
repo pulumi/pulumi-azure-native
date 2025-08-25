@@ -141,10 +141,18 @@ func TestTagging(t *testing.T) {
 }
 
 func TestDefaultAzSubscriptionProvider(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode")
+		return
+	}
+
 	// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
 	// to provide an isolated configuration directory for the Azure CLI.
 	configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
 	if configDir == "" {
+		if os.Getenv("CI") != "" {
+			t.Error("CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+		}
 		t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
 	}
 	t.Setenv("AZURE_CONFIG_DIR", configDir)
@@ -156,6 +164,10 @@ func TestDefaultAzSubscriptionProvider(t *testing.T) {
 }
 
 func TestAzidentity(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping in testing.Short() mode")
+		return
+	}
 
 	validate := func(t *testing.T, up auto.UpResult) (map[string]interface{}, jwt.MapClaims) {
 		// validate clientConfig
@@ -183,6 +195,9 @@ func TestAzidentity(t *testing.T) {
 	t.Run("OIDC", func(t *testing.T) {
 		oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 		if oidcClientId == "" {
+			if os.Getenv("CI") != "" {
+				t.Error("OIDC test without OIDC_ARM_CLIENT_ID")
+			}
 			t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
 		}
 
@@ -205,6 +220,9 @@ func TestAzidentity(t *testing.T) {
 	t.Run("SP_clientsecret", func(t *testing.T) {
 		clientSecret := os.Getenv("ARM_CLIENT_SECRET")
 		if clientSecret == "" {
+			if os.Getenv("CI") != "" {
+				t.Error("SP test without ARM_CLIENT_SECRET")
+			}
 			t.Skip("Skipping SP test without ARM_CLIENT_SECRET")
 		}
 
@@ -227,6 +245,9 @@ func TestAzidentity(t *testing.T) {
 	t.Run("SP_clientcert", func(t *testing.T) {
 		certPath := os.Getenv("ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
 		if certPath == "" {
+			if os.Getenv("CI") != "" {
+				t.Error("SP test without ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
+			}
 			t.Skip("Skipping SP test without ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST")
 		}
 
@@ -252,6 +273,9 @@ func TestAzidentity(t *testing.T) {
 		// to provide an isolated configuration directory for the Azure CLI.
 		configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
 		if configDir == "" {
+			if os.Getenv("CI") != "" {
+				t.Error("CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+			}
 			t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
 		}
 		t.Setenv("AZURE_CONFIG_DIR", configDir)
