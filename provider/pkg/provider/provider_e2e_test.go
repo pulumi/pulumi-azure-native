@@ -15,7 +15,6 @@ import (
 	"testing"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
