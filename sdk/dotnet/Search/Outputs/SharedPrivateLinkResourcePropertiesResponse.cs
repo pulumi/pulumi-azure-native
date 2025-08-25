@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes the properties of an existing Shared Private Link Resource managed by the search service.
+    /// Describes the properties of an existing shared private link resource managed by the Azure AI Search service.
     /// </summary>
     [OutputType]
     public sealed class SharedPrivateLinkResourcePropertiesResponse
     {
         /// <summary>
-        /// The group id from the provider of resource the shared private link resource is for.
+        /// The group ID from the provider of resource the shared private link resource is for.
         /// </summary>
         public readonly string? GroupId;
         /// <summary>
-        /// The resource id of the resource the shared private link resource is for.
+        /// The resource ID of the resource the shared private link resource is for.
         /// </summary>
         public readonly string? PrivateLinkResourceId;
         /// <summary>
@@ -29,11 +29,11 @@ namespace Pulumi.AzureNative.Search.Outputs
         /// </summary>
         public readonly string? ProvisioningState;
         /// <summary>
-        /// The request message for requesting approval of the shared private link resource.
+        /// The message for requesting approval of the shared private link resource.
         /// </summary>
         public readonly string? RequestMessage;
         /// <summary>
-        /// Optional. Can be used to specify the Azure Resource Manager location of the resource to which a shared private link is to be created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
+        /// Optional. Can be used to specify the Azure Resource Manager location of the resource for which a shared private link is being created. This is only required for those resources whose DNS configuration are regional (such as Azure Kubernetes Service).
         /// </summary>
         public readonly string? ResourceRegion;
         /// <summary>

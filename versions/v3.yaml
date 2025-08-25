@@ -11049,28 +11049,28 @@ Scom:
         RpNamespace: Microsoft.Scom
 Search:
     PrivateEndpointConnection:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2023-11-01/search.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2025-05-01/search.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.Search
     Service:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2023-11-01/search.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2025-05-01/search.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}
         RpNamespace: Microsoft.Search
     SharedPrivateLinkResource:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2023-11-01/search.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2025-05-01/search.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/sharedPrivateLinkResources/{sharedPrivateLinkResourceName}
         RpNamespace: Microsoft.Search
     listAdminKey:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2023-11-01/search.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2025-05-01/search.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/listAdminKeys
         RpNamespace: Microsoft.Search
     listQueryKeyBySearchService:
-        ApiVersion: "2023-11-01"
-        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2023-11-01/search.json
+        ApiVersion: "2025-05-01"
+        SpecFilePath: specification/search/resource-manager/Microsoft.Search/stable/2025-05-01/search.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/listQueryKeys
         RpNamespace: Microsoft.Search
 SecretSyncController:
