@@ -432,19 +432,19 @@ class ModuleArgs:
 if not MYPY:
     class PersistenceArgsDict(TypedDict):
         """
-        Persistence-related configuration for the RedisEnterprise database
+        Persistence-related configuration for the Redis Enterprise database
         """
         aof_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         aof_frequency: NotRequired[pulumi.Input[Union[builtins.str, 'AofFrequency']]]
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         rdb_enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         rdb_frequency: NotRequired[pulumi.Input[Union[builtins.str, 'RdbFrequency']]]
         """
@@ -461,10 +461,10 @@ class PersistenceArgs:
                  rdb_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  rdb_frequency: Optional[pulumi.Input[Union[builtins.str, 'RdbFrequency']]] = None):
         """
-        Persistence-related configuration for the RedisEnterprise database
-        :param pulumi.Input[builtins.bool] aof_enabled: Sets whether AOF is enabled.
-        :param pulumi.Input[Union[builtins.str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk.
-        :param pulumi.Input[builtins.bool] rdb_enabled: Sets whether RDB is enabled.
+        Persistence-related configuration for the Redis Enterprise database
+        :param pulumi.Input[builtins.bool] aof_enabled: Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
+        :param pulumi.Input[Union[builtins.str, 'AofFrequency']] aof_frequency: Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
+        :param pulumi.Input[builtins.bool] rdb_enabled: Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         :param pulumi.Input[Union[builtins.str, 'RdbFrequency']] rdb_frequency: Sets the frequency at which a snapshot of the database is created.
         """
         if aof_enabled is not None:
@@ -480,7 +480,7 @@ class PersistenceArgs:
     @pulumi.getter(name="aofEnabled")
     def aof_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Sets whether AOF is enabled.
+        Sets whether AOF is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "aof_enabled")
 
@@ -492,7 +492,7 @@ class PersistenceArgs:
     @pulumi.getter(name="aofFrequency")
     def aof_frequency(self) -> Optional[pulumi.Input[Union[builtins.str, 'AofFrequency']]]:
         """
-        Sets the frequency at which data is written to disk.
+        Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
         """
         return pulumi.get(self, "aof_frequency")
 
@@ -504,7 +504,7 @@ class PersistenceArgs:
     @pulumi.getter(name="rdbEnabled")
     def rdb_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
-        Sets whether RDB is enabled.
+        Sets whether RDB is enabled. Note that at most one of AOF or RDB persistence may be enabled.
         """
         return pulumi.get(self, "rdb_enabled")
 
@@ -604,15 +604,15 @@ class PrivateLinkServiceConnectionStateArgs:
 if not MYPY:
     class SkuArgsDict(TypedDict):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
         """
         name: pulumi.Input[Union[builtins.str, 'SkuName']]
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         capacity: NotRequired[pulumi.Input[builtins.int]]
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
 elif False:
     SkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -623,9 +623,9 @@ class SkuArgs:
                  name: pulumi.Input[Union[builtins.str, 'SkuName']],
                  capacity: Optional[pulumi.Input[builtins.int]] = None):
         """
-        SKU parameters supplied to the create RedisEnterprise operation.
-        :param pulumi.Input[Union[builtins.str, 'SkuName']] name: The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
-        :param pulumi.Input[builtins.int] capacity: The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        SKU parameters supplied to the create Redis Enterprise cluster operation.
+        :param pulumi.Input[Union[builtins.str, 'SkuName']] name: The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
+        :param pulumi.Input[builtins.int] capacity: This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         pulumi.set(__self__, "name", name)
         if capacity is not None:
@@ -635,7 +635,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Union[builtins.str, 'SkuName']]:
         """
-        The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+        The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
         """
         return pulumi.get(self, "name")
 
@@ -647,7 +647,7 @@ class SkuArgs:
     @pulumi.getter
     def capacity(self) -> Optional[pulumi.Input[builtins.int]]:
         """
-        The size of the RedisEnterprise cluster. Defaults to 2 or 3 depending on SKU. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for Flash SKUs.
+        This property is only used with Enterprise and EnterpriseFlash SKUs. Determines the size of the cluster. Valid values are (2, 4, 6, ...) for Enterprise SKUs and (3, 9, 15, ...) for EnterpriseFlash SKUs.
         """
         return pulumi.get(self, "capacity")
 
