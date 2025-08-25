@@ -5,12 +5,10 @@ package examples
 
 import (
 	"os"
-	"os/user"
 	"path/filepath"
 	"testing"
 
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
-	"github.com/stretchr/testify/require"
 )
 
 func TestAccKeyVaultTs(t *testing.T) {
@@ -22,7 +20,7 @@ func TestAccKeyVaultTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-func TestAccKeyVaultTs_OICD(t *testing.T) {
+func TestAccKeyVaultTs_OIDC(t *testing.T) {
 	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 	if oidcClientId == "" {
 		t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
@@ -41,9 +39,9 @@ func TestAccKeyVaultTs_OICD(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
-// This test is almost like TestAccKeyVaultTs_OICD but uses an explicit provider.
+// This test is almost like TestAccKeyVaultTs_OIDC but uses an explicit provider.
 // We want to test configuring the provider via its arguments, not the environment.
-func TestAccKeyVaultTs_OICDExplicit(t *testing.T) {
+func TestAccKeyVaultTs_OIDCExplicit(t *testing.T) {
 	skipIfShort(t)
 
 	oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
@@ -94,18 +92,13 @@ func TestAccKeyVaultTs_ClientCert(t *testing.T) {
 func TestAccKeyVaultTs_CLI(t *testing.T) {
 	skipIfShort(t)
 
-	usr, err := user.Current()
-	require.NoError(t, err)
-	// .azure.tmp is created by the GH workflow build-test.yml, from the GH secret AZURE_CLI_FOLDER
-	// which is also documented in the workflow. We rename it to .azure so the `az` CLI can find it.
-	err = os.Rename(filepath.Join(usr.HomeDir, ".azure.tmp"), filepath.Join(usr.HomeDir, ".azure"))
-	require.NoError(t, err)
-
-	// Prevent later tests from accidentally picking up the .azure folder because authentication
-	// falls back to CLI when other methods are misconfigured.
-	defer func() {
-		_ = os.Rename(filepath.Join(usr.HomeDir, ".azure"), filepath.Join(usr.HomeDir, ".azure.tmp"))
-	}()
+	// AZURE_CONFIG_DIR_FOR_TEST is set by the GH workflow build-test.yml
+	// to provide an isolated configuration directory for the Azure CLI.
+	configDir := os.Getenv("AZURE_CONFIG_DIR_FOR_TEST")
+	if configDir == "" {
+		t.Skip("Skipping CLI test without AZURE_CONFIG_DIR_FOR_TEST")
+	}
+	t.Setenv("AZURE_CONFIG_DIR", configDir)
 
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{

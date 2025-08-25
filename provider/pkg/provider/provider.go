@@ -24,7 +24,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
@@ -56,6 +55,9 @@ const (
 
 type azureNativeProvider struct {
 	rpc.UnimplementedResourceProviderServer
+
+	authConfig authConfiguration
+	credential *azAccount
 
 	azureClient    azure.AzureClient
 	host           *provider.HostClient
@@ -201,6 +203,20 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.setLoggingContext(ctx)
 
+	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
+
+	if util.EnableAzcoreBackend() {
+		_, err := k.configureAzidentity(ctx)
+		if err != nil {
+			return nil, err
+		}
+
+		return &rpc.ConfigureResponse{
+			SupportsPreview:                 true,
+			SupportsAutonamingConfiguration: true,
+		}, nil
+	}
+
 	authConfig, err := k.getAuthConfig()
 	if err != nil {
 		return nil, err
@@ -243,18 +259,10 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	userAgent := k.getUserAgent()
 
-	var credential azcore.TokenCredential
-	if util.EnableAzcoreBackend() {
-		credential, err = k.newTokenCredential()
-		if err != nil {
-			return nil, fmt.Errorf("creating Pulumi auth credential: %w", err)
-		}
-	} else {
-		logging.V(9).Infof("Using legacy authentication")
-		credential = azCoreTokenCredential{p: k}
-	}
+	logging.V(9).Infof("Using legacy authentication")
+	credential := azCoreTokenCredential{p: k}
 
-	k.azureClient, err = k.newAzureClient(resourceManagerAuth, credential, userAgent)
+	k.azureClient, err = azure.NewAzureClient(k.environment, resourceManagerAuth, userAgent), nil
 	if err != nil {
 		return nil, fmt.Errorf("creating Azure client: %w", err)
 	}
@@ -262,13 +270,11 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
 		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, credential)
+			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, k.cloud, credential)
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
 	}
-
-	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
 	return &rpc.ConfigureResponse{
 		SupportsPreview:                 true,
@@ -276,17 +282,50 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 	}, nil
 }
 
-func (k *azureNativeProvider) isParameterized() bool {
-	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
+func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.ConfigureResponse, error) {
+	logging.V(9).Infof("Using azcore authentication")
+
+	userAgent := k.getUserAgent()
+	logging.V(9).Infof("User agent: %s", userAgent)
+
+	authConfig, err := readAuthConfig(k.getConfig)
+	if err != nil {
+		return nil, err
+	}
+	k.authConfig = *authConfig
+	logging.V(9).Infof("Provider auth configuration: %+v", k.authConfig)
+
+	clientOpts := azcore.ClientOptions{}
+	credential, err := NewAzCoreIdentity(ctx, authConfig, clientOpts)
+	if err != nil {
+		return nil, err
+	}
+	k.credential = credential
+	k.cloud = credential.Cloud
+	k.subscriptionID = credential.SubscriptionId
+	logging.V(9).Infof("Azure cloud: %+v", k.cloud)
+	logging.V(9).Infof("Azure subscription ID: %s", k.subscriptionID)
+
+	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
+	if err != nil {
+		return nil, err
+	}
+
+	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
+	if !k.isParameterized() {
+		var err error
+		k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
+			nil, nil, nil, "", k.cloud, credential)
+		if err != nil {
+			return nil, fmt.Errorf("initializing custom resources: %w", err)
+		}
+	}
+
+	return nil, nil
 }
 
-func (k *azureNativeProvider) newAzureClient(armAuth autorest.Authorizer, tokenCred azcore.TokenCredential, userAgent string) (azure.AzureClient, error) {
-	if util.EnableAzcoreBackend() {
-		logging.V(9).Infof("AzureClient: using azcore and azidentity")
-		return azure.NewAzCoreClient(tokenCred, userAgent, k.cloud, nil)
-	}
-	logging.V(9).Infof("AzureClient: using autorest")
-	return azure.NewAzureClient(k.environment, armAuth, userAgent), nil
+func (k *azureNativeProvider) isParameterized() bool {
+	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
 }
 
 // Invoke dynamically executes a built-in function in the provider.
@@ -304,33 +343,18 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	var outputs map[string]interface{}
 	switch req.Tok {
 	case "azure-native:authorization:getClientConfig":
-		auth, err := k.getAuthConfig()
+		auth, err := k.getClientConfig(ctx)
 		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
-		objectId := ""
-		if auth.GetAuthenticatedObjectID != nil {
-			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
-			if err != nil {
-				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
-			}
-			objectId = *objectIdPtr
+			return nil, fmt.Errorf("getting client config: %w", err)
 		}
 		outputs = map[string]interface{}{
 			"clientId":       auth.ClientID,
-			"objectId":       objectId,
+			"objectId":       auth.ObjectID,
 			"subscriptionId": auth.SubscriptionID,
 			"tenantId":       auth.TenantID,
 		}
 	case "azure-native:authorization:getClientToken":
-		auth, err := k.getAuthConfig()
-		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
-		token, err := k.getClientToken(ctx, auth, args["endpoint"])
+		token, err := k.getClientToken(ctx, args["endpoint"])
 		if err != nil {
 			return nil, err
 		}
@@ -398,15 +422,41 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 	return &rpc.InvokeResponse{Return: result}, nil
 }
 
-func (k *azureNativeProvider) getClientToken(ctx context.Context, authConfig *authConfig, endpointArg resource.PropertyValue) (string, error) {
+func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *ClientConfig, err error) {
+	if !util.EnableAzcoreBackend() {
+		auth, err := k.getAuthConfig()
+		if err != nil {
+			return nil, fmt.Errorf("getting auth config: %w", err)
+		}
+		objectId := ""
+		if auth.GetAuthenticatedObjectID != nil {
+			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
+			if err != nil {
+				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
+			}
+			if objectIdPtr == nil {
+				return nil, fmt.Errorf("getting authenticated object ID")
+			}
+			objectId = *objectIdPtr
+		}
+
+		return &ClientConfig{
+			ClientID:       auth.ClientID,
+			ObjectID:       objectId,
+			SubscriptionID: auth.SubscriptionID,
+			TenantID:       auth.TenantID,
+		}, nil
+	}
+
+	return GetClientConfig(ctx, &k.authConfig, k.credential)
+}
+
+func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg resource.PropertyValue) (token string, err error) {
 	endpoint := k.tokenEndpoint(endpointArg)
+	logging.V(9).Infof("getting a token credential for %s", endpoint)
 
 	if util.EnableAzcoreBackend() {
-		cred, err := k.newTokenCredential()
-		if err != nil {
-			return "", err
-		}
-		t, err := cred.GetToken(ctx, tokenRequestOpts(endpoint))
+		t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
 		if err != nil {
 			return "", err
 		}
@@ -414,16 +464,26 @@ func (k *azureNativeProvider) getClientToken(ctx context.Context, authConfig *au
 	}
 
 	// legacy autorest/go-azure-helpers auth
+	authConfig, err := k.getAuthConfig()
+	if err != nil {
+		return "", fmt.Errorf("getting auth config: %w", err)
+	}
 	return k.getOAuthToken(ctx, authConfig, endpoint)
 }
 
-// Returns the Azure endpoint where tokens can be requested. If the argument is not null or empty,
-// it will be used verbatim.
+// Returns the endpoint to be used as the resource (scope) of the token request.
+// If the argument is not null or empty, it will be used verbatim.
 func (k *azureNativeProvider) tokenEndpoint(endpointArg resource.PropertyValue) string {
 	if endpointArg.HasValue() && endpointArg.IsString() && endpointArg.StringValue() != "" {
 		return endpointArg.StringValue()
 	}
-	return k.environment.ResourceManagerEndpoint
+
+	// see: https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#trailing-slash-and-default
+	endpoint := k.cloud.Services[azcloud.ResourceManager].Endpoint
+	if !strings.HasSuffix(endpoint, "/") {
+		endpoint += "/"
+	}
+	return endpoint
 }
 
 func tokenRequestOpts(endpoint string) policy.TokenRequestOptions {
