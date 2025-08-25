@@ -286,8 +286,6 @@ func main() {
 		}
 
 		// Pass feature flags into the VM.
-		useAzcore := os.Getenv("PULUMI_ENABLE_AZCORE_BACKEND")
-
 		var tenantId pulumi.StringOutput = pulumi.String(os.Getenv("ARM_TENANT_ID")).ToStringOutput()
 
 		// We pass the resource group's ID into the inner program via config so the program can
@@ -298,7 +296,6 @@ export ARM_USE_MSI=true && \
 export ARM_SUBSCRIPTION_ID=%s && \
 export PATH="$HOME/.pulumi/bin:$PATH" && \
 export PULUMI_CONFIG_PASSPHRASE=pass && \
-export PULUMI_ENABLE_AZCORE_BACKEND=%s && \
 rand=$(openssl rand -hex 4) && \
 stackname="%s-$rand" && \
 pulumi login --local && \
@@ -311,7 +308,7 @@ pulumi config -s $stackname && \
 pulumi up -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi down -s $stackname --skip-preview --logtostderr --logflow -v=9 && \
 pulumi stack rm --yes $stackname && \
-pulumi logout --local`, innerProgram, clientConf.SubscriptionId, useAzcore, innerProgram, clientId, tenantId, principalId, rg.ID())
+pulumi logout --local`, innerProgram, clientConf.SubscriptionId, innerProgram, clientId, tenantId, principalId, rg.ID())
 
 		pulumiPreview, err := remote.NewCommand(ctx, "pulumiUpDown", &remote.CommandArgs{
 			Connection: sshConn,
