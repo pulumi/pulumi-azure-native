@@ -103,9 +103,6 @@ func TestSubResources(t *testing.T) {
 
 func TestParallelSubnetCreation(t *testing.T) {
 	t.Parallel()
-	if !util.EnableAzcoreBackend() {
-		t.Skip("Skipping test because it requires the AZCore backend")
-	}
 	pt := newPulumiTest(t, "parallel-subnet-creation")
 	pt.Preview(t)
 	pt.Up(t)
