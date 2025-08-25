@@ -354,17 +354,9 @@ jobs:
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
-          PULUMITEST_SKIP_DESTROY_ON_FAILURE: true
-          PULUMITEST_RETAIN_FILES_ON_FAILURE: true
         run: |
           set -euo pipefail
           cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
-
-      - name: 🐛 Debug Build
-        uses: stateful/vscode-server-action@v1
-        if: failure()
-        with:
-          timeout: '3600000'       # milliseconds
 
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v4
