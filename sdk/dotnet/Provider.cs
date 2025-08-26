@@ -175,6 +175,12 @@ namespace Pulumi.AzureNative
         public Input<string>? TenantId { get; set; }
 
         /// <summary>
+        /// Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+        /// </summary>
+        [Input("useDefaultAzureCredential", json: true)]
+        public Input<bool>? UseDefaultAzureCredential { get; set; }
+
+        /// <summary>
         /// Allow Managed Service Identity to be used for Authentication.
         /// </summary>
         [Input("useMsi", json: true)]

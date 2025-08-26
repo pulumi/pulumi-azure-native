@@ -36,6 +36,7 @@ class ProviderArgs:
                  partner_id: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 use_default_azure_credential: Optional[pulumi.Input[builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[builtins.bool]] = None):
         """
@@ -56,6 +57,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[builtins.bool] use_default_azure_credential: Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
         :param pulumi.Input[builtins.bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[builtins.bool] use_oidc: Allow OpenID Connect (OIDC) to be used for Authentication.
         """
@@ -93,6 +95,8 @@ class ProviderArgs:
             pulumi.set(__self__, "subscription_id", subscription_id)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_default_azure_credential is not None:
+            pulumi.set(__self__, "use_default_azure_credential", use_default_azure_credential)
         if use_msi is not None:
             pulumi.set(__self__, "use_msi", use_msi)
         if use_oidc is not None:
@@ -291,6 +295,18 @@ class ProviderArgs:
         pulumi.set(self, "tenant_id", value)
 
     @property
+    @pulumi.getter(name="useDefaultAzureCredential")
+    def use_default_azure_credential(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+        """
+        return pulumi.get(self, "use_default_azure_credential")
+
+    @use_default_azure_credential.setter
+    def use_default_azure_credential(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "use_default_azure_credential", value)
+
+    @property
     @pulumi.getter(name="useMsi")
     def use_msi(self) -> Optional[pulumi.Input[builtins.bool]]:
         """
@@ -337,6 +353,7 @@ class Provider(pulumi.ProviderResource):
                  partner_id: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 use_default_azure_credential: Optional[pulumi.Input[builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -361,6 +378,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[builtins.str] partner_id: A GUID/UUID that is registered with Microsoft to facilitate partner resource usage attribution.
         :param pulumi.Input[builtins.str] subscription_id: The Subscription ID which should be used.
         :param pulumi.Input[builtins.str] tenant_id: The Tenant ID which should be used.
+        :param pulumi.Input[builtins.bool] use_default_azure_credential: Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
         :param pulumi.Input[builtins.bool] use_msi: Allow Managed Service Identity to be used for Authentication.
         :param pulumi.Input[builtins.bool] use_oidc: Allow OpenID Connect (OIDC) to be used for Authentication.
         """
@@ -404,6 +422,7 @@ class Provider(pulumi.ProviderResource):
                  partner_id: Optional[pulumi.Input[builtins.str]] = None,
                  subscription_id: Optional[pulumi.Input[builtins.str]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 use_default_azure_credential: Optional[pulumi.Input[builtins.bool]] = None,
                  use_msi: Optional[pulumi.Input[builtins.bool]] = None,
                  use_oidc: Optional[pulumi.Input[builtins.bool]] = None,
                  __props__=None):
@@ -433,6 +452,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["partner_id"] = partner_id
             __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["use_default_azure_credential"] = pulumi.Output.from_input(use_default_azure_credential).apply(pulumi.runtime.to_json) if use_default_azure_credential is not None else None
             __props__.__dict__["use_msi"] = pulumi.Output.from_input(use_msi).apply(pulumi.runtime.to_json) if use_msi is not None else None
             __props__.__dict__["use_oidc"] = pulumi.Output.from_input(use_oidc).apply(pulumi.runtime.to_json) if use_oidc is not None else None
         super(Provider, __self__).__init__(

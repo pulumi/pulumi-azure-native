@@ -141,6 +141,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('tenantId')
 
     @property
+    def use_default_azure_credential(self) -> Optional[bool]:
+        """
+        Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+        """
+        return __config__.get_bool('useDefaultAzureCredential')
+
+    @property
     def use_msi(self) -> Optional[bool]:
         """
         Allow Managed Service Identity be used for Authentication.

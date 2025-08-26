@@ -100,6 +100,11 @@ tenantId: Optional[str]
 The Tenant ID which should be used.
 """
 
+useDefaultAzureCredential: Optional[bool]
+"""
+Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+"""
+
 useMsi: Optional[bool]
 """
 Allow Managed Service Identity be used for Authentication.

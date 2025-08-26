@@ -195,6 +195,17 @@ Object.defineProperty(exports, "tenantId", {
 });
 
 /**
+ * Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+ */
+export declare const useDefaultAzureCredential: boolean | undefined;
+Object.defineProperty(exports, "useDefaultAzureCredential", {
+    get() {
+        return __config.getObject<boolean>("useDefaultAzureCredential");
+    },
+    enumerable: true,
+});
+
+/**
  * Allow Managed Service Identity be used for Authentication.
  */
 export declare const useMsi: boolean | undefined;

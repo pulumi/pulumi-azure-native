@@ -50,6 +50,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["partnerId"] = args ? args.partnerId : undefined;
             resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["useDefaultAzureCredential"] = pulumi.output(args ? args.useDefaultAzureCredential : undefined).apply(JSON.stringify);
             resourceInputs["useMsi"] = pulumi.output(args ? args.useMsi : undefined).apply(JSON.stringify);
             resourceInputs["useOidc"] = pulumi.output(args ? args.useOidc : undefined).apply(JSON.stringify);
         }
@@ -126,6 +127,10 @@ export interface ProviderArgs {
      * The Tenant ID which should be used.
      */
     tenantId?: pulumi.Input<string>;
+    /**
+     * Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+     */
+    useDefaultAzureCredential?: pulumi.Input<boolean>;
     /**
      * Allow Managed Service Identity to be used for Authentication.
      */

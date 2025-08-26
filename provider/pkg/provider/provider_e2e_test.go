@@ -315,7 +315,7 @@ func TestAzidentity(t *testing.T) {
 		}
 
 		pt := newPulumiTest(t, "azidentity")
-		up := pt.Up(t, optup.DebugLogging(debugLogging()))
+		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
 
 		if _, ok := os.LookupEnv("CI"); ok {
