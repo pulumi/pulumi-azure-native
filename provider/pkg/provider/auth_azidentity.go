@@ -98,15 +98,31 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 // "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
 // behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
 //   - The order in which the the different authentication methods are attempted is the same:
-//     1. Service Principal with client certificate
-//     2. Service Principal with client secret
-//     3. OIDC
-//     4. Managed Identity
-//     5. Azure CLI
+//     1. Default Credential
+//     2. Service Principal with client certificate
+//     3. Service Principal with client secret
+//     4. OIDC
+//     5. Managed Identity
+//     6. Azure CLI
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
 func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
+	if authConf.useDefault {
+		logging.V(9).Infof("[auth] Using default Azure credential")
+		fmtErrorMessage := "A %s must be configured when authenticating using the Default Azure Credential."
+		if authConf.subscriptionId == "" {
+			return nil, fmt.Errorf(fmtErrorMessage, "Subscription ID")
+		}
+		options := &azidentity.DefaultAzureCredentialOptions{
+			ClientOptions:              baseClientOpts,
+			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+		}
+		return azidentity.NewDefaultAzureCredential(options)
+	} else {
+		logging.V(11).Infof("Default Azure Credential is not enabled, skipping")
+	}
+
 	if authConf.clientCertPath != "" {
 		logging.V(9).Infof("[auth] Using SP with client certificate credential")
 		fmtErrorMessage := "A %s must be configured when authenticating as a Service Principal using a Client Certificate."
@@ -129,7 +145,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, options)
 	} else {
-		logging.V(9).Infof("SP with client certificate credential is not enabled, skipping")
+		logging.V(11).Infof("SP with client certificate credential is not enabled, skipping")
 	}
 
 	if authConf.clientSecret != "" {
@@ -150,14 +166,14 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
-		logging.V(9).Infof("SP with client secret credential is not enabled, skipping")
+		logging.V(11).Infof("SP with client secret credential is not enabled, skipping")
 	}
 
 	if authConf.useOidc {
 		logging.V(9).Infof("[auth] Using OIDC credential")
 		return newOidcCredential(authConf, baseClientOpts)
 	} else {
-		logging.V(9).Infof("OIDC credential is not enabled, skipping")
+		logging.V(11).Infof("OIDC credential is not enabled, skipping")
 	}
 
 	if authConf.useMsi {
@@ -174,13 +190,14 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		}
 		return azidentity.NewManagedIdentityCredential(&msiOpts)
 	} else {
-		logging.V(9).Infof("Managed Identity (MSI) credential is not enabled, skipping")
+		logging.V(11).Infof("Managed Identity (MSI) credential is not enabled, skipping")
 	}
 
 	logging.V(9).Infof("[auth] Using Azure CLI credential")
 	options := &azidentity.AzureCLICredentialOptions{
 		AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 	}
+	// note that the subscription ID is discoverable when using the Azure CLI credential and hence optional.
 	if authConf.subscriptionId != "" {
 		options.Subscription = authConf.subscriptionId
 	}
@@ -346,6 +363,11 @@ type authConfiguration struct {
 	// https://github.com/Azure/azure-sdk-for-go/blob/sdk/azidentity/v1.8.0/sdk/azidentity/managed_identity_client.go#L143
 	useMsi bool
 
+	// Enables the use of azcore's DefaultAzureCredential strategy.
+	// DefaultAzureCredential simplifies authentication while developing applications that deploy to Azure by
+	// combining credentials used in Azure hosting environments and credentials used in local development.
+	useDefault bool
+
 	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
 	showSubscription azSubscriptionProvider
 }
@@ -365,7 +387,7 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		}
 	}
 
-	return &authConfiguration{
+	authConf := &authConfiguration{
 		clientId:   getConfig("clientId", "ARM_CLIENT_ID"),
 		tenantId:   getConfig("tenantId", "ARM_TENANT_ID"),
 		auxTenants: auxTenants,
@@ -386,8 +408,12 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		oidcTokenRequestToken: getConfig("oidcRequestToken", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"),
 		oidcTokenRequestUrl:   getConfig("oidcRequestUrl", "ACTIONS_ID_TOKEN_REQUEST_URL"),
 
+		useDefault: getConfig("useDefaultAzureCredential", "ARM_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
+
 		showSubscription: defaultAzSubscriptionProvider,
-	}, nil
+	}
+
+	return authConf, nil
 }
 
 // getCloud returns the configured Azure cloud (environment).

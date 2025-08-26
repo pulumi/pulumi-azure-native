@@ -77,6 +77,10 @@
     "description": "The Tenant ID which should be used.",
     "type": "string"
    },
+   "useDefaultAzureCredential": {
+    "description": "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
+    "type": "boolean"
+   },
    "useMsi": {
     "description": "Allow Managed Service Identity be used for Authentication.",
     "type": "boolean"
@@ -11397,6 +11401,10 @@
    "tenantId": {
     "description": "The Tenant ID which should be used.",
     "type": "string"
+   },
+   "useDefaultAzureCredential": {
+    "description": "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
+    "type": "boolean"
    },
    "useMsi": {
     "description": "Allow Managed Service Identity to be used for Authentication.",

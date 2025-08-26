@@ -202,6 +202,16 @@ namespace Pulumi.AzureNative
             set => _tenantId.Set(value);
         }
 
+        private static readonly __Value<bool?> _useDefaultAzureCredential = new __Value<bool?>(() => __config.GetBoolean("useDefaultAzureCredential"));
+        /// <summary>
+        /// Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).
+        /// </summary>
+        public static bool? UseDefaultAzureCredential
+        {
+            get => _useDefaultAzureCredential.Get();
+            set => _useDefaultAzureCredential.Set(value);
+        }
+
         private static readonly __Value<bool?> _useMsi = new __Value<bool?>(() => __config.GetBoolean("useMsi"));
         /// <summary>
         /// Allow Managed Service Identity be used for Authentication.

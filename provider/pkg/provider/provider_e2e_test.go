@@ -298,6 +298,32 @@ func TestAzidentity(t *testing.T) {
 		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientToken["appid"])
 		assert.Equal(t, "user", clientToken["idtyp"])
 	})
+
+	t.Run("Default Azure Credential", func(t *testing.T) {
+		t.Setenv("ARM_USE_DEFAULT_AZURE_CREDENTIAL", "true")
+
+		if _, ok := os.LookupEnv("CI"); ok {
+			// Configure the default credential chain to use variables provided in build-test.yml, per:
+			// https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-environment-variables
+			t.Setenv("AZURE_TOKEN_CREDENTIALS", "EnvironmentCredential")
+			t.Setenv("AZURE_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
+			t.Setenv("AZURE_TENANT_ID", os.Getenv("ARM_TENANT_ID"))
+			t.Setenv("AZURE_CLIENT_SECRET", os.Getenv("ARM_CLIENT_SECRET"))
+
+			// Ensure that a subscription ID was provided, because ADC doesn't provide one.
+			require.NotEmpty(t, os.Getenv("ARM_SUBSCRIPTION_ID"))
+		}
+
+		pt := newPulumiTest(t, "azidentity")
+		up := pt.Up(t)
+		clientConfig, clientToken := validate(t, up)
+
+		if _, ok := os.LookupEnv("CI"); ok {
+			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientConfig["clientId"])
+			assert.Equal(t, os.Getenv("ARM_CLIENT_ID"), clientToken["appid"])
+			assert.Equal(t, "app", clientToken["idtyp"])
+		}
+	})
 }
 
 func TestAutorest(t *testing.T) {

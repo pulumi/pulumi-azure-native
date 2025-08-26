@@ -385,6 +385,16 @@ func TestNewCredential(t *testing.T) {
 		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
 		require.Equal(t, "subscription-id", optsVal.FieldByName("Subscription").String())
 	})
+
+	t.Run("Azure Default Credential", func(t *testing.T) {
+		conf := &authConfiguration{
+			useDefault:     true,
+			subscriptionId: "subscription-id",
+		}
+		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.DefaultAzureCredential{}, cred)
+	})
 }
 
 func TestOidcTokenExchangeAssertion(t *testing.T) {
