@@ -1749,8 +1749,10 @@ func (k *azureNativeProvider) setLoggingContext(ctx context.Context) {
 }
 
 func (k *azureNativeProvider) getConfig(configName, envName string) string {
-	if val, ok := k.config[configName]; ok {
-		return val
+	if configName != "" {
+		if val, ok := k.config[configName]; ok {
+			return val
+		}
 	}
 
 	return os.Getenv(envName)

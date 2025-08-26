@@ -98,7 +98,7 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 // "github.com/hashicorp/go-azure-helpers/authentication".Builder.Build() in some ways, to minimize changes in provider
 // behavior when upgrading authentication dependencies from go-azure-helpers to azidentity. Namely:
 //   - The order in which the the different authentication methods are attempted is the same:
-//.    1. Default Credential
+//     1. Default Credential
 //     2. Service Principal with client certificate
 //     3. Service Principal with client secret
 //     4. OIDC
@@ -117,9 +117,6 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.DefaultAzureCredentialOptions{
 			ClientOptions:              baseClientOpts,
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
-		}
-		if authConf.tenantId != "" {
-			options.TenantID = authConf.tenantId
 		}
 		return azidentity.NewDefaultAzureCredential(options)
 	} else {
@@ -414,6 +411,13 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		useDefault: getConfig("useDefaultAzureCredential", "ARM_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 
 		showSubscription: defaultAzSubscriptionProvider,
+	}
+
+	if authConf.useDefault {
+		// read from the standard Azure environment variables e.g. to detect the subscription.
+		if authConf.subscriptionId == "" {
+			authConf.subscriptionId = getConfig("", "AZURE_SUBSCRIPTION_ID")
+		}
 	}
 
 	return authConf, nil
