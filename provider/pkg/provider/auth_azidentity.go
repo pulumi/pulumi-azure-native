@@ -142,6 +142,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.ClientCertificateCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 			ClientOptions:              baseClientOpts,
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, options)
 	} else {
@@ -163,6 +164,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.ClientSecretCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 			ClientOptions:              baseClientOpts,
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
@@ -368,6 +370,9 @@ type authConfiguration struct {
 	// combining credentials used in Azure hosting environments and credentials used in local development.
 	useDefault bool
 
+	// When true, disables instance discovery for credentials that support it.
+	disableInstanceDiscovery bool
+
 	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
 	showSubscription azSubscriptionProvider
 }
@@ -410,6 +415,8 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 
 		useDefault: getConfig("useDefaultAzureCredential", "ARM_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 
+		disableInstanceDiscovery: getConfig("disableInstanceDiscovery", "ARM_DISABLE_INSTANCE_DISCOVERY") == "true",
+
 		showSubscription: defaultAzSubscriptionProvider,
 	}
 
@@ -419,6 +426,22 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 // getCloud returns the configured Azure cloud (environment).
 // Returns nil if not configured, to allow for other detection methods before defaulting to the public cloud.
 func getCloud(getConfig configGetter) *azcloud.Configuration {
+	activeDirectoryAuthorityHost := getConfig("activeDirectoryAuthorityHost", "ARM_ACTIVE_DIRECTORY_AUTHORITY_HOST")
+	resourceManagerAudience := getConfig("resourceManagerAudience", "ARM_RESOURCE_MANAGER_AUDIENCE")
+	resourceManagerEndpoint := getConfig("resourceManagerEndpoint", "ARM_RESOURCE_MANAGER_ENDPOINT")
+	if activeDirectoryAuthorityHost != "" && resourceManagerAudience != "" && resourceManagerEndpoint != "" {
+		return &azcloud.Configuration{
+			ActiveDirectoryAuthorityHost: activeDirectoryAuthorityHost,
+			Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
+				azcloud.ResourceManager: {
+					Audience: resourceManagerAudience,
+					Endpoint: resourceManagerEndpoint,
+				},
+			},
+		}
+	}
+
+	// Otherwise fall back to using the Environment Name from the fixed list
 	envName := getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
