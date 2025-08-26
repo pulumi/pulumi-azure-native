@@ -8,7 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.RedisEnterprise
 {
     /// <summary>
-    /// Sets the frequency at which data is written to disk.
+    /// This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccessKeysAuthentication : IEquatable<AccessKeysAuthentication>
+    {
+        private readonly string _value;
+
+        private AccessKeysAuthentication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AccessKeysAuthentication Disabled { get; } = new AccessKeysAuthentication("Disabled");
+        public static AccessKeysAuthentication Enabled { get; } = new AccessKeysAuthentication("Enabled");
+
+        public static bool operator ==(AccessKeysAuthentication left, AccessKeysAuthentication right) => left.Equals(right);
+        public static bool operator !=(AccessKeysAuthentication left, AccessKeysAuthentication right) => !left.Equals(right);
+
+        public static explicit operator string(AccessKeysAuthentication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccessKeysAuthentication other && Equals(other);
+        public bool Equals(AccessKeysAuthentication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Sets the frequency at which data is written to disk. Defaults to '1s', meaning 'every second'. Note that the 'always' setting is deprecated, because of its performance impact.
     /// </summary>
     [EnumType]
     public readonly struct AofFrequency : IEquatable<AofFrequency>
@@ -39,7 +70,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     }
 
     /// <summary>
-    /// Clustering policy - default is OSSCluster. Specified at create time.
+    /// Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
     /// </summary>
     [EnumType]
     public readonly struct ClusteringPolicy : IEquatable<ClusteringPolicy>
@@ -51,8 +82,18 @@ namespace Pulumi.AzureNative.RedisEnterprise
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Enterprise clustering policy uses only the classic redis protocol, which does not support redis cluster commands.
+        /// </summary>
         public static ClusteringPolicy EnterpriseCluster { get; } = new ClusteringPolicy("EnterpriseCluster");
+        /// <summary>
+        /// OSS clustering policy follows the redis cluster specification, and requires all clients to support redis clustering.
+        /// </summary>
         public static ClusteringPolicy OSSCluster { get; } = new ClusteringPolicy("OSSCluster");
+        /// <summary>
+        /// The NoCluster policy is used for non-clustered Redis instances that do not require clustering features.
+        /// </summary>
+        public static ClusteringPolicy NoCluster { get; } = new ClusteringPolicy("NoCluster");
 
         public static bool operator ==(ClusteringPolicy left, ClusteringPolicy right) => left.Equals(right);
         public static bool operator !=(ClusteringPolicy left, ClusteringPolicy right) => !left.Equals(right);
@@ -101,7 +142,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     }
 
     /// <summary>
-    /// Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+    /// Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
     /// </summary>
     [EnumType]
     public readonly struct DeferUpgradeSetting : IEquatable<DeferUpgradeSetting>
@@ -161,6 +202,37 @@ namespace Pulumi.AzureNative.RedisEnterprise
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EvictionPolicy other && Equals(other);
         public bool Equals(EvictionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabled by default. If highAvailability is disabled, the data set is not replicated. This affects the availability SLA, and increases the risk of data loss.
+    /// </summary>
+    [EnumType]
+    public readonly struct HighAvailability : IEquatable<HighAvailability>
+    {
+        private readonly string _value;
+
+        private HighAvailability(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HighAvailability Enabled { get; } = new HighAvailability("Enabled");
+        public static HighAvailability Disabled { get; } = new HighAvailability("Disabled");
+
+        public static bool operator ==(HighAvailability left, HighAvailability right) => left.Equals(right);
+        public static bool operator !=(HighAvailability left, HighAvailability right) => !left.Equals(right);
+
+        public static explicit operator string(HighAvailability value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HighAvailability other && Equals(other);
+        public bool Equals(HighAvailability other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -297,7 +369,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     }
 
     /// <summary>
-    /// The type of RedisEnterprise cluster to deploy. Possible values: (Enterprise_E10, EnterpriseFlash_F300 etc.)
+    /// The level of Redis Enterprise cluster to deploy. Possible values: ('Balanced_B5', 'MemoryOptimized_M10', 'ComputeOptimized_X5', etc.). For more information on SKUs see the latest pricing documentation. Note that additional SKUs may become supported in the future.
     /// </summary>
     [EnumType]
     public readonly struct SkuName : IEquatable<SkuName>
@@ -309,14 +381,61 @@ namespace Pulumi.AzureNative.RedisEnterprise
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static SkuName Enterprise_E1 { get; } = new SkuName("Enterprise_E1");
         public static SkuName Enterprise_E5 { get; } = new SkuName("Enterprise_E5");
         public static SkuName Enterprise_E10 { get; } = new SkuName("Enterprise_E10");
         public static SkuName Enterprise_E20 { get; } = new SkuName("Enterprise_E20");
         public static SkuName Enterprise_E50 { get; } = new SkuName("Enterprise_E50");
         public static SkuName Enterprise_E100 { get; } = new SkuName("Enterprise_E100");
+        public static SkuName Enterprise_E200 { get; } = new SkuName("Enterprise_E200");
+        public static SkuName Enterprise_E400 { get; } = new SkuName("Enterprise_E400");
         public static SkuName EnterpriseFlash_F300 { get; } = new SkuName("EnterpriseFlash_F300");
         public static SkuName EnterpriseFlash_F700 { get; } = new SkuName("EnterpriseFlash_F700");
         public static SkuName EnterpriseFlash_F1500 { get; } = new SkuName("EnterpriseFlash_F1500");
+        public static SkuName Balanced_B0 { get; } = new SkuName("Balanced_B0");
+        public static SkuName Balanced_B1 { get; } = new SkuName("Balanced_B1");
+        public static SkuName Balanced_B3 { get; } = new SkuName("Balanced_B3");
+        public static SkuName Balanced_B5 { get; } = new SkuName("Balanced_B5");
+        public static SkuName Balanced_B10 { get; } = new SkuName("Balanced_B10");
+        public static SkuName Balanced_B20 { get; } = new SkuName("Balanced_B20");
+        public static SkuName Balanced_B50 { get; } = new SkuName("Balanced_B50");
+        public static SkuName Balanced_B100 { get; } = new SkuName("Balanced_B100");
+        public static SkuName Balanced_B150 { get; } = new SkuName("Balanced_B150");
+        public static SkuName Balanced_B250 { get; } = new SkuName("Balanced_B250");
+        public static SkuName Balanced_B350 { get; } = new SkuName("Balanced_B350");
+        public static SkuName Balanced_B500 { get; } = new SkuName("Balanced_B500");
+        public static SkuName Balanced_B700 { get; } = new SkuName("Balanced_B700");
+        public static SkuName Balanced_B1000 { get; } = new SkuName("Balanced_B1000");
+        public static SkuName MemoryOptimized_M10 { get; } = new SkuName("MemoryOptimized_M10");
+        public static SkuName MemoryOptimized_M20 { get; } = new SkuName("MemoryOptimized_M20");
+        public static SkuName MemoryOptimized_M50 { get; } = new SkuName("MemoryOptimized_M50");
+        public static SkuName MemoryOptimized_M100 { get; } = new SkuName("MemoryOptimized_M100");
+        public static SkuName MemoryOptimized_M150 { get; } = new SkuName("MemoryOptimized_M150");
+        public static SkuName MemoryOptimized_M250 { get; } = new SkuName("MemoryOptimized_M250");
+        public static SkuName MemoryOptimized_M350 { get; } = new SkuName("MemoryOptimized_M350");
+        public static SkuName MemoryOptimized_M500 { get; } = new SkuName("MemoryOptimized_M500");
+        public static SkuName MemoryOptimized_M700 { get; } = new SkuName("MemoryOptimized_M700");
+        public static SkuName MemoryOptimized_M1000 { get; } = new SkuName("MemoryOptimized_M1000");
+        public static SkuName MemoryOptimized_M1500 { get; } = new SkuName("MemoryOptimized_M1500");
+        public static SkuName MemoryOptimized_M2000 { get; } = new SkuName("MemoryOptimized_M2000");
+        public static SkuName ComputeOptimized_X3 { get; } = new SkuName("ComputeOptimized_X3");
+        public static SkuName ComputeOptimized_X5 { get; } = new SkuName("ComputeOptimized_X5");
+        public static SkuName ComputeOptimized_X10 { get; } = new SkuName("ComputeOptimized_X10");
+        public static SkuName ComputeOptimized_X20 { get; } = new SkuName("ComputeOptimized_X20");
+        public static SkuName ComputeOptimized_X50 { get; } = new SkuName("ComputeOptimized_X50");
+        public static SkuName ComputeOptimized_X100 { get; } = new SkuName("ComputeOptimized_X100");
+        public static SkuName ComputeOptimized_X150 { get; } = new SkuName("ComputeOptimized_X150");
+        public static SkuName ComputeOptimized_X250 { get; } = new SkuName("ComputeOptimized_X250");
+        public static SkuName ComputeOptimized_X350 { get; } = new SkuName("ComputeOptimized_X350");
+        public static SkuName ComputeOptimized_X500 { get; } = new SkuName("ComputeOptimized_X500");
+        public static SkuName ComputeOptimized_X700 { get; } = new SkuName("ComputeOptimized_X700");
+        public static SkuName FlashOptimized_A250 { get; } = new SkuName("FlashOptimized_A250");
+        public static SkuName FlashOptimized_A500 { get; } = new SkuName("FlashOptimized_A500");
+        public static SkuName FlashOptimized_A700 { get; } = new SkuName("FlashOptimized_A700");
+        public static SkuName FlashOptimized_A1000 { get; } = new SkuName("FlashOptimized_A1000");
+        public static SkuName FlashOptimized_A1500 { get; } = new SkuName("FlashOptimized_A1500");
+        public static SkuName FlashOptimized_A2000 { get; } = new SkuName("FlashOptimized_A2000");
+        public static SkuName FlashOptimized_A4500 { get; } = new SkuName("FlashOptimized_A4500");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
         public static bool operator !=(SkuName left, SkuName right) => !left.Equals(right);
@@ -334,7 +453,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     }
 
     /// <summary>
-    /// The minimum TLS version for the cluster to support, e.g. '1.2'
+    /// The minimum TLS version for the cluster to support, e.g. '1.2'. Newer versions can be added in the future. Note that TLS 1.0 and TLS 1.1 are now completely obsolete -- you cannot use them. They are mentioned only for the sake of consistency with old API versions.
     /// </summary>
     [EnumType]
     public readonly struct TlsVersion : IEquatable<TlsVersion>

@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Search.Outputs
 {
 
     /// <summary>
-    /// Describes a policy that determines how resources within the search service are to be encrypted with customer=managed keys.
+    /// Describes a policy that determines how resources within the search service are to be encrypted with customer managed keys.
     /// </summary>
     [OutputType]
     public sealed class EncryptionWithCmkResponse
     {
         /// <summary>
-        /// Describes whether the search service is compliant or not with respect to having non-customer-encrypted resources. If a service has more than one non-customer-encrypted resource and 'Enforcement' is 'enabled' then the service will be marked as 'nonCompliant'.
+        /// Returns the status of search service compliance with respect to non-CMK-encrypted objects. If a service has more than one unencrypted object, and enforcement is enabled, the service is marked as noncompliant.
         /// </summary>
         public readonly string EncryptionComplianceStatus;
         /// <summary>
-        /// Describes how a search service should enforce having one or more non-customer-encrypted resources.
+        /// Describes how a search service should enforce compliance if it finds objects that aren't encrypted with the customer-managed key.
         /// </summary>
         public readonly string? Enforcement;
 

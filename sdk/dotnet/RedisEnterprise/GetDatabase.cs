@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public static class GetDatabase
     {
         /// <summary>
-        /// Gets information about a database in a RedisEnterprise cluster.
+        /// Gets information about a database in a Redis Enterprise cluster.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDatabaseResult> InvokeAsync(GetDatabaseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDatabaseResult>("azure-native:redisenterprise:getDatabase", args ?? new GetDatabaseArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a database in a RedisEnterprise cluster.
+        /// Gets information about a database in a Redis Enterprise cluster.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:redisenterprise:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a database in a RedisEnterprise cluster.
+        /// Gets information about a database in a Redis Enterprise cluster.
         /// 
-        /// Uses Azure REST API version 2024-03-01-preview.
+        /// Uses Azure REST API version 2025-05-01-preview.
         /// 
-        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDatabaseResult> Invoke(GetDatabaseInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDatabaseResult>("azure-native:redisenterprise:getDatabase", args ?? new GetDatabaseInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public sealed class GetDatabaseArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public string ClusterName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public sealed class GetDatabaseInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis Enterprise cluster.
+        /// The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
         /// </summary>
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
@@ -100,6 +100,10 @@ namespace Pulumi.AzureNative.RedisEnterprise
     public sealed class GetDatabaseResult
     {
         /// <summary>
+        /// This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+        /// </summary>
+        public readonly string? AccessKeysAuthentication;
+        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
@@ -108,11 +112,11 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         public readonly string? ClientProtocol;
         /// <summary>
-        /// Clustering policy - default is OSSCluster. Specified at create time.
+        /// Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         /// </summary>
         public readonly string? ClusteringPolicy;
         /// <summary>
-        /// Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        /// Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         /// </summary>
         public readonly string? DeferUpgrade;
         /// <summary>
@@ -156,12 +160,18 @@ namespace Pulumi.AzureNative.RedisEnterprise
         /// </summary>
         public readonly string ResourceState;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
         [OutputConstructor]
         private GetDatabaseResult(
+            string? accessKeysAuthentication,
+
             string azureApiVersion,
 
             string? clientProtocol,
@@ -190,8 +200,11 @@ namespace Pulumi.AzureNative.RedisEnterprise
 
             string resourceState,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
+            AccessKeysAuthentication = accessKeysAuthentication;
             AzureApiVersion = azureApiVersion;
             ClientProtocol = clientProtocol;
             ClusteringPolicy = clusteringPolicy;
@@ -206,6 +219,7 @@ namespace Pulumi.AzureNative.RedisEnterprise
             ProvisioningState = provisioningState;
             RedisVersion = redisVersion;
             ResourceState = resourceState;
+            SystemData = systemData;
             Type = type;
         }
     }

@@ -26,9 +26,12 @@ __all__ = [
 @pulumi.output_type
 class GetDatabaseResult:
     """
-    Describes a database on the RedisEnterprise cluster
+    Describes a database on the Redis Enterprise cluster
     """
-    def __init__(__self__, azure_api_version=None, client_protocol=None, clustering_policy=None, defer_upgrade=None, eviction_policy=None, geo_replication=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, redis_version=None, resource_state=None, type=None):
+    def __init__(__self__, access_keys_authentication=None, azure_api_version=None, client_protocol=None, clustering_policy=None, defer_upgrade=None, eviction_policy=None, geo_replication=None, id=None, modules=None, name=None, persistence=None, port=None, provisioning_state=None, redis_version=None, resource_state=None, system_data=None, type=None):
+        if access_keys_authentication and not isinstance(access_keys_authentication, str):
+            raise TypeError("Expected argument 'access_keys_authentication' to be a str")
+        pulumi.set(__self__, "access_keys_authentication", access_keys_authentication)
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -71,9 +74,20 @@ class GetDatabaseResult:
         if resource_state and not isinstance(resource_state, str):
             raise TypeError("Expected argument 'resource_state' to be a str")
         pulumi.set(__self__, "resource_state", resource_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter(name="accessKeysAuthentication")
+    def access_keys_authentication(self) -> Optional[builtins.str]:
+        """
+        This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
+        """
+        return pulumi.get(self, "access_keys_authentication")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -95,7 +109,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="clusteringPolicy")
     def clustering_policy(self) -> Optional[builtins.str]:
         """
-        Clustering policy - default is OSSCluster. Specified at create time.
+        Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
         """
         return pulumi.get(self, "clustering_policy")
 
@@ -103,7 +117,7 @@ class GetDatabaseResult:
     @pulumi.getter(name="deferUpgrade")
     def defer_upgrade(self) -> Optional[builtins.str]:
         """
-        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more:  https://aka.ms/redisversionupgrade
+        Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
         """
         return pulumi.get(self, "defer_upgrade")
 
@@ -188,6 +202,14 @@ class GetDatabaseResult:
         return pulumi.get(self, "resource_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
@@ -202,6 +224,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
         if False:
             yield self
         return GetDatabaseResult(
+            access_keys_authentication=self.access_keys_authentication,
             azure_api_version=self.azure_api_version,
             client_protocol=self.client_protocol,
             clustering_policy=self.clustering_policy,
@@ -216,6 +239,7 @@ class AwaitableGetDatabaseResult(GetDatabaseResult):
             provisioning_state=self.provisioning_state,
             redis_version=self.redis_version,
             resource_state=self.resource_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -224,14 +248,14 @@ def get_database(cluster_name: Optional[builtins.str] = None,
                  resource_group_name: Optional[builtins.str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDatabaseResult:
     """
-    Gets information about a database in a RedisEnterprise cluster.
+    Gets information about a database in a Redis Enterprise cluster.
 
-    Uses Azure REST API version 2024-03-01-preview.
+    Uses Azure REST API version 2025-05-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str cluster_name: The name of the Redis Enterprise cluster.
+    :param builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
     :param builtins.str database_name: The name of the Redis Enterprise database.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -243,6 +267,7 @@ def get_database(cluster_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:redisenterprise:getDatabase', __args__, opts=opts, typ=GetDatabaseResult).value
 
     return AwaitableGetDatabaseResult(
+        access_keys_authentication=pulumi.get(__ret__, 'access_keys_authentication'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         client_protocol=pulumi.get(__ret__, 'client_protocol'),
         clustering_policy=pulumi.get(__ret__, 'clustering_policy'),
@@ -257,20 +282,21 @@ def get_database(cluster_name: Optional[builtins.str] = None,
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         redis_version=pulumi.get(__ret__, 'redis_version'),
         resource_state=pulumi.get(__ret__, 'resource_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_database_output(cluster_name: Optional[pulumi.Input[builtins.str]] = None,
                         database_name: Optional[pulumi.Input[builtins.str]] = None,
                         resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                         opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDatabaseResult]:
     """
-    Gets information about a database in a RedisEnterprise cluster.
+    Gets information about a database in a Redis Enterprise cluster.
 
-    Uses Azure REST API version 2024-03-01-preview.
+    Uses Azure REST API version 2025-05-01-preview.
 
-    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01, 2025-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-10-01-preview, 2021-02-01-preview, 2021-03-01, 2021-08-01, 2022-01-01, 2022-11-01-preview, 2023-03-01-preview, 2023-07-01, 2023-08-01-preview, 2023-10-01-preview, 2023-11-01, 2024-02-01, 2024-03-01-preview, 2024-06-01-preview, 2024-09-01-preview, 2024-10-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str cluster_name: The name of the Redis Enterprise cluster.
+    :param builtins.str cluster_name: The name of the Redis Enterprise cluster. Name must be 1-60 characters long. Allowed characters(A-Z, a-z, 0-9) and hyphen(-). There can be no leading nor trailing nor consecutive hyphens
     :param builtins.str database_name: The name of the Redis Enterprise database.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -281,6 +307,7 @@ def get_database_output(cluster_name: Optional[pulumi.Input[builtins.str]] = Non
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:redisenterprise:getDatabase', __args__, opts=opts, typ=GetDatabaseResult)
     return __ret__.apply(lambda __response__: GetDatabaseResult(
+        access_keys_authentication=pulumi.get(__response__, 'access_keys_authentication'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         client_protocol=pulumi.get(__response__, 'client_protocol'),
         clustering_policy=pulumi.get(__response__, 'clustering_policy'),
@@ -295,4 +322,5 @@ def get_database_output(cluster_name: Optional[pulumi.Input[builtins.str]] = Non
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         redis_version=pulumi.get(__response__, 'redis_version'),
         resource_state=pulumi.get(__response__, 'resource_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))
