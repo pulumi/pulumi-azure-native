@@ -248,6 +248,23 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					Description: "The URL to initiate the `oidcRequestToken` OIDC token exchange.",
 				},
 
+				"disableInstanceDiscovery": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "This will disable Instance Discovery, which validates that the 'activeDirectoryAuthorityHost' is known by Microsoft.",
+				},
+				"activeDirectoryAuthorityHost": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Active Directory Authority Host that should be used. When specified `resourceManagerAudience`, `resourceManagerEndpoint` must also be specified",
+				},
+				"resourceManagerAudience": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Audience for Resource Manager. When specified `activeDirectoryAuthorityHost` and `resourceManagerEndpoint` must also be specified",
+				},
+				"resourceManagerEndpoint": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Endpoint for Resource Manager. When specified `activeDirectoryAuthorityHost`, `resourceManagerEndpoint` must also be specified",
+				},
+
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
