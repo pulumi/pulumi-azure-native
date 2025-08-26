@@ -388,7 +388,8 @@ func TestNewCredential(t *testing.T) {
 
 	t.Run("Azure Default Credential", func(t *testing.T) {
 		conf := &authConfiguration{
-			useDefault: true,
+			useDefault:     true,
+			subscriptionId: "subscription-id",
 		}
 		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
 		require.NoError(t, err)
