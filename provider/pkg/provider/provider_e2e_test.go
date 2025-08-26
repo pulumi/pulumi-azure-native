@@ -306,10 +306,12 @@ func TestAzidentity(t *testing.T) {
 			// Configure the default credential chain to use variables provided in build-test.yml, per:
 			// https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity#readme-environment-variables
 			t.Setenv("AZURE_TOKEN_CREDENTIALS", "EnvironmentCredential")
-			t.Setenv("AZURE_SUBSCRIPTION_ID", os.Getenv("ARM_SUBSCRIPTION_ID"))
 			t.Setenv("AZURE_CLIENT_ID", os.Getenv("ARM_CLIENT_ID"))
 			t.Setenv("AZURE_TENANT_ID", os.Getenv("ARM_TENANT_ID"))
 			t.Setenv("AZURE_CLIENT_SECRET", os.Getenv("ARM_CLIENT_SECRET"))
+
+			// Ensure that a subscription ID was provided, because ADC doesn't provide one.
+			require.NotEmpty(t, os.Getenv("ARM_SUBSCRIPTION_ID"))
 		}
 
 		pt := newPulumiTest(t, "azidentity")

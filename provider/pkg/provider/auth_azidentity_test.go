@@ -143,20 +143,6 @@ func TestGetAuthConfig(t *testing.T) {
 	})
 }
 
-func TestDefaultCredential(t *testing.T) {
-	t.Run("Subscription auto-detection", func(t *testing.T) {
-		t.Setenv("ARM_USE_DEFAULT_AZURE_CREDENTIAL", "true")
-		t.Setenv("AZURE_SUBSCRIPTION_ID", "sub")
-
-		// readAuthConfig should pick up the subscription id from env
-		c, err := readAuthConfig(func(_, env string) string {
-			return os.Getenv(env)
-		})
-		require.NoError(t, err)
-		require.Equal(t, "sub", c.subscriptionId)
-	})
-}
-
 func TestNewCredential(t *testing.T) {
 	t.Run("SP with client secret", func(t *testing.T) {
 		conf := &authConfiguration{
@@ -400,7 +386,7 @@ func TestNewCredential(t *testing.T) {
 		require.Equal(t, "subscription-id", optsVal.FieldByName("Subscription").String())
 	})
 
-	t.Run("Default", func(t *testing.T) {
+	t.Run("Azure Default Credential", func(t *testing.T) {
 		conf := &authConfiguration{
 			useDefault: true,
 		}

@@ -413,13 +413,6 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 		showSubscription: defaultAzSubscriptionProvider,
 	}
 
-	if authConf.useDefault {
-		// read from the standard Azure environment variables e.g. to detect the subscription.
-		if authConf.subscriptionId == "" {
-			authConf.subscriptionId = getConfig("", "AZURE_SUBSCRIPTION_ID")
-		}
-	}
-
 	return authConf, nil
 }
 
