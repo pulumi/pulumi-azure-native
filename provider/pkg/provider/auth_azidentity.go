@@ -234,7 +234,10 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 			func(ctx context.Context) (string, error) {
 				return token, nil
 			},
-			nil)
+			&azidentity.ClientAssertionCredentialOptions{
+				ClientOptions:            clientOpts,
+				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
+			})
 	}
 
 	if authConf.oidcToken != "" {
