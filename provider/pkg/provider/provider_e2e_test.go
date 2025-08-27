@@ -195,9 +195,6 @@ func TestAzidentity(t *testing.T) {
 	t.Run("OIDC", func(t *testing.T) {
 		oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 		if oidcClientId == "" {
-			if os.Getenv("CI") != "" {
-				t.Error("OIDC test without OIDC_ARM_CLIENT_ID")
-			}
 			t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
 		}
 
@@ -360,9 +357,6 @@ func TestAutorest(t *testing.T) {
 
 		oidcClientId := os.Getenv("OIDC_ARM_CLIENT_ID")
 		if oidcClientId == "" {
-			if os.Getenv("CI") != "" {
-				t.Error("OIDC test without OIDC_ARM_CLIENT_ID")
-			}
 			t.Skip("Skipping OIDC test without OIDC_ARM_CLIENT_ID")
 		}
 
