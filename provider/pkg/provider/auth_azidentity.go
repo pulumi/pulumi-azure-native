@@ -117,6 +117,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.DefaultAzureCredentialOptions{
 			ClientOptions:              baseClientOpts,
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewDefaultAzureCredential(options)
 	} else {
@@ -255,7 +256,8 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 			authConf.clientId,
 			getOidcTokenExchangeAssertion(authConf),
 			&azidentity.ClientAssertionCredentialOptions{
-				ClientOptions: clientOpts,
+				ClientOptions:            clientOpts,
+				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
 			})
 	}
 
