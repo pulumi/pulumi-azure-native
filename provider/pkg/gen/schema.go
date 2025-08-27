@@ -166,6 +166,11 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					Description: "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
 				},
 
+				"disableInstanceDiscovery": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
+				},
+				
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -260,7 +265,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 
 				"disableInstanceDiscovery": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
-					Description: "This will disable Instance Discovery, which validates that the 'activeDirectoryAuthorityHost' is known by Microsoft.",
+					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
 				},
 				"activeDirectoryAuthorityHost": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
