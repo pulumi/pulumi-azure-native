@@ -166,11 +166,24 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					Description: "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
 				},
 
+				// Private Cloud support
 				"disableInstanceDiscovery": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
 				},
-				
+				"activeDirectoryAuthorityHost": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Azure Active Directory login endpoint to use. When specified, `resourceManagerAudience`, `resourceManagerEndpoint` must also be specified.",
+				},
+				"resourceManagerAudience": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Audience for Resource Manager.",
+				},
+				"resourceManagerEndpoint": {
+					TypeSpec:    pschema.TypeSpec{Type: "string"},
+					Description: "The Azure Resource Manager endpoint to use.",
+				},
+
 				// Managed Tracking GUID for User-Agent.
 				"partnerId": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -263,21 +276,22 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					Description: "Use the default credential chain of the Azure SDK (see https://learn.microsoft.com/en-us/azure/developer/go/sdk/authentication/credential-chains#defaultazurecredential-overview).",
 				},
 
+				// Private Cloud support
 				"disableInstanceDiscovery": {
 					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
 					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
 				},
 				"activeDirectoryAuthorityHost": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Active Directory Authority Host that should be used. When specified `resourceManagerAudience`, `resourceManagerEndpoint` must also be specified",
+					Description: "The Azure Active Directory login endpoint to use. When specified, `resourceManagerAudience`, `resourceManagerEndpoint` must also be specified.",
 				},
 				"resourceManagerAudience": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Audience for Resource Manager. When specified `activeDirectoryAuthorityHost` and `resourceManagerEndpoint` must also be specified",
+					Description: "The Audience for Resource Manager.",
 				},
 				"resourceManagerEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Endpoint for Resource Manager. When specified `activeDirectoryAuthorityHost`, `resourceManagerEndpoint` must also be specified",
+					Description: "The Azure Resource Manager endpoint to use.",
 				},
 
 				// Managed Tracking GUID for User-Agent.
