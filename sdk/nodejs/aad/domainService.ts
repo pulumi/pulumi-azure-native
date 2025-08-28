@@ -44,103 +44,103 @@ export class DomainService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration diagnostics data containing latest execution from client.
      */
-    public readonly configDiagnostics!: pulumi.Output<outputs.aad.ConfigDiagnosticsResponse | undefined>;
+    declare public readonly configDiagnostics: pulumi.Output<outputs.aad.ConfigDiagnosticsResponse | undefined>;
     /**
      * Deployment Id
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * Domain Configuration Type
      */
-    public readonly domainConfigurationType!: pulumi.Output<string | undefined>;
+    declare public readonly domainConfigurationType: pulumi.Output<string | undefined>;
     /**
      * The name of the Azure domain that the user would like to deploy Domain Services to.
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * DomainSecurity Settings
      */
-    public readonly domainSecuritySettings!: pulumi.Output<outputs.aad.DomainSecuritySettingsResponse | undefined>;
+    declare public readonly domainSecuritySettings: pulumi.Output<outputs.aad.DomainSecuritySettingsResponse | undefined>;
     /**
      * Resource etag
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Enabled or Disabled flag to turn on Group-based filtered sync
      */
-    public readonly filteredSync!: pulumi.Output<string | undefined>;
+    declare public readonly filteredSync: pulumi.Output<string | undefined>;
     /**
      * Secure LDAP Settings
      */
-    public readonly ldapsSettings!: pulumi.Output<outputs.aad.LdapsSettingsResponse | undefined>;
+    declare public readonly ldapsSettings: pulumi.Output<outputs.aad.LdapsSettingsResponse | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Migration Properties
      */
-    public /*out*/ readonly migrationProperties!: pulumi.Output<outputs.aad.MigrationPropertiesResponse>;
+    declare public /*out*/ readonly migrationProperties: pulumi.Output<outputs.aad.MigrationPropertiesResponse>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Notification Settings
      */
-    public readonly notificationSettings!: pulumi.Output<outputs.aad.NotificationSettingsResponse | undefined>;
+    declare public readonly notificationSettings: pulumi.Output<outputs.aad.NotificationSettingsResponse | undefined>;
     /**
      * the current deployment or provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of ReplicaSets
      */
-    public readonly replicaSets!: pulumi.Output<outputs.aad.ReplicaSetResponse[] | undefined>;
+    declare public readonly replicaSets: pulumi.Output<outputs.aad.ReplicaSetResponse[] | undefined>;
     /**
      * Resource Forest Settings
      */
-    public readonly resourceForestSettings!: pulumi.Output<outputs.aad.ResourceForestSettingsResponse | undefined>;
+    declare public readonly resourceForestSettings: pulumi.Output<outputs.aad.ResourceForestSettingsResponse | undefined>;
     /**
      * Sku Type
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The unique sync application id of the Azure AD Domain Services deployment.
      */
-    public /*out*/ readonly syncApplicationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly syncApplicationId: pulumi.Output<string>;
     /**
      * SyncOwner ReplicaSet Id
      */
-    public /*out*/ readonly syncOwner!: pulumi.Output<string>;
+    declare public /*out*/ readonly syncOwner: pulumi.Output<string>;
     /**
      * All or CloudOnly, All users in AAD are synced to AAD DS domain or only users actively syncing in the cloud
      */
-    public readonly syncScope!: pulumi.Output<string | undefined>;
+    declare public readonly syncScope: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.aad.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.aad.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure Active Directory Tenant Id
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Data Model Version
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a DomainService resource with the given unique name, arguments, and options.
@@ -153,24 +153,24 @@ export class DomainService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configDiagnostics"] = args ? args.configDiagnostics : undefined;
-            resourceInputs["domainConfigurationType"] = args ? args.domainConfigurationType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["configDiagnostics"] = args?.configDiagnostics;
+            resourceInputs["domainConfigurationType"] = args?.domainConfigurationType;
+            resourceInputs["domainName"] = args?.domainName;
             resourceInputs["domainSecuritySettings"] = args ? (args.domainSecuritySettings ? pulumi.output(args.domainSecuritySettings).apply(inputs.aad.domainSecuritySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["filteredSync"] = args ? args.filteredSync : undefined;
+            resourceInputs["domainServiceName"] = args?.domainServiceName;
+            resourceInputs["filteredSync"] = args?.filteredSync;
             resourceInputs["ldapsSettings"] = args ? (args.ldapsSettings ? pulumi.output(args.ldapsSettings).apply(inputs.aad.ldapsSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["notificationSettings"] = args ? args.notificationSettings : undefined;
-            resourceInputs["replicaSets"] = args ? args.replicaSets : undefined;
-            resourceInputs["resourceForestSettings"] = args ? args.resourceForestSettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["syncScope"] = (args ? args.syncScope : undefined) ?? "All";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["notificationSettings"] = args?.notificationSettings;
+            resourceInputs["replicaSets"] = args?.replicaSets;
+            resourceInputs["resourceForestSettings"] = args?.resourceForestSettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["syncScope"] = (args?.syncScope) ?? "All";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

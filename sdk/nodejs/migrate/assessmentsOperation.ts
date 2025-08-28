@@ -46,197 +46,197 @@ export class AssessmentsOperation extends pulumi.CustomResource {
      *             This is the number of
      * machines affected by each type of error in this assessment.
      */
-    public /*out*/ readonly assessmentErrorSummary!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly assessmentErrorSummary: pulumi.Output<{[key: string]: number}>;
     /**
      * Assessment type of the assessment.
      */
-    public /*out*/ readonly assessmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly assessmentType: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the azure storage type. Premium, Standard etc.
      */
-    public readonly azureDiskTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly azureDiskTypes: pulumi.Output<string[] | undefined>;
     /**
      * Gets or sets the user configurable setting to display the azure hybrid use
      * benefit.
      */
-    public readonly azureHybridUseBenefit!: pulumi.Output<string | undefined>;
+    declare public readonly azureHybridUseBenefit: pulumi.Output<string | undefined>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    public readonly azureLocation!: pulumi.Output<string | undefined>;
+    declare public readonly azureLocation: pulumi.Output<string | undefined>;
     /**
      * Azure Offer Code.
      */
-    public readonly azureOfferCode!: pulumi.Output<string | undefined>;
+    declare public readonly azureOfferCode: pulumi.Output<string | undefined>;
     /**
      * Gets or sets Azure Pricing Tier - Free, Basic, etc.
      */
-    public readonly azurePricingTier!: pulumi.Output<string | undefined>;
+    declare public readonly azurePricingTier: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Azure Storage Redundancy. Example: Locally Redundant Storage.
      */
-    public readonly azureStorageRedundancy!: pulumi.Output<string | undefined>;
+    declare public readonly azureStorageRedundancy: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Azure VM families.
      */
-    public readonly azureVmFamilies!: pulumi.Output<string[] | undefined>;
+    declare public readonly azureVmFamilies: pulumi.Output<string[] | undefined>;
     /**
      * Confidence Rating in Percentage.
      */
-    public /*out*/ readonly confidenceRatingInPercentage!: pulumi.Output<number>;
+    declare public /*out*/ readonly confidenceRatingInPercentage: pulumi.Output<number>;
     /**
      * Gets the collection of cost components.
      */
-    public /*out*/ readonly costComponents!: pulumi.Output<outputs.migrate.CostComponentResponse[]>;
+    declare public /*out*/ readonly costComponents: pulumi.Output<outputs.migrate.CostComponentResponse[]>;
     /**
      * Date and Time when assessment was created.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Currency in which prices should be reported.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    declare public readonly currency: pulumi.Output<string | undefined>;
     /**
      * Custom discount percentage.
      */
-    public readonly discountPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly discountPercentage: pulumi.Output<number | undefined>;
     /**
      * Gets the distribution by os name.
      */
-    public /*out*/ readonly distributionByOsName!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly distributionByOsName: pulumi.Output<{[key: string]: number}>;
     /**
      * Gets the distribution distribution of sqlInstances by service pack insight.
      */
-    public /*out*/ readonly distributionByServicePackInsight!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly distributionByServicePackInsight: pulumi.Output<{[key: string]: number}>;
     /**
      * Gets the distribution of sqlInstances by support status.
      */
-    public /*out*/ readonly distributionBySupportStatus!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly distributionBySupportStatus: pulumi.Output<{[key: string]: number}>;
     /**
      * Gets or sets enterprise agreement subscription id.
      */
-    public readonly eaSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly eaSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Gets the group type for the assessment.
      */
-    public /*out*/ readonly groupType!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupType: pulumi.Output<string>;
     /**
      * Gets or sets the user configurable setting to display the linux azure hybrid use
      * benefit.
      */
-    public readonly linuxAzureHybridUseBenefit!: pulumi.Output<string | undefined>;
+    declare public readonly linuxAzureHybridUseBenefit: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the aggregate Bandwidth Cost for all machines in the assessment.
      */
-    public /*out*/ readonly monthlyBandwidthCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyBandwidthCost: pulumi.Output<number>;
     /**
      * Gets or sets the aggregate Compute Cost for all machines in the assessment.
      */
-    public /*out*/ readonly monthlyComputeCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyComputeCost: pulumi.Output<number>;
     /**
      * Gets or sets the aggregate premium storage cost for all machines in the
      * assessment.
      */
-    public /*out*/ readonly monthlyPremiumStorageCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyPremiumStorageCost: pulumi.Output<number>;
     /**
      * Gets or sets the aggregate standard SSD storage cost for all the machines in
      * the assessment.
      */
-    public /*out*/ readonly monthlyStandardSsdStorageCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyStandardSsdStorageCost: pulumi.Output<number>;
     /**
      * Gets or sets the aggregate Storage Cost for all machines in the assessment.
      */
-    public /*out*/ readonly monthlyStorageCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyStorageCost: pulumi.Output<number>;
     /**
      * Gets or sets the aggregate ultra storage cost for all machines in the
      * assessment.
      */
-    public /*out*/ readonly monthlyUltraStorageCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly monthlyUltraStorageCost: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the Number of machines part of the assessment.
      */
-    public /*out*/ readonly numberOfMachines!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfMachines: pulumi.Output<number>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    public readonly percentile!: pulumi.Output<string | undefined>;
+    declare public readonly percentile: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    public readonly perfDataEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataEndTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    public readonly perfDataStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataStartTime: pulumi.Output<string | undefined>;
     /**
      * Last time when rates were queried.
      */
-    public /*out*/ readonly pricesTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly pricesTimestamp: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Azure Reserved Instance - 1-Year, 3-Year.
      */
-    public readonly reservedInstance!: pulumi.Output<string | undefined>;
+    declare public readonly reservedInstance: pulumi.Output<string | undefined>;
     /**
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    public readonly scalingFactor!: pulumi.Output<number | undefined>;
+    declare public readonly scalingFactor: pulumi.Output<number | undefined>;
     /**
      * Schema version.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
     /**
      * Assessment sizing criterion.
      */
-    public readonly sizingCriterion!: pulumi.Output<string | undefined>;
+    declare public readonly sizingCriterion: pulumi.Output<string | undefined>;
     /**
      * User configurable setting to display the Stage of Assessment.
      */
-    public /*out*/ readonly stage!: pulumi.Output<string>;
+    declare public /*out*/ readonly stage: pulumi.Output<string>;
     /**
      * Whether assessment is in valid state and all machines have been assessed.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Gets or sets the Cloud suitability summary for all the machines in the
      * assessment.
      */
-    public /*out*/ readonly suitabilitySummary!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly suitabilitySummary: pulumi.Output<{[key: string]: number}>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    public readonly timeRange!: pulumi.Output<string | undefined>;
+    declare public readonly timeRange: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Date and Time when assessment was last updated.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
     /**
      * Gets or sets the duration for which the VMs are up in the on-premises
      * environment.
      */
-    public readonly vmUptime!: pulumi.Output<outputs.migrate.VmUptimeResponse | undefined>;
+    declare public readonly vmUptime: pulumi.Output<outputs.migrate.VmUptimeResponse | undefined>;
 
     /**
      * Create a AssessmentsOperation resource with the given unique name, arguments, and options.
@@ -249,39 +249,39 @@ export class AssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["azureDiskTypes"] = args ? args.azureDiskTypes : undefined;
-            resourceInputs["azureHybridUseBenefit"] = args ? args.azureHybridUseBenefit : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["azurePricingTier"] = args ? args.azurePricingTier : undefined;
-            resourceInputs["azureStorageRedundancy"] = args ? args.azureStorageRedundancy : undefined;
-            resourceInputs["azureVmFamilies"] = args ? args.azureVmFamilies : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["eaSubscriptionId"] = args ? args.eaSubscriptionId : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["linuxAzureHybridUseBenefit"] = args ? args.linuxAzureHybridUseBenefit : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
-            resourceInputs["vmUptime"] = args ? args.vmUptime : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["azureDiskTypes"] = args?.azureDiskTypes;
+            resourceInputs["azureHybridUseBenefit"] = args?.azureHybridUseBenefit;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["azurePricingTier"] = args?.azurePricingTier;
+            resourceInputs["azureStorageRedundancy"] = args?.azureStorageRedundancy;
+            resourceInputs["azureVmFamilies"] = args?.azureVmFamilies;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["eaSubscriptionId"] = args?.eaSubscriptionId;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["linuxAzureHybridUseBenefit"] = args?.linuxAzureHybridUseBenefit;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
+            resourceInputs["vmUptime"] = args?.vmUptime;
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

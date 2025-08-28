@@ -42,105 +42,105 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The properties of any lab announcement associated with this lab
      */
-    public readonly announcement!: pulumi.Output<outputs.devtestlab.LabAnnouncementPropertiesResponse | undefined>;
+    declare public readonly announcement: pulumi.Output<outputs.devtestlab.LabAnnouncementPropertiesResponse | undefined>;
     /**
      * The lab's artifact storage account.
      */
-    public /*out*/ readonly artifactsStorageAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly artifactsStorageAccount: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the lab.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The lab's default premium storage account.
      */
-    public /*out*/ readonly defaultPremiumStorageAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultPremiumStorageAccount: pulumi.Output<string>;
     /**
      * The lab's default storage account.
      */
-    public /*out*/ readonly defaultStorageAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultStorageAccount: pulumi.Output<string>;
     /**
      * The access rights to be granted to the user when provisioning an environment
      */
-    public readonly environmentPermission!: pulumi.Output<string | undefined>;
+    declare public readonly environmentPermission: pulumi.Output<string | undefined>;
     /**
      * Extended properties of the lab used for experimental features
      */
-    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly extendedProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of storage used by the lab. It can be either Premium or Standard. Default is Premium.
      */
-    public readonly labStorageType!: pulumi.Output<string | undefined>;
+    declare public readonly labStorageType: pulumi.Output<string | undefined>;
     /**
      * The load balancer used to for lab VMs that use shared IP address.
      */
-    public /*out*/ readonly loadBalancerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly loadBalancerId: pulumi.Output<string>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The ordered list of artifact resource IDs that should be applied on all Linux VM creations by default, prior to the artifacts specified by the user.
      */
-    public readonly mandatoryArtifactsResourceIdsLinux!: pulumi.Output<string[] | undefined>;
+    declare public readonly mandatoryArtifactsResourceIdsLinux: pulumi.Output<string[] | undefined>;
     /**
      * The ordered list of artifact resource IDs that should be applied on all Windows VM creations by default, prior to the artifacts specified by the user.
      */
-    public readonly mandatoryArtifactsResourceIdsWindows!: pulumi.Output<string[] | undefined>;
+    declare public readonly mandatoryArtifactsResourceIdsWindows: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The Network Security Group attached to the lab VMs Network interfaces to restrict open ports.
      */
-    public /*out*/ readonly networkSecurityGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkSecurityGroupId: pulumi.Output<string>;
     /**
      * The lab's premium data disk storage account.
      */
-    public /*out*/ readonly premiumDataDiskStorageAccount!: pulumi.Output<string>;
+    declare public /*out*/ readonly premiumDataDiskStorageAccount: pulumi.Output<string>;
     /**
      * The setting to enable usage of premium data disks.
      * When its value is 'Enabled', creation of standard or premium data disks is allowed.
      * When its value is 'Disabled', only creation of standard data disks is allowed.
      */
-    public readonly premiumDataDisks!: pulumi.Output<string | undefined>;
+    declare public readonly premiumDataDisks: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The public IP address for the lab's load balancer.
      */
-    public /*out*/ readonly publicIpId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIpId: pulumi.Output<string>;
     /**
      * The properties of any lab support message associated with this lab
      */
-    public readonly support!: pulumi.Output<outputs.devtestlab.LabSupportPropertiesResponse | undefined>;
+    declare public readonly support: pulumi.Output<outputs.devtestlab.LabSupportPropertiesResponse | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * The lab's Key vault.
      */
-    public /*out*/ readonly vaultName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vaultName: pulumi.Output<string>;
     /**
      * The resource group in which all new lab virtual machines will be created. To let DevTest Labs manage resource group creation, set this value to null.
      */
-    public /*out*/ readonly vmCreationResourceGroup!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmCreationResourceGroup: pulumi.Output<string>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -153,21 +153,21 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["announcement"] = args ? args.announcement : undefined;
-            resourceInputs["environmentPermission"] = args ? args.environmentPermission : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["labStorageType"] = (args ? args.labStorageType : undefined) ?? "Premium";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mandatoryArtifactsResourceIdsLinux"] = args ? args.mandatoryArtifactsResourceIdsLinux : undefined;
-            resourceInputs["mandatoryArtifactsResourceIdsWindows"] = args ? args.mandatoryArtifactsResourceIdsWindows : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["premiumDataDisks"] = args ? args.premiumDataDisks : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["announcement"] = args?.announcement;
+            resourceInputs["environmentPermission"] = args?.environmentPermission;
+            resourceInputs["extendedProperties"] = args?.extendedProperties;
+            resourceInputs["labStorageType"] = (args?.labStorageType) ?? "Premium";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mandatoryArtifactsResourceIdsLinux"] = args?.mandatoryArtifactsResourceIdsLinux;
+            resourceInputs["mandatoryArtifactsResourceIdsWindows"] = args?.mandatoryArtifactsResourceIdsWindows;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["premiumDataDisks"] = args?.premiumDataDisks;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["artifactsStorageAccount"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

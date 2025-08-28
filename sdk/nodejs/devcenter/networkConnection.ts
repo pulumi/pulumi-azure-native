@@ -44,63 +44,63 @@ export class NetworkConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * AAD Join type.
      */
-    public readonly domainJoinType!: pulumi.Output<string>;
+    declare public readonly domainJoinType: pulumi.Output<string>;
     /**
      * Active Directory domain name
      */
-    public readonly domainName!: pulumi.Output<string | undefined>;
+    declare public readonly domainName: pulumi.Output<string | undefined>;
     /**
      * The password for the account used to join domain
      */
-    public readonly domainPassword!: pulumi.Output<string | undefined>;
+    declare public readonly domainPassword: pulumi.Output<string | undefined>;
     /**
      * The username of an Active Directory account (user or service account) that has permissions to create computer objects in Active Directory. Required format: admin@contoso.com.
      */
-    public readonly domainUsername!: pulumi.Output<string | undefined>;
+    declare public readonly domainUsername: pulumi.Output<string | undefined>;
     /**
      * Overall health status of the network connection. Health checks are run on creation, update, and periodically to validate the network connection.
      */
-    public /*out*/ readonly healthCheckStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly healthCheckStatus: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name for resource group where NICs will be placed.
      */
-    public readonly networkingResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly networkingResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * Active Directory domain Organization Unit (OU)
      */
-    public readonly organizationUnit!: pulumi.Output<string | undefined>;
+    declare public readonly organizationUnit: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The subnet to attach Virtual Machines to
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NetworkConnection resource with the given unique name, arguments, and options.
@@ -113,26 +113,26 @@ export class NetworkConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainJoinType === undefined) && !opts.urn) {
+            if (args?.domainJoinType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainJoinType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            resourceInputs["domainJoinType"] = args ? args.domainJoinType : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["domainPassword"] = args ? args.domainPassword : undefined;
-            resourceInputs["domainUsername"] = args ? args.domainUsername : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkConnectionName"] = args ? args.networkConnectionName : undefined;
-            resourceInputs["networkingResourceGroupName"] = args ? args.networkingResourceGroupName : undefined;
-            resourceInputs["organizationUnit"] = args ? args.organizationUnit : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["domainJoinType"] = args?.domainJoinType;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["domainPassword"] = args?.domainPassword;
+            resourceInputs["domainUsername"] = args?.domainUsername;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkConnectionName"] = args?.networkConnectionName;
+            resourceInputs["networkingResourceGroupName"] = args?.networkingResourceGroupName;
+            resourceInputs["organizationUnit"] = args?.organizationUnit;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["healthCheckStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

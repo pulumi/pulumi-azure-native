@@ -42,68 +42,68 @@ export class EventHubEventSource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the event hub's consumer group that holds the partitions from which events will be read.
      */
-    public readonly consumerGroupName!: pulumi.Output<string>;
+    declare public readonly consumerGroupName: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The name of the event hub.
      */
-    public readonly eventHubName!: pulumi.Output<string>;
+    declare public readonly eventHubName: pulumi.Output<string>;
     /**
      * The resource id of the event source in Azure Resource Manager.
      */
-    public readonly eventSourceResourceId!: pulumi.Output<string>;
+    declare public readonly eventSourceResourceId: pulumi.Output<string>;
     /**
      * The name of the SAS key that grants the Time Series Insights service access to the event hub. The shared access policies for this key must grant 'Listen' permissions to the event hub.
      */
-    public readonly keyName!: pulumi.Output<string>;
+    declare public readonly keyName: pulumi.Output<string>;
     /**
      * The kind of the event source.
      * Expected value is 'Microsoft.EventHub'.
      */
-    public readonly kind!: pulumi.Output<"Microsoft.EventHub">;
+    declare public readonly kind: pulumi.Output<"Microsoft.EventHub">;
     /**
      * An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events.
      */
-    public readonly localTimestamp!: pulumi.Output<outputs.timeseriesinsights.LocalTimestampResponse | undefined>;
+    declare public readonly localTimestamp: pulumi.Output<outputs.timeseriesinsights.LocalTimestampResponse | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The name of the service bus that contains the event hub.
      */
-    public readonly serviceBusNamespace!: pulumi.Output<string>;
+    declare public readonly serviceBusNamespace: pulumi.Output<string>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ISO8601 UTC datetime with seconds precision (milliseconds are optional), specifying the date and time that will be the starting point for Events to be consumed.
      */
-    public readonly time!: pulumi.Output<string | undefined>;
+    declare public readonly time: pulumi.Output<string | undefined>;
     /**
      * The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used.
      */
-    public readonly timestampPropertyName!: pulumi.Output<string | undefined>;
+    declare public readonly timestampPropertyName: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a EventHubEventSource resource with the given unique name, arguments, and options.
@@ -116,49 +116,49 @@ export class EventHubEventSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerGroupName === undefined) && !opts.urn) {
+            if (args?.consumerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroupName'");
             }
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.eventHubName === undefined) && !opts.urn) {
+            if (args?.eventHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHubName'");
             }
-            if ((!args || args.eventSourceResourceId === undefined) && !opts.urn) {
+            if (args?.eventSourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventSourceResourceId'");
             }
-            if ((!args || args.keyName === undefined) && !opts.urn) {
+            if (args?.keyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceBusNamespace === undefined) && !opts.urn) {
+            if (args?.serviceBusNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceBusNamespace'");
             }
-            if ((!args || args.sharedAccessKey === undefined) && !opts.urn) {
+            if (args?.sharedAccessKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessKey'");
             }
-            resourceInputs["consumerGroupName"] = args ? args.consumerGroupName : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["eventSourceName"] = args ? args.eventSourceName : undefined;
-            resourceInputs["eventSourceResourceId"] = args ? args.eventSourceResourceId : undefined;
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["consumerGroupName"] = args?.consumerGroupName;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["eventSourceName"] = args?.eventSourceName;
+            resourceInputs["eventSourceResourceId"] = args?.eventSourceResourceId;
+            resourceInputs["keyName"] = args?.keyName;
             resourceInputs["kind"] = "Microsoft.EventHub";
-            resourceInputs["localTimestamp"] = args ? args.localTimestamp : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
-            resourceInputs["sharedAccessKey"] = args ? args.sharedAccessKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["time"] = args ? args.time : undefined;
-            resourceInputs["timestampPropertyName"] = args ? args.timestampPropertyName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["localTimestamp"] = args?.localTimestamp;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceBusNamespace"] = args?.serviceBusNamespace;
+            resourceInputs["sharedAccessKey"] = args?.sharedAccessKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["time"] = args?.time;
+            resourceInputs["timestampPropertyName"] = args?.timestampPropertyName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

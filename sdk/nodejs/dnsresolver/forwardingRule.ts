@@ -44,43 +44,43 @@ export class ForwardingRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The domain name for the forwarding rule.
      */
-    public readonly domainName!: pulumi.Output<string>;
+    declare public readonly domainName: pulumi.Output<string>;
     /**
      * ETag of the forwarding rule.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The state of forwarding rule.
      */
-    public readonly forwardingRuleState!: pulumi.Output<string | undefined>;
+    declare public readonly forwardingRuleState: pulumi.Output<string | undefined>;
     /**
      * Metadata attached to the forwarding rule.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
     /**
      * DNS servers to forward the DNS query to.
      */
-    public readonly targetDnsServers!: pulumi.Output<outputs.dnsresolver.TargetDnsServerResponse[]>;
+    declare public readonly targetDnsServers: pulumi.Output<outputs.dnsresolver.TargetDnsServerResponse[]>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ForwardingRule resource with the given unique name, arguments, and options.
@@ -93,25 +93,25 @@ export class ForwardingRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
+            if (args?.dnsForwardingRulesetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetDnsServers === undefined) && !opts.urn) {
+            if (args?.targetDnsServers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetDnsServers'");
             }
-            resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["forwardingRuleName"] = args ? args.forwardingRuleName : undefined;
-            resourceInputs["forwardingRuleState"] = args ? args.forwardingRuleState : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetDnsServers"] = args ? args.targetDnsServers : undefined;
+            resourceInputs["dnsForwardingRulesetName"] = args?.dnsForwardingRulesetName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["forwardingRuleName"] = args?.forwardingRuleName;
+            resourceInputs["forwardingRuleState"] = args?.forwardingRuleState;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetDnsServers"] = args?.targetDnsServers;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

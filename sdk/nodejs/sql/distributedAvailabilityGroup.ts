@@ -44,59 +44,59 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Databases in the distributed availability group
      */
-    public readonly databases!: pulumi.Output<outputs.sql.DistributedAvailabilityGroupDatabaseResponse[] | undefined>;
+    declare public readonly databases: pulumi.Output<outputs.sql.DistributedAvailabilityGroupDatabaseResponse[] | undefined>;
     /**
      * ID of the distributed availability group
      */
-    public /*out*/ readonly distributedAvailabilityGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly distributedAvailabilityGroupId: pulumi.Output<string>;
     /**
      * Name of the distributed availability group
      */
-    public readonly distributedAvailabilityGroupName!: pulumi.Output<string>;
+    declare public readonly distributedAvailabilityGroupName: pulumi.Output<string>;
     /**
      * The link failover mode - can be Manual if intended to be used for two-way failover with a supported SQL Server, or None for one-way failover to Azure.
      */
-    public readonly failoverMode!: pulumi.Output<string | undefined>;
+    declare public readonly failoverMode: pulumi.Output<string | undefined>;
     /**
      * Managed instance side availability group name
      */
-    public readonly instanceAvailabilityGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly instanceAvailabilityGroupName: pulumi.Output<string | undefined>;
     /**
      * Managed instance side link role
      */
-    public readonly instanceLinkRole!: pulumi.Output<string | undefined>;
+    declare public readonly instanceLinkRole: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * SQL server side availability group name
      */
-    public readonly partnerAvailabilityGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly partnerAvailabilityGroupName: pulumi.Output<string | undefined>;
     /**
      * SQL server side endpoint - IP or DNS resolvable name
      */
-    public readonly partnerEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly partnerEndpoint: pulumi.Output<string | undefined>;
     /**
      * SQL server side link role
      */
-    public /*out*/ readonly partnerLinkRole!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnerLinkRole: pulumi.Output<string>;
     /**
      * Replication mode of the link
      */
-    public readonly replicationMode!: pulumi.Output<string | undefined>;
+    declare public readonly replicationMode: pulumi.Output<string | undefined>;
     /**
      * Database seeding mode – can be Automatic (default), or Manual for supported scenarios.
      */
-    public readonly seedingMode!: pulumi.Output<string | undefined>;
+    declare public readonly seedingMode: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DistributedAvailabilityGroup resource with the given unique name, arguments, and options.
@@ -109,23 +109,23 @@ export class DistributedAvailabilityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["databases"] = args ? args.databases : undefined;
-            resourceInputs["distributedAvailabilityGroupName"] = args ? args.distributedAvailabilityGroupName : undefined;
-            resourceInputs["failoverMode"] = args ? args.failoverMode : undefined;
-            resourceInputs["instanceAvailabilityGroupName"] = args ? args.instanceAvailabilityGroupName : undefined;
-            resourceInputs["instanceLinkRole"] = args ? args.instanceLinkRole : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["partnerAvailabilityGroupName"] = args ? args.partnerAvailabilityGroupName : undefined;
-            resourceInputs["partnerEndpoint"] = args ? args.partnerEndpoint : undefined;
-            resourceInputs["replicationMode"] = args ? args.replicationMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["seedingMode"] = args ? args.seedingMode : undefined;
+            resourceInputs["databases"] = args?.databases;
+            resourceInputs["distributedAvailabilityGroupName"] = args?.distributedAvailabilityGroupName;
+            resourceInputs["failoverMode"] = args?.failoverMode;
+            resourceInputs["instanceAvailabilityGroupName"] = args?.instanceAvailabilityGroupName;
+            resourceInputs["instanceLinkRole"] = args?.instanceLinkRole;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["partnerAvailabilityGroupName"] = args?.partnerAvailabilityGroupName;
+            resourceInputs["partnerEndpoint"] = args?.partnerEndpoint;
+            resourceInputs["replicationMode"] = args?.replicationMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["seedingMode"] = args?.seedingMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["distributedAvailabilityGroupId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,71 +42,71 @@ export class NetworkTapRule extends pulumi.CustomResource {
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * Input method to configure Network Tap Rule.
      */
-    public readonly configurationType!: pulumi.Output<string>;
+    declare public readonly configurationType: pulumi.Output<string>;
     /**
      * List of dynamic match configurations.
      */
-    public readonly dynamicMatchConfigurations!: pulumi.Output<outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[] | undefined>;
+    declare public readonly dynamicMatchConfigurations: pulumi.Output<outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[] | undefined>;
     /**
      * The last sync timestamp.
      */
-    public /*out*/ readonly lastSyncedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncedTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * List of match configurations.
      */
-    public readonly matchConfigurations!: pulumi.Output<outputs.managednetworkfabric.NetworkTapRuleMatchConfigurationResponse[] | undefined>;
+    declare public readonly matchConfigurations: pulumi.Output<outputs.managednetworkfabric.NetworkTapRuleMatchConfigurationResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ARM resource Id of the NetworkTap.
      */
-    public /*out*/ readonly networkTapId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkTapId: pulumi.Output<string>;
     /**
      * Polling interval in seconds.
      */
-    public readonly pollingIntervalInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly pollingIntervalInSeconds: pulumi.Output<number | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Network Tap Rules file URL.
      */
-    public readonly tapRulesUrl!: pulumi.Output<string | undefined>;
+    declare public readonly tapRulesUrl: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NetworkTapRule resource with the given unique name, arguments, and options.
@@ -119,22 +119,22 @@ export class NetworkTapRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationType === undefined) && !opts.urn) {
+            if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
-            resourceInputs["dynamicMatchConfigurations"] = args ? args.dynamicMatchConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["matchConfigurations"] = args ? args.matchConfigurations : undefined;
-            resourceInputs["networkTapRuleName"] = args ? args.networkTapRuleName : undefined;
-            resourceInputs["pollingIntervalInSeconds"] = (args ? args.pollingIntervalInSeconds : undefined) ?? 30;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tapRulesUrl"] = args ? args.tapRulesUrl : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["configurationType"] = args?.configurationType;
+            resourceInputs["dynamicMatchConfigurations"] = args?.dynamicMatchConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["matchConfigurations"] = args?.matchConfigurations;
+            resourceInputs["networkTapRuleName"] = args?.networkTapRuleName;
+            resourceInputs["pollingIntervalInSeconds"] = (args?.pollingIntervalInSeconds) ?? 30;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tapRulesUrl"] = args?.tapRulesUrl;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

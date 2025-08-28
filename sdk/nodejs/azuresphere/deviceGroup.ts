@@ -44,47 +44,47 @@ export class DeviceGroup extends pulumi.CustomResource {
     /**
      * Flag to define if the user allows for crash dump collection.
      */
-    public readonly allowCrashDumpsCollection!: pulumi.Output<string | undefined>;
+    declare public readonly allowCrashDumpsCollection: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the device group.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Deployment status for the device group.
      */
-    public /*out*/ readonly hasDeployment!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasDeployment: pulumi.Output<boolean>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Operating system feed type of the device group.
      */
-    public readonly osFeedType!: pulumi.Output<string | undefined>;
+    declare public readonly osFeedType: pulumi.Output<string | undefined>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Regional data boundary for the device group.
      */
-    public readonly regionalDataBoundary!: pulumi.Output<string | undefined>;
+    declare public readonly regionalDataBoundary: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azuresphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azuresphere.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Update policy of the device group.
      */
-    public readonly updatePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly updatePolicy: pulumi.Output<string | undefined>;
 
     /**
      * Create a DeviceGroup resource with the given unique name, arguments, and options.
@@ -97,24 +97,24 @@ export class DeviceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.catalogName === undefined) && !opts.urn) {
+            if (args?.catalogName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'catalogName'");
             }
-            if ((!args || args.productName === undefined) && !opts.urn) {
+            if (args?.productName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowCrashDumpsCollection"] = args ? args.allowCrashDumpsCollection : undefined;
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceGroupName"] = args ? args.deviceGroupName : undefined;
-            resourceInputs["osFeedType"] = args ? args.osFeedType : undefined;
-            resourceInputs["productName"] = args ? args.productName : undefined;
-            resourceInputs["regionalDataBoundary"] = args ? args.regionalDataBoundary : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["updatePolicy"] = args ? args.updatePolicy : undefined;
+            resourceInputs["allowCrashDumpsCollection"] = args?.allowCrashDumpsCollection;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceGroupName"] = args?.deviceGroupName;
+            resourceInputs["osFeedType"] = args?.osFeedType;
+            resourceInputs["productName"] = args?.productName;
+            resourceInputs["regionalDataBoundary"] = args?.regionalDataBoundary;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["updatePolicy"] = args?.updatePolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasDeployment"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

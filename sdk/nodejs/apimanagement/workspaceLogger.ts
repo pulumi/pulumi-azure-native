@@ -44,36 +44,36 @@ export class WorkspaceLogger extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name and SendRule connection string of the event hub for azureEventHub logger.
      * Instrumentation key for applicationInsights logger.
      */
-    public readonly credentials!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly credentials: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Logger description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Whether records are buffered in the logger before publishing. Default is assumed to be true.
      */
-    public readonly isBuffered!: pulumi.Output<boolean | undefined>;
+    declare public readonly isBuffered: pulumi.Output<boolean | undefined>;
     /**
      * Logger type.
      */
-    public readonly loggerType!: pulumi.Output<string>;
+    declare public readonly loggerType: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Id of a log target (either Azure Event Hub resource or Azure Application Insights resource).
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceLogger resource with the given unique name, arguments, and options.
@@ -86,27 +86,27 @@ export class WorkspaceLogger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loggerType === undefined) && !opts.urn) {
+            if (args?.loggerType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loggerType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["isBuffered"] = args ? args.isBuffered : undefined;
-            resourceInputs["loggerId"] = args ? args.loggerId : undefined;
-            resourceInputs["loggerType"] = args ? args.loggerType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["isBuffered"] = args?.isBuffered;
+            resourceInputs["loggerId"] = args?.loggerId;
+            resourceInputs["loggerType"] = args?.loggerType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

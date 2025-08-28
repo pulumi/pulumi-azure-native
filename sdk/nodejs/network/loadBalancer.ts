@@ -44,71 +44,71 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Collection of backend address pools used by a load balancer.
      */
-    public readonly backendAddressPools!: pulumi.Output<outputs.network.BackendAddressPoolResponse[] | undefined>;
+    declare public readonly backendAddressPools: pulumi.Output<outputs.network.BackendAddressPoolResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the load balancer.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * Object representing the frontend IPs to be used for the load balancer.
      */
-    public readonly frontendIPConfigurations!: pulumi.Output<outputs.network.FrontendIPConfigurationResponse[] | undefined>;
+    declare public readonly frontendIPConfigurations: pulumi.Output<outputs.network.FrontendIPConfigurationResponse[] | undefined>;
     /**
      * Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    public readonly inboundNatPools!: pulumi.Output<outputs.network.InboundNatPoolResponse[] | undefined>;
+    declare public readonly inboundNatPools: pulumi.Output<outputs.network.InboundNatPoolResponse[] | undefined>;
     /**
      * Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules.
      */
-    public readonly inboundNatRules!: pulumi.Output<outputs.network.InboundNatRuleResponse[] | undefined>;
+    declare public readonly inboundNatRules: pulumi.Output<outputs.network.InboundNatRuleResponse[] | undefined>;
     /**
      * Object collection representing the load balancing rules Gets the provisioning.
      */
-    public readonly loadBalancingRules!: pulumi.Output<outputs.network.LoadBalancingRuleResponse[] | undefined>;
+    declare public readonly loadBalancingRules: pulumi.Output<outputs.network.LoadBalancingRuleResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The outbound rules.
      */
-    public readonly outboundRules!: pulumi.Output<outputs.network.OutboundRuleResponse[] | undefined>;
+    declare public readonly outboundRules: pulumi.Output<outputs.network.OutboundRuleResponse[] | undefined>;
     /**
      * Collection of probe objects used in the load balancer.
      */
-    public readonly probes!: pulumi.Output<outputs.network.ProbeResponse[] | undefined>;
+    declare public readonly probes: pulumi.Output<outputs.network.ProbeResponse[] | undefined>;
     /**
      * The provisioning state of the load balancer resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the load balancer resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The load balancer SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.LoadBalancerSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.LoadBalancerSkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -121,23 +121,23 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPools"] = args ? args.backendAddressPools : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["frontendIPConfigurations"] = args ? args.frontendIPConfigurations : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["inboundNatPools"] = args ? args.inboundNatPools : undefined;
-            resourceInputs["inboundNatRules"] = args ? args.inboundNatRules : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outboundRules"] = args ? args.outboundRules : undefined;
-            resourceInputs["probes"] = args ? args.probes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["backendAddressPools"] = args?.backendAddressPools;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["frontendIPConfigurations"] = args?.frontendIPConfigurations;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["inboundNatPools"] = args?.inboundNatPools;
+            resourceInputs["inboundNatRules"] = args?.inboundNatRules;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["loadBalancingRules"] = args?.loadBalancingRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outboundRules"] = args?.outboundRules;
+            resourceInputs["probes"] = args?.probes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

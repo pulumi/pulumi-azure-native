@@ -44,55 +44,55 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure resource name.
      */
-    public readonly azureResourceName!: pulumi.Output<string | undefined>;
+    declare public readonly azureResourceName: pulumi.Output<string | undefined>;
     /**
      * Azure resource type.
      */
-    public readonly azureResourceType!: pulumi.Output<string | undefined>;
+    declare public readonly azureResourceType: pulumi.Output<string | undefined>;
     /**
      * Custom DNS record type.
      */
-    public readonly customHostNameDnsRecordType!: pulumi.Output<string | undefined>;
+    declare public readonly customHostNameDnsRecordType: pulumi.Output<string | undefined>;
     /**
      * Fully qualified ARM domain resource URI.
      */
-    public readonly domainId!: pulumi.Output<string | undefined>;
+    declare public readonly domainId: pulumi.Output<string | undefined>;
     /**
      * Hostname type.
      */
-    public readonly hostNameType!: pulumi.Output<string | undefined>;
+    declare public readonly hostNameType: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * App Service app name.
      */
-    public readonly siteName!: pulumi.Output<string | undefined>;
+    declare public readonly siteName: pulumi.Output<string | undefined>;
     /**
      * SSL type
      */
-    public readonly sslState!: pulumi.Output<string | undefined>;
+    declare public readonly sslState: pulumi.Output<string | undefined>;
     /**
      * SSL certificate thumbprint
      */
-    public readonly thumbprint!: pulumi.Output<string | undefined>;
+    declare public readonly thumbprint: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Virtual IP address assigned to the hostname if IP based SSL is enabled.
      */
-    public /*out*/ readonly virtualIP!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualIP: pulumi.Output<string>;
 
     /**
      * Create a WebAppHostNameBindingSlot resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class WebAppHostNameBindingSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["azureResourceName"] = args ? args.azureResourceName : undefined;
-            resourceInputs["azureResourceType"] = args ? args.azureResourceType : undefined;
-            resourceInputs["customHostNameDnsRecordType"] = args ? args.customHostNameDnsRecordType : undefined;
-            resourceInputs["domainId"] = args ? args.domainId : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["hostNameType"] = args ? args.hostNameType : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["sslState"] = args ? args.sslState : undefined;
-            resourceInputs["thumbprint"] = args ? args.thumbprint : undefined;
+            resourceInputs["azureResourceName"] = args?.azureResourceName;
+            resourceInputs["azureResourceType"] = args?.azureResourceType;
+            resourceInputs["customHostNameDnsRecordType"] = args?.customHostNameDnsRecordType;
+            resourceInputs["domainId"] = args?.domainId;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["hostNameType"] = args?.hostNameType;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["sslState"] = args?.sslState;
+            resourceInputs["thumbprint"] = args?.thumbprint;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
             resourceInputs["virtualIP"] = undefined /*out*/;

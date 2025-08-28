@@ -42,63 +42,63 @@ export class Student extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Student Budget
      */
-    public readonly budget!: pulumi.Output<outputs.education.AmountResponse>;
+    declare public readonly budget: pulumi.Output<outputs.education.AmountResponse>;
     /**
      * Date student was added to the lab
      */
-    public /*out*/ readonly effectiveDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly effectiveDate: pulumi.Output<string>;
     /**
      * Student Email
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * Date this student is set to expire from the lab.
      */
-    public readonly expirationDate!: pulumi.Output<string>;
+    declare public readonly expirationDate: pulumi.Output<string>;
     /**
      * First Name
      */
-    public readonly firstName!: pulumi.Output<string>;
+    declare public readonly firstName: pulumi.Output<string>;
     /**
      * Last Name
      */
-    public readonly lastName!: pulumi.Output<string>;
+    declare public readonly lastName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Student Role
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * Student Lab Status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Subscription alias
      */
-    public readonly subscriptionAlias!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionAlias: pulumi.Output<string | undefined>;
     /**
      * Subscription Id
      */
-    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriptionId: pulumi.Output<string>;
     /**
      * subscription invite last sent date
      */
-    public readonly subscriptionInviteLastSentDate!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionInviteLastSentDate: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.education.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Student resource with the given unique name, arguments, and options.
@@ -111,45 +111,45 @@ export class Student extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingProfileName === undefined) && !opts.urn) {
+            if (args?.billingProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileName'");
             }
-            if ((!args || args.budget === undefined) && !opts.urn) {
+            if (args?.budget === undefined && !opts.urn) {
                 throw new Error("Missing required property 'budget'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.expirationDate === undefined) && !opts.urn) {
+            if (args?.expirationDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expirationDate'");
             }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
+            if (args?.firstName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.invoiceSectionName === undefined) && !opts.urn) {
+            if (args?.invoiceSectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invoiceSectionName'");
             }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
+            if (args?.lastName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
-            resourceInputs["budget"] = args ? args.budget : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["studentAlias"] = args ? args.studentAlias : undefined;
-            resourceInputs["subscriptionAlias"] = args ? args.subscriptionAlias : undefined;
-            resourceInputs["subscriptionInviteLastSentDate"] = args ? args.subscriptionInviteLastSentDate : undefined;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["billingProfileName"] = args?.billingProfileName;
+            resourceInputs["budget"] = args?.budget;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["invoiceSectionName"] = args?.invoiceSectionName;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["studentAlias"] = args?.studentAlias;
+            resourceInputs["subscriptionAlias"] = args?.subscriptionAlias;
+            resourceInputs["subscriptionInviteLastSentDate"] = args?.subscriptionInviteLastSentDate;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

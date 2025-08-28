@@ -42,91 +42,91 @@ export class Kpi extends pulumi.CustomResource {
     /**
      * The aliases.
      */
-    public readonly aliases!: pulumi.Output<outputs.customerinsights.KpiAliasResponse[] | undefined>;
+    declare public readonly aliases: pulumi.Output<outputs.customerinsights.KpiAliasResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The calculation window.
      */
-    public readonly calculationWindow!: pulumi.Output<string>;
+    declare public readonly calculationWindow: pulumi.Output<string>;
     /**
      * Name of calculation window field.
      */
-    public readonly calculationWindowFieldName!: pulumi.Output<string | undefined>;
+    declare public readonly calculationWindowFieldName: pulumi.Output<string | undefined>;
     /**
      * Localized description for the KPI.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Localized display name for the KPI.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The mapping entity type.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The mapping entity name.
      */
-    public readonly entityTypeName!: pulumi.Output<string>;
+    declare public readonly entityTypeName: pulumi.Output<string>;
     /**
      * The computation expression for the KPI.
      */
-    public readonly expression!: pulumi.Output<string>;
+    declare public readonly expression: pulumi.Output<string>;
     /**
      * The KPI extracts.
      */
-    public readonly extracts!: pulumi.Output<outputs.customerinsights.KpiExtractResponse[] | undefined>;
+    declare public readonly extracts: pulumi.Output<outputs.customerinsights.KpiExtractResponse[] | undefined>;
     /**
      * The filter expression for the KPI.
      */
-    public readonly filter!: pulumi.Output<string | undefined>;
+    declare public readonly filter: pulumi.Output<string | undefined>;
     /**
      * The computation function for the KPI.
      */
-    public readonly function!: pulumi.Output<string>;
+    declare public readonly function: pulumi.Output<string>;
     /**
      * the group by properties for the KPI.
      */
-    public readonly groupBy!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupBy: pulumi.Output<string[] | undefined>;
     /**
      * The KPI GroupByMetadata.
      */
-    public /*out*/ readonly groupByMetadata!: pulumi.Output<outputs.customerinsights.KpiGroupByMetadataResponse[]>;
+    declare public /*out*/ readonly groupByMetadata: pulumi.Output<outputs.customerinsights.KpiGroupByMetadataResponse[]>;
     /**
      * The KPI name.
      */
-    public readonly kpiName!: pulumi.Output<string>;
+    declare public readonly kpiName: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The participant profiles.
      */
-    public /*out*/ readonly participantProfilesMetadata!: pulumi.Output<outputs.customerinsights.KpiParticipantProfilesMetadataResponse[]>;
+    declare public /*out*/ readonly participantProfilesMetadata: pulumi.Output<outputs.customerinsights.KpiParticipantProfilesMetadataResponse[]>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * The KPI thresholds.
      */
-    public readonly thresHolds!: pulumi.Output<outputs.customerinsights.KpiThresholdsResponse | undefined>;
+    declare public readonly thresHolds: pulumi.Output<outputs.customerinsights.KpiThresholdsResponse | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unit of measurement for the KPI.
      */
-    public readonly unit!: pulumi.Output<string | undefined>;
+    declare public readonly unit: pulumi.Output<string | undefined>;
 
     /**
      * Create a Kpi resource with the given unique name, arguments, and options.
@@ -139,44 +139,44 @@ export class Kpi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.calculationWindow === undefined) && !opts.urn) {
+            if (args?.calculationWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'calculationWindow'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
+            if (args?.entityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.expression === undefined) && !opts.urn) {
+            if (args?.expression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expression'");
             }
-            if ((!args || args.function === undefined) && !opts.urn) {
+            if (args?.function === undefined && !opts.urn) {
                 throw new Error("Missing required property 'function'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aliases"] = args ? args.aliases : undefined;
-            resourceInputs["calculationWindow"] = args ? args.calculationWindow : undefined;
-            resourceInputs["calculationWindowFieldName"] = args ? args.calculationWindowFieldName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            resourceInputs["expression"] = args ? args.expression : undefined;
-            resourceInputs["extracts"] = args ? args.extracts : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["function"] = args ? args.function : undefined;
-            resourceInputs["groupBy"] = args ? args.groupBy : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["kpiName"] = args ? args.kpiName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["thresHolds"] = args ? args.thresHolds : undefined;
-            resourceInputs["unit"] = args ? args.unit : undefined;
+            resourceInputs["aliases"] = args?.aliases;
+            resourceInputs["calculationWindow"] = args?.calculationWindow;
+            resourceInputs["calculationWindowFieldName"] = args?.calculationWindowFieldName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["entityTypeName"] = args?.entityTypeName;
+            resourceInputs["expression"] = args?.expression;
+            resourceInputs["extracts"] = args?.extracts;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["function"] = args?.function;
+            resourceInputs["groupBy"] = args?.groupBy;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["kpiName"] = args?.kpiName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["thresHolds"] = args?.thresHolds;
+            resourceInputs["unit"] = args?.unit;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupByMetadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

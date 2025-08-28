@@ -44,59 +44,59 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The default security rules of network security group.
      */
-    public /*out*/ readonly defaultSecurityRules!: pulumi.Output<outputs.network.SecurityRuleResponse[]>;
+    declare public /*out*/ readonly defaultSecurityRules: pulumi.Output<outputs.network.SecurityRuleResponse[]>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A collection of references to flow log resources.
      */
-    public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.FlowLogResponse[]>;
+    declare public /*out*/ readonly flowLogs: pulumi.Output<outputs.network.FlowLogResponse[]>;
     /**
      * When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation.
      */
-    public readonly flushConnection!: pulumi.Output<boolean | undefined>;
+    declare public readonly flushConnection: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of references to network interfaces.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
     /**
      * The provisioning state of the network security group resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the network security group resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * A collection of security rules of the network security group.
      */
-    public readonly securityRules!: pulumi.Output<outputs.network.SecurityRuleResponse[] | undefined>;
+    declare public readonly securityRules: pulumi.Output<outputs.network.SecurityRuleResponse[] | undefined>;
     /**
      * A collection of references to subnets.
      */
-    public /*out*/ readonly subnets!: pulumi.Output<outputs.network.SubnetResponse[]>;
+    declare public /*out*/ readonly subnets: pulumi.Output<outputs.network.SubnetResponse[]>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NetworkSecurityGroup resource with the given unique name, arguments, and options.
@@ -109,16 +109,16 @@ export class NetworkSecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["flushConnection"] = args ? args.flushConnection : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityRules"] = args ? args.securityRules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["flushConnection"] = args?.flushConnection;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkSecurityGroupName"] = args?.networkSecurityGroupName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityRules"] = args?.securityRules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultSecurityRules"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

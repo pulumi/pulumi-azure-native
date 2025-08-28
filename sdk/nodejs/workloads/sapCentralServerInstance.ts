@@ -42,83 +42,83 @@ export class SapCentralServerInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Defines the SAP Enqueue Replication Server (ERS) properties.
      */
-    public /*out*/ readonly enqueueReplicationServerProperties!: pulumi.Output<outputs.workloads.EnqueueReplicationServerPropertiesResponse | undefined>;
+    declare public /*out*/ readonly enqueueReplicationServerProperties: pulumi.Output<outputs.workloads.EnqueueReplicationServerPropertiesResponse | undefined>;
     /**
      * Defines the SAP Enqueue Server properties.
      */
-    public /*out*/ readonly enqueueServerProperties!: pulumi.Output<outputs.workloads.EnqueueServerPropertiesResponse | undefined>;
+    declare public /*out*/ readonly enqueueServerProperties: pulumi.Output<outputs.workloads.EnqueueServerPropertiesResponse | undefined>;
     /**
      * Defines the errors related to SAP Central Services Instance resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPVirtualInstanceErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPVirtualInstanceErrorResponse>;
     /**
      * Defines the SAP Gateway Server properties.
      */
-    public /*out*/ readonly gatewayServerProperties!: pulumi.Output<outputs.workloads.GatewayServerPropertiesResponse | undefined>;
+    declare public /*out*/ readonly gatewayServerProperties: pulumi.Output<outputs.workloads.GatewayServerPropertiesResponse | undefined>;
     /**
      * Defines the health of SAP Instances.
      */
-    public /*out*/ readonly health!: pulumi.Output<string>;
+    declare public /*out*/ readonly health: pulumi.Output<string>;
     /**
      * The central services instance number.
      */
-    public /*out*/ readonly instanceNo!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceNo: pulumi.Output<string>;
     /**
      * The central services instance Kernel Patch level.
      */
-    public /*out*/ readonly kernelPatch!: pulumi.Output<string>;
+    declare public /*out*/ readonly kernelPatch: pulumi.Output<string>;
     /**
      * The central services instance Kernel Version.
      */
-    public /*out*/ readonly kernelVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kernelVersion: pulumi.Output<string>;
     /**
      * The Load Balancer details such as LoadBalancer ID attached to ASCS Virtual Machines
      */
-    public /*out*/ readonly loadBalancerDetails!: pulumi.Output<outputs.workloads.LoadBalancerDetailsResponse>;
+    declare public /*out*/ readonly loadBalancerDetails: pulumi.Output<outputs.workloads.LoadBalancerDetailsResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Defines the SAP message server properties.
      */
-    public /*out*/ readonly messageServerProperties!: pulumi.Output<outputs.workloads.MessageServerPropertiesResponse | undefined>;
+    declare public /*out*/ readonly messageServerProperties: pulumi.Output<outputs.workloads.MessageServerPropertiesResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Defines the SAP Instance status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The central services instance subnet.
      */
-    public /*out*/ readonly subnet!: pulumi.Output<string>;
+    declare public /*out*/ readonly subnet: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The list of virtual machines corresponding to the Central Services instance.
      */
-    public /*out*/ readonly vmDetails!: pulumi.Output<outputs.workloads.CentralServerVmDetailsResponse[]>;
+    declare public /*out*/ readonly vmDetails: pulumi.Output<outputs.workloads.CentralServerVmDetailsResponse[]>;
 
     /**
      * Create a SapCentralServerInstance resource with the given unique name, arguments, and options.
@@ -131,17 +131,17 @@ export class SapCentralServerInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapVirtualInstanceName === undefined) && !opts.urn) {
+            if (args?.sapVirtualInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapVirtualInstanceName'");
             }
-            resourceInputs["centralInstanceName"] = args ? args.centralInstanceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["centralInstanceName"] = args?.centralInstanceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapVirtualInstanceName"] = args?.sapVirtualInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enqueueReplicationServerProperties"] = undefined /*out*/;
             resourceInputs["enqueueServerProperties"] = undefined /*out*/;

@@ -44,99 +44,99 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
     /**
      * Allow classic operations.
      */
-    public readonly allowClassicOperations!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowClassicOperations: pulumi.Output<boolean | undefined>;
     /**
      * The authorizationKey.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The authorization status of the Circuit.
      */
-    public /*out*/ readonly authorizationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly authorizationStatus: pulumi.Output<string>;
     /**
      * The list of authorizations.
      */
-    public readonly authorizations!: pulumi.Output<outputs.network.ExpressRouteCircuitAuthorizationResponse[] | undefined>;
+    declare public readonly authorizations: pulumi.Output<outputs.network.ExpressRouteCircuitAuthorizationResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The bandwidth of the circuit when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    public readonly bandwidthInGbps!: pulumi.Output<number | undefined>;
+    declare public readonly bandwidthInGbps: pulumi.Output<number | undefined>;
     /**
      * The CircuitProvisioningState state of the resource.
      */
-    public readonly circuitProvisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly circuitProvisioningState: pulumi.Output<string | undefined>;
     /**
      * Flag denoting rate-limiting status of the ExpressRoute direct-port circuit.
      */
-    public readonly enableDirectPortRateLimit!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDirectPortRateLimit: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The reference to the ExpressRoutePort resource when the circuit is provisioned on an ExpressRoutePort resource.
      */
-    public readonly expressRoutePort!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly expressRoutePort: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The GatewayManager Etag.
      */
-    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayManagerEtag: pulumi.Output<string | undefined>;
     /**
      * Flag denoting global reach status.
      */
-    public readonly globalReachEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly globalReachEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of peerings.
      */
-    public readonly peerings!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[] | undefined>;
+    declare public readonly peerings: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[] | undefined>;
     /**
      * The provisioning state of the express route circuit resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The ServiceKey.
      */
-    public readonly serviceKey!: pulumi.Output<string | undefined>;
+    declare public readonly serviceKey: pulumi.Output<string | undefined>;
     /**
      * The ServiceProviderNotes.
      */
-    public readonly serviceProviderNotes!: pulumi.Output<string | undefined>;
+    declare public readonly serviceProviderNotes: pulumi.Output<string | undefined>;
     /**
      * The ServiceProviderProperties.
      */
-    public readonly serviceProviderProperties!: pulumi.Output<outputs.network.ExpressRouteCircuitServiceProviderPropertiesResponse | undefined>;
+    declare public readonly serviceProviderProperties: pulumi.Output<outputs.network.ExpressRouteCircuitServiceProviderPropertiesResponse | undefined>;
     /**
      * The ServiceProviderProvisioningState state of the resource.
      */
-    public readonly serviceProviderProvisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly serviceProviderProvisioningState: pulumi.Output<string | undefined>;
     /**
      * The SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.ExpressRouteCircuitSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.ExpressRouteCircuitSkuResponse | undefined>;
     /**
      * The identifier of the circuit traffic. Outer tag for QinQ encapsulation.
      */
-    public /*out*/ readonly stag!: pulumi.Output<number>;
+    declare public /*out*/ readonly stag: pulumi.Output<number>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuit resource with the given unique name, arguments, and options.
@@ -149,29 +149,29 @@ export class ExpressRouteCircuit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowClassicOperations"] = args ? args.allowClassicOperations : undefined;
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
-            resourceInputs["bandwidthInGbps"] = args ? args.bandwidthInGbps : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["circuitProvisioningState"] = args ? args.circuitProvisioningState : undefined;
-            resourceInputs["enableDirectPortRateLimit"] = args ? args.enableDirectPortRateLimit : undefined;
-            resourceInputs["expressRoutePort"] = args ? args.expressRoutePort : undefined;
-            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            resourceInputs["globalReachEnabled"] = args ? args.globalReachEnabled : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peerings"] = args ? args.peerings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceKey"] = args ? args.serviceKey : undefined;
-            resourceInputs["serviceProviderNotes"] = args ? args.serviceProviderNotes : undefined;
-            resourceInputs["serviceProviderProperties"] = args ? args.serviceProviderProperties : undefined;
-            resourceInputs["serviceProviderProvisioningState"] = args ? args.serviceProviderProvisioningState : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowClassicOperations"] = args?.allowClassicOperations;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["authorizations"] = args?.authorizations;
+            resourceInputs["bandwidthInGbps"] = args?.bandwidthInGbps;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["circuitProvisioningState"] = args?.circuitProvisioningState;
+            resourceInputs["enableDirectPortRateLimit"] = args?.enableDirectPortRateLimit;
+            resourceInputs["expressRoutePort"] = args?.expressRoutePort;
+            resourceInputs["gatewayManagerEtag"] = args?.gatewayManagerEtag;
+            resourceInputs["globalReachEnabled"] = args?.globalReachEnabled;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peerings"] = args?.peerings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceKey"] = args?.serviceKey;
+            resourceInputs["serviceProviderNotes"] = args?.serviceProviderNotes;
+            resourceInputs["serviceProviderProperties"] = args?.serviceProviderProperties;
+            resourceInputs["serviceProviderProvisioningState"] = args?.serviceProviderProvisioningState;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["authorizationStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

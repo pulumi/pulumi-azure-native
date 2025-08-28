@@ -42,43 +42,43 @@ export class PublicCloudConnector extends pulumi.CustomResource {
     /**
      * Cloud profile for AWS.
      */
-    public readonly awsCloudProfile!: pulumi.Output<outputs.hybridconnectivity.AwsCloudProfileResponse>;
+    declare public readonly awsCloudProfile: pulumi.Output<outputs.hybridconnectivity.AwsCloudProfileResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Connector primary identifier.
      */
-    public /*out*/ readonly connectorPrimaryIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorPrimaryIdentifier: pulumi.Output<string>;
     /**
      * Host cloud the public cloud connector.
      */
-    public readonly hostType!: pulumi.Output<string>;
+    declare public readonly hostType: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridconnectivity.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridconnectivity.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PublicCloudConnector resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class PublicCloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.awsCloudProfile === undefined) && !opts.urn) {
+            if (args?.awsCloudProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'awsCloudProfile'");
             }
-            if ((!args || args.hostType === undefined) && !opts.urn) {
+            if (args?.hostType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["awsCloudProfile"] = args ? (args.awsCloudProfile ? pulumi.output(args.awsCloudProfile).apply(inputs.hybridconnectivity.awsCloudProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicCloudConnector"] = args ? args.publicCloudConnector : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["hostType"] = args?.hostType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicCloudConnector"] = args?.publicCloudConnector;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorPrimaryIdentifier"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

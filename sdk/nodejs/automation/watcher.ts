@@ -44,67 +44,67 @@ export class Watcher extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the etag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the frequency at which the watcher is invoked.
      */
-    public readonly executionFrequencyInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly executionFrequencyInSeconds: pulumi.Output<number | undefined>;
     /**
      * Details of the user who last modified the watcher.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string>;
     /**
      * Gets or sets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the name of the script the watcher is attached to, i.e. the name of an existing runbook.
      */
-    public readonly scriptName!: pulumi.Output<string | undefined>;
+    declare public readonly scriptName: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the parameters of the script.
      */
-    public readonly scriptParameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly scriptParameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the name of the hybrid worker group the watcher will run on.
      */
-    public readonly scriptRunOn!: pulumi.Output<string | undefined>;
+    declare public readonly scriptRunOn: pulumi.Output<string | undefined>;
     /**
      * Gets the current status of the watcher.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Watcher resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class Watcher extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["executionFrequencyInSeconds"] = args ? args.executionFrequencyInSeconds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["scriptParameters"] = args ? args.scriptParameters : undefined;
-            resourceInputs["scriptRunOn"] = args ? args.scriptRunOn : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["executionFrequencyInSeconds"] = args?.executionFrequencyInSeconds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["scriptParameters"] = args?.scriptParameters;
+            resourceInputs["scriptRunOn"] = args?.scriptRunOn;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

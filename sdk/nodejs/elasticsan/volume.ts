@@ -44,43 +44,43 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * State of the operation on the resource.
      */
-    public readonly creationData!: pulumi.Output<outputs.elasticsan.SourceCreationDataResponse | undefined>;
+    declare public readonly creationData: pulumi.Output<outputs.elasticsan.SourceCreationDataResponse | undefined>;
     /**
      * Parent resource information.
      */
-    public readonly managedBy!: pulumi.Output<outputs.elasticsan.ManagedByInfoResponse | undefined>;
+    declare public readonly managedBy: pulumi.Output<outputs.elasticsan.ManagedByInfoResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of the operation on the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Volume size.
      */
-    public readonly sizeGiB!: pulumi.Output<number>;
+    declare public readonly sizeGiB: pulumi.Output<number>;
     /**
      * Storage target information
      */
-    public /*out*/ readonly storageTarget!: pulumi.Output<outputs.elasticsan.IscsiTargetInfoResponse>;
+    declare public /*out*/ readonly storageTarget: pulumi.Output<outputs.elasticsan.IscsiTargetInfoResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique Id of the volume in GUID format
      */
-    public /*out*/ readonly volumeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeId: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -93,25 +93,25 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sizeGiB === undefined) && !opts.urn) {
+            if (args?.sizeGiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeGiB'");
             }
-            if ((!args || args.volumeGroupName === undefined) && !opts.urn) {
+            if (args?.volumeGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sizeGiB"] = args ? args.sizeGiB : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sizeGiB"] = args?.sizeGiB;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

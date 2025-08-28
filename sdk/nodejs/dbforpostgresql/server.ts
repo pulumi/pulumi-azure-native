@@ -44,107 +44,107 @@ export class Server extends pulumi.CustomResource {
     /**
      * Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
      */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLogin: pulumi.Output<string | undefined>;
     /**
      * Authentication configuration properties of a flexible server.
      */
-    public readonly authConfig!: pulumi.Output<outputs.dbforpostgresql.AuthConfigResponse | undefined>;
+    declare public readonly authConfig: pulumi.Output<outputs.dbforpostgresql.AuthConfigResponse | undefined>;
     /**
      * Availability zone of a flexible server.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Backup properties of a flexible server.
      */
-    public readonly backup!: pulumi.Output<outputs.dbforpostgresql.BackupResponse | undefined>;
+    declare public readonly backup: pulumi.Output<outputs.dbforpostgresql.BackupResponse | undefined>;
     /**
      * Data encryption properties of a flexible server.
      */
-    public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.DataEncryptionResponse | undefined>;
+    declare public readonly dataEncryption: pulumi.Output<outputs.dbforpostgresql.DataEncryptionResponse | undefined>;
     /**
      * Fully qualified domain name of a flexible server.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
     /**
      * High availability properties of a flexible server.
      */
-    public readonly highAvailability!: pulumi.Output<outputs.dbforpostgresql.HighAvailabilityResponse | undefined>;
+    declare public readonly highAvailability: pulumi.Output<outputs.dbforpostgresql.HighAvailabilityResponse | undefined>;
     /**
      * User assigned managed identities assigned to the flexible server.
      */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.UserAssignedIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.dbforpostgresql.UserAssignedIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maintenance window properties of a flexible server.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.MaintenanceWindowResponse | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.dbforpostgresql.MaintenanceWindowResponse | undefined>;
     /**
      * Minor version of PostgreSQL database engine.
      */
-    public /*out*/ readonly minorVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly minorVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
      */
-    public readonly network!: pulumi.Output<outputs.dbforpostgresql.NetworkResponse | undefined>;
+    declare public readonly network: pulumi.Output<outputs.dbforpostgresql.NetworkResponse | undefined>;
     /**
      * List of private endpoint connections associated with the specified flexible server.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.dbforpostgresql.PrivateEndpointConnectionResponse[]>;
     /**
      * Read replica properties of a flexible server. Required only in case that you want to promote a server.
      */
-    public readonly replica!: pulumi.Output<outputs.dbforpostgresql.ReplicaResponse | undefined>;
+    declare public readonly replica: pulumi.Output<outputs.dbforpostgresql.ReplicaResponse | undefined>;
     /**
      * Maximum number of read replicas allowed for a flexible server.
      */
-    public /*out*/ readonly replicaCapacity!: pulumi.Output<number>;
+    declare public /*out*/ readonly replicaCapacity: pulumi.Output<number>;
     /**
      * Role of the server in a replication set.
      */
-    public readonly replicationRole!: pulumi.Output<string | undefined>;
+    declare public readonly replicationRole: pulumi.Output<string | undefined>;
     /**
      * Compute tier and size of a flexible server.
      */
-    public readonly sku!: pulumi.Output<outputs.dbforpostgresql.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.dbforpostgresql.SkuResponse | undefined>;
     /**
      * Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
      */
-    public readonly sourceServerResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceServerResourceId: pulumi.Output<string | undefined>;
     /**
      * Possible states of a flexible server.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Storage properties of a flexible server.
      */
-    public readonly storage!: pulumi.Output<outputs.dbforpostgresql.StorageResponse | undefined>;
+    declare public readonly storage: pulumi.Output<outputs.dbforpostgresql.StorageResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Major version of PostgreSQL database engine.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Server resource with the given unique name, arguments, and options.
@@ -157,31 +157,31 @@ export class Server extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
             resourceInputs["authConfig"] = args ? (args.authConfig ? pulumi.output(args.authConfig).apply(inputs.dbforpostgresql.authConfigArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["availabilityZone"] = (args ? args.availabilityZone : undefined) ?? "";
+            resourceInputs["availabilityZone"] = (args?.availabilityZone) ?? "";
             resourceInputs["backup"] = args ? (args.backup ? pulumi.output(args.backup).apply(inputs.dbforpostgresql.backupArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["dataEncryption"] = args?.dataEncryption;
             resourceInputs["highAvailability"] = args ? (args.highAvailability ? pulumi.output(args.highAvailability).apply(inputs.dbforpostgresql.highAvailabilityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceWindow"] = args ? (args.maintenanceWindow ? pulumi.output(args.maintenanceWindow).apply(inputs.dbforpostgresql.maintenanceWindowArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["network"] = args ? args.network : undefined;
-            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            resourceInputs["replica"] = args ? args.replica : undefined;
-            resourceInputs["replicationRole"] = args ? args.replicationRole : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceServerResourceId"] = args ? args.sourceServerResourceId : undefined;
-            resourceInputs["storage"] = args ? args.storage : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["network"] = args?.network;
+            resourceInputs["pointInTimeUTC"] = args?.pointInTimeUTC;
+            resourceInputs["replica"] = args?.replica;
+            resourceInputs["replicationRole"] = args?.replicationRole;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceServerResourceId"] = args?.sourceServerResourceId;
+            resourceInputs["storage"] = args?.storage;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fullyQualifiedDomainName"] = undefined /*out*/;
             resourceInputs["minorVersion"] = undefined /*out*/;

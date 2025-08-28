@@ -48,43 +48,43 @@ export class Budget extends pulumi.CustomResource {
      *
      *  Required for CategoryType(s): Cost.
      */
-    public readonly amount!: pulumi.Output<number | undefined>;
+    declare public readonly amount: pulumi.Output<number | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The category of the budget.
      * - 'Cost' defines a Budget.
      * - 'ReservationUtilization' defines a Reservation Utilization Alert Rule.
      */
-    public readonly category!: pulumi.Output<string>;
+    declare public readonly category: pulumi.Output<string>;
     /**
      * The current amount of cost which is being tracked for a budget.
      *
      *  Supported for CategoryType(s): Cost.
      */
-    public /*out*/ readonly currentSpend!: pulumi.Output<outputs.costmanagement.CurrentSpendResponse>;
+    declare public /*out*/ readonly currentSpend: pulumi.Output<outputs.costmanagement.CurrentSpendResponse>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * May be used to filter budgets by user-specified dimensions and/or tags.
      *
      *  Supported for CategoryType(s): Cost, ReservationUtilization.
      */
-    public readonly filter!: pulumi.Output<outputs.costmanagement.BudgetFilterResponse | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.costmanagement.BudgetFilterResponse | undefined>;
     /**
      * The forecasted cost which is being tracked for a budget.
      *
      *  Supported for CategoryType(s): Cost.
      */
-    public /*out*/ readonly forecastSpend!: pulumi.Output<outputs.costmanagement.ForecastSpendResponse>;
+    declare public /*out*/ readonly forecastSpend: pulumi.Output<outputs.costmanagement.ForecastSpendResponse>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Dictionary of notifications associated with the budget.
      *
@@ -93,7 +93,7 @@ export class Budget extends pulumi.CustomResource {
      * - Constraints for **CategoryType: Cost** - Budget can have up to 5 notifications with thresholdType: Actual and 5 notifications with thresholdType: Forecasted.
      * - Constraints for **CategoryType: ReservationUtilization** - Only one notification allowed. thresholdType is not applicable.
      */
-    public readonly notifications!: pulumi.Output<{[key: string]: outputs.costmanagement.NotificationResponse} | undefined>;
+    declare public readonly notifications: pulumi.Output<{[key: string]: outputs.costmanagement.NotificationResponse} | undefined>;
     /**
      * The time covered by a budget. Tracking of the amount will be reset based on the time grain.
      *
@@ -116,7 +116,7 @@ export class Budget extends pulumi.CustomResource {
      *
      *  Required for CategoryType(s): Cost, ReservationUtilization.
      */
-    public readonly timeGrain!: pulumi.Output<string>;
+    declare public readonly timeGrain: pulumi.Output<string>;
     /**
      * The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.
      *
@@ -124,11 +124,11 @@ export class Budget extends pulumi.CustomResource {
      *
      *  Required for CategoryType(s): Cost, ReservationUtilization.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.costmanagement.BudgetTimePeriodResponse>;
+    declare public readonly timePeriod: pulumi.Output<outputs.costmanagement.BudgetTimePeriodResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Budget resource with the given unique name, arguments, and options.
@@ -141,27 +141,27 @@ export class Budget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.category === undefined) && !opts.urn) {
+            if (args?.category === undefined && !opts.urn) {
                 throw new Error("Missing required property 'category'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.timeGrain === undefined) && !opts.urn) {
+            if (args?.timeGrain === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeGrain'");
             }
-            if ((!args || args.timePeriod === undefined) && !opts.urn) {
+            if (args?.timePeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timePeriod'");
             }
-            resourceInputs["amount"] = args ? args.amount : undefined;
-            resourceInputs["budgetName"] = args ? args.budgetName : undefined;
-            resourceInputs["category"] = args ? args.category : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["timeGrain"] = args ? args.timeGrain : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
+            resourceInputs["amount"] = args?.amount;
+            resourceInputs["budgetName"] = args?.budgetName;
+            resourceInputs["category"] = args?.category;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["timeGrain"] = args?.timeGrain;
+            resourceInputs["timePeriod"] = args?.timePeriod;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentSpend"] = undefined /*out*/;
             resourceInputs["forecastSpend"] = undefined /*out*/;

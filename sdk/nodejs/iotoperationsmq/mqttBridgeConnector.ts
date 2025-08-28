@@ -42,67 +42,67 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The number of instances to deploy for a bridge rollout.
      */
-    public readonly bridgeInstances!: pulumi.Output<number | undefined>;
+    declare public readonly bridgeInstances: pulumi.Output<number | undefined>;
     /**
      * The client id prefix of the dynamically generated client ids.
      */
-    public readonly clientIdPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly clientIdPrefix: pulumi.Output<string | undefined>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The details of MqttBridge Docker Image.
      */
-    public readonly image!: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
+    declare public readonly image: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
     /**
      * The details for connecting with Local Broker.
      */
-    public readonly localBrokerConnection!: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
+    declare public readonly localBrokerConnection: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The log level of the Bridge Connector instances.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Node Tolerations for the Bridge Connector pods.
      */
-    public readonly nodeTolerations!: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
+    declare public readonly nodeTolerations: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
     /**
      * The protocol to use for connecting with Brokers.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The details for connecting with Remote Broker.
      */
-    public readonly remoteBrokerConnection!: pulumi.Output<outputs.iotoperationsmq.MqttBridgeRemoteBrokerConnectionSpecResponse>;
+    declare public readonly remoteBrokerConnection: pulumi.Output<outputs.iotoperationsmq.MqttBridgeRemoteBrokerConnectionSpecResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MqttBridgeConnector resource with the given unique name, arguments, and options.
@@ -115,38 +115,38 @@ export class MqttBridgeConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.remoteBrokerConnection === undefined) && !opts.urn) {
+            if (args?.remoteBrokerConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remoteBrokerConnection'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bridgeInstances"] = args ? args.bridgeInstances : undefined;
-            resourceInputs["clientIdPrefix"] = args ? args.clientIdPrefix : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
+            resourceInputs["bridgeInstances"] = args?.bridgeInstances;
+            resourceInputs["clientIdPrefix"] = args?.clientIdPrefix;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["mqttBridgeConnectorName"] = args ? args.mqttBridgeConnectorName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["mqttBridgeConnectorName"] = args?.mqttBridgeConnectorName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["protocol"] = args?.protocol;
             resourceInputs["remoteBrokerConnection"] = args ? (args.remoteBrokerConnection ? pulumi.output(args.remoteBrokerConnection).apply(inputs.iotoperationsmq.mqttBridgeRemoteBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

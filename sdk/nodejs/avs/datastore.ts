@@ -44,39 +44,39 @@ export class Datastore extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An iSCSI volume
      */
-    public readonly diskPoolVolume!: pulumi.Output<outputs.avs.DiskPoolVolumeResponse | undefined>;
+    declare public readonly diskPoolVolume: pulumi.Output<outputs.avs.DiskPoolVolumeResponse | undefined>;
     /**
      * An Elastic SAN volume
      */
-    public readonly elasticSanVolume!: pulumi.Output<outputs.avs.ElasticSanVolumeResponse | undefined>;
+    declare public readonly elasticSanVolume: pulumi.Output<outputs.avs.ElasticSanVolumeResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * An Azure NetApp Files volume
      */
-    public readonly netAppVolume!: pulumi.Output<outputs.avs.NetAppVolumeResponse | undefined>;
+    declare public readonly netAppVolume: pulumi.Output<outputs.avs.NetAppVolumeResponse | undefined>;
     /**
      * The state of the datastore provisioning
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The operational status of the datastore
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["datastoreName"] = args ? args.datastoreName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["datastoreName"] = args?.datastoreName;
             resourceInputs["diskPoolVolume"] = args ? (args.diskPoolVolume ? pulumi.output(args.diskPoolVolume).apply(inputs.avs.diskPoolVolumeArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["elasticSanVolume"] = args ? args.elasticSanVolume : undefined;
-            resourceInputs["netAppVolume"] = args ? args.netAppVolume : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["elasticSanVolume"] = args?.elasticSanVolume;
+            resourceInputs["netAppVolume"] = args?.netAppVolume;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,47 +42,47 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Full name of contact
      */
-    public readonly contactName!: pulumi.Output<string>;
+    declare public readonly contactName: pulumi.Output<string>;
     /**
      * Email address of contact
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Telephone number of contact
      */
-    public readonly phoneNumber!: pulumi.Output<string>;
+    declare public readonly phoneNumber: pulumi.Output<string>;
     /**
      * Resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Job title of contact
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.voiceservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.voiceservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -95,29 +95,29 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communicationsGatewayName === undefined) && !opts.urn) {
+            if (args?.communicationsGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationsGatewayName'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
+            if (args?.phoneNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["communicationsGatewayName"] = args ? args.communicationsGatewayName : undefined;
-            resourceInputs["contactName"] = args ? args.contactName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communicationsGatewayName"] = args?.communicationsGatewayName;
+            resourceInputs["contactName"] = args?.contactName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

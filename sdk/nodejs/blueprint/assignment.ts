@@ -42,59 +42,59 @@ export class Assignment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ID of the published version of a blueprint definition.
      */
-    public readonly blueprintId!: pulumi.Output<string | undefined>;
+    declare public readonly blueprintId: pulumi.Output<string | undefined>;
     /**
      * Multi-line explain this resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * One-liner string explain this resource.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Managed identity for this blueprint assignment.
      */
-    public readonly identity!: pulumi.Output<outputs.blueprint.ManagedServiceIdentityResponse>;
+    declare public readonly identity: pulumi.Output<outputs.blueprint.ManagedServiceIdentityResponse>;
     /**
      * The location of this blueprint assignment.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Defines how resources deployed by a blueprint assignment are locked.
      */
-    public readonly locks!: pulumi.Output<outputs.blueprint.AssignmentLockSettingsResponse | undefined>;
+    declare public readonly locks: pulumi.Output<outputs.blueprint.AssignmentLockSettingsResponse | undefined>;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Blueprint assignment parameter values.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.ParameterValueResponse}>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.blueprint.ParameterValueResponse}>;
     /**
      * State of the blueprint assignment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Names and locations of resource group placeholders.
      */
-    public readonly resourceGroups!: pulumi.Output<{[key: string]: outputs.blueprint.ResourceGroupValueResponse}>;
+    declare public readonly resourceGroups: pulumi.Output<{[key: string]: outputs.blueprint.ResourceGroupValueResponse}>;
     /**
      * The target subscription scope of the blueprint assignment (format: '/subscriptions/{subscriptionId}'). For management group level assignments, the property is required.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Status of blueprint assignment. This field is readonly.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.blueprint.AssignmentStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.blueprint.AssignmentStatusResponse>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Assignment resource with the given unique name, arguments, and options.
@@ -107,29 +107,29 @@ export class Assignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.resourceGroups === undefined) && !opts.urn) {
+            if (args?.resourceGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroups'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["blueprintId"] = args ? args.blueprintId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locks"] = args ? args.locks : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentName"] = args?.assignmentName;
+            resourceInputs["blueprintId"] = args?.blueprintId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locks"] = args?.locks;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroups"] = args?.resourceGroups;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
