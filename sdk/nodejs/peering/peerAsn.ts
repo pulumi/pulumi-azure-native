@@ -44,35 +44,35 @@ export class PeerAsn extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The error message for the validation state
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Autonomous System Number (ASN) of the peer.
      */
-    public readonly peerAsn!: pulumi.Output<number | undefined>;
+    declare public readonly peerAsn: pulumi.Output<number | undefined>;
     /**
      * The contact details of the peer.
      */
-    public readonly peerContactDetail!: pulumi.Output<outputs.peering.ContactDetailResponse[] | undefined>;
+    declare public readonly peerContactDetail: pulumi.Output<outputs.peering.ContactDetailResponse[] | undefined>;
     /**
      * The name of the peer.
      */
-    public readonly peerName!: pulumi.Output<string | undefined>;
+    declare public readonly peerName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The validation state of the ASN associated with the peer.
      */
-    public /*out*/ readonly validationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationState: pulumi.Output<string>;
 
     /**
      * Create a PeerAsn resource with the given unique name, arguments, and options.
@@ -85,10 +85,10 @@ export class PeerAsn extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["peerAsn"] = args ? args.peerAsn : undefined;
-            resourceInputs["peerAsnName"] = args ? args.peerAsnName : undefined;
-            resourceInputs["peerContactDetail"] = args ? args.peerContactDetail : undefined;
-            resourceInputs["peerName"] = args ? args.peerName : undefined;
+            resourceInputs["peerAsn"] = args?.peerAsn;
+            resourceInputs["peerAsnName"] = args?.peerAsnName;
+            resourceInputs["peerContactDetail"] = args?.peerContactDetail;
+            resourceInputs["peerName"] = args?.peerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

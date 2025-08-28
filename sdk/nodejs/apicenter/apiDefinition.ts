@@ -44,31 +44,31 @@ export class ApiDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * API definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * API specification details.
      */
-    public /*out*/ readonly specification!: pulumi.Output<outputs.apicenter.ApiDefinitionPropertiesSpecificationResponse>;
+    declare public /*out*/ readonly specification: pulumi.Output<outputs.apicenter.ApiDefinitionPropertiesSpecificationResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apicenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.apicenter.SystemDataResponse>;
     /**
      * API definition title.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApiDefinition resource with the given unique name, arguments, and options.
@@ -81,32 +81,32 @@ export class ApiDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.versionName === undefined) && !opts.urn) {
+            if (args?.versionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["definitionName"] = args ? args.definitionName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["definitionName"] = args?.definitionName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["specification"] = undefined /*out*/;

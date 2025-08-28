@@ -42,83 +42,83 @@ export class Prediction extends pulumi.CustomResource {
     /**
      * Whether do auto analyze.
      */
-    public readonly autoAnalyze!: pulumi.Output<boolean>;
+    declare public readonly autoAnalyze: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the prediction.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Display name of the prediction.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The prediction grades.
      */
-    public readonly grades!: pulumi.Output<outputs.customerinsights.PredictionResponseGrades[] | undefined>;
+    declare public readonly grades: pulumi.Output<outputs.customerinsights.PredictionResponseGrades[] | undefined>;
     /**
      * Interaction types involved in the prediction.
      */
-    public readonly involvedInteractionTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly involvedInteractionTypes: pulumi.Output<string[] | undefined>;
     /**
      * KPI types involved in the prediction.
      */
-    public readonly involvedKpiTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly involvedKpiTypes: pulumi.Output<string[] | undefined>;
     /**
      * Relationships involved in the prediction.
      */
-    public readonly involvedRelationships!: pulumi.Output<string[] | undefined>;
+    declare public readonly involvedRelationships: pulumi.Output<string[] | undefined>;
     /**
      * Definition of the link mapping of prediction.
      */
-    public readonly mappings!: pulumi.Output<outputs.customerinsights.PredictionResponseMappings>;
+    declare public readonly mappings: pulumi.Output<outputs.customerinsights.PredictionResponseMappings>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Negative outcome expression.
      */
-    public readonly negativeOutcomeExpression!: pulumi.Output<string>;
+    declare public readonly negativeOutcomeExpression: pulumi.Output<string>;
     /**
      * Positive outcome expression.
      */
-    public readonly positiveOutcomeExpression!: pulumi.Output<string>;
+    declare public readonly positiveOutcomeExpression: pulumi.Output<string>;
     /**
      * Name of the prediction.
      */
-    public readonly predictionName!: pulumi.Output<string | undefined>;
+    declare public readonly predictionName: pulumi.Output<string | undefined>;
     /**
      * Primary profile type.
      */
-    public readonly primaryProfileType!: pulumi.Output<string>;
+    declare public readonly primaryProfileType: pulumi.Output<string>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Scope expression.
      */
-    public readonly scopeExpression!: pulumi.Output<string>;
+    declare public readonly scopeExpression: pulumi.Output<string>;
     /**
      * Score label.
      */
-    public readonly scoreLabel!: pulumi.Output<string>;
+    declare public readonly scoreLabel: pulumi.Output<string>;
     /**
      * System generated entities.
      */
-    public /*out*/ readonly systemGeneratedEntities!: pulumi.Output<outputs.customerinsights.PredictionResponseSystemGeneratedEntities>;
+    declare public /*out*/ readonly systemGeneratedEntities: pulumi.Output<outputs.customerinsights.PredictionResponseSystemGeneratedEntities>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Prediction resource with the given unique name, arguments, and options.
@@ -131,49 +131,49 @@ export class Prediction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoAnalyze === undefined) && !opts.urn) {
+            if (args?.autoAnalyze === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoAnalyze'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappings === undefined) && !opts.urn) {
+            if (args?.mappings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappings'");
             }
-            if ((!args || args.negativeOutcomeExpression === undefined) && !opts.urn) {
+            if (args?.negativeOutcomeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'negativeOutcomeExpression'");
             }
-            if ((!args || args.positiveOutcomeExpression === undefined) && !opts.urn) {
+            if (args?.positiveOutcomeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'positiveOutcomeExpression'");
             }
-            if ((!args || args.primaryProfileType === undefined) && !opts.urn) {
+            if (args?.primaryProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'primaryProfileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopeExpression === undefined) && !opts.urn) {
+            if (args?.scopeExpression === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopeExpression'");
             }
-            if ((!args || args.scoreLabel === undefined) && !opts.urn) {
+            if (args?.scoreLabel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scoreLabel'");
             }
-            resourceInputs["autoAnalyze"] = args ? args.autoAnalyze : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["grades"] = args ? args.grades : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["involvedInteractionTypes"] = args ? args.involvedInteractionTypes : undefined;
-            resourceInputs["involvedKpiTypes"] = args ? args.involvedKpiTypes : undefined;
-            resourceInputs["involvedRelationships"] = args ? args.involvedRelationships : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["negativeOutcomeExpression"] = args ? args.negativeOutcomeExpression : undefined;
-            resourceInputs["positiveOutcomeExpression"] = args ? args.positiveOutcomeExpression : undefined;
-            resourceInputs["predictionName"] = args ? args.predictionName : undefined;
-            resourceInputs["primaryProfileType"] = args ? args.primaryProfileType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopeExpression"] = args ? args.scopeExpression : undefined;
-            resourceInputs["scoreLabel"] = args ? args.scoreLabel : undefined;
+            resourceInputs["autoAnalyze"] = args?.autoAnalyze;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["grades"] = args?.grades;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["involvedInteractionTypes"] = args?.involvedInteractionTypes;
+            resourceInputs["involvedKpiTypes"] = args?.involvedKpiTypes;
+            resourceInputs["involvedRelationships"] = args?.involvedRelationships;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["negativeOutcomeExpression"] = args?.negativeOutcomeExpression;
+            resourceInputs["positiveOutcomeExpression"] = args?.positiveOutcomeExpression;
+            resourceInputs["predictionName"] = args?.predictionName;
+            resourceInputs["primaryProfileType"] = args?.primaryProfileType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopeExpression"] = args?.scopeExpression;
+            resourceInputs["scoreLabel"] = args?.scoreLabel;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

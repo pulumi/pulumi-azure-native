@@ -44,55 +44,55 @@ export class SnapshotPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Schedule for daily snapshots
      */
-    public readonly dailySchedule!: pulumi.Output<outputs.netapp.DailyScheduleResponse | undefined>;
+    declare public readonly dailySchedule: pulumi.Output<outputs.netapp.DailyScheduleResponse | undefined>;
     /**
      * The property to decide policy is enabled or not
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Schedule for hourly snapshots
      */
-    public readonly hourlySchedule!: pulumi.Output<outputs.netapp.HourlyScheduleResponse | undefined>;
+    declare public readonly hourlySchedule: pulumi.Output<outputs.netapp.HourlyScheduleResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Schedule for monthly snapshots
      */
-    public readonly monthlySchedule!: pulumi.Output<outputs.netapp.MonthlyScheduleResponse | undefined>;
+    declare public readonly monthlySchedule: pulumi.Output<outputs.netapp.MonthlyScheduleResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Schedule for weekly snapshots
      */
-    public readonly weeklySchedule!: pulumi.Output<outputs.netapp.WeeklyScheduleResponse | undefined>;
+    declare public readonly weeklySchedule: pulumi.Output<outputs.netapp.WeeklyScheduleResponse | undefined>;
 
     /**
      * Create a SnapshotPolicy resource with the given unique name, arguments, and options.
@@ -105,22 +105,22 @@ export class SnapshotPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dailySchedule"] = args ? args.dailySchedule : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["hourlySchedule"] = args ? args.hourlySchedule : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["monthlySchedule"] = args ? args.monthlySchedule : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snapshotPolicyName"] = args ? args.snapshotPolicyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["weeklySchedule"] = args ? args.weeklySchedule : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dailySchedule"] = args?.dailySchedule;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["hourlySchedule"] = args?.hourlySchedule;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["monthlySchedule"] = args?.monthlySchedule;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snapshotPolicyName"] = args?.snapshotPolicyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["weeklySchedule"] = args?.weeklySchedule;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

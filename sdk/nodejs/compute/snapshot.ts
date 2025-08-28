@@ -44,131 +44,131 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Percentage complete for the background copy when a resource is created via the CopyStart operation.
      */
-    public readonly completionPercent!: pulumi.Output<number | undefined>;
+    declare public readonly completionPercent: pulumi.Output<number | undefined>;
     /**
      * Indicates the error details if the background copy of a resource created via the CopyStart operation fails.
      */
-    public readonly copyCompletionError!: pulumi.Output<outputs.compute.CopyCompletionErrorResponse | undefined>;
+    declare public readonly copyCompletionError: pulumi.Output<outputs.compute.CopyCompletionErrorResponse | undefined>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    public readonly creationData!: pulumi.Output<outputs.compute.CreationDataResponse>;
+    declare public readonly creationData: pulumi.Output<outputs.compute.CreationDataResponse>;
     /**
      * Additional authentication requirements when exporting or uploading to a disk or snapshot.
      */
-    public readonly dataAccessAuthMode!: pulumi.Output<string | undefined>;
+    declare public readonly dataAccessAuthMode: pulumi.Output<string | undefined>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
-    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    declare public readonly diskAccessId: pulumi.Output<string | undefined>;
     /**
      * The size of the disk in bytes. This field is read only.
      */
-    public /*out*/ readonly diskSizeBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly diskSizeBytes: pulumi.Output<number>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly diskSizeGB: pulumi.Output<number | undefined>;
     /**
      * The state of the snapshot.
      */
-    public /*out*/ readonly diskState!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskState: pulumi.Output<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    public readonly encryption!: pulumi.Output<outputs.compute.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.compute.EncryptionResponse | undefined>;
     /**
      * Encryption settings collection used be Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.EncryptionSettingsCollectionResponse | undefined>;
+    declare public readonly encryptionSettingsCollection: pulumi.Output<outputs.compute.EncryptionSettingsCollectionResponse | undefined>;
     /**
      * The extended location where the snapshot will be created. Extended location cannot be changed.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * Whether a snapshot is incremental. Incremental snapshots on the same disk occupy less space than full snapshots and can be diffed.
      */
-    public readonly incremental!: pulumi.Output<boolean | undefined>;
+    declare public readonly incremental: pulumi.Output<boolean | undefined>;
     /**
      * Incremental snapshots for a disk share an incremental snapshot family id. The Get Page Range Diff API can only be called on incremental snapshots with the same family id.
      */
-    public /*out*/ readonly incrementalSnapshotFamilyId!: pulumi.Output<string>;
+    declare public /*out*/ readonly incrementalSnapshotFamilyId: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Unused. Always Null.
      */
-    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Policy for accessing the disk via network.
      */
-    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly networkAccessPolicy: pulumi.Output<string | undefined>;
     /**
      * The Operating System type.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * The disk provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Policy for controlling export on the disk.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Purchase plan information for the image from which the source disk for the snapshot was originally created.
      */
-    public readonly purchasePlan!: pulumi.Output<outputs.compute.DiskPurchasePlanResponse | undefined>;
+    declare public readonly purchasePlan: pulumi.Output<outputs.compute.DiskPurchasePlanResponse | undefined>;
     /**
      * Contains the security related information for the resource.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
     /**
      * The snapshots sku name. Can be Standard_LRS, Premium_LRS, or Standard_ZRS. This is an optional parameter for incremental snapshot and the default behavior is the SKU will be set to the same sku as the previous snapshot
      */
-    public readonly sku!: pulumi.Output<outputs.compute.SnapshotSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.compute.SnapshotSkuResponse | undefined>;
     /**
      * List of supported capabilities for the image from which the source disk from the snapshot was originally created.
      */
-    public readonly supportedCapabilities!: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
+    declare public readonly supportedCapabilities: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
     /**
      * Indicates the OS on a snapshot supports hibernation.
      */
-    public readonly supportsHibernation!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportsHibernation: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The time when the snapshot was created.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique Guid identifying the resource.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -181,35 +181,35 @@ export class Snapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creationData === undefined) && !opts.urn) {
+            if (args?.creationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
-            resourceInputs["copyCompletionError"] = args ? args.copyCompletionError : undefined;
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["dataAccessAuthMode"] = args ? args.dataAccessAuthMode : undefined;
-            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["incremental"] = args ? args.incremental : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
-            resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["completionPercent"] = args?.completionPercent;
+            resourceInputs["copyCompletionError"] = args?.copyCompletionError;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["dataAccessAuthMode"] = args?.dataAccessAuthMode;
+            resourceInputs["diskAccessId"] = args?.diskAccessId;
+            resourceInputs["diskSizeGB"] = args?.diskSizeGB;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionSettingsCollection"] = args?.encryptionSettingsCollection;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["incremental"] = args?.incremental;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkAccessPolicy"] = args?.networkAccessPolicy;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purchasePlan"] = args?.purchasePlan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["supportedCapabilities"] = args?.supportedCapabilities;
+            resourceInputs["supportsHibernation"] = args?.supportsHibernation;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;
             resourceInputs["diskState"] = undefined /*out*/;

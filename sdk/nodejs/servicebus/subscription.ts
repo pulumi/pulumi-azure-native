@@ -44,99 +44,99 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Last time there was a receive request to this subscription.
      */
-    public /*out*/ readonly accessedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessedAt: pulumi.Output<string>;
     /**
      * ISO 8061 timeSpan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    declare public readonly autoDeleteOnIdle: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties specific to client affine subscriptions.
      */
-    public readonly clientAffineProperties!: pulumi.Output<outputs.servicebus.SBClientAffinePropertiesResponse | undefined>;
+    declare public readonly clientAffineProperties: pulumi.Output<outputs.servicebus.SBClientAffinePropertiesResponse | undefined>;
     /**
      * Message count details
      */
-    public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.MessageCountDetailsResponse>;
+    declare public /*out*/ readonly countDetails: pulumi.Output<outputs.servicebus.MessageCountDetailsResponse>;
     /**
      * Exact time the message was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Value that indicates whether a subscription has dead letter support on filter evaluation exceptions.
      */
-    public readonly deadLetteringOnFilterEvaluationExceptions!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnFilterEvaluationExceptions: pulumi.Output<boolean | undefined>;
     /**
      * Value that indicates whether a subscription has dead letter support when a message expires.
      */
-    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * ISO 8061 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    public readonly defaultMessageTimeToLive!: pulumi.Output<string | undefined>;
+    declare public readonly defaultMessageTimeToLive: pulumi.Output<string | undefined>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string | undefined>;
+    declare public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string | undefined>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardDeadLetteredMessagesTo: pulumi.Output<string | undefined>;
     /**
      * Queue/Topic name to forward the messages
      */
-    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardTo: pulumi.Output<string | undefined>;
     /**
      * Value that indicates whether the subscription has an affinity to the client id.
      */
-    public readonly isClientAffine!: pulumi.Output<boolean | undefined>;
+    declare public readonly isClientAffine: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * ISO 8061 lock duration timespan for the subscription. The default value is 1 minute.
      */
-    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    declare public readonly lockDuration: pulumi.Output<string | undefined>;
     /**
      * Number of maximum deliveries.
      */
-    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxDeliveryCount: pulumi.Output<number | undefined>;
     /**
      * Number of messages.
      */
-    public /*out*/ readonly messageCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly messageCount: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Value indicating if a subscription supports the concept of sessions.
      */
-    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresSession: pulumi.Output<boolean | undefined>;
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The exact time the message was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -149,33 +149,33 @@ export class Subscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["clientAffineProperties"] = args ? args.clientAffineProperties : undefined;
-            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args ? args.deadLetteringOnFilterEvaluationExceptions : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["isClientAffine"] = args ? args.isClientAffine : undefined;
-            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["clientAffineProperties"] = args?.clientAffineProperties;
+            resourceInputs["deadLetteringOnFilterEvaluationExceptions"] = args?.deadLetteringOnFilterEvaluationExceptions;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTimeToLive"] = args?.defaultMessageTimeToLive;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["enableBatchedOperations"] = args?.enableBatchedOperations;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = args?.forwardTo;
+            resourceInputs["isClientAffine"] = args?.isClientAffine;
+            resourceInputs["lockDuration"] = args?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = args?.maxDeliveryCount;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["requiresSession"] = args?.requiresSession;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;

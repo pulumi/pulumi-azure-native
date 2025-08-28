@@ -44,119 +44,119 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * Access Connector Resource that is going to be associated with Databricks Workspace
      */
-    public readonly accessConnector!: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseAccessConnector | undefined>;
+    declare public readonly accessConnector: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseAccessConnector | undefined>;
     /**
      * The workspace provider authorizations.
      */
-    public readonly authorizations!: pulumi.Output<outputs.databricks.WorkspaceProviderAuthorizationResponse[] | undefined>;
+    declare public readonly authorizations: pulumi.Output<outputs.databricks.WorkspaceProviderAuthorizationResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates the Object ID, PUID and Application ID of entity that created the workspace.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.databricks.CreatedByResponse | undefined>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<outputs.databricks.CreatedByResponse | undefined>;
     /**
      * Specifies the date and time when the workspace is created.
      */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDateTime: pulumi.Output<string>;
     /**
      * Properties for Default Catalog configuration during workspace creation.
      */
-    public readonly defaultCatalog!: pulumi.Output<outputs.databricks.DefaultCatalogPropertiesResponse | undefined>;
+    declare public readonly defaultCatalog: pulumi.Output<outputs.databricks.DefaultCatalogPropertiesResponse | undefined>;
     /**
      * Gets or Sets Default Storage Firewall configuration information
      */
-    public readonly defaultStorageFirewall!: pulumi.Output<string | undefined>;
+    declare public readonly defaultStorageFirewall: pulumi.Output<string | undefined>;
     /**
      * The resource Id of the managed disk encryption set.
      */
-    public /*out*/ readonly diskEncryptionSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskEncryptionSetId: pulumi.Output<string>;
     /**
      * Encryption properties for databricks workspace
      */
-    public readonly encryption!: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.databricks.WorkspacePropertiesResponseEncryption | undefined>;
     /**
      * Contains settings related to the Enhanced Security and Compliance Add-On.
      */
-    public readonly enhancedSecurityCompliance!: pulumi.Output<outputs.databricks.EnhancedSecurityComplianceDefinitionResponse | undefined>;
+    declare public readonly enhancedSecurityCompliance: pulumi.Output<outputs.databricks.EnhancedSecurityComplianceDefinitionResponse | undefined>;
     /**
      * Indicates whether unity catalog enabled for the workspace or not.
      */
-    public /*out*/ readonly isUcEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isUcEnabled: pulumi.Output<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption
      */
-    public /*out*/ readonly managedDiskIdentity!: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
+    declare public /*out*/ readonly managedDiskIdentity: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
     /**
      * The managed resource group Id.
      */
-    public readonly managedResourceGroupId!: pulumi.Output<string>;
+    declare public readonly managedResourceGroupId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The workspace's custom parameters.
      */
-    public readonly parameters!: pulumi.Output<outputs.databricks.WorkspaceCustomParametersResponse | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.databricks.WorkspaceCustomParametersResponse | undefined>;
     /**
      * Private endpoint connections created on the workspace
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.databricks.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.databricks.PrivateEndpointConnectionResponse[]>;
     /**
      * The workspace provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The network access type for accessing workspace. Set value to disabled to access workspace only via private link.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only.
      */
-    public readonly requiredNsgRules!: pulumi.Output<string | undefined>;
+    declare public readonly requiredNsgRules: pulumi.Output<string | undefined>;
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.databricks.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.databricks.SkuResponse | undefined>;
     /**
      * The details of Managed Identity of Storage Account
      */
-    public /*out*/ readonly storageAccountIdentity!: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
+    declare public /*out*/ readonly storageAccountIdentity: pulumi.Output<outputs.databricks.ManagedIdentityConfigurationResponse | undefined>;
     /**
      * The system metadata relating to this resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databricks.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databricks.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The blob URI where the UI definition file is located.
      */
-    public readonly uiDefinitionUri!: pulumi.Output<string | undefined>;
+    declare public readonly uiDefinitionUri: pulumi.Output<string | undefined>;
     /**
      * Indicates the Object ID, PUID and Application ID of entity that last updated the workspace.
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.databricks.CreatedByResponse | undefined>;
+    declare public /*out*/ readonly updatedBy: pulumi.Output<outputs.databricks.CreatedByResponse | undefined>;
     /**
      * The unique identifier of the databricks workspace in databricks control plane.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
     /**
      * The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'
      */
-    public /*out*/ readonly workspaceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceUrl: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -169,28 +169,28 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedResourceGroupId === undefined) && !opts.urn) {
+            if (args?.managedResourceGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedResourceGroupId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessConnector"] = args ? args.accessConnector : undefined;
-            resourceInputs["authorizations"] = args ? args.authorizations : undefined;
+            resourceInputs["accessConnector"] = args?.accessConnector;
+            resourceInputs["authorizations"] = args?.authorizations;
             resourceInputs["defaultCatalog"] = args ? (args.defaultCatalog ? pulumi.output(args.defaultCatalog).apply(inputs.databricks.defaultCatalogPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["defaultStorageFirewall"] = args ? args.defaultStorageFirewall : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["enhancedSecurityCompliance"] = args ? args.enhancedSecurityCompliance : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
+            resourceInputs["defaultStorageFirewall"] = args?.defaultStorageFirewall;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["enhancedSecurityCompliance"] = args?.enhancedSecurityCompliance;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupId"] = args?.managedResourceGroupId;
             resourceInputs["parameters"] = args ? (args.parameters ? pulumi.output(args.parameters).apply(inputs.databricks.workspaceCustomParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["requiredNsgRules"] = args ? args.requiredNsgRules : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uiDefinitionUri"] = args ? args.uiDefinitionUri : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["requiredNsgRules"] = args?.requiredNsgRules;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uiDefinitionUri"] = args?.uiDefinitionUri;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;

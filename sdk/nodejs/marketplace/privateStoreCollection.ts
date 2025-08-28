@@ -44,59 +44,59 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
     /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
-    public readonly allSubscriptions!: pulumi.Output<boolean | undefined>;
+    declare public readonly allSubscriptions: pulumi.Output<boolean | undefined>;
     /**
      * Gets list of collection rules
      */
-    public /*out*/ readonly appliedRules!: pulumi.Output<outputs.marketplace.RuleResponse[]>;
+    declare public /*out*/ readonly appliedRules: pulumi.Output<outputs.marketplace.RuleResponse[]>;
     /**
      * Indicating whether all items are approved for this collection (=true) or not (=false).
      */
-    public /*out*/ readonly approveAllItems!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly approveAllItems: pulumi.Output<boolean>;
     /**
      * Gets the modified date of all items approved.
      */
-    public /*out*/ readonly approveAllItemsModifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly approveAllItemsModifiedAt: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the association with Commercial's Billing Account.
      */
-    public readonly claim!: pulumi.Output<string | undefined>;
+    declare public readonly claim: pulumi.Output<string | undefined>;
     /**
      * Gets collection Id.
      */
-    public readonly collectionId!: pulumi.Output<string>;
+    declare public readonly collectionId: pulumi.Output<string>;
     /**
      * Gets or sets collection name.
      */
-    public readonly collectionName!: pulumi.Output<string | undefined>;
+    declare public readonly collectionName: pulumi.Output<string | undefined>;
     /**
      * Indicating whether the collection is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the number of offers associated with the collection.
      */
-    public /*out*/ readonly numberOfOffers!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfOffers: pulumi.Output<number>;
     /**
      * Gets or sets subscription ids list. Empty list indicates all subscriptions are selected, null indicates no update is done, explicit list indicates the explicit selected subscriptions. On insert, null is considered as bad request
      */
-    public readonly subscriptionsList!: pulumi.Output<string[] | undefined>;
+    declare public readonly subscriptionsList: pulumi.Output<string[] | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.marketplace.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.marketplace.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateStoreCollection resource with the given unique name, arguments, and options.
@@ -109,16 +109,16 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateStoreId === undefined) && !opts.urn) {
+            if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            resourceInputs["allSubscriptions"] = args ? args.allSubscriptions : undefined;
-            resourceInputs["claim"] = args ? args.claim : undefined;
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["collectionName"] = args ? args.collectionName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
+            resourceInputs["allSubscriptions"] = args?.allSubscriptions;
+            resourceInputs["claim"] = args?.claim;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["collectionName"] = args?.collectionName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["privateStoreId"] = args?.privateStoreId;
+            resourceInputs["subscriptionsList"] = args?.subscriptionsList;
             resourceInputs["appliedRules"] = undefined /*out*/;
             resourceInputs["approveAllItems"] = undefined /*out*/;
             resourceInputs["approveAllItemsModifiedAt"] = undefined /*out*/;

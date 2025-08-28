@@ -44,123 +44,123 @@ export class Redis extends pulumi.CustomResource {
     /**
      * The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache
      */
-    public /*out*/ readonly accessKeys!: pulumi.Output<outputs.redis.RedisAccessKeysResponse>;
+    declare public /*out*/ readonly accessKeys: pulumi.Output<outputs.redis.RedisAccessKeysResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Authentication to Redis through access keys is disabled when set as true. Default value is false.
      */
-    public readonly disableAccessKeyAuthentication!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableAccessKeyAuthentication: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the non-ssl Redis server port (6379) is enabled.
      */
-    public readonly enableNonSslPort!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNonSslPort: pulumi.Output<boolean | undefined>;
     /**
      * Redis host name.
      */
-    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostName: pulumi.Output<string>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.redis.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.redis.ManagedServiceIdentityResponse | undefined>;
     /**
      * List of the Redis instances associated with the cache
      */
-    public /*out*/ readonly instances!: pulumi.Output<outputs.redis.RedisInstanceDetailsResponse[]>;
+    declare public /*out*/ readonly instances: pulumi.Output<outputs.redis.RedisInstanceDetailsResponse[]>;
     /**
      * List of the linked servers associated with the cache
      */
-    public /*out*/ readonly linkedServers!: pulumi.Output<outputs.redis.RedisLinkedServerResponse[]>;
+    declare public /*out*/ readonly linkedServers: pulumi.Output<outputs.redis.RedisLinkedServerResponse[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Redis non-SSL port.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * List of private endpoint connection associated with the specified redis cache
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.redis.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.redis.PrivateEndpointConnectionResponse[]>;
     /**
      * Redis instance provisioning status.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
-    public readonly redisConfiguration!: pulumi.Output<outputs.redis.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
+    declare public readonly redisConfiguration: pulumi.Output<outputs.redis.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
     /**
      * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
      */
-    public readonly redisVersion!: pulumi.Output<string | undefined>;
+    declare public readonly redisVersion: pulumi.Output<string | undefined>;
     /**
      * The number of replicas to be created per primary.
      */
-    public readonly replicasPerMaster!: pulumi.Output<number | undefined>;
+    declare public readonly replicasPerMaster: pulumi.Output<number | undefined>;
     /**
      * The number of replicas to be created per primary.
      */
-    public readonly replicasPerPrimary!: pulumi.Output<number | undefined>;
+    declare public readonly replicasPerPrimary: pulumi.Output<number | undefined>;
     /**
      * The number of shards to be created on a Premium Cluster Cache.
      */
-    public readonly shardCount!: pulumi.Output<number | undefined>;
+    declare public readonly shardCount: pulumi.Output<number | undefined>;
     /**
      * The SKU of the Redis cache to deploy.
      */
-    public readonly sku!: pulumi.Output<outputs.redis.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.redis.SkuResponse>;
     /**
      * Redis SSL port.
      */
-    public /*out*/ readonly sslPort!: pulumi.Output<number>;
+    declare public /*out*/ readonly sslPort: pulumi.Output<number>;
     /**
      * Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default.
      */
-    public readonly staticIP!: pulumi.Output<string | undefined>;
+    declare public readonly staticIP: pulumi.Output<string | undefined>;
     /**
      * The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A dictionary of tenant settings
      */
-    public readonly tenantSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tenantSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
      */
-    public readonly updateChannel!: pulumi.Output<string | undefined>;
+    declare public readonly updateChannel: pulumi.Output<string | undefined>;
     /**
      * Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
      */
-    public readonly zonalAllocationPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly zonalAllocationPolicy: pulumi.Output<string | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Redis resource with the given unique name, arguments, and options.
@@ -173,33 +173,33 @@ export class Redis extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["disableAccessKeyAuthentication"] = (args ? args.disableAccessKeyAuthentication : undefined) ?? false;
-            resourceInputs["enableNonSslPort"] = (args ? args.enableNonSslPort : undefined) ?? false;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
-            resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
-            resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
-            resourceInputs["replicasPerPrimary"] = args ? args.replicasPerPrimary : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shardCount"] = args ? args.shardCount : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["staticIP"] = args ? args.staticIP : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantSettings"] = args ? args.tenantSettings : undefined;
-            resourceInputs["updateChannel"] = args ? args.updateChannel : undefined;
-            resourceInputs["zonalAllocationPolicy"] = args ? args.zonalAllocationPolicy : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["disableAccessKeyAuthentication"] = (args?.disableAccessKeyAuthentication) ?? false;
+            resourceInputs["enableNonSslPort"] = (args?.enableNonSslPort) ?? false;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["redisConfiguration"] = args?.redisConfiguration;
+            resourceInputs["redisVersion"] = args?.redisVersion;
+            resourceInputs["replicasPerMaster"] = args?.replicasPerMaster;
+            resourceInputs["replicasPerPrimary"] = args?.replicasPerPrimary;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shardCount"] = args?.shardCount;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["staticIP"] = args?.staticIP;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantSettings"] = args?.tenantSettings;
+            resourceInputs["updateChannel"] = args?.updateChannel;
+            resourceInputs["zonalAllocationPolicy"] = args?.zonalAllocationPolicy;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["accessKeys"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;

@@ -44,108 +44,108 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Custom settings for changing the behavior of the App Service Environment.
      */
-    public readonly clusterSettings!: pulumi.Output<outputs.web.NameValuePairResponse[] | undefined>;
+    declare public readonly clusterSettings: pulumi.Output<outputs.web.NameValuePairResponse[] | undefined>;
     /**
      * Full view of the custom domain suffix configuration for ASEv3.
      */
-    public readonly customDnsSuffixConfiguration!: pulumi.Output<outputs.web.CustomDnsSuffixConfigurationResponse | undefined>;
+    declare public readonly customDnsSuffixConfiguration: pulumi.Output<outputs.web.CustomDnsSuffixConfigurationResponse | undefined>;
     /**
      * Dedicated Host Count
      */
-    public readonly dedicatedHostCount!: pulumi.Output<number | undefined>;
+    declare public readonly dedicatedHostCount: pulumi.Output<number | undefined>;
     /**
      * DNS suffix of the App Service Environment.
      */
-    public readonly dnsSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSuffix: pulumi.Output<string | undefined>;
     /**
      * Scale factor for front-ends.
      */
-    public readonly frontEndScaleFactor!: pulumi.Output<number | undefined>;
+    declare public readonly frontEndScaleFactor: pulumi.Output<number | undefined>;
     /**
      * Flag that displays whether an ASE has linux workers or not
      */
-    public /*out*/ readonly hasLinuxWorkers!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasLinuxWorkers: pulumi.Output<boolean>;
     /**
      * Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment.
      */
-    public readonly internalLoadBalancingMode!: pulumi.Output<string | undefined>;
+    declare public readonly internalLoadBalancingMode: pulumi.Output<string | undefined>;
     /**
      * Number of IP SSL addresses reserved for the App Service Environment.
      */
-    public readonly ipsslAddressCount!: pulumi.Output<number | undefined>;
+    declare public readonly ipsslAddressCount: pulumi.Output<number | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maximum number of VMs in the App Service Environment.
      */
-    public /*out*/ readonly maximumNumberOfMachines!: pulumi.Output<number>;
+    declare public /*out*/ readonly maximumNumberOfMachines: pulumi.Output<number>;
     /**
      * Number of front-end instances.
      */
-    public /*out*/ readonly multiRoleCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly multiRoleCount: pulumi.Output<number>;
     /**
      * Front-end VM size, e.g. "Medium", "Large".
      */
-    public readonly multiSize!: pulumi.Output<string | undefined>;
+    declare public readonly multiSize: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Full view of networking configuration for an ASE.
      */
-    public readonly networkingConfiguration!: pulumi.Output<outputs.web.AseV3NetworkingConfigurationResponse | undefined>;
+    declare public readonly networkingConfiguration: pulumi.Output<outputs.web.AseV3NetworkingConfigurationResponse | undefined>;
     /**
      * Provisioning state of the App Service Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Current status of the App Service Environment.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * <code>true</code> if the App Service Environment is suspended; otherwise, <code>false</code>. The environment can be suspended, e.g. when the management endpoint is no longer available
      *  (most likely because NSG blocked the incoming traffic).
      */
-    public /*out*/ readonly suspended!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly suspended: pulumi.Output<boolean>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Whether an upgrade is available for this App Service Environment.
      */
-    public /*out*/ readonly upgradeAvailability!: pulumi.Output<string>;
+    declare public /*out*/ readonly upgradeAvailability: pulumi.Output<string>;
     /**
      * Upgrade Preference
      */
-    public readonly upgradePreference!: pulumi.Output<string | undefined>;
+    declare public readonly upgradePreference: pulumi.Output<string | undefined>;
     /**
      * User added ip ranges to whitelist on ASE db
      */
-    public readonly userWhitelistedIpRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly userWhitelistedIpRanges: pulumi.Output<string[] | undefined>;
     /**
      * Description of the Virtual Network.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.web.VirtualNetworkProfileResponse>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.web.VirtualNetworkProfileResponse>;
     /**
      * Whether or not this App Service Environment is zone-redundant.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppServiceEnvironment resource with the given unique name, arguments, and options.
@@ -158,30 +158,30 @@ export class AppServiceEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+            if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            resourceInputs["clusterSettings"] = args ? args.clusterSettings : undefined;
-            resourceInputs["customDnsSuffixConfiguration"] = args ? args.customDnsSuffixConfiguration : undefined;
-            resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
-            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            resourceInputs["frontEndScaleFactor"] = args ? args.frontEndScaleFactor : undefined;
-            resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
-            resourceInputs["ipsslAddressCount"] = args ? args.ipsslAddressCount : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["multiSize"] = args ? args.multiSize : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkingConfiguration"] = args ? args.networkingConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePreference"] = (args ? args.upgradePreference : undefined) ?? "None";
-            resourceInputs["userWhitelistedIpRanges"] = args ? args.userWhitelistedIpRanges : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["clusterSettings"] = args?.clusterSettings;
+            resourceInputs["customDnsSuffixConfiguration"] = args?.customDnsSuffixConfiguration;
+            resourceInputs["dedicatedHostCount"] = args?.dedicatedHostCount;
+            resourceInputs["dnsSuffix"] = args?.dnsSuffix;
+            resourceInputs["frontEndScaleFactor"] = args?.frontEndScaleFactor;
+            resourceInputs["internalLoadBalancingMode"] = args?.internalLoadBalancingMode;
+            resourceInputs["ipsslAddressCount"] = args?.ipsslAddressCount;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["multiSize"] = args?.multiSize;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkingConfiguration"] = args?.networkingConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePreference"] = (args?.upgradePreference) ?? "None";
+            resourceInputs["userWhitelistedIpRanges"] = args?.userWhitelistedIpRanges;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hasLinuxWorkers"] = undefined /*out*/;
             resourceInputs["maximumNumberOfMachines"] = undefined /*out*/;

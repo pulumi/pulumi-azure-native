@@ -44,175 +44,175 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Set to true to enable bursting beyond the provisioned performance target of the disk. Bursting is disabled by default. Does not apply to Ultra disks.
      */
-    public readonly burstingEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly burstingEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Latest time when bursting was last enabled on a disk.
      */
-    public /*out*/ readonly burstingEnabledTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly burstingEnabledTime: pulumi.Output<string>;
     /**
      * Percentage complete for the background copy when a resource is created via the CopyStart operation.
      */
-    public readonly completionPercent!: pulumi.Output<number | undefined>;
+    declare public readonly completionPercent: pulumi.Output<number | undefined>;
     /**
      * Disk source information. CreationData information cannot be changed after the disk has been created.
      */
-    public readonly creationData!: pulumi.Output<outputs.compute.CreationDataResponse>;
+    declare public readonly creationData: pulumi.Output<outputs.compute.CreationDataResponse>;
     /**
      * Additional authentication requirements when exporting or uploading to a disk or snapshot.
      */
-    public readonly dataAccessAuthMode!: pulumi.Output<string | undefined>;
+    declare public readonly dataAccessAuthMode: pulumi.Output<string | undefined>;
     /**
      * ARM id of the DiskAccess resource for using private endpoints on disks.
      */
-    public readonly diskAccessId!: pulumi.Output<string | undefined>;
+    declare public readonly diskAccessId: pulumi.Output<string | undefined>;
     /**
      * The total number of IOPS that will be allowed across all VMs mounting the shared disk as ReadOnly. One operation can transfer between 4k and 256k bytes.
      */
-    public readonly diskIOPSReadOnly!: pulumi.Output<number | undefined>;
+    declare public readonly diskIOPSReadOnly: pulumi.Output<number | undefined>;
     /**
      * The number of IOPS allowed for this disk; only settable for UltraSSD disks. One operation can transfer between 4k and 256k bytes.
      */
-    public readonly diskIOPSReadWrite!: pulumi.Output<number | undefined>;
+    declare public readonly diskIOPSReadWrite: pulumi.Output<number | undefined>;
     /**
      * The total throughput (MBps) that will be allowed across all VMs mounting the shared disk as ReadOnly. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
      */
-    public readonly diskMBpsReadOnly!: pulumi.Output<number | undefined>;
+    declare public readonly diskMBpsReadOnly: pulumi.Output<number | undefined>;
     /**
      * The bandwidth allowed for this disk; only settable for UltraSSD disks. MBps means millions of bytes per second - MB here uses the ISO notation, of powers of 10.
      */
-    public readonly diskMBpsReadWrite!: pulumi.Output<number | undefined>;
+    declare public readonly diskMBpsReadWrite: pulumi.Output<number | undefined>;
     /**
      * The size of the disk in bytes. This field is read only.
      */
-    public /*out*/ readonly diskSizeBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly diskSizeBytes: pulumi.Output<number>;
     /**
      * If creationData.createOption is Empty, this field is mandatory and it indicates the size of the disk to create. If this field is present for updates or creation with other options, it indicates a resize. Resizes are only allowed if the disk is not attached to a running VM, and can only increase the disk's size.
      */
-    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly diskSizeGB: pulumi.Output<number | undefined>;
     /**
      * The state of the disk.
      */
-    public /*out*/ readonly diskState!: pulumi.Output<string>;
+    declare public /*out*/ readonly diskState: pulumi.Output<string>;
     /**
      * Encryption property can be used to encrypt data at rest with customer managed keys or platform managed keys.
      */
-    public readonly encryption!: pulumi.Output<outputs.compute.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.compute.EncryptionResponse | undefined>;
     /**
      * Encryption settings collection used for Azure Disk Encryption, can contain multiple encryption settings per disk or snapshot.
      */
-    public readonly encryptionSettingsCollection!: pulumi.Output<outputs.compute.EncryptionSettingsCollectionResponse | undefined>;
+    declare public readonly encryptionSettingsCollection: pulumi.Output<outputs.compute.EncryptionSettingsCollectionResponse | undefined>;
     /**
      * The extended location where the disk will be created. Extended location cannot be changed.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * The UTC time when the ownership state of the disk was last changed i.e., the time the disk was last attached or detached from a VM or the time when the VM to which the disk was attached was deallocated or started.
      */
-    public /*out*/ readonly lastOwnershipUpdateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastOwnershipUpdateTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A relative URI containing the ID of the VM that has the disk attached.
      */
-    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
      * List of relative URIs containing the IDs of the VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
-    public /*out*/ readonly managedByExtended!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly managedByExtended: pulumi.Output<string[]>;
     /**
      * The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time.
      */
-    public readonly maxShares!: pulumi.Output<number | undefined>;
+    declare public readonly maxShares: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Policy for accessing the disk via network.
      */
-    public readonly networkAccessPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly networkAccessPolicy: pulumi.Output<string | undefined>;
     /**
      * Setting this property to true improves reliability and performance of data disks that are frequently (more than 5 times a day) by detached from one virtual machine and attached to another. This property should not be set for disks that are not detached and attached frequently as it causes the disks to not align with the fault domain of the virtual machine.
      */
-    public readonly optimizedForFrequentAttach!: pulumi.Output<boolean | undefined>;
+    declare public readonly optimizedForFrequentAttach: pulumi.Output<boolean | undefined>;
     /**
      * The Operating System type.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * Properties of the disk for which update is pending.
      */
-    public /*out*/ readonly propertyUpdatesInProgress!: pulumi.Output<outputs.compute.PropertyUpdatesInProgressResponse>;
+    declare public /*out*/ readonly propertyUpdatesInProgress: pulumi.Output<outputs.compute.PropertyUpdatesInProgressResponse>;
     /**
      * The disk provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Policy for controlling export on the disk.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Purchase plan information for the the image from which the OS disk was created. E.g. - {name: 2019-Datacenter, publisher: MicrosoftWindowsServer, product: WindowsServer}
      */
-    public readonly purchasePlan!: pulumi.Output<outputs.compute.DiskPurchasePlanResponse | undefined>;
+    declare public readonly purchasePlan: pulumi.Output<outputs.compute.DiskPurchasePlanResponse | undefined>;
     /**
      * Contains the security related information for the resource.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.compute.DiskSecurityProfileResponse | undefined>;
     /**
      * Details of the list of all VMs that have the disk attached. maxShares should be set to a value greater than one for disks to allow attaching them to multiple VMs.
      */
-    public /*out*/ readonly shareInfo!: pulumi.Output<outputs.compute.ShareInfoElementResponse[]>;
+    declare public /*out*/ readonly shareInfo: pulumi.Output<outputs.compute.ShareInfoElementResponse[]>;
     /**
      * The disks sku name. Can be Standard_LRS, Premium_LRS, StandardSSD_LRS, UltraSSD_LRS, Premium_ZRS, StandardSSD_ZRS, or PremiumV2_LRS.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.DiskSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.compute.DiskSkuResponse | undefined>;
     /**
      * List of supported capabilities for the image from which the OS disk was created.
      */
-    public readonly supportedCapabilities!: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
+    declare public readonly supportedCapabilities: pulumi.Output<outputs.compute.SupportedCapabilitiesResponse | undefined>;
     /**
      * Indicates the OS on a disk supports hibernation.
      */
-    public readonly supportsHibernation!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportsHibernation: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Performance tier of the disk (e.g, P4, S10) as described here: https://azure.microsoft.com/en-us/pricing/details/managed-disks/. Does not apply to Ultra disks.
      */
-    public readonly tier!: pulumi.Output<string | undefined>;
+    declare public readonly tier: pulumi.Output<string | undefined>;
     /**
      * The time when the disk was created.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique Guid identifying the resource.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
     /**
      * The Logical zone list for Disk.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Disk resource with the given unique name, arguments, and options.
@@ -225,42 +225,42 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creationData === undefined) && !opts.urn) {
+            if (args?.creationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["burstingEnabled"] = args ? args.burstingEnabled : undefined;
-            resourceInputs["completionPercent"] = args ? args.completionPercent : undefined;
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["dataAccessAuthMode"] = args ? args.dataAccessAuthMode : undefined;
-            resourceInputs["diskAccessId"] = args ? args.diskAccessId : undefined;
-            resourceInputs["diskIOPSReadOnly"] = args ? args.diskIOPSReadOnly : undefined;
-            resourceInputs["diskIOPSReadWrite"] = args ? args.diskIOPSReadWrite : undefined;
-            resourceInputs["diskMBpsReadOnly"] = args ? args.diskMBpsReadOnly : undefined;
-            resourceInputs["diskMBpsReadWrite"] = args ? args.diskMBpsReadWrite : undefined;
-            resourceInputs["diskName"] = args ? args.diskName : undefined;
-            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionSettingsCollection"] = args ? args.encryptionSettingsCollection : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxShares"] = args ? args.maxShares : undefined;
-            resourceInputs["networkAccessPolicy"] = args ? args.networkAccessPolicy : undefined;
-            resourceInputs["optimizedForFrequentAttach"] = args ? args.optimizedForFrequentAttach : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["supportedCapabilities"] = args ? args.supportedCapabilities : undefined;
-            resourceInputs["supportsHibernation"] = args ? args.supportsHibernation : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["burstingEnabled"] = args?.burstingEnabled;
+            resourceInputs["completionPercent"] = args?.completionPercent;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["dataAccessAuthMode"] = args?.dataAccessAuthMode;
+            resourceInputs["diskAccessId"] = args?.diskAccessId;
+            resourceInputs["diskIOPSReadOnly"] = args?.diskIOPSReadOnly;
+            resourceInputs["diskIOPSReadWrite"] = args?.diskIOPSReadWrite;
+            resourceInputs["diskMBpsReadOnly"] = args?.diskMBpsReadOnly;
+            resourceInputs["diskMBpsReadWrite"] = args?.diskMBpsReadWrite;
+            resourceInputs["diskName"] = args?.diskName;
+            resourceInputs["diskSizeGB"] = args?.diskSizeGB;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionSettingsCollection"] = args?.encryptionSettingsCollection;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxShares"] = args?.maxShares;
+            resourceInputs["networkAccessPolicy"] = args?.networkAccessPolicy;
+            resourceInputs["optimizedForFrequentAttach"] = args?.optimizedForFrequentAttach;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["purchasePlan"] = args?.purchasePlan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["supportedCapabilities"] = args?.supportedCapabilities;
+            resourceInputs["supportsHibernation"] = args?.supportsHibernation;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["burstingEnabledTime"] = undefined /*out*/;
             resourceInputs["diskSizeBytes"] = undefined /*out*/;

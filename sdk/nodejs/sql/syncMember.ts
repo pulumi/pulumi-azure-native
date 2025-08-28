@@ -44,59 +44,59 @@ export class SyncMember extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Database name of the member database in the sync member.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
     /**
      * Database type of the sync member.
      */
-    public readonly databaseType!: pulumi.Output<string | undefined>;
+    declare public readonly databaseType: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private endpoint name of the sync member if use private link connection is enabled, for sync members in Azure.
      */
-    public /*out*/ readonly privateEndpointName!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateEndpointName: pulumi.Output<string>;
     /**
      * Server name of the member database in the sync member
      */
-    public readonly serverName!: pulumi.Output<string | undefined>;
+    declare public readonly serverName: pulumi.Output<string | undefined>;
     /**
      * SQL Server database id of the sync member.
      */
-    public readonly sqlServerDatabaseId!: pulumi.Output<string | undefined>;
+    declare public readonly sqlServerDatabaseId: pulumi.Output<string | undefined>;
     /**
      * ARM resource id of the sync agent in the sync member.
      */
-    public readonly syncAgentId!: pulumi.Output<string | undefined>;
+    declare public readonly syncAgentId: pulumi.Output<string | undefined>;
     /**
      * Sync direction of the sync member.
      */
-    public readonly syncDirection!: pulumi.Output<string | undefined>;
+    declare public readonly syncDirection: pulumi.Output<string | undefined>;
     /**
      * ARM resource id of the sync member logical database, for sync members in Azure.
      */
-    public readonly syncMemberAzureDatabaseResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly syncMemberAzureDatabaseResourceId: pulumi.Output<string | undefined>;
     /**
      * Sync state of the sync member.
      */
-    public /*out*/ readonly syncState!: pulumi.Output<string>;
+    declare public /*out*/ readonly syncState: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Whether to use private link connection.
      */
-    public readonly usePrivateLinkConnection!: pulumi.Output<boolean | undefined>;
+    declare public readonly usePrivateLinkConnection: pulumi.Output<boolean | undefined>;
     /**
      * User name of the member database in the sync member.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
 
     /**
      * Create a SyncMember resource with the given unique name, arguments, and options.
@@ -109,31 +109,31 @@ export class SyncMember extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
+            if (args?.syncGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseType"] = args ? args.databaseType : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sqlServerDatabaseId"] = args ? args.sqlServerDatabaseId : undefined;
-            resourceInputs["syncAgentId"] = args ? args.syncAgentId : undefined;
-            resourceInputs["syncDirection"] = args ? args.syncDirection : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["syncMemberAzureDatabaseResourceId"] = args ? args.syncMemberAzureDatabaseResourceId : undefined;
-            resourceInputs["syncMemberName"] = args ? args.syncMemberName : undefined;
-            resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseType"] = args?.databaseType;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sqlServerDatabaseId"] = args?.sqlServerDatabaseId;
+            resourceInputs["syncAgentId"] = args?.syncAgentId;
+            resourceInputs["syncDirection"] = args?.syncDirection;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["syncMemberAzureDatabaseResourceId"] = args?.syncMemberAzureDatabaseResourceId;
+            resourceInputs["syncMemberName"] = args?.syncMemberName;
+            resourceInputs["usePrivateLinkConnection"] = args?.usePrivateLinkConnection;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointName"] = undefined /*out*/;

@@ -42,43 +42,43 @@ export class PipelineJob extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An optional description for the pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Details about the error, in case the pipeline job fails.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.videoanalyzer.PipelineJobErrorResponse>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.videoanalyzer.PipelineJobErrorResponse>;
     /**
      * The date-time by when this pipeline job will be automatically deleted from your account.
      */
-    public /*out*/ readonly expiration!: pulumi.Output<string>;
+    declare public /*out*/ readonly expiration: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
      */
-    public readonly parameters!: pulumi.Output<outputs.videoanalyzer.ParameterDefinitionResponse[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.videoanalyzer.ParameterDefinitionResponse[] | undefined>;
     /**
      * Current state of the pipeline (read-only).
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
      * Reference to an existing pipeline topology. When activated, this pipeline job will process content according to the pipeline topology definition.
      */
-    public readonly topologyName!: pulumi.Output<string>;
+    declare public readonly topologyName: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PipelineJob resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class PipelineJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topologyName === undefined) && !opts.urn) {
+            if (args?.topologyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topologyName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["pipelineJobName"] = args ? args.pipelineJobName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topologyName"] = args ? args.topologyName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["pipelineJobName"] = args?.pipelineJobName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topologyName"] = args?.topologyName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;
             resourceInputs["expiration"] = undefined /*out*/;

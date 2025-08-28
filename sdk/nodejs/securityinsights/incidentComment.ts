@@ -44,39 +44,39 @@ export class IncidentComment extends pulumi.CustomResource {
     /**
      * Describes the client that created the comment
      */
-    public /*out*/ readonly author!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
+    declare public /*out*/ readonly author: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the comment was created
      */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimeUtc: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The time the comment was updated
      */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The comment message
      */
-    public readonly message!: pulumi.Output<string>;
+    declare public readonly message: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IncidentComment resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class IncidentComment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.incidentId === undefined) && !opts.urn) {
+            if (args?.incidentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if ((!args || args.message === undefined) && !opts.urn) {
+            if (args?.message === undefined && !opts.urn) {
                 throw new Error("Missing required property 'message'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["incidentCommentId"] = args ? args.incidentCommentId : undefined;
-            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
-            resourceInputs["message"] = args ? args.message : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["incidentCommentId"] = args?.incidentCommentId;
+            resourceInputs["incidentId"] = args?.incidentId;
+            resourceInputs["message"] = args?.message;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;

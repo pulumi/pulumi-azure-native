@@ -42,63 +42,63 @@ export class Application extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Internal - used by Visual Studio to setup the debugging session on the local development environment.
      */
-    public readonly debugParams!: pulumi.Output<string | undefined>;
+    declare public readonly debugParams: pulumi.Output<string | undefined>;
     /**
      * User readable description of the application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Describes the diagnostics definition and usage for an application resource.
      */
-    public readonly diagnostics!: pulumi.Output<outputs.servicefabricmesh.DiagnosticsDescriptionResponse | undefined>;
+    declare public readonly diagnostics: pulumi.Output<outputs.servicefabricmesh.DiagnosticsDescriptionResponse | undefined>;
     /**
      * Describes the health state of an application resource.
      */
-    public /*out*/ readonly healthState!: pulumi.Output<string>;
+    declare public /*out*/ readonly healthState: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Names of the services in the application.
      */
-    public /*out*/ readonly serviceNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly serviceNames: pulumi.Output<string[]>;
     /**
      * Describes the services in the application. This property is used to create or modify services of the application. On get only the name of the service is returned. The service description can be obtained by querying for the service resource.
      */
-    public readonly services!: pulumi.Output<outputs.servicefabricmesh.ServiceResourceDescriptionResponse[] | undefined>;
+    declare public readonly services: pulumi.Output<outputs.servicefabricmesh.ServiceResourceDescriptionResponse[] | undefined>;
     /**
      * Status of the application.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Gives additional information about the current status of the application.
      */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDetails: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * When the application's health state is not 'Ok', this additional details from service fabric Health Manager for the user to know why the application is marked unhealthy.
      */
-    public /*out*/ readonly unhealthyEvaluation!: pulumi.Output<string>;
+    declare public /*out*/ readonly unhealthyEvaluation: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -111,17 +111,17 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationResourceName"] = args ? args.applicationResourceName : undefined;
-            resourceInputs["debugParams"] = args ? args.debugParams : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["services"] = args ? args.services : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationResourceName"] = args?.applicationResourceName;
+            resourceInputs["debugParams"] = args?.debugParams;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["diagnostics"] = args?.diagnostics;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["services"] = args?.services;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["healthState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

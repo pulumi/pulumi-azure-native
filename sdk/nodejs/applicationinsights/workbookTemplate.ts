@@ -44,43 +44,43 @@ export class WorkbookTemplate extends pulumi.CustomResource {
     /**
      * Information about the author of the workbook template.
      */
-    public readonly author!: pulumi.Output<string | undefined>;
+    declare public readonly author: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Workbook galleries supported by the template.
      */
-    public readonly galleries!: pulumi.Output<outputs.applicationinsights.WorkbookTemplateGalleryResponse[]>;
+    declare public readonly galleries: pulumi.Output<outputs.applicationinsights.WorkbookTemplateGalleryResponse[]>;
     /**
      * Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal.
      */
-    public readonly localized!: pulumi.Output<{[key: string]: outputs.applicationinsights.WorkbookTemplateLocalizedGalleryResponse[]} | undefined>;
+    declare public readonly localized: pulumi.Output<{[key: string]: outputs.applicationinsights.WorkbookTemplateLocalizedGalleryResponse[]} | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Azure resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Valid JSON object containing workbook template payload.
      */
-    public readonly templateData!: pulumi.Output<any>;
+    declare public readonly templateData: pulumi.Output<any>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkbookTemplate resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class WorkbookTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleries === undefined) && !opts.urn) {
+            if (args?.galleries === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleries'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.templateData === undefined) && !opts.urn) {
+            if (args?.templateData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'templateData'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["galleries"] = args ? args.galleries : undefined;
-            resourceInputs["localized"] = args ? args.localized : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateData"] = args ? args.templateData : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["galleries"] = args?.galleries;
+            resourceInputs["localized"] = args?.localized;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateData"] = args?.templateData;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

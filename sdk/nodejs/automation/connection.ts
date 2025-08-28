@@ -44,35 +44,35 @@ export class Connection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the connectionType of the connection.
      */
-    public readonly connectionType!: pulumi.Output<outputs.automation.ConnectionTypeAssociationPropertyResponse | undefined>;
+    declare public readonly connectionType: pulumi.Output<outputs.automation.ConnectionTypeAssociationPropertyResponse | undefined>;
     /**
      * Gets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Gets the field definition values of the connection.
      */
-    public readonly fieldDefinitionValues!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly fieldDefinitionValues: pulumi.Output<{[key: string]: string}>;
     /**
      * Gets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connection resource with the given unique name, arguments, and options.
@@ -85,25 +85,25 @@ export class Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.connectionType === undefined) && !opts.urn) {
+            if (args?.connectionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionType'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["fieldDefinitionValues"] = args ? args.fieldDefinitionValues : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["fieldDefinitionValues"] = args?.fieldDefinitionValues;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

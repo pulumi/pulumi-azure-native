@@ -44,151 +44,151 @@ export class ManagedInstance extends pulumi.CustomResource {
     /**
      * Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation).
      */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLogin: pulumi.Output<string | undefined>;
     /**
      * The Azure Active Directory administrator of the instance. This can only be used at instance create time. If used for instance update, it will be ignored or it will result in an error. For updates individual APIs will need to be used.
      */
-    public readonly administrators!: pulumi.Output<outputs.sql.ManagedInstanceExternalAdministratorResponse | undefined>;
+    declare public readonly administrators: pulumi.Output<outputs.sql.ManagedInstanceExternalAdministratorResponse | undefined>;
     /**
      * The managed instance's authentication metadata lookup mode.
      */
-    public readonly authenticationMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly authenticationMetadata: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Collation of the managed instance.
      */
-    public readonly collation!: pulumi.Output<string | undefined>;
+    declare public readonly collation: pulumi.Output<string | undefined>;
     /**
      * Specifies the point in time (ISO8601 format) of the Managed Instance creation.
      */
-    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createTime: pulumi.Output<string>;
     /**
      * The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
      */
-    public /*out*/ readonly currentBackupStorageRedundancy!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentBackupStorageRedundancy: pulumi.Output<string>;
     /**
      * Specifies the internal format of instance databases specific to the SQL engine version.
      */
-    public readonly databaseFormat!: pulumi.Output<string | undefined>;
+    declare public readonly databaseFormat: pulumi.Output<string | undefined>;
     /**
      * The Dns Zone that the managed instance is in.
      */
-    public /*out*/ readonly dnsZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsZone: pulumi.Output<string>;
     /**
      * Status of external governance.
      */
-    public /*out*/ readonly externalGovernanceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalGovernanceStatus: pulumi.Output<string>;
     /**
      * The fully qualified domain name of the managed instance.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string>;
     /**
      * Hybrid secondary usage. Possible values are 'Active' (default value) and 'Passive' (customer uses the secondary as Passive DR).
      */
-    public readonly hybridSecondaryUsage!: pulumi.Output<string | undefined>;
+    declare public readonly hybridSecondaryUsage: pulumi.Output<string | undefined>;
     /**
      * Hybrid secondary usage detected. Possible values are 'Active' (customer does not meet the requirements to use the secondary as Passive DR) and 'Passive' (customer meets the requirements to use the secondary as Passive DR).
      */
-    public /*out*/ readonly hybridSecondaryUsageDetected!: pulumi.Output<string>;
+    declare public /*out*/ readonly hybridSecondaryUsageDetected: pulumi.Output<string>;
     /**
      * The Azure Active Directory identity of the managed instance.
      */
-    public readonly identity!: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.sql.ResourceIdentityResponse | undefined>;
     /**
      * The Id of the instance pool this managed server belongs to.
      */
-    public readonly instancePoolId!: pulumi.Output<string | undefined>;
+    declare public readonly instancePoolId: pulumi.Output<string | undefined>;
     /**
      * Whether or not this is a GPv2 variant of General Purpose edition.
      */
-    public readonly isGeneralPurposeV2!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGeneralPurposeV2: pulumi.Output<boolean | undefined>;
     /**
      * A CMK URI of the key to use for encryption.
      */
-    public readonly keyId!: pulumi.Output<string | undefined>;
+    declare public readonly keyId: pulumi.Output<string | undefined>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses).
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string | undefined>;
     /**
      * Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'
      */
-    public readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimalTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Pricing model of Managed Instance.
      */
-    public readonly pricingModel!: pulumi.Output<string | undefined>;
+    declare public readonly pricingModel: pulumi.Output<string | undefined>;
     /**
      * The resource id of a user assigned identity to be used by default.
      */
-    public readonly primaryUserAssignedIdentityId!: pulumi.Output<string | undefined>;
+    declare public readonly primaryUserAssignedIdentityId: pulumi.Output<string | undefined>;
     /**
      * List of private endpoint connections on a managed instance.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.sql.ManagedInstancePecPropertyResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.sql.ManagedInstancePecPropertyResponse[]>;
     /**
      * Provisioning state of managed instance.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Connection type used for connecting to the instance.
      */
-    public readonly proxyOverride!: pulumi.Output<string | undefined>;
+    declare public readonly proxyOverride: pulumi.Output<string | undefined>;
     /**
      * Whether or not the public data endpoint is enabled.
      */
-    public readonly publicDataEndpointEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicDataEndpointEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)
      */
-    public readonly requestedBackupStorageRedundancy!: pulumi.Output<string | undefined>;
+    declare public readonly requestedBackupStorageRedundancy: pulumi.Output<string | undefined>;
     /**
      * The managed instance's service principal.
      */
-    public readonly servicePrincipal!: pulumi.Output<outputs.sql.ServicePrincipalResponse | undefined>;
+    declare public readonly servicePrincipal: pulumi.Output<outputs.sql.ServicePrincipalResponse | undefined>;
     /**
      * Managed instance SKU. Allowed values for sku.name: GP_Gen5, GP_G8IM, GP_G8IH, BC_Gen5, BC_G8IM, BC_G8IH
      */
-    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
      * The state of the managed instance.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Storage IOps. Minimum value: 300. Maximum value: 80000. Increments of 1 IOps allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
-    public readonly storageIOps!: pulumi.Output<number | undefined>;
+    declare public readonly storageIOps: pulumi.Output<number | undefined>;
     /**
      * Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores.
      */
-    public readonly storageSizeInGB!: pulumi.Output<number | undefined>;
+    declare public readonly storageSizeInGB: pulumi.Output<number | undefined>;
     /**
      * Storage throughput MBps parameter is not supported in the instance create/update operation.
      */
-    public readonly storageThroughputMBps!: pulumi.Output<number | undefined>;
+    declare public readonly storageThroughputMBps: pulumi.Output<number | undefined>;
     /**
      * Subnet resource ID for the managed instance.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Id of the timezone. Allowed values are timezones supported by Windows.
      * Windows keeps details on supported timezones, including the id, in registry under
@@ -197,23 +197,23 @@ export class ManagedInstance extends pulumi.CustomResource {
      * List of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.
      * An example of valid timezone id is "Pacific Standard Time" or "W. Europe Standard Time".
      */
-    public readonly timezoneId!: pulumi.Output<string | undefined>;
+    declare public readonly timezoneId: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80.
      */
-    public readonly vCores!: pulumi.Output<number | undefined>;
+    declare public readonly vCores: pulumi.Output<number | undefined>;
     /**
      * Virtual cluster resource id for the Managed Instance.
      */
-    public /*out*/ readonly virtualClusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualClusterId: pulumi.Output<string>;
     /**
      * Whether or not the multi-az is enabled.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ManagedInstance resource with the given unique name, arguments, and options.
@@ -226,45 +226,45 @@ export class ManagedInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["administrators"] = args ? args.administrators : undefined;
-            resourceInputs["authenticationMetadata"] = args ? args.authenticationMetadata : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["databaseFormat"] = args ? args.databaseFormat : undefined;
-            resourceInputs["dnsZonePartner"] = args ? args.dnsZonePartner : undefined;
-            resourceInputs["hybridSecondaryUsage"] = args ? args.hybridSecondaryUsage : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["instancePoolId"] = args ? args.instancePoolId : undefined;
-            resourceInputs["isGeneralPurposeV2"] = args ? args.isGeneralPurposeV2 : undefined;
-            resourceInputs["keyId"] = args ? args.keyId : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["managedInstanceCreateMode"] = args ? args.managedInstanceCreateMode : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["minimalTlsVersion"] = args ? args.minimalTlsVersion : undefined;
-            resourceInputs["pricingModel"] = args ? args.pricingModel : undefined;
-            resourceInputs["primaryUserAssignedIdentityId"] = args ? args.primaryUserAssignedIdentityId : undefined;
-            resourceInputs["proxyOverride"] = args ? args.proxyOverride : undefined;
-            resourceInputs["publicDataEndpointEnabled"] = args ? args.publicDataEndpointEnabled : undefined;
-            resourceInputs["requestedBackupStorageRedundancy"] = args ? args.requestedBackupStorageRedundancy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["servicePrincipal"] = args ? args.servicePrincipal : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceManagedInstanceId"] = args ? args.sourceManagedInstanceId : undefined;
-            resourceInputs["storageIOps"] = args ? args.storageIOps : undefined;
-            resourceInputs["storageSizeInGB"] = args ? args.storageSizeInGB : undefined;
-            resourceInputs["storageThroughputMBps"] = args ? args.storageThroughputMBps : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timezoneId"] = args ? args.timezoneId : undefined;
-            resourceInputs["vCores"] = args ? args.vCores : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["administrators"] = args?.administrators;
+            resourceInputs["authenticationMetadata"] = args?.authenticationMetadata;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["databaseFormat"] = args?.databaseFormat;
+            resourceInputs["dnsZonePartner"] = args?.dnsZonePartner;
+            resourceInputs["hybridSecondaryUsage"] = args?.hybridSecondaryUsage;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["instancePoolId"] = args?.instancePoolId;
+            resourceInputs["isGeneralPurposeV2"] = args?.isGeneralPurposeV2;
+            resourceInputs["keyId"] = args?.keyId;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["managedInstanceCreateMode"] = args?.managedInstanceCreateMode;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["minimalTlsVersion"] = args?.minimalTlsVersion;
+            resourceInputs["pricingModel"] = args?.pricingModel;
+            resourceInputs["primaryUserAssignedIdentityId"] = args?.primaryUserAssignedIdentityId;
+            resourceInputs["proxyOverride"] = args?.proxyOverride;
+            resourceInputs["publicDataEndpointEnabled"] = args?.publicDataEndpointEnabled;
+            resourceInputs["requestedBackupStorageRedundancy"] = args?.requestedBackupStorageRedundancy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["servicePrincipal"] = args?.servicePrincipal;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceManagedInstanceId"] = args?.sourceManagedInstanceId;
+            resourceInputs["storageIOps"] = args?.storageIOps;
+            resourceInputs["storageSizeInGB"] = args?.storageSizeInGB;
+            resourceInputs["storageThroughputMBps"] = args?.storageThroughputMBps;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timezoneId"] = args?.timezoneId;
+            resourceInputs["vCores"] = args?.vCores;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["currentBackupStorageRedundancy"] = undefined /*out*/;

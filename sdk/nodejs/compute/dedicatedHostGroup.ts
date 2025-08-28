@@ -44,51 +44,51 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
     /**
      * Enables or disables a capability on the dedicated host group. Minimum api-version: 2022-03-01.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.DedicatedHostGroupPropertiesAdditionalCapabilitiesResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A list of references to all dedicated hosts in the dedicated host group.
      */
-    public /*out*/ readonly hosts!: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
+    declare public /*out*/ readonly hosts: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
     /**
      * The dedicated host group instance view, which has the list of instance view of the dedicated hosts under the dedicated host group.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.DedicatedHostGroupInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.compute.DedicatedHostGroupInstanceViewResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Number of fault domains that the host group can span.
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number>;
     /**
      * Specifies whether virtual machines or virtual machine scale sets can be placed automatically on the dedicated host group. Automatic placement means resources are allocated on dedicated hosts, that are chosen by Azure, under the dedicated host group. The value is defaulted to 'false' when not provided. Minimum api-version: 2020-06-01.
      */
-    public readonly supportAutomaticPlacement!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportAutomaticPlacement: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The availability zones.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DedicatedHostGroup resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class DedicatedHostGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.platformFaultDomainCount === undefined) && !opts.urn) {
+            if (args?.platformFaultDomainCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'platformFaultDomainCount'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["hostGroupName"] = args ? args.hostGroupName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportAutomaticPlacement"] = args ? args.supportAutomaticPlacement : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["hostGroupName"] = args?.hostGroupName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportAutomaticPlacement"] = args?.supportAutomaticPlacement;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hosts"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

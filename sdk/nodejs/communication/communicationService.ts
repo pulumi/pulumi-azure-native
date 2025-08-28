@@ -44,59 +44,59 @@ export class CommunicationService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The location where the communication service stores its data at rest.
      */
-    public readonly dataLocation!: pulumi.Output<string>;
+    declare public readonly dataLocation: pulumi.Output<string>;
     /**
      * FQDN of the CommunicationService instance.
      */
-    public /*out*/ readonly hostName!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostName: pulumi.Output<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.communication.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.communication.ManagedServiceIdentityResponse | undefined>;
     /**
      * The immutable resource Id of the communication service.
      */
-    public /*out*/ readonly immutableResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly immutableResourceId: pulumi.Output<string>;
     /**
      * List of email Domain resource Ids.
      */
-    public readonly linkedDomains!: pulumi.Output<string[] | undefined>;
+    declare public readonly linkedDomains: pulumi.Output<string[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource ID of an Azure Notification Hub linked to this resource.
      */
-    public /*out*/ readonly notificationHubId!: pulumi.Output<string>;
+    declare public /*out*/ readonly notificationHubId: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the CommunicationService resource. Probably you need the same or higher version of client SDKs.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a CommunicationService resource with the given unique name, arguments, and options.
@@ -109,19 +109,19 @@ export class CommunicationService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLocation === undefined) && !opts.urn) {
+            if (args?.dataLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
-            resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["linkedDomains"] = args ? args.linkedDomains : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communicationServiceName"] = args?.communicationServiceName;
+            resourceInputs["dataLocation"] = args?.dataLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["linkedDomains"] = args?.linkedDomains;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostName"] = undefined /*out*/;
             resourceInputs["immutableResourceId"] = undefined /*out*/;

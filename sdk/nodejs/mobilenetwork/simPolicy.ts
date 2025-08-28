@@ -44,55 +44,55 @@ export class SimPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The default slice to use if the UE does not explicitly specify it. This slice must exist in the `sliceConfigurations` map. The slice must be in the same location as the SIM policy.
      */
-    public readonly defaultSlice!: pulumi.Output<outputs.mobilenetwork.SliceResourceIdResponse>;
+    declare public readonly defaultSlice: pulumi.Output<outputs.mobilenetwork.SliceResourceIdResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the SIM policy resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * UE periodic registration update timer (5G) or UE periodic tracking area update timer (4G), in seconds.
      */
-    public readonly registrationTimer!: pulumi.Output<number | undefined>;
+    declare public readonly registrationTimer: pulumi.Output<number | undefined>;
     /**
      * RAT/Frequency Selection Priority Index, defined in 3GPP TS 36.413. This is an optional setting and by default is unspecified.
      */
-    public readonly rfspIndex!: pulumi.Output<number | undefined>;
+    declare public readonly rfspIndex: pulumi.Output<number | undefined>;
     /**
      * A dictionary of sites to the provisioning state of this SIM policy on that site.
      */
-    public /*out*/ readonly siteProvisioningState!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly siteProvisioningState: pulumi.Output<{[key: string]: string}>;
     /**
      * The allowed slices and the settings to use for them. The list must not contain duplicate items and must contain at least one item.
      */
-    public readonly sliceConfigurations!: pulumi.Output<outputs.mobilenetwork.SliceConfigurationResponse[]>;
+    declare public readonly sliceConfigurations: pulumi.Output<outputs.mobilenetwork.SliceConfigurationResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Aggregate maximum bit rate across all non-GBR QoS flows of all PDU sessions of a given UE. See 3GPP TS23.501 section 5.7.2.6 for a full description of the UE-AMBR.
      */
-    public readonly ueAmbr!: pulumi.Output<outputs.mobilenetwork.AmbrResponse>;
+    declare public readonly ueAmbr: pulumi.Output<outputs.mobilenetwork.AmbrResponse>;
 
     /**
      * Create a SimPolicy resource with the given unique name, arguments, and options.
@@ -105,31 +105,31 @@ export class SimPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.defaultSlice === undefined) && !opts.urn) {
+            if (args?.defaultSlice === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultSlice'");
             }
-            if ((!args || args.mobileNetworkName === undefined) && !opts.urn) {
+            if (args?.mobileNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sliceConfigurations === undefined) && !opts.urn) {
+            if (args?.sliceConfigurations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sliceConfigurations'");
             }
-            if ((!args || args.ueAmbr === undefined) && !opts.urn) {
+            if (args?.ueAmbr === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ueAmbr'");
             }
-            resourceInputs["defaultSlice"] = args ? args.defaultSlice : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
-            resourceInputs["registrationTimer"] = (args ? args.registrationTimer : undefined) ?? 3240;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rfspIndex"] = args ? args.rfspIndex : undefined;
-            resourceInputs["simPolicyName"] = args ? args.simPolicyName : undefined;
-            resourceInputs["sliceConfigurations"] = args ? args.sliceConfigurations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["ueAmbr"] = args ? args.ueAmbr : undefined;
+            resourceInputs["defaultSlice"] = args?.defaultSlice;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkName"] = args?.mobileNetworkName;
+            resourceInputs["registrationTimer"] = (args?.registrationTimer) ?? 3240;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rfspIndex"] = args?.rfspIndex;
+            resourceInputs["simPolicyName"] = args?.simPolicyName;
+            resourceInputs["sliceConfigurations"] = args?.sliceConfigurations;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["ueAmbr"] = args?.ueAmbr;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,27 +42,27 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
     /**
      * The IP Filter Action
      */
-    public readonly action!: pulumi.Output<string | undefined>;
+    declare public readonly action: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * IP Filter name
      */
-    public readonly filterName!: pulumi.Output<string | undefined>;
+    declare public readonly filterName: pulumi.Output<string | undefined>;
     /**
      * IP Mask
      */
-    public readonly ipMask!: pulumi.Output<string | undefined>;
+    declare public readonly ipMask: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NamespaceIpFilterRule resource with the given unique name, arguments, and options.
@@ -75,18 +75,18 @@ export class NamespaceIpFilterRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["filterName"] = args ? args.filterName : undefined;
-            resourceInputs["ipFilterRuleName"] = args ? args.ipFilterRuleName : undefined;
-            resourceInputs["ipMask"] = args ? args.ipMask : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["filterName"] = args?.filterName;
+            resourceInputs["ipFilterRuleName"] = args?.ipFilterRuleName;
+            resourceInputs["ipMask"] = args?.ipMask;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

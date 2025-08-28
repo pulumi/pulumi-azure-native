@@ -44,23 +44,23 @@ export class Alias extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Alias ID.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Subscription Alias response properties.
      */
-    public readonly properties!: pulumi.Output<outputs.subscription.SubscriptionAliasResponsePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.subscription.SubscriptionAliasResponsePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.subscription.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.subscription.SystemDataResponse>;
     /**
      * Resource type, Microsoft.Subscription/aliases.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Alias resource with the given unique name, arguments, and options.
@@ -73,8 +73,8 @@ export class Alias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["aliasName"] = args ? args.aliasName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["aliasName"] = args?.aliasName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

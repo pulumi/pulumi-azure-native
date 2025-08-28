@@ -44,47 +44,47 @@ export class Image extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The extended location of the Image.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
      * Specifies the HyperVGenerationType of the VirtualMachine created from the image. From API Version 2019-03-01 if the image source is a blob, then we need the user to specify the value, if the source is managed resource like disk or snapshot, we may require the user to specify the property if we cannot deduce it from the source managed resource.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The source virtual machine from which Image is created.
      */
-    public readonly sourceVirtualMachine!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
+    declare public readonly sourceVirtualMachine: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.compute.ImageStorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.compute.ImageStorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Image resource with the given unique name, arguments, and options.
@@ -97,17 +97,17 @@ export class Image extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["imageName"] = args ? args.imageName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceVirtualMachine"] = args ? args.sourceVirtualMachine : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["imageName"] = args?.imageName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceVirtualMachine"] = args?.sourceVirtualMachine;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

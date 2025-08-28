@@ -44,47 +44,47 @@ export class Deployment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The custom metadata defined for API catalog entities.
      */
-    public readonly customProperties!: pulumi.Output<any | undefined>;
+    declare public readonly customProperties: pulumi.Output<any | undefined>;
     /**
      * API center-scoped definition resource ID.
      */
-    public readonly definitionId!: pulumi.Output<string | undefined>;
+    declare public readonly definitionId: pulumi.Output<string | undefined>;
     /**
      * Description of the deployment.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * API center-scoped environment resource ID.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The deployment server
      */
-    public readonly server!: pulumi.Output<outputs.apicenter.DeploymentServerResponse | undefined>;
+    declare public readonly server: pulumi.Output<outputs.apicenter.DeploymentServerResponse | undefined>;
     /**
      * State of API deployment.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apicenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.apicenter.SystemDataResponse>;
     /**
      * API deployment title
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Deployment resource with the given unique name, arguments, and options.
@@ -97,30 +97,30 @@ export class Deployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiName === undefined) && !opts.urn) {
+            if (args?.apiName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["customProperties"] = args ? args.customProperties : undefined;
-            resourceInputs["definitionId"] = args ? args.definitionId : undefined;
-            resourceInputs["deploymentName"] = args ? args.deploymentName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["customProperties"] = args?.customProperties;
+            resourceInputs["definitionId"] = args?.definitionId;
+            resourceInputs["deploymentName"] = args?.deploymentName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -42,43 +42,43 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
     /**
      * Type of the alert to automatically suppress. For all alert types, use '*'
      */
-    public readonly alertType!: pulumi.Output<string>;
+    declare public readonly alertType: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Any comment regarding the rule
      */
-    public readonly comment!: pulumi.Output<string | undefined>;
+    declare public readonly comment: pulumi.Output<string | undefined>;
     /**
      * Expiration date of the rule, if value is not provided or provided as null there will no expiration at all
      */
-    public readonly expirationDateUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDateUtc: pulumi.Output<string | undefined>;
     /**
      * The last time this rule was modified
      */
-    public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedUtc: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The reason for dismissing the alert
      */
-    public readonly reason!: pulumi.Output<string>;
+    declare public readonly reason: pulumi.Output<string>;
     /**
      * Possible states of the rule
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * The suppression conditions
      */
-    public readonly suppressionAlertsScope!: pulumi.Output<outputs.security.SuppressionAlertsScopeResponse | undefined>;
+    declare public readonly suppressionAlertsScope: pulumi.Output<outputs.security.SuppressionAlertsScopeResponse | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AlertsSuppressionRule resource with the given unique name, arguments, and options.
@@ -91,22 +91,22 @@ export class AlertsSuppressionRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.alertType === undefined) && !opts.urn) {
+            if (args?.alertType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alertType'");
             }
-            if ((!args || args.reason === undefined) && !opts.urn) {
+            if (args?.reason === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reason'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["alertType"] = args ? args.alertType : undefined;
-            resourceInputs["alertsSuppressionRuleName"] = args ? args.alertsSuppressionRuleName : undefined;
-            resourceInputs["comment"] = args ? args.comment : undefined;
-            resourceInputs["expirationDateUtc"] = args ? args.expirationDateUtc : undefined;
-            resourceInputs["reason"] = args ? args.reason : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["suppressionAlertsScope"] = args ? args.suppressionAlertsScope : undefined;
+            resourceInputs["alertType"] = args?.alertType;
+            resourceInputs["alertsSuppressionRuleName"] = args?.alertsSuppressionRuleName;
+            resourceInputs["comment"] = args?.comment;
+            resourceInputs["expirationDateUtc"] = args?.expirationDateUtc;
+            resourceInputs["reason"] = args?.reason;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["suppressionAlertsScope"] = args?.suppressionAlertsScope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

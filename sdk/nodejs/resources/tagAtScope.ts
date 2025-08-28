@@ -44,19 +44,19 @@ export class TagAtScope extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the tags wrapper resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The set of tags.
      */
-    public readonly properties!: pulumi.Output<outputs.resources.TagsResponse>;
+    declare public readonly properties: pulumi.Output<outputs.resources.TagsResponse>;
     /**
      * The type of the tags wrapper resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TagAtScope resource with the given unique name, arguments, and options.
@@ -69,14 +69,14 @@ export class TagAtScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -44,51 +44,51 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A reference to the service being brought into the virtual network.
      */
-    public readonly endpointService!: pulumi.Output<outputs.network.EndpointServiceResponse | undefined>;
+    declare public readonly endpointService: pulumi.Output<outputs.network.EndpointServiceResponse | undefined>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * A first-party service's FQDN that is mapped to the private IP allocated via this interface endpoint.
      */
-    public readonly fqdn!: pulumi.Output<string | undefined>;
+    declare public readonly fqdn: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets an array of references to the network interfaces created for this interface endpoint.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
     /**
      * A read-only property that identifies who created this interface endpoint.
      */
-    public /*out*/ readonly owner!: pulumi.Output<string>;
+    declare public /*out*/ readonly owner: pulumi.Output<string>;
     /**
      * The provisioning state of the interface endpoint. Possible values are: 'Updating', 'Deleting', and 'Failed'.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    public readonly subnet!: pulumi.Output<outputs.network.SubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a InterfaceEndpoint resource with the given unique name, arguments, and options.
@@ -101,17 +101,17 @@ export class InterfaceEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["endpointService"] = args ? args.endpointService : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["interfaceEndpointName"] = args ? args.interfaceEndpointName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["endpointService"] = args?.endpointService;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["interfaceEndpointName"] = args?.interfaceEndpointName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

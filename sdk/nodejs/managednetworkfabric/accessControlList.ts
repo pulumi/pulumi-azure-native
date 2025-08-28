@@ -44,67 +44,67 @@ export class AccessControlList extends pulumi.CustomResource {
     /**
      * Access Control List file URL.
      */
-    public readonly aclsUrl!: pulumi.Output<string | undefined>;
+    declare public readonly aclsUrl: pulumi.Output<string | undefined>;
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * Input method to configure Access Control List.
      */
-    public readonly configurationType!: pulumi.Output<string>;
+    declare public readonly configurationType: pulumi.Output<string>;
     /**
      * Default action that needs to be applied when no condition is matched. Example: Permit | Deny.
      */
-    public readonly defaultAction!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAction: pulumi.Output<string | undefined>;
     /**
      * List of dynamic match configurations.
      */
-    public readonly dynamicMatchConfigurations!: pulumi.Output<outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[] | undefined>;
+    declare public readonly dynamicMatchConfigurations: pulumi.Output<outputs.managednetworkfabric.CommonDynamicMatchConfigurationResponse[] | undefined>;
     /**
      * The last synced timestamp.
      */
-    public /*out*/ readonly lastSyncedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncedTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * List of match configurations.
      */
-    public readonly matchConfigurations!: pulumi.Output<outputs.managednetworkfabric.AccessControlListMatchConfigurationResponse[] | undefined>;
+    declare public readonly matchConfigurations: pulumi.Output<outputs.managednetworkfabric.AccessControlListMatchConfigurationResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AccessControlList resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class AccessControlList extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationType === undefined) && !opts.urn) {
+            if (args?.configurationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessControlListName"] = args ? args.accessControlListName : undefined;
-            resourceInputs["aclsUrl"] = args ? args.aclsUrl : undefined;
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["configurationType"] = args ? args.configurationType : undefined;
-            resourceInputs["defaultAction"] = (args ? args.defaultAction : undefined) ?? "Permit";
-            resourceInputs["dynamicMatchConfigurations"] = args ? args.dynamicMatchConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["matchConfigurations"] = args ? args.matchConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessControlListName"] = args?.accessControlListName;
+            resourceInputs["aclsUrl"] = args?.aclsUrl;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["configurationType"] = args?.configurationType;
+            resourceInputs["defaultAction"] = (args?.defaultAction) ?? "Permit";
+            resourceInputs["dynamicMatchConfigurations"] = args?.dynamicMatchConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["matchConfigurations"] = args?.matchConfigurations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

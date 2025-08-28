@@ -44,79 +44,79 @@ export class VirtualHardDisk extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Block size in bytes
      */
-    public readonly blockSizeBytes!: pulumi.Output<number | undefined>;
+    declare public readonly blockSizeBytes: pulumi.Output<number | undefined>;
     /**
      * Storage ContainerID of the storage container to be used for VHD
      */
-    public readonly containerId!: pulumi.Output<string | undefined>;
+    declare public readonly containerId: pulumi.Output<string | undefined>;
     /**
      * Boolean indicating whether it is an existing local hard disk or if one should be created.
      */
-    public readonly createFromLocal!: pulumi.Output<boolean | undefined>;
+    declare public readonly createFromLocal: pulumi.Output<boolean | undefined>;
     /**
      * The format of the actual VHD file [vhd, vhdx]
      */
-    public readonly diskFileFormat!: pulumi.Output<string | undefined>;
+    declare public readonly diskFileFormat: pulumi.Output<string | undefined>;
     /**
      * Size of the disk in GB
      */
-    public readonly diskSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly diskSizeGB: pulumi.Output<number | undefined>;
     /**
      * URL for downloading or accessing the virtual hard disk. This URL points to a secure link from where the VHD can be downloaded or accessed directly.
      */
-    public readonly downloadUrl!: pulumi.Output<string | undefined>;
+    declare public readonly downloadUrl: pulumi.Output<string | undefined>;
     /**
      * Boolean for enabling dynamic sizing on the virtual hard disk
      */
-    public readonly dynamic!: pulumi.Output<boolean | undefined>;
+    declare public readonly dynamic: pulumi.Output<boolean | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Logical sector in bytes
      */
-    public readonly logicalSectorBytes!: pulumi.Output<number | undefined>;
+    declare public readonly logicalSectorBytes: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Physical sector in bytes
      */
-    public readonly physicalSectorBytes!: pulumi.Output<number | undefined>;
+    declare public readonly physicalSectorBytes: pulumi.Output<number | undefined>;
     /**
      * Provisioning state of the virtual hard disk.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The observed state of virtual hard disks
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.VirtualHardDiskStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.azurestackhci.VirtualHardDiskStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualHardDisk resource with the given unique name, arguments, and options.
@@ -129,24 +129,24 @@ export class VirtualHardDisk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["blockSizeBytes"] = args ? args.blockSizeBytes : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
-            resourceInputs["diskFileFormat"] = args ? args.diskFileFormat : undefined;
-            resourceInputs["diskSizeGB"] = args ? args.diskSizeGB : undefined;
-            resourceInputs["downloadUrl"] = args ? args.downloadUrl : undefined;
-            resourceInputs["dynamic"] = args ? args.dynamic : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicalSectorBytes"] = args ? args.logicalSectorBytes : undefined;
-            resourceInputs["physicalSectorBytes"] = args ? args.physicalSectorBytes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHardDiskName"] = args ? args.virtualHardDiskName : undefined;
+            resourceInputs["blockSizeBytes"] = args?.blockSizeBytes;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
+            resourceInputs["diskFileFormat"] = args?.diskFileFormat;
+            resourceInputs["diskSizeGB"] = args?.diskSizeGB;
+            resourceInputs["downloadUrl"] = args?.downloadUrl;
+            resourceInputs["dynamic"] = args?.dynamic;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicalSectorBytes"] = args?.logicalSectorBytes;
+            resourceInputs["physicalSectorBytes"] = args?.physicalSectorBytes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHardDiskName"] = args?.virtualHardDiskName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

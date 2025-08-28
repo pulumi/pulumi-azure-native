@@ -44,67 +44,67 @@ export class OpenShiftCluster extends pulumi.CustomResource {
     /**
      * The cluster API server profile.
      */
-    public readonly apiserverProfile!: pulumi.Output<outputs.redhatopenshift.APIServerProfileResponse | undefined>;
+    declare public readonly apiserverProfile: pulumi.Output<outputs.redhatopenshift.APIServerProfileResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cluster profile.
      */
-    public readonly clusterProfile!: pulumi.Output<outputs.redhatopenshift.ClusterProfileResponse | undefined>;
+    declare public readonly clusterProfile: pulumi.Output<outputs.redhatopenshift.ClusterProfileResponse | undefined>;
     /**
      * The console profile.
      */
-    public /*out*/ readonly consoleProfile!: pulumi.Output<outputs.redhatopenshift.ConsoleProfileResponse | undefined>;
+    declare public /*out*/ readonly consoleProfile: pulumi.Output<outputs.redhatopenshift.ConsoleProfileResponse | undefined>;
     /**
      * The cluster ingress profiles.
      */
-    public readonly ingressProfiles!: pulumi.Output<outputs.redhatopenshift.IngressProfileResponse[] | undefined>;
+    declare public readonly ingressProfiles: pulumi.Output<outputs.redhatopenshift.IngressProfileResponse[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The cluster master profile.
      */
-    public readonly masterProfile!: pulumi.Output<outputs.redhatopenshift.MasterProfileResponse | undefined>;
+    declare public readonly masterProfile: pulumi.Output<outputs.redhatopenshift.MasterProfileResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The cluster network profile.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.redhatopenshift.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.redhatopenshift.NetworkProfileResponse | undefined>;
     /**
      * The cluster provisioning state.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * The cluster service principal profile.
      */
-    public readonly servicePrincipalProfile!: pulumi.Output<outputs.redhatopenshift.ServicePrincipalProfileResponse | undefined>;
+    declare public readonly servicePrincipalProfile: pulumi.Output<outputs.redhatopenshift.ServicePrincipalProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.redhatopenshift.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.redhatopenshift.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The cluster worker profiles.
      */
-    public readonly workerProfiles!: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[] | undefined>;
+    declare public readonly workerProfiles: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[] | undefined>;
     /**
      * The cluster worker profiles status.
      */
-    public /*out*/ readonly workerProfilesStatus!: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[]>;
+    declare public /*out*/ readonly workerProfilesStatus: pulumi.Output<outputs.redhatopenshift.WorkerProfileResponse[]>;
 
     /**
      * Create a OpenShiftCluster resource with the given unique name, arguments, and options.
@@ -117,21 +117,21 @@ export class OpenShiftCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiserverProfile"] = args ? args.apiserverProfile : undefined;
-            resourceInputs["clusterProfile"] = args ? args.clusterProfile : undefined;
-            resourceInputs["ingressProfiles"] = args ? args.ingressProfiles : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterProfile"] = args ? args.masterProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["servicePrincipalProfile"] = args ? args.servicePrincipalProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workerProfiles"] = args ? args.workerProfiles : undefined;
+            resourceInputs["apiserverProfile"] = args?.apiserverProfile;
+            resourceInputs["clusterProfile"] = args?.clusterProfile;
+            resourceInputs["ingressProfiles"] = args?.ingressProfiles;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterProfile"] = args?.masterProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["servicePrincipalProfile"] = args?.servicePrincipalProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workerProfiles"] = args?.workerProfiles;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["consoleProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

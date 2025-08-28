@@ -42,31 +42,31 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The level of the lock. Possible values are: NotSpecified, CanNotDelete, ReadOnly. CanNotDelete means authorized users are able to read and modify the resources, but not delete. ReadOnly means authorized users can only read from a resource, but they can't modify or delete it.
      */
-    public readonly level!: pulumi.Output<string>;
+    declare public readonly level: pulumi.Output<string>;
     /**
      * The name of the lock.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Notes about the lock. Maximum of 512 characters.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * The owners of the lock.
      */
-    public readonly owners!: pulumi.Output<outputs.authorization.ManagementLockOwnerResponse[] | undefined>;
+    declare public readonly owners: pulumi.Output<outputs.authorization.ManagementLockOwnerResponse[] | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The resource type of the lock - Microsoft.Authorization/locks.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagementLockAtSubscriptionLevel resource with the given unique name, arguments, and options.
@@ -79,13 +79,13 @@ export class ManagementLockAtSubscriptionLevel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.level === undefined) && !opts.urn) {
+            if (args?.level === undefined && !opts.urn) {
                 throw new Error("Missing required property 'level'");
             }
-            resourceInputs["level"] = args ? args.level : undefined;
-            resourceInputs["lockName"] = args ? args.lockName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["owners"] = args ? args.owners : undefined;
+            resourceInputs["level"] = args?.level;
+            resourceInputs["lockName"] = args?.lockName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["owners"] = args?.owners;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

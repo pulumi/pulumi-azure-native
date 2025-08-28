@@ -44,43 +44,43 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The configuration settings of the secrets references of encryption key and signing key for ContainerApp Service Authentication/Authorization.
      */
-    public readonly encryptionSettings!: pulumi.Output<outputs.app.EncryptionSettingsResponse | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.app.EncryptionSettingsResponse | undefined>;
     /**
      * The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
      */
-    public readonly globalValidation!: pulumi.Output<outputs.app.GlobalValidationResponse | undefined>;
+    declare public readonly globalValidation: pulumi.Output<outputs.app.GlobalValidationResponse | undefined>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
      */
-    public readonly httpSettings!: pulumi.Output<outputs.app.HttpSettingsResponse | undefined>;
+    declare public readonly httpSettings: pulumi.Output<outputs.app.HttpSettingsResponse | undefined>;
     /**
      * The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
      */
-    public readonly identityProviders!: pulumi.Output<outputs.app.IdentityProvidersResponse | undefined>;
+    declare public readonly identityProviders: pulumi.Output<outputs.app.IdentityProvidersResponse | undefined>;
     /**
      * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
-    public readonly login!: pulumi.Output<outputs.app.LoginResponse | undefined>;
+    declare public readonly login: pulumi.Output<outputs.app.LoginResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */
-    public readonly platform!: pulumi.Output<outputs.app.AuthPlatformResponse | undefined>;
+    declare public readonly platform: pulumi.Output<outputs.app.AuthPlatformResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ContainerAppsAuthConfig resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containerAppName === undefined) && !opts.urn) {
+            if (args?.containerAppName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerAppName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authConfigName"] = args ? args.authConfigName : undefined;
-            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
-            resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
-            resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authConfigName"] = args?.authConfigName;
+            resourceInputs["containerAppName"] = args?.containerAppName;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["globalValidation"] = args?.globalValidation;
+            resourceInputs["httpSettings"] = args?.httpSettings;
+            resourceInputs["identityProviders"] = args?.identityProviders;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

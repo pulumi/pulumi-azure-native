@@ -44,107 +44,107 @@ export class Application extends pulumi.CustomResource {
     /**
      * The fully qualified path of managed application definition Id.
      */
-    public readonly applicationDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly applicationDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The collection of managed application artifacts.
      */
-    public /*out*/ readonly artifacts!: pulumi.Output<outputs.solutions.ApplicationArtifactResponse[]>;
+    declare public /*out*/ readonly artifacts: pulumi.Output<outputs.solutions.ApplicationArtifactResponse[]>;
     /**
      * The  read-only authorizations property that is retrieved from the application package.
      */
-    public /*out*/ readonly authorizations!: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[]>;
+    declare public /*out*/ readonly authorizations: pulumi.Output<outputs.solutions.ApplicationAuthorizationResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The managed application billing details.
      */
-    public /*out*/ readonly billingDetails!: pulumi.Output<outputs.solutions.ApplicationBillingDetailsDefinitionResponse>;
+    declare public /*out*/ readonly billingDetails: pulumi.Output<outputs.solutions.ApplicationBillingDetailsDefinitionResponse>;
     /**
      * The client entity that created the JIT request.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.solutions.ApplicationClientDetailsResponse>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<outputs.solutions.ApplicationClientDetailsResponse>;
     /**
      * The read-only customer support property that is retrieved from the application package.
      */
-    public /*out*/ readonly customerSupport!: pulumi.Output<outputs.solutions.ApplicationPackageContactResponse>;
+    declare public /*out*/ readonly customerSupport: pulumi.Output<outputs.solutions.ApplicationPackageContactResponse>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.solutions.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.solutions.IdentityResponse | undefined>;
     /**
      * The managed application Jit access policy.
      */
-    public readonly jitAccessPolicy!: pulumi.Output<outputs.solutions.ApplicationJitAccessPolicyResponse | undefined>;
+    declare public readonly jitAccessPolicy: pulumi.Output<outputs.solutions.ApplicationJitAccessPolicyResponse | undefined>;
     /**
      * The kind of the managed application. Allowed values are MarketPlace and ServiceCatalog.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The managed resource group Id.
      */
-    public readonly managedResourceGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupId: pulumi.Output<string | undefined>;
     /**
      * The managed application management mode.
      */
-    public /*out*/ readonly managementMode!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementMode: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name and value pairs that define the managed application outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<any>;
+    declare public /*out*/ readonly outputs: pulumi.Output<any>;
     /**
      * Name and value pairs that define the managed application parameters. It can be a JObject or a well formed JSON string.
      */
-    public readonly parameters!: pulumi.Output<any | undefined>;
+    declare public readonly parameters: pulumi.Output<any | undefined>;
     /**
      * The plan information.
      */
-    public readonly plan!: pulumi.Output<outputs.solutions.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.solutions.PlanResponse | undefined>;
     /**
      * The managed application provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The publisher tenant Id.
      */
-    public /*out*/ readonly publisherTenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherTenantId: pulumi.Output<string>;
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.solutions.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.solutions.SkuResponse | undefined>;
     /**
      * The read-only support URLs property that is retrieved from the application package.
      */
-    public /*out*/ readonly supportUrls!: pulumi.Output<outputs.solutions.ApplicationPackageSupportUrlsResponse>;
+    declare public /*out*/ readonly supportUrls: pulumi.Output<outputs.solutions.ApplicationPackageSupportUrlsResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.solutions.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.solutions.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The client entity that last updated the JIT request.
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<outputs.solutions.ApplicationClientDetailsResponse>;
+    declare public /*out*/ readonly updatedBy: pulumi.Output<outputs.solutions.ApplicationClientDetailsResponse>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -157,25 +157,25 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationDefinitionId"] = args ? args.applicationDefinitionId : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["jitAccessPolicy"] = args ? args.jitAccessPolicy : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedResourceGroupId"] = args ? args.managedResourceGroupId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationDefinitionId"] = args?.applicationDefinitionId;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["jitAccessPolicy"] = args?.jitAccessPolicy;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedResourceGroupId"] = args?.managedResourceGroupId;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["artifacts"] = undefined /*out*/;
             resourceInputs["authorizations"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

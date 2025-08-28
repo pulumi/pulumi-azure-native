@@ -44,43 +44,43 @@ export class Script extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Flag that indicates whether to continue if one of the command fails.
      */
-    public readonly continueOnErrors!: pulumi.Output<boolean | undefined>;
+    declare public readonly continueOnErrors: pulumi.Output<boolean | undefined>;
     /**
      * A unique string. If changed the script will be applied again.
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Indicates if the permissions for the script caller are kept following completion of the script.
      */
-    public readonly principalPermissionsAction!: pulumi.Output<string | undefined>;
+    declare public readonly principalPermissionsAction: pulumi.Output<string | undefined>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Differentiates between the type of script commands included - Database or Cluster. The default is Database.
      */
-    public readonly scriptLevel!: pulumi.Output<string | undefined>;
+    declare public readonly scriptLevel: pulumi.Output<string | undefined>;
     /**
      * The url to the KQL script blob file. Must not be used together with scriptContent property
      */
-    public readonly scriptUrl!: pulumi.Output<string | undefined>;
+    declare public readonly scriptUrl: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kusto.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kusto.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Script resource with the given unique name, arguments, and options.
@@ -93,26 +93,26 @@ export class Script extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["continueOnErrors"] = (args ? args.continueOnErrors : undefined) ?? false;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["principalPermissionsAction"] = args ? args.principalPermissionsAction : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
-            resourceInputs["scriptLevel"] = args ? args.scriptLevel : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["scriptUrl"] = args ? args.scriptUrl : undefined;
-            resourceInputs["scriptUrlSasToken"] = args ? args.scriptUrlSasToken : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["continueOnErrors"] = (args?.continueOnErrors) ?? false;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["principalPermissionsAction"] = args?.principalPermissionsAction;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scriptContent"] = args?.scriptContent;
+            resourceInputs["scriptLevel"] = args?.scriptLevel;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["scriptUrl"] = args?.scriptUrl;
+            resourceInputs["scriptUrlSasToken"] = args?.scriptUrlSasToken;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

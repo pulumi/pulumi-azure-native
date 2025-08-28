@@ -42,27 +42,27 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * Authentication method to be used when validating client API access.
      */
-    public readonly authentication!: pulumi.Output<outputs.videoanalyzer.JwtAuthenticationResponse | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.videoanalyzer.JwtAuthenticationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the access level granted by this policy.
      */
-    public readonly role!: pulumi.Output<string | undefined>;
+    declare public readonly role: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -75,17 +75,17 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
+            resourceInputs["accessPolicyName"] = args?.accessPolicyName;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

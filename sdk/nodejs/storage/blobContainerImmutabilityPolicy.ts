@@ -41,35 +41,35 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
     /**
      * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API.
      */
-    public readonly allowProtectedAppendWrites!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowProtectedAppendWrites: pulumi.Output<boolean | undefined>;
     /**
      * This property can only be changed for unlocked time-based retention policies. When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. This property cannot be changed with ExtendImmutabilityPolicy API. The 'allowProtectedAppendWrites' and 'allowProtectedAppendWritesAll' properties are mutually exclusive.
      */
-    public readonly allowProtectedAppendWritesAll!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowProtectedAppendWritesAll: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource Etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The immutability period for the blobs in the container since the policy creation, in days.
      */
-    public readonly immutabilityPeriodSinceCreationInDays!: pulumi.Output<number | undefined>;
+    declare public readonly immutabilityPeriodSinceCreationInDays: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ImmutabilityPolicy state of a blob container, possible values include: Locked and Unlocked.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BlobContainerImmutabilityPolicy resource with the given unique name, arguments, and options.
@@ -82,22 +82,22 @@ export class BlobContainerImmutabilityPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowProtectedAppendWrites"] = args ? args.allowProtectedAppendWrites : undefined;
-            resourceInputs["allowProtectedAppendWritesAll"] = args ? args.allowProtectedAppendWritesAll : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["immutabilityPeriodSinceCreationInDays"] = args ? args.immutabilityPeriodSinceCreationInDays : undefined;
-            resourceInputs["immutabilityPolicyName"] = args ? args.immutabilityPolicyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowProtectedAppendWrites"] = args?.allowProtectedAppendWrites;
+            resourceInputs["allowProtectedAppendWritesAll"] = args?.allowProtectedAppendWritesAll;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["immutabilityPeriodSinceCreationInDays"] = args?.immutabilityPeriodSinceCreationInDays;
+            resourceInputs["immutabilityPolicyName"] = args?.immutabilityPolicyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

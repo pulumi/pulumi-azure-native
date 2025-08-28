@@ -44,75 +44,75 @@ export class ConfigurationStore extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of configuration store.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Property specifying the configuration of data plane proxy for Azure Resource Manager (ARM).
      */
-    public readonly dataPlaneProxy!: pulumi.Output<outputs.appconfiguration.DataPlaneProxyPropertiesResponse | undefined>;
+    declare public readonly dataPlaneProxy: pulumi.Output<outputs.appconfiguration.DataPlaneProxyPropertiesResponse | undefined>;
     /**
      * Disables all authentication methods other than AAD authentication.
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * Property specifying whether protection against purge is enabled for this configuration store.
      */
-    public readonly enablePurgeProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePurgeProtection: pulumi.Output<boolean | undefined>;
     /**
      * The encryption settings of the configuration store.
      */
-    public readonly encryption!: pulumi.Output<outputs.appconfiguration.EncryptionPropertiesResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.appconfiguration.EncryptionPropertiesResponse | undefined>;
     /**
      * The DNS endpoint where the configuration store API will be available.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The managed identity information, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.appconfiguration.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.appconfiguration.ResourceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.appconfiguration.PrivateEndpointConnectionReferenceResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.appconfiguration.PrivateEndpointConnectionReferenceResponse[]>;
     /**
      * The provisioning state of the configuration store.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The sku of the configuration store.
      */
-    public readonly sku!: pulumi.Output<outputs.appconfiguration.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.appconfiguration.SkuResponse>;
     /**
      * The amount of time in days that the configuration store will be retained when it is soft deleted.
      */
-    public readonly softDeleteRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly softDeleteRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * Resource system metadata.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationStore resource with the given unique name, arguments, and options.
@@ -125,25 +125,25 @@ export class ConfigurationStore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["dataPlaneProxy"] = args ? args.dataPlaneProxy : undefined;
-            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            resourceInputs["enablePurgeProtection"] = (args ? args.enablePurgeProtection : undefined) ?? false;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["softDeleteRetentionInDays"] = (args ? args.softDeleteRetentionInDays : undefined) ?? 7;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configStoreName"] = args?.configStoreName;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["dataPlaneProxy"] = args?.dataPlaneProxy;
+            resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
+            resourceInputs["enablePurgeProtection"] = (args?.enablePurgeProtection) ?? false;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["softDeleteRetentionInDays"] = (args?.softDeleteRetentionInDays) ?? 7;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;

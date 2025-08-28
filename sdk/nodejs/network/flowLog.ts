@@ -44,67 +44,67 @@ export class FlowLog extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Flag to enable/disable flow logging.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Optional field to filter network traffic logs based on SrcIP, SrcPort, DstIP, DstPort, Protocol, Encryption, Direction and Action. If not specified, all network traffic will be logged.
      */
-    public readonly enabledFilteringCriteria!: pulumi.Output<string | undefined>;
+    declare public readonly enabledFilteringCriteria: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Parameters that define the configuration of traffic analytics.
      */
-    public readonly flowAnalyticsConfiguration!: pulumi.Output<outputs.network.TrafficAnalyticsPropertiesResponse | undefined>;
+    declare public readonly flowAnalyticsConfiguration: pulumi.Output<outputs.network.TrafficAnalyticsPropertiesResponse | undefined>;
     /**
      * Parameters that define the flow log format.
      */
-    public readonly format!: pulumi.Output<outputs.network.FlowLogFormatParametersResponse | undefined>;
+    declare public readonly format: pulumi.Output<outputs.network.FlowLogFormatParametersResponse | undefined>;
     /**
      * FlowLog resource Managed Identity
      */
-    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the flow log.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Parameters that define the retention policy for flow log.
      */
-    public readonly retentionPolicy!: pulumi.Output<outputs.network.RetentionPolicyParametersResponse | undefined>;
+    declare public readonly retentionPolicy: pulumi.Output<outputs.network.RetentionPolicyParametersResponse | undefined>;
     /**
      * ID of the storage account which is used to store the flow log.
      */
-    public readonly storageId!: pulumi.Output<string>;
+    declare public readonly storageId: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Guid of network security group to which flow log will be applied.
      */
-    public /*out*/ readonly targetResourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetResourceGuid: pulumi.Output<string>;
     /**
      * ID of network security group to which flow log will be applied.
      */
-    public readonly targetResourceId!: pulumi.Output<string>;
+    declare public readonly targetResourceId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FlowLog resource with the given unique name, arguments, and options.
@@ -117,32 +117,32 @@ export class FlowLog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageId === undefined) && !opts.urn) {
+            if (args?.storageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageId'");
             }
-            if ((!args || args.targetResourceId === undefined) && !opts.urn) {
+            if (args?.targetResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["enabledFilteringCriteria"] = args ? args.enabledFilteringCriteria : undefined;
-            resourceInputs["flowAnalyticsConfiguration"] = args ? args.flowAnalyticsConfiguration : undefined;
-            resourceInputs["flowLogName"] = args ? args.flowLogName : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["enabledFilteringCriteria"] = args?.enabledFilteringCriteria;
+            resourceInputs["flowAnalyticsConfiguration"] = args?.flowAnalyticsConfiguration;
+            resourceInputs["flowLogName"] = args?.flowLogName;
             resourceInputs["format"] = args ? (args.format ? pulumi.output(args.format).apply(inputs.network.flowLogFormatParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["retentionPolicy"] = args ? (args.retentionPolicy ? pulumi.output(args.retentionPolicy).apply(inputs.network.retentionPolicyParametersArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["storageId"] = args ? args.storageId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
+            resourceInputs["storageId"] = args?.storageId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

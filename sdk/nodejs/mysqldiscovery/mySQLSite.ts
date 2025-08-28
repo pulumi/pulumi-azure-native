@@ -42,43 +42,43 @@ export class MySQLSite extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.mysqldiscovery.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.mysqldiscovery.ExtendedLocationResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The mapped master Site Id.
      */
-    public readonly masterSiteId!: pulumi.Output<string>;
+    declare public readonly masterSiteId: pulumi.Output<string>;
     /**
      * The mapped migrate project Id.
      */
-    public readonly migrateProjectId!: pulumi.Output<string>;
+    declare public readonly migrateProjectId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mysqldiscovery.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mysqldiscovery.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MySQLSite resource with the given unique name, arguments, and options.
@@ -91,26 +91,26 @@ export class MySQLSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.masterSiteId === undefined) && !opts.urn) {
+            if (args?.masterSiteId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'masterSiteId'");
             }
-            if ((!args || args.migrateProjectId === undefined) && !opts.urn) {
+            if (args?.migrateProjectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterSiteId"] = args ? args.masterSiteId : undefined;
-            resourceInputs["migrateProjectId"] = args ? args.migrateProjectId : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterSiteId"] = args?.masterSiteId;
+            resourceInputs["migrateProjectId"] = args?.migrateProjectId;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

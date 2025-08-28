@@ -44,43 +44,43 @@ export class HuntRelation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * List of labels relevant to this hunt
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The id of the related resource
      */
-    public readonly relatedResourceId!: pulumi.Output<string>;
+    declare public readonly relatedResourceId: pulumi.Output<string>;
     /**
      * The resource that the relation is related to
      */
-    public /*out*/ readonly relatedResourceKind!: pulumi.Output<string>;
+    declare public /*out*/ readonly relatedResourceKind: pulumi.Output<string>;
     /**
      * The name of the related resource
      */
-    public /*out*/ readonly relatedResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly relatedResourceName: pulumi.Output<string>;
     /**
      * The type of the hunt relation
      */
-    public /*out*/ readonly relationType!: pulumi.Output<string>;
+    declare public /*out*/ readonly relationType: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HuntRelation resource with the given unique name, arguments, and options.
@@ -93,24 +93,24 @@ export class HuntRelation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.huntId === undefined) && !opts.urn) {
+            if (args?.huntId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'huntId'");
             }
-            if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
+            if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["huntId"] = args ? args.huntId : undefined;
-            resourceInputs["huntRelationId"] = args ? args.huntRelationId : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["huntId"] = args?.huntId;
+            resourceInputs["huntRelationId"] = args?.huntRelationId;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["relatedResourceId"] = args?.relatedResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
