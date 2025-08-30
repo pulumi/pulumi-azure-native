@@ -35,6 +35,10 @@ func (k *testProvider) getConfig(configName, envName string) string {
 }
 
 func TestGetAuthConfig(t *testing.T) {
+	getMetadata := func(ctx context.Context, endpoint string) (cloud.Configuration, error) {
+		return cloud.Configuration{}, nil
+	}
+
 	setAuthEnvVariables := func(value, boolValue string) {
 		if value != "" {
 			t.Setenv("ARM_AUXILIARY_TENANT_IDS", `["`+value+`"]`)
@@ -56,7 +60,7 @@ func TestGetAuthConfig(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		setAuthEnvVariables("", "")
 		p := &testProvider{}
-		c, err := readAuthConfig(context.Background(), p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig, getMetadata)
 
 		require.NoError(t, err)
 		require.NotNil(t, c)
@@ -99,7 +103,7 @@ func TestGetAuthConfig(t *testing.T) {
 			},
 		}
 
-		c, err := readAuthConfig(context.Background(), p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig, getMetadata)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
@@ -124,7 +128,7 @@ func TestGetAuthConfig(t *testing.T) {
 		setAuthEnvVariables("env", "true")
 		t.Setenv("ARM_ENVIRONMENT", "usgovernment")
 
-		c, err := readAuthConfig(context.Background(), p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig, getMetadata)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"env"}, c.auxTenants)
@@ -423,11 +427,32 @@ func TestOidcTokenExchangeAssertion(t *testing.T) {
 	require.Equal(t, "new-oidc-token", oidcToken)
 }
 
-func TestGetCloudAzIdentity(t *testing.T) {
+var testEnvironment = cloud.Configuration{
+	Name: "Test",
+	Configuration: azcloud.Configuration{
+		ActiveDirectoryAuthorityHost: "https://login.test/",
+		Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
+			azcloud.ResourceManager: {
+				Audience: "https://management.core.test/",
+				Endpoint: "https://management.test/",
+			},
+		},
+	},
+	Endpoints: cloud.ConfigurationEndpoints{
+		MicrosoftGraph: "https://microsoftgraph.test/",
+	},
+	Suffixes: cloud.ConfigurationSuffixes{
+		StorageEndpoint: "core.storage.test",
+		KeyVaultDNS:     ".vault.test",
+	},
+}
+
+func TestReadCloudConfiguration(t *testing.T) {
 	type testCase struct {
 		name      string
 		config    map[string]string
 		env       map[string]string
+		metadata  cloud.Configuration
 		expectErr bool
 		expect    *cloud.Configuration
 	}
@@ -468,39 +493,26 @@ func TestGetCloudAzIdentity(t *testing.T) {
 			expect:    &cloud.AzureChina,
 		},
 		{
-			name: "custom cloud config",
-			config: map[string]string{
-				"activeDirectoryAuthorityHost": "https://custom.login/",
-				"resourceManagerAudience":      "https://custom.resource/",
-				"resourceManagerEndpoint":      "https://custom.resource.endpoint/",
-				"microsoftGraphEndpoint":       "https://custom.graph/",
-				"storageEndpointSuffix":        "custom.storage",
-				"keyVaultDNSSuffix":            "custom.vault",
+			name: "from metadata server",
+			env: map[string]string{
+				"ARM_METADATA_HOSTNAME": "metadata.test",
 			},
-			env:       map[string]string{},
+			metadata:  testEnvironment,
 			expectErr: false,
-			expect: &cloud.Configuration{
-				Name: "Custom",
-				Configuration: azcloud.Configuration{
-					ActiveDirectoryAuthorityHost: "https://custom.login/",
-					Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
-						azcloud.ResourceManager: {
-							Audience: "https://custom.resource/",
-							Endpoint: "https://custom.resource.endpoint/",
-						},
-					},
-				},
-				Endpoints: cloud.ConfigurationEndpoints{
-					MicrosoftGraph: "https://custom.graph/",
-				},
-				Suffixes: cloud.ConfigurationSuffixes{
-					StorageEndpoint: "custom.storage",
-					KeyVaultDNS:     "custom.vault",
-				},
-			},
+			expect:    &testEnvironment,
 		},
 		{
-			name: "unknown environment with no custom config returns error",
+			name: "from metadata server (overriding ARM_ENVIRONMENT)",
+			env: map[string]string{
+				"ARM_METADATA_HOSTNAME": "metadata.test",
+				"ARM_ENVIRONMENT":       "usgovernment",
+			},
+			metadata:  testEnvironment,
+			expectErr: false,
+			expect:    &testEnvironment,
+		},
+		{
+			name: "unknown environment with no metadata server returns error",
 			config: map[string]string{
 				"environment": "unknowncloud",
 			},
@@ -514,13 +526,16 @@ func TestGetCloudAzIdentity(t *testing.T) {
 			for k, v := range tc.env {
 				t.Setenv(k, v)
 			}
+			getMetadata := func(ctx context.Context, endpoint string) (cloud.Configuration, error) {
+				return tc.metadata, nil
+			}
 			getConfig := func(configName, envName string) string {
 				if val, ok := tc.config[configName]; ok {
 					return val
 				}
 				return os.Getenv(envName)
 			}
-			cloudConf, err := readCloudConfiguration(context.Background(), getConfig)
+			cloudConf, err := readCloudConfiguration(context.Background(), getConfig, getMetadata)
 			if tc.expectErr {
 				require.Error(t, err)
 			} else {

@@ -289,7 +289,7 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 	userAgent := k.getUserAgent()
 	logging.V(9).Infof("User agent: %s", userAgent)
 
-	authConfig, err := readAuthConfig(ctx, k.getConfig)
+	authConfig, err := readAuthConfig(ctx, k.getConfig, cloud.FromMetadataEndpoint)
 	if err != nil {
 		return nil, err
 	}
