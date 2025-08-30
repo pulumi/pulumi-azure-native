@@ -109,6 +109,12 @@ namespace Pulumi.AzureNative
         }
 
         /// <summary>
+        /// Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+        /// </summary>
+        [Input("disableInstanceDiscovery", json: true)]
+        public Input<bool>? DisableInstanceDiscovery { get; set; }
+
+        /// <summary>
         /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         /// </summary>
         [Input("disablePulumiPartnerId", json: true)]
