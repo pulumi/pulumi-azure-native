@@ -1,0 +1,8 @@
+This product includes software developed by HashiCorp, Inc. (https://www.hashicorp.com/).
+The following files are licensed under the Mozilla Public License, v. 2.0:
+ - [provider/pkg/azure/cloud/metadata/client.go]
+ - [provider/pkg/azure/cloud/metadata/client_test.go]
+ - [provider/pkg/azure/cloud/metadata/helpers.go]
+ - [provider/pkg/azure/cloud/metadata/models.go]
+
+A copy of the Mozilla Public License, v. 2.0 is available at /LICENSES/MPL-2.0.txt.

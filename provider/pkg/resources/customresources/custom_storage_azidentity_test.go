@@ -9,13 +9,13 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	azfake "github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	azpolicy "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage/fake"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 	azureblob "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blob"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/stretchr/testify/assert"
@@ -168,12 +168,12 @@ func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
 
 		// Test that the function accepts Azure Government cloud config and passes it correctly
 		creds := &azfake.TokenCredential{}
-		
+
 		// This tests our modified newSharedKeyCredential function with Government cloud
 		c, err := func() (*azblob.SharedKeyCredential, error) {
 			clientOptions := &arm.ClientOptions{
 				ClientOptions: azcore.ClientOptions{
-					Cloud:     cloud.AzureGovernment,
+					Cloud:     cloud.AzureGovernment.Configuration,
 					Transport: mockTransport,
 				},
 			}
@@ -187,10 +187,10 @@ func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.NotNil(t, capturedRequest)
-		
+
 		// Verify that the request was made to the government cloud endpoint
 		expectedHost := "management.usgovcloudapi.net"
-		require.Equal(t, expectedHost, capturedRequest.URL.Host, 
+		require.Equal(t, expectedHost, capturedRequest.URL.Host,
 			"Expected request to be made to Azure Government cloud endpoint")
 	})
 
@@ -214,11 +214,11 @@ func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
 
 		// Test that the function works with public cloud config
 		creds := &azfake.TokenCredential{}
-		
+
 		c, err := func() (*azblob.SharedKeyCredential, error) {
 			clientOptions := &arm.ClientOptions{
 				ClientOptions: azcore.ClientOptions{
-					Cloud:     cloud.AzurePublic,
+					Cloud:     cloud.AzurePublic.Configuration,
 					Transport: mockTransport,
 				},
 			}
@@ -232,15 +232,13 @@ func TestNewSharedKeyCredentialWithCloudConfig(t *testing.T) {
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.NotNil(t, capturedRequest)
-		
+
 		// Verify that the request was made to the public cloud endpoint
 		expectedHost := "management.azure.com"
-		require.Equal(t, expectedHost, capturedRequest.URL.Host, 
+		require.Equal(t, expectedHost, capturedRequest.URL.Host,
 			"Expected request to be made to Azure Public cloud endpoint")
 	})
 }
-
-
 
 func TestParseStorageAccountInput(t *testing.T) {
 	t.Run("happy path", func(t *testing.T) {

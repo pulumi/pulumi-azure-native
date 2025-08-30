@@ -12,33 +12,10 @@ import (
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	autorestAzure "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/stretchr/testify/assert"
 )
-
-func TestGetCloudByName(t *testing.T) {
-	for _, tc := range []struct {
-		name     string
-		expected cloud.Configuration
-	}{
-		{name: "", expected: cloud.AzurePublic},
-		{name: "public", expected: cloud.AzurePublic},
-		{name: "AzureCloud", expected: cloud.AzurePublic},
-		{name: "china", expected: cloud.AzureChina},
-		{name: "azurechinacloud", expected: cloud.AzureChina},
-		{name: "AzureChinaCloud", expected: cloud.AzureChina},
-		{name: "usgov", expected: cloud.AzureGovernment},
-		{name: "usgovernment", expected: cloud.AzureGovernment},
-		{name: "azureusgovernment", expected: cloud.AzureGovernment},
-		{name: "AzureUSGovernment", expected: cloud.AzureGovernment},
-		{name: "azureusgovernmentcloud", expected: cloud.AzureGovernment},
-		{name: "AzureUSGovernmentCloud", expected: cloud.AzureGovernment},
-	} {
-		assert.Equal(t, tc.expected, GetCloudByName(tc.name), tc.name)
-	}
-}
 
 func TestBuildUserAgent(t *testing.T) {
 	tests := []struct {

@@ -7,10 +7,10 @@ import (
 	"reflect"
 	"testing"
 
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
@@ -510,7 +510,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
 		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
 	} {
-		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance, nil)
+		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance.Configuration, nil)
 		require.NoError(t, err)
 		require.NotNil(t, client)
 

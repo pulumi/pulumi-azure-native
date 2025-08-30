@@ -29,6 +29,7 @@ import (
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
@@ -65,7 +66,7 @@ type azureNativeProvider struct {
 	version        string
 	subscriptionID string
 	environment    azureEnv.Environment
-	cloud          azcloud.Configuration
+	cloud          cloud.Configuration
 	config         map[string]string
 
 	// also known as "metadata"
@@ -288,7 +289,7 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 	userAgent := k.getUserAgent()
 	logging.V(9).Infof("User agent: %s", userAgent)
 
-	authConfig, err := readAuthConfig(k.getConfig)
+	authConfig, err := readAuthConfig(ctx, k.getConfig, cloud.FromMetadataEndpoint)
 	if err != nil {
 		return nil, err
 	}
@@ -306,7 +307,7 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 	logging.V(9).Infof("Azure cloud: %+v", k.cloud)
 	logging.V(9).Infof("Azure subscription ID: %s", k.subscriptionID)
 
-	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud, nil)
+	k.azureClient, err = azure.NewAzCoreClient(credential, userAgent, k.cloud.Configuration, nil)
 	if err != nil {
 		return nil, err
 	}

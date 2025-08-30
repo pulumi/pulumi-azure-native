@@ -39,6 +39,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["clientCertificatePath"] = args ? args.clientCertificatePath : undefined;
             resourceInputs["clientId"] = args?.clientId ? pulumi.secret(args.clientId) : undefined;
             resourceInputs["clientSecret"] = args?.clientSecret ? pulumi.secret(args.clientSecret) : undefined;
+            resourceInputs["disableInstanceDiscovery"] = pulumi.output(args ? args.disableInstanceDiscovery : undefined).apply(JSON.stringify);
             resourceInputs["disablePulumiPartnerId"] = pulumi.output(args ? args.disablePulumiPartnerId : undefined).apply(JSON.stringify);
             resourceInputs["environment"] = (args ? args.environment : undefined) ?? "public";
             resourceInputs["location"] = args ? args.location : undefined;
@@ -83,6 +84,10 @@ export interface ProviderArgs {
      * The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
      */
     clientSecret?: pulumi.Input<string>;
+    /**
+     * Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+     */
+    disableInstanceDiscovery?: pulumi.Input<boolean>;
     /**
      * This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
      */

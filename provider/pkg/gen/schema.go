@@ -135,6 +135,12 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
 				},
+
+				// Custom environments
+				"disableInstanceDiscovery": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
+				},
 				"metadataHost": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The Hostname of the Azure Metadata Service.",
@@ -230,6 +236,12 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				"msiEndpoint": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Description: "The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.",
+				},
+
+				// Custom environments
+				"disableInstanceDiscovery": {
+					TypeSpec:    pschema.TypeSpec{Type: "boolean"},
+					Description: "Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.",
 				},
 				"metadataHost": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},

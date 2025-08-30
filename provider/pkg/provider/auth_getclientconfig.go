@@ -5,22 +5,23 @@ package provider
 import (
 	"context"
 	"fmt"
+	"net/url"
 	"strings"
 
-	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	azpolicy "github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	msgraphsdk "github.com/microsoftgraph/msgraph-sdk-go"
 	auth "github.com/microsoftgraph/msgraph-sdk-go-core/authentication"
 	"github.com/microsoftgraph/msgraph-sdk-go/serviceprincipals"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // ClientConfig represents the provider's Azure client configuration, including the Azure environment,
 // client identity, and target subscription.
 type ClientConfig struct {
-	Cloud azcloud.Configuration
+	Cloud cloud.Configuration
 
 	ClientID       string
 	ObjectID       string
@@ -37,11 +38,19 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 	// The original specification for what constitutes the "client configuration" is from here:
 	// https://github.com/hashicorp/terraform-provider-azurerm/blob/572bb4f37d73f4f0d914737eaca4e5a1fd084c86/internal/clients/auth.go#L33
 
-	endpoint := getGraphEndpoint(cred.Cloud)
-	logging.V(9).Infof("MSGraph endpoint: %s", endpoint)
+	endpoint := cred.Cloud.Endpoints.MicrosoftGraph
+	if endpoint == "" {
+		return nil, errors.New("The provider configuration must include a value for microsoftGraphEndpoint")
+	}
+	endpointUrl, err := url.Parse(endpoint)
+	if err != nil {
+		return nil, fmt.Errorf("could not parse microsoftGraphEndpoint: %w", err)
+	}
+	logging.V(9).Infof("MSGraph endpoint: %s", endpointUrl)
 
-	// Acquire an access token so we can inspect the claims
-	scope := fmt.Sprintf("https://%s/.default", endpoint)
+	// Acquire an access token so we can inspect the claims.
+	// note on scopes: https://learn.microsoft.com/en-us/entra/identity-platform/scopes-oidc#trailing-slash-and-default
+	scope := fmt.Sprintf("%s/.default", endpoint)
 	token, err := cred.GetToken(ctx, azpolicy.TokenRequestOptions{
 		Scopes: []string{scope},
 	})
@@ -76,7 +85,7 @@ func GetClientConfig(ctx context.Context, config *authConfiguration, cred *azAcc
 		if err != nil {
 			return nil, err
 		}
-		adapter.SetBaseUrl(fmt.Sprintf("https://%s/v1.0", endpoint))
+		adapter.SetBaseUrl(endpointUrl.JoinPath("/v1.0").String())
 		client := msgraphsdk.NewGraphServiceClient(adapter)
 
 		// Lookup the object ID
@@ -153,15 +162,4 @@ func userPrincipalObjectID(ctx context.Context, client *msgraphsdk.GraphServiceC
 	}
 
 	return me.GetId(), nil
-}
-
-// from: https://github.com/Azure/go-autorest/blob/autorest/v0.11.29/autorest/azure/environments.go
-func getGraphEndpoint(cloud azcloud.Configuration) string {
-	suffix := "graph.microsoft.com"
-	if cloud.ActiveDirectoryAuthorityHost == azcloud.AzureChina.ActiveDirectoryAuthorityHost {
-		suffix = "microsoftgraph.chinacloudapi.cn"
-	} else if cloud.ActiveDirectoryAuthorityHost == azcloud.AzureGovernment.ActiveDirectoryAuthorityHost {
-		suffix = "graph.microsoft.us"
-	}
-	return suffix
 }
