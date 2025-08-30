@@ -40,7 +40,7 @@ func TestByName(t *testing.T) {
 		{name: "AzureUSGovernmentCloud", expected: AzureGovernment, ok: true},
 		{name: "MyCloud", expected: AzurePublic, ok: false},
 	} {
-		actual, ok := ByName(tc.name)
+		actual, ok := FromName(tc.name)
 		assert.Equal(t, tc.ok, ok, tc.name)
 		assert.Equal(t, tc.expected, actual, tc.name)
 	}

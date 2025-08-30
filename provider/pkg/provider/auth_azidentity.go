@@ -15,7 +15,6 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime" // initialize the well-known cloud configurations
-	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/pkg/errors"
@@ -25,12 +24,12 @@ import (
 
 const (
 	cliCloudMismatchMessage = `
-The configured Azure cloud '%s' does not match the active cloud '%s'.
-When authenticating using the Azure CLI, the configured cloud needs to match the one shown by 'az account show'.
-You can change clouds using 'az cloud set --name <cloud>'.`
+The configured Azure environment '%s' does not match the active environment '%s'.
+When authenticating using the Azure CLI, the configured environment needs to match the one shown by 'az account show'.
+You can change environments using 'az cloud set --name <cloud>'.`
 	cliCloudUnsupportedMessage = `
-The active Azure cloud '%s' is not supported directly by the provider.
-Please configure the provider with the necessary cloud configuration.`
+The active Azure environment '%s' is not supported directly by the provider, and an Azure Metadata Server was not available.
+`
 )
 
 // azAccount is the provider's resolved Azure account for authentication and for resource management.
@@ -70,23 +69,24 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 		if err != nil {
 			return nil, err
 		}
-		logging.V(6).Infof("Using Az account %q", activeSubscription.Name)
+		logging.V(6).Infof("Using Az account %q in environment %q", activeSubscription.Name, activeSubscription.EnvironmentName)
 
-		// automatically configure the environment and subscription ID based on the Azure CLI account.
-		wellknown, ok := cloud.ByName(activeSubscription.EnvironmentName)
-		if !ok {
-			// The CLI is configured with a custom cloud, hopefully it matches the provider's configuration.
-			if authConf.cloud == nil {
-				// FUTURE: use `az cloud show` to automatically obtain the CLI's cloud configuration.
+		// automatically configure the environment and subscription ID based on the Azure CLI account
+		// and guard against an accidental mismatch between the CLI and the provider configuration.
+		if authConf.cloud != nil && activeSubscription.EnvironmentName != authConf.cloud.Name {
+			return nil, fmt.Errorf(cliCloudMismatchMessage, authConf.cloud.Name, activeSubscription.EnvironmentName)
+		}
+		if authConf.cloud == nil {
+			// Automatically use the Azure CLI's current environment.
+			wellknown, ok := cloud.FromName(activeSubscription.EnvironmentName)
+			if !ok {
+				// The CLI is configured with a custom environment.
+				// FUTURE: use `az cloud show` to automatically obtain the environment configuration.
 				return nil, fmt.Errorf(cliCloudUnsupportedMessage, activeSubscription.EnvironmentName)
 			}
-			account.Cloud = *authConf.cloud
-		} else {
-			// Guard against an accidental mismatch between the CLI and the provider configuration.
-			if authConf.cloud != nil && wellknown.ActiveDirectoryAuthorityHost != authConf.cloud.ActiveDirectoryAuthorityHost {
-				return nil, fmt.Errorf(cliCloudMismatchMessage, authConf.cloud.Name, activeSubscription.EnvironmentName)
-			}
 			account.Cloud = wellknown
+		} else {
+			account.Cloud = *authConf.cloud
 		}
 		account.SubscriptionId = activeSubscription.ID
 	} else {
@@ -398,9 +398,8 @@ type authConfiguration struct {
 type configGetter func(configName, envName string) string
 
 // readAuthConfig collects auth-related configuration from Pulumi config and environment variables
-func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
-
-	cloud, err := getCloud(getConfig)
+func readAuthConfig(ctx context.Context, getConfig configGetter) (*authConfiguration, error) {
+	cloud, err := readCloudConfiguration(ctx, getConfig)
 	if err != nil {
 		return nil, err
 	}
@@ -445,55 +444,41 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 	return authConf, nil
 }
 
-// getCloud returns the configured Azure cloud (environment).
+// readCloudConfiguration returns the configured Azure cloud (environment).
 // Returns nil if not configured, to allow for other detection methods before defaulting to the public cloud.
-func getCloud(getConfig configGetter) (*cloud.Configuration, error) {
+func readCloudConfiguration(ctx context.Context, getConfig configGetter) (*cloud.Configuration, error) {
 
+	// Start by looking for an Azure metadata endpoint, to dynamically configure the cloud environment.
+	metadataHost := getConfig("metadataHost", "ARM_METADATA_HOSTNAME")
+	if metadataHost != "" {
+		logging.V(6).Infof("Using Azure metadata endpoint: %s", metadataHost)
+		active, err := cloud.FromMetadataEndpoint(ctx, metadataHost)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get Azure environment metadata from %s: %w", metadataHost, err)
+		}
+
+		// // add safety by letting the user set an expectation as to which cloud will be used.
+		// if envName != "" && active.Name != envName {
+		// 	return nil, fmt.Errorf("the configured Azure environment '%s' does not match the active environment '%s'", envName, active.Name)
+		// }
+		return &active, nil
+	}
+
+	// Fall back to the well-known environments
 	envName := getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
 	if envName != "" {
-		// Look up the cloud configuration by name; if not found, assume the name is custom and look for other variables.
-		wellknown, ok := cloud.ByName(envName)
-		if ok {
-			return &wellknown, nil
+		logging.V(6).Infof("Using Azure environment: %s", envName)
+
+		// Look up the cloud configuration by name; if not found, it might be a custom configuration,
+		// but no metadata server was available to provide the necessary details.
+		wellknown, ok := cloud.FromName(envName)
+		if !ok {
+			return nil, fmt.Errorf("configuration data is not available for Azure environment '%s' and ARM_METADATA_HOSTNAME is not set", envName)
 		}
-	}
-
-	// detect and load cloud configuration from the provider configuration/environment
-	activeDirectoryAuthorityHost := getConfig("activeDirectoryAuthorityHost", "ARM_ACTIVE_DIRECTORY_AUTHORITY_HOST")
-	resourceManagerAudience := getConfig("resourceManagerAudience", "ARM_RESOURCE_MANAGER_AUDIENCE")
-	resourceManagerEndpoint := getConfig("resourceManagerEndpoint", "ARM_RESOURCE_MANAGER_ENDPOINT")
-	microsoftGraphEndpoint := getConfig("microsoftGraphEndpoint", "ARM_MICROSOFT_GRAPH_ENDPOINT")
-	storageEndpointSuffix := getConfig("storageEndpointSuffix", "ARM_STORAGE_ENDPOINT_SUFFIX")
-	keyVaultDNSSuffix := getConfig("keyVaultDNSSuffix", "ARM_KEYVAULT_DNS_SUFFIX")
-
-	if activeDirectoryAuthorityHost != "" && resourceManagerAudience != "" && resourceManagerEndpoint != "" {
-		return &cloud.Configuration{
-			Name: "Custom",
-			Configuration: azcloud.Configuration{
-				ActiveDirectoryAuthorityHost: activeDirectoryAuthorityHost,
-				Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
-					azcloud.ResourceManager: {
-						Audience: resourceManagerAudience,
-						Endpoint: resourceManagerEndpoint,
-					},
-				},
-			},
-			Endpoints: cloud.ConfigurationEndpoints{
-				MicrosoftGraph: microsoftGraphEndpoint, // may be empty
-			},
-			Suffixes: cloud.ConfigurationSuffixes{
-				StorageEndpoint: storageEndpointSuffix, // may be empty
-				KeyVaultDNS:     keyVaultDNSSuffix,     // may be empty
-			},
-		}, nil
-	}
-
-	if envName != "" {
-		// there was an environment specified without a corresponding cloud configuration.
-		return nil, fmt.Errorf("The provider is configured to use environment '%s', but has an incomplete cloud configuration.", envName)
+		return &wellknown, nil
 	}
 
 	// don't default to public cloud just yet; allow for CLI-based detection later.

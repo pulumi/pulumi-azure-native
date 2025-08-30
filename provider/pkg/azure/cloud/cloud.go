@@ -15,9 +15,12 @@
 package cloud
 
 import (
+	"context"
+	"fmt"
 	"strings"
 
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud/metadata"
 )
 
 type EndpointName string
@@ -105,18 +108,51 @@ func init() {
 	}
 }
 
-// ByName returns the azure-sdk-for-go/sdk/azcore/cloud configuration for the given cloud.
+// FromName returns the azure-sdk-for-go/sdk/azcore/cloud configuration for the given cloud.
 // Valid names are as documented in the provider's installation & configuration guide, currently
 // public, china, usgovernment, or the empty value for public.
 // If the cloud name is unknown, it falls back to AzurePublic and returns false.
-func ByName(cloudName string) (Configuration, bool) {
+func FromName(cloudName string) (Configuration, bool) {
 	switch strings.ToLower(cloudName) {
 	case "", "public", "azurecloud":
 		return AzurePublic, true
 	case "china", "azurechinacloud":
 		return AzureChina, true
-	case "usgov", "usgovernment", "azureusgovernment", "azureusgovernmentcloud":
+	case "usgov", "usgovernment", "azureusgovernment", "azureusgovernmentcloud", "usgovernmentl4":
 		return AzureGovernment, true
 	}
 	return AzurePublic, false
+}
+
+// FromMetadataEndpoint returns the azure-sdk-for-go/sdk/azcore/cloud configuration from the given metadata endpoint.
+func FromMetadataEndpoint(ctx context.Context, endpoint string) (Configuration, error) {
+	if !strings.Contains(endpoint, "://") {
+		endpoint = "https://" + endpoint
+	}
+	client := metadata.NewClientWithEndpoint(endpoint)
+
+	metadata, err := client.GetMetaData(ctx)
+	if err != nil {
+		return Configuration{}, fmt.Errorf("failed to get Azure environment metadata from %s: %w", endpoint, err)
+	}
+
+	return Configuration{
+		Name: metadata.Name, // note: if using CLI authentication, this name must match the CLI's active cloud.
+		Configuration: azcloud.Configuration{
+			ActiveDirectoryAuthorityHost: metadata.Authentication.LoginEndpoint,
+			Services: map[azcloud.ServiceName]azcloud.ServiceConfiguration{
+				azcloud.ResourceManager: {
+					Audience: metadata.Authentication.Audiences[0],
+					Endpoint: metadata.ResourceManagerEndpoint,
+				},
+			},
+		},
+		Endpoints: ConfigurationEndpoints{
+			MicrosoftGraph: metadata.ResourceIdentifiers.MicrosoftGraph,
+		},
+		Suffixes: ConfigurationSuffixes{
+			StorageEndpoint: metadata.DnsSuffixes.Storage,
+			KeyVaultDNS:     metadata.DnsSuffixes.KeyVault,
+		},
+	}, nil
 }

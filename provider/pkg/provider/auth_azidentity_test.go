@@ -56,7 +56,7 @@ func TestGetAuthConfig(t *testing.T) {
 	t.Run("empty", func(t *testing.T) {
 		setAuthEnvVariables("", "")
 		p := &testProvider{}
-		c, err := readAuthConfig(p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig)
 
 		require.NoError(t, err)
 		require.NotNil(t, c)
@@ -99,7 +99,7 @@ func TestGetAuthConfig(t *testing.T) {
 			},
 		}
 
-		c, err := readAuthConfig(p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"conf"}, c.auxTenants)
@@ -124,7 +124,7 @@ func TestGetAuthConfig(t *testing.T) {
 		setAuthEnvVariables("env", "true")
 		t.Setenv("ARM_ENVIRONMENT", "usgovernment")
 
-		c, err := readAuthConfig(p.getConfig)
+		c, err := readAuthConfig(context.Background(), p.getConfig)
 		require.NoError(t, err)
 		require.NotNil(t, c)
 		require.Equal(t, []string{"env"}, c.auxTenants)
@@ -520,7 +520,7 @@ func TestGetCloudAzIdentity(t *testing.T) {
 				}
 				return os.Getenv(envName)
 			}
-			cloudConf, err := getCloud(getConfig)
+			cloudConf, err := readCloudConfiguration(context.Background(), getConfig)
 			if tc.expectErr {
 				require.Error(t, err)
 			} else {
