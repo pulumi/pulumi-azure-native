@@ -114,7 +114,7 @@ func init() {
 // If the cloud name is unknown, it falls back to AzurePublic and returns false.
 func FromName(cloudName string) (Configuration, bool) {
 	switch strings.ToLower(cloudName) {
-	case "", "public", "azurecloud":
+	case "public", "azurecloud":
 		return AzurePublic, true
 	case "china", "azurechinacloud":
 		return AzureChina, true

@@ -112,7 +112,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				},
 				"environment": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
-					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.",
 				},
 				"location": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
@@ -214,7 +214,7 @@ func PulumiSchema(rootDir string, modules openapi.AzureModules, versioning Versi
 				"environment": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},
 					Default:     "public",
-					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.",
+					Description: "The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.",
 				},
 				"location": {
 					TypeSpec:    pschema.TypeSpec{Type: "string"},

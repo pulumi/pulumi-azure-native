@@ -48,7 +48,7 @@ func (a *authConfig) cloud() cloud.Configuration {
 	if a.Config != nil && a.Config.Environment != "" {
 		cloudName = a.Config.Environment
 	}
-	wellknown, _ := cloud.FromName(cloudName)
+	wellknown, _ := cloud.FromName(cloudName) // defaults to public
 	return wellknown
 }
 
