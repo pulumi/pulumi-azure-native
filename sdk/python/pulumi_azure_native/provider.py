@@ -49,7 +49,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[builtins.bool] disable_instance_discovery: Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
         :param pulumi.Input[builtins.bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
-        :param pulumi.Input[builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         :param pulumi.Input[builtins.str] location: The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
         :param pulumi.Input[builtins.str] metadata_host: The Hostname of the Azure Metadata Service.
         :param pulumi.Input[builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.
@@ -194,7 +194,7 @@ class ProviderArgs:
     @pulumi.getter
     def environment(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         """
         return pulumi.get(self, "environment")
 
@@ -386,7 +386,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[builtins.str] client_secret: The Client Secret which should be used. For use When authenticating as a Service Principal using a Client Secret.
         :param pulumi.Input[builtins.bool] disable_instance_discovery: Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
         :param pulumi.Input[builtins.bool] disable_pulumi_partner_id: This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
-        :param pulumi.Input[builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        :param pulumi.Input[builtins.str] environment: The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         :param pulumi.Input[builtins.str] location: The location to use. ResourceGroups will consult this property for a default location, if one was not supplied explicitly when defining the resource.
         :param pulumi.Input[builtins.str] metadata_host: The Hostname of the Azure Metadata Service.
         :param pulumi.Input[builtins.str] msi_endpoint: The path to a custom endpoint for Managed Service Identity - in most circumstances this should be detected automatically.

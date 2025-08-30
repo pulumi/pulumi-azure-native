@@ -52,7 +52,7 @@ This will disable the Pulumi Partner ID which is used if a custom `partnerId` is
 
 environment: Optional[str]
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
 """
 
 location: Optional[str]

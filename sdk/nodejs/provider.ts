@@ -93,7 +93,7 @@ export interface ProviderArgs {
      */
     disablePulumiPartnerId?: pulumi.Input<boolean>;
     /**
-     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+     * The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
      */
     environment?: pulumi.Input<string>;
     /**

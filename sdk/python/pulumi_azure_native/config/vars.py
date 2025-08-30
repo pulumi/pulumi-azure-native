@@ -73,7 +73,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> Optional[str]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         """
         return __config__.get('environment')
 
