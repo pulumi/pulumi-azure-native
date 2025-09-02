@@ -400,8 +400,8 @@ type configGetter func(configName, envName string) string
 type metadataGetter func(ctx context.Context, endpoint string) (cloud.Configuration, error)
 
 // readAuthConfig collects auth-related configuration from Pulumi config and environment variables
-func readAuthConfig(ctx context.Context, getConfig configGetter, mdGetter metadataGetter) (*authConfiguration, error) {
-	cloud, err := readCloudConfiguration(ctx, getConfig, mdGetter)
+func readAuthConfig(ctx context.Context, getConfig configGetter, getMetadata metadataGetter) (*authConfiguration, error) {
+	cloud, err := readCloudConfiguration(ctx, getConfig, getMetadata)
 	if err != nil {
 		return nil, err
 	}
@@ -448,13 +448,13 @@ func readAuthConfig(ctx context.Context, getConfig configGetter, mdGetter metada
 
 // readCloudConfiguration returns the configured Azure cloud (environment).
 // Returns nil if not configured, to allow for other detection methods before defaulting to the public cloud.
-func readCloudConfiguration(ctx context.Context, getConfig configGetter, mdGetter metadataGetter) (*cloud.Configuration, error) {
+func readCloudConfiguration(ctx context.Context, getConfig configGetter, getMetadata metadataGetter) (*cloud.Configuration, error) {
 
 	// Start by looking for an Azure metadata endpoint, to dynamically configure the cloud environment.
 	metadataHost := getConfig("metadataHost", "ARM_METADATA_HOSTNAME")
 	if metadataHost != "" {
 		logging.V(6).Infof("Using Azure metadata endpoint: %s", metadataHost)
-		active, err := mdGetter(ctx, metadataHost)
+		active, err := getMetadata(ctx, metadataHost)
 		if err != nil {
 			return nil, fmt.Errorf("failed to get Azure environment metadata from %s: %w", metadataHost, err)
 		}

@@ -20,7 +20,7 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestByName(t *testing.T) {
+func TestFromName(t *testing.T) {
 	for _, tc := range []struct {
 		name     string
 		expected Configuration
