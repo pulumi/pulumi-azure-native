@@ -23,24 +23,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud/metadata"
 )
 
-type EndpointName string
-
-const (
-	// Blob is the service name for Azure Blob Storage.
-	Blob EndpointName = "blob"
-	// MSGraph is the service name for Microsoft Graph.
-	MSGraph EndpointName = "msGraph"
-	// KeyVault is the service name for Azure Key Vault.
-	KeyVault EndpointName = "keyVault"
-)
-
-const (
-	// StorageEndpointSuffix is the configuration key for the storage endpoint suffix.
-	StorageEndpointSuffix = "storageEndpoint"
-	// KeyVaultDNSSuffix is the configuration key for the Key Vault DNS suffix.
-	KeyVaultDNSSuffix = "keyVaultDNSSuffix"
-)
-
 // Configuration extends azcore/cloud.Configuration with additional properties.
 type Configuration struct {
 	azcloud.Configuration
