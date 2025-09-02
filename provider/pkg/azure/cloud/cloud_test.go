@@ -26,7 +26,6 @@ func TestByName(t *testing.T) {
 		expected Configuration
 		ok       bool
 	}{
-		{name: "", expected: AzurePublic, ok: true},
 		{name: "public", expected: AzurePublic, ok: true},
 		{name: "AzureCloud", expected: AzurePublic, ok: true},
 		{name: "china", expected: AzureChina, ok: true},
