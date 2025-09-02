@@ -75,7 +75,7 @@ func (c *Client) GetMetaData(ctx context.Context) (*MetaData, error) {
 
 	var metadata *metaDataResponse
 	if err := json.Unmarshal(respBody, &metadata); err != nil {
-		log.Printf("[DEBUG] Unrecognised metadata response for %s: %s", uri, respBody)
+		log.Printf("[DEBUG] Unrecognized metadata response for %s: %s", uri, respBody)
 		return nil, fmt.Errorf("unmarshaling response: %+v", err)
 	}
 
