@@ -109,13 +109,19 @@ namespace Pulumi.AzureNative
         }
 
         /// <summary>
+        /// Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+        /// </summary>
+        [Input("disableInstanceDiscovery", json: true)]
+        public Input<bool>? DisableInstanceDiscovery { get; set; }
+
+        /// <summary>
         /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
         /// </summary>
         [Input("disablePulumiPartnerId", json: true)]
         public Input<bool>? DisablePulumiPartnerId { get; set; }
 
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         /// </summary>
         [Input("environment")]
         public Input<string>? Environment { get; set; }

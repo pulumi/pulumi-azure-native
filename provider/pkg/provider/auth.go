@@ -12,7 +12,6 @@ import (
 	"time"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
-	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/go-autorest/autorest"
 	azureEnv "github.com/Azure/go-autorest/autorest/azure"
@@ -20,7 +19,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/sender"
 	"github.com/manicminer/hamilton/environments"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 
 	goversion "github.com/hashicorp/go-version"
@@ -44,12 +43,13 @@ func (a *authConfig) autorestEnvironment() (azureEnv.Environment, error) {
 	return env, nil
 }
 
-func (a *authConfig) cloud() azcloud.Configuration {
+func (a *authConfig) cloud() cloud.Configuration {
 	cloudName := "public"
 	if a.Config != nil && a.Config.Environment != "" {
 		cloudName = a.Config.Environment
 	}
-	return azure.GetCloudByName(cloudName)
+	wellknown, _ := cloud.FromName(cloudName) // defaults to public
+	return wellknown
 }
 
 type oidcConfig struct {

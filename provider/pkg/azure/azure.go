@@ -14,7 +14,6 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
-	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/go-autorest/autorest"
 	"github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
@@ -80,43 +79,6 @@ func AzureError(err error) error {
 		}
 	}
 	return err
-}
-
-// GetCloudByName returns the azure-sdk-for-go/sdk/azcore/cloud configuration for the given cloud.
-// Valid names are as documented in the provider's installation & configuration guide, currently
-// public, china, usgovernment, or the empty value for public.
-// NOTE: this method doesn't do any validation. If an unknown cloud is given, it falls through to
-// the default public cloud. It's assumed that validation of cloud name in the provider's config
-// has been done earlier.
-func GetCloudByName(cloudName string) azcloud.Configuration {
-	switch strings.ToLower(cloudName) {
-	case "china":
-		return azcloud.AzureChina
-	case "azurechinacloud":
-		return azcloud.AzureChina
-	case "usgov":
-		return azcloud.AzureGovernment
-	case "usgovernment":
-		return azcloud.AzureGovernment
-	case "azureusgovernment":
-		return azcloud.AzureGovernment
-	case "azureusgovernmentcloud":
-		return azcloud.AzureGovernment
-	}
-	return azcloud.AzurePublic
-}
-
-// GetCloudName returns the standard name for a given azcloud.Configuration.
-func GetCloudName(cloud azcloud.Configuration) string {
-	switch cloud.ActiveDirectoryAuthorityHost {
-	case azcloud.AzureChina.ActiveDirectoryAuthorityHost:
-		return "AzureChinaCloud"
-	case azcloud.AzureGovernment.ActiveDirectoryAuthorityHost:
-		return "AzureUSGovernment"
-	case azcloud.AzurePublic.ActiveDirectoryAuthorityHost:
-		return "AzureCloud"
-	}
-	return "AzureCloud"
 }
 
 // Claims is used to unmarshall the claims from a JWT issued by the Microsoft Identity Platform.

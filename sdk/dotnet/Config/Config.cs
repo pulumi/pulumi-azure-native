@@ -82,6 +82,16 @@ namespace Pulumi.AzureNative
             set => _clientSecret.Set(value);
         }
 
+        private static readonly __Value<bool?> _disableInstanceDiscovery = new __Value<bool?>(() => __config.GetBoolean("disableInstanceDiscovery"));
+        /// <summary>
+        /// Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+        /// </summary>
+        public static bool? DisableInstanceDiscovery
+        {
+            get => _disableInstanceDiscovery.Get();
+            set => _disableInstanceDiscovery.Set(value);
+        }
+
         private static readonly __Value<bool?> _disablePulumiPartnerId = new __Value<bool?>(() => __config.GetBoolean("disablePulumiPartnerId"));
         /// <summary>
         /// This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
@@ -94,7 +104,7 @@ namespace Pulumi.AzureNative
 
         private static readonly __Value<string?> _environment = new __Value<string?>(() => __config.Get("environment"));
         /// <summary>
-        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        /// The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         /// </summary>
         public static string? Environment
         {

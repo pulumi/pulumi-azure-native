@@ -40,6 +40,11 @@ clientSecret: Optional[str]
 The Client Secret which should be used. For use when authenticating as a Service Principal using a Client Secret.
 """
 
+disableInstanceDiscovery: Optional[bool]
+"""
+Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+"""
+
 disablePulumiPartnerId: Optional[bool]
 """
 This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
@@ -47,7 +52,7 @@ This will disable the Pulumi Partner ID which is used if a custom `partnerId` is
 
 environment: Optional[str]
 """
-The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
 """
 
 location: Optional[str]

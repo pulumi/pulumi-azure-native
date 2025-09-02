@@ -15,19 +15,21 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime" // initialize the well-known cloud configurations
-	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
 	"github.com/Azure/azure-sdk-for-go/sdk/azidentity"
 	"github.com/pkg/errors"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 const (
 	cliCloudMismatchMessage = `
-The configured Azure cloud '%s' does not match the active cloud '%s'.
-When authenticating using the Azure CLI, the configured cloud needs to match the one shown by 'az account show'.
-You can change clouds using 'az cloud set --name <cloud>'.`
+The configured Azure environment '%s' does not match the active environment '%s'.
+When authenticating using the Azure CLI, the configured environment needs to match the one shown by 'az account show'.
+You can change environments using 'az cloud set --name <cloud>'.`
+	cliCloudUnsupportedMessage = `
+The active Azure environment '%s' is not supported directly by the provider, and an Azure Metadata Server was not available.
+`
 )
 
 // azAccount is the provider's resolved Azure account for authentication and for resource management.
@@ -35,7 +37,7 @@ type azAccount struct {
 	azcore.TokenCredential
 
 	// The Azure cloud configuration to use for resource management operations.
-	Cloud azcloud.Configuration
+	Cloud cloud.Configuration
 
 	// The subscription ID to use for resource management operations; empty if not configured or auto-detected.
 	SubscriptionId string
@@ -48,7 +50,7 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 	account := &azAccount{}
 
 	if authConf.cloud != nil {
-		baseClientOpts.Cloud = *authConf.cloud
+		baseClientOpts.Cloud = authConf.cloud.Configuration
 	}
 
 	// Create the azcore.TokenCredential implementation based on the auth configuration.
@@ -67,27 +69,38 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 		if err != nil {
 			return nil, err
 		}
-		logging.V(6).Infof("Using Az account %q", activeSubscription.Name)
+		logging.V(6).Infof("Using Az account %q in environment %q", activeSubscription.Name, activeSubscription.EnvironmentName)
 
-		// automatically configure the environment and/or subscription ID based on the Azure CLI account.
-		sc := azure.GetCloudByName(activeSubscription.EnvironmentName)
-		if authConf.cloud != nil && sc.ActiveDirectoryAuthorityHost != authConf.cloud.ActiveDirectoryAuthorityHost {
-			return nil, fmt.Errorf(cliCloudMismatchMessage, azure.GetCloudName(*authConf.cloud), activeSubscription.EnvironmentName)
+		// automatically configure the environment and subscription ID based on the Azure CLI account
+		// and guard against an accidental mismatch between the CLI and the provider configuration.
+		if authConf.cloud != nil && activeSubscription.EnvironmentName != authConf.cloud.Name {
+			return nil, fmt.Errorf(cliCloudMismatchMessage, authConf.cloud.Name, activeSubscription.EnvironmentName)
 		}
-		account.Cloud = sc
+		if authConf.cloud == nil {
+			// Automatically use the Azure CLI's current environment.
+			wellknown, ok := cloud.FromName(activeSubscription.EnvironmentName)
+			if !ok {
+				// The CLI is configured with a custom environment.
+				// FUTURE: use `az cloud show` to automatically obtain the environment configuration.
+				return nil, fmt.Errorf(cliCloudUnsupportedMessage, activeSubscription.EnvironmentName)
+			}
+			account.Cloud = wellknown
+		} else {
+			account.Cloud = *authConf.cloud
+		}
 		account.SubscriptionId = activeSubscription.ID
 	} else {
 		// use the configured values and/or defaults
 		if authConf.cloud == nil {
 			// if the cloud is not set, use the default Azure cloud as does newSingleMethodAuthCredential.
-			account.Cloud = azcloud.AzurePublic
+			account.Cloud = cloud.AzurePublic
 		} else {
 			account.Cloud = *authConf.cloud
 		}
 		account.SubscriptionId = authConf.subscriptionId
 	}
 
-	logging.V(6).Infof("Using Az cloud %q with subscription ID %q", azure.GetCloudName(account.Cloud), account.SubscriptionId)
+	logging.V(6).Infof("Using Az cloud %q with subscription ID %q", account.Cloud.Name, account.SubscriptionId)
 	return account, nil
 }
 
@@ -117,6 +130,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.DefaultAzureCredentialOptions{
 			ClientOptions:              baseClientOpts,
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewDefaultAzureCredential(options)
 	} else {
@@ -142,6 +156,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.ClientCertificateCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 			ClientOptions:              baseClientOpts,
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewClientCertificateCredential(authConf.tenantId, authConf.clientId, certs, key, options)
 	} else {
@@ -163,6 +178,7 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 		options := &azidentity.ClientSecretCredentialOptions{
 			AdditionallyAllowedTenants: authConf.auxTenants, // usually empty which is fine
 			ClientOptions:              baseClientOpts,
+			DisableInstanceDiscovery:   authConf.disableInstanceDiscovery,
 		}
 		return azidentity.NewClientSecretCredential(authConf.tenantId, authConf.clientId, authConf.clientSecret, options)
 	} else {
@@ -231,7 +247,10 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 			func(ctx context.Context) (string, error) {
 				return token, nil
 			},
-			nil)
+			&azidentity.ClientAssertionCredentialOptions{
+				ClientOptions:            clientOpts,
+				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
+			})
 	}
 
 	if authConf.oidcToken != "" {
@@ -253,7 +272,8 @@ func newOidcCredential(authConf *authConfiguration, clientOpts azcore.ClientOpti
 			authConf.clientId,
 			getOidcTokenExchangeAssertion(authConf),
 			&azidentity.ClientAssertionCredentialOptions{
-				ClientOptions: clientOpts,
+				ClientOptions:            clientOpts,
+				DisableInstanceDiscovery: authConf.disableInstanceDiscovery,
 			})
 	}
 
@@ -338,7 +358,7 @@ func readCertificate(certPath, certPassword string) ([]*x509.Certificate, crypto
 }
 
 type authConfiguration struct {
-	cloud *azcloud.Configuration
+	cloud *cloud.Configuration
 
 	subscriptionId string
 
@@ -368,15 +388,23 @@ type authConfiguration struct {
 	// combining credentials used in Azure hosting environments and credentials used in local development.
 	useDefault bool
 
+	// When true, disables instance discovery for credentials that support it.
+	disableInstanceDiscovery bool
+
 	// showSubscription invokes `az account show` and is overridable by tests to fake invoking the az CLI.
 	showSubscription azSubscriptionProvider
 }
 
 type configGetter func(configName, envName string) string
 
+type metadataGetter func(ctx context.Context, endpoint string) (cloud.Configuration, error)
+
 // readAuthConfig collects auth-related configuration from Pulumi config and environment variables
-func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
-	cloud := getCloud(getConfig)
+func readAuthConfig(ctx context.Context, getConfig configGetter, getMetadata metadataGetter) (*authConfiguration, error) {
+	cloud, err := readCloudConfiguration(ctx, getConfig, getMetadata)
+	if err != nil {
+		return nil, err
+	}
 
 	auxTenantsString := getConfig("auxiliaryTenantIds", "ARM_AUXILIARY_TENANT_IDS")
 	var auxTenants []string
@@ -410,22 +438,46 @@ func readAuthConfig(getConfig configGetter) (*authConfiguration, error) {
 
 		useDefault: getConfig("useDefaultAzureCredential", "ARM_USE_DEFAULT_AZURE_CREDENTIAL") == "true",
 
+		disableInstanceDiscovery: getConfig("disableInstanceDiscovery", "ARM_DISABLE_INSTANCE_DISCOVERY") == "true",
+
 		showSubscription: defaultAzSubscriptionProvider,
 	}
 
 	return authConf, nil
 }
 
-// getCloud returns the configured Azure cloud (environment).
+// readCloudConfiguration returns the configured Azure cloud (environment).
 // Returns nil if not configured, to allow for other detection methods before defaulting to the public cloud.
-func getCloud(getConfig configGetter) *azcloud.Configuration {
+func readCloudConfiguration(ctx context.Context, getConfig configGetter, getMetadata metadataGetter) (*cloud.Configuration, error) {
+
+	// Start by looking for an Azure metadata endpoint, to dynamically configure the cloud environment.
+	metadataHost := getConfig("metadataHost", "ARM_METADATA_HOSTNAME")
+	if metadataHost != "" {
+		logging.V(6).Infof("Using Azure metadata endpoint: %s", metadataHost)
+		active, err := getMetadata(ctx, metadataHost)
+		if err != nil {
+			return nil, fmt.Errorf("failed to get Azure environment metadata from %s: %w", metadataHost, err)
+		}
+		return &active, nil
+	}
+
+	// Fall back to the well-known environments
 	envName := getConfig("environment", "ARM_ENVIRONMENT")
 	if envName == "" {
 		envName = getConfig("environment", "AZURE_ENVIRONMENT")
 	}
 	if envName != "" {
-		cloud := azure.GetCloudByName(envName)
-		return &cloud
+		logging.V(6).Infof("Using Azure environment: %s", envName)
+
+		// Look up the cloud configuration by name; if not found, it might be a custom configuration,
+		// but no metadata server was available to provide the necessary details.
+		wellknown, ok := cloud.FromName(envName)
+		if !ok {
+			return nil, fmt.Errorf("configuration data is not available for Azure environment '%s' and ARM_METADATA_HOSTNAME is not set", envName)
+		}
+		return &wellknown, nil
 	}
-	return nil
+
+	// don't default to public cloud just yet; allow for CLI-based detection later.
+	return nil, nil
 }

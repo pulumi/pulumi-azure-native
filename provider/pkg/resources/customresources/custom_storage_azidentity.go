@@ -15,7 +15,6 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
-	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/storage/armstorage"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/appendblob"
@@ -23,6 +22,7 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob"
 	"github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/service"
 	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
@@ -112,14 +112,11 @@ func storageAccountStaticWebsite_azidentity(env cloud.Configuration, creds azcor
 }
 
 func getStorageAccountURL(saName string, env cloud.Configuration) (string, error) {
-	baseUrl := "blob.core.windows.net"
-	if env.ActiveDirectoryAuthorityHost == cloud.AzureChina.ActiveDirectoryAuthorityHost {
-		baseUrl = "blob.core.chinacloudapi.cn"
-	} else if env.ActiveDirectoryAuthorityHost == cloud.AzureGovernment.ActiveDirectoryAuthorityHost {
-		baseUrl = "blob.core.usgovcloudapi.net"
+	storageEndpoint := strings.TrimPrefix(env.Suffixes.StorageEndpoint, ".")
+	if storageEndpoint == "" {
+		return "", errors.New("The provider configuration must include a value for storageEndpoint")
 	}
-
-	urlStr := fmt.Sprintf("https://%s.%s", saName, baseUrl)
+	urlStr := fmt.Sprintf("https://%s.blob.%s", saName, storageEndpoint)
 	_, err := neturl.Parse(urlStr)
 	if err != nil || saName == "" {
 		return "", errors.Errorf("invalid storage account URL: %v", err)
@@ -568,7 +565,7 @@ func getStorageAccountKey(ctx context.Context, accClient *armstorage.AccountsCli
 func newSharedKeyCredential(ctx context.Context, subId, accName, rgName string, creds azcore.TokenCredential, env cloud.Configuration) (*azblob.SharedKeyCredential, error) {
 	clientOptions := &arm.ClientOptions{
 		ClientOptions: azcore.ClientOptions{
-			Cloud: env,
+			Cloud: env.Configuration,
 		},
 	}
 	accClient, err := armstorage.NewAccountsClient(subId, creds, clientOptions)

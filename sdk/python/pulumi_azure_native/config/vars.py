@@ -57,6 +57,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('clientSecret')
 
     @property
+    def disable_instance_discovery(self) -> Optional[bool]:
+        """
+        Determines whether or not instance discovery is performed when attempting to authenticate. Setting this to true will completely disable both instance discovery and authority validation. This functionality is intended for use in scenarios where the metadata endpoint cannot be reached, such as in private clouds or Azure Stack.
+        """
+        return __config__.get_bool('disableInstanceDiscovery')
+
+    @property
     def disable_pulumi_partner_id(self) -> Optional[bool]:
         """
         This will disable the Pulumi Partner ID which is used if a custom `partnerId` isn't specified.
@@ -66,7 +73,7 @@ class _ExportableConfig(types.ModuleType):
     @property
     def environment(self) -> Optional[str]:
         """
-        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public.
+        The Cloud Environment which should be used. Possible values are public, usgovernment, and china. Defaults to public. Not used when metadataHost is specified or when ARM_METADATA_HOSTNAME is set.
         """
         return __config__.get('environment')
 
