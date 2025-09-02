@@ -7,7 +7,7 @@ import (
 	"context"
 	"fmt"
 	"log"
-	"math/rand"
+	"net"
 	"net/http"
 	"reflect"
 	"testing"
@@ -23,14 +23,13 @@ var (
 )
 
 func TestGetMetaData(t *testing.T) {
-	ctx := context.Background()
-	port := 8000 + rand.Intn(999)
-	done := metadataStubServer(ctx, port)
+	ctx, cancel := context.WithCancel(context.Background())
+	addr := metadataStubServer(ctx)
 	defer func() {
-		done <- true
+		cancel()
 	}()
 
-	client := metadata.NewClientWithEndpoint(fmt.Sprintf("http://localhost:%d", port))
+	client := metadata.NewClientWithEndpoint(fmt.Sprintf("http://%s", addr))
 	if client == nil {
 		t.Fatal("client was nil")
 	}
@@ -84,7 +83,7 @@ func TestGetMetaData(t *testing.T) {
 	}
 }
 
-func metadataStubServer(ctx context.Context, port int) chan bool {
+func metadataStubServer(ctx context.Context) net.Addr {
 	handler := http.NewServeMux()
 
 	handler.HandleFunc("/metadata/endpoints", func(w http.ResponseWriter, r *http.Request) {
@@ -108,28 +107,31 @@ func metadataStubServer(ctx context.Context, port int) chan bool {
 		}
 	})
 
-	done := make(chan bool, 1)
+	var lc net.ListenConfig
+	listener, err := lc.Listen(ctx, "tcp", "localhost:0")
+	if err != nil {
+		panic(fmt.Sprintf("could not start listener: %s", err))
+	}
 	server := &http.Server{
-		Addr:    fmt.Sprintf("127.0.0.1:%d", port),
+		Addr:    listener.Addr().String(),
 		Handler: handler,
 	}
 
 	go func() {
-		<-done
+		if err := server.Serve(listener); err != nil && err != http.ErrServerClosed {
+			log.Printf("server error: %s\n", err)
+		}
+		log.Printf("ARM Metadata Stub Service stopped\n")
+	}()
+
+	go func() {
+		<-ctx.Done()
 		err := server.Shutdown(ctx)
 		if err != nil {
 			log.Fatalf("failed to gracefully shut down ARM Metadata stub server: %v", err)
 		}
 	}()
 
-	go func() {
-		log.Printf("ARM Metadata Stub Service listening on 127.0.0.1:%d\n", port)
-		err := server.ListenAndServe()
-		if err != nil && err != http.ErrServerClosed {
-			log.Fatalf("server.ListenAndServe: %v", err)
-		}
-	}()
-
-	return done
+	log.Printf("ARM Metadata Stub Service listening on %s\n", listener.Addr())
+	return listener.Addr()
 }
-
