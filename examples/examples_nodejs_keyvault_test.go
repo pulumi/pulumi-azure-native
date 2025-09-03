@@ -110,6 +110,7 @@ func TestAccKeyVaultTs_CLI(t *testing.T) {
 				"ARM_USE_MSI=false",
 				"ARM_USE_OIDC=false",
 			},
+			NoParallel: true,
 		})
 
 	integration.ProgramTest(t, &test)
