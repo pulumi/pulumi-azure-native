@@ -42,36 +42,36 @@ export class TunnelPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * Domains referenced by this tunnel policy.
      */
-    public readonly domains!: pulumi.Output<outputs.cdn.ActivatedResourceReferenceResponse[]>;
+    declare public readonly domains: pulumi.Output<outputs.cdn.ActivatedResourceReferenceResponse[]>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning status
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Target Groups referenced by this tunnel policy.
      */
-    public readonly targetGroups!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
+    declare public readonly targetGroups: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
     /**
      * Protocol this tunnel will use for allowing traffic to backends.
      */
-    public readonly tunnelType!: pulumi.Output<string | undefined>;
+    declare public readonly tunnelType: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TunnelPolicy resource with the given unique name, arguments, and options.
@@ -84,21 +84,21 @@ export class TunnelPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domains === undefined) && !opts.urn) {
+            if (args?.domains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domains'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["domains"] = args ? args.domains : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetGroups"] = args ? args.targetGroups : undefined;
-            resourceInputs["tunnelPolicyName"] = args ? args.tunnelPolicyName : undefined;
-            resourceInputs["tunnelType"] = args ? args.tunnelType : undefined;
+            resourceInputs["domains"] = args?.domains;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetGroups"] = args?.targetGroups;
+            resourceInputs["tunnelPolicyName"] = args?.tunnelPolicyName;
+            resourceInputs["tunnelType"] = args?.tunnelType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

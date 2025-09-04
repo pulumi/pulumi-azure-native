@@ -42,51 +42,51 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.agfoodplatform.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.agfoodplatform.IdentityResponse | undefined>;
     /**
      * Uri of the Data Manager For Agriculture instance.
      */
-    public /*out*/ readonly instanceUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceUri: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private endpoints.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.agfoodplatform.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.agfoodplatform.PrivateEndpointConnectionResponse[]>;
     /**
      * Data Manager For Agriculture instance provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Property to allow or block public traffic for an Azure Data Manager For Agriculture resource.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Sensor integration request model.
      */
-    public readonly sensorIntegration!: pulumi.Output<outputs.agfoodplatform.SensorIntegrationResponse | undefined>;
+    declare public readonly sensorIntegration: pulumi.Output<outputs.agfoodplatform.SensorIntegrationResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataManagerForAgricultureResource resource with the given unique name, arguments, and options.
@@ -99,16 +99,16 @@ export class DataManagerForAgricultureResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sensorIntegration"] = args ? args.sensorIntegration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataManagerForAgricultureResourceName"] = args?.dataManagerForAgricultureResourceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sensorIntegration"] = args?.sensorIntegration;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

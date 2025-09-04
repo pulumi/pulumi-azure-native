@@ -39,19 +39,19 @@ export class SupportPlanType extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the Canonical support plan, i.e. "essential", "standard" or "advanced".
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Microsoft.Addons/supportProvider
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SupportPlanType resource with the given unique name, arguments, and options.
@@ -64,11 +64,11 @@ export class SupportPlanType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerName === undefined) && !opts.urn) {
+            if (args?.providerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerName'");
             }
-            resourceInputs["planTypeName"] = args ? args.planTypeName : undefined;
-            resourceInputs["providerName"] = args ? args.providerName : undefined;
+            resourceInputs["planTypeName"] = args?.planTypeName;
+            resourceInputs["providerName"] = args?.providerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,27 +42,27 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The link to entity store database.
      */
-    public /*out*/ readonly entityStoreDatabaseLink!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly entityStoreDatabaseLink: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The principal assigned with entity store. Format of principal is: [AAD type]=[PrincipalObjectId];[TenantId]
      */
-    public readonly principal!: pulumi.Output<string | undefined>;
+    declare public readonly principal: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomEntityStoreAssignment resource with the given unique name, arguments, and options.
@@ -75,12 +75,12 @@ export class CustomEntityStoreAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customEntityStoreAssignmentName"] = args ? args.customEntityStoreAssignmentName : undefined;
-            resourceInputs["principal"] = args ? args.principal : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["customEntityStoreAssignmentName"] = args?.customEntityStoreAssignmentName;
+            resourceInputs["principal"] = args?.principal;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["entityStoreDatabaseLink"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,67 +42,67 @@ export class DataLakeConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * DataLake database format to use.
      */
-    public readonly databaseFormat!: pulumi.Output<string>;
+    declare public readonly databaseFormat: pulumi.Output<string>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The details of DataLakeConnector Docker Image.
      */
-    public readonly image!: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
+    declare public readonly image: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
     /**
      * The number of DataLakeConnector pods to spin up.
      */
-    public readonly instances!: pulumi.Output<number | undefined>;
+    declare public readonly instances: pulumi.Output<number | undefined>;
     /**
      * The details for connecting with Local Broker.
      */
-    public readonly localBrokerConnection!: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
+    declare public readonly localBrokerConnection: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The log level of the DataLake Connector instances.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Node Tolerations for the DataLake Connector pods.
      */
-    public readonly nodeTolerations!: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
+    declare public readonly nodeTolerations: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
     /**
      * The protocol to use for connecting with Brokers.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The protocol to use for connecting with Brokers. NOTE - Enum only storage is supported at at time.
      */
-    public readonly target!: pulumi.Output<outputs.iotoperationsmq.DataLakeTargetStorageResponse>;
+    declare public readonly target: pulumi.Output<outputs.iotoperationsmq.DataLakeTargetStorageResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataLakeConnector resource with the given unique name, arguments, and options.
@@ -115,41 +115,41 @@ export class DataLakeConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseFormat === undefined) && !opts.urn) {
+            if (args?.databaseFormat === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseFormat'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.target === undefined) && !opts.urn) {
+            if (args?.target === undefined && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
-            resourceInputs["dataLakeConnectorName"] = args ? args.dataLakeConnectorName : undefined;
-            resourceInputs["databaseFormat"] = args ? args.databaseFormat : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
+            resourceInputs["dataLakeConnectorName"] = args?.dataLakeConnectorName;
+            resourceInputs["databaseFormat"] = args?.databaseFormat;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["instances"] = args?.instances;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["target"] = args?.target;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

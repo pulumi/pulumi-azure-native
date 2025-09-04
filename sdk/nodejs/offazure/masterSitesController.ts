@@ -45,57 +45,57 @@ export class MasterSitesController extends pulumi.CustomResource {
      * Gets or sets a value indicating whether multiple sites per site type are
      * allowed.
      */
-    public readonly allowMultipleSites!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowMultipleSites: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets a value for customer storage account ARM id.
      */
-    public readonly customerStorageAccountArmId!: pulumi.Output<string | undefined>;
+    declare public readonly customerStorageAccountArmId: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the nested sites under Master Site.
      */
-    public /*out*/ readonly nestedSites!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nestedSites: pulumi.Output<string[]>;
     /**
      * Gets the private endpoint connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.offazure.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.offazure.PrivateEndpointConnectionResponse[]>;
     /**
      * provisioning state enum
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets the state of public network access.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the sites that are a part of Master Site.
      *             The key
      * should contain the Site ARM name.
      */
-    public readonly sites!: pulumi.Output<string[] | undefined>;
+    declare public readonly sites: pulumi.Output<string[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.offazure.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.offazure.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MasterSitesController resource with the given unique name, arguments, and options.
@@ -108,17 +108,17 @@ export class MasterSitesController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowMultipleSites"] = args ? args.allowMultipleSites : undefined;
-            resourceInputs["customerStorageAccountArmId"] = args ? args.customerStorageAccountArmId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["sites"] = args ? args.sites : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowMultipleSites"] = args?.allowMultipleSites;
+            resourceInputs["customerStorageAccountArmId"] = args?.customerStorageAccountArmId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["sites"] = args?.sites;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nestedSites"] = undefined /*out*/;

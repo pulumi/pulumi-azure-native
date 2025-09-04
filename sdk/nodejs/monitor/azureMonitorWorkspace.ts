@@ -44,55 +44,55 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
     /**
      * The immutable Id of the Azure Monitor Workspace. This property is read-only.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Data Collection Rule and Endpoint used for ingestion by default.
      */
-    public /*out*/ readonly defaultIngestionSettings!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings>;
+    declare public /*out*/ readonly defaultIngestionSettings: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseDefaultIngestionSettings>;
     /**
      * Resource entity tag (ETag)
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Properties related to the metrics container in the Azure Monitor Workspace
      */
-    public /*out*/ readonly metrics!: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseMetrics>;
+    declare public /*out*/ readonly metrics: pulumi.Output<outputs.monitor.AzureMonitorWorkspaceResponseMetrics>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.monitor.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the Azure Monitor Workspace. Set to Succeeded if everything is healthy.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets allow or disallow public network access to Azure Monitor Workspace
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.monitor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureMonitorWorkspace resource with the given unique name, arguments, and options.
@@ -105,14 +105,14 @@ export class AzureMonitorWorkspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureMonitorWorkspaceName"] = args ? args.azureMonitorWorkspaceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureMonitorWorkspaceName"] = args?.azureMonitorWorkspaceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultIngestionSettings"] = undefined /*out*/;

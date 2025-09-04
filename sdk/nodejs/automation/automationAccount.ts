@@ -44,79 +44,79 @@ export class AutomationAccount extends pulumi.CustomResource {
     /**
      * URL of automation hybrid service which is used for hybrid worker on-boarding.
      */
-    public /*out*/ readonly automationHybridServiceUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly automationHybridServiceUrl: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Gets or sets the description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether requests using non-AAD authentication are blocked
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * Encryption properties for the automation account
      */
-    public readonly encryption!: pulumi.Output<outputs.automation.EncryptionPropertiesResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.automation.EncryptionPropertiesResponse | undefined>;
     /**
      * Gets or sets the etag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.automation.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.automation.IdentityResponse | undefined>;
     /**
      * Gets or sets the last modified by.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string | undefined>;
     /**
      * Gets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * List of Automation operations supported by the Automation resource provider.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.automation.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.automation.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Indicates whether traffic on the non-ARM endpoint (Webhook/Agent) is allowed from the public internet
      */
-    public readonly publicNetworkAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the SKU of account.
      */
-    public readonly sku!: pulumi.Output<outputs.automation.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.automation.SkuResponse | undefined>;
     /**
      * Gets status of account.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Resource system metadata.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutomationAccount resource with the given unique name, arguments, and options.
@@ -129,19 +129,19 @@ export class AutomationAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["automationHybridServiceUrl"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

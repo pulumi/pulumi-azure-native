@@ -41,35 +41,35 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The default hostname of the data-plane gateway.
      */
-    public /*out*/ readonly defaultHostname!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultHostname: pulumi.Output<string>;
     /**
      * ETag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The hostnames of the data-plane gateway to which requests can be sent.
      */
-    public readonly hostnames!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostnames: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current provisioning state of the API Management gateway config connection 
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The link to the API Management service workspace.
      */
-    public readonly sourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApiGatewayConfigConnection resource with the given unique name, arguments, and options.
@@ -82,17 +82,17 @@ export class ApiGatewayConfigConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configConnectionName"] = args ? args.configConnectionName : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["hostnames"] = args ? args.hostnames : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceId"] = args ? args.sourceId : undefined;
+            resourceInputs["configConnectionName"] = args?.configConnectionName;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["hostnames"] = args?.hostnames;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceId"] = args?.sourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultHostname"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -44,31 +44,31 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
     /**
      * The list of audiences that can appear in the issued token.
      */
-    public readonly audiences!: pulumi.Output<string[]>;
+    declare public readonly audiences: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The URL of the issuer to be trusted.
      */
-    public readonly issuer!: pulumi.Output<string>;
+    declare public readonly issuer: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The identifier of the external identity.
      */
-    public readonly subject!: pulumi.Output<string>;
+    declare public readonly subject: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managedidentity.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managedidentity.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FederatedIdentityCredential resource with the given unique name, arguments, and options.
@@ -81,27 +81,27 @@ export class FederatedIdentityCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.audiences === undefined) && !opts.urn) {
+            if (args?.audiences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'audiences'");
             }
-            if ((!args || args.issuer === undefined) && !opts.urn) {
+            if (args?.issuer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'issuer'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.subject === undefined) && !opts.urn) {
+            if (args?.subject === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subject'");
             }
-            resourceInputs["audiences"] = args ? args.audiences : undefined;
-            resourceInputs["federatedIdentityCredentialResourceName"] = args ? args.federatedIdentityCredentialResourceName : undefined;
-            resourceInputs["issuer"] = args ? args.issuer : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["subject"] = args ? args.subject : undefined;
+            resourceInputs["audiences"] = args?.audiences;
+            resourceInputs["federatedIdentityCredentialResourceName"] = args?.federatedIdentityCredentialResourceName;
+            resourceInputs["issuer"] = args?.issuer;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["subject"] = args?.subject;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

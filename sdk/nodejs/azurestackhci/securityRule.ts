@@ -44,63 +44,63 @@ export class SecurityRule extends pulumi.CustomResource {
     /**
      * The network traffic is allowed or denied.
      */
-    public readonly access!: pulumi.Output<string>;
+    declare public readonly access: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    public readonly destinationAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationAddressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The destination port ranges. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    public readonly destinationPortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly destinationPortRanges: pulumi.Output<string[] | undefined>;
     /**
      * The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic.
      */
-    public readonly direction!: pulumi.Output<string>;
+    declare public readonly direction: pulumi.Output<string>;
     /**
      * The extendedLocation of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * Network protocol this rule applies to.
      */
-    public readonly protocol!: pulumi.Output<string>;
+    declare public readonly protocol: pulumi.Output<string>;
     /**
      * Provisioning state of the SR
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The CIDR or source IP ranges.
      */
-    public readonly sourceAddressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourceAddressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The source port ranges. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports.
      */
-    public readonly sourcePortRanges!: pulumi.Output<string[] | undefined>;
+    declare public readonly sourcePortRanges: pulumi.Output<string[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityRule resource with the given unique name, arguments, and options.
@@ -113,37 +113,37 @@ export class SecurityRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.access === undefined) && !opts.urn) {
+            if (args?.access === undefined && !opts.urn) {
                 throw new Error("Missing required property 'access'");
             }
-            if ((!args || args.direction === undefined) && !opts.urn) {
+            if (args?.direction === undefined && !opts.urn) {
                 throw new Error("Missing required property 'direction'");
             }
-            if ((!args || args.networkSecurityGroupName === undefined) && !opts.urn) {
+            if (args?.networkSecurityGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkSecurityGroupName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.protocol === undefined) && !opts.urn) {
+            if (args?.protocol === undefined && !opts.urn) {
                 throw new Error("Missing required property 'protocol'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["access"] = args ? args.access : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinationAddressPrefixes"] = args ? args.destinationAddressPrefixes : undefined;
-            resourceInputs["destinationPortRanges"] = args ? args.destinationPortRanges : undefined;
-            resourceInputs["direction"] = args ? args.direction : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["networkSecurityGroupName"] = args ? args.networkSecurityGroupName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityRuleName"] = args ? args.securityRuleName : undefined;
-            resourceInputs["sourceAddressPrefixes"] = args ? args.sourceAddressPrefixes : undefined;
-            resourceInputs["sourcePortRanges"] = args ? args.sourcePortRanges : undefined;
+            resourceInputs["access"] = args?.access;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinationAddressPrefixes"] = args?.destinationAddressPrefixes;
+            resourceInputs["destinationPortRanges"] = args?.destinationPortRanges;
+            resourceInputs["direction"] = args?.direction;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["networkSecurityGroupName"] = args?.networkSecurityGroupName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityRuleName"] = args?.securityRuleName;
+            resourceInputs["sourceAddressPrefixes"] = args?.sourceAddressPrefixes;
+            resourceInputs["sourcePortRanges"] = args?.sourcePortRanges;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

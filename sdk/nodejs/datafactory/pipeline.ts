@@ -42,55 +42,55 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * List of activities in pipeline.
      */
-    public readonly activities!: pulumi.Output<(outputs.datafactory.AppendVariableActivityResponse | outputs.datafactory.AzureDataExplorerCommandActivityResponse | outputs.datafactory.AzureFunctionActivityResponse | outputs.datafactory.AzureMLBatchExecutionActivityResponse | outputs.datafactory.AzureMLExecutePipelineActivityResponse | outputs.datafactory.AzureMLUpdateResourceActivityResponse | outputs.datafactory.ControlActivityResponse | outputs.datafactory.CopyActivityResponse | outputs.datafactory.CustomActivityResponse | outputs.datafactory.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.DatabricksJobActivityResponse | outputs.datafactory.DatabricksNotebookActivityResponse | outputs.datafactory.DatabricksSparkJarActivityResponse | outputs.datafactory.DatabricksSparkPythonActivityResponse | outputs.datafactory.DeleteActivityResponse | outputs.datafactory.ExecuteDataFlowActivityResponse | outputs.datafactory.ExecutePipelineActivityResponse | outputs.datafactory.ExecuteSSISPackageActivityResponse | outputs.datafactory.ExecuteWranglingDataflowActivityResponse | outputs.datafactory.ExecutionActivityResponse | outputs.datafactory.FailActivityResponse | outputs.datafactory.FilterActivityResponse | outputs.datafactory.ForEachActivityResponse | outputs.datafactory.GetMetadataActivityResponse | outputs.datafactory.HDInsightHiveActivityResponse | outputs.datafactory.HDInsightMapReduceActivityResponse | outputs.datafactory.HDInsightPigActivityResponse | outputs.datafactory.HDInsightSparkActivityResponse | outputs.datafactory.HDInsightStreamingActivityResponse | outputs.datafactory.IfConditionActivityResponse | outputs.datafactory.LookupActivityResponse | outputs.datafactory.ScriptActivityResponse | outputs.datafactory.SetVariableActivityResponse | outputs.datafactory.SqlServerStoredProcedureActivityResponse | outputs.datafactory.SwitchActivityResponse | outputs.datafactory.SynapseNotebookActivityResponse | outputs.datafactory.SynapseSparkJobDefinitionActivityResponse | outputs.datafactory.UntilActivityResponse | outputs.datafactory.ValidationActivityResponse | outputs.datafactory.WaitActivityResponse | outputs.datafactory.WebActivityResponse | outputs.datafactory.WebHookActivityResponse)[] | undefined>;
+    declare public readonly activities: pulumi.Output<(outputs.datafactory.AppendVariableActivityResponse | outputs.datafactory.AzureDataExplorerCommandActivityResponse | outputs.datafactory.AzureFunctionActivityResponse | outputs.datafactory.AzureMLBatchExecutionActivityResponse | outputs.datafactory.AzureMLExecutePipelineActivityResponse | outputs.datafactory.AzureMLUpdateResourceActivityResponse | outputs.datafactory.ControlActivityResponse | outputs.datafactory.CopyActivityResponse | outputs.datafactory.CustomActivityResponse | outputs.datafactory.DataLakeAnalyticsUSQLActivityResponse | outputs.datafactory.DatabricksJobActivityResponse | outputs.datafactory.DatabricksNotebookActivityResponse | outputs.datafactory.DatabricksSparkJarActivityResponse | outputs.datafactory.DatabricksSparkPythonActivityResponse | outputs.datafactory.DeleteActivityResponse | outputs.datafactory.ExecuteDataFlowActivityResponse | outputs.datafactory.ExecutePipelineActivityResponse | outputs.datafactory.ExecuteSSISPackageActivityResponse | outputs.datafactory.ExecuteWranglingDataflowActivityResponse | outputs.datafactory.ExecutionActivityResponse | outputs.datafactory.FailActivityResponse | outputs.datafactory.FilterActivityResponse | outputs.datafactory.ForEachActivityResponse | outputs.datafactory.GetMetadataActivityResponse | outputs.datafactory.HDInsightHiveActivityResponse | outputs.datafactory.HDInsightMapReduceActivityResponse | outputs.datafactory.HDInsightPigActivityResponse | outputs.datafactory.HDInsightSparkActivityResponse | outputs.datafactory.HDInsightStreamingActivityResponse | outputs.datafactory.IfConditionActivityResponse | outputs.datafactory.LookupActivityResponse | outputs.datafactory.ScriptActivityResponse | outputs.datafactory.SetVariableActivityResponse | outputs.datafactory.SqlServerStoredProcedureActivityResponse | outputs.datafactory.SwitchActivityResponse | outputs.datafactory.SynapseNotebookActivityResponse | outputs.datafactory.SynapseSparkJobDefinitionActivityResponse | outputs.datafactory.UntilActivityResponse | outputs.datafactory.ValidationActivityResponse | outputs.datafactory.WaitActivityResponse | outputs.datafactory.WebActivityResponse | outputs.datafactory.WebHookActivityResponse)[] | undefined>;
     /**
      * List of tags that can be used for describing the Pipeline.
      */
-    public readonly annotations!: pulumi.Output<any[] | undefined>;
+    declare public readonly annotations: pulumi.Output<any[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The max number of concurrent runs for the pipeline.
      */
-    public readonly concurrency!: pulumi.Output<number | undefined>;
+    declare public readonly concurrency: pulumi.Output<number | undefined>;
     /**
      * The description of the pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Etag identifies change in the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The folder that this Pipeline is in. If not specified, Pipeline will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<outputs.datafactory.PipelineResponseFolder | undefined>;
+    declare public readonly folder: pulumi.Output<outputs.datafactory.PipelineResponseFolder | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of parameters for pipeline.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.datafactory.ParameterSpecificationResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.datafactory.ParameterSpecificationResponse} | undefined>;
     /**
      * Pipeline Policy.
      */
-    public readonly policy!: pulumi.Output<outputs.datafactory.PipelinePolicyResponse | undefined>;
+    declare public readonly policy: pulumi.Output<outputs.datafactory.PipelinePolicyResponse | undefined>;
     /**
      * Dimensions emitted by Pipeline.
      */
-    public readonly runDimensions!: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly runDimensions: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * List of variables for pipeline.
      */
-    public readonly variables!: pulumi.Output<{[key: string]: outputs.datafactory.VariableSpecificationResponse} | undefined>;
+    declare public readonly variables: pulumi.Output<{[key: string]: outputs.datafactory.VariableSpecificationResponse} | undefined>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -103,24 +103,24 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.factoryName === undefined) && !opts.urn) {
+            if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activities"] = args ? args.activities : undefined;
-            resourceInputs["annotations"] = args ? args.annotations : undefined;
-            resourceInputs["concurrency"] = args ? args.concurrency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runDimensions"] = args ? args.runDimensions : undefined;
-            resourceInputs["variables"] = args ? args.variables : undefined;
+            resourceInputs["activities"] = args?.activities;
+            resourceInputs["annotations"] = args?.annotations;
+            resourceInputs["concurrency"] = args?.concurrency;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runDimensions"] = args?.runDimensions;
+            resourceInputs["variables"] = args?.variables;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

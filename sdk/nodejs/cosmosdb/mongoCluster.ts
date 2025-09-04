@@ -44,55 +44,55 @@ export class MongoCluster extends pulumi.CustomResource {
     /**
      * The administrator's login for the mongo cluster.
      */
-    public readonly administratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly administratorLogin: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A status of the mongo cluster.
      */
-    public /*out*/ readonly clusterStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterStatus: pulumi.Output<string>;
     /**
      * The default mongo connection string for the cluster.
      */
-    public /*out*/ readonly connectionString!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionString: pulumi.Output<string>;
     /**
      * Earliest restore timestamp in UTC ISO8601 format.
      */
-    public /*out*/ readonly earliestRestoreTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly earliestRestoreTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of node group specs in the cluster.
      */
-    public readonly nodeGroupSpecs!: pulumi.Output<outputs.cosmosdb.NodeGroupSpecResponse[] | undefined>;
+    declare public readonly nodeGroupSpecs: pulumi.Output<outputs.cosmosdb.NodeGroupSpecResponse[] | undefined>;
     /**
      * A provisioning state of the mongo cluster.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Mongo DB server version. Defaults to the latest available version if not specified.
      */
-    public readonly serverVersion!: pulumi.Output<string | undefined>;
+    declare public readonly serverVersion: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MongoCluster resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class MongoCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLogin"] = args ? args.administratorLogin : undefined;
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["createMode"] = (args ? args.createMode : undefined) ?? "Default";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mongoClusterName"] = args ? args.mongoClusterName : undefined;
-            resourceInputs["nodeGroupSpecs"] = args ? args.nodeGroupSpecs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoreParameters"] = args ? args.restoreParameters : undefined;
-            resourceInputs["serverVersion"] = args ? args.serverVersion : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorLogin"] = args?.administratorLogin;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["createMode"] = (args?.createMode) ?? "Default";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mongoClusterName"] = args?.mongoClusterName;
+            resourceInputs["nodeGroupSpecs"] = args?.nodeGroupSpecs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restoreParameters"] = args?.restoreParameters;
+            resourceInputs["serverVersion"] = args?.serverVersion;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterStatus"] = undefined /*out*/;
             resourceInputs["connectionString"] = undefined /*out*/;

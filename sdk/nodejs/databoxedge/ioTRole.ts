@@ -42,56 +42,56 @@ export class IoTRole extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource allocation
      */
-    public readonly computeResource!: pulumi.Output<outputs.databoxedge.ComputeResourceResponse | undefined>;
+    declare public readonly computeResource: pulumi.Output<outputs.databoxedge.ComputeResourceResponse | undefined>;
     /**
      * Host OS supported by the IoT role.
      */
-    public readonly hostPlatform!: pulumi.Output<string>;
+    declare public readonly hostPlatform: pulumi.Output<string>;
     /**
      * Platform where the Iot runtime is hosted.
      */
-    public /*out*/ readonly hostPlatformType!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostPlatformType: pulumi.Output<string>;
     /**
      * IoT device metadata to which data box edge device needs to be connected.
      */
-    public readonly ioTDeviceDetails!: pulumi.Output<outputs.databoxedge.IoTDeviceInfoResponse>;
+    declare public readonly ioTDeviceDetails: pulumi.Output<outputs.databoxedge.IoTDeviceInfoResponse>;
     /**
      * Iot edge agent details to download the agent and bootstrap iot runtime.
      */
-    public readonly ioTEdgeAgentInfo!: pulumi.Output<outputs.databoxedge.IoTEdgeAgentInfoResponse | undefined>;
+    declare public readonly ioTEdgeAgentInfo: pulumi.Output<outputs.databoxedge.IoTEdgeAgentInfoResponse | undefined>;
     /**
      * IoT edge device to which the IoT role needs to be configured.
      */
-    public readonly ioTEdgeDeviceDetails!: pulumi.Output<outputs.databoxedge.IoTDeviceInfoResponse>;
+    declare public readonly ioTEdgeDeviceDetails: pulumi.Output<outputs.databoxedge.IoTDeviceInfoResponse>;
     /**
      * Role type.
      * Expected value is 'IOT'.
      */
-    public readonly kind!: pulumi.Output<"IOT">;
+    declare public readonly kind: pulumi.Output<"IOT">;
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Role status.
      */
-    public readonly roleStatus!: pulumi.Output<string>;
+    declare public readonly roleStatus: pulumi.Output<string>;
     /**
      * Mount points of shares in role(s).
      */
-    public readonly shareMappings!: pulumi.Output<outputs.databoxedge.MountPointMapResponse[] | undefined>;
+    declare public readonly shareMappings: pulumi.Output<outputs.databoxedge.MountPointMapResponse[] | undefined>;
     /**
      * Metadata pertaining to creation and last modification of Role
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IoTRole resource with the given unique name, arguments, and options.
@@ -104,38 +104,38 @@ export class IoTRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.hostPlatform === undefined) && !opts.urn) {
+            if (args?.hostPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPlatform'");
             }
-            if ((!args || args.ioTDeviceDetails === undefined) && !opts.urn) {
+            if (args?.ioTDeviceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ioTDeviceDetails'");
             }
-            if ((!args || args.ioTEdgeDeviceDetails === undefined) && !opts.urn) {
+            if (args?.ioTEdgeDeviceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ioTEdgeDeviceDetails'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleStatus === undefined) && !opts.urn) {
+            if (args?.roleStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            resourceInputs["computeResource"] = args ? args.computeResource : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["hostPlatform"] = args ? args.hostPlatform : undefined;
-            resourceInputs["ioTDeviceDetails"] = args ? args.ioTDeviceDetails : undefined;
-            resourceInputs["ioTEdgeAgentInfo"] = args ? args.ioTEdgeAgentInfo : undefined;
-            resourceInputs["ioTEdgeDeviceDetails"] = args ? args.ioTEdgeDeviceDetails : undefined;
+            resourceInputs["computeResource"] = args?.computeResource;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["hostPlatform"] = args?.hostPlatform;
+            resourceInputs["ioTDeviceDetails"] = args?.ioTDeviceDetails;
+            resourceInputs["ioTEdgeAgentInfo"] = args?.ioTEdgeAgentInfo;
+            resourceInputs["ioTEdgeDeviceDetails"] = args?.ioTEdgeDeviceDetails;
             resourceInputs["kind"] = "IOT";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
-            resourceInputs["shareMappings"] = args ? args.shareMappings : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleStatus"] = args?.roleStatus;
+            resourceInputs["shareMappings"] = args?.shareMappings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

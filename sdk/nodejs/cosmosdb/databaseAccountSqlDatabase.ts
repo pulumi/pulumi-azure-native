@@ -44,43 +44,43 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A system generated property that specified the addressable path of the collections resource.
      */
-    public /*out*/ readonly colls!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly colls: pulumi.Output<string | undefined>;
     /**
      * A system generated property representing the resource etag required for optimistic concurrency control.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the database account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A system generated property. A unique identifier.
      */
-    public /*out*/ readonly rid!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly rid: pulumi.Output<string | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A system generated property that denotes the last updated timestamp of the resource.
      */
-    public /*out*/ readonly ts!: pulumi.Output<any | undefined>;
+    declare public /*out*/ readonly ts: pulumi.Output<any | undefined>;
     /**
      * The type of Azure resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A system generated property that specifies the addressable path of the users resource.
      */
-    public /*out*/ readonly users!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly users: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabaseAccountSqlDatabase resource with the given unique name, arguments, and options.
@@ -93,23 +93,23 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["colls"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

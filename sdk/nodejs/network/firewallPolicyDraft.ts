@@ -44,59 +44,59 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    public readonly basePolicy!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly basePolicy: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * DNS Proxy Settings definition.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.network.DnsSettingsResponse | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.network.DnsSettingsResponse | undefined>;
     /**
      * Explicit Proxy Settings definition.
      */
-    public readonly explicitProxy!: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
+    declare public readonly explicitProxy: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
     /**
      * Insights on Firewall Policy.
      */
-    public readonly insights!: pulumi.Output<outputs.network.FirewallPolicyInsightsResponse | undefined>;
+    declare public readonly insights: pulumi.Output<outputs.network.FirewallPolicyInsightsResponse | undefined>;
     /**
      * The configuration for Intrusion detection.
      */
-    public readonly intrusionDetection!: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetectionResponse | undefined>;
+    declare public readonly intrusionDetection: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetectionResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    public readonly snat!: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
+    declare public readonly snat: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
     /**
      * SQL Settings definition.
      */
-    public readonly sql!: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
+    declare public readonly sql: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    declare public readonly threatIntelMode: pulumi.Output<string | undefined>;
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    public readonly threatIntelWhitelist!: pulumi.Output<outputs.network.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
+    declare public readonly threatIntelWhitelist: pulumi.Output<outputs.network.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FirewallPolicyDraft resource with the given unique name, arguments, and options.
@@ -109,26 +109,26 @@ export class FirewallPolicyDraft extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
+            if (args?.firewallPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["insights"] = args ? args.insights : undefined;
-            resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snat"] = args ? args.snat : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
+            resourceInputs["basePolicy"] = args?.basePolicy;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["explicitProxy"] = args?.explicitProxy;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["insights"] = args?.insights;
+            resourceInputs["intrusionDetection"] = args?.intrusionDetection;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snat"] = args?.snat;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelMode"] = args?.threatIntelMode;
+            resourceInputs["threatIntelWhitelist"] = args?.threatIntelWhitelist;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

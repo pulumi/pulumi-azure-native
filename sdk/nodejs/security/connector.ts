@@ -42,23 +42,23 @@ export class Connector extends pulumi.CustomResource {
     /**
      * Settings for authentication management, these settings are relevant only for the cloud connector.
      */
-    public readonly authenticationDetails!: pulumi.Output<outputs.security.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.GcpCredentialsDetailsPropertiesResponse | undefined>;
+    declare public readonly authenticationDetails: pulumi.Output<outputs.security.AwAssumeRoleAuthenticationDetailsPropertiesResponse | outputs.security.AwsCredsAuthenticationDetailsPropertiesResponse | outputs.security.GcpCredentialsDetailsPropertiesResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Settings for hybrid compute management. These settings are relevant only for Arc autoProvision (Hybrid Compute).
      */
-    public readonly hybridComputeSettings!: pulumi.Output<outputs.security.HybridComputeSettingsPropertiesResponse | undefined>;
+    declare public readonly hybridComputeSettings: pulumi.Output<outputs.security.HybridComputeSettingsPropertiesResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -71,9 +71,9 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["authenticationDetails"] = args ? args.authenticationDetails : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["hybridComputeSettings"] = args ? args.hybridComputeSettings : undefined;
+            resourceInputs["authenticationDetails"] = args?.authenticationDetails;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["hybridComputeSettings"] = args?.hybridComputeSettings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

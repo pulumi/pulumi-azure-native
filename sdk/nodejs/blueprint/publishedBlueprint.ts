@@ -42,47 +42,47 @@ export class PublishedBlueprint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Name of the published blueprint definition.
      */
-    public readonly blueprintName!: pulumi.Output<string | undefined>;
+    declare public readonly blueprintName: pulumi.Output<string | undefined>;
     /**
      * Version-specific change notes.
      */
-    public readonly changeNotes!: pulumi.Output<string | undefined>;
+    declare public readonly changeNotes: pulumi.Output<string | undefined>;
     /**
      * Multi-line explain this resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * One-liner string explain this resource.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Parameters required by this blueprint definition.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.ParameterDefinitionResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.blueprint.ParameterDefinitionResponse} | undefined>;
     /**
      * Resource group placeholders defined by this blueprint definition.
      */
-    public readonly resourceGroups!: pulumi.Output<{[key: string]: outputs.blueprint.ResourceGroupDefinitionResponse} | undefined>;
+    declare public readonly resourceGroups: pulumi.Output<{[key: string]: outputs.blueprint.ResourceGroupDefinitionResponse} | undefined>;
     /**
      * Status of the blueprint. This field is readonly.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.blueprint.BlueprintStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.blueprint.BlueprintStatusResponse>;
     /**
      * The scope where this blueprint definition can be assigned.
      */
-    public readonly targetScope!: pulumi.Output<string | undefined>;
+    declare public readonly targetScope: pulumi.Output<string | undefined>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PublishedBlueprint resource with the given unique name, arguments, and options.
@@ -95,21 +95,21 @@ export class PublishedBlueprint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintName === undefined) && !opts.urn) {
+            if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["changeNotes"] = args ? args.changeNotes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroups"] = args ? args.resourceGroups : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
-            resourceInputs["targetScope"] = args ? args.targetScope : undefined;
-            resourceInputs["versionId"] = args ? args.versionId : undefined;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["changeNotes"] = args?.changeNotes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroups"] = args?.resourceGroups;
+            resourceInputs["resourceScope"] = args?.resourceScope;
+            resourceInputs["targetScope"] = args?.targetScope;
+            resourceInputs["versionId"] = args?.versionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

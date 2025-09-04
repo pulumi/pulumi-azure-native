@@ -44,31 +44,31 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
     /**
      * The allow-list custom alert rules.
      */
-    public readonly allowlistRules!: pulumi.Output<outputs.security.AllowlistCustomAlertRuleResponse[] | undefined>;
+    declare public readonly allowlistRules: pulumi.Output<outputs.security.AllowlistCustomAlertRuleResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The deny-list custom alert rules.
      */
-    public readonly denylistRules!: pulumi.Output<outputs.security.DenylistCustomAlertRuleResponse[] | undefined>;
+    declare public readonly denylistRules: pulumi.Output<outputs.security.DenylistCustomAlertRuleResponse[] | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of custom alert threshold rules.
      */
-    public readonly thresholdRules!: pulumi.Output<outputs.security.ThresholdCustomAlertRuleResponse[] | undefined>;
+    declare public readonly thresholdRules: pulumi.Output<outputs.security.ThresholdCustomAlertRuleResponse[] | undefined>;
     /**
      * The list of custom alert time-window rules.
      */
-    public readonly timeWindowRules!: pulumi.Output<outputs.security.TimeWindowCustomAlertRuleResponse[] | undefined>;
+    declare public readonly timeWindowRules: pulumi.Output<outputs.security.TimeWindowCustomAlertRuleResponse[] | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DeviceSecurityGroup resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class DeviceSecurityGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            resourceInputs["allowlistRules"] = args ? args.allowlistRules : undefined;
-            resourceInputs["denylistRules"] = args ? args.denylistRules : undefined;
-            resourceInputs["deviceSecurityGroupName"] = args ? args.deviceSecurityGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["thresholdRules"] = args ? args.thresholdRules : undefined;
-            resourceInputs["timeWindowRules"] = args ? args.timeWindowRules : undefined;
+            resourceInputs["allowlistRules"] = args?.allowlistRules;
+            resourceInputs["denylistRules"] = args?.denylistRules;
+            resourceInputs["deviceSecurityGroupName"] = args?.deviceSecurityGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["thresholdRules"] = args?.thresholdRules;
+            resourceInputs["timeWindowRules"] = args?.timeWindowRules;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

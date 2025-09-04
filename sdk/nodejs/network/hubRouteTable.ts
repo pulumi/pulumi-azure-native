@@ -44,39 +44,39 @@ export class HubRouteTable extends pulumi.CustomResource {
     /**
      * List of all connections associated with this route table.
      */
-    public /*out*/ readonly associatedConnections!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedConnections: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * List of labels associated with this route table.
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * List of all connections that advertise to this route table.
      */
-    public /*out*/ readonly propagatingConnections!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly propagatingConnections: pulumi.Output<string[]>;
     /**
      * The provisioning state of the RouteTable resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of all routes.
      */
-    public readonly routes!: pulumi.Output<outputs.network.HubRouteResponse[] | undefined>;
+    declare public readonly routes: pulumi.Output<outputs.network.HubRouteResponse[] | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HubRouteTable resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class HubRouteTable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
+            if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTableName"] = args ? args.routeTableName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTableName"] = args?.routeTableName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["associatedConnections"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

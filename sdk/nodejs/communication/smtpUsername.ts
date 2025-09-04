@@ -44,31 +44,31 @@ export class SmtpUsername extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The application Id for the linked Entra Application.
      */
-    public readonly entraApplicationId!: pulumi.Output<string>;
+    declare public readonly entraApplicationId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
      * The tenant of the linked Entra Application.
      */
-    public readonly tenantId!: pulumi.Output<string>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The SMTP username. Could be free form or in the email address format.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a SmtpUsername resource with the given unique name, arguments, and options.
@@ -81,27 +81,27 @@ export class SmtpUsername extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communicationServiceName === undefined) && !opts.urn) {
+            if (args?.communicationServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationServiceName'");
             }
-            if ((!args || args.entraApplicationId === undefined) && !opts.urn) {
+            if (args?.entraApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entraApplicationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tenantId === undefined) && !opts.urn) {
+            if (args?.tenantId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tenantId'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["communicationServiceName"] = args ? args.communicationServiceName : undefined;
-            resourceInputs["entraApplicationId"] = args ? args.entraApplicationId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["smtpUsername"] = args ? args.smtpUsername : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["communicationServiceName"] = args?.communicationServiceName;
+            resourceInputs["entraApplicationId"] = args?.entraApplicationId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["smtpUsername"] = args?.smtpUsername;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["username"] = args?.username;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

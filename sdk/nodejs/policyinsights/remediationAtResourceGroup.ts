@@ -44,71 +44,71 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The remediation correlation Id. Can be used to find events related to the remediation in the activity log.
      */
-    public /*out*/ readonly correlationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly correlationId: pulumi.Output<string>;
     /**
      * The time at which the remediation was created.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * The deployment status summary for all deployments created by the remediation.
      */
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<outputs.policyinsights.RemediationDeploymentSummaryResponse>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<outputs.policyinsights.RemediationDeploymentSummaryResponse>;
     /**
      * The remediation failure threshold settings
      */
-    public readonly failureThreshold!: pulumi.Output<outputs.policyinsights.RemediationPropertiesResponseFailureThreshold | undefined>;
+    declare public readonly failureThreshold: pulumi.Output<outputs.policyinsights.RemediationPropertiesResponseFailureThreshold | undefined>;
     /**
      * The filters that will be applied to determine which resources to remediate.
      */
-    public readonly filters!: pulumi.Output<outputs.policyinsights.RemediationFiltersResponse | undefined>;
+    declare public readonly filters: pulumi.Output<outputs.policyinsights.RemediationFiltersResponse | undefined>;
     /**
      * The time at which the remediation was last updated.
      */
-    public /*out*/ readonly lastUpdatedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedOn: pulumi.Output<string>;
     /**
      * The name of the remediation.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used.
      */
-    public readonly parallelDeployments!: pulumi.Output<number | undefined>;
+    declare public readonly parallelDeployments: pulumi.Output<number | undefined>;
     /**
      * The resource ID of the policy assignment that should be remediated.
      */
-    public readonly policyAssignmentId!: pulumi.Output<string | undefined>;
+    declare public readonly policyAssignmentId: pulumi.Output<string | undefined>;
     /**
      * The policy definition reference ID of the individual definition that should be remediated. Required when the policy assignment being remediated assigns a policy set definition.
      */
-    public readonly policyDefinitionReferenceId!: pulumi.Output<string | undefined>;
+    declare public readonly policyDefinitionReferenceId: pulumi.Output<string | undefined>;
     /**
      * The status of the remediation. This refers to the entire remediation task, not individual deployments. Allowed values are Evaluating, Canceled, Cancelling, Failed, Complete, or Succeeded.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used.
      */
-    public readonly resourceCount!: pulumi.Output<number | undefined>;
+    declare public readonly resourceCount: pulumi.Output<number | undefined>;
     /**
      * The way resources to remediate are discovered. Defaults to ExistingNonCompliant if not specified.
      */
-    public readonly resourceDiscoveryMode!: pulumi.Output<string | undefined>;
+    declare public readonly resourceDiscoveryMode: pulumi.Output<string | undefined>;
     /**
      * The remediation status message. Provides additional details regarding the state of the remediation.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.policyinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.policyinsights.SystemDataResponse>;
     /**
      * The type of the remediation.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RemediationAtResourceGroup resource with the given unique name, arguments, and options.
@@ -121,18 +121,18 @@ export class RemediationAtResourceGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["failureThreshold"] = args ? args.failureThreshold : undefined;
-            resourceInputs["filters"] = args ? args.filters : undefined;
-            resourceInputs["parallelDeployments"] = args ? args.parallelDeployments : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceId"] = args ? args.policyDefinitionReferenceId : undefined;
-            resourceInputs["remediationName"] = args ? args.remediationName : undefined;
-            resourceInputs["resourceCount"] = args ? args.resourceCount : undefined;
-            resourceInputs["resourceDiscoveryMode"] = args ? args.resourceDiscoveryMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["failureThreshold"] = args?.failureThreshold;
+            resourceInputs["filters"] = args?.filters;
+            resourceInputs["parallelDeployments"] = args?.parallelDeployments;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceId"] = args?.policyDefinitionReferenceId;
+            resourceInputs["remediationName"] = args?.remediationName;
+            resourceInputs["resourceCount"] = args?.resourceCount;
+            resourceInputs["resourceDiscoveryMode"] = args?.resourceDiscoveryMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

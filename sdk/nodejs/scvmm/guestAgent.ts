@@ -44,47 +44,47 @@ export class GuestAgent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    public readonly credentials!: pulumi.Output<outputs.scvmm.GuestCredentialResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.scvmm.GuestCredentialResponse | undefined>;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly customResourceName: pulumi.Output<string>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.scvmm.HttpProxyConfigurationResponse | undefined>;
+    declare public readonly httpProxyConfig: pulumi.Output<outputs.scvmm.HttpProxyConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the guest agent provisioning action.
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningAction: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets the guest agent status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.scvmm.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.scvmm.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets a unique identifier for this resource.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a GuestAgent resource with the given unique name, arguments, and options.
@@ -97,18 +97,18 @@ export class GuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
+            if (args?.virtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["guestAgentName"] = args ? args.guestAgentName : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["guestAgentName"] = args?.guestAgentName;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

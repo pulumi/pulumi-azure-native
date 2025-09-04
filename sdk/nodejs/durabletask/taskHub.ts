@@ -44,23 +44,23 @@ export class TaskHub extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.durabletask.TaskHubPropertiesResponse>;
+    declare public /*out*/ readonly properties: pulumi.Output<outputs.durabletask.TaskHubPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.durabletask.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.durabletask.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TaskHub resource with the given unique name, arguments, and options.
@@ -73,15 +73,15 @@ export class TaskHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schedulerName === undefined) && !opts.urn) {
+            if (args?.schedulerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedulerName'");
             }
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedulerName"] = args ? args.schedulerName : undefined;
-            resourceInputs["taskHubName"] = args ? args.taskHubName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schedulerName"] = args?.schedulerName;
+            resourceInputs["taskHubName"] = args?.taskHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

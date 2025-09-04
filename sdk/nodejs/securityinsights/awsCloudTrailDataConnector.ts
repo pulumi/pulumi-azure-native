@@ -42,36 +42,36 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
     /**
      * The Aws Role Arn (with CloudTrailReadOnly policy) that is used to access the Aws account.
      */
-    public readonly awsRoleArn!: pulumi.Output<string | undefined>;
+    declare public readonly awsRoleArn: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The available data types for the connector.
      */
-    public readonly dataTypes!: pulumi.Output<outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse | undefined>;
+    declare public readonly dataTypes: pulumi.Output<outputs.securityinsights.AwsCloudTrailDataConnectorDataTypesResponse | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'AmazonWebServicesCloudTrail'.
      */
-    public readonly kind!: pulumi.Output<"AmazonWebServicesCloudTrail">;
+    declare public readonly kind: pulumi.Output<"AmazonWebServicesCloudTrail">;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AwsCloudTrailDataConnector resource with the given unique name, arguments, and options.
@@ -84,21 +84,21 @@ export class AwsCloudTrailDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["awsRoleArn"] = args ? args.awsRoleArn : undefined;
-            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
+            resourceInputs["awsRoleArn"] = args?.awsRoleArn;
+            resourceInputs["dataConnectorId"] = args?.dataConnectorId;
+            resourceInputs["dataTypes"] = args?.dataTypes;
             resourceInputs["kind"] = "AmazonWebServicesCloudTrail";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

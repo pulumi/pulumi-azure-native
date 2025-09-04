@@ -44,67 +44,67 @@ export class ExternalNetwork extends pulumi.CustomResource {
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * Export Route Policy either IPv4 or IPv6.
      */
-    public readonly exportRoutePolicy!: pulumi.Output<outputs.managednetworkfabric.ExportRoutePolicyResponse | undefined>;
+    declare public readonly exportRoutePolicy: pulumi.Output<outputs.managednetworkfabric.ExportRoutePolicyResponse | undefined>;
     /**
      * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
-    public readonly exportRoutePolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly exportRoutePolicyId: pulumi.Output<string | undefined>;
     /**
      * Import Route Policy either IPv4 or IPv6.
      */
-    public readonly importRoutePolicy!: pulumi.Output<outputs.managednetworkfabric.ImportRoutePolicyResponse | undefined>;
+    declare public readonly importRoutePolicy: pulumi.Output<outputs.managednetworkfabric.ImportRoutePolicyResponse | undefined>;
     /**
      * ARM Resource ID of the RoutePolicy. This is used for the backward compatibility.
      */
-    public readonly importRoutePolicyId!: pulumi.Output<string | undefined>;
+    declare public readonly importRoutePolicyId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM Resource ID of the networkToNetworkInterconnectId of the ExternalNetwork resource.
      */
-    public readonly networkToNetworkInterconnectId!: pulumi.Output<string | undefined>;
+    declare public readonly networkToNetworkInterconnectId: pulumi.Output<string | undefined>;
     /**
      * option A properties object
      */
-    public readonly optionAProperties!: pulumi.Output<outputs.managednetworkfabric.ExternalNetworkPropertiesResponseOptionAProperties | undefined>;
+    declare public readonly optionAProperties: pulumi.Output<outputs.managednetworkfabric.ExternalNetworkPropertiesResponseOptionAProperties | undefined>;
     /**
      * option B properties object
      */
-    public readonly optionBProperties!: pulumi.Output<outputs.managednetworkfabric.L3OptionBPropertiesResponse | undefined>;
+    declare public readonly optionBProperties: pulumi.Output<outputs.managednetworkfabric.L3OptionBPropertiesResponse | undefined>;
     /**
      * Peering option list.
      */
-    public readonly peeringOption!: pulumi.Output<string>;
+    declare public readonly peeringOption: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExternalNetwork resource with the given unique name, arguments, and options.
@@ -117,27 +117,27 @@ export class ExternalNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.l3IsolationDomainName === undefined) && !opts.urn) {
+            if (args?.l3IsolationDomainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'l3IsolationDomainName'");
             }
-            if ((!args || args.peeringOption === undefined) && !opts.urn) {
+            if (args?.peeringOption === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringOption'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["exportRoutePolicy"] = args ? args.exportRoutePolicy : undefined;
-            resourceInputs["exportRoutePolicyId"] = args ? args.exportRoutePolicyId : undefined;
-            resourceInputs["externalNetworkName"] = args ? args.externalNetworkName : undefined;
-            resourceInputs["importRoutePolicy"] = args ? args.importRoutePolicy : undefined;
-            resourceInputs["importRoutePolicyId"] = args ? args.importRoutePolicyId : undefined;
-            resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
-            resourceInputs["networkToNetworkInterconnectId"] = args ? args.networkToNetworkInterconnectId : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["exportRoutePolicy"] = args?.exportRoutePolicy;
+            resourceInputs["exportRoutePolicyId"] = args?.exportRoutePolicyId;
+            resourceInputs["externalNetworkName"] = args?.externalNetworkName;
+            resourceInputs["importRoutePolicy"] = args?.importRoutePolicy;
+            resourceInputs["importRoutePolicyId"] = args?.importRoutePolicyId;
+            resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
+            resourceInputs["networkToNetworkInterconnectId"] = args?.networkToNetworkInterconnectId;
             resourceInputs["optionAProperties"] = args ? (args.optionAProperties ? pulumi.output(args.optionAProperties).apply(inputs.managednetworkfabric.externalNetworkPropertiesOptionAPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["optionBProperties"] = args ? args.optionBProperties : undefined;
-            resourceInputs["peeringOption"] = args ? args.peeringOption : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["optionBProperties"] = args?.optionBProperties;
+            resourceInputs["peeringOption"] = args?.peeringOption;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

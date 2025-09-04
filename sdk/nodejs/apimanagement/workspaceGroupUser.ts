@@ -44,47 +44,47 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Email address.
      */
-    public /*out*/ readonly email!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly email: pulumi.Output<string | undefined>;
     /**
      * First name.
      */
-    public /*out*/ readonly firstName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly firstName: pulumi.Output<string | undefined>;
     /**
      * Collection of groups user is part of.
      */
-    public /*out*/ readonly groups!: pulumi.Output<outputs.apimanagement.GroupContractPropertiesResponse[]>;
+    declare public /*out*/ readonly groups: pulumi.Output<outputs.apimanagement.GroupContractPropertiesResponse[]>;
     /**
      * Collection of user identities.
      */
-    public /*out*/ readonly identities!: pulumi.Output<outputs.apimanagement.UserIdentityContractResponse[] | undefined>;
+    declare public /*out*/ readonly identities: pulumi.Output<outputs.apimanagement.UserIdentityContractResponse[] | undefined>;
     /**
      * Last name.
      */
-    public /*out*/ readonly lastName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optional note about a user set by the administrator.
      */
-    public /*out*/ readonly note!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly note: pulumi.Output<string | undefined>;
     /**
      * Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly registrationDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly registrationDate: pulumi.Output<string | undefined>;
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly state: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceGroupUser resource with the given unique name, arguments, and options.
@@ -97,23 +97,23 @@ export class WorkspaceGroupUser extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["email"] = undefined /*out*/;
             resourceInputs["firstName"] = undefined /*out*/;

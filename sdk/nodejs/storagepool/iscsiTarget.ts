@@ -42,63 +42,63 @@ export class IscsiTarget extends pulumi.CustomResource {
     /**
      * Mode for Target connectivity.
      */
-    public readonly aclMode!: pulumi.Output<string>;
+    declare public readonly aclMode: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of private IPv4 addresses to connect to the iSCSI Target.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<string[] | undefined>;
     /**
      * List of LUNs to be exposed through iSCSI Target.
      */
-    public readonly luns!: pulumi.Output<outputs.storagepool.IscsiLunResponse[] | undefined>;
+    declare public readonly luns: pulumi.Output<outputs.storagepool.IscsiLunResponse[] | undefined>;
     /**
      * Azure resource id. Indicates if this resource is managed by another Azure resource.
      */
-    public readonly managedBy!: pulumi.Output<string>;
+    declare public readonly managedBy: pulumi.Output<string>;
     /**
      * List of Azure resource ids that manage this resource.
      */
-    public readonly managedByExtended!: pulumi.Output<string[]>;
+    declare public readonly managedByExtended: pulumi.Output<string[]>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The port used by iSCSI Target portal group.
      */
-    public /*out*/ readonly port!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly port: pulumi.Output<number | undefined>;
     /**
      * State of the operation on the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of identifiers for active sessions on the iSCSI target
      */
-    public /*out*/ readonly sessions!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly sessions: pulumi.Output<string[]>;
     /**
      * Access Control List (ACL) for an iSCSI Target; defines LUN masking policy
      */
-    public readonly staticAcls!: pulumi.Output<outputs.storagepool.AclResponse[] | undefined>;
+    declare public readonly staticAcls: pulumi.Output<outputs.storagepool.AclResponse[] | undefined>;
     /**
      * Operational status of the iSCSI Target.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Resource metadata required by ARM RPC
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagepool.SystemMetadataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagepool.SystemMetadataResponse>;
     /**
      * iSCSI Target IQN (iSCSI Qualified Name); example: "iqn.2005-03.org.iscsi:server".
      */
-    public readonly targetIqn!: pulumi.Output<string>;
+    declare public readonly targetIqn: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IscsiTarget resource with the given unique name, arguments, and options.
@@ -111,24 +111,24 @@ export class IscsiTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aclMode === undefined) && !opts.urn) {
+            if (args?.aclMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aclMode'");
             }
-            if ((!args || args.diskPoolName === undefined) && !opts.urn) {
+            if (args?.diskPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'diskPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aclMode"] = args ? args.aclMode : undefined;
-            resourceInputs["diskPoolName"] = args ? args.diskPoolName : undefined;
-            resourceInputs["iscsiTargetName"] = args ? args.iscsiTargetName : undefined;
-            resourceInputs["luns"] = args ? args.luns : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedByExtended"] = args ? args.managedByExtended : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticAcls"] = args ? args.staticAcls : undefined;
-            resourceInputs["targetIqn"] = args ? args.targetIqn : undefined;
+            resourceInputs["aclMode"] = args?.aclMode;
+            resourceInputs["diskPoolName"] = args?.diskPoolName;
+            resourceInputs["iscsiTargetName"] = args?.iscsiTargetName;
+            resourceInputs["luns"] = args?.luns;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedByExtended"] = args?.managedByExtended;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticAcls"] = args?.staticAcls;
+            resourceInputs["targetIqn"] = args?.targetIqn;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

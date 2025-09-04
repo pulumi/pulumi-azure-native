@@ -44,91 +44,91 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Alternate name for namespace
      */
-    public readonly alternateName!: pulumi.Output<string | undefined>;
+    declare public readonly alternateName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the namespace was created
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * This property disables SAS authentication for the Service Bus namespace.
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * Properties of BYOK Encryption description
      */
-    public readonly encryption!: pulumi.Output<outputs.servicebus.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.servicebus.EncryptionResponse | undefined>;
     /**
      * Properties of BYOK Identity description
      */
-    public readonly identity!: pulumi.Output<outputs.servicebus.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.servicebus.IdentityResponse | undefined>;
     /**
      * The Geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Identifier for Azure Insights metrics
      */
-    public /*out*/ readonly metricId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricId: pulumi.Output<string>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of partitions of a Service Bus namespace. This property is only applicable to Premium SKU namespaces. The default value is 1 and possible values are 1, 2 and 4
      */
-    public readonly premiumMessagingPartitions!: pulumi.Output<number | undefined>;
+    declare public readonly premiumMessagingPartitions: pulumi.Output<number | undefined>;
     /**
      * List of private endpoint connections.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.servicebus.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.servicebus.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Provisioning state of the namespace.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
-    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceBusEndpoint: pulumi.Output<string>;
     /**
      * Properties of SKU
      */
-    public readonly sku!: pulumi.Output<outputs.servicebus.SBSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.servicebus.SBSkuResponse | undefined>;
     /**
      * Status of the namespace.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The time the namespace was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * This property reflects if zone redundancy has been enabled for namespaces in regions that support availability zones.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -141,23 +141,23 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["alternateName"] = args?.alternateName;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.servicebus.encryptionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["premiumMessagingPartitions"] = args ? args.premiumMessagingPartitions : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["premiumMessagingPartitions"] = args?.premiumMessagingPartitions;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;

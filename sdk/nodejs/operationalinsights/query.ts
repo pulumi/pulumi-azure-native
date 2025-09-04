@@ -44,55 +44,55 @@ export class Query extends pulumi.CustomResource {
     /**
      * Object Id of user creating the query.
      */
-    public /*out*/ readonly author!: pulumi.Output<string>;
+    declare public /*out*/ readonly author: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Body of the query.
      */
-    public readonly body!: pulumi.Output<string>;
+    declare public readonly body: pulumi.Output<string>;
     /**
      * Description of the query.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Unique display name for your query within the Query Pack.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Additional properties that can be set for the query.
      */
-    public readonly properties!: pulumi.Output<any>;
+    declare public readonly properties: pulumi.Output<any>;
     /**
      * The related metadata items for the function.
      */
-    public readonly related!: pulumi.Output<outputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesResponseRelated | undefined>;
+    declare public readonly related: pulumi.Output<outputs.operationalinsights.LogAnalyticsQueryPackQueryPropertiesResponseRelated | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
      * Tags associated with the query.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string[]} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string[]} | undefined>;
     /**
      * Creation Date for the Log Analytics Query, in ISO 8601 format.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * Last modified date of the Log Analytics Query, in ISO 8601 format.
      */
-    public /*out*/ readonly timeModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeModified: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Query resource with the given unique name, arguments, and options.
@@ -105,27 +105,27 @@ export class Query extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.body === undefined) && !opts.urn) {
+            if (args?.body === undefined && !opts.urn) {
                 throw new Error("Missing required property 'body'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.queryPackName === undefined) && !opts.urn) {
+            if (args?.queryPackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryPackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["body"] = args ? args.body : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["queryPackName"] = args ? args.queryPackName : undefined;
-            resourceInputs["related"] = args ? args.related : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["body"] = args?.body;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["queryPackName"] = args?.queryPackName;
+            resourceInputs["related"] = args?.related;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["author"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
