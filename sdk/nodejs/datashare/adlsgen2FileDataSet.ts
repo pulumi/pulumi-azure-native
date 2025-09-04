@@ -42,48 +42,48 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Unique id for identifying a data set resource
      */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSetId: pulumi.Output<string>;
     /**
      * File path within the file system.
      */
-    public readonly filePath!: pulumi.Output<string>;
+    declare public readonly filePath: pulumi.Output<string>;
     /**
      * File system to which the file belongs.
      */
-    public readonly fileSystem!: pulumi.Output<string>;
+    declare public readonly fileSystem: pulumi.Output<string>;
     /**
      * Kind of data set.
      * Expected value is 'AdlsGen2File'.
      */
-    public readonly kind!: pulumi.Output<"AdlsGen2File">;
+    declare public readonly kind: pulumi.Output<"AdlsGen2File">;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource group of storage account
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
+    declare public readonly resourceGroup: pulumi.Output<string>;
     /**
      * Storage account name of the source data set
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * Subscription id of storage account
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ADLSGen2FileDataSet resource with the given unique name, arguments, and options.
@@ -96,43 +96,43 @@ export class ADLSGen2FileDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.filePath === undefined) && !opts.urn) {
+            if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
-            if ((!args || args.fileSystem === undefined) && !opts.urn) {
+            if (args?.fileSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystem'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["fileSystem"] = args ? args.fileSystem : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetName"] = args?.dataSetName;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["fileSystem"] = args?.fileSystem;
             resourceInputs["kind"] = "AdlsGen2File";
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

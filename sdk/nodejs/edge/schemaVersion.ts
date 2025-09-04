@@ -44,27 +44,27 @@ export class SchemaVersion extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource-specific properties for this resource.
      */
-    public readonly properties!: pulumi.Output<outputs.edge.SchemaVersionPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.edge.SchemaVersionPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.edge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.edge.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersion resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class SchemaVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaVersionName"] = args ? args.schemaVersionName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["schemaVersionName"] = args?.schemaVersionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

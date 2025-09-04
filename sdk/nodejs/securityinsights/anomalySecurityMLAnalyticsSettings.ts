@@ -42,84 +42,84 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
     /**
      * The anomaly settings version of the Anomaly security ml analytics settings that dictates whether job version gets updated or not.
      */
-    public readonly anomalySettingsVersion!: pulumi.Output<number | undefined>;
+    declare public readonly anomalySettingsVersion: pulumi.Output<number | undefined>;
     /**
      * The anomaly version of the AnomalySecurityMLAnalyticsSettings.
      */
-    public readonly anomalyVersion!: pulumi.Output<string>;
+    declare public readonly anomalyVersion: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The customizable observations of the AnomalySecurityMLAnalyticsSettings.
      */
-    public readonly customizableObservations!: pulumi.Output<any | undefined>;
+    declare public readonly customizableObservations: pulumi.Output<any | undefined>;
     /**
      * The description of the SecurityMLAnalyticsSettings.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for settings created by this SecurityMLAnalyticsSettings.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Determines whether this settings is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The frequency that this SecurityMLAnalyticsSettings will be run.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * Determines whether this anomaly security ml analytics settings is a default settings
      */
-    public readonly isDefaultSettings!: pulumi.Output<boolean>;
+    declare public readonly isDefaultSettings: pulumi.Output<boolean>;
     /**
      * The kind of security ML analytics settings
      * Expected value is 'Anomaly'.
      */
-    public readonly kind!: pulumi.Output<"Anomaly">;
+    declare public readonly kind: pulumi.Output<"Anomaly">;
     /**
      * The last time that this SecurityMLAnalyticsSettings has been modified.
      */
-    public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The required data sources for this SecurityMLAnalyticsSettings
      */
-    public readonly requiredDataConnectors!: pulumi.Output<outputs.securityinsights.SecurityMLAnalyticsSettingsDataSourceResponse[] | undefined>;
+    declare public readonly requiredDataConnectors: pulumi.Output<outputs.securityinsights.SecurityMLAnalyticsSettingsDataSourceResponse[] | undefined>;
     /**
      * The anomaly settings definition Id
      */
-    public readonly settingsDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly settingsDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The anomaly SecurityMLAnalyticsSettings status
      */
-    public readonly settingsStatus!: pulumi.Output<string>;
+    declare public readonly settingsStatus: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tactics of the SecurityMLAnalyticsSettings
      */
-    public readonly tactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly tactics: pulumi.Output<string[] | undefined>;
     /**
      * The techniques of the SecurityMLAnalyticsSettings
      */
-    public readonly techniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly techniques: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AnomalySecurityMLAnalyticsSettings resource with the given unique name, arguments, and options.
@@ -132,50 +132,50 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.anomalyVersion === undefined) && !opts.urn) {
+            if (args?.anomalyVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'anomalyVersion'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.isDefaultSettings === undefined) && !opts.urn) {
+            if (args?.isDefaultSettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isDefaultSettings'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.settingsStatus === undefined) && !opts.urn) {
+            if (args?.settingsStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settingsStatus'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["anomalySettingsVersion"] = args ? args.anomalySettingsVersion : undefined;
-            resourceInputs["anomalyVersion"] = args ? args.anomalyVersion : undefined;
-            resourceInputs["customizableObservations"] = args ? args.customizableObservations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["isDefaultSettings"] = args ? args.isDefaultSettings : undefined;
+            resourceInputs["anomalySettingsVersion"] = args?.anomalySettingsVersion;
+            resourceInputs["anomalyVersion"] = args?.anomalyVersion;
+            resourceInputs["customizableObservations"] = args?.customizableObservations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["isDefaultSettings"] = args?.isDefaultSettings;
             resourceInputs["kind"] = "Anomaly";
-            resourceInputs["requiredDataConnectors"] = args ? args.requiredDataConnectors : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["settingsDefinitionId"] = args ? args.settingsDefinitionId : undefined;
-            resourceInputs["settingsResourceName"] = args ? args.settingsResourceName : undefined;
-            resourceInputs["settingsStatus"] = args ? args.settingsStatus : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["requiredDataConnectors"] = args?.requiredDataConnectors;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["settingsDefinitionId"] = args?.settingsDefinitionId;
+            resourceInputs["settingsResourceName"] = args?.settingsResourceName;
+            resourceInputs["settingsStatus"] = args?.settingsStatus;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

@@ -39,47 +39,47 @@ export class Service extends pulumi.CustomResource {
     /**
      * Windows IoT Device Service OEM AAD domain
      */
-    public readonly adminDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly adminDomainName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Windows IoT Device Service ODM AAD domain
      */
-    public readonly billingDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly billingDomainName: pulumi.Output<string | undefined>;
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Windows IoT Device Service notes.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * Windows IoT Device Service device allocation,
      */
-    public readonly quantity!: pulumi.Output<number | undefined>;
+    declare public readonly quantity: pulumi.Output<number | undefined>;
     /**
      * Windows IoT Device Service start date,
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -92,17 +92,17 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adminDomainName"] = args ? args.adminDomainName : undefined;
-            resourceInputs["billingDomainName"] = args ? args.billingDomainName : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["quantity"] = args ? args.quantity : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminDomainName"] = args?.adminDomainName;
+            resourceInputs["billingDomainName"] = args?.billingDomainName;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["quantity"] = args?.quantity;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

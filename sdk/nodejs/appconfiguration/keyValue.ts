@@ -41,51 +41,51 @@ export class KeyValue extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The content type of the key-value's value.
      * Providing a proper content-type can enable transformations of values when they are retrieved by applications.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * An ETag indicating the state of a key-value within a configuration store.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * The primary identifier of a key-value.
      * The key is used in unison with the label to uniquely identify a key-value.
      */
-    public /*out*/ readonly key!: pulumi.Output<string>;
+    declare public /*out*/ readonly key: pulumi.Output<string>;
     /**
      * A value used to group key-values.
      * The label is used in unison with the key to uniquely identify a key-value.
      */
-    public /*out*/ readonly label!: pulumi.Output<string>;
+    declare public /*out*/ readonly label: pulumi.Output<string>;
     /**
      * The last time a modifying operation was performed on the given key-value.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * A value indicating whether the key-value is locked.
      * A locked key-value may not be modified until it is unlocked.
      */
-    public /*out*/ readonly locked!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly locked: pulumi.Output<boolean>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A dictionary of tags that can help identify what a key-value may be applicable for.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The value of the key-value.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a KeyValue resource with the given unique name, arguments, and options.
@@ -98,18 +98,18 @@ export class KeyValue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configStoreName === undefined) && !opts.urn) {
+            if (args?.configStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["keyValueName"] = args ? args.keyValueName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["configStoreName"] = args?.configStoreName;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["keyValueName"] = args?.keyValueName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["value"] = args?.value;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["key"] = undefined /*out*/;

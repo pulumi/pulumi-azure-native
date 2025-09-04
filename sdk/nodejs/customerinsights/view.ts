@@ -39,43 +39,43 @@ export class View extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Date time when view was last modified.
      */
-    public /*out*/ readonly changed!: pulumi.Output<string>;
+    declare public /*out*/ readonly changed: pulumi.Output<string>;
     /**
      * Date time when view was created.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * View definition.
      */
-    public readonly definition!: pulumi.Output<string>;
+    declare public readonly definition: pulumi.Output<string>;
     /**
      * Localized display name for the view.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * the hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * the user ID.
      */
-    public readonly userId!: pulumi.Output<string | undefined>;
+    declare public readonly userId: pulumi.Output<string | undefined>;
     /**
      * Name of the view.
      */
-    public readonly viewName!: pulumi.Output<string>;
+    declare public readonly viewName: pulumi.Output<string>;
 
     /**
      * Create a View resource with the given unique name, arguments, and options.
@@ -88,21 +88,21 @@ export class View extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userId"] = args?.userId;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changed"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

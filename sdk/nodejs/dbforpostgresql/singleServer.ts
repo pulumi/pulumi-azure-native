@@ -42,91 +42,91 @@ export class SingleServer extends pulumi.CustomResource {
     /**
      * The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation).
      */
-    public /*out*/ readonly administratorLogin!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly administratorLogin: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Status showing whether the server data encryption is enabled with customer-managed keys.
      */
-    public /*out*/ readonly byokEnforcement!: pulumi.Output<string>;
+    declare public /*out*/ readonly byokEnforcement: pulumi.Output<string>;
     /**
      * Earliest restore point creation time (ISO8601 format)
      */
-    public /*out*/ readonly earliestRestoreDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly earliestRestoreDate: pulumi.Output<string | undefined>;
     /**
      * The fully qualified domain name of a server.
      */
-    public /*out*/ readonly fullyQualifiedDomainName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly fullyQualifiedDomainName: pulumi.Output<string | undefined>;
     /**
      * The Azure Active Directory identity of the server.
      */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.dbforpostgresql.ResourceIdentityResponse | undefined>;
     /**
      * Status showing whether the server enabled infrastructure encryption.
      */
-    public /*out*/ readonly infrastructureEncryption!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly infrastructureEncryption: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The master server id of a replica server.
      */
-    public /*out*/ readonly masterServerId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly masterServerId: pulumi.Output<string | undefined>;
     /**
      * Enforce a minimal Tls version for the server.
      */
-    public /*out*/ readonly minimalTlsVersion!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly minimalTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections on a server
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbforpostgresql.ServerPrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.dbforpostgresql.ServerPrivateEndpointConnectionResponse[]>;
     /**
      * Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The maximum number of replicas that a master server can have.
      */
-    public /*out*/ readonly replicaCapacity!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly replicaCapacity: pulumi.Output<number | undefined>;
     /**
      * The replication role of the server.
      */
-    public /*out*/ readonly replicationRole!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly replicationRole: pulumi.Output<string | undefined>;
     /**
      * The SKU (pricing tier) of the server.
      */
-    public readonly sku!: pulumi.Output<outputs.dbforpostgresql.SingleServerSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.dbforpostgresql.SingleServerSkuResponse | undefined>;
     /**
      * Enable ssl enforcement or not when connect to server.
      */
-    public /*out*/ readonly sslEnforcement!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly sslEnforcement: pulumi.Output<string | undefined>;
     /**
      * Storage profile of a server.
      */
-    public /*out*/ readonly storageProfile!: pulumi.Output<outputs.dbforpostgresql.StorageProfileResponse | undefined>;
+    declare public /*out*/ readonly storageProfile: pulumi.Output<outputs.dbforpostgresql.StorageProfileResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A state of a server that is visible to user.
      */
-    public /*out*/ readonly userVisibleState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly userVisibleState: pulumi.Output<string | undefined>;
     /**
      * Server version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a SingleServer resource with the given unique name, arguments, and options.
@@ -139,19 +139,19 @@ export class SingleServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["byokEnforcement"] = undefined /*out*/;

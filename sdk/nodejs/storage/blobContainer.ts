@@ -44,95 +44,95 @@ export class BlobContainer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Default the container to use specified encryption scope for all writes.
      */
-    public readonly defaultEncryptionScope!: pulumi.Output<string | undefined>;
+    declare public readonly defaultEncryptionScope: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the blob container was deleted.
      */
-    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly deleted: pulumi.Output<boolean>;
     /**
      * Blob container deletion time.
      */
-    public /*out*/ readonly deletedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly deletedTime: pulumi.Output<string>;
     /**
      * Block override of encryption scope from the container default.
      */
-    public readonly denyEncryptionScopeOverride!: pulumi.Output<boolean | undefined>;
+    declare public readonly denyEncryptionScopeOverride: pulumi.Output<boolean | undefined>;
     /**
      * Enable NFSv3 all squash on blob container.
      */
-    public readonly enableNfsV3AllSquash!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNfsV3AllSquash: pulumi.Output<boolean | undefined>;
     /**
      * Enable NFSv3 root squash on blob container.
      */
-    public readonly enableNfsV3RootSquash!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNfsV3RootSquash: pulumi.Output<boolean | undefined>;
     /**
      * Resource Etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container.
      */
-    public /*out*/ readonly hasImmutabilityPolicy!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasImmutabilityPolicy: pulumi.Output<boolean>;
     /**
      * The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account.
      */
-    public /*out*/ readonly hasLegalHold!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly hasLegalHold: pulumi.Output<boolean>;
     /**
      * The ImmutabilityPolicy property of the container.
      */
-    public /*out*/ readonly immutabilityPolicy!: pulumi.Output<outputs.storage.ImmutabilityPolicyPropertiesResponse>;
+    declare public /*out*/ readonly immutabilityPolicy: pulumi.Output<outputs.storage.ImmutabilityPolicyPropertiesResponse>;
     /**
      * The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process.
      */
-    public readonly immutableStorageWithVersioning!: pulumi.Output<outputs.storage.ImmutableStorageWithVersioningResponse | undefined>;
+    declare public readonly immutableStorageWithVersioning: pulumi.Output<outputs.storage.ImmutableStorageWithVersioningResponse | undefined>;
     /**
      * Returns the date and time the container was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased.
      */
-    public /*out*/ readonly leaseDuration!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseDuration: pulumi.Output<string>;
     /**
      * Lease state of the container.
      */
-    public /*out*/ readonly leaseState!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseState: pulumi.Output<string>;
     /**
      * The lease status of the container.
      */
-    public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseStatus: pulumi.Output<string>;
     /**
      * The LegalHold property of the container.
      */
-    public /*out*/ readonly legalHold!: pulumi.Output<outputs.storage.LegalHoldPropertiesResponse>;
+    declare public /*out*/ readonly legalHold: pulumi.Output<outputs.storage.LegalHoldPropertiesResponse>;
     /**
      * A name-value pair to associate with the container as metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies whether data in the container may be accessed publicly and the level of access.
      */
-    public readonly publicAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicAccess: pulumi.Output<string | undefined>;
     /**
      * Remaining retention days for soft deleted blob container.
      */
-    public /*out*/ readonly remainingRetentionDays!: pulumi.Output<number>;
+    declare public /*out*/ readonly remainingRetentionDays: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The version of the deleted blob container.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a BlobContainer resource with the given unique name, arguments, and options.
@@ -145,22 +145,22 @@ export class BlobContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["defaultEncryptionScope"] = args ? args.defaultEncryptionScope : undefined;
-            resourceInputs["denyEncryptionScopeOverride"] = args ? args.denyEncryptionScopeOverride : undefined;
-            resourceInputs["enableNfsV3AllSquash"] = args ? args.enableNfsV3AllSquash : undefined;
-            resourceInputs["enableNfsV3RootSquash"] = args ? args.enableNfsV3RootSquash : undefined;
-            resourceInputs["immutableStorageWithVersioning"] = args ? args.immutableStorageWithVersioning : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["defaultEncryptionScope"] = args?.defaultEncryptionScope;
+            resourceInputs["denyEncryptionScopeOverride"] = args?.denyEncryptionScopeOverride;
+            resourceInputs["enableNfsV3AllSquash"] = args?.enableNfsV3AllSquash;
+            resourceInputs["enableNfsV3RootSquash"] = args?.enableNfsV3RootSquash;
+            resourceInputs["immutableStorageWithVersioning"] = args?.immutableStorageWithVersioning;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["publicAccess"] = args?.publicAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deleted"] = undefined /*out*/;
             resourceInputs["deletedTime"] = undefined /*out*/;

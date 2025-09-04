@@ -44,23 +44,23 @@ export class VariableValueAtManagementGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the variable.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/variables/values).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Variable value column value array.
      */
-    public readonly values!: pulumi.Output<outputs.authorization.PolicyVariableValueColumnValueResponse[]>;
+    declare public readonly values: pulumi.Output<outputs.authorization.PolicyVariableValueColumnValueResponse[]>;
 
     /**
      * Create a VariableValueAtManagementGroup resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class VariableValueAtManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            if ((!args || args.values === undefined) && !opts.urn) {
+            if (args?.values === undefined && !opts.urn) {
                 throw new Error("Missing required property 'values'");
             }
-            if ((!args || args.variableName === undefined) && !opts.urn) {
+            if (args?.variableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'variableName'");
             }
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["values"] = args ? args.values : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
-            resourceInputs["variableValueName"] = args ? args.variableValueName : undefined;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["values"] = args?.values;
+            resourceInputs["variableName"] = args?.variableName;
+            resourceInputs["variableValueName"] = args?.variableValueName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

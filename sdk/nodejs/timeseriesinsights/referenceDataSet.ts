@@ -44,39 +44,39 @@ export class ReferenceDataSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The reference data set key comparison behavior can be set using this property. By default, the value is 'Ordinal' - which means case sensitive key comparison will be performed while joining reference data with events or while adding new reference data. When 'OrdinalIgnoreCase' is set, case insensitive comparison will be used.
      */
-    public readonly dataStringComparisonBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly dataStringComparisonBehavior: pulumi.Output<string | undefined>;
     /**
      * The list of key properties for the reference data set.
      */
-    public readonly keyProperties!: pulumi.Output<outputs.timeseriesinsights.ReferenceDataSetKeyPropertyResponse[]>;
+    declare public readonly keyProperties: pulumi.Output<outputs.timeseriesinsights.ReferenceDataSetKeyPropertyResponse[]>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReferenceDataSet resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class ReferenceDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.keyProperties === undefined) && !opts.urn) {
+            if (args?.keyProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataStringComparisonBehavior"] = args ? args.dataStringComparisonBehavior : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["keyProperties"] = args ? args.keyProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["referenceDataSetName"] = args ? args.referenceDataSetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataStringComparisonBehavior"] = args?.dataStringComparisonBehavior;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["keyProperties"] = args?.keyProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["referenceDataSetName"] = args?.referenceDataSetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

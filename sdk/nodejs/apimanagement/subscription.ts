@@ -44,67 +44,67 @@ export class Subscription extends pulumi.CustomResource {
     /**
      * Determines whether tracing is enabled
      */
-    public readonly allowTracing!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowTracing: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Subscription creation date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The name of the subscription, or null if the subscription has no name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Date when subscription was cancelled or expired. The setting is for audit purposes only and the subscription is not automatically cancelled. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly endDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly endDate: pulumi.Output<string | undefined>;
     /**
      * Subscription expiration date. The setting is for audit purposes only and the subscription is not automatically expired. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Upcoming subscription expiration notification date. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly notificationDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly notificationDate: pulumi.Output<string | undefined>;
     /**
      * The user resource identifier of the subscription owner. The value is a valid relative URL in the format of /users/{userId} where {userId} is a user identifier.
      */
-    public readonly ownerId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerId: pulumi.Output<string | undefined>;
     /**
      * Subscription primary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly primaryKey: pulumi.Output<string | undefined>;
     /**
      * Scope like /products/{productId} or /apis or /apis/{apiId}.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * Subscription secondary key. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    public readonly secondaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryKey: pulumi.Output<string | undefined>;
     /**
      * Subscription activation date. The setting is for audit purposes only and the subscription is not automatically activated. The subscription lifecycle can be managed by using the `state` property. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly startDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly startDate: pulumi.Output<string | undefined>;
     /**
      * Subscription state. Possible states are * active – the subscription is active, * suspended – the subscription is blocked, and the subscriber cannot call any APIs of the product, * submitted – the subscription request has been made by the developer, but has not yet been approved or rejected, * rejected – the subscription request has been denied by an administrator, * cancelled – the subscription has been cancelled by the developer or administrator, * expired – the subscription reached its expiration date and was deactivated.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Optional subscription comment added by an administrator when the state is changed to the 'rejected'.
      */
-    public /*out*/ readonly stateComment!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly stateComment: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Subscription resource with the given unique name, arguments, and options.
@@ -117,30 +117,30 @@ export class Subscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["allowTracing"] = args ? args.allowTracing : undefined;
-            resourceInputs["appType"] = args ? args.appType : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["notify"] = args ? args.notify : undefined;
-            resourceInputs["ownerId"] = args ? args.ownerId : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["allowTracing"] = args?.allowTracing;
+            resourceInputs["appType"] = args?.appType;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["notify"] = args?.notify;
+            resourceInputs["ownerId"] = args?.ownerId;
+            resourceInputs["primaryKey"] = args?.primaryKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["secondaryKey"] = args?.secondaryKey;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["endDate"] = undefined /*out*/;

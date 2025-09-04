@@ -44,91 +44,91 @@ export class Host extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the max CPU usage across all cores in MHz.
      */
-    public /*out*/ readonly cpuMhz!: pulumi.Output<number>;
+    declare public /*out*/ readonly cpuMhz: pulumi.Output<number>;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly customResourceName: pulumi.Output<string>;
     /**
      * Gets the datastore ARM ids.
      */
-    public /*out*/ readonly datastoreIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly datastoreIds: pulumi.Output<string[]>;
     /**
      * Gets or sets the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
     /**
      * Gets or sets the inventory Item ID for the host.
      */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
+    declare public readonly inventoryItemId: pulumi.Output<string | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type; e.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Gets the total amount of physical memory on the host in GB.
      */
-    public /*out*/ readonly memorySizeGB!: pulumi.Output<number>;
+    declare public /*out*/ readonly memorySizeGB: pulumi.Output<number>;
     /**
      * Gets or sets the vCenter Managed Object name for the host.
      */
-    public /*out*/ readonly moName!: pulumi.Output<string>;
+    declare public /*out*/ readonly moName: pulumi.Output<string>;
     /**
      * Gets or sets the vCenter MoRef (Managed Object Reference) ID for the host.
      */
-    public readonly moRefId!: pulumi.Output<string | undefined>;
+    declare public readonly moRefId: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the network ARM ids.
      */
-    public /*out*/ readonly networkIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly networkIds: pulumi.Output<string[]>;
     /**
      * Gets the used CPU usage across all cores in MHz.
      */
-    public /*out*/ readonly overallCpuUsageMHz!: pulumi.Output<number>;
+    declare public /*out*/ readonly overallCpuUsageMHz: pulumi.Output<number>;
     /**
      * Gets the used physical memory on the host in GB.
      */
-    public /*out*/ readonly overallMemoryUsageGB!: pulumi.Output<number>;
+    declare public /*out*/ readonly overallMemoryUsageGB: pulumi.Output<number>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource status information.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
     /**
      * The system data.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
      * Gets or sets the Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets a unique identifier for this resource.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * Gets or sets the ARM Id of the vCenter resource in which this host resides.
      */
-    public readonly vCenterId!: pulumi.Output<string | undefined>;
+    declare public readonly vCenterId: pulumi.Output<string | undefined>;
 
     /**
      * Create a Host resource with the given unique name, arguments, and options.
@@ -141,18 +141,18 @@ export class Host extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["moRefId"] = args ? args.moRefId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vCenterId"] = args ? args.vCenterId : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["inventoryItemId"] = args?.inventoryItemId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["moRefId"] = args?.moRefId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vCenterId"] = args?.vCenterId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cpuMhz"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;

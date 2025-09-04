@@ -44,47 +44,47 @@ export class L2Connection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Globally-unique identifier for this connection that is to be used as a circuit ID.
      */
-    public /*out*/ readonly circuitId!: pulumi.Output<string>;
+    declare public /*out*/ readonly circuitId: pulumi.Output<string>;
     /**
      * A reference to an Microsoft.Orbital/edgeSites resource to route traffic for.
      */
-    public readonly edgeSite!: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseEdgeSite>;
+    declare public readonly edgeSite: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseEdgeSite>;
     /**
      * A reference to an Microsoft.Orbital/groundStations resource to route traffic for.
      */
-    public readonly groundStation!: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseGroundStation>;
+    declare public readonly groundStation: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseGroundStation>;
     /**
      * The name of the partner router to establish a connection to within the ground station.
      */
-    public readonly groundStationPartnerRouter!: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseGroundStationPartnerRouter>;
+    declare public readonly groundStationPartnerRouter: pulumi.Output<outputs.orbital.L2ConnectionsPropertiesResponseGroundStationPartnerRouter>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.orbital.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The VLAN ID for the L2 connection.
      */
-    public readonly vlanId!: pulumi.Output<number>;
+    declare public readonly vlanId: pulumi.Output<number>;
 
     /**
      * Create a L2Connection resource with the given unique name, arguments, and options.
@@ -97,33 +97,33 @@ export class L2Connection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.edgeSite === undefined) && !opts.urn) {
+            if (args?.edgeSite === undefined && !opts.urn) {
                 throw new Error("Missing required property 'edgeSite'");
             }
-            if ((!args || args.groundStation === undefined) && !opts.urn) {
+            if (args?.groundStation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStation'");
             }
-            if ((!args || args.groundStationPartnerRouter === undefined) && !opts.urn) {
+            if (args?.groundStationPartnerRouter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationPartnerRouter'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vlanId === undefined) && !opts.urn) {
+            if (args?.vlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vlanId'");
             }
-            resourceInputs["edgeSite"] = args ? args.edgeSite : undefined;
-            resourceInputs["groundStation"] = args ? args.groundStation : undefined;
-            resourceInputs["groundStationPartnerRouter"] = args ? args.groundStationPartnerRouter : undefined;
-            resourceInputs["l2ConnectionName"] = args ? args.l2ConnectionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["edgeSite"] = args?.edgeSite;
+            resourceInputs["groundStation"] = args?.groundStation;
+            resourceInputs["groundStationPartnerRouter"] = args?.groundStationPartnerRouter;
+            resourceInputs["l2ConnectionName"] = args?.l2ConnectionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

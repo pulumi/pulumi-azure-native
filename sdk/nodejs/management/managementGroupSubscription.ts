@@ -44,31 +44,31 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The friendly name of the subscription.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ID of the parent management group.
      */
-    public /*out*/ readonly parent!: pulumi.Output<outputs.management.DescendantParentGroupInfoResponse | undefined>;
+    declare public /*out*/ readonly parent: pulumi.Output<outputs.management.DescendantParentGroupInfoResponse | undefined>;
     /**
      * The state of the subscription.
      */
-    public /*out*/ readonly state!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly state: pulumi.Output<string | undefined>;
     /**
      * The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
      */
-    public /*out*/ readonly tenant!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly tenant: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagementGroupSubscription resource with the given unique name, arguments, and options.
@@ -81,11 +81,11 @@ export class ManagementGroupSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

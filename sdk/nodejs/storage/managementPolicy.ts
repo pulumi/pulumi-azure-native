@@ -44,23 +44,23 @@ export class ManagementPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Returns the date and time the ManagementPolicies was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Storage Account ManagementPolicy, in JSON format. See more details in: https://learn.microsoft.com/azure/storage/blobs/lifecycle-management-overview.
      */
-    public readonly policy!: pulumi.Output<outputs.storage.ManagementPolicySchemaResponse>;
+    declare public readonly policy: pulumi.Output<outputs.storage.ManagementPolicySchemaResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagementPolicy resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class ManagementPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["managementPolicyName"] = args ? args.managementPolicyName : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["managementPolicyName"] = args?.managementPolicyName;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

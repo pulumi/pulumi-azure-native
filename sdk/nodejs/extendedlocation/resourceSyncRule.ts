@@ -42,43 +42,43 @@ export class ResourceSyncRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Priority represents a priority of the Resource Sync Rule
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Provisioning State for the Resource Sync Rule.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A label selector is composed of two parts, matchLabels and matchExpressions. The first part, matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is 'key', the operator is 'In', and the values array contains only 'value'. The second part, matchExpressions is a list of resource selector requirements. Valid operators include In, NotIn, Exists, and DoesNotExist. The values set must be non-empty in the case of In and NotIn. The values set must be empty in the case of Exists and DoesNotExist. All of the requirements, from both matchLabels and matchExpressions must all be satisfied in order to match.
      */
-    public readonly selector!: pulumi.Output<outputs.extendedlocation.ResourceSyncRulePropertiesResponseSelector | undefined>;
+    declare public readonly selector: pulumi.Output<outputs.extendedlocation.ResourceSyncRulePropertiesResponseSelector | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.extendedlocation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.extendedlocation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * For an unmapped custom resource, its labels will be used to find matching resource sync rules. If this resource sync rule is one of the matching rules with highest priority, then the unmapped custom resource will be projected to the target resource group associated with this resource sync rule. The user creating this resource sync rule should have write permissions on the target resource group and this write permission will be validated when creating the resource sync rule.
      */
-    public readonly targetResourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly targetResourceGroup: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ResourceSyncRule resource with the given unique name, arguments, and options.
@@ -91,20 +91,20 @@ export class ResourceSyncRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["childResourceName"] = args ? args.childResourceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["selector"] = args ? args.selector : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceGroup"] = args ? args.targetResourceGroup : undefined;
+            resourceInputs["childResourceName"] = args?.childResourceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["selector"] = args?.selector;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceGroup"] = args?.targetResourceGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

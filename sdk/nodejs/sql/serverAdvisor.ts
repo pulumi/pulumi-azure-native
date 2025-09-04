@@ -44,47 +44,47 @@ export class ServerAdvisor extends pulumi.CustomResource {
     /**
      * Gets the status of availability of this advisor to customers. Possible values are 'GA', 'PublicPreview', 'LimitedPublicPreview' and 'PrivatePreview'.
      */
-    public /*out*/ readonly advisorStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly advisorStatus: pulumi.Output<string>;
     /**
      * Gets the auto-execute status (whether to let the system execute the recommendations) of this advisor. Possible values are 'Enabled' and 'Disabled'
      */
-    public readonly autoExecuteStatus!: pulumi.Output<string>;
+    declare public readonly autoExecuteStatus: pulumi.Output<string>;
     /**
      * Gets the resource from which current value of auto-execute status is inherited. Auto-execute status can be set on (and inherited from) different levels in the resource hierarchy. Possible values are 'Subscription', 'Server', 'ElasticPool', 'Database' and 'Default' (when status is not explicitly set on any level).
      */
-    public /*out*/ readonly autoExecuteStatusInheritedFrom!: pulumi.Output<string>;
+    declare public /*out*/ readonly autoExecuteStatusInheritedFrom: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource kind.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Gets the time when the current resource was analyzed for recommendations by this advisor.
      */
-    public /*out*/ readonly lastChecked!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastChecked: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets that status of recommendations for this advisor and reason for not having any recommendations. Possible values include, but are not limited to, 'Ok' (Recommendations available),LowActivity (not enough workload to analyze), 'DbSeemsTuned' (Database is doing well), etc.
      */
-    public /*out*/ readonly recommendationsStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly recommendationsStatus: pulumi.Output<string>;
     /**
      * Gets the recommended actions for this advisor.
      */
-    public /*out*/ readonly recommendedActions!: pulumi.Output<outputs.sql.RecommendedActionResponse[]>;
+    declare public /*out*/ readonly recommendedActions: pulumi.Output<outputs.sql.RecommendedActionResponse[]>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerAdvisor resource with the given unique name, arguments, and options.
@@ -97,19 +97,19 @@ export class ServerAdvisor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoExecuteStatus === undefined) && !opts.urn) {
+            if (args?.autoExecuteStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoExecuteStatus'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["advisorName"] = args ? args.advisorName : undefined;
-            resourceInputs["autoExecuteStatus"] = args ? args.autoExecuteStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["advisorName"] = args?.advisorName;
+            resourceInputs["autoExecuteStatus"] = args?.autoExecuteStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["advisorStatus"] = undefined /*out*/;
             resourceInputs["autoExecuteStatusInheritedFrom"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

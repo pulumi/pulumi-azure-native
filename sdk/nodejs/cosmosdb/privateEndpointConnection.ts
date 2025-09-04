@@ -44,31 +44,31 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Group id of the private endpoint.
      */
-    public readonly groupId!: pulumi.Output<string | undefined>;
+    declare public readonly groupId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private endpoint which the connection belongs to.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.cosmosdb.PrivateEndpointPropertyResponse | undefined>;
+    declare public readonly privateEndpoint: pulumi.Output<outputs.cosmosdb.PrivateEndpointPropertyResponse | undefined>;
     /**
      * Connection State of the Private Endpoint Connection.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.cosmosdb.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.cosmosdb.PrivateLinkServiceConnectionStatePropertyResponse | undefined>;
     /**
      * Provisioning state of the private endpoint.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateEndpointConnection resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
-            resourceInputs["privateEndpointConnectionName"] = args ? args.privateEndpointConnectionName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["privateEndpoint"] = args?.privateEndpoint;
+            resourceInputs["privateEndpointConnectionName"] = args?.privateEndpointConnectionName;
+            resourceInputs["privateLinkServiceConnectionState"] = args?.privateLinkServiceConnectionState;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

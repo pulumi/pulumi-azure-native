@@ -42,51 +42,51 @@ export class Pipeline extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Detailed description of the Pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Flag indicating whether the pipeline should be running or not.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Edge location of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsdataprocessor.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsdataprocessor.ExtendedLocationResponse>;
     /**
      * Information about where to pull input data from.
      */
-    public readonly input!: pulumi.Output<outputs.iotoperationsdataprocessor.PipelineInputResponse>;
+    declare public readonly input: pulumi.Output<outputs.iotoperationsdataprocessor.PipelineInputResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Map of stage ids to stage configurations for all pipeline processing and output stages.
      */
-    public readonly stages!: pulumi.Output<{[key: string]: outputs.iotoperationsdataprocessor.PipelineStageResponse}>;
+    declare public readonly stages: pulumi.Output<{[key: string]: outputs.iotoperationsdataprocessor.PipelineStageResponse}>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsdataprocessor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsdataprocessor.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Pipeline resource with the given unique name, arguments, and options.
@@ -99,34 +99,34 @@ export class Pipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.input === undefined) && !opts.urn) {
+            if (args?.input === undefined && !opts.urn) {
                 throw new Error("Missing required property 'input'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stages === undefined) && !opts.urn) {
+            if (args?.stages === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stages'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["input"] = args ? args.input : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["input"] = args?.input;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["pipelineName"] = args?.pipelineName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

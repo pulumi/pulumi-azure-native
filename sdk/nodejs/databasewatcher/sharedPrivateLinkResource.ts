@@ -44,43 +44,43 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The DNS zone segment to be included in the DNS name of the shared private link. Value is required for Azure Data Explorer clusters and SQL managed instances, and must be omitted for SQL logical servers and key vaults. The value is the second segment of the host FQDN name of the resource that the shared private link resource is for. For example: if the host name is 'adx-cluster-21187695.eastus.kusto.windows.net', then the value is 'eastus'; if the host name is 'sql-mi-23961134.767d5869f605.database.windows.net', then the value is '767d5869f605'.
      */
-    public readonly dnsZone!: pulumi.Output<string | undefined>;
+    declare public readonly dnsZone: pulumi.Output<string | undefined>;
     /**
      * The group id from the provider of resource the shared private link resource is for.
      */
-    public readonly groupId!: pulumi.Output<string>;
+    declare public readonly groupId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the resource the shared private link resource is for.
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The request message for requesting approval of the shared private link resource.
      */
-    public readonly requestMessage!: pulumi.Output<string>;
+    declare public readonly requestMessage: pulumi.Output<string>;
     /**
      * Status of the shared private link resource. Can be Pending, Approved, Rejected or Disconnected.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SharedPrivateLinkResource resource with the given unique name, arguments, and options.
@@ -93,28 +93,28 @@ export class SharedPrivateLinkResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            if ((!args || args.privateLinkResourceId === undefined) && !opts.urn) {
+            if (args?.privateLinkResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateLinkResourceId'");
             }
-            if ((!args || args.requestMessage === undefined) && !opts.urn) {
+            if (args?.requestMessage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestMessage'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watcherName === undefined) && !opts.urn) {
+            if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["dnsZone"] = args ? args.dnsZone : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedPrivateLinkResourceName"] = args ? args.sharedPrivateLinkResourceName : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["dnsZone"] = args?.dnsZone;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedPrivateLinkResourceName"] = args?.sharedPrivateLinkResourceName;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,63 +44,63 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
     /**
      * A collection of references to application gateway for containers.
      */
-    public /*out*/ readonly applicationGatewayForContainers!: pulumi.Output<outputs.network.ApplicationGatewayForContainersReferenceDefinitionResponse[]>;
+    declare public /*out*/ readonly applicationGatewayForContainers: pulumi.Output<outputs.network.ApplicationGatewayForContainersReferenceDefinitionResponse[]>;
     /**
      * A collection of references to application gateways.
      */
-    public /*out*/ readonly applicationGateways!: pulumi.Output<outputs.network.ApplicationGatewayResponse[]>;
+    declare public /*out*/ readonly applicationGateways: pulumi.Output<outputs.network.ApplicationGatewayResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The custom rules inside the policy.
      */
-    public readonly customRules!: pulumi.Output<outputs.network.WebApplicationFirewallCustomRuleResponse[] | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.network.WebApplicationFirewallCustomRuleResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A collection of references to application gateway http listeners.
      */
-    public /*out*/ readonly httpListeners!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly httpListeners: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Describes the managedRules structure.
      */
-    public readonly managedRules!: pulumi.Output<outputs.network.ManagedRulesDefinitionResponse>;
+    declare public readonly managedRules: pulumi.Output<outputs.network.ManagedRulesDefinitionResponse>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of references to application gateway path rules.
      */
-    public /*out*/ readonly pathBasedRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly pathBasedRules: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The PolicySettings for policy.
      */
-    public readonly policySettings!: pulumi.Output<outputs.network.PolicySettingsResponse | undefined>;
+    declare public readonly policySettings: pulumi.Output<outputs.network.PolicySettingsResponse | undefined>;
     /**
      * The provisioning state of the web application firewall policy resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource status of the policy.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebApplicationFirewallPolicy resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class WebApplicationFirewallPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedRules === undefined) && !opts.urn) {
+            if (args?.managedRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["policyName"] = args?.policyName;
             resourceInputs["policySettings"] = args ? (args.policySettings ? pulumi.output(args.policySettings).apply(inputs.network.policySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["applicationGatewayForContainers"] = undefined /*out*/;
             resourceInputs["applicationGateways"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

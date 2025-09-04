@@ -42,43 +42,43 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The MqttBridgeConnector CRD it refers to.
      */
-    public readonly mqttBridgeConnectorRef!: pulumi.Output<string>;
+    declare public readonly mqttBridgeConnectorRef: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The route details for MqttBridge connector.
      */
-    public readonly routes!: pulumi.Output<outputs.iotoperationsmq.MqttBridgeRoutesResponse[] | undefined>;
+    declare public readonly routes: pulumi.Output<outputs.iotoperationsmq.MqttBridgeRoutesResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MqttBridgeTopicMap resource with the given unique name, arguments, and options.
@@ -91,30 +91,30 @@ export class MqttBridgeTopicMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.mqttBridgeConnectorName === undefined) && !opts.urn) {
+            if (args?.mqttBridgeConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqttBridgeConnectorName'");
             }
-            if ((!args || args.mqttBridgeConnectorRef === undefined) && !opts.urn) {
+            if (args?.mqttBridgeConnectorRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqttBridgeConnectorRef'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["mqttBridgeConnectorName"] = args ? args.mqttBridgeConnectorName : undefined;
-            resourceInputs["mqttBridgeConnectorRef"] = args ? args.mqttBridgeConnectorRef : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routes"] = args ? args.routes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["mqttBridgeConnectorName"] = args?.mqttBridgeConnectorName;
+            resourceInputs["mqttBridgeConnectorRef"] = args?.mqttBridgeConnectorRef;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routes"] = args?.routes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicMapName"] = args?.topicMapName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

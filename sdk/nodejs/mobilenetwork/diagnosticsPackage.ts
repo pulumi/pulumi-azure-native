@@ -44,31 +44,31 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the diagnostics package resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The reason for the current state of the diagnostics package collection.
      */
-    public /*out*/ readonly reason!: pulumi.Output<string>;
+    declare public /*out*/ readonly reason: pulumi.Output<string>;
     /**
      * The status of the diagnostics package collection.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DiagnosticsPackage resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class DiagnosticsPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["diagnosticsPackageName"] = args ? args.diagnosticsPackageName : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["diagnosticsPackageName"] = args?.diagnosticsPackageName;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

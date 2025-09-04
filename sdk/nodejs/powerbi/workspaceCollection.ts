@@ -40,25 +40,25 @@ export class WorkspaceCollection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Workspace collection name
      */
-    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string | undefined>;
     /**
      * Properties
      */
-    public /*out*/ readonly properties!: pulumi.Output<any>;
-    public readonly sku!: pulumi.Output<outputs.powerbi.AzureSkuResponse | undefined>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly properties: pulumi.Output<any>;
+    declare public readonly sku: pulumi.Output<outputs.powerbi.AzureSkuResponse | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceCollection resource with the given unique name, arguments, and options.
@@ -71,14 +71,14 @@ export class WorkspaceCollection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceCollectionName"] = args ? args.workspaceCollectionName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceCollectionName"] = args?.workspaceCollectionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

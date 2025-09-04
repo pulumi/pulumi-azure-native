@@ -42,43 +42,43 @@ export class Evidence extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Control id.
      */
-    public readonly controlId!: pulumi.Output<string | undefined>;
+    declare public readonly controlId: pulumi.Output<string | undefined>;
     /**
      * Evidence type.
      */
-    public readonly evidenceType!: pulumi.Output<string | undefined>;
+    declare public readonly evidenceType: pulumi.Output<string | undefined>;
     /**
      * Extra data considered as evidence.
      */
-    public readonly extraData!: pulumi.Output<string | undefined>;
+    declare public readonly extraData: pulumi.Output<string | undefined>;
     /**
      * The path of the file in storage.
      */
-    public readonly filePath!: pulumi.Output<string>;
+    declare public readonly filePath: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Responsibility id.
      */
-    public readonly responsibilityId!: pulumi.Output<string | undefined>;
+    declare public readonly responsibilityId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Evidence resource with the given unique name, arguments, and options.
@@ -91,21 +91,21 @@ export class Evidence extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filePath === undefined) && !opts.urn) {
+            if (args?.filePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filePath'");
             }
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["controlId"] = args ? args.controlId : undefined;
-            resourceInputs["evidenceName"] = args ? args.evidenceName : undefined;
-            resourceInputs["evidenceType"] = args ? args.evidenceType : undefined;
-            resourceInputs["extraData"] = args ? args.extraData : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["offerGuid"] = args ? args.offerGuid : undefined;
-            resourceInputs["reportCreatorTenantId"] = args ? args.reportCreatorTenantId : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["responsibilityId"] = args ? args.responsibilityId : undefined;
+            resourceInputs["controlId"] = args?.controlId;
+            resourceInputs["evidenceName"] = args?.evidenceName;
+            resourceInputs["evidenceType"] = args?.evidenceType;
+            resourceInputs["extraData"] = args?.extraData;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["offerGuid"] = args?.offerGuid;
+            resourceInputs["reportCreatorTenantId"] = args?.reportCreatorTenantId;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["responsibilityId"] = args?.responsibilityId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,23 +44,23 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * API route config of the Spring Cloud Gateway
      */
-    public readonly properties!: pulumi.Output<outputs.appplatform.GatewayRouteConfigPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.appplatform.GatewayRouteConfigPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appplatform.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GatewayRouteConfig resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
+            resourceInputs["gatewayName"] = args?.gatewayName;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.appplatform.gatewayRouteConfigPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeConfigName"] = args ? args.routeConfigName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeConfigName"] = args?.routeConfigName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

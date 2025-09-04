@@ -44,79 +44,79 @@ export class WebTest extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An XML configuration specification for a WebTest.
      */
-    public readonly configuration!: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseConfiguration | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseConfiguration | undefined>;
     /**
      * User defined description for this WebTest.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Is the test actively being monitored.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Interval in seconds between test runs for this WebTest. Default value is 300.
      */
-    public readonly frequency!: pulumi.Output<number | undefined>;
+    declare public readonly frequency: pulumi.Output<number | undefined>;
     /**
      * The kind of WebTest that this web test watches. Choices are ping, multistep and standard.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * A list of where to physically run the tests from to give global coverage for accessibility of your application.
      */
-    public readonly locations!: pulumi.Output<outputs.applicationinsights.WebTestGeolocationResponse[]>;
+    declare public readonly locations: pulumi.Output<outputs.applicationinsights.WebTestGeolocationResponse[]>;
     /**
      * Azure resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The collection of request properties
      */
-    public readonly request!: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseRequest | undefined>;
+    declare public readonly request: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseRequest | undefined>;
     /**
      * Allow for retries should this WebTest fail.
      */
-    public readonly retryEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly retryEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Unique ID of this WebTest. This is typically the same value as the Name field.
      */
-    public readonly syntheticMonitorId!: pulumi.Output<string>;
+    declare public readonly syntheticMonitorId: pulumi.Output<string>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Seconds until this WebTest will timeout and fail. Default value is 30.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The collection of validation rule properties
      */
-    public readonly validationRules!: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseValidationRules | undefined>;
+    declare public readonly validationRules: pulumi.Output<outputs.applicationinsights.WebTestPropertiesResponseValidationRules | undefined>;
     /**
      * The kind of web test this is, valid choices are ping, multistep and standard.
      */
-    public readonly webTestKind!: pulumi.Output<string>;
+    declare public readonly webTestKind: pulumi.Output<string>;
     /**
      * User defined name if this WebTest.
      */
-    public readonly webTestName!: pulumi.Output<string>;
+    declare public readonly webTestName: pulumi.Output<string>;
 
     /**
      * Create a WebTest resource with the given unique name, arguments, and options.
@@ -129,34 +129,34 @@ export class WebTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.locations === undefined) && !opts.urn) {
+            if (args?.locations === undefined && !opts.urn) {
                 throw new Error("Missing required property 'locations'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.syntheticMonitorId === undefined) && !opts.urn) {
+            if (args?.syntheticMonitorId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syntheticMonitorId'");
             }
-            if ((!args || args.webTestKind === undefined) && !opts.urn) {
+            if (args?.webTestKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webTestKind'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["frequency"] = (args ? args.frequency : undefined) ?? 300;
-            resourceInputs["kind"] = (args ? args.kind : undefined) ?? "ping";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["locations"] = args ? args.locations : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retryEnabled"] = args ? args.retryEnabled : undefined;
-            resourceInputs["syntheticMonitorId"] = args ? args.syntheticMonitorId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 30;
-            resourceInputs["validationRules"] = args ? args.validationRules : undefined;
-            resourceInputs["webTestKind"] = (args ? args.webTestKind : undefined) ?? "ping";
-            resourceInputs["webTestName"] = args ? args.webTestName : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["frequency"] = (args?.frequency) ?? 300;
+            resourceInputs["kind"] = (args?.kind) ?? "ping";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["locations"] = args?.locations;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retryEnabled"] = args?.retryEnabled;
+            resourceInputs["syntheticMonitorId"] = args?.syntheticMonitorId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = (args?.timeout) ?? 30;
+            resourceInputs["validationRules"] = args?.validationRules;
+            resourceInputs["webTestKind"] = (args?.webTestKind) ?? "ping";
+            resourceInputs["webTestName"] = args?.webTestName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

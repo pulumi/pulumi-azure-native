@@ -42,67 +42,67 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the schedule.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * If the schedule will occur once each day of the week, specify the daily recurrence.
      */
-    public readonly dailyRecurrence!: pulumi.Output<outputs.devtestlab.DayDetailsResponse | undefined>;
+    declare public readonly dailyRecurrence: pulumi.Output<outputs.devtestlab.DayDetailsResponse | undefined>;
     /**
      * If the schedule will occur multiple times a day, specify the hourly recurrence.
      */
-    public readonly hourlyRecurrence!: pulumi.Output<outputs.devtestlab.HourDetailsResponse | undefined>;
+    declare public readonly hourlyRecurrence: pulumi.Output<outputs.devtestlab.HourDetailsResponse | undefined>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Notification settings.
      */
-    public readonly notificationSettings!: pulumi.Output<outputs.devtestlab.NotificationSettingsResponse | undefined>;
+    declare public readonly notificationSettings: pulumi.Output<outputs.devtestlab.NotificationSettingsResponse | undefined>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The status of the schedule (i.e. Enabled, Disabled)
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource ID to which the schedule belongs
      */
-    public readonly targetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly targetResourceId: pulumi.Output<string | undefined>;
     /**
      * The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart).
      */
-    public readonly taskType!: pulumi.Output<string | undefined>;
+    declare public readonly taskType: pulumi.Output<string | undefined>;
     /**
      * The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection<string> TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)
      */
-    public readonly timeZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly timeZoneId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * If the schedule will occur only some days of the week, specify the weekly recurrence.
      */
-    public readonly weeklyRecurrence!: pulumi.Output<outputs.devtestlab.WeekDetailsResponse | undefined>;
+    declare public readonly weeklyRecurrence: pulumi.Output<outputs.devtestlab.WeekDetailsResponse | undefined>;
 
     /**
      * Create a VirtualMachineSchedule resource with the given unique name, arguments, and options.
@@ -115,29 +115,29 @@ export class VirtualMachineSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualMachineName === undefined) && !opts.urn) {
+            if (args?.virtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineName'");
             }
-            resourceInputs["dailyRecurrence"] = args ? args.dailyRecurrence : undefined;
-            resourceInputs["hourlyRecurrence"] = args ? args.hourlyRecurrence : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["dailyRecurrence"] = args?.dailyRecurrence;
+            resourceInputs["hourlyRecurrence"] = args?.hourlyRecurrence;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
             resourceInputs["notificationSettings"] = args ? (args.notificationSettings ? pulumi.output(args.notificationSettings).apply(inputs.devtestlab.notificationSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Disabled";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["taskType"] = args ? args.taskType : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["weeklyRecurrence"] = args ? args.weeklyRecurrence : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = (args?.status) ?? "Disabled";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["taskType"] = args?.taskType;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
+            resourceInputs["weeklyRecurrence"] = args?.weeklyRecurrence;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

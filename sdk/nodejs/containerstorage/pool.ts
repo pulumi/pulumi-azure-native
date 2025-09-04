@@ -42,55 +42,55 @@ export class Pool extends pulumi.CustomResource {
     /**
      * List of resources that should have access to the pool. Typically ARM references to AKS clusters or ACI Container Groups. For local and standard this must be a single reference. For ElasticSAN there can be many.
      */
-    public readonly assignments!: pulumi.Output<outputs.containerstorage.AssignmentResponse[] | undefined>;
+    declare public readonly assignments: pulumi.Output<outputs.containerstorage.AssignmentResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Type of the Pool: ephemeralDisk, azureDisk, or elasticsan.
      */
-    public readonly poolType!: pulumi.Output<outputs.containerstorage.PoolTypeResponse>;
+    declare public readonly poolType: pulumi.Output<outputs.containerstorage.PoolTypeResponse>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * ReclaimPolicy defines what happens to the backend storage when StoragePool is deleted
      */
-    public readonly reclaimPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly reclaimPolicy: pulumi.Output<string | undefined>;
     /**
      * Resources represent the resources the pool should have.
      */
-    public readonly resources!: pulumi.Output<outputs.containerstorage.ResourcesResponse | undefined>;
+    declare public readonly resources: pulumi.Output<outputs.containerstorage.ResourcesResponse | undefined>;
     /**
      * The operational status of the resource
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.containerstorage.ResourceOperationalStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.containerstorage.ResourceOperationalStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerstorage.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerstorage.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * List of availability zones that resources can be created in.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Pool resource with the given unique name, arguments, and options.
@@ -103,21 +103,21 @@ export class Pool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.poolType === undefined) && !opts.urn) {
+            if (args?.poolType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assignments"] = args ? args.assignments : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
+            resourceInputs["assignments"] = args?.assignments;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["poolName"] = args?.poolName;
             resourceInputs["poolType"] = args ? (args.poolType ? pulumi.output(args.poolType).apply(inputs.containerstorage.poolTypeArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["reclaimPolicy"] = args ? args.reclaimPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["reclaimPolicy"] = args?.reclaimPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["resources"] = args ? (args.resources ? pulumi.output(args.resources).apply(inputs.containerstorage.resourcesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

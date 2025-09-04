@@ -44,59 +44,59 @@ export class AvailabilitySet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Fault Domain count.
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number | undefined>;
     /**
      * Update Domain count.
      */
-    public readonly platformUpdateDomainCount!: pulumi.Output<number | undefined>;
+    declare public readonly platformUpdateDomainCount: pulumi.Output<number | undefined>;
     /**
      * Specifies information about the proximity placement group that the availability set should be assigned to. Minimum api-version: 2018-04-01.
      */
-    public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
+    declare public readonly proximityPlacementGroup: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
      * Specifies Redeploy, Reboot and ScheduledEventsAdditionalPublishingTargets Scheduled Event related configurations for the availability set.
      */
-    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
+    declare public readonly scheduledEventsPolicy: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
     /**
      * Sku of the availability set, only name is required to be set. See AvailabilitySetSkuTypes for possible set of values. Use 'Aligned' for virtual machines with managed disks and 'Classic' for virtual machines with unmanaged disks. Default value is 'Classic'.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.compute.SkuResponse | undefined>;
     /**
      * The resource status information.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.compute.InstanceViewStatusResponse[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.compute.InstanceViewStatusResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Describes the migration properties on the Availability Set.
      */
-    public /*out*/ readonly virtualMachineScaleSetMigrationInfo!: pulumi.Output<outputs.compute.VirtualMachineScaleSetMigrationInfoResponse>;
+    declare public /*out*/ readonly virtualMachineScaleSetMigrationInfo: pulumi.Output<outputs.compute.VirtualMachineScaleSetMigrationInfoResponse>;
     /**
      * A list of references to all virtual machines in the availability set.
      */
-    public readonly virtualMachines!: pulumi.Output<outputs.compute.SubResourceResponse[] | undefined>;
+    declare public readonly virtualMachines: pulumi.Output<outputs.compute.SubResourceResponse[] | undefined>;
 
     /**
      * Create a AvailabilitySet resource with the given unique name, arguments, and options.
@@ -109,19 +109,19 @@ export class AvailabilitySet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilitySetName"] = args ? args.availabilitySetName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["platformUpdateDomainCount"] = args ? args.platformUpdateDomainCount : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachines"] = args ? args.virtualMachines : undefined;
+            resourceInputs["availabilitySetName"] = args?.availabilitySetName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["platformUpdateDomainCount"] = args?.platformUpdateDomainCount;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduledEventsPolicy"] = args?.scheduledEventsPolicy;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachines"] = args?.virtualMachines;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["statuses"] = undefined /*out*/;

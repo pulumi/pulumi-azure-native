@@ -44,39 +44,39 @@ export class ApiIssue extends pulumi.CustomResource {
     /**
      * A resource identifier for the API the issue was created for.
      */
-    public readonly apiId!: pulumi.Output<string | undefined>;
+    declare public readonly apiId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Date and time when the issue was created.
      */
-    public readonly createdDate!: pulumi.Output<string | undefined>;
+    declare public readonly createdDate: pulumi.Output<string | undefined>;
     /**
      * Text describing the issue.
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Status of the issue.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The issue title.
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A resource identifier for the user created the issue.
      */
-    public readonly userId!: pulumi.Output<string>;
+    declare public readonly userId: pulumi.Output<string>;
 
     /**
      * Create a ApiIssue resource with the given unique name, arguments, and options.
@@ -89,33 +89,33 @@ export class ApiIssue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.userId === undefined) && !opts.urn) {
+            if (args?.userId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["issueId"] = args ? args.issueId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["createdDate"] = args?.createdDate;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["issueId"] = args?.issueId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

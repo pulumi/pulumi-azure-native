@@ -41,33 +41,33 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
         return obj['__pulumiType'] === BusinessApplicationAgent.__pulumiType;
     }
 
-    public /*out*/ readonly agentSystems!: pulumi.Output<outputs.securityinsights.AgentSystemResponse[]>;
+    declare public /*out*/ readonly agentSystems: pulumi.Output<outputs.securityinsights.AgentSystemResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes the configuration of a Business Application Agent.
      */
-    public readonly configuration!: pulumi.Output<outputs.securityinsights.SapAgentConfigurationResponse>;
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly configuration: pulumi.Output<outputs.securityinsights.SapAgentConfigurationResponse>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BusinessApplicationAgent resource with the given unique name, arguments, and options.
@@ -80,23 +80,23 @@ export class BusinessApplicationAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["agentResourceName"] = args ? args.agentResourceName : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["agentResourceName"] = args?.agentResourceName;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["agentSystems"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

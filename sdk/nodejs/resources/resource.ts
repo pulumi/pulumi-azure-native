@@ -44,51 +44,51 @@ export class Resource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.resources.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.resources.ExtendedLocationResponse | undefined>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.resources.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.resources.IdentityResponse | undefined>;
     /**
      * The kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * ID of the resource that manages this resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The plan of the resource.
      */
-    public readonly plan!: pulumi.Output<outputs.resources.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.resources.PlanResponse | undefined>;
     /**
      * The resource properties.
      */
-    public readonly properties!: pulumi.Output<any>;
+    declare public readonly properties: pulumi.Output<any>;
     /**
      * The SKU of the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.resources.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.resources.SkuResponse | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Resource resource with the given unique name, arguments, and options.
@@ -101,36 +101,36 @@ export class Resource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiVersion === undefined) && !opts.urn) {
+            if (args?.apiVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiVersion'");
             }
-            if ((!args || args.parentResourcePath === undefined) && !opts.urn) {
+            if (args?.parentResourcePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parentResourcePath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceProviderNamespace === undefined) && !opts.urn) {
+            if (args?.resourceProviderNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceProviderNamespace'");
             }
-            if ((!args || args.resourceType === undefined) && !opts.urn) {
+            if (args?.resourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceType'");
             }
-            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["parentResourcePath"] = args ? args.parentResourcePath : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceProviderNamespace"] = args ? args.resourceProviderNamespace : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiVersion"] = args?.apiVersion;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["parentResourcePath"] = args?.parentResourcePath;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceProviderNamespace"] = args?.resourceProviderNamespace;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

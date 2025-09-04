@@ -44,55 +44,55 @@ export class Export extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Has the definition for the export.
      */
-    public readonly definition!: pulumi.Output<outputs.costmanagement.ExportDefinitionResponse>;
+    declare public readonly definition: pulumi.Output<outputs.costmanagement.ExportDefinitionResponse>;
     /**
      * Has delivery information for the export.
      */
-    public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.ExportDeliveryInfoResponse>;
+    declare public readonly deliveryInfo: pulumi.Output<outputs.costmanagement.ExportDeliveryInfoResponse>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * The format of the export being delivered. Currently only 'Csv' is supported.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    declare public readonly format: pulumi.Output<string | undefined>;
     /**
      * The managed identity associated with Export
      */
-    public readonly identity!: pulumi.Output<outputs.costmanagement.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.costmanagement.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The location of the Export's managed identity. Only required when utilizing managed identity.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * If the export has an active schedule, provides an estimate of the next run time.
      */
-    public /*out*/ readonly nextRunTimeEstimate!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextRunTimeEstimate: pulumi.Output<string>;
     /**
      * If set to true, exported data will be partitioned by size and placed in a blob directory together with a manifest file. Note: this option is currently available only for Microsoft Customer Agreement commerce scopes.
      */
-    public readonly partitionData!: pulumi.Output<boolean | undefined>;
+    declare public readonly partitionData: pulumi.Output<boolean | undefined>;
     /**
      * If requested, has the most recent run history for the export.
      */
-    public /*out*/ readonly runHistory!: pulumi.Output<outputs.costmanagement.ExportExecutionListResultResponse | undefined>;
+    declare public /*out*/ readonly runHistory: pulumi.Output<outputs.costmanagement.ExportExecutionListResultResponse | undefined>;
     /**
      * Has schedule information for the export.
      */
-    public readonly schedule!: pulumi.Output<outputs.costmanagement.ExportScheduleResponse | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.costmanagement.ExportScheduleResponse | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Export resource with the given unique name, arguments, and options.
@@ -105,25 +105,25 @@ export class Export extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
+            if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["exportName"] = args ? args.exportName : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["partitionData"] = args ? args.partitionData : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["exportName"] = args?.exportName;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["partitionData"] = args?.partitionData;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nextRunTimeEstimate"] = undefined /*out*/;

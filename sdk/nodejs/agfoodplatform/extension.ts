@@ -42,47 +42,47 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Additional Api Properties.
      */
-    public readonly additionalApiProperties!: pulumi.Output<{[key: string]: outputs.agfoodplatform.ApiPropertiesResponse}>;
+    declare public readonly additionalApiProperties: pulumi.Output<{[key: string]: outputs.agfoodplatform.ApiPropertiesResponse}>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The ETag value to implement optimistic concurrency.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Extension api docs link.
      */
-    public /*out*/ readonly extensionApiDocsLink!: pulumi.Output<string>;
+    declare public /*out*/ readonly extensionApiDocsLink: pulumi.Output<string>;
     /**
      * Extension auth link.
      */
-    public /*out*/ readonly extensionAuthLink!: pulumi.Output<string>;
+    declare public /*out*/ readonly extensionAuthLink: pulumi.Output<string>;
     /**
      * Extension category. e.g. weather/sensor/satellite.
      */
-    public /*out*/ readonly extensionCategory!: pulumi.Output<string>;
+    declare public /*out*/ readonly extensionCategory: pulumi.Output<string>;
     /**
      * Extension Id.
      */
-    public readonly extensionId!: pulumi.Output<string>;
+    declare public readonly extensionId: pulumi.Output<string>;
     /**
      * Installed extension version.
      */
-    public /*out*/ readonly installedExtensionVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly installedExtensionVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.agfoodplatform.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -95,17 +95,17 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataManagerForAgricultureResourceName === undefined) && !opts.urn) {
+            if (args?.dataManagerForAgricultureResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerForAgricultureResourceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalApiProperties"] = args ? args.additionalApiProperties : undefined;
-            resourceInputs["dataManagerForAgricultureResourceName"] = args ? args.dataManagerForAgricultureResourceName : undefined;
-            resourceInputs["extensionId"] = args ? args.extensionId : undefined;
-            resourceInputs["extensionVersion"] = args ? args.extensionVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["additionalApiProperties"] = args?.additionalApiProperties;
+            resourceInputs["dataManagerForAgricultureResourceName"] = args?.dataManagerForAgricultureResourceName;
+            resourceInputs["extensionId"] = args?.extensionId;
+            resourceInputs["extensionVersion"] = args?.extensionVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["extensionApiDocsLink"] = undefined /*out*/;

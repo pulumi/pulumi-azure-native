@@ -39,23 +39,23 @@ export class FirewallRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The end IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    public readonly endIpAddress!: pulumi.Output<string>;
+    declare public readonly endIpAddress: pulumi.Output<string>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The start IP address for the firewall rule. This can be either ipv4 or ipv6. Start and End should be in the same protocol.
      */
-    public readonly startIpAddress!: pulumi.Output<string>;
+    declare public readonly startIpAddress: pulumi.Output<string>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FirewallRule resource with the given unique name, arguments, and options.
@@ -68,23 +68,23 @@ export class FirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.endIpAddress === undefined) && !opts.urn) {
+            if (args?.endIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIpAddress'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIpAddress === undefined) && !opts.urn) {
+            if (args?.startIpAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIpAddress'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["endIpAddress"] = args ? args.endIpAddress : undefined;
-            resourceInputs["firewallRuleName"] = args ? args.firewallRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startIpAddress"] = args ? args.startIpAddress : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["endIpAddress"] = args?.endIpAddress;
+            resourceInputs["firewallRuleName"] = args?.firewallRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startIpAddress"] = args?.startIpAddress;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

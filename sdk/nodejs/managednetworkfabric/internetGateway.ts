@@ -42,51 +42,51 @@ export class InternetGateway extends pulumi.CustomResource {
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ARM Resource ID of the Internet Gateway Rule.
      */
-    public readonly internetGatewayRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly internetGatewayRuleId: pulumi.Output<string | undefined>;
     /**
      * IPv4 Address of Internet Gateway.
      */
-    public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv4Address: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM Resource ID of the Network Fabric Controller.
      */
-    public readonly networkFabricControllerId!: pulumi.Output<string>;
+    declare public readonly networkFabricControllerId: pulumi.Output<string>;
     /**
      * Port number of Internet Gateway.
      */
-    public /*out*/ readonly port!: pulumi.Output<number>;
+    declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
      * Provisioning state of resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a InternetGateway resource with the given unique name, arguments, and options.
@@ -99,23 +99,23 @@ export class InternetGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricControllerId === undefined) && !opts.urn) {
+            if (args?.networkFabricControllerId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricControllerId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["internetGatewayName"] = args ? args.internetGatewayName : undefined;
-            resourceInputs["internetGatewayRuleId"] = args ? args.internetGatewayRuleId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkFabricControllerId"] = args ? args.networkFabricControllerId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["internetGatewayName"] = args?.internetGatewayName;
+            resourceInputs["internetGatewayRuleId"] = args?.internetGatewayRuleId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkFabricControllerId"] = args?.networkFabricControllerId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ipv4Address"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

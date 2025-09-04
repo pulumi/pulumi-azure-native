@@ -42,55 +42,55 @@ export class Volume extends pulumi.CustomResource {
     /**
      * The IDs of the access control records, associated with the volume.
      */
-    public readonly accessControlRecordIds!: pulumi.Output<string[]>;
+    declare public readonly accessControlRecordIds: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The IDs of the backup policies, in which this volume is part of.
      */
-    public /*out*/ readonly backupPolicyIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly backupPolicyIds: pulumi.Output<string[]>;
     /**
      * The backup status of the volume.
      */
-    public /*out*/ readonly backupStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly backupStatus: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The monitoring status of the volume.
      */
-    public readonly monitoringStatus!: pulumi.Output<string>;
+    declare public readonly monitoringStatus: pulumi.Output<string>;
     /**
      * The name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The operation status on the volume.
      */
-    public /*out*/ readonly operationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly operationStatus: pulumi.Output<string>;
     /**
      * The size of the volume in bytes.
      */
-    public readonly sizeInBytes!: pulumi.Output<number>;
+    declare public readonly sizeInBytes: pulumi.Output<number>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The ID of the volume container, in which this volume is created.
      */
-    public /*out*/ readonly volumeContainerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeContainerId: pulumi.Output<string>;
     /**
      * The volume status.
      */
-    public readonly volumeStatus!: pulumi.Output<string>;
+    declare public readonly volumeStatus: pulumi.Output<string>;
     /**
      * The type of the volume.
      */
-    public readonly volumeType!: pulumi.Output<string>;
+    declare public readonly volumeType: pulumi.Output<string>;
 
     /**
      * Create a Volume resource with the given unique name, arguments, and options.
@@ -103,44 +103,44 @@ export class Volume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accessControlRecordIds === undefined) && !opts.urn) {
+            if (args?.accessControlRecordIds === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accessControlRecordIds'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.monitoringStatus === undefined) && !opts.urn) {
+            if (args?.monitoringStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitoringStatus'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sizeInBytes === undefined) && !opts.urn) {
+            if (args?.sizeInBytes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sizeInBytes'");
             }
-            if ((!args || args.volumeContainerName === undefined) && !opts.urn) {
+            if (args?.volumeContainerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeContainerName'");
             }
-            if ((!args || args.volumeStatus === undefined) && !opts.urn) {
+            if (args?.volumeStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeStatus'");
             }
-            if ((!args || args.volumeType === undefined) && !opts.urn) {
+            if (args?.volumeType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeType'");
             }
-            resourceInputs["accessControlRecordIds"] = args ? args.accessControlRecordIds : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["monitoringStatus"] = args ? args.monitoringStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sizeInBytes"] = args ? args.sizeInBytes : undefined;
-            resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
-            resourceInputs["volumeStatus"] = args ? args.volumeStatus : undefined;
-            resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["accessControlRecordIds"] = args?.accessControlRecordIds;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["monitoringStatus"] = args?.monitoringStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sizeInBytes"] = args?.sizeInBytes;
+            resourceInputs["volumeContainerName"] = args?.volumeContainerName;
+            resourceInputs["volumeName"] = args?.volumeName;
+            resourceInputs["volumeStatus"] = args?.volumeStatus;
+            resourceInputs["volumeType"] = args?.volumeType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backupPolicyIds"] = undefined /*out*/;
             resourceInputs["backupStatus"] = undefined /*out*/;

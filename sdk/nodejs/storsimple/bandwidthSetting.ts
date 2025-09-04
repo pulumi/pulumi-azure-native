@@ -42,27 +42,27 @@ export class BandwidthSetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The schedules.
      */
-    public readonly schedules!: pulumi.Output<outputs.storsimple.BandwidthScheduleResponse[]>;
+    declare public readonly schedules: pulumi.Output<outputs.storsimple.BandwidthScheduleResponse[]>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The number of volumes that uses the bandwidth setting.
      */
-    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumeCount: pulumi.Output<number>;
 
     /**
      * Create a BandwidthSetting resource with the given unique name, arguments, and options.
@@ -75,20 +75,20 @@ export class BandwidthSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schedules === undefined) && !opts.urn) {
+            if (args?.schedules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedules'");
             }
-            resourceInputs["bandwidthSettingName"] = args ? args.bandwidthSettingName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
+            resourceInputs["bandwidthSettingName"] = args?.bandwidthSettingName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schedules"] = args?.schedules;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

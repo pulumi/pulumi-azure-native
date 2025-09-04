@@ -44,51 +44,51 @@ export class VirtualRouter extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The Gateway on which VirtualRouter is hosted.
      */
-    public readonly hostedGateway!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly hostedGateway: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The Subnet on which VirtualRouter is hosted.
      */
-    public readonly hostedSubnet!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly hostedSubnet: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of references to VirtualRouterPeerings.
      */
-    public /*out*/ readonly peerings!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly peerings: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * VirtualRouter ASN.
      */
-    public readonly virtualRouterAsn!: pulumi.Output<number | undefined>;
+    declare public readonly virtualRouterAsn: pulumi.Output<number | undefined>;
     /**
      * VirtualRouter IPs.
      */
-    public readonly virtualRouterIps!: pulumi.Output<string[] | undefined>;
+    declare public readonly virtualRouterIps: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualRouter resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class VirtualRouter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hostedGateway"] = args ? args.hostedGateway : undefined;
-            resourceInputs["hostedSubnet"] = args ? args.hostedSubnet : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualRouterAsn"] = args ? args.virtualRouterAsn : undefined;
-            resourceInputs["virtualRouterIps"] = args ? args.virtualRouterIps : undefined;
-            resourceInputs["virtualRouterName"] = args ? args.virtualRouterName : undefined;
+            resourceInputs["hostedGateway"] = args?.hostedGateway;
+            resourceInputs["hostedSubnet"] = args?.hostedSubnet;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualRouterAsn"] = args?.virtualRouterAsn;
+            resourceInputs["virtualRouterIps"] = args?.virtualRouterIps;
+            resourceInputs["virtualRouterName"] = args?.virtualRouterName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

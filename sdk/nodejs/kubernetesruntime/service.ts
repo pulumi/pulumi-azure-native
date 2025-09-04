@@ -42,27 +42,27 @@ export class Service extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource provision state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The object id of the service principal of the RP provisioned in the tenant
      */
-    public /*out*/ readonly rpObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly rpObjectId: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -75,11 +75,11 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

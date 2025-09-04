@@ -44,35 +44,35 @@ export class DotNetComponent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of the .NET Component.
      */
-    public readonly componentType!: pulumi.Output<string | undefined>;
+    declare public readonly componentType: pulumi.Output<string | undefined>;
     /**
      * List of .NET Components configuration properties
      */
-    public readonly configurations!: pulumi.Output<outputs.app.DotNetComponentConfigurationPropertyResponse[] | undefined>;
+    declare public readonly configurations: pulumi.Output<outputs.app.DotNetComponentConfigurationPropertyResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the .NET Component.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of .NET Components that are bound to the .NET component
      */
-    public readonly serviceBinds!: pulumi.Output<outputs.app.DotNetComponentServiceBindResponse[] | undefined>;
+    declare public readonly serviceBinds: pulumi.Output<outputs.app.DotNetComponentServiceBindResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DotNetComponent resource with the given unique name, arguments, and options.
@@ -85,18 +85,18 @@ export class DotNetComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["componentType"] = args ? args.componentType : undefined;
-            resourceInputs["configurations"] = args ? args.configurations : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceBinds"] = args ? args.serviceBinds : undefined;
+            resourceInputs["componentType"] = args?.componentType;
+            resourceInputs["configurations"] = args?.configurations;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceBinds"] = args?.serviceBinds;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

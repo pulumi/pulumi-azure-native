@@ -39,19 +39,19 @@ export class ClientApplicationProductLink extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The unique resource identifier of the Product.
      */
-    public readonly productId!: pulumi.Output<string>;
+    declare public readonly productId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ClientApplicationProductLink resource with the given unique name, arguments, and options.
@@ -64,23 +64,23 @@ export class ClientApplicationProductLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientApplicationId === undefined) && !opts.urn) {
+            if (args?.clientApplicationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientApplicationId'");
             }
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["clientApplicationId"] = args ? args.clientApplicationId : undefined;
-            resourceInputs["clientApplicationProductLinkId"] = args ? args.clientApplicationProductLinkId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["clientApplicationId"] = args?.clientApplicationId;
+            resourceInputs["clientApplicationProductLinkId"] = args?.clientApplicationProductLinkId;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

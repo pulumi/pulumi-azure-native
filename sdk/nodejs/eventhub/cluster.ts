@@ -44,55 +44,55 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The UTC time when the Event Hubs Cluster was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The metric ID of the cluster resource. Provided by the service and not modifiable by the user.
      */
-    public /*out*/ readonly metricId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the Cluster.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Properties of the cluster SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.eventhub.ClusterSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.eventhub.ClusterSkuResponse | undefined>;
     /**
      * Status of the Cluster resource
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * A value that indicates whether Scaling is Supported.
      */
-    public readonly supportsScaling!: pulumi.Output<boolean | undefined>;
+    declare public readonly supportsScaling: pulumi.Output<boolean | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventhub.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The UTC time when the Event Hubs Cluster was last updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -105,15 +105,15 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["supportsScaling"] = args ? args.supportsScaling : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["supportsScaling"] = args?.supportsScaling;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;
