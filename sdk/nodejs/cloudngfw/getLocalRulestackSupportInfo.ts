@@ -7,9 +7,9 @@ import * as utilities from "../utilities";
 /**
  * support info for rulestack.
  *
- * Uses Azure REST API version 2025-02-06-preview.
+ * Uses Azure REST API version 2025-05-23.
  *
- * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLocalRulestackSupportInfo(args: GetLocalRulestackSupportInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalRulestackSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -40,21 +40,13 @@ export interface GetLocalRulestackSupportInfoArgs {
  */
 export interface GetLocalRulestackSupportInfoResult {
     /**
-     * Support account associated with given resource when association type is tenant
+     * Support account associated with given resource
      */
     readonly accountId?: string;
-    /**
-     * Support account associated with given resource when association type is billing
-     */
-    readonly accountIdForBilling?: string;
     /**
      * account registered in Customer Support Portal
      */
     readonly accountRegistered?: string;
-    /**
-     * Association Type
-     */
-    readonly associationType?: string;
     /**
      * Product usage is in free trial period
      */
@@ -99,9 +91,9 @@ export interface GetLocalRulestackSupportInfoResult {
 /**
  * support info for rulestack.
  *
- * Uses Azure REST API version 2025-02-06-preview.
+ * Uses Azure REST API version 2025-05-23.
  *
- * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getLocalRulestackSupportInfoOutput(args: GetLocalRulestackSupportInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLocalRulestackSupportInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
