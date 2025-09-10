@@ -27,19 +27,13 @@ class GetFirewallSupportInfoResult:
     """
     Support information for the resource
     """
-    def __init__(__self__, account_id=None, account_id_for_billing=None, account_registered=None, association_type=None, free_trial=None, free_trial_credit_left=None, free_trial_days_left=None, help_url=None, product_serial=None, product_sku=None, register_url=None, support_url=None, user_domain_supported=None, user_registered=None):
+    def __init__(__self__, account_id=None, account_registered=None, free_trial=None, free_trial_credit_left=None, free_trial_days_left=None, help_url=None, product_serial=None, product_sku=None, register_url=None, support_url=None, user_domain_supported=None, user_registered=None):
         if account_id and not isinstance(account_id, str):
             raise TypeError("Expected argument 'account_id' to be a str")
         pulumi.set(__self__, "account_id", account_id)
-        if account_id_for_billing and not isinstance(account_id_for_billing, str):
-            raise TypeError("Expected argument 'account_id_for_billing' to be a str")
-        pulumi.set(__self__, "account_id_for_billing", account_id_for_billing)
         if account_registered and not isinstance(account_registered, str):
             raise TypeError("Expected argument 'account_registered' to be a str")
         pulumi.set(__self__, "account_registered", account_registered)
-        if association_type and not isinstance(association_type, str):
-            raise TypeError("Expected argument 'association_type' to be a str")
-        pulumi.set(__self__, "association_type", association_type)
         if free_trial and not isinstance(free_trial, str):
             raise TypeError("Expected argument 'free_trial' to be a str")
         pulumi.set(__self__, "free_trial", free_trial)
@@ -75,17 +69,9 @@ class GetFirewallSupportInfoResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[builtins.str]:
         """
-        Support account associated with given resource when association type is tenant
+        Support account associated with given resource
         """
         return pulumi.get(self, "account_id")
-
-    @property
-    @pulumi.getter(name="accountIdForBilling")
-    def account_id_for_billing(self) -> Optional[builtins.str]:
-        """
-        Support account associated with given resource when association type is billing
-        """
-        return pulumi.get(self, "account_id_for_billing")
 
     @property
     @pulumi.getter(name="accountRegistered")
@@ -94,14 +80,6 @@ class GetFirewallSupportInfoResult:
         account registered in Customer Support Portal
         """
         return pulumi.get(self, "account_registered")
-
-    @property
-    @pulumi.getter(name="associationType")
-    def association_type(self) -> Optional[builtins.str]:
-        """
-        Association Type
-        """
-        return pulumi.get(self, "association_type")
 
     @property
     @pulumi.getter(name="freeTrial")
@@ -191,9 +169,7 @@ class AwaitableGetFirewallSupportInfoResult(GetFirewallSupportInfoResult):
             yield self
         return GetFirewallSupportInfoResult(
             account_id=self.account_id,
-            account_id_for_billing=self.account_id_for_billing,
             account_registered=self.account_registered,
-            association_type=self.association_type,
             free_trial=self.free_trial,
             free_trial_credit_left=self.free_trial_credit_left,
             free_trial_days_left=self.free_trial_days_left,
@@ -213,9 +189,9 @@ def get_firewall_support_info(email: Optional[builtins.str] = None,
     """
     support info for firewall.
 
-    Uses Azure REST API version 2025-02-06-preview.
+    Uses Azure REST API version 2025-05-23.
 
-    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str email: email address on behalf of which this API called
@@ -231,9 +207,7 @@ def get_firewall_support_info(email: Optional[builtins.str] = None,
 
     return AwaitableGetFirewallSupportInfoResult(
         account_id=pulumi.get(__ret__, 'account_id'),
-        account_id_for_billing=pulumi.get(__ret__, 'account_id_for_billing'),
         account_registered=pulumi.get(__ret__, 'account_registered'),
-        association_type=pulumi.get(__ret__, 'association_type'),
         free_trial=pulumi.get(__ret__, 'free_trial'),
         free_trial_credit_left=pulumi.get(__ret__, 'free_trial_credit_left'),
         free_trial_days_left=pulumi.get(__ret__, 'free_trial_days_left'),
@@ -251,9 +225,9 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[built
     """
     support info for firewall.
 
-    Uses Azure REST API version 2025-02-06-preview.
+    Uses Azure REST API version 2025-05-23.
 
-    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str email: email address on behalf of which this API called
@@ -268,9 +242,7 @@ def get_firewall_support_info_output(email: Optional[pulumi.Input[Optional[built
     __ret__ = pulumi.runtime.invoke_output('azure-native:cloudngfw:getFirewallSupportInfo', __args__, opts=opts, typ=GetFirewallSupportInfoResult)
     return __ret__.apply(lambda __response__: GetFirewallSupportInfoResult(
         account_id=pulumi.get(__response__, 'account_id'),
-        account_id_for_billing=pulumi.get(__response__, 'account_id_for_billing'),
         account_registered=pulumi.get(__response__, 'account_registered'),
-        association_type=pulumi.get(__response__, 'association_type'),
         free_trial=pulumi.get(__response__, 'free_trial'),
         free_trial_credit_left=pulumi.get(__response__, 'free_trial_credit_left'),
         free_trial_days_left=pulumi.get(__response__, 'free_trial_days_left'),

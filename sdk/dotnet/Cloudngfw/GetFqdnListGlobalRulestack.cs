@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a FqdnListGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFqdnListGlobalRulestackResult> InvokeAsync(GetFqdnListGlobalRulestackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFqdnListGlobalRulestackResult>("azure-native:cloudngfw:getFqdnListGlobalRulestack", args ?? new GetFqdnListGlobalRulestackArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a FqdnListGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFqdnListGlobalRulestackResult> Invoke(GetFqdnListGlobalRulestackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFqdnListGlobalRulestackResult>("azure-native:cloudngfw:getFqdnListGlobalRulestack", args ?? new GetFqdnListGlobalRulestackInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// Get a FqdnListGlobalRulestackResource
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFqdnListGlobalRulestackResult> Invoke(GetFqdnListGlobalRulestackInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFqdnListGlobalRulestackResult>("azure-native:cloudngfw:getFqdnListGlobalRulestack", args ?? new GetFqdnListGlobalRulestackInvokeArgs(), options.WithDefaults());

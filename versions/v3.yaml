@@ -2978,183 +2978,183 @@ CloudHealth:
         RpNamespace: Microsoft.CloudHealth
 Cloudngfw:
     CertificateObjectGlobalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/certificates/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     CertificateObjectLocalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/certificates/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     Firewall:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/firewalls/{firewallName}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     FqdnListGlobalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/fqdnlists/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     FqdnListLocalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/fqdnlists/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     GlobalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     LocalRule:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/localRules/{priority}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     LocalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     PostRule:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{priority}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     PreRule:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     PrefixListGlobalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/prefixlists/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     PrefixListLocalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/prefixlists/{name}
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getFirewallGlobalRulestack:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/firewalls/{firewallName}/getGlobalRulestack
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getFirewallLogProfile:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/firewalls/{firewallName}/getLogProfile
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getFirewallSupportInfo:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/firewalls/{firewallName}/getSupportInfo
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getGlobalRulestackChangeLog:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/getChangeLog
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getLocalRuleCounters:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/localRules/{priority}/getCounters
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getLocalRulestackChangeLog:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/getChangeLog
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getLocalRulestackSupportInfo:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/getSupportInfo
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getPostRuleCounters:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{priority}/getCounters
         RpNamespace: PaloAltoNetworks.Cloudngfw
     getPreRuleCounters:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/preRules/{priority}/getCounters
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackAdvancedSecurityObjects:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listAdvancedSecurityObjects
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackAppIds:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listAppIds
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackCountries:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listCountries
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackFirewalls:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listFirewalls
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackPredefinedUrlCategories:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listPredefinedUrlCategories
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listGlobalRulestackSecurityServices:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/listSecurityServices
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackAdvancedSecurityObjects:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listAdvancedSecurityObjects
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackAppIds:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listAppIds
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackCountries:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listCountries
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackFirewalls:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listFirewalls
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackPredefinedUrlCategories:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listPredefinedUrlCategories
         RpNamespace: PaloAltoNetworks.Cloudngfw
     listLocalRulestackSecurityServices:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/listSecurityServices
         RpNamespace: PaloAltoNetworks.Cloudngfw
-    listPaloAltoNetworksCloudngfwCloudManagerTenants:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+    listPaloAltoNetworksCloudngfwOperationCloudManagerTenants:
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/PaloAltoNetworks.Cloudngfw/listCloudManagerTenants
         RpNamespace: PaloAltoNetworks.Cloudngfw
-    listPaloAltoNetworksCloudngfwProductSerialNumberStatus:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+    listPaloAltoNetworksCloudngfwOperationProductSerialNumberStatus:
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/PaloAltoNetworks.Cloudngfw/listProductSerialNumberStatus
         RpNamespace: PaloAltoNetworks.Cloudngfw
-    listPaloAltoNetworksCloudngfwSupportInfo:
-        ApiVersion: 2025-02-06-preview
-        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/preview/2025-02-06-preview/PaloAltoNetworks.Cloudngfw.json
+    listPaloAltoNetworksCloudngfwOperationSupportInfo:
+        ApiVersion: "2025-05-23"
+        SpecFilePath: specification/paloaltonetworks/resource-manager/PaloAltoNetworks.Cloudngfw/stable/2025-05-23/PaloAltoNetworks.Cloudngfw.json
         ResourceUri: /subscriptions/{subscriptionId}/providers/PaloAltoNetworks.Cloudngfw/listSupportInfo
         RpNamespace: PaloAltoNetworks.Cloudngfw
 CodeSigning:

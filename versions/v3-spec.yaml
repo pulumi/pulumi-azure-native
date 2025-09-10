@@ -191,7 +191,7 @@ Chaos:
 CloudHealth:
     tracking: 2025-05-01-preview
 Cloudngfw:
-    tracking: 2025-02-06-preview
+    tracking: "2025-05-23"
 CodeSigning:
     tracking: 2024-09-30-preview
 CognitiveServices:

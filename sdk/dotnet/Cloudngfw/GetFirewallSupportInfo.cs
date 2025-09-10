@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// support info for firewall.
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetFirewallSupportInfoResult> InvokeAsync(GetFirewallSupportInfoArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// support info for firewall.
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// <summary>
         /// support info for firewall.
         /// 
-        /// Uses Azure REST API version 2025-02-06-preview.
+        /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-05-23, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-09-01, 2023-10-10-preview, 2024-01-19-preview, 2024-02-07-preview, 2025-02-06-preview, 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetFirewallSupportInfoResult> Invoke(GetFirewallSupportInfoInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetFirewallSupportInfoResult>("azure-native:cloudngfw:getFirewallSupportInfo", args ?? new GetFirewallSupportInfoInvokeArgs(), options.WithDefaults());
@@ -100,21 +100,13 @@ namespace Pulumi.AzureNative.Cloudngfw
     public sealed class GetFirewallSupportInfoResult
     {
         /// <summary>
-        /// Support account associated with given resource when association type is tenant
+        /// Support account associated with given resource
         /// </summary>
         public readonly string? AccountId;
-        /// <summary>
-        /// Support account associated with given resource when association type is billing
-        /// </summary>
-        public readonly string? AccountIdForBilling;
         /// <summary>
         /// account registered in Customer Support Portal
         /// </summary>
         public readonly string? AccountRegistered;
-        /// <summary>
-        /// Association Type
-        /// </summary>
-        public readonly string? AssociationType;
         /// <summary>
         /// Product usage is in free trial period
         /// </summary>
@@ -160,11 +152,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         private GetFirewallSupportInfoResult(
             string? accountId,
 
-            string? accountIdForBilling,
-
             string? accountRegistered,
-
-            string? associationType,
 
             string? freeTrial,
 
@@ -187,9 +175,7 @@ namespace Pulumi.AzureNative.Cloudngfw
             string? userRegistered)
         {
             AccountId = accountId;
-            AccountIdForBilling = accountIdForBilling;
             AccountRegistered = accountRegistered;
-            AssociationType = associationType;
             FreeTrial = freeTrial;
             FreeTrialCreditLeft = freeTrialCreditLeft;
             FreeTrialDaysLeft = freeTrialDaysLeft;

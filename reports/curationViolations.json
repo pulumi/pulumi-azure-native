@@ -88,10 +88,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "Cloudngfw",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
     "ModuleName": "CodeSigning",
     "Detail": "expected tracking stable but found preview"
   },
