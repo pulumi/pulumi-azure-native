@@ -44,99 +44,99 @@ export class WorkspaceApi extends pulumi.CustomResource {
     /**
      * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
-    public readonly apiRevision!: pulumi.Output<string | undefined>;
+    declare public readonly apiRevision: pulumi.Output<string | undefined>;
     /**
      * Description of the API Revision.
      */
-    public readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly apiRevisionDescription: pulumi.Output<string | undefined>;
     /**
      * Type of API.
      */
-    public readonly apiType!: pulumi.Output<string | undefined>;
+    declare public readonly apiType: pulumi.Output<string | undefined>;
     /**
      * Indicates the version identifier of the API if the API is versioned
      */
-    public readonly apiVersion!: pulumi.Output<string | undefined>;
+    declare public readonly apiVersion: pulumi.Output<string | undefined>;
     /**
      * Description of the API Version.
      */
-    public readonly apiVersionDescription!: pulumi.Output<string | undefined>;
+    declare public readonly apiVersionDescription: pulumi.Output<string | undefined>;
     /**
      * Version set details
      */
-    public readonly apiVersionSet!: pulumi.Output<outputs.apimanagement.ApiVersionSetContractDetailsResponse | undefined>;
+    declare public readonly apiVersionSet: pulumi.Output<outputs.apimanagement.ApiVersionSetContractDetailsResponse | undefined>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
-    public readonly apiVersionSetId!: pulumi.Output<string | undefined>;
+    declare public readonly apiVersionSetId: pulumi.Output<string | undefined>;
     /**
      * Collection of authentication settings included into this API.
      */
-    public readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
+    declare public readonly authenticationSettings: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Contact information for the API.
      */
-    public readonly contact!: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
+    declare public readonly contact: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * API name. Must be 1 to 300 characters long.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Indicates if API revision is current api revision.
      */
-    public readonly isCurrent!: pulumi.Output<boolean | undefined>;
+    declare public readonly isCurrent: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if API revision is accessible via the gateway.
      */
-    public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isOnline: pulumi.Output<boolean>;
     /**
      * License information for the API.
      */
-    public readonly license!: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
+    declare public readonly license: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    public readonly path!: pulumi.Output<string>;
+    declare public readonly path: pulumi.Output<string>;
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    public readonly protocols!: pulumi.Output<string[] | undefined>;
+    declare public readonly protocols: pulumi.Output<string[] | undefined>;
     /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */
-    public readonly serviceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly serviceUrl: pulumi.Output<string | undefined>;
     /**
      * API identifier of the source API.
      */
-    public readonly sourceApiId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceApiId: pulumi.Output<string | undefined>;
     /**
      * Protocols over which API is made available.
      */
-    public readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.SubscriptionKeyParameterNamesContractResponse | undefined>;
+    declare public readonly subscriptionKeyParameterNames: pulumi.Output<outputs.apimanagement.SubscriptionKeyParameterNamesContractResponse | undefined>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
-    public readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
+    declare public readonly subscriptionRequired: pulumi.Output<boolean | undefined>;
     /**
      *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    public readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly termsOfServiceUrl: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceApi resource with the given unique name, arguments, and options.
@@ -149,47 +149,47 @@ export class WorkspaceApi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.path === undefined) && !opts.urn) {
+            if (args?.path === undefined && !opts.urn) {
                 throw new Error("Missing required property 'path'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["apiRevision"] = args ? args.apiRevision : undefined;
-            resourceInputs["apiRevisionDescription"] = args ? args.apiRevisionDescription : undefined;
-            resourceInputs["apiType"] = args ? args.apiType : undefined;
-            resourceInputs["apiVersion"] = args ? args.apiVersion : undefined;
-            resourceInputs["apiVersionDescription"] = args ? args.apiVersionDescription : undefined;
-            resourceInputs["apiVersionSet"] = args ? args.apiVersionSet : undefined;
-            resourceInputs["apiVersionSetId"] = args ? args.apiVersionSetId : undefined;
-            resourceInputs["authenticationSettings"] = args ? args.authenticationSettings : undefined;
-            resourceInputs["contact"] = args ? args.contact : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["isCurrent"] = args ? args.isCurrent : undefined;
-            resourceInputs["license"] = args ? args.license : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["protocols"] = args ? args.protocols : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["serviceUrl"] = args ? args.serviceUrl : undefined;
-            resourceInputs["soapApiType"] = args ? args.soapApiType : undefined;
-            resourceInputs["sourceApiId"] = args ? args.sourceApiId : undefined;
-            resourceInputs["subscriptionKeyParameterNames"] = args ? args.subscriptionKeyParameterNames : undefined;
-            resourceInputs["subscriptionRequired"] = args ? args.subscriptionRequired : undefined;
-            resourceInputs["termsOfServiceUrl"] = args ? args.termsOfServiceUrl : undefined;
-            resourceInputs["translateRequiredQueryParametersConduct"] = args ? args.translateRequiredQueryParametersConduct : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
-            resourceInputs["wsdlSelector"] = args ? args.wsdlSelector : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["apiRevision"] = args?.apiRevision;
+            resourceInputs["apiRevisionDescription"] = args?.apiRevisionDescription;
+            resourceInputs["apiType"] = args?.apiType;
+            resourceInputs["apiVersion"] = args?.apiVersion;
+            resourceInputs["apiVersionDescription"] = args?.apiVersionDescription;
+            resourceInputs["apiVersionSet"] = args?.apiVersionSet;
+            resourceInputs["apiVersionSetId"] = args?.apiVersionSetId;
+            resourceInputs["authenticationSettings"] = args?.authenticationSettings;
+            resourceInputs["contact"] = args?.contact;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["isCurrent"] = args?.isCurrent;
+            resourceInputs["license"] = args?.license;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["protocols"] = args?.protocols;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["serviceUrl"] = args?.serviceUrl;
+            resourceInputs["soapApiType"] = args?.soapApiType;
+            resourceInputs["sourceApiId"] = args?.sourceApiId;
+            resourceInputs["subscriptionKeyParameterNames"] = args?.subscriptionKeyParameterNames;
+            resourceInputs["subscriptionRequired"] = args?.subscriptionRequired;
+            resourceInputs["termsOfServiceUrl"] = args?.termsOfServiceUrl;
+            resourceInputs["translateRequiredQueryParametersConduct"] = args?.translateRequiredQueryParametersConduct;
+            resourceInputs["value"] = args?.value;
+            resourceInputs["workspaceId"] = args?.workspaceId;
+            resourceInputs["wsdlSelector"] = args?.wsdlSelector;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isOnline"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

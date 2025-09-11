@@ -42,39 +42,39 @@ export class MarkupRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Customer information for the markup rule.
      */
-    public readonly customerDetails!: pulumi.Output<outputs.costmanagement.CustomerMetadataResponse>;
+    declare public readonly customerDetails: pulumi.Output<outputs.costmanagement.CustomerMetadataResponse>;
     /**
      * The description of the markup rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * Ending date of the markup rule.
      */
-    public readonly endDate!: pulumi.Output<string | undefined>;
+    declare public readonly endDate: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The markup percentage of the rule.
      */
-    public readonly percentage!: pulumi.Output<number>;
+    declare public readonly percentage: pulumi.Output<number>;
     /**
      * Starting date of the markup rule.
      */
-    public readonly startDate!: pulumi.Output<string>;
+    declare public readonly startDate: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MarkupRule resource with the given unique name, arguments, and options.
@@ -87,30 +87,30 @@ export class MarkupRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountId === undefined) && !opts.urn) {
+            if (args?.billingAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountId'");
             }
-            if ((!args || args.billingProfileId === undefined) && !opts.urn) {
+            if (args?.billingProfileId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileId'");
             }
-            if ((!args || args.customerDetails === undefined) && !opts.urn) {
+            if (args?.customerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customerDetails'");
             }
-            if ((!args || args.percentage === undefined) && !opts.urn) {
+            if (args?.percentage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'percentage'");
             }
-            if ((!args || args.startDate === undefined) && !opts.urn) {
+            if (args?.startDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startDate'");
             }
-            resourceInputs["billingAccountId"] = args ? args.billingAccountId : undefined;
-            resourceInputs["billingProfileId"] = args ? args.billingProfileId : undefined;
-            resourceInputs["customerDetails"] = args ? args.customerDetails : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["endDate"] = args ? args.endDate : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["percentage"] = args ? args.percentage : undefined;
-            resourceInputs["startDate"] = args ? args.startDate : undefined;
+            resourceInputs["billingAccountId"] = args?.billingAccountId;
+            resourceInputs["billingProfileId"] = args?.billingProfileId;
+            resourceInputs["customerDetails"] = args?.customerDetails;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["endDate"] = args?.endDate;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["percentage"] = args?.percentage;
+            resourceInputs["startDate"] = args?.startDate;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

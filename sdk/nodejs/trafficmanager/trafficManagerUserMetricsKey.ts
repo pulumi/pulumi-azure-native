@@ -41,19 +41,19 @@ export class TrafficManagerUserMetricsKey extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The key returned by the User Metrics operation.
      */
-    public /*out*/ readonly key!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly key: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    public /*out*/ readonly type!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a TrafficManagerUserMetricsKey resource with the given unique name, arguments, and options.

@@ -44,72 +44,72 @@ export class Route extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
      */
-    public readonly cacheConfiguration!: pulumi.Output<outputs.cdn.AfdRouteCacheConfigurationResponse | undefined>;
+    declare public readonly cacheConfiguration: pulumi.Output<outputs.cdn.AfdRouteCacheConfigurationResponse | undefined>;
     /**
      * Domains referenced by this endpoint.
      */
-    public readonly customDomains!: pulumi.Output<outputs.cdn.ActivatedResourceReferenceResponse[] | undefined>;
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public readonly customDomains: pulumi.Output<outputs.cdn.ActivatedResourceReferenceResponse[] | undefined>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
      */
-    public readonly enabledState!: pulumi.Output<string | undefined>;
+    declare public readonly enabledState: pulumi.Output<string | undefined>;
     /**
      * The name of the endpoint which holds the route.
      */
-    public readonly endpointName!: pulumi.Output<string>;
+    declare public readonly endpointName: pulumi.Output<string>;
     /**
      * Protocol this rule will use when forwarding traffic to backends.
      */
-    public readonly forwardingProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly forwardingProtocol: pulumi.Output<string | undefined>;
     /**
      * Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
      */
-    public readonly httpsRedirect!: pulumi.Output<string | undefined>;
+    declare public readonly httpsRedirect: pulumi.Output<string | undefined>;
     /**
      * whether this route will be linked to the default endpoint domain.
      */
-    public readonly linkToDefaultDomain!: pulumi.Output<string | undefined>;
+    declare public readonly linkToDefaultDomain: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A reference to the origin group.
      */
-    public readonly originGroup!: pulumi.Output<outputs.cdn.ResourceReferenceResponse>;
+    declare public readonly originGroup: pulumi.Output<outputs.cdn.ResourceReferenceResponse>;
     /**
      * A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
      */
-    public readonly originPath!: pulumi.Output<string | undefined>;
+    declare public readonly originPath: pulumi.Output<string | undefined>;
     /**
      * The route patterns of the rule.
      */
-    public readonly patternsToMatch!: pulumi.Output<string[] | undefined>;
+    declare public readonly patternsToMatch: pulumi.Output<string[] | undefined>;
     /**
      * Provisioning status
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * rule sets referenced by this endpoint.
      */
-    public readonly ruleSets!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
+    declare public readonly ruleSets: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
     /**
      * List of supported protocols for this route.
      */
-    public readonly supportedProtocols!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedProtocols: pulumi.Output<string[] | undefined>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Route resource with the given unique name, arguments, and options.
@@ -122,33 +122,33 @@ export class Route extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.originGroup === undefined) && !opts.urn) {
+            if (args?.originGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originGroup'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cacheConfiguration"] = args ? args.cacheConfiguration : undefined;
-            resourceInputs["customDomains"] = args ? args.customDomains : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["forwardingProtocol"] = (args ? args.forwardingProtocol : undefined) ?? "MatchRequest";
-            resourceInputs["httpsRedirect"] = (args ? args.httpsRedirect : undefined) ?? "Disabled";
-            resourceInputs["linkToDefaultDomain"] = (args ? args.linkToDefaultDomain : undefined) ?? "Disabled";
-            resourceInputs["originGroup"] = args ? args.originGroup : undefined;
-            resourceInputs["originPath"] = args ? args.originPath : undefined;
-            resourceInputs["patternsToMatch"] = args ? args.patternsToMatch : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["ruleSets"] = args ? args.ruleSets : undefined;
-            resourceInputs["supportedProtocols"] = args ? args.supportedProtocols : undefined;
+            resourceInputs["cacheConfiguration"] = args?.cacheConfiguration;
+            resourceInputs["customDomains"] = args?.customDomains;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["forwardingProtocol"] = (args?.forwardingProtocol) ?? "MatchRequest";
+            resourceInputs["httpsRedirect"] = (args?.httpsRedirect) ?? "Disabled";
+            resourceInputs["linkToDefaultDomain"] = (args?.linkToDefaultDomain) ?? "Disabled";
+            resourceInputs["originGroup"] = args?.originGroup;
+            resourceInputs["originPath"] = args?.originPath;
+            resourceInputs["patternsToMatch"] = args?.patternsToMatch;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["ruleSets"] = args?.ruleSets;
+            resourceInputs["supportedProtocols"] = args?.supportedProtocols;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

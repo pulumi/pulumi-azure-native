@@ -44,39 +44,39 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Type of the Traffic Controller Security Policy
      */
-    public /*out*/ readonly policyType!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyType: pulumi.Output<string>;
     /**
      * Provisioning State of Traffic Controller SecurityPolicy Resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicenetworking.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicenetworking.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Web Application Firewall Policy of the Traffic Controller Security Policy. Single Security Policy can have only one policy type set.
      */
-    public readonly wafPolicy!: pulumi.Output<outputs.servicenetworking.WafPolicyResponse | undefined>;
+    declare public readonly wafPolicy: pulumi.Output<outputs.servicenetworking.WafPolicyResponse | undefined>;
 
     /**
      * Create a SecurityPoliciesInterface resource with the given unique name, arguments, and options.
@@ -89,18 +89,18 @@ export class SecurityPoliciesInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.trafficControllerName === undefined) && !opts.urn) {
+            if (args?.trafficControllerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'trafficControllerName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityPolicyName"] = args ? args.securityPolicyName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficControllerName"] = args ? args.trafficControllerName : undefined;
-            resourceInputs["wafPolicy"] = args ? args.wafPolicy : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityPolicyName"] = args?.securityPolicyName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficControllerName"] = args?.trafficControllerName;
+            resourceInputs["wafPolicy"] = args?.wafPolicy;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyType"] = undefined /*out*/;

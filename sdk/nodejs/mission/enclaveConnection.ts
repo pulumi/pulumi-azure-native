@@ -44,55 +44,55 @@ export class EnclaveConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Community Resource Id.
      */
-    public readonly communityResourceId!: pulumi.Output<string>;
+    declare public readonly communityResourceId: pulumi.Output<string>;
     /**
      * Destination Endpoint Resource Id.
      */
-    public readonly destinationEndpointId!: pulumi.Output<string>;
+    declare public readonly destinationEndpointId: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of resource ids modified by enclave Connections.
      */
-    public /*out*/ readonly resourceCollection!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceCollection: pulumi.Output<string[]>;
     /**
      * Source CIDR.
      */
-    public readonly sourceCidr!: pulumi.Output<string | undefined>;
+    declare public readonly sourceCidr: pulumi.Output<string | undefined>;
     /**
      * Source Resource Id.
      */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    declare public readonly sourceResourceId: pulumi.Output<string>;
     /**
      * The state of the enclaveConnection.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EnclaveConnection resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class EnclaveConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communityResourceId === undefined) && !opts.urn) {
+            if (args?.communityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communityResourceId'");
             }
-            if ((!args || args.destinationEndpointId === undefined) && !opts.urn) {
+            if (args?.destinationEndpointId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'destinationEndpointId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            resourceInputs["communityResourceId"] = args ? args.communityResourceId : undefined;
-            resourceInputs["destinationEndpointId"] = args ? args.destinationEndpointId : undefined;
-            resourceInputs["enclaveConnectionName"] = args ? args.enclaveConnectionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceCidr"] = args ? args.sourceCidr : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["communityResourceId"] = args?.communityResourceId;
+            resourceInputs["destinationEndpointId"] = args?.destinationEndpointId;
+            resourceInputs["enclaveConnectionName"] = args?.enclaveConnectionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceCidr"] = args?.sourceCidr;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

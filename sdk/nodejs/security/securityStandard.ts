@@ -42,43 +42,43 @@ export class SecurityStandard extends pulumi.CustomResource {
     /**
      * List of assessment keys to apply to standard scope.
      */
-    public readonly assessments!: pulumi.Output<outputs.security.PartialAssessmentPropertiesResponse[] | undefined>;
+    declare public readonly assessments: pulumi.Output<outputs.security.PartialAssessmentPropertiesResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of all standard supported clouds.
      */
-    public readonly cloudProviders!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudProviders: pulumi.Output<string[] | undefined>;
     /**
      * Description of the standard
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Display name of the standard, equivalent to the standardId
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The security standard metadata.
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.security.StandardMetadataResponse | undefined>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.security.StandardMetadataResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The policy set definition id associated with the standard.
      */
-    public readonly policySetDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly policySetDefinitionId: pulumi.Output<string | undefined>;
     /**
      * Standard type (Custom or Default or Compliance only currently)
      */
-    public /*out*/ readonly standardType!: pulumi.Output<string>;
+    declare public /*out*/ readonly standardType: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityStandard resource with the given unique name, arguments, and options.
@@ -91,16 +91,16 @@ export class SecurityStandard extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assessments"] = args ? args.assessments : undefined;
-            resourceInputs["cloudProviders"] = args ? args.cloudProviders : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["policySetDefinitionId"] = args ? args.policySetDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["standardId"] = args ? args.standardId : undefined;
+            resourceInputs["assessments"] = args?.assessments;
+            resourceInputs["cloudProviders"] = args?.cloudProviders;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["policySetDefinitionId"] = args?.policySetDefinitionId;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["standardId"] = args?.standardId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

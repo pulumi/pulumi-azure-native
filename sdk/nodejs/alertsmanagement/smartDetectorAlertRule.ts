@@ -44,55 +44,55 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
     /**
      * The alert rule actions.
      */
-    public readonly actionGroups!: pulumi.Output<outputs.alertsmanagement.ActionGroupsInformationResponse>;
+    declare public readonly actionGroups: pulumi.Output<outputs.alertsmanagement.ActionGroupsInformationResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The alert rule description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The alert rule's detector.
      */
-    public readonly detector!: pulumi.Output<outputs.alertsmanagement.DetectorResponse>;
+    declare public readonly detector: pulumi.Output<outputs.alertsmanagement.DetectorResponse>;
     /**
      * The alert rule frequency in ISO8601 format. The time granularity must be in minutes and minimum value is 1 minute, depending on the detector.
      */
-    public readonly frequency!: pulumi.Output<string>;
+    declare public readonly frequency: pulumi.Output<string>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The alert rule resources scope.
      */
-    public readonly scope!: pulumi.Output<string[]>;
+    declare public readonly scope: pulumi.Output<string[]>;
     /**
      * The alert rule severity.
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * The alert rule state.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The alert rule throttling information.
      */
-    public readonly throttling!: pulumi.Output<outputs.alertsmanagement.ThrottlingInformationResponse | undefined>;
+    declare public readonly throttling: pulumi.Output<outputs.alertsmanagement.ThrottlingInformationResponse | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SmartDetectorAlertRule resource with the given unique name, arguments, and options.
@@ -105,39 +105,39 @@ export class SmartDetectorAlertRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionGroups === undefined) && !opts.urn) {
+            if (args?.actionGroups === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionGroups'");
             }
-            if ((!args || args.detector === undefined) && !opts.urn) {
+            if (args?.detector === undefined && !opts.urn) {
                 throw new Error("Missing required property 'detector'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["actionGroups"] = args ? args.actionGroups : undefined;
-            resourceInputs["alertRuleName"] = args ? args.alertRuleName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["detector"] = args ? args.detector : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["location"] = (args ? args.location : undefined) ?? "global";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throttling"] = args ? args.throttling : undefined;
+            resourceInputs["actionGroups"] = args?.actionGroups;
+            resourceInputs["alertRuleName"] = args?.alertRuleName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["detector"] = args?.detector;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["location"] = (args?.location) ?? "global";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["throttling"] = args?.throttling;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -42,43 +42,43 @@ export class Hub extends pulumi.CustomResource {
     /**
      * API endpoint URL of the hub.
      */
-    public /*out*/ readonly apiEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiEndpoint: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Billing settings of the hub.
      */
-    public readonly hubBillingInfo!: pulumi.Output<outputs.customerinsights.HubBillingInfoFormatResponse | undefined>;
+    declare public readonly hubBillingInfo: pulumi.Output<outputs.customerinsights.HubBillingInfoFormatResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the hub.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The bit flags for enabled hub features. Bit 0 is set to 1 indicates graph is enabled, or disabled if set to 0. Bit 1 is set to 1 indicates the hub is disabled, or enabled if set to 0.
      */
-    public readonly tenantFeatures!: pulumi.Output<number | undefined>;
+    declare public readonly tenantFeatures: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Web endpoint URL of the hub.
      */
-    public /*out*/ readonly webEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly webEndpoint: pulumi.Output<string>;
 
     /**
      * Create a Hub resource with the given unique name, arguments, and options.
@@ -91,15 +91,15 @@ export class Hub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hubBillingInfo"] = args ? args.hubBillingInfo : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantFeatures"] = args ? args.tenantFeatures : undefined;
+            resourceInputs["hubBillingInfo"] = args?.hubBillingInfo;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantFeatures"] = args?.tenantFeatures;
             resourceInputs["apiEndpoint"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

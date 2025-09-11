@@ -41,19 +41,19 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
     /**
      * Azure Active Directory only Authentication enabled.
      */
-    public readonly azureADOnlyAuthentication!: pulumi.Output<boolean>;
+    declare public readonly azureADOnlyAuthentication: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedInstanceAzureADOnlyAuthentication resource with the given unique name, arguments, and options.
@@ -66,19 +66,19 @@ export class ManagedInstanceAzureADOnlyAuthentication extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
+            if (args?.azureADOnlyAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authenticationName"] = args ? args.authenticationName : undefined;
-            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authenticationName"] = args?.authenticationName;
+            resourceInputs["azureADOnlyAuthentication"] = args?.azureADOnlyAuthentication;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

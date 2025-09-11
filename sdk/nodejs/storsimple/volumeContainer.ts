@@ -42,51 +42,51 @@ export class VolumeContainer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The bandwidth-rate set on the volume container.
      */
-    public readonly bandWidthRateInMbps!: pulumi.Output<number | undefined>;
+    declare public readonly bandWidthRateInMbps: pulumi.Output<number | undefined>;
     /**
      * The ID of the bandwidth setting associated with the volume container.
      */
-    public readonly bandwidthSettingId!: pulumi.Output<string | undefined>;
+    declare public readonly bandwidthSettingId: pulumi.Output<string | undefined>;
     /**
      * The key used to encrypt data in the volume container. It is required when property 'EncryptionStatus' is "Enabled".
      */
-    public readonly encryptionKey!: pulumi.Output<outputs.storsimple.AsymmetricEncryptedSecretResponse | undefined>;
+    declare public readonly encryptionKey: pulumi.Output<outputs.storsimple.AsymmetricEncryptedSecretResponse | undefined>;
     /**
      * The flag to denote whether encryption is enabled or not.
      */
-    public /*out*/ readonly encryptionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly encryptionStatus: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The owner ship status of the volume container. Only when the status is "NotOwned", the delete operation on the volume container is permitted.
      */
-    public /*out*/ readonly ownerShipStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly ownerShipStatus: pulumi.Output<string>;
     /**
      * The path ID of storage account associated with the volume container.
      */
-    public readonly storageAccountCredentialId!: pulumi.Output<string>;
+    declare public readonly storageAccountCredentialId: pulumi.Output<string>;
     /**
      * The total cloud storage for the volume container.
      */
-    public /*out*/ readonly totalCloudStorageUsageInBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalCloudStorageUsageInBytes: pulumi.Output<number>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The number of volumes in the volume Container.
      */
-    public /*out*/ readonly volumeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumeCount: pulumi.Output<number>;
 
     /**
      * Create a VolumeContainer resource with the given unique name, arguments, and options.
@@ -99,27 +99,27 @@ export class VolumeContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountCredentialId === undefined) && !opts.urn) {
+            if (args?.storageAccountCredentialId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountCredentialId'");
             }
-            resourceInputs["bandWidthRateInMbps"] = args ? args.bandWidthRateInMbps : undefined;
-            resourceInputs["bandwidthSettingId"] = args ? args.bandwidthSettingId : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["encryptionKey"] = args ? args.encryptionKey : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountCredentialId"] = args ? args.storageAccountCredentialId : undefined;
-            resourceInputs["volumeContainerName"] = args ? args.volumeContainerName : undefined;
+            resourceInputs["bandWidthRateInMbps"] = args?.bandWidthRateInMbps;
+            resourceInputs["bandwidthSettingId"] = args?.bandwidthSettingId;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["encryptionKey"] = args?.encryptionKey;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountCredentialId"] = args?.storageAccountCredentialId;
+            resourceInputs["volumeContainerName"] = args?.volumeContainerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["encryptionStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

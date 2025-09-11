@@ -44,63 +44,63 @@ export class PrivateZone extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The ETag of the zone.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Private zone internal Id
      */
-    public /*out*/ readonly internalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly internalId: pulumi.Output<string>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The maximum number of record sets that can be created in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly maxNumberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfRecordSets: pulumi.Output<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly maxNumberOfVirtualNetworkLinks!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfVirtualNetworkLinks: pulumi.Output<number>;
     /**
      * The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxNumberOfVirtualNetworkLinksWithRegistration: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current number of record sets in this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly numberOfRecordSets!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfRecordSets: pulumi.Output<number>;
     /**
      * The current number of virtual networks that are linked to this Private DNS zone. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly numberOfVirtualNetworkLinks!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfVirtualNetworkLinks: pulumi.Output<number>;
     /**
      * The current number of virtual networks that are linked to this Private DNS zone with registration enabled. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly numberOfVirtualNetworkLinksWithRegistration!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfVirtualNetworkLinksWithRegistration: pulumi.Output<number>;
     /**
      * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.privatedns.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.privatedns.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateZone resource with the given unique name, arguments, and options.
@@ -113,13 +113,13 @@ export class PrivateZone extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateZoneName"] = args?.privateZoneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["internalId"] = undefined /*out*/;

@@ -44,99 +44,99 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
     /**
      * Describes the revision of the API. If no value is provided, default revision 1 is created
      */
-    public /*out*/ readonly apiRevision!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiRevision: pulumi.Output<string | undefined>;
     /**
      * Description of the API Revision.
      */
-    public /*out*/ readonly apiRevisionDescription!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiRevisionDescription: pulumi.Output<string | undefined>;
     /**
      * Type of API.
      */
-    public /*out*/ readonly apiType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiType: pulumi.Output<string | undefined>;
     /**
      * Indicates the version identifier of the API if the API is versioned
      */
-    public /*out*/ readonly apiVersion!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiVersion: pulumi.Output<string | undefined>;
     /**
      * Description of the API Version.
      */
-    public /*out*/ readonly apiVersionDescription!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiVersionDescription: pulumi.Output<string | undefined>;
     /**
      * Version set details
      */
-    public /*out*/ readonly apiVersionSet!: pulumi.Output<outputs.apimanagement.ApiVersionSetContractDetailsResponse | undefined>;
+    declare public /*out*/ readonly apiVersionSet: pulumi.Output<outputs.apimanagement.ApiVersionSetContractDetailsResponse | undefined>;
     /**
      * A resource identifier for the related ApiVersionSet.
      */
-    public /*out*/ readonly apiVersionSetId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly apiVersionSetId: pulumi.Output<string | undefined>;
     /**
      * Collection of authentication settings included into this API.
      */
-    public /*out*/ readonly authenticationSettings!: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
+    declare public /*out*/ readonly authenticationSettings: pulumi.Output<outputs.apimanagement.AuthenticationSettingsContractResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Contact information for the API.
      */
-    public /*out*/ readonly contact!: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
+    declare public /*out*/ readonly contact: pulumi.Output<outputs.apimanagement.ApiContactInformationResponse | undefined>;
     /**
      * Description of the API. May include HTML formatting tags.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * API name. Must be 1 to 300 characters long.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Indicates if API revision is current api revision.
      */
-    public /*out*/ readonly isCurrent!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly isCurrent: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if API revision is accessible via the gateway.
      */
-    public /*out*/ readonly isOnline!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isOnline: pulumi.Output<boolean>;
     /**
      * License information for the API.
      */
-    public /*out*/ readonly license!: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
+    declare public /*out*/ readonly license: pulumi.Output<outputs.apimanagement.ApiLicenseInformationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API.
      */
-    public /*out*/ readonly path!: pulumi.Output<string>;
+    declare public /*out*/ readonly path: pulumi.Output<string>;
     /**
      * Describes on which protocols the operations in this API can be invoked.
      */
-    public /*out*/ readonly protocols!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly protocols: pulumi.Output<string[] | undefined>;
     /**
      * Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long.
      */
-    public /*out*/ readonly serviceUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly serviceUrl: pulumi.Output<string | undefined>;
     /**
      * API identifier of the source API.
      */
-    public /*out*/ readonly sourceApiId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly sourceApiId: pulumi.Output<string | undefined>;
     /**
      * Protocols over which API is made available.
      */
-    public /*out*/ readonly subscriptionKeyParameterNames!: pulumi.Output<outputs.apimanagement.SubscriptionKeyParameterNamesContractResponse | undefined>;
+    declare public /*out*/ readonly subscriptionKeyParameterNames: pulumi.Output<outputs.apimanagement.SubscriptionKeyParameterNamesContractResponse | undefined>;
     /**
      * Specifies whether an API or Product subscription is required for accessing the API.
      */
-    public /*out*/ readonly subscriptionRequired!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly subscriptionRequired: pulumi.Output<boolean | undefined>;
     /**
      *  A URL to the Terms of Service for the API. MUST be in the format of a URL.
      */
-    public /*out*/ readonly termsOfServiceUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly termsOfServiceUrl: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GatewayApiEntityTag resource with the given unique name, arguments, and options.
@@ -149,20 +149,20 @@ export class GatewayApiEntityTag extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["apiRevision"] = undefined /*out*/;
             resourceInputs["apiRevisionDescription"] = undefined /*out*/;
             resourceInputs["apiType"] = undefined /*out*/;

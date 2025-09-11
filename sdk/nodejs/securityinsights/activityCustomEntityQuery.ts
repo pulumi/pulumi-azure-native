@@ -42,72 +42,72 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The entity query content to display in timeline
      */
-    public readonly content!: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<string | undefined>;
     /**
      * The time the activity was created
      */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimeUtc: pulumi.Output<string>;
     /**
      * The entity query description
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Determines whether this activity is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The query applied only to entities matching to all filters
      */
-    public readonly entitiesFilter!: pulumi.Output<{[key: string]: string[]} | undefined>;
+    declare public readonly entitiesFilter: pulumi.Output<{[key: string]: string[]} | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The type of the query's source entity
      */
-    public readonly inputEntityType!: pulumi.Output<string | undefined>;
+    declare public readonly inputEntityType: pulumi.Output<string | undefined>;
     /**
      * The kind of the entity query
      * Expected value is 'Activity'.
      */
-    public readonly kind!: pulumi.Output<"Activity">;
+    declare public readonly kind: pulumi.Output<"Activity">;
     /**
      * The last time the activity was updated
      */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Activity query definitions
      */
-    public readonly queryDefinitions!: pulumi.Output<outputs.securityinsights.ActivityEntityQueriesPropertiesResponseQueryDefinitions | undefined>;
+    declare public readonly queryDefinitions: pulumi.Output<outputs.securityinsights.ActivityEntityQueriesPropertiesResponseQueryDefinitions | undefined>;
     /**
      * List of the fields of the source entity that are required to run the query
      */
-    public readonly requiredInputFieldsSets!: pulumi.Output<string[][] | undefined>;
+    declare public readonly requiredInputFieldsSets: pulumi.Output<string[][] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The template id this activity was created from
      */
-    public readonly templateName!: pulumi.Output<string | undefined>;
+    declare public readonly templateName: pulumi.Output<string | undefined>;
     /**
      * The entity query title
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ActivityCustomEntityQuery resource with the given unique name, arguments, and options.
@@ -120,28 +120,28 @@ export class ActivityCustomEntityQuery extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entitiesFilter"] = args ? args.entitiesFilter : undefined;
-            resourceInputs["entityQueryId"] = args ? args.entityQueryId : undefined;
-            resourceInputs["inputEntityType"] = args ? args.inputEntityType : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entitiesFilter"] = args?.entitiesFilter;
+            resourceInputs["entityQueryId"] = args?.entityQueryId;
+            resourceInputs["inputEntityType"] = args?.inputEntityType;
             resourceInputs["kind"] = "Activity";
-            resourceInputs["queryDefinitions"] = args ? args.queryDefinitions : undefined;
-            resourceInputs["requiredInputFieldsSets"] = args ? args.requiredInputFieldsSets : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["templateName"] = args ? args.templateName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["queryDefinitions"] = args?.queryDefinitions;
+            resourceInputs["requiredInputFieldsSets"] = args?.requiredInputFieldsSets;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["templateName"] = args?.templateName;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class BandwidthSchedule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The days of the week when this schedule is applicable.
      */
-    public readonly days!: pulumi.Output<string[]>;
+    declare public readonly days: pulumi.Output<string[]>;
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The bandwidth rate in Mbps.
      */
-    public readonly rateInMbps!: pulumi.Output<number>;
+    declare public readonly rateInMbps: pulumi.Output<number>;
     /**
      * The start time of the schedule in UTC.
      */
-    public readonly start!: pulumi.Output<string>;
+    declare public readonly start: pulumi.Output<string>;
     /**
      * The stop time of the schedule in UTC.
      */
-    public readonly stop!: pulumi.Output<string>;
+    declare public readonly stop: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of BandwidthSchedule
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BandwidthSchedule resource with the given unique name, arguments, and options.
@@ -85,31 +85,31 @@ export class BandwidthSchedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.days === undefined) && !opts.urn) {
+            if (args?.days === undefined && !opts.urn) {
                 throw new Error("Missing required property 'days'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.rateInMbps === undefined) && !opts.urn) {
+            if (args?.rateInMbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rateInMbps'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.start === undefined) && !opts.urn) {
+            if (args?.start === undefined && !opts.urn) {
                 throw new Error("Missing required property 'start'");
             }
-            if ((!args || args.stop === undefined) && !opts.urn) {
+            if (args?.stop === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stop'");
             }
-            resourceInputs["days"] = args ? args.days : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["rateInMbps"] = args ? args.rateInMbps : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["start"] = args ? args.start : undefined;
-            resourceInputs["stop"] = args ? args.stop : undefined;
+            resourceInputs["days"] = args?.days;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["rateInMbps"] = args?.rateInMbps;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["start"] = args?.start;
+            resourceInputs["stop"] = args?.stop;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -42,44 +42,44 @@ export class KustoTableDataSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Unique id for identifying a data set resource
      */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSetId: pulumi.Output<string>;
     /**
      * Kind of data set.
      * Expected value is 'KustoTable'.
      */
-    public readonly kind!: pulumi.Output<"KustoTable">;
+    declare public readonly kind: pulumi.Output<"KustoTable">;
     /**
      * Resource id of the kusto database.
      */
-    public readonly kustoDatabaseResourceId!: pulumi.Output<string>;
+    declare public readonly kustoDatabaseResourceId: pulumi.Output<string>;
     /**
      * Location of the kusto cluster.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the kusto table data set.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Table level sharing properties for kusto database
      */
-    public readonly tableLevelSharingProperties!: pulumi.Output<outputs.datashare.TableLevelSharingPropertiesResponse>;
+    declare public readonly tableLevelSharingProperties: pulumi.Output<outputs.datashare.TableLevelSharingPropertiesResponse>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KustoTableDataSet resource with the given unique name, arguments, and options.
@@ -92,31 +92,31 @@ export class KustoTableDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoDatabaseResourceId === undefined) && !opts.urn) {
+            if (args?.kustoDatabaseResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoDatabaseResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.tableLevelSharingProperties === undefined) && !opts.urn) {
+            if (args?.tableLevelSharingProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableLevelSharingProperties'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetName"] = args?.dataSetName;
             resourceInputs["kind"] = "KustoTable";
-            resourceInputs["kustoDatabaseResourceId"] = args ? args.kustoDatabaseResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
+            resourceInputs["kustoDatabaseResourceId"] = args?.kustoDatabaseResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["tableLevelSharingProperties"] = args?.tableLevelSharingProperties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

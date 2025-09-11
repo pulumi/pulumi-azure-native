@@ -42,31 +42,31 @@ export class AutoscaleSetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The autoscale setting of the resource.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.monitor.AutoscaleSettingResponse>;
+    declare public /*out*/ readonly properties: pulumi.Output<outputs.monitor.AutoscaleSettingResponse>;
     /**
      * The system metadata related to the response.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.monitor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.SystemDataResponse>;
     /**
      * Gets or sets a list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater in length than 128 characters and a value no greater in length than 256 characters.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutoscaleSetting resource with the given unique name, arguments, and options.
@@ -79,23 +79,23 @@ export class AutoscaleSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profiles === undefined) && !opts.urn) {
+            if (args?.profiles === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profiles'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoscaleSettingName"] = args ? args.autoscaleSettingName : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notifications"] = args ? args.notifications : undefined;
-            resourceInputs["predictiveAutoscalePolicy"] = args ? args.predictiveAutoscalePolicy : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetResourceLocation"] = args ? args.targetResourceLocation : undefined;
-            resourceInputs["targetResourceUri"] = args ? args.targetResourceUri : undefined;
+            resourceInputs["autoscaleSettingName"] = args?.autoscaleSettingName;
+            resourceInputs["enabled"] = (args?.enabled) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notifications"] = args?.notifications;
+            resourceInputs["predictiveAutoscalePolicy"] = args?.predictiveAutoscalePolicy;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetResourceLocation"] = args?.targetResourceLocation;
+            resourceInputs["targetResourceUri"] = args?.targetResourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

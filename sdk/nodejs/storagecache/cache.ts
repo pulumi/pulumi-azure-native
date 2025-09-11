@@ -44,91 +44,91 @@ export class Cache extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The size of this Cache, in GB.
      */
-    public readonly cacheSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly cacheSizeGB: pulumi.Output<number | undefined>;
     /**
      * Specifies Directory Services settings of the cache.
      */
-    public readonly directoryServicesSettings!: pulumi.Output<outputs.storagecache.CacheDirectorySettingsResponse | undefined>;
+    declare public readonly directoryServicesSettings: pulumi.Output<outputs.storagecache.CacheDirectorySettingsResponse | undefined>;
     /**
      * Specifies encryption settings of the cache.
      */
-    public readonly encryptionSettings!: pulumi.Output<outputs.storagecache.CacheEncryptionSettingsResponse | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.storagecache.CacheEncryptionSettingsResponse | undefined>;
     /**
      * Health of the cache.
      */
-    public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.CacheHealthResponse>;
+    declare public /*out*/ readonly health: pulumi.Output<outputs.storagecache.CacheHealthResponse>;
     /**
      * The identity of the cache, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.storagecache.CacheIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.storagecache.CacheIdentityResponse | undefined>;
     /**
      * Region name string.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Array of IPv4 addresses that can be used by clients mounting this cache.
      */
-    public /*out*/ readonly mountAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly mountAddresses: pulumi.Output<string[]>;
     /**
      * Name of cache.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies network settings of the cache.
      */
-    public readonly networkSettings!: pulumi.Output<outputs.storagecache.CacheNetworkSettingsResponse | undefined>;
+    declare public readonly networkSettings: pulumi.Output<outputs.storagecache.CacheNetworkSettingsResponse | undefined>;
     /**
      * Specifies the priming jobs defined in the cache.
      */
-    public /*out*/ readonly primingJobs!: pulumi.Output<outputs.storagecache.PrimingJobResponse[]>;
+    declare public /*out*/ readonly primingJobs: pulumi.Output<outputs.storagecache.PrimingJobResponse[]>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies security settings of the cache.
      */
-    public readonly securitySettings!: pulumi.Output<outputs.storagecache.CacheSecuritySettingsResponse | undefined>;
+    declare public readonly securitySettings: pulumi.Output<outputs.storagecache.CacheSecuritySettingsResponse | undefined>;
     /**
      * SKU for the cache.
      */
-    public readonly sku!: pulumi.Output<outputs.storagecache.CacheResponseSku | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.storagecache.CacheResponseSku | undefined>;
     /**
      * Specifies the space allocation percentage for each storage target in the cache.
      */
-    public /*out*/ readonly spaceAllocation!: pulumi.Output<outputs.storagecache.StorageTargetSpaceAllocationResponse[]>;
+    declare public /*out*/ readonly spaceAllocation: pulumi.Output<outputs.storagecache.StorageTargetSpaceAllocationResponse[]>;
     /**
      * Subnet used for the cache.
      */
-    public readonly subnet!: pulumi.Output<string | undefined>;
+    declare public readonly subnet: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the cache; Microsoft.StorageCache/Cache
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Upgrade settings of the cache.
      */
-    public readonly upgradeSettings!: pulumi.Output<outputs.storagecache.CacheUpgradeSettingsResponse | undefined>;
+    declare public readonly upgradeSettings: pulumi.Output<outputs.storagecache.CacheUpgradeSettingsResponse | undefined>;
     /**
      * Upgrade status of the cache.
      */
-    public /*out*/ readonly upgradeStatus!: pulumi.Output<outputs.storagecache.CacheUpgradeStatusResponse>;
+    declare public /*out*/ readonly upgradeStatus: pulumi.Output<outputs.storagecache.CacheUpgradeStatusResponse>;
     /**
      * Availability zones for resources. This field should only contain a single element in the array.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Cache resource with the given unique name, arguments, and options.
@@ -141,23 +141,23 @@ export class Cache extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["cacheSizeGB"] = args ? args.cacheSizeGB : undefined;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["cacheSizeGB"] = args?.cacheSizeGB;
             resourceInputs["directoryServicesSettings"] = args ? (args.directoryServicesSettings ? pulumi.output(args.directoryServicesSettings).apply(inputs.storagecache.cacheDirectorySettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["networkSettings"] = args ? (args.networkSettings ? pulumi.output(args.networkSettings).apply(inputs.storagecache.cacheNetworkSettingsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securitySettings"] = args ? args.securitySettings : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnet"] = args ? args.subnet : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securitySettings"] = args?.securitySettings;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnet"] = args?.subnet;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;
             resourceInputs["mountAddresses"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class Authorization extends pulumi.CustomResource {
     /**
      * Authorization type options
      */
-    public readonly authorizationType!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Authorization error details.
      */
-    public readonly error!: pulumi.Output<outputs.apimanagement.AuthorizationErrorResponse | undefined>;
+    declare public readonly error: pulumi.Output<outputs.apimanagement.AuthorizationErrorResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * OAuth2 grant type options
      */
-    public readonly oAuth2GrantType!: pulumi.Output<string | undefined>;
+    declare public readonly oAuth2GrantType: pulumi.Output<string | undefined>;
     /**
      * Authorization parameters
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Status of the Authorization
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Authorization resource with the given unique name, arguments, and options.
@@ -85,24 +85,24 @@ export class Authorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.authorizationProviderId === undefined) && !opts.urn) {
+            if (args?.authorizationProviderId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'authorizationProviderId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["authorizationId"] = args ? args.authorizationId : undefined;
-            resourceInputs["authorizationProviderId"] = args ? args.authorizationProviderId : undefined;
-            resourceInputs["authorizationType"] = args ? args.authorizationType : undefined;
-            resourceInputs["error"] = args ? args.error : undefined;
-            resourceInputs["oAuth2GrantType"] = args ? args.oAuth2GrantType : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["authorizationId"] = args?.authorizationId;
+            resourceInputs["authorizationProviderId"] = args?.authorizationProviderId;
+            resourceInputs["authorizationType"] = args?.authorizationType;
+            resourceInputs["error"] = args?.error;
+            resourceInputs["oAuth2GrantType"] = args?.oAuth2GrantType;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["status"] = args?.status;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

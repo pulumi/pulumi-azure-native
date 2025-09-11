@@ -44,55 +44,55 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the timestamp marking Hyper-V cluster creation.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Gets the errors.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.offazure.HealthErrorDetailsResponse[]>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.offazure.HealthErrorDetailsResponse[]>;
     /**
      * Gets or sets the FQDN/IPAddress of the Hyper-V cluster.
      */
-    public readonly fqdn!: pulumi.Output<string | undefined>;
+    declare public readonly fqdn: pulumi.Output<string | undefined>;
     /**
      * Gets the functional level of the Hyper-V cluster.
      */
-    public /*out*/ readonly functionalLevel!: pulumi.Output<number>;
+    declare public /*out*/ readonly functionalLevel: pulumi.Output<number>;
     /**
      * Gets or sets list of hosts (FQDN) currently being tracked by the cluster.
      */
-    public readonly hostFqdnList!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostFqdnList: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Gets or sets Run as account ID of the Hyper-V cluster.
      */
-    public readonly runAsAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly runAsAccountId: pulumi.Output<string | undefined>;
     /**
      * Gets the status of the Hyper-V cluster.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.offazure.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.offazure.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets the timestamp marking last updated on the Hyper-V cluster.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a HypervClusterControllerCluster resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class HypervClusterControllerCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["hostFqdnList"] = args ? args.hostFqdnList : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runAsAccountId"] = args ? args.runAsAccountId : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["hostFqdnList"] = args?.hostFqdnList;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runAsAccountId"] = args?.runAsAccountId;
+            resourceInputs["siteName"] = args?.siteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;

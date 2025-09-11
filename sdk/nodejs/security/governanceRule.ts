@@ -42,71 +42,71 @@ export class GovernanceRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the governance rule
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Display name of the governance rule
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Excluded scopes, filter out the descendants of the scope (on management scopes)
      */
-    public readonly excludedScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly excludedScopes: pulumi.Output<string[] | undefined>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
-    public readonly governanceEmailNotification!: pulumi.Output<outputs.security.GovernanceRuleEmailNotificationResponse | undefined>;
+    declare public readonly governanceEmailNotification: pulumi.Output<outputs.security.GovernanceRuleEmailNotificationResponse | undefined>;
     /**
      * Defines whether the rule is management scope rule (master connector as a single scope or management scope)
      */
-    public readonly includeMemberScopes!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeMemberScopes: pulumi.Output<boolean | undefined>;
     /**
      * Defines whether the rule is active/inactive
      */
-    public readonly isDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDisabled: pulumi.Output<boolean | undefined>;
     /**
      * Defines whether there is a grace period on the governance rule
      */
-    public readonly isGracePeriod!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGracePeriod: pulumi.Output<boolean | undefined>;
     /**
      * The governance rule metadata
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.security.GovernanceRuleMetadataResponse | undefined>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.security.GovernanceRuleMetadataResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The owner source for the governance rule - e.g. Manually by user@contoso.com - see example
      */
-    public readonly ownerSource!: pulumi.Output<outputs.security.GovernanceRuleOwnerSourceResponse>;
+    declare public readonly ownerSource: pulumi.Output<outputs.security.GovernanceRuleOwnerSourceResponse>;
     /**
      * Governance rule remediation timeframe - this is the time that will affect on the grace-period duration e.g. 7.00:00:00 - means 7 days
      */
-    public readonly remediationTimeframe!: pulumi.Output<string | undefined>;
+    declare public readonly remediationTimeframe: pulumi.Output<string | undefined>;
     /**
      * The governance rule priority, priority to the lower number. Rules with the same priority on the same scope will not be allowed
      */
-    public readonly rulePriority!: pulumi.Output<number>;
+    declare public readonly rulePriority: pulumi.Output<number>;
     /**
      * The rule type of the governance rule, defines the source of the rule e.g. Integrated
      */
-    public readonly ruleType!: pulumi.Output<string>;
+    declare public readonly ruleType: pulumi.Output<string>;
     /**
      * The governance rule source, what the rule affects, e.g. Assessments
      */
-    public readonly sourceResourceType!: pulumi.Output<string>;
+    declare public readonly sourceResourceType: pulumi.Output<string>;
     /**
      * The tenantId (GUID)
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GovernanceRule resource with the given unique name, arguments, and options.
@@ -119,38 +119,38 @@ export class GovernanceRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.ownerSource === undefined) && !opts.urn) {
+            if (args?.ownerSource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerSource'");
             }
-            if ((!args || args.rulePriority === undefined) && !opts.urn) {
+            if (args?.rulePriority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rulePriority'");
             }
-            if ((!args || args.ruleType === undefined) && !opts.urn) {
+            if (args?.ruleType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleType'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.sourceResourceType === undefined) && !opts.urn) {
+            if (args?.sourceResourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["excludedScopes"] = args ? args.excludedScopes : undefined;
-            resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
-            resourceInputs["includeMemberScopes"] = args ? args.includeMemberScopes : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["isGracePeriod"] = args ? args.isGracePeriod : undefined;
-            resourceInputs["ownerSource"] = args ? args.ownerSource : undefined;
-            resourceInputs["remediationTimeframe"] = args ? args.remediationTimeframe : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["rulePriority"] = args ? args.rulePriority : undefined;
-            resourceInputs["ruleType"] = args ? args.ruleType : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sourceResourceType"] = args ? args.sourceResourceType : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["excludedScopes"] = args?.excludedScopes;
+            resourceInputs["governanceEmailNotification"] = args?.governanceEmailNotification;
+            resourceInputs["includeMemberScopes"] = args?.includeMemberScopes;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["isGracePeriod"] = args?.isGracePeriod;
+            resourceInputs["ownerSource"] = args?.ownerSource;
+            resourceInputs["remediationTimeframe"] = args?.remediationTimeframe;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["rulePriority"] = args?.rulePriority;
+            resourceInputs["ruleType"] = args?.ruleType;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sourceResourceType"] = args?.sourceResourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["metadata"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,39 +44,39 @@ export class IncidentRelation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the related resource
      */
-    public readonly relatedResourceId!: pulumi.Output<string>;
+    declare public readonly relatedResourceId: pulumi.Output<string>;
     /**
      * The resource kind of the related resource
      */
-    public /*out*/ readonly relatedResourceKind!: pulumi.Output<string>;
+    declare public /*out*/ readonly relatedResourceKind: pulumi.Output<string>;
     /**
      * The name of the related resource
      */
-    public /*out*/ readonly relatedResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly relatedResourceName: pulumi.Output<string>;
     /**
      * The resource type of the related resource
      */
-    public /*out*/ readonly relatedResourceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly relatedResourceType: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IncidentRelation resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class IncidentRelation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.incidentId === undefined) && !opts.urn) {
+            if (args?.incidentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if ((!args || args.relatedResourceId === undefined) && !opts.urn) {
+            if (args?.relatedResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
-            resourceInputs["relatedResourceId"] = args ? args.relatedResourceId : undefined;
-            resourceInputs["relationName"] = args ? args.relationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["incidentId"] = args?.incidentId;
+            resourceInputs["relatedResourceId"] = args?.relatedResourceId;
+            resourceInputs["relationName"] = args?.relationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

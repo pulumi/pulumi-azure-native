@@ -44,48 +44,48 @@ export class Project extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Field that defines the Azure active directory application info, used to connect to the target Azure resource
      */
-    public readonly azureAuthenticationInfo!: pulumi.Output<outputs.datamigration.AzureActiveDirectoryAppResponse | undefined>;
+    declare public readonly azureAuthenticationInfo: pulumi.Output<outputs.datamigration.AzureActiveDirectoryAppResponse | undefined>;
     /**
      * UTC Date and time when project was created
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * List of DatabaseInfo
      */
-    public readonly databasesInfo!: pulumi.Output<outputs.datamigration.DatabaseInfoResponse[] | undefined>;
+    declare public readonly databasesInfo: pulumi.Output<outputs.datamigration.DatabaseInfoResponse[] | undefined>;
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    public readonly location!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The project's provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Information for connecting to source
      */
-    public readonly sourceConnectionInfo!: pulumi.Output<outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse | undefined>;
+    declare public readonly sourceConnectionInfo: pulumi.Output<outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse | undefined>;
     /**
      * Source platform for the project
      */
-    public readonly sourcePlatform!: pulumi.Output<string>;
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly sourcePlatform: pulumi.Output<string>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Information for connecting to target
      */
-    public readonly targetConnectionInfo!: pulumi.Output<outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse | undefined>;
+    declare public readonly targetConnectionInfo: pulumi.Output<outputs.datamigration.MiSqlConnectionInfoResponse | outputs.datamigration.MongoDbConnectionInfoResponse | outputs.datamigration.MySqlConnectionInfoResponse | outputs.datamigration.OracleConnectionInfoResponse | outputs.datamigration.PostgreSqlConnectionInfoResponse | outputs.datamigration.SqlConnectionInfoResponse | undefined>;
     /**
      * Target platform for the project
      */
-    public readonly targetPlatform!: pulumi.Output<string>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public readonly targetPlatform: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Project resource with the given unique name, arguments, and options.
@@ -98,29 +98,29 @@ export class Project extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.sourcePlatform === undefined) && !opts.urn) {
+            if (args?.sourcePlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourcePlatform'");
             }
-            if ((!args || args.targetPlatform === undefined) && !opts.urn) {
+            if (args?.targetPlatform === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetPlatform'");
             }
-            resourceInputs["azureAuthenticationInfo"] = args ? args.azureAuthenticationInfo : undefined;
-            resourceInputs["databasesInfo"] = args ? args.databasesInfo : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["sourceConnectionInfo"] = args ? args.sourceConnectionInfo : undefined;
-            resourceInputs["sourcePlatform"] = args ? args.sourcePlatform : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetConnectionInfo"] = args ? args.targetConnectionInfo : undefined;
-            resourceInputs["targetPlatform"] = args ? args.targetPlatform : undefined;
+            resourceInputs["azureAuthenticationInfo"] = args?.azureAuthenticationInfo;
+            resourceInputs["databasesInfo"] = args?.databasesInfo;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["sourceConnectionInfo"] = args?.sourceConnectionInfo;
+            resourceInputs["sourcePlatform"] = args?.sourcePlatform;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetConnectionInfo"] = args?.targetConnectionInfo;
+            resourceInputs["targetPlatform"] = args?.targetPlatform;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
