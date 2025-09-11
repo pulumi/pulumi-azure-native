@@ -44,79 +44,79 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The container type of the sessions.
      */
-    public readonly containerType!: pulumi.Output<string | undefined>;
+    declare public readonly containerType: pulumi.Output<string | undefined>;
     /**
      * The custom container configuration if the containerType is CustomContainer.
      */
-    public readonly customContainerTemplate!: pulumi.Output<outputs.app.CustomContainerTemplateResponse | undefined>;
+    declare public readonly customContainerTemplate: pulumi.Output<outputs.app.CustomContainerTemplateResponse | undefined>;
     /**
      * The pool configuration if the poolManagementType is dynamic.
      */
-    public readonly dynamicPoolConfiguration!: pulumi.Output<outputs.app.DynamicPoolConfigurationResponse | undefined>;
+    declare public readonly dynamicPoolConfiguration: pulumi.Output<outputs.app.DynamicPoolConfigurationResponse | undefined>;
     /**
      * Resource ID of the session pool's environment.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * Managed identities needed by a session pool to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    public readonly identity!: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Optional settings for a Managed Identity that is assigned to the Session pool.
      */
-    public readonly managedIdentitySettings!: pulumi.Output<outputs.app.ManagedIdentitySettingResponse[] | undefined>;
+    declare public readonly managedIdentitySettings: pulumi.Output<outputs.app.ManagedIdentitySettingResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of nodes the session pool is using.
      */
-    public /*out*/ readonly nodeCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly nodeCount: pulumi.Output<number>;
     /**
      * The endpoint to manage the pool.
      */
-    public /*out*/ readonly poolManagementEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly poolManagementEndpoint: pulumi.Output<string>;
     /**
      * The pool management type of the session pool.
      */
-    public readonly poolManagementType!: pulumi.Output<string | undefined>;
+    declare public readonly poolManagementType: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the session pool.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The scale configuration of the session pool.
      */
-    public readonly scaleConfiguration!: pulumi.Output<outputs.app.ScaleConfigurationResponse | undefined>;
+    declare public readonly scaleConfiguration: pulumi.Output<outputs.app.ScaleConfigurationResponse | undefined>;
     /**
      * The secrets of the session pool.
      */
-    public readonly secrets!: pulumi.Output<outputs.app.SessionPoolSecretResponse[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.app.SessionPoolSecretResponse[] | undefined>;
     /**
      * The network configuration of the sessions in the session pool.
      */
-    public readonly sessionNetworkConfiguration!: pulumi.Output<outputs.app.SessionNetworkConfigurationResponse | undefined>;
+    declare public readonly sessionNetworkConfiguration: pulumi.Output<outputs.app.SessionNetworkConfigurationResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ContainerAppsSessionPool resource with the given unique name, arguments, and options.
@@ -129,23 +129,23 @@ export class ContainerAppsSessionPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerType"] = args ? args.containerType : undefined;
-            resourceInputs["customContainerTemplate"] = args ? args.customContainerTemplate : undefined;
-            resourceInputs["dynamicPoolConfiguration"] = args ? args.dynamicPoolConfiguration : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentitySettings"] = args ? args.managedIdentitySettings : undefined;
-            resourceInputs["poolManagementType"] = args ? args.poolManagementType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleConfiguration"] = args ? args.scaleConfiguration : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["sessionNetworkConfiguration"] = args ? args.sessionNetworkConfiguration : undefined;
-            resourceInputs["sessionPoolName"] = args ? args.sessionPoolName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerType"] = args?.containerType;
+            resourceInputs["customContainerTemplate"] = args?.customContainerTemplate;
+            resourceInputs["dynamicPoolConfiguration"] = args?.dynamicPoolConfiguration;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentitySettings"] = args?.managedIdentitySettings;
+            resourceInputs["poolManagementType"] = args?.poolManagementType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleConfiguration"] = args?.scaleConfiguration;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["sessionNetworkConfiguration"] = args?.sessionNetworkConfiguration;
+            resourceInputs["sessionPoolName"] = args?.sessionPoolName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["nodeCount"] = undefined /*out*/;

@@ -42,51 +42,51 @@ export class TenantActionGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of AzureAppPush receivers that are part of this tenant action group.
      */
-    public readonly azureAppPushReceivers!: pulumi.Output<outputs.monitor.AzureAppPushReceiverResponse[] | undefined>;
+    declare public readonly azureAppPushReceivers: pulumi.Output<outputs.monitor.AzureAppPushReceiverResponse[] | undefined>;
     /**
      * The list of email receivers that are part of this tenant action group.
      */
-    public readonly emailReceivers!: pulumi.Output<outputs.monitor.EmailReceiverResponse[] | undefined>;
+    declare public readonly emailReceivers: pulumi.Output<outputs.monitor.EmailReceiverResponse[] | undefined>;
     /**
      * Indicates whether this tenant action group is enabled. If a tenant action group is not enabled, then none of its receivers will receive communications.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    public readonly groupShortName!: pulumi.Output<string>;
+    declare public readonly groupShortName: pulumi.Output<string>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Azure resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of SMS receivers that are part of this tenant action group.
      */
-    public readonly smsReceivers!: pulumi.Output<outputs.monitor.SmsReceiverResponse[] | undefined>;
+    declare public readonly smsReceivers: pulumi.Output<outputs.monitor.SmsReceiverResponse[] | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The list of voice receivers that are part of this tenant action group.
      */
-    public readonly voiceReceivers!: pulumi.Output<outputs.monitor.VoiceReceiverResponse[] | undefined>;
+    declare public readonly voiceReceivers: pulumi.Output<outputs.monitor.VoiceReceiverResponse[] | undefined>;
     /**
      * The list of webhook receivers that are part of this tenant action group.
      */
-    public readonly webhookReceivers!: pulumi.Output<outputs.monitor.WebhookReceiverResponse[] | undefined>;
+    declare public readonly webhookReceivers: pulumi.Output<outputs.monitor.WebhookReceiverResponse[] | undefined>;
 
     /**
      * Create a TenantActionGroup resource with the given unique name, arguments, and options.
@@ -99,26 +99,26 @@ export class TenantActionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.groupShortName === undefined) && !opts.urn) {
+            if (args?.groupShortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantActionGroupName"] = args ? args.tenantActionGroupName : undefined;
-            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
+            resourceInputs["emailReceivers"] = args?.emailReceivers;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["groupShortName"] = args?.groupShortName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["smsReceivers"] = args?.smsReceivers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantActionGroupName"] = args?.tenantActionGroupName;
+            resourceInputs["voiceReceivers"] = args?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = args?.webhookReceivers;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

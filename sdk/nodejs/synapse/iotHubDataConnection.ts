@@ -42,60 +42,60 @@ export class IotHubDataConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The iot hub consumer group.
      */
-    public readonly consumerGroup!: pulumi.Output<string>;
+    declare public readonly consumerGroup: pulumi.Output<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    declare public readonly dataFormat: pulumi.Output<string | undefined>;
     /**
      * System properties of the iot hub
      */
-    public readonly eventSystemProperties!: pulumi.Output<string[] | undefined>;
+    declare public readonly eventSystemProperties: pulumi.Output<string[] | undefined>;
     /**
      * The resource ID of the Iot hub to be used to create a data connection.
      */
-    public readonly iotHubResourceId!: pulumi.Output<string>;
+    declare public readonly iotHubResourceId: pulumi.Output<string>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'IotHub'.
      */
-    public readonly kind!: pulumi.Output<"IotHub">;
+    declare public readonly kind: pulumi.Output<"IotHub">;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The name of the share access policy
      */
-    public readonly sharedAccessPolicyName!: pulumi.Output<string>;
+    declare public readonly sharedAccessPolicyName: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.synapse.SystemDataResponse>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IotHubDataConnection resource with the given unique name, arguments, and options.
@@ -108,44 +108,44 @@ export class IotHubDataConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
+            if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.iotHubResourceId === undefined) && !opts.urn) {
+            if (args?.iotHubResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotHubResourceId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
+            if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sharedAccessPolicyName === undefined) && !opts.urn) {
+            if (args?.sharedAccessPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sharedAccessPolicyName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["eventSystemProperties"] = args ? args.eventSystemProperties : undefined;
-            resourceInputs["iotHubResourceId"] = args ? args.iotHubResourceId : undefined;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["dataConnectionName"] = args?.dataConnectionName;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["eventSystemProperties"] = args?.eventSystemProperties;
+            resourceInputs["iotHubResourceId"] = args?.iotHubResourceId;
             resourceInputs["kind"] = "IotHub";
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedAccessPolicyName"] = args ? args.sharedAccessPolicyName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedAccessPolicyName"] = args?.sharedAccessPolicyName;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

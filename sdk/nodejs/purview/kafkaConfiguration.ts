@@ -44,44 +44,44 @@ export class KafkaConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Consumer group for hook event hub.
      */
-    public readonly consumerGroup!: pulumi.Output<string | undefined>;
+    declare public readonly consumerGroup: pulumi.Output<string | undefined>;
     /**
      * Credentials to access the event streaming service attached to the purview account.
      */
-    public readonly credentials!: pulumi.Output<outputs.purview.CredentialsResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.purview.CredentialsResponse | undefined>;
     /**
      * Optional partition Id for notification event hub. If not set, all partitions will be leveraged.
      */
-    public readonly eventHubPartitionId!: pulumi.Output<string | undefined>;
-    public readonly eventHubResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubPartitionId: pulumi.Output<string | undefined>;
+    declare public readonly eventHubResourceId: pulumi.Output<string | undefined>;
     /**
      * The event hub type.
      */
-    public readonly eventHubType!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubType: pulumi.Output<string | undefined>;
     /**
      * The state of the event streaming service
      */
-    public readonly eventStreamingState!: pulumi.Output<string | undefined>;
+    declare public readonly eventStreamingState: pulumi.Output<string | undefined>;
     /**
      * The event streaming service type
      */
-    public readonly eventStreamingType!: pulumi.Output<string | undefined>;
+    declare public readonly eventStreamingType: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.ProxyResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.ProxyResourceResponseSystemData>;
     /**
      * Gets or sets the type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KafkaConfiguration resource with the given unique name, arguments, and options.
@@ -94,22 +94,22 @@ export class KafkaConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["eventHubPartitionId"] = args ? args.eventHubPartitionId : undefined;
-            resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
-            resourceInputs["eventHubType"] = args ? args.eventHubType : undefined;
-            resourceInputs["eventStreamingState"] = (args ? args.eventStreamingState : undefined) ?? "Enabled";
-            resourceInputs["eventStreamingType"] = (args ? args.eventStreamingType : undefined) ?? "None";
-            resourceInputs["kafkaConfigurationName"] = args ? args.kafkaConfigurationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["eventHubPartitionId"] = args?.eventHubPartitionId;
+            resourceInputs["eventHubResourceId"] = args?.eventHubResourceId;
+            resourceInputs["eventHubType"] = args?.eventHubType;
+            resourceInputs["eventStreamingState"] = (args?.eventStreamingState) ?? "Enabled";
+            resourceInputs["eventStreamingType"] = (args?.eventStreamingType) ?? "None";
+            resourceInputs["kafkaConfigurationName"] = args?.kafkaConfigurationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -44,55 +44,55 @@ export class Topic extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Config Specification of the topic
      */
-    public readonly configs!: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
+    declare public readonly configs: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
     /**
      * Input Config Specification of the topic
      */
-    public readonly inputConfigs!: pulumi.Output<outputs.confluent.TopicsInputConfigResponse[] | undefined>;
+    declare public readonly inputConfigs: pulumi.Output<outputs.confluent.TopicsInputConfigResponse[] | undefined>;
     /**
      * Type of topic
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Metadata of the record
      */
-    public readonly metadata!: pulumi.Output<outputs.confluent.TopicMetadataEntityResponse | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.confluent.TopicMetadataEntityResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Partition Specification of the topic
      */
-    public readonly partitions!: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
+    declare public readonly partitions: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
     /**
      * Partition count of the topic
      */
-    public readonly partitionsCount!: pulumi.Output<string | undefined>;
+    declare public readonly partitionsCount: pulumi.Output<string | undefined>;
     /**
      * Partition Reassignment Specification of the topic
      */
-    public readonly partitionsReassignments!: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
+    declare public readonly partitionsReassignments: pulumi.Output<outputs.confluent.TopicsRelatedLinkResponse | undefined>;
     /**
      * Replication factor of the topic
      */
-    public readonly replicationFactor!: pulumi.Output<string | undefined>;
+    declare public readonly replicationFactor: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.confluent.SystemDataResponse>;
     /**
      * Topic Id returned by Confluent
      */
-    public readonly topicId!: pulumi.Output<string | undefined>;
+    declare public readonly topicId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Topic resource with the given unique name, arguments, and options.
@@ -105,32 +105,32 @@ export class Topic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterId === undefined) && !opts.urn) {
+            if (args?.clusterId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterId'");
             }
-            if ((!args || args.environmentId === undefined) && !opts.urn) {
+            if (args?.environmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentId'");
             }
-            if ((!args || args.organizationName === undefined) && !opts.urn) {
+            if (args?.organizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterId"] = args ? args.clusterId : undefined;
-            resourceInputs["configs"] = args ? args.configs : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["inputConfigs"] = args ? args.inputConfigs : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["organizationName"] = args ? args.organizationName : undefined;
-            resourceInputs["partitions"] = args ? args.partitions : undefined;
-            resourceInputs["partitionsCount"] = args ? args.partitionsCount : undefined;
-            resourceInputs["partitionsReassignments"] = args ? args.partitionsReassignments : undefined;
-            resourceInputs["replicationFactor"] = args ? args.replicationFactor : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topicId"] = args ? args.topicId : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["clusterId"] = args?.clusterId;
+            resourceInputs["configs"] = args?.configs;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["inputConfigs"] = args?.inputConfigs;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["organizationName"] = args?.organizationName;
+            resourceInputs["partitions"] = args?.partitions;
+            resourceInputs["partitionsCount"] = args?.partitionsCount;
+            resourceInputs["partitionsReassignments"] = args?.partitionsReassignments;
+            resourceInputs["replicationFactor"] = args?.replicationFactor;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topicId"] = args?.topicId;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

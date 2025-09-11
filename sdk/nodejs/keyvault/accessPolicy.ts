@@ -40,15 +40,15 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The definition of the access policy.
      */
-    public readonly policy!: pulumi.Output<outputs.keyvault.AccessPolicyEntry | undefined>;
+    declare public readonly policy: pulumi.Output<outputs.keyvault.AccessPolicyEntry | undefined>;
     /**
      * Name of the resource group that contains the vault.
      */
-    public readonly resourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroupName: pulumi.Output<string | undefined>;
     /**
      * Name of the Key Vault.
      */
-    public readonly vaultName!: pulumi.Output<string | undefined>;
+    declare public readonly vaultName: pulumi.Output<string | undefined>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -61,18 +61,18 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !opts.urn) {
+            if (args?.vaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vaultName"] = args?.vaultName;
         } else {
             resourceInputs["policy"] = undefined /*out*/;
             resourceInputs["resourceGroupName"] = undefined /*out*/;

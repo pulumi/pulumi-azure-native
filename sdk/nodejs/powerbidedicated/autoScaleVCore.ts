@@ -42,43 +42,43 @@ export class AutoScaleVCore extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The maximum capacity of an auto scale v-core resource.
      */
-    public readonly capacityLimit!: pulumi.Output<number | undefined>;
+    declare public readonly capacityLimit: pulumi.Output<number | undefined>;
     /**
      * The object ID of the capacity resource associated with the auto scale v-core resource.
      */
-    public readonly capacityObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly capacityObjectId: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current deployment state of an auto scale v-core resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU of the auto scale v-core resource.
      */
-    public readonly sku!: pulumi.Output<outputs.powerbidedicated.AutoScaleVCoreSkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.powerbidedicated.AutoScaleVCoreSkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbidedicated.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerbidedicated.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutoScaleVCore resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class AutoScaleVCore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["capacityLimit"] = args ? args.capacityLimit : undefined;
-            resourceInputs["capacityObjectId"] = args ? args.capacityObjectId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcoreName"] = args ? args.vcoreName : undefined;
+            resourceInputs["capacityLimit"] = args?.capacityLimit;
+            resourceInputs["capacityObjectId"] = args?.capacityObjectId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vcoreName"] = args?.vcoreName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

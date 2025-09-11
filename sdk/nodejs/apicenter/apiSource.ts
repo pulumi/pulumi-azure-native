@@ -42,39 +42,39 @@ export class ApiSource extends pulumi.CustomResource {
     /**
      * API source configuration for Azure API Management.
      */
-    public readonly azureApiManagementSource!: pulumi.Output<outputs.apicenter.AzureApiManagementSourceResponse | undefined>;
+    declare public readonly azureApiManagementSource: pulumi.Output<outputs.apicenter.AzureApiManagementSourceResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates if the specification should be imported along with metadata.
      */
-    public readonly importSpecification!: pulumi.Output<string | undefined>;
+    declare public readonly importSpecification: pulumi.Output<string | undefined>;
     /**
      * The state of the API source link
      */
-    public /*out*/ readonly linkState!: pulumi.Output<outputs.apicenter.LinkStateResponse>;
+    declare public /*out*/ readonly linkState: pulumi.Output<outputs.apicenter.LinkStateResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apicenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.apicenter.SystemDataResponse>;
     /**
      * The target environment resource ID.
      */
-    public readonly targetEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly targetEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * The target lifecycle stage.
      */
-    public readonly targetLifecycleStage!: pulumi.Output<string | undefined>;
+    declare public readonly targetLifecycleStage: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApiSource resource with the given unique name, arguments, and options.
@@ -87,23 +87,23 @@ export class ApiSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["apiSourceName"] = args ? args.apiSourceName : undefined;
-            resourceInputs["azureApiManagementSource"] = args ? args.azureApiManagementSource : undefined;
-            resourceInputs["importSpecification"] = (args ? args.importSpecification : undefined) ?? "ondemand";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["targetEnvironmentId"] = args ? args.targetEnvironmentId : undefined;
-            resourceInputs["targetLifecycleStage"] = args ? args.targetLifecycleStage : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["apiSourceName"] = args?.apiSourceName;
+            resourceInputs["azureApiManagementSource"] = args?.azureApiManagementSource;
+            resourceInputs["importSpecification"] = (args?.importSpecification) ?? "ondemand";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["targetEnvironmentId"] = args?.targetEnvironmentId;
+            resourceInputs["targetLifecycleStage"] = args?.targetLifecycleStage;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["linkState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

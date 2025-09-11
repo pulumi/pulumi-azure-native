@@ -42,53 +42,53 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
     /**
      * BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition
      */
-    public readonly assessmentType!: pulumi.Output<string>;
+    declare public readonly assessmentType: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public readonly categories!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public readonly categories: pulumi.Output<string[] | undefined>;
     /**
      * Human readable description of the assessment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * User friendly display name of the assessment
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The implementation effort required to remediate this assessment
      */
-    public readonly implementationEffort!: pulumi.Output<string | undefined>;
+    declare public readonly implementationEffort: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure resource ID of the policy definition that turns this assessment calculation on
      */
-    public /*out*/ readonly policyDefinitionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly policyDefinitionId: pulumi.Output<string>;
     /**
      * True if this assessment is in preview release status
      */
-    public readonly preview!: pulumi.Output<boolean | undefined>;
+    declare public readonly preview: pulumi.Output<boolean | undefined>;
     /**
      * Human readable description of what you should do to mitigate this security issue
      */
-    public readonly remediationDescription!: pulumi.Output<string | undefined>;
+    declare public readonly remediationDescription: pulumi.Output<string | undefined>;
     /**
      * The severity level of the assessment
      */
-    public readonly severity!: pulumi.Output<string>;
-    public readonly threats!: pulumi.Output<string[] | undefined>;
+    declare public readonly severity: pulumi.Output<string>;
+    declare public readonly threats: pulumi.Output<string[] | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The user impact of the assessment
      */
-    public readonly userImpact!: pulumi.Output<string | undefined>;
+    declare public readonly userImpact: pulumi.Output<string | undefined>;
 
     /**
      * Create a AssessmentsMetadataSubscription resource with the given unique name, arguments, and options.
@@ -101,26 +101,26 @@ export class AssessmentsMetadataSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assessmentType === undefined) && !opts.urn) {
+            if (args?.assessmentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentType'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            resourceInputs["assessmentMetadataName"] = args ? args.assessmentMetadataName : undefined;
-            resourceInputs["assessmentType"] = args ? args.assessmentType : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["implementationEffort"] = args ? args.implementationEffort : undefined;
-            resourceInputs["preview"] = args ? args.preview : undefined;
-            resourceInputs["remediationDescription"] = args ? args.remediationDescription : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["threats"] = args ? args.threats : undefined;
-            resourceInputs["userImpact"] = args ? args.userImpact : undefined;
+            resourceInputs["assessmentMetadataName"] = args?.assessmentMetadataName;
+            resourceInputs["assessmentType"] = args?.assessmentType;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["implementationEffort"] = args?.implementationEffort;
+            resourceInputs["preview"] = args?.preview;
+            resourceInputs["remediationDescription"] = args?.remediationDescription;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["threats"] = args?.threats;
+            resourceInputs["userImpact"] = args?.userImpact;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["policyDefinitionId"] = undefined /*out*/;

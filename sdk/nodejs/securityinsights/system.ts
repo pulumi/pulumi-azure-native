@@ -44,33 +44,33 @@ export class System extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The configuration of the system.
      */
-    public readonly configuration!: pulumi.Output<outputs.securityinsights.SapSystemsConfigurationResponse>;
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly configuration: pulumi.Output<outputs.securityinsights.SapSystemsConfigurationResponse>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the system.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a System resource with the given unique name, arguments, and options.
@@ -83,28 +83,28 @@ export class System extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.agentResourceName === undefined) && !opts.urn) {
+            if (args?.agentResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'agentResourceName'");
             }
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["agentResourceName"] = args ? args.agentResourceName : undefined;
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["systemResourceName"] = args ? args.systemResourceName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["agentResourceName"] = args?.agentResourceName;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["systemResourceName"] = args?.systemResourceName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedTimeUtc"] = undefined /*out*/;

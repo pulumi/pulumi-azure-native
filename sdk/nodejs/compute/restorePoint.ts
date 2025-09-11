@@ -44,47 +44,47 @@ export class RestorePoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ConsistencyMode of the RestorePoint. Can be specified in the input while creating a restore point. For now, only CrashConsistent is accepted as a valid input. Please refer to https://aka.ms/RestorePoints for more details.
      */
-    public readonly consistencyMode!: pulumi.Output<string | undefined>;
+    declare public readonly consistencyMode: pulumi.Output<string | undefined>;
     /**
      * List of disk resource ids that the customer wishes to exclude from the restore point. If no disks are specified, all disks will be included.
      */
-    public readonly excludeDisks!: pulumi.Output<outputs.compute.ApiEntityReferenceResponse[] | undefined>;
+    declare public readonly excludeDisks: pulumi.Output<outputs.compute.ApiEntityReferenceResponse[] | undefined>;
     /**
      * The restore point instance view.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.RestorePointInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.compute.RestorePointInstanceViewResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the provisioning state of the restore point.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets the details of the VM captured at the time of the restore point creation.
      */
-    public readonly sourceMetadata!: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse | undefined>;
+    declare public readonly sourceMetadata: pulumi.Output<outputs.compute.RestorePointSourceMetadataResponse | undefined>;
     /**
      * Resource Id of the source restore point from which a copy needs to be created.
      */
-    public readonly sourceRestorePoint!: pulumi.Output<outputs.compute.ApiEntityReferenceResponse | undefined>;
+    declare public readonly sourceRestorePoint: pulumi.Output<outputs.compute.ApiEntityReferenceResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Gets the creation time of the restore point.
      */
-    public readonly timeCreated!: pulumi.Output<string | undefined>;
+    declare public readonly timeCreated: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RestorePoint resource with the given unique name, arguments, and options.
@@ -97,20 +97,20 @@ export class RestorePoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.restorePointCollectionName === undefined) && !opts.urn) {
+            if (args?.restorePointCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'restorePointCollectionName'");
             }
-            resourceInputs["consistencyMode"] = args ? args.consistencyMode : undefined;
-            resourceInputs["excludeDisks"] = args ? args.excludeDisks : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointCollectionName"] = args ? args.restorePointCollectionName : undefined;
-            resourceInputs["restorePointName"] = args ? args.restorePointName : undefined;
-            resourceInputs["sourceMetadata"] = args ? args.sourceMetadata : undefined;
-            resourceInputs["sourceRestorePoint"] = args ? args.sourceRestorePoint : undefined;
-            resourceInputs["timeCreated"] = args ? args.timeCreated : undefined;
+            resourceInputs["consistencyMode"] = args?.consistencyMode;
+            resourceInputs["excludeDisks"] = args?.excludeDisks;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointCollectionName"] = args?.restorePointCollectionName;
+            resourceInputs["restorePointName"] = args?.restorePointName;
+            resourceInputs["sourceMetadata"] = args?.sourceMetadata;
+            resourceInputs["sourceRestorePoint"] = args?.sourceRestorePoint;
+            resourceInputs["timeCreated"] = args?.timeCreated;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

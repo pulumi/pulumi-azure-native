@@ -44,35 +44,35 @@ export class SecurityContact extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of email addresses which will get notifications from Microsoft Defender for Cloud by the configurations defined in this security contact.
      */
-    public readonly emails!: pulumi.Output<string | undefined>;
+    declare public readonly emails: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the security contact is enabled.
      */
-    public readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines whether to send email notifications from Microsoft Defender for Cloud to persons with specific RBAC roles on the subscription.
      */
-    public readonly notificationsByRole!: pulumi.Output<outputs.security.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
+    declare public readonly notificationsByRole: pulumi.Output<outputs.security.SecurityContactPropertiesResponseNotificationsByRole | undefined>;
     /**
      * A collection of sources types which evaluate the email notification.
      */
-    public readonly notificationsSources!: pulumi.Output<(outputs.security.NotificationsSourceAlertResponse | outputs.security.NotificationsSourceAttackPathResponse)[] | undefined>;
+    declare public readonly notificationsSources: pulumi.Output<(outputs.security.NotificationsSourceAlertResponse | outputs.security.NotificationsSourceAttackPathResponse)[] | undefined>;
     /**
      * The security contact's phone number
      */
-    public readonly phone!: pulumi.Output<string | undefined>;
+    declare public readonly phone: pulumi.Output<string | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityContact resource with the given unique name, arguments, and options.
@@ -85,12 +85,12 @@ export class SecurityContact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["emails"] = args ? args.emails : undefined;
-            resourceInputs["isEnabled"] = args ? args.isEnabled : undefined;
-            resourceInputs["notificationsByRole"] = args ? args.notificationsByRole : undefined;
-            resourceInputs["notificationsSources"] = args ? args.notificationsSources : undefined;
-            resourceInputs["phone"] = args ? args.phone : undefined;
-            resourceInputs["securityContactName"] = args ? args.securityContactName : undefined;
+            resourceInputs["emails"] = args?.emails;
+            resourceInputs["isEnabled"] = args?.isEnabled;
+            resourceInputs["notificationsByRole"] = args?.notificationsByRole;
+            resourceInputs["notificationsSources"] = args?.notificationsSources;
+            resourceInputs["phone"] = args?.phone;
+            resourceInputs["securityContactName"] = args?.securityContactName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

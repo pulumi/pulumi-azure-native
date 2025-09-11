@@ -44,51 +44,51 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The ETag of the virtual network link.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Is auto-registration of virtual machine records in the virtual network in the Private DNS zone enabled?
      */
-    public readonly registrationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly registrationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The resolution policy on the virtual network link. Only applicable for virtual network links to privatelink zones, and for A,AAAA,CNAME queries. When set to 'NxDomainRedirect', Azure DNS resolver falls back to public resolution if private dns query resolution results in non-existent domain response.
      */
-    public readonly resolutionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly resolutionPolicy: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.privatedns.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.privatedns.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The reference of the virtual network.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.privatedns.SubResourceResponse | undefined>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.privatedns.SubResourceResponse | undefined>;
     /**
      * The status of the virtual network link to the Private DNS zone. Possible values are 'InProgress' and 'Done'. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly virtualNetworkLinkState!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualNetworkLinkState: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -101,20 +101,20 @@ export class VirtualNetworkLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateZoneName === undefined) && !opts.urn) {
+            if (args?.privateZoneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateZoneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateZoneName"] = args ? args.privateZoneName : undefined;
-            resourceInputs["registrationEnabled"] = args ? args.registrationEnabled : undefined;
-            resourceInputs["resolutionPolicy"] = args ? args.resolutionPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateZoneName"] = args?.privateZoneName;
+            resourceInputs["registrationEnabled"] = args?.registrationEnabled;
+            resourceInputs["resolutionPolicy"] = args?.resolutionPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["virtualNetworkLinkName"] = args?.virtualNetworkLinkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

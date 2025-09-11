@@ -37,23 +37,23 @@ export class BlobContainerLegalHold extends pulumi.CustomResource {
     /**
      * Name of the Storage Account.
      */
-    public readonly accountName!: pulumi.Output<string | undefined>;
+    declare public readonly accountName: pulumi.Output<string | undefined>;
     /**
      * When enabled, new blocks can be written to both 'Append and Bock Blobs' while maintaining legal hold protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
      */
-    public readonly allowProtectedAppendWritesAll!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowProtectedAppendWritesAll: pulumi.Output<boolean | undefined>;
     /**
      * Name of the Blob Container.
      */
-    public readonly containerName!: pulumi.Output<string | undefined>;
+    declare public readonly containerName: pulumi.Output<string | undefined>;
     /**
      * Name of the resource group that contains the storage account.
      */
-    public readonly resourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroupName: pulumi.Output<string | undefined>;
     /**
      * List of legal hold tags. Each tag should be 3 to 23 alphanumeric characters and is normalized to lower case at SRP.
      */
-    public readonly tags!: pulumi.Output<string[] | undefined>;
+    declare public readonly tags: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a BlobContainerLegalHold resource with the given unique name, arguments, and options.
@@ -66,23 +66,23 @@ export class BlobContainerLegalHold extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.containerName === undefined) && !opts.urn) {
+            if (args?.containerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tags === undefined) && !opts.urn) {
+            if (args?.tags === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tags'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["allowProtectedAppendWritesAll"] = args ? args.allowProtectedAppendWritesAll : undefined;
-            resourceInputs["containerName"] = args ? args.containerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["allowProtectedAppendWritesAll"] = args?.allowProtectedAppendWritesAll;
+            resourceInputs["containerName"] = args?.containerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
         } else {
             resourceInputs["accountName"] = undefined /*out*/;
             resourceInputs["allowProtectedAppendWritesAll"] = undefined /*out*/;

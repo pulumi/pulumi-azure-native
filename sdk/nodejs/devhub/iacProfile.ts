@@ -44,77 +44,77 @@ export class IacProfile extends pulumi.CustomResource {
     /**
      * Determines the authorization status of requests.
      */
-    public /*out*/ readonly authStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly authStatus: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Repository Branch Name
      */
-    public readonly branchName!: pulumi.Output<string | undefined>;
+    declare public readonly branchName: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the Pull Request submitted against the users repository.
      */
-    public /*out*/ readonly prStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly prStatus: pulumi.Output<string>;
     /**
      * The number associated with the submitted pull request.
      */
-    public /*out*/ readonly pullNumber!: pulumi.Output<number>;
+    declare public /*out*/ readonly pullNumber: pulumi.Output<number>;
     /**
      * Repository Main Branch
      */
-    public readonly repositoryMainBranch!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryMainBranch: pulumi.Output<string | undefined>;
     /**
      * Repository Name
      */
-    public readonly repositoryName!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryName: pulumi.Output<string | undefined>;
     /**
      * Repository Owner
      */
-    public readonly repositoryOwner!: pulumi.Output<string | undefined>;
-    public readonly stages!: pulumi.Output<outputs.devhub.StagePropertiesResponse[] | undefined>;
+    declare public readonly repositoryOwner: pulumi.Output<string | undefined>;
+    declare public readonly stages: pulumi.Output<outputs.devhub.StagePropertiesResponse[] | undefined>;
     /**
      * Terraform Storage Account Name
      */
-    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
     /**
      * Terraform Storage Account Resource Group
      */
-    public readonly storageAccountResourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountResourceGroup: pulumi.Output<string | undefined>;
     /**
      * Terraform Storage Account Subscription
      */
-    public readonly storageAccountSubscription!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountSubscription: pulumi.Output<string | undefined>;
     /**
      * Terraform Container Name
      */
-    public readonly storageContainerName!: pulumi.Output<string | undefined>;
+    declare public readonly storageContainerName: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devhub.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly templates!: pulumi.Output<outputs.devhub.IacTemplatePropertiesResponse[] | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly templates: pulumi.Output<outputs.devhub.IacTemplatePropertiesResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IacProfile resource with the given unique name, arguments, and options.
@@ -127,23 +127,23 @@ export class IacProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["branchName"] = args ? args.branchName : undefined;
-            resourceInputs["iacProfileName"] = args ? args.iacProfileName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["repositoryMainBranch"] = args ? args.repositoryMainBranch : undefined;
-            resourceInputs["repositoryName"] = args ? args.repositoryName : undefined;
-            resourceInputs["repositoryOwner"] = args ? args.repositoryOwner : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["stages"] = args ? args.stages : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["storageAccountResourceGroup"] = args ? args.storageAccountResourceGroup : undefined;
-            resourceInputs["storageAccountSubscription"] = args ? args.storageAccountSubscription : undefined;
-            resourceInputs["storageContainerName"] = args ? args.storageContainerName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templates"] = args ? args.templates : undefined;
+            resourceInputs["branchName"] = args?.branchName;
+            resourceInputs["iacProfileName"] = args?.iacProfileName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["repositoryMainBranch"] = args?.repositoryMainBranch;
+            resourceInputs["repositoryName"] = args?.repositoryName;
+            resourceInputs["repositoryOwner"] = args?.repositoryOwner;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["stages"] = args?.stages;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["storageAccountResourceGroup"] = args?.storageAccountResourceGroup;
+            resourceInputs["storageAccountSubscription"] = args?.storageAccountSubscription;
+            resourceInputs["storageContainerName"] = args?.storageContainerName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templates"] = args?.templates;
             resourceInputs["authStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

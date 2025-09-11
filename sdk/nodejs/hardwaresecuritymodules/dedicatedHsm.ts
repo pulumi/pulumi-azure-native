@@ -44,55 +44,55 @@ export class DedicatedHsm extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies the management network interfaces of the dedicated hsm.
      */
-    public readonly managementNetworkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
+    declare public readonly managementNetworkProfile: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Specifies the network interfaces of the dedicated hsm.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.hardwaresecuritymodules.NetworkProfileResponse | undefined>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SKU details
      */
-    public readonly sku!: pulumi.Output<outputs.hardwaresecuritymodules.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.hardwaresecuritymodules.SkuResponse>;
     /**
      * This field will be used when RP does not support Availability zones.
      */
-    public readonly stampId!: pulumi.Output<string | undefined>;
+    declare public readonly stampId: pulumi.Output<string | undefined>;
     /**
      * Resource Status Message.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hardwaresecuritymodules.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hardwaresecuritymodules.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Dedicated Hsm zones.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a DedicatedHsm resource with the given unique name, arguments, and options.
@@ -105,21 +105,21 @@ export class DedicatedHsm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementNetworkProfile"] = args ? args.managementNetworkProfile : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["stampId"] = args ? args.stampId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementNetworkProfile"] = args?.managementNetworkProfile;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["stampId"] = args?.stampId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["statusMessage"] = undefined /*out*/;

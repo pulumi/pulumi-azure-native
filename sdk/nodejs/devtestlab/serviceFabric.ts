@@ -42,43 +42,43 @@ export class ServiceFabric extends pulumi.CustomResource {
     /**
      * The applicable schedule for the virtual machine.
      */
-    public /*out*/ readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.ApplicableScheduleResponse>;
+    declare public /*out*/ readonly applicableSchedule: pulumi.Output<outputs.devtestlab.ApplicableScheduleResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource id of the environment under which the service fabric resource is present
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The backing service fabric resource's id
      */
-    public readonly externalServiceFabricId!: pulumi.Output<string | undefined>;
+    declare public readonly externalServiceFabricId: pulumi.Output<string | undefined>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
 
     /**
      * Create a ServiceFabric resource with the given unique name, arguments, and options.
@@ -91,23 +91,23 @@ export class ServiceFabric extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["externalServiceFabricId"] = args ? args.externalServiceFabricId : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["externalServiceFabricId"] = args?.externalServiceFabricId;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["applicableSchedule"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

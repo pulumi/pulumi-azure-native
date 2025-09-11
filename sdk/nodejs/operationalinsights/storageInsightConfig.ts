@@ -44,39 +44,39 @@ export class StorageInsightConfig extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The names of the blob containers that the workspace should read
      */
-    public readonly containers!: pulumi.Output<string[] | undefined>;
+    declare public readonly containers: pulumi.Output<string[] | undefined>;
     /**
      * The ETag of the storage insight.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the storage insight
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.operationalinsights.StorageInsightStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.operationalinsights.StorageInsightStatusResponse>;
     /**
      * The storage account connection details
      */
-    public readonly storageAccount!: pulumi.Output<outputs.operationalinsights.StorageAccountResponse>;
+    declare public readonly storageAccount: pulumi.Output<outputs.operationalinsights.StorageAccountResponse>;
     /**
      * The names of the Azure tables that the workspace should read
      */
-    public readonly tables!: pulumi.Output<string[] | undefined>;
+    declare public readonly tables: pulumi.Output<string[] | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a StorageInsightConfig resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class StorageInsightConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccount === undefined) && !opts.urn) {
+            if (args?.storageAccount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccount'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccount"] = args ? args.storageAccount : undefined;
-            resourceInputs["storageInsightName"] = args ? args.storageInsightName : undefined;
-            resourceInputs["tables"] = args ? args.tables : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccount"] = args?.storageAccount;
+            resourceInputs["storageInsightName"] = args?.storageInsightName;
+            resourceInputs["tables"] = args?.tables;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;

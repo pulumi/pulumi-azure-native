@@ -42,39 +42,39 @@ export class LivePipeline extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Maximum bitrate capacity in Kbps reserved for the live pipeline. The allowed range is from 500 to 3000 Kbps in increments of 100 Kbps. If the RTSP camera exceeds this capacity, then the service will disconnect temporarily from the camera. It will retry to re-establish connection (with exponential backoff), checking to see if the camera bitrate is now below the reserved capacity. Doing so will ensure that one 'noisy neighbor' does not affect other live pipelines in your account.
      */
-    public readonly bitrateKbps!: pulumi.Output<number>;
+    declare public readonly bitrateKbps: pulumi.Output<number>;
     /**
      * An optional description for the pipeline.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of the instance level parameter values for the user-defined topology parameters. A pipeline can only define or override parameters values for parameters which have been declared in the referenced topology. Topology parameters without a default value must be defined. Topology parameters with a default value can be optionally be overridden.
      */
-    public readonly parameters!: pulumi.Output<outputs.videoanalyzer.ParameterDefinitionResponse[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.videoanalyzer.ParameterDefinitionResponse[] | undefined>;
     /**
      * Current state of the pipeline (read-only).
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.videoanalyzer.SystemDataResponse>;
     /**
      * The reference to an existing pipeline topology defined for real-time content processing. When activated, this live pipeline will process content according to the pipeline topology definition.
      */
-    public readonly topologyName!: pulumi.Output<string>;
+    declare public readonly topologyName: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LivePipeline resource with the given unique name, arguments, and options.
@@ -87,25 +87,25 @@ export class LivePipeline extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.bitrateKbps === undefined) && !opts.urn) {
+            if (args?.bitrateKbps === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bitrateKbps'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.topologyName === undefined) && !opts.urn) {
+            if (args?.topologyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topologyName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["bitrateKbps"] = args ? args.bitrateKbps : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["livePipelineName"] = args ? args.livePipelineName : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topologyName"] = args ? args.topologyName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["bitrateKbps"] = args?.bitrateKbps;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["livePipelineName"] = args?.livePipelineName;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topologyName"] = args?.topologyName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["state"] = undefined /*out*/;

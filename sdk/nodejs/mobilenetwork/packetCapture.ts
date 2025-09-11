@@ -44,55 +44,55 @@ export class PacketCapture extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Number of bytes captured per packet, the remaining bytes are truncated. The default "0" means the entire packet is captured.
      */
-    public readonly bytesToCapturePerPacket!: pulumi.Output<number | undefined>;
+    declare public readonly bytesToCapturePerPacket: pulumi.Output<number | undefined>;
     /**
      * The start time of the packet capture session.
      */
-    public /*out*/ readonly captureStartTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly captureStartTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of network interfaces to capture on.
      */
-    public readonly networkInterfaces!: pulumi.Output<string[] | undefined>;
+    declare public readonly networkInterfaces: pulumi.Output<string[] | undefined>;
     /**
      * The list of output files of a packet capture session.
      */
-    public /*out*/ readonly outputFiles!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outputFiles: pulumi.Output<string[]>;
     /**
      * The provisioning state of the packet capture session resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The reason the current packet capture session state.
      */
-    public /*out*/ readonly reason!: pulumi.Output<string>;
+    declare public /*out*/ readonly reason: pulumi.Output<string>;
     /**
      * The status of the packet capture session.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Maximum duration of the capture session in seconds.
      */
-    public readonly timeLimitInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeLimitInSeconds: pulumi.Output<number | undefined>;
     /**
      * Maximum size of the capture output.
      */
-    public readonly totalBytesPerSession!: pulumi.Output<number | undefined>;
+    declare public readonly totalBytesPerSession: pulumi.Output<number | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PacketCapture resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class PacketCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.packetCoreControlPlaneName === undefined) && !opts.urn) {
+            if (args?.packetCoreControlPlaneName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packetCoreControlPlaneName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bytesToCapturePerPacket"] = (args ? args.bytesToCapturePerPacket : undefined) ?? 0;
-            resourceInputs["networkInterfaces"] = args ? args.networkInterfaces : undefined;
-            resourceInputs["packetCaptureName"] = args ? args.packetCaptureName : undefined;
-            resourceInputs["packetCoreControlPlaneName"] = args ? args.packetCoreControlPlaneName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["timeLimitInSeconds"] = (args ? args.timeLimitInSeconds : undefined) ?? 18000;
-            resourceInputs["totalBytesPerSession"] = (args ? args.totalBytesPerSession : undefined) ?? 67108864;
+            resourceInputs["bytesToCapturePerPacket"] = (args?.bytesToCapturePerPacket) ?? 0;
+            resourceInputs["networkInterfaces"] = args?.networkInterfaces;
+            resourceInputs["packetCaptureName"] = args?.packetCaptureName;
+            resourceInputs["packetCoreControlPlaneName"] = args?.packetCoreControlPlaneName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["timeLimitInSeconds"] = (args?.timeLimitInSeconds) ?? 18000;
+            resourceInputs["totalBytesPerSession"] = (args?.totalBytesPerSession) ?? 67108864;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["captureStartTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

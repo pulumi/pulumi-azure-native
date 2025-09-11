@@ -44,39 +44,39 @@ export class Rule extends pulumi.CustomResource {
     /**
      * Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression.
      */
-    public readonly action!: pulumi.Output<outputs.servicebus.ActionResponse | undefined>;
+    declare public readonly action: pulumi.Output<outputs.servicebus.ActionResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties of correlationFilter
      */
-    public readonly correlationFilter!: pulumi.Output<outputs.servicebus.CorrelationFilterResponse | undefined>;
+    declare public readonly correlationFilter: pulumi.Output<outputs.servicebus.CorrelationFilterResponse | undefined>;
     /**
      * Filter type that is evaluated against a BrokeredMessage.
      */
-    public readonly filterType!: pulumi.Output<string | undefined>;
+    declare public readonly filterType: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Properties of sqlFilter
      */
-    public readonly sqlFilter!: pulumi.Output<outputs.servicebus.SqlFilterResponse | undefined>;
+    declare public readonly sqlFilter: pulumi.Output<outputs.servicebus.SqlFilterResponse | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Rule resource with the given unique name, arguments, and options.
@@ -89,27 +89,27 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subscriptionName === undefined) && !opts.urn) {
+            if (args?.subscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionName'");
             }
-            if ((!args || args.topicName === undefined) && !opts.urn) {
+            if (args?.topicName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'topicName'");
             }
             resourceInputs["action"] = args ? (args.action ? pulumi.output(args.action).apply(inputs.servicebus.actionArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["correlationFilter"] = args ? (args.correlationFilter ? pulumi.output(args.correlationFilter).apply(inputs.servicebus.correlationFilterArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["filterType"] = args ? args.filterType : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["filterType"] = args?.filterType;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["sqlFilter"] = args ? (args.sqlFilter ? pulumi.output(args.sqlFilter).apply(inputs.servicebus.sqlFilterArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["subscriptionName"] = args ? args.subscriptionName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["subscriptionName"] = args?.subscriptionName;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

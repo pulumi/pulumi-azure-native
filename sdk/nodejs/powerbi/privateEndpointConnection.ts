@@ -40,31 +40,31 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the private endpoint.
      */
-    public readonly privateEndpoint!: pulumi.Output<outputs.powerbi.PrivateEndpointResponse | undefined>;
+    declare public readonly privateEndpoint: pulumi.Output<outputs.powerbi.PrivateEndpointResponse | undefined>;
     /**
      * Specifies the connection state.
      */
-    public readonly privateLinkServiceConnectionState!: pulumi.Output<outputs.powerbi.ConnectionStateResponse | undefined>;
+    declare public readonly privateLinkServiceConnectionState: pulumi.Output<outputs.powerbi.ConnectionStateResponse | undefined>;
     /**
      * Provisioning state of the Private Endpoint Connection.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbi.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerbi.SystemDataResponse>;
     /**
      * Specifies the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateEndpointConnection resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureResourceName === undefined) && !opts.urn) {
+            if (args?.azureResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureResourceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureResourceName"] = args ? args.azureResourceName : undefined;
-            resourceInputs["privateEndpoint"] = args ? args.privateEndpoint : undefined;
-            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            resourceInputs["privateLinkServiceConnectionState"] = args ? args.privateLinkServiceConnectionState : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["azureResourceName"] = args?.azureResourceName;
+            resourceInputs["privateEndpoint"] = args?.privateEndpoint;
+            resourceInputs["privateEndpointName"] = args?.privateEndpointName;
+            resourceInputs["privateLinkServiceConnectionState"] = args?.privateLinkServiceConnectionState;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

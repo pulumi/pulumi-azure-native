@@ -44,155 +44,155 @@ export class ServerGroupCluster extends pulumi.CustomResource {
     /**
      * Indicates whether the cluster was created using AAD authentication.
      */
-    public /*out*/ readonly aadAuthEnabled!: pulumi.Output<string>;
+    declare public /*out*/ readonly aadAuthEnabled: pulumi.Output<string>;
     /**
      * The administrator's login name of the servers in the cluster.
      */
-    public /*out*/ readonly administratorLogin!: pulumi.Output<string>;
+    declare public /*out*/ readonly administratorLogin: pulumi.Output<string>;
     /**
      * Authentication configuration of a cluster.
      */
-    public readonly authConfig!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterAuthConfigResponse | undefined>;
+    declare public readonly authConfig: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterAuthConfigResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Citus extension version on all cluster servers.
      */
-    public readonly citusVersion!: pulumi.Output<string | undefined>;
+    declare public readonly citusVersion: pulumi.Output<string | undefined>;
     /**
      * If public access is enabled on coordinator.
      */
-    public readonly coordinatorEnablePublicIpAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly coordinatorEnablePublicIpAccess: pulumi.Output<boolean | undefined>;
     /**
      * The edition of a coordinator server (default: GeneralPurpose). Required for creation.
      */
-    public readonly coordinatorServerEdition!: pulumi.Output<string | undefined>;
+    declare public readonly coordinatorServerEdition: pulumi.Output<string | undefined>;
     /**
      * The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    public readonly coordinatorStorageQuotaInMb!: pulumi.Output<number | undefined>;
+    declare public readonly coordinatorStorageQuotaInMb: pulumi.Output<number | undefined>;
     /**
      * The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    public readonly coordinatorVCores!: pulumi.Output<number | undefined>;
+    declare public readonly coordinatorVCores: pulumi.Output<number | undefined>;
     /**
      * The data encryption properties of a cluster.
      */
-    public readonly dataEncryption!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterDataEncryptionResponse | undefined>;
+    declare public readonly dataEncryption: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterDataEncryptionResponse | undefined>;
     /**
      * The database name of the cluster. Only one database per cluster is supported.
      */
-    public readonly databaseName!: pulumi.Output<string | undefined>;
+    declare public readonly databaseName: pulumi.Output<string | undefined>;
     /**
      * The earliest restore point time (ISO8601 format) for the cluster.
      */
-    public /*out*/ readonly earliestRestoreTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly earliestRestoreTime: pulumi.Output<string>;
     /**
      * If cluster backup is stored in another Azure region in addition to the copy of the backup stored in the cluster's region. Enabled only at the time of cluster creation.
      */
-    public readonly enableGeoBackup!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableGeoBackup: pulumi.Output<boolean | undefined>;
     /**
      * If high availability (HA) is enabled or not for the cluster.
      */
-    public readonly enableHa!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHa: pulumi.Output<boolean | undefined>;
     /**
      * If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed.
      */
-    public readonly enableShardsOnCoordinator!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableShardsOnCoordinator: pulumi.Output<boolean | undefined>;
     /**
      * Describes the identity of the cluster.
      */
-    public readonly identity!: pulumi.Output<outputs.dbforpostgresql.IdentityPropertiesResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.dbforpostgresql.IdentityPropertiesResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maintenance window of a cluster.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowResponse | undefined>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.dbforpostgresql.ServerGroupClusterMaintenanceWindowResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation.
      */
-    public readonly nodeCount!: pulumi.Output<number | undefined>;
+    declare public readonly nodeCount: pulumi.Output<number | undefined>;
     /**
      * If public access is enabled on worker nodes.
      */
-    public readonly nodeEnablePublicIpAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly nodeEnablePublicIpAccess: pulumi.Output<boolean | undefined>;
     /**
      * The edition of a node server (default: MemoryOptimized).
      */
-    public readonly nodeServerEdition!: pulumi.Output<string | undefined>;
+    declare public readonly nodeServerEdition: pulumi.Output<string | undefined>;
     /**
      * The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    public readonly nodeStorageQuotaInMb!: pulumi.Output<number | undefined>;
+    declare public readonly nodeStorageQuotaInMb: pulumi.Output<number | undefined>;
     /**
      * The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information.
      */
-    public readonly nodeVCores!: pulumi.Output<number | undefined>;
+    declare public readonly nodeVCores: pulumi.Output<number | undefined>;
     /**
      * Indicates whether the cluster was created with a password or using AAD authentication.
      */
-    public /*out*/ readonly passwordEnabled!: pulumi.Output<string>;
+    declare public /*out*/ readonly passwordEnabled: pulumi.Output<string>;
     /**
      * Date and time in UTC (ISO8601 format) for cluster restore.
      */
-    public readonly pointInTimeUTC!: pulumi.Output<string | undefined>;
+    declare public readonly pointInTimeUTC: pulumi.Output<string | undefined>;
     /**
      * The major PostgreSQL version on all cluster servers.
      */
-    public readonly postgresqlVersion!: pulumi.Output<string | undefined>;
+    declare public readonly postgresqlVersion: pulumi.Output<string | undefined>;
     /**
      * Preferred primary availability zone (AZ) for all cluster servers.
      */
-    public readonly preferredPrimaryZone!: pulumi.Output<string | undefined>;
+    declare public readonly preferredPrimaryZone: pulumi.Output<string | undefined>;
     /**
      * The private endpoint connections for a cluster.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.dbforpostgresql.SimplePrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.dbforpostgresql.SimplePrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the cluster
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The array of read replica clusters.
      */
-    public /*out*/ readonly readReplicas!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly readReplicas: pulumi.Output<string[]>;
     /**
      * The list of server names in the cluster
      */
-    public /*out*/ readonly serverNames!: pulumi.Output<outputs.dbforpostgresql.ServerNameItemResponse[]>;
+    declare public /*out*/ readonly serverNames: pulumi.Output<outputs.dbforpostgresql.ServerNameItemResponse[]>;
     /**
      * The Azure region of source cluster for read replica clusters.
      */
-    public readonly sourceLocation!: pulumi.Output<string | undefined>;
+    declare public readonly sourceLocation: pulumi.Output<string | undefined>;
     /**
      * The resource id of source cluster for read replica clusters.
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
      * A state of a cluster/server that is visible to user.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerGroupCluster resource with the given unique name, arguments, and options.
@@ -205,37 +205,37 @@ export class ServerGroupCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["administratorLoginPassword"] = args ? args.administratorLoginPassword : undefined;
-            resourceInputs["authConfig"] = args ? args.authConfig : undefined;
-            resourceInputs["citusVersion"] = args ? args.citusVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["coordinatorEnablePublicIpAccess"] = args ? args.coordinatorEnablePublicIpAccess : undefined;
-            resourceInputs["coordinatorServerEdition"] = args ? args.coordinatorServerEdition : undefined;
-            resourceInputs["coordinatorStorageQuotaInMb"] = args ? args.coordinatorStorageQuotaInMb : undefined;
-            resourceInputs["coordinatorVCores"] = args ? args.coordinatorVCores : undefined;
-            resourceInputs["dataEncryption"] = args ? args.dataEncryption : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["enableGeoBackup"] = args ? args.enableGeoBackup : undefined;
-            resourceInputs["enableHa"] = args ? args.enableHa : undefined;
-            resourceInputs["enableShardsOnCoordinator"] = args ? args.enableShardsOnCoordinator : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["nodeCount"] = args ? args.nodeCount : undefined;
-            resourceInputs["nodeEnablePublicIpAccess"] = args ? args.nodeEnablePublicIpAccess : undefined;
-            resourceInputs["nodeServerEdition"] = args ? args.nodeServerEdition : undefined;
-            resourceInputs["nodeStorageQuotaInMb"] = args ? args.nodeStorageQuotaInMb : undefined;
-            resourceInputs["nodeVCores"] = args ? args.nodeVCores : undefined;
-            resourceInputs["pointInTimeUTC"] = args ? args.pointInTimeUTC : undefined;
-            resourceInputs["postgresqlVersion"] = args ? args.postgresqlVersion : undefined;
-            resourceInputs["preferredPrimaryZone"] = args ? args.preferredPrimaryZone : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceLocation"] = args ? args.sourceLocation : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["administratorLoginPassword"] = args?.administratorLoginPassword;
+            resourceInputs["authConfig"] = args?.authConfig;
+            resourceInputs["citusVersion"] = args?.citusVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["coordinatorEnablePublicIpAccess"] = args?.coordinatorEnablePublicIpAccess;
+            resourceInputs["coordinatorServerEdition"] = args?.coordinatorServerEdition;
+            resourceInputs["coordinatorStorageQuotaInMb"] = args?.coordinatorStorageQuotaInMb;
+            resourceInputs["coordinatorVCores"] = args?.coordinatorVCores;
+            resourceInputs["dataEncryption"] = args?.dataEncryption;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["enableGeoBackup"] = args?.enableGeoBackup;
+            resourceInputs["enableHa"] = args?.enableHa;
+            resourceInputs["enableShardsOnCoordinator"] = args?.enableShardsOnCoordinator;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["nodeCount"] = args?.nodeCount;
+            resourceInputs["nodeEnablePublicIpAccess"] = args?.nodeEnablePublicIpAccess;
+            resourceInputs["nodeServerEdition"] = args?.nodeServerEdition;
+            resourceInputs["nodeStorageQuotaInMb"] = args?.nodeStorageQuotaInMb;
+            resourceInputs["nodeVCores"] = args?.nodeVCores;
+            resourceInputs["pointInTimeUTC"] = args?.pointInTimeUTC;
+            resourceInputs["postgresqlVersion"] = args?.postgresqlVersion;
+            resourceInputs["preferredPrimaryZone"] = args?.preferredPrimaryZone;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceLocation"] = args?.sourceLocation;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["aadAuthEnabled"] = undefined /*out*/;
             resourceInputs["administratorLogin"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

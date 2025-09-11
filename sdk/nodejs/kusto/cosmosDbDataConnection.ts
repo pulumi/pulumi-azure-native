@@ -39,60 +39,60 @@ export class CosmosDbDataConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the Cosmos DB account used to create the data connection.
      */
-    public readonly cosmosDbAccountResourceId!: pulumi.Output<string>;
+    declare public readonly cosmosDbAccountResourceId: pulumi.Output<string>;
     /**
      * The name of an existing container in the Cosmos DB database.
      */
-    public readonly cosmosDbContainer!: pulumi.Output<string>;
+    declare public readonly cosmosDbContainer: pulumi.Output<string>;
     /**
      * The name of an existing database in the Cosmos DB account.
      */
-    public readonly cosmosDbDatabase!: pulumi.Output<string>;
+    declare public readonly cosmosDbDatabase: pulumi.Output<string>;
     /**
      * Kind of the endpoint for the data connection
      * Expected value is 'CosmosDb'.
      */
-    public readonly kind!: pulumi.Output<"CosmosDb">;
+    declare public readonly kind: pulumi.Output<"CosmosDb">;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The object ID of the managed identity resource.
      */
-    public /*out*/ readonly managedIdentityObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedIdentityObjectId: pulumi.Output<string>;
     /**
      * The resource ID of a managed system or user-assigned identity. The identity is used to authenticate with Cosmos DB.
      */
-    public readonly managedIdentityResourceId!: pulumi.Output<string>;
+    declare public readonly managedIdentityResourceId: pulumi.Output<string>;
     /**
      * The name of an existing mapping rule to use when ingesting the retrieved data.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Optional. If defined, the data connection retrieves Cosmos DB documents created or updated after the specified retrieval start date.
      */
-    public readonly retrievalStartDate!: pulumi.Output<string | undefined>;
+    declare public readonly retrievalStartDate: pulumi.Output<string | undefined>;
     /**
      * The case-sensitive name of the existing target table in your cluster. Retrieved data is ingested into this table.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CosmosDbDataConnection resource with the given unique name, arguments, and options.
@@ -105,46 +105,46 @@ export class CosmosDbDataConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.cosmosDbAccountResourceId === undefined) && !opts.urn) {
+            if (args?.cosmosDbAccountResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbAccountResourceId'");
             }
-            if ((!args || args.cosmosDbContainer === undefined) && !opts.urn) {
+            if (args?.cosmosDbContainer === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbContainer'");
             }
-            if ((!args || args.cosmosDbDatabase === undefined) && !opts.urn) {
+            if (args?.cosmosDbDatabase === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cosmosDbDatabase'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.managedIdentityResourceId === undefined) && !opts.urn) {
+            if (args?.managedIdentityResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedIdentityResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["cosmosDbAccountResourceId"] = args ? args.cosmosDbAccountResourceId : undefined;
-            resourceInputs["cosmosDbContainer"] = args ? args.cosmosDbContainer : undefined;
-            resourceInputs["cosmosDbDatabase"] = args ? args.cosmosDbDatabase : undefined;
-            resourceInputs["dataConnectionName"] = args ? args.dataConnectionName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["cosmosDbAccountResourceId"] = args?.cosmosDbAccountResourceId;
+            resourceInputs["cosmosDbContainer"] = args?.cosmosDbContainer;
+            resourceInputs["cosmosDbDatabase"] = args?.cosmosDbDatabase;
+            resourceInputs["dataConnectionName"] = args?.dataConnectionName;
+            resourceInputs["databaseName"] = args?.databaseName;
             resourceInputs["kind"] = "CosmosDb";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedIdentityResourceId"] = args ? args.managedIdentityResourceId : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retrievalStartDate"] = args ? args.retrievalStartDate : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedIdentityResourceId"] = args?.managedIdentityResourceId;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retrievalStartDate"] = args?.retrievalStartDate;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedIdentityObjectId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

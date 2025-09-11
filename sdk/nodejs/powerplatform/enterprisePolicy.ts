@@ -42,55 +42,55 @@ export class EnterprisePolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The encryption settings for a configuration store.
      */
-    public readonly encryption!: pulumi.Output<outputs.powerplatform.PropertiesResponseEncryption | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.powerplatform.PropertiesResponseEncryption | undefined>;
     /**
      * The health status of the resource.
      */
-    public readonly healthStatus!: pulumi.Output<string | undefined>;
+    declare public readonly healthStatus: pulumi.Output<string | undefined>;
     /**
      * The identity of the EnterprisePolicy.
      */
-    public readonly identity!: pulumi.Output<outputs.powerplatform.EnterprisePolicyIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.powerplatform.EnterprisePolicyIdentityResponse | undefined>;
     /**
      * The kind (type) of Enterprise Policy.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Settings concerning lockbox.
      */
-    public readonly lockbox!: pulumi.Output<outputs.powerplatform.PropertiesResponseLockbox | undefined>;
+    declare public readonly lockbox: pulumi.Output<outputs.powerplatform.PropertiesResponseLockbox | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Settings concerning network injection.
      */
-    public readonly networkInjection!: pulumi.Output<outputs.powerplatform.PropertiesResponseNetworkInjection | undefined>;
+    declare public readonly networkInjection: pulumi.Output<outputs.powerplatform.PropertiesResponseNetworkInjection | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerplatform.SystemDataResponse>;
     /**
      * The internally assigned unique identifier of the resource.
      */
-    public /*out*/ readonly systemId!: pulumi.Output<string>;
+    declare public /*out*/ readonly systemId: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EnterprisePolicy resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class EnterprisePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["enterprisePolicyName"] = args ? args.enterprisePolicyName : undefined;
-            resourceInputs["healthStatus"] = args ? args.healthStatus : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["lockbox"] = args ? args.lockbox : undefined;
-            resourceInputs["networkInjection"] = args ? args.networkInjection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["enterprisePolicyName"] = args?.enterprisePolicyName;
+            resourceInputs["healthStatus"] = args?.healthStatus;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["lockbox"] = args?.lockbox;
+            resourceInputs["networkInjection"] = args?.networkInjection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

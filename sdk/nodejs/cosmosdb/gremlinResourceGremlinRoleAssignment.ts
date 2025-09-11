@@ -42,35 +42,35 @@ export class GremlinResourceGremlinRoleAssignment extends pulumi.CustomResource 
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The unique identifier for the associated AAD principal in the AAD graph to which access is being granted through this Gremlin Role Assignment. Tenant ID for the principal is inferred using the tenant associated with the subscription.
      */
-    public readonly principalId!: pulumi.Output<string | undefined>;
+    declare public readonly principalId: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The unique identifier for the associated Role Definition.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly roleDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The data plane resource path for which access is being granted through this Gremlin Role Assignment.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GremlinResourceGremlinRoleAssignment resource with the given unique name, arguments, and options.
@@ -83,18 +83,18 @@ export class GremlinResourceGremlinRoleAssignment extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["principalId"] = args ? args.principalId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleAssignmentId"] = args ? args.roleAssignmentId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["principalId"] = args?.principalId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleAssignmentId"] = args?.roleAssignmentId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

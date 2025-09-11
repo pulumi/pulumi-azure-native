@@ -44,39 +44,39 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Name of the Ip Configuration.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The private IP address of the IP configuration.
      */
-    public readonly privateIPAddress!: pulumi.Output<string | undefined>;
+    declare public readonly privateIPAddress: pulumi.Output<string | undefined>;
     /**
      * The private IP address allocation method.
      */
-    public readonly privateIPAllocationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly privateIPAllocationMethod: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the IP configuration resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The reference to the public IP resource.
      */
-    public readonly publicIPAddress!: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
+    declare public readonly publicIPAddress: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
     /**
      * The reference to the subnet resource.
      */
-    public readonly subnet!: pulumi.Output<outputs.network.SubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponse | undefined>;
     /**
      * Ipconfiguration type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualHubIpConfiguration resource with the given unique name, arguments, and options.
@@ -89,21 +89,21 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
+            if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigName"] = args ? args.ipConfigName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["privateIPAddress"] = args ? args.privateIPAddress : undefined;
-            resourceInputs["privateIPAllocationMethod"] = args ? args.privateIPAllocationMethod : undefined;
-            resourceInputs["publicIPAddress"] = args ? args.publicIPAddress : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigName"] = args?.ipConfigName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["privateIPAddress"] = args?.privateIPAddress;
+            resourceInputs["privateIPAllocationMethod"] = args?.privateIPAllocationMethod;
+            resourceInputs["publicIPAddress"] = args?.publicIPAddress;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

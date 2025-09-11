@@ -42,44 +42,44 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Artifacts which need to be deployed before the specified artifact.
      */
-    public readonly dependsOn!: pulumi.Output<string[] | undefined>;
+    declare public readonly dependsOn: pulumi.Output<string[] | undefined>;
     /**
      * Multi-line explain this resource.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * One-liner string explain this resource.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Specifies the kind of blueprint artifact.
      * Expected value is 'policyAssignment'.
      */
-    public readonly kind!: pulumi.Output<"policyAssignment">;
+    declare public readonly kind: pulumi.Output<"policyAssignment">;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Parameter values for the policy definition.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.blueprint.ParameterValueResponse}>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.blueprint.ParameterValueResponse}>;
     /**
      * Azure resource ID of the policy definition.
      */
-    public readonly policyDefinitionId!: pulumi.Output<string>;
+    declare public readonly policyDefinitionId: pulumi.Output<string>;
     /**
      * Name of the resource group placeholder to which the policy will be assigned.
      */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroup: pulumi.Output<string | undefined>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PolicyAssignmentArtifact resource with the given unique name, arguments, and options.
@@ -92,31 +92,31 @@ export class PolicyAssignmentArtifact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.blueprintName === undefined) && !opts.urn) {
+            if (args?.blueprintName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'blueprintName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.parameters === undefined) && !opts.urn) {
+            if (args?.parameters === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parameters'");
             }
-            if ((!args || args.policyDefinitionId === undefined) && !opts.urn) {
+            if (args?.policyDefinitionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitionId'");
             }
-            if ((!args || args.resourceScope === undefined) && !opts.urn) {
+            if (args?.resourceScope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceScope'");
             }
-            resourceInputs["artifactName"] = args ? args.artifactName : undefined;
-            resourceInputs["blueprintName"] = args ? args.blueprintName : undefined;
-            resourceInputs["dependsOn"] = args ? args.dependsOn : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
+            resourceInputs["artifactName"] = args?.artifactName;
+            resourceInputs["blueprintName"] = args?.blueprintName;
+            resourceInputs["dependsOn"] = args?.dependsOn;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
             resourceInputs["kind"] = "policyAssignment";
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceScope"] = args ? args.resourceScope : undefined;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionId"] = args?.policyDefinitionId;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceScope"] = args?.resourceScope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

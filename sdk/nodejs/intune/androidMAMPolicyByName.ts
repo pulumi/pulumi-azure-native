@@ -36,46 +36,46 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
         return obj['__pulumiType'] === AndroidMAMPolicyByName.__pulumiType;
     }
 
-    public readonly accessRecheckOfflineTimeout!: pulumi.Output<string | undefined>;
-    public readonly accessRecheckOnlineTimeout!: pulumi.Output<string | undefined>;
-    public readonly appSharingFromLevel!: pulumi.Output<string | undefined>;
-    public readonly appSharingToLevel!: pulumi.Output<string | undefined>;
-    public readonly authentication!: pulumi.Output<string | undefined>;
+    declare public readonly accessRecheckOfflineTimeout: pulumi.Output<string | undefined>;
+    declare public readonly accessRecheckOnlineTimeout: pulumi.Output<string | undefined>;
+    declare public readonly appSharingFromLevel: pulumi.Output<string | undefined>;
+    declare public readonly appSharingToLevel: pulumi.Output<string | undefined>;
+    declare public readonly authentication: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public readonly clipboardSharingLevel!: pulumi.Output<string | undefined>;
-    public readonly dataBackup!: pulumi.Output<string | undefined>;
-    public readonly description!: pulumi.Output<string | undefined>;
-    public readonly deviceCompliance!: pulumi.Output<string | undefined>;
-    public readonly fileEncryption!: pulumi.Output<string | undefined>;
-    public readonly fileSharingSaveAs!: pulumi.Output<string | undefined>;
-    public readonly friendlyName!: pulumi.Output<string>;
-    public /*out*/ readonly groupStatus!: pulumi.Output<string>;
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public readonly clipboardSharingLevel: pulumi.Output<string | undefined>;
+    declare public readonly dataBackup: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly deviceCompliance: pulumi.Output<string | undefined>;
+    declare public readonly fileEncryption: pulumi.Output<string | undefined>;
+    declare public readonly fileSharingSaveAs: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string>;
+    declare public /*out*/ readonly groupStatus: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Resource Location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
-    public readonly managedBrowser!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
+    declare public readonly managedBrowser: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly numOfApps!: pulumi.Output<number>;
-    public readonly offlineWipeTimeout!: pulumi.Output<string | undefined>;
-    public readonly pin!: pulumi.Output<string | undefined>;
-    public readonly pinNumRetry!: pulumi.Output<number | undefined>;
-    public readonly screenCapture!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly numOfApps: pulumi.Output<number>;
+    declare public readonly offlineWipeTimeout: pulumi.Output<string | undefined>;
+    declare public readonly pin: pulumi.Output<string | undefined>;
+    declare public readonly pinNumRetry: pulumi.Output<number | undefined>;
+    declare public readonly screenCapture: pulumi.Output<string | undefined>;
     /**
      * Resource Tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AndroidMAMPolicyByName resource with the given unique name, arguments, and options.
@@ -88,33 +88,33 @@ export class AndroidMAMPolicyByName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.friendlyName === undefined) && !opts.urn) {
+            if (args?.friendlyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'friendlyName'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            resourceInputs["accessRecheckOfflineTimeout"] = args ? args.accessRecheckOfflineTimeout : undefined;
-            resourceInputs["accessRecheckOnlineTimeout"] = args ? args.accessRecheckOnlineTimeout : undefined;
-            resourceInputs["appSharingFromLevel"] = (args ? args.appSharingFromLevel : undefined) ?? "none";
-            resourceInputs["appSharingToLevel"] = (args ? args.appSharingToLevel : undefined) ?? "none";
-            resourceInputs["authentication"] = (args ? args.authentication : undefined) ?? "required";
-            resourceInputs["clipboardSharingLevel"] = (args ? args.clipboardSharingLevel : undefined) ?? "blocked";
-            resourceInputs["dataBackup"] = (args ? args.dataBackup : undefined) ?? "allow";
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceCompliance"] = (args ? args.deviceCompliance : undefined) ?? "enable";
-            resourceInputs["fileEncryption"] = (args ? args.fileEncryption : undefined) ?? "required";
-            resourceInputs["fileSharingSaveAs"] = (args ? args.fileSharingSaveAs : undefined) ?? "allow";
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBrowser"] = (args ? args.managedBrowser : undefined) ?? "required";
-            resourceInputs["offlineWipeTimeout"] = args ? args.offlineWipeTimeout : undefined;
-            resourceInputs["pin"] = (args ? args.pin : undefined) ?? "required";
-            resourceInputs["pinNumRetry"] = args ? args.pinNumRetry : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["screenCapture"] = (args ? args.screenCapture : undefined) ?? "allow";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accessRecheckOfflineTimeout"] = args?.accessRecheckOfflineTimeout;
+            resourceInputs["accessRecheckOnlineTimeout"] = args?.accessRecheckOnlineTimeout;
+            resourceInputs["appSharingFromLevel"] = (args?.appSharingFromLevel) ?? "none";
+            resourceInputs["appSharingToLevel"] = (args?.appSharingToLevel) ?? "none";
+            resourceInputs["authentication"] = (args?.authentication) ?? "required";
+            resourceInputs["clipboardSharingLevel"] = (args?.clipboardSharingLevel) ?? "blocked";
+            resourceInputs["dataBackup"] = (args?.dataBackup) ?? "allow";
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceCompliance"] = (args?.deviceCompliance) ?? "enable";
+            resourceInputs["fileEncryption"] = (args?.fileEncryption) ?? "required";
+            resourceInputs["fileSharingSaveAs"] = (args?.fileSharingSaveAs) ?? "allow";
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBrowser"] = (args?.managedBrowser) ?? "required";
+            resourceInputs["offlineWipeTimeout"] = args?.offlineWipeTimeout;
+            resourceInputs["pin"] = (args?.pin) ?? "required";
+            resourceInputs["pinNumRetry"] = args?.pinNumRetry;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["screenCapture"] = (args?.screenCapture) ?? "allow";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupStatus"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

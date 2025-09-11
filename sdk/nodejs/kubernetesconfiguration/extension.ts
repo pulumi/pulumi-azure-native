@@ -44,87 +44,87 @@ export class Extension extends pulumi.CustomResource {
     /**
      * Identity of the Extension resource in an AKS cluster
      */
-    public readonly aksAssignedIdentity!: pulumi.Output<outputs.kubernetesconfiguration.ExtensionResponseAksAssignedIdentity | undefined>;
+    declare public readonly aksAssignedIdentity: pulumi.Output<outputs.kubernetesconfiguration.ExtensionResponseAksAssignedIdentity | undefined>;
     /**
      * Flag to note if this extension participates in auto upgrade of minor version, or not.
      */
-    public readonly autoUpgradeMinorVersion!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoUpgradeMinorVersion: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration settings that are sensitive, as name-value pairs for configuring this extension.
      */
-    public readonly configurationProtectedSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configurationProtectedSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Configuration settings, as name-value pairs for configuring this extension.
      */
-    public readonly configurationSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configurationSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Currently installed version of the extension.
      */
-    public /*out*/ readonly currentVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentVersion: pulumi.Output<string>;
     /**
      * Custom Location settings properties.
      */
-    public /*out*/ readonly customLocationSettings!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly customLocationSettings: pulumi.Output<{[key: string]: string}>;
     /**
      * Error information from the Agent - e.g. errors during installation.
      */
-    public /*out*/ readonly errorInfo!: pulumi.Output<outputs.kubernetesconfiguration.ErrorDetailResponse>;
+    declare public /*out*/ readonly errorInfo: pulumi.Output<outputs.kubernetesconfiguration.ErrorDetailResponse>;
     /**
      * Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher.
      */
-    public readonly extensionType!: pulumi.Output<string | undefined>;
+    declare public readonly extensionType: pulumi.Output<string | undefined>;
     /**
      * Identity of the Extension resource
      */
-    public readonly identity!: pulumi.Output<outputs.kubernetesconfiguration.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.kubernetesconfiguration.IdentityResponse | undefined>;
     /**
      * Flag to note if this extension is a system extension
      */
-    public /*out*/ readonly isSystemExtension!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isSystemExtension: pulumi.Output<boolean>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Uri of the Helm package
      */
-    public /*out*/ readonly packageUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageUri: pulumi.Output<string>;
     /**
      * The plan information.
      */
-    public readonly plan!: pulumi.Output<outputs.kubernetesconfiguration.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.kubernetesconfiguration.PlanResponse | undefined>;
     /**
      * Status of installation of this extension.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'.
      */
-    public readonly releaseTrain!: pulumi.Output<string | undefined>;
+    declare public readonly releaseTrain: pulumi.Output<string | undefined>;
     /**
      * Scope at which the extension is installed.
      */
-    public readonly scope!: pulumi.Output<outputs.kubernetesconfiguration.ScopeResponse | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.kubernetesconfiguration.ScopeResponse | undefined>;
     /**
      * Status from this extension.
      */
-    public readonly statuses!: pulumi.Output<outputs.kubernetesconfiguration.ExtensionStatusResponse[] | undefined>;
+    declare public readonly statuses: pulumi.Output<outputs.kubernetesconfiguration.ExtensionStatusResponse[] | undefined>;
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Extension resource with the given unique name, arguments, and options.
@@ -137,34 +137,34 @@ export class Extension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
+            if (args?.clusterResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !opts.urn) {
+            if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aksAssignedIdentity"] = args ? args.aksAssignedIdentity : undefined;
-            resourceInputs["autoUpgradeMinorVersion"] = (args ? args.autoUpgradeMinorVersion : undefined) ?? true;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["configurationSettings"] = args ? args.configurationSettings : undefined;
-            resourceInputs["extensionName"] = args ? args.extensionName : undefined;
-            resourceInputs["extensionType"] = args ? args.extensionType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["releaseTrain"] = (args ? args.releaseTrain : undefined) ?? "Stable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["statuses"] = args ? args.statuses : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["aksAssignedIdentity"] = args?.aksAssignedIdentity;
+            resourceInputs["autoUpgradeMinorVersion"] = (args?.autoUpgradeMinorVersion) ?? true;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceName"] = args?.clusterResourceName;
+            resourceInputs["clusterRp"] = args?.clusterRp;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["configurationSettings"] = args?.configurationSettings;
+            resourceInputs["extensionName"] = args?.extensionName;
+            resourceInputs["extensionType"] = args?.extensionType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["releaseTrain"] = (args?.releaseTrain) ?? "Stable";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["statuses"] = args?.statuses;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentVersion"] = undefined /*out*/;
             resourceInputs["customLocationSettings"] = undefined /*out*/;

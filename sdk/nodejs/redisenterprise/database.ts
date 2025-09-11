@@ -44,67 +44,67 @@ export class Database extends pulumi.CustomResource {
     /**
      * This property can be Enabled/Disabled to allow or deny access with the current access keys. Can be updated even after database is created.
      */
-    public readonly accessKeysAuthentication!: pulumi.Output<string | undefined>;
+    declare public readonly accessKeysAuthentication: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted.
      */
-    public readonly clientProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly clientProtocol: pulumi.Output<string | undefined>;
     /**
      * Clustering policy - default is OSSCluster. This property can be updated only if the current value is NoCluster. If the value is OSSCluster or EnterpriseCluster, it cannot be updated without deleting the database.
      */
-    public readonly clusteringPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly clusteringPolicy: pulumi.Output<string | undefined>;
     /**
      * Option to defer upgrade when newest version is released - default is NotDeferred. Learn more: https://aka.ms/redisversionupgrade
      */
-    public readonly deferUpgrade!: pulumi.Output<string | undefined>;
+    declare public readonly deferUpgrade: pulumi.Output<string | undefined>;
     /**
      * Redis eviction policy - default is VolatileLRU
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Optional set of properties to configure geo replication for this database.
      */
-    public readonly geoReplication!: pulumi.Output<outputs.redisenterprise.DatabasePropertiesResponseGeoReplication | undefined>;
+    declare public readonly geoReplication: pulumi.Output<outputs.redisenterprise.DatabasePropertiesResponseGeoReplication | undefined>;
     /**
      * Optional set of redis modules to enable in this database - modules can only be added at creation time.
      */
-    public readonly modules!: pulumi.Output<outputs.redisenterprise.ModuleResponse[] | undefined>;
+    declare public readonly modules: pulumi.Output<outputs.redisenterprise.ModuleResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Persistence settings
      */
-    public readonly persistence!: pulumi.Output<outputs.redisenterprise.PersistenceResponse | undefined>;
+    declare public readonly persistence: pulumi.Output<outputs.redisenterprise.PersistenceResponse | undefined>;
     /**
      * TCP port of the database endpoint. Specified at create time. Defaults to an available port.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Current provisioning status of the database
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Version of Redis the database is running on, e.g. '6.0'
      */
-    public /*out*/ readonly redisVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly redisVersion: pulumi.Output<string>;
     /**
      * Current resource status of the database
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.redisenterprise.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.redisenterprise.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Database resource with the given unique name, arguments, and options.
@@ -117,24 +117,24 @@ export class Database extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessKeysAuthentication"] = args ? args.accessKeysAuthentication : undefined;
-            resourceInputs["clientProtocol"] = args ? args.clientProtocol : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusteringPolicy"] = args ? args.clusteringPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["deferUpgrade"] = args ? args.deferUpgrade : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["geoReplication"] = args ? args.geoReplication : undefined;
-            resourceInputs["modules"] = args ? args.modules : undefined;
-            resourceInputs["persistence"] = args ? args.persistence : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accessKeysAuthentication"] = args?.accessKeysAuthentication;
+            resourceInputs["clientProtocol"] = args?.clientProtocol;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusteringPolicy"] = args?.clusteringPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["deferUpgrade"] = args?.deferUpgrade;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["geoReplication"] = args?.geoReplication;
+            resourceInputs["modules"] = args?.modules;
+            resourceInputs["persistence"] = args?.persistence;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

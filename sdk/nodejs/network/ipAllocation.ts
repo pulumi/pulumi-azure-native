@@ -44,55 +44,55 @@ export class IpAllocation extends pulumi.CustomResource {
     /**
      * IpAllocation tags.
      */
-    public readonly allocationTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly allocationTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The IPAM allocation ID.
      */
-    public readonly ipamAllocationId!: pulumi.Output<string | undefined>;
+    declare public readonly ipamAllocationId: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The address prefix for the IpAllocation.
      */
-    public readonly prefix!: pulumi.Output<string | undefined>;
+    declare public readonly prefix: pulumi.Output<string | undefined>;
     /**
      * The address prefix length for the IpAllocation.
      */
-    public readonly prefixLength!: pulumi.Output<number | undefined>;
+    declare public readonly prefixLength: pulumi.Output<number | undefined>;
     /**
      * The address prefix Type for the IpAllocation.
      */
-    public readonly prefixType!: pulumi.Output<string | undefined>;
+    declare public readonly prefixType: pulumi.Output<string | undefined>;
     /**
      * The Subnet that using the prefix of this IpAllocation resource.
      */
-    public /*out*/ readonly subnet!: pulumi.Output<outputs.network.SubResourceResponse>;
+    declare public /*out*/ readonly subnet: pulumi.Output<outputs.network.SubResourceResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The VirtualNetwork that using the prefix of this IpAllocation resource.
      */
-    public /*out*/ readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse>;
+    declare public /*out*/ readonly virtualNetwork: pulumi.Output<outputs.network.SubResourceResponse>;
 
     /**
      * Create a IpAllocation resource with the given unique name, arguments, and options.
@@ -105,20 +105,20 @@ export class IpAllocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allocationTags"] = args ? args.allocationTags : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAllocationName"] = args ? args.ipAllocationName : undefined;
-            resourceInputs["ipamAllocationId"] = args ? args.ipamAllocationId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["prefix"] = args ? args.prefix : undefined;
-            resourceInputs["prefixLength"] = (args ? args.prefixLength : undefined) ?? 0;
-            resourceInputs["prefixType"] = args ? args.prefixType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allocationTags"] = args?.allocationTags;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAllocationName"] = args?.ipAllocationName;
+            resourceInputs["ipamAllocationId"] = args?.ipamAllocationId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["prefix"] = args?.prefix;
+            resourceInputs["prefixLength"] = (args?.prefixLength) ?? 0;
+            resourceInputs["prefixType"] = args?.prefixType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

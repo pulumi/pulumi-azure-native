@@ -44,51 +44,51 @@ export class IncidentTask extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Information on the client (user or application) that made some action
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse | undefined>;
+    declare public readonly createdBy: pulumi.Output<outputs.securityinsights.ClientInfoResponse | undefined>;
     /**
      * The time the task was created
      */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimeUtc: pulumi.Output<string>;
     /**
      * The description of the task
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Information on the client (user or application) that made some action
      */
-    public readonly lastModifiedBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse | undefined>;
+    declare public readonly lastModifiedBy: pulumi.Output<outputs.securityinsights.ClientInfoResponse | undefined>;
     /**
      * The last time the task was updated
      */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the task
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The title of the task
      */
-    public readonly title!: pulumi.Output<string>;
+    declare public readonly title: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IncidentTask resource with the given unique name, arguments, and options.
@@ -101,30 +101,30 @@ export class IncidentTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.incidentId === undefined) && !opts.urn) {
+            if (args?.incidentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'incidentId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.title === undefined) && !opts.urn) {
+            if (args?.title === undefined && !opts.urn) {
                 throw new Error("Missing required property 'title'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["incidentId"] = args ? args.incidentId : undefined;
-            resourceInputs["incidentTaskId"] = args ? args.incidentTaskId : undefined;
-            resourceInputs["lastModifiedBy"] = args ? args.lastModifiedBy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["incidentId"] = args?.incidentId;
+            resourceInputs["incidentTaskId"] = args?.incidentTaskId;
+            resourceInputs["lastModifiedBy"] = args?.lastModifiedBy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["title"] = args?.title;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

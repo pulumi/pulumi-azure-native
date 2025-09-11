@@ -42,56 +42,56 @@ export class ADLSGen2FolderDataSetMapping extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The id of the source data set.
      */
-    public readonly dataSetId!: pulumi.Output<string>;
+    declare public readonly dataSetId: pulumi.Output<string>;
     /**
      * Gets the status of the data set mapping.
      */
-    public /*out*/ readonly dataSetMappingStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSetMappingStatus: pulumi.Output<string>;
     /**
      * File system to which the folder belongs.
      */
-    public readonly fileSystem!: pulumi.Output<string>;
+    declare public readonly fileSystem: pulumi.Output<string>;
     /**
      * Folder path within the file system.
      */
-    public readonly folderPath!: pulumi.Output<string>;
+    declare public readonly folderPath: pulumi.Output<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'AdlsGen2Folder'.
      */
-    public readonly kind!: pulumi.Output<"AdlsGen2Folder">;
+    declare public readonly kind: pulumi.Output<"AdlsGen2Folder">;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the data set mapping.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource group of storage account.
      */
-    public readonly resourceGroup!: pulumi.Output<string>;
+    declare public readonly resourceGroup: pulumi.Output<string>;
     /**
      * Storage account name of the source data set.
      */
-    public readonly storageAccountName!: pulumi.Output<string>;
+    declare public readonly storageAccountName: pulumi.Output<string>;
     /**
      * Subscription id of storage account.
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ADLSGen2FolderDataSetMapping resource with the given unique name, arguments, and options.
@@ -104,47 +104,47 @@ export class ADLSGen2FolderDataSetMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.fileSystem === undefined) && !opts.urn) {
+            if (args?.fileSystem === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fileSystem'");
             }
-            if ((!args || args.folderPath === undefined) && !opts.urn) {
+            if (args?.folderPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'folderPath'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.storageAccountName === undefined) && !opts.urn) {
+            if (args?.storageAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
-            resourceInputs["fileSystem"] = args ? args.fileSystem : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["dataSetMappingName"] = args?.dataSetMappingName;
+            resourceInputs["fileSystem"] = args?.fileSystem;
+            resourceInputs["folderPath"] = args?.folderPath;
             resourceInputs["kind"] = "AdlsGen2Folder";
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

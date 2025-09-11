@@ -44,75 +44,75 @@ export class NetworkDevice extends pulumi.CustomResource {
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * The host name of the device.
      */
-    public readonly hostName!: pulumi.Output<string | undefined>;
+    declare public readonly hostName: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Management IPv4 Address.
      */
-    public /*out*/ readonly managementIpv4Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementIpv4Address: pulumi.Output<string>;
     /**
      * Management IPv6 Address.
      */
-    public /*out*/ readonly managementIpv6Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementIpv6Address: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * NetworkDeviceRole is the device role: Example: CE | ToR.
      */
-    public /*out*/ readonly networkDeviceRole!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkDeviceRole: pulumi.Output<string>;
     /**
      * Network Device SKU name.
      */
-    public readonly networkDeviceSku!: pulumi.Output<string | undefined>;
+    declare public readonly networkDeviceSku: pulumi.Output<string | undefined>;
     /**
      * Reference to network rack resource id.
      */
-    public /*out*/ readonly networkRackId!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkRackId: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Serial number of the device. Format of serial Number - Make;Model;HardwareRevisionId;SerialNumber.
      */
-    public readonly serialNumber!: pulumi.Output<string>;
+    declare public readonly serialNumber: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Current version of the device as defined in SKU.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a NetworkDevice resource with the given unique name, arguments, and options.
@@ -125,20 +125,20 @@ export class NetworkDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialNumber === undefined) && !opts.urn) {
+            if (args?.serialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialNumber'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkDeviceName"] = args ? args.networkDeviceName : undefined;
-            resourceInputs["networkDeviceSku"] = args ? args.networkDeviceSku : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkDeviceName"] = args?.networkDeviceName;
+            resourceInputs["networkDeviceSku"] = args?.networkDeviceSku;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

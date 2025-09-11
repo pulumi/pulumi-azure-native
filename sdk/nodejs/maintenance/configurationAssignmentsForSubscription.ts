@@ -44,35 +44,35 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties of the configuration assignment
      */
-    public readonly filter!: pulumi.Output<outputs.maintenance.ConfigurationAssignmentFilterPropertiesResponse | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.maintenance.ConfigurationAssignmentFilterPropertiesResponse | undefined>;
     /**
      * Location of the resource
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The maintenance configuration Id
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The unique resourceId
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.maintenance.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.maintenance.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationAssignmentsForSubscription resource with the given unique name, arguments, and options.
@@ -85,11 +85,11 @@ export class ConfigurationAssignmentsForSubscription extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["configurationAssignmentName"] = args ? args.configurationAssignmentName : undefined;
-            resourceInputs["filter"] = args ? args.filter : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
+            resourceInputs["configurationAssignmentName"] = args?.configurationAssignmentName;
+            resourceInputs["filter"] = args?.filter;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["resourceId"] = args?.resourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

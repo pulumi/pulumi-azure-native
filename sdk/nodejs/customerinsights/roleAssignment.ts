@@ -42,95 +42,95 @@ export class RoleAssignment extends pulumi.CustomResource {
     /**
      * The name of the metadata object.
      */
-    public readonly assignmentName!: pulumi.Output<string>;
+    declare public readonly assignmentName: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Widget types set for the assignment.
      */
-    public readonly conflationPolicies!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly conflationPolicies: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Connectors set for the assignment.
      */
-    public readonly connectors!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly connectors: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Localized description for the metadata.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Localized display names for the metadata.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Interactions set for the assignment.
      */
-    public readonly interactions!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly interactions: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Kpis set for the assignment.
      */
-    public readonly kpis!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly kpis: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Links set for the assignment.
      */
-    public readonly links!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly links: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The principals being assigned to.
      */
-    public readonly principals!: pulumi.Output<outputs.customerinsights.AssignmentPrincipalResponse[]>;
+    declare public readonly principals: pulumi.Output<outputs.customerinsights.AssignmentPrincipalResponse[]>;
     /**
      * Profiles set for the assignment.
      */
-    public readonly profiles!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly profiles: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Role assignments set for the relationship links.
      */
-    public readonly relationshipLinks!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly relationshipLinks: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * The Role assignments set for the relationships.
      */
-    public readonly relationships!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly relationships: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Type of roles.
      */
-    public readonly role!: pulumi.Output<string>;
+    declare public readonly role: pulumi.Output<string>;
     /**
      * The Role assignments set for the assignment.
      */
-    public readonly roleAssignments!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly roleAssignments: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Sas Policies set for the assignment.
      */
-    public readonly sasPolicies!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly sasPolicies: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * The Role assignments set for the assignment.
      */
-    public readonly segments!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly segments: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Views set for the assignment.
      */
-    public readonly views!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly views: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
     /**
      * Widget types set for the assignment.
      */
-    public readonly widgetTypes!: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
+    declare public readonly widgetTypes: pulumi.Output<outputs.customerinsights.ResourceSetDescriptionResponse | undefined>;
 
     /**
      * Create a RoleAssignment resource with the given unique name, arguments, and options.
@@ -143,38 +143,38 @@ export class RoleAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.principals === undefined) && !opts.urn) {
+            if (args?.principals === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principals'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.role === undefined) && !opts.urn) {
+            if (args?.role === undefined && !opts.urn) {
                 throw new Error("Missing required property 'role'");
             }
-            resourceInputs["assignmentName"] = args ? args.assignmentName : undefined;
-            resourceInputs["conflationPolicies"] = args ? args.conflationPolicies : undefined;
-            resourceInputs["connectors"] = args ? args.connectors : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["interactions"] = args ? args.interactions : undefined;
-            resourceInputs["kpis"] = args ? args.kpis : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["principals"] = args ? args.principals : undefined;
-            resourceInputs["profiles"] = args ? args.profiles : undefined;
-            resourceInputs["relationshipLinks"] = args ? args.relationshipLinks : undefined;
-            resourceInputs["relationships"] = args ? args.relationships : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["roleAssignments"] = args ? args.roleAssignments : undefined;
-            resourceInputs["sasPolicies"] = args ? args.sasPolicies : undefined;
-            resourceInputs["segments"] = args ? args.segments : undefined;
-            resourceInputs["views"] = args ? args.views : undefined;
-            resourceInputs["widgetTypes"] = args ? args.widgetTypes : undefined;
+            resourceInputs["assignmentName"] = args?.assignmentName;
+            resourceInputs["conflationPolicies"] = args?.conflationPolicies;
+            resourceInputs["connectors"] = args?.connectors;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["interactions"] = args?.interactions;
+            resourceInputs["kpis"] = args?.kpis;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["principals"] = args?.principals;
+            resourceInputs["profiles"] = args?.profiles;
+            resourceInputs["relationshipLinks"] = args?.relationshipLinks;
+            resourceInputs["relationships"] = args?.relationships;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["role"] = args?.role;
+            resourceInputs["roleAssignments"] = args?.roleAssignments;
+            resourceInputs["sasPolicies"] = args?.sasPolicies;
+            resourceInputs["segments"] = args?.segments;
+            resourceInputs["views"] = args?.views;
+            resourceInputs["widgetTypes"] = args?.widgetTypes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,51 +44,51 @@ export class Organization extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation time of the resource.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Confluent offer detail
      */
-    public readonly offerDetail!: pulumi.Output<outputs.confluent.OfferDetailResponse>;
+    declare public readonly offerDetail: pulumi.Output<outputs.confluent.OfferDetailResponse>;
     /**
      * Id of the Confluent organization.
      */
-    public /*out*/ readonly organizationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly organizationId: pulumi.Output<string>;
     /**
      * Provision states for confluent RP
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SSO url for the Confluent organization.
      */
-    public /*out*/ readonly ssoUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly ssoUrl: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.confluent.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Subscriber detail
      */
-    public readonly userDetail!: pulumi.Output<outputs.confluent.UserDetailResponse>;
+    declare public readonly userDetail: pulumi.Output<outputs.confluent.UserDetailResponse>;
 
     /**
      * Create a Organization resource with the given unique name, arguments, and options.
@@ -101,22 +101,22 @@ export class Organization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.offerDetail === undefined) && !opts.urn) {
+            if (args?.offerDetail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'offerDetail'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userDetail === undefined) && !opts.urn) {
+            if (args?.userDetail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userDetail'");
             }
-            resourceInputs["linkOrganization"] = args ? args.linkOrganization : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["offerDetail"] = args ? args.offerDetail : undefined;
-            resourceInputs["organizationName"] = args ? args.organizationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userDetail"] = args ? args.userDetail : undefined;
+            resourceInputs["linkOrganization"] = args?.linkOrganization;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["offerDetail"] = args?.offerDetail;
+            resourceInputs["organizationName"] = args?.organizationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userDetail"] = args?.userDetail;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

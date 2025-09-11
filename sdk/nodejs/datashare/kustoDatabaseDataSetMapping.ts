@@ -42,44 +42,44 @@ export class KustoDatabaseDataSetMapping extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The id of the source data set.
      */
-    public readonly dataSetId!: pulumi.Output<string>;
+    declare public readonly dataSetId: pulumi.Output<string>;
     /**
      * Gets the status of the data set mapping.
      */
-    public /*out*/ readonly dataSetMappingStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSetMappingStatus: pulumi.Output<string>;
     /**
      * Kind of data set mapping.
      * Expected value is 'KustoDatabase'.
      */
-    public readonly kind!: pulumi.Output<"KustoDatabase">;
+    declare public readonly kind: pulumi.Output<"KustoDatabase">;
     /**
      * Resource id of the sink kusto cluster.
      */
-    public readonly kustoClusterResourceId!: pulumi.Output<string>;
+    declare public readonly kustoClusterResourceId: pulumi.Output<string>;
     /**
      * Location of the sink kusto cluster.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the data set mapping.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KustoDatabaseDataSetMapping resource with the given unique name, arguments, and options.
@@ -92,31 +92,31 @@ export class KustoDatabaseDataSetMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataSetId === undefined) && !opts.urn) {
+            if (args?.dataSetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSetId'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.kustoClusterResourceId === undefined) && !opts.urn) {
+            if (args?.kustoClusterResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoClusterResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetId"] = args ? args.dataSetId : undefined;
-            resourceInputs["dataSetMappingName"] = args ? args.dataSetMappingName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetId"] = args?.dataSetId;
+            resourceInputs["dataSetMappingName"] = args?.dataSetMappingName;
             resourceInputs["kind"] = "KustoDatabase";
-            resourceInputs["kustoClusterResourceId"] = args ? args.kustoClusterResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
+            resourceInputs["kustoClusterResourceId"] = args?.kustoClusterResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetMappingStatus"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

@@ -42,163 +42,163 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Indicates whether another user can take ownership of the virtual machine
      */
-    public readonly allowClaim!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowClaim: pulumi.Output<boolean | undefined>;
     /**
      * The applicable schedule for the virtual machine.
      */
-    public /*out*/ readonly applicableSchedule!: pulumi.Output<outputs.devtestlab.ApplicableScheduleResponse>;
+    declare public /*out*/ readonly applicableSchedule: pulumi.Output<outputs.devtestlab.ApplicableScheduleResponse>;
     /**
      * The artifact deployment status for the virtual machine.
      */
-    public /*out*/ readonly artifactDeploymentStatus!: pulumi.Output<outputs.devtestlab.ArtifactDeploymentStatusPropertiesResponse>;
+    declare public /*out*/ readonly artifactDeploymentStatus: pulumi.Output<outputs.devtestlab.ArtifactDeploymentStatusPropertiesResponse>;
     /**
      * The artifacts to be installed on the virtual machine.
      */
-    public readonly artifacts!: pulumi.Output<outputs.devtestlab.ArtifactInstallPropertiesResponse[] | undefined>;
+    declare public readonly artifacts: pulumi.Output<outputs.devtestlab.ArtifactInstallPropertiesResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource identifier (Microsoft.Compute) of the virtual machine.
      */
-    public /*out*/ readonly computeId!: pulumi.Output<string>;
+    declare public /*out*/ readonly computeId: pulumi.Output<string>;
     /**
      * The compute virtual machine properties.
      */
-    public /*out*/ readonly computeVm!: pulumi.Output<outputs.devtestlab.ComputeVmPropertiesResponse>;
+    declare public /*out*/ readonly computeVm: pulumi.Output<outputs.devtestlab.ComputeVmPropertiesResponse>;
     /**
      * The email address of creator of the virtual machine.
      */
-    public /*out*/ readonly createdByUser!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdByUser: pulumi.Output<string>;
     /**
      * The object identifier of the creator of the virtual machine.
      */
-    public /*out*/ readonly createdByUserId!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdByUserId: pulumi.Output<string>;
     /**
      * The creation date of the virtual machine.
      */
-    public readonly createdDate!: pulumi.Output<string | undefined>;
+    declare public readonly createdDate: pulumi.Output<string | undefined>;
     /**
      * The custom image identifier of the virtual machine.
      */
-    public readonly customImageId!: pulumi.Output<string | undefined>;
+    declare public readonly customImageId: pulumi.Output<string | undefined>;
     /**
      * New or existing data disks to attach to the virtual machine after creation
      */
-    public readonly dataDiskParameters!: pulumi.Output<outputs.devtestlab.DataDiskPropertiesResponse[] | undefined>;
+    declare public readonly dataDiskParameters: pulumi.Output<outputs.devtestlab.DataDiskPropertiesResponse[] | undefined>;
     /**
      * Indicates whether the virtual machine is to be created without a public IP address.
      */
-    public readonly disallowPublicIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly disallowPublicIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * The resource ID of the environment that contains this virtual machine, if any.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The expiration date for VM.
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * The fully-qualified domain name of the virtual machine.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The Microsoft Azure Marketplace image reference of the virtual machine.
      */
-    public readonly galleryImageReference!: pulumi.Output<outputs.devtestlab.GalleryImageReferenceResponse | undefined>;
+    declare public readonly galleryImageReference: pulumi.Output<outputs.devtestlab.GalleryImageReferenceResponse | undefined>;
     /**
      * Indicates whether this virtual machine uses an SSH key for authentication.
      */
-    public readonly isAuthenticationWithSshKey!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAuthenticationWithSshKey: pulumi.Output<boolean | undefined>;
     /**
      * The lab subnet name of the virtual machine.
      */
-    public readonly labSubnetName!: pulumi.Output<string | undefined>;
+    declare public readonly labSubnetName: pulumi.Output<string | undefined>;
     /**
      * The lab virtual network identifier of the virtual machine.
      */
-    public readonly labVirtualNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly labVirtualNetworkId: pulumi.Output<string | undefined>;
     /**
      * Last known compute power state captured in DTL
      */
-    public /*out*/ readonly lastKnownPowerState!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastKnownPowerState: pulumi.Output<string>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The network interface properties.
      */
-    public readonly networkInterface!: pulumi.Output<outputs.devtestlab.NetworkInterfacePropertiesResponse | undefined>;
+    declare public readonly networkInterface: pulumi.Output<outputs.devtestlab.NetworkInterfacePropertiesResponse | undefined>;
     /**
      * The notes of the virtual machine.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * The OS type of the virtual machine.
      */
-    public /*out*/ readonly osType!: pulumi.Output<string>;
+    declare public /*out*/ readonly osType: pulumi.Output<string>;
     /**
      * The object identifier of the owner of the virtual machine.
      */
-    public readonly ownerObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly ownerObjectId: pulumi.Output<string | undefined>;
     /**
      * The user principal name of the virtual machine owner.
      */
-    public readonly ownerUserPrincipalName!: pulumi.Output<string | undefined>;
+    declare public readonly ownerUserPrincipalName: pulumi.Output<string | undefined>;
     /**
      * The password of the virtual machine administrator.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * The id of the plan associated with the virtual machine image
      */
-    public readonly planId!: pulumi.Output<string | undefined>;
+    declare public readonly planId: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Virtual Machine schedules to be created
      */
-    public readonly scheduleParameters!: pulumi.Output<outputs.devtestlab.ScheduleCreationParameterResponse[] | undefined>;
+    declare public readonly scheduleParameters: pulumi.Output<outputs.devtestlab.ScheduleCreationParameterResponse[] | undefined>;
     /**
      * The size of the virtual machine.
      */
-    public readonly size!: pulumi.Output<string | undefined>;
+    declare public readonly size: pulumi.Output<string | undefined>;
     /**
      * The SSH key of the virtual machine administrator.
      */
-    public readonly sshKey!: pulumi.Output<string | undefined>;
+    declare public readonly sshKey: pulumi.Output<string | undefined>;
     /**
      * Storage type to use for virtual machine (i.e. Standard, Premium).
      */
-    public readonly storageType!: pulumi.Output<string | undefined>;
+    declare public readonly storageType: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * The user name of the virtual machine.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
     /**
      * Tells source of creation of lab virtual machine. Output property only.
      */
-    public /*out*/ readonly virtualMachineCreationSource!: pulumi.Output<string>;
+    declare public /*out*/ readonly virtualMachineCreationSource: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -211,40 +211,40 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowClaim"] = (args ? args.allowClaim : undefined) ?? false;
-            resourceInputs["artifacts"] = args ? args.artifacts : undefined;
-            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
-            resourceInputs["customImageId"] = args ? args.customImageId : undefined;
-            resourceInputs["dataDiskParameters"] = args ? args.dataDiskParameters : undefined;
-            resourceInputs["disallowPublicIpAddress"] = (args ? args.disallowPublicIpAddress : undefined) ?? false;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["galleryImageReference"] = args ? args.galleryImageReference : undefined;
-            resourceInputs["isAuthenticationWithSshKey"] = args ? args.isAuthenticationWithSshKey : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["labSubnetName"] = args ? args.labSubnetName : undefined;
-            resourceInputs["labVirtualNetworkId"] = args ? args.labVirtualNetworkId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["networkInterface"] = args ? args.networkInterface : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["ownerObjectId"] = (args ? args.ownerObjectId : undefined) ?? "dynamicValue";
-            resourceInputs["ownerUserPrincipalName"] = args ? args.ownerUserPrincipalName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleParameters"] = args ? args.scheduleParameters : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["sshKey"] = args ? args.sshKey : undefined;
-            resourceInputs["storageType"] = (args ? args.storageType : undefined) ?? "labStorageType";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["allowClaim"] = (args?.allowClaim) ?? false;
+            resourceInputs["artifacts"] = args?.artifacts;
+            resourceInputs["createdDate"] = args?.createdDate;
+            resourceInputs["customImageId"] = args?.customImageId;
+            resourceInputs["dataDiskParameters"] = args?.dataDiskParameters;
+            resourceInputs["disallowPublicIpAddress"] = (args?.disallowPublicIpAddress) ?? false;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["galleryImageReference"] = args?.galleryImageReference;
+            resourceInputs["isAuthenticationWithSshKey"] = args?.isAuthenticationWithSshKey;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["labSubnetName"] = args?.labSubnetName;
+            resourceInputs["labVirtualNetworkId"] = args?.labVirtualNetworkId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["networkInterface"] = args?.networkInterface;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["ownerObjectId"] = (args?.ownerObjectId) ?? "dynamicValue";
+            resourceInputs["ownerUserPrincipalName"] = args?.ownerUserPrincipalName;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleParameters"] = args?.scheduleParameters;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["sshKey"] = args?.sshKey;
+            resourceInputs["storageType"] = (args?.storageType) ?? "labStorageType";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["applicableSchedule"] = undefined /*out*/;
             resourceInputs["artifactDeploymentStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

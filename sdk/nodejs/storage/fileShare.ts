@@ -44,123 +44,123 @@ export class FileShare extends pulumi.CustomResource {
     /**
      * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium.
      */
-    public readonly accessTier!: pulumi.Output<string | undefined>;
+    declare public readonly accessTier: pulumi.Output<string | undefined>;
     /**
      * Indicates the last modification time for share access tier.
      */
-    public /*out*/ readonly accessTierChangeTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessTierChangeTime: pulumi.Output<string>;
     /**
      * Indicates if there is a pending transition for access tier.
      */
-    public /*out*/ readonly accessTierStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessTierStatus: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates whether the share was deleted.
      */
-    public /*out*/ readonly deleted!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly deleted: pulumi.Output<boolean>;
     /**
      * The deleted time if the share was deleted.
      */
-    public /*out*/ readonly deletedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly deletedTime: pulumi.Output<string>;
     /**
      * The authentication protocol that is used for the file share. Can only be specified when creating a share.
      */
-    public readonly enabledProtocols!: pulumi.Output<string | undefined>;
+    declare public readonly enabledProtocols: pulumi.Output<string | undefined>;
     /**
      * Resource Etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * File Share Paid Bursting properties.
      */
-    public readonly fileSharePaidBursting!: pulumi.Output<outputs.storage.FileSharePropertiesResponseFileSharePaidBursting | undefined>;
+    declare public readonly fileSharePaidBursting: pulumi.Output<outputs.storage.FileSharePropertiesResponseFileSharePaidBursting | undefined>;
     /**
      * The calculated burst IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type.
      */
-    public /*out*/ readonly includedBurstIops!: pulumi.Output<number>;
+    declare public /*out*/ readonly includedBurstIops: pulumi.Output<number>;
     /**
      * Returns the date and time the share was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Specifies whether the lease on a share is of infinite or fixed duration, only when the share is leased.
      */
-    public /*out*/ readonly leaseDuration!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseDuration: pulumi.Output<string>;
     /**
      * Lease state of the share.
      */
-    public /*out*/ readonly leaseState!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseState: pulumi.Output<string>;
     /**
      * The lease status of the share.
      */
-    public /*out*/ readonly leaseStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly leaseStatus: pulumi.Output<string>;
     /**
      * The calculated maximum burst credits for the share. This property is only for file shares created under Files Provisioned v2 account type.
      */
-    public /*out*/ readonly maxBurstCreditsForIops!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxBurstCreditsForIops: pulumi.Output<number>;
     /**
      * A name-value pair to associate with the share as metadata.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Returns the next allowed provisioned bandwidth downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
      */
-    public /*out*/ readonly nextAllowedProvisionedBandwidthDowngradeTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextAllowedProvisionedBandwidthDowngradeTime: pulumi.Output<string>;
     /**
      * Returns the next allowed provisioned IOPS downgrade time for the share. This property is only for file shares created under Files Provisioned v2 account type.
      */
-    public /*out*/ readonly nextAllowedProvisionedIopsDowngradeTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextAllowedProvisionedIopsDowngradeTime: pulumi.Output<string>;
     /**
      * Returns the next allowed provisioned storage size downgrade time for the share. This property is only for file shares created under Files Provisioned v1 SSD and Files Provisioned v2 account type
      */
-    public /*out*/ readonly nextAllowedQuotaDowngradeTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextAllowedQuotaDowngradeTime: pulumi.Output<string>;
     /**
      * The provisioned bandwidth of the share, in mebibytes per second. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned bandwidth.
      */
-    public readonly provisionedBandwidthMibps!: pulumi.Output<number | undefined>;
+    declare public readonly provisionedBandwidthMibps: pulumi.Output<number | undefined>;
     /**
      * The provisioned IOPS of the share. This property is only for file shares created under Files Provisioned v2 account type. Please refer to the GetFileServiceUsage API response for the minimum and maximum allowed value for provisioned IOPS.
      */
-    public readonly provisionedIops!: pulumi.Output<number | undefined>;
+    declare public readonly provisionedIops: pulumi.Output<number | undefined>;
     /**
      * Remaining retention days for share that was soft deleted.
      */
-    public /*out*/ readonly remainingRetentionDays!: pulumi.Output<number>;
+    declare public /*out*/ readonly remainingRetentionDays: pulumi.Output<number>;
     /**
      * The property is for NFS share only. The default is NoRootSquash.
      */
-    public readonly rootSquash!: pulumi.Output<string | undefined>;
+    declare public readonly rootSquash: pulumi.Output<string | undefined>;
     /**
      * The provisioned size of the share, in gibibytes. Must be greater than 0, and less than or equal to 5TB (5120). For Large File Shares, the maximum size is 102400. For file shares created under Files Provisioned v2 account type, please refer to the GetFileServiceUsage API response for the minimum and maximum allowed provisioned storage size.
      */
-    public readonly shareQuota!: pulumi.Output<number | undefined>;
+    declare public readonly shareQuota: pulumi.Output<number | undefined>;
     /**
      * The approximate size of the data stored on the share. Note that this value may not include all recently created or recently resized files.
      */
-    public /*out*/ readonly shareUsageBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly shareUsageBytes: pulumi.Output<number>;
     /**
      * List of stored access policies specified on the share.
      */
-    public readonly signedIdentifiers!: pulumi.Output<outputs.storage.SignedIdentifierResponse[] | undefined>;
+    declare public readonly signedIdentifiers: pulumi.Output<outputs.storage.SignedIdentifierResponse[] | undefined>;
     /**
      * Creation time of share snapshot returned in the response of list shares with expand param "snapshots".
      */
-    public /*out*/ readonly snapshotTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly snapshotTime: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The version of the share.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a FileShare resource with the given unique name, arguments, and options.
@@ -173,25 +173,25 @@ export class FileShare extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessTier"] = args ? args.accessTier : undefined;
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["enabledProtocols"] = args ? args.enabledProtocols : undefined;
-            resourceInputs["expand"] = args ? args.expand : undefined;
-            resourceInputs["fileSharePaidBursting"] = args ? args.fileSharePaidBursting : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["provisionedBandwidthMibps"] = args ? args.provisionedBandwidthMibps : undefined;
-            resourceInputs["provisionedIops"] = args ? args.provisionedIops : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquash"] = args ? args.rootSquash : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["shareQuota"] = args ? args.shareQuota : undefined;
-            resourceInputs["signedIdentifiers"] = args ? args.signedIdentifiers : undefined;
+            resourceInputs["accessTier"] = args?.accessTier;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["enabledProtocols"] = args?.enabledProtocols;
+            resourceInputs["expand"] = args?.expand;
+            resourceInputs["fileSharePaidBursting"] = args?.fileSharePaidBursting;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["provisionedBandwidthMibps"] = args?.provisionedBandwidthMibps;
+            resourceInputs["provisionedIops"] = args?.provisionedIops;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rootSquash"] = args?.rootSquash;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["shareQuota"] = args?.shareQuota;
+            resourceInputs["signedIdentifiers"] = args?.signedIdentifiers;
             resourceInputs["accessTierChangeTime"] = undefined /*out*/;
             resourceInputs["accessTierStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
