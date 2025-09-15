@@ -21,10 +21,14 @@ on:
 
 jobs:
   version:
+    permissions:
+      id-token: write # For ESC secrets.
     uses: ./.github/workflows/version.yml
     secrets: inherit
 
   build_test:
+    permissions:
+      id-token: write # For ESC secrets.
     uses: ./.github/workflows/build-test.yml
     secrets: inherit
     needs: version
@@ -40,6 +44,8 @@ jobs:
       retention_days: 30
 
   publish:
+    permissions:
+      id-token: write # For ESC secrets.
     uses: ./.github/workflows/publish.yml
     secrets: inherit
     needs:
