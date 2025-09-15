@@ -380,6 +380,8 @@ jobs:
     runs-on: ubuntu-latest
     name: Provider Dist
     needs: prerequisites
+    permissions:
+      id-token: write # required for OIDC auth
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
