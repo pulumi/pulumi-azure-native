@@ -366,6 +366,8 @@ jobs:
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
+          ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          ARM_CLIENT_CERTIFICATE_PASSWORD_FOR_TEST: ${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE_PASSWORD }}
         run: |
           set -euo pipefail
           cd provider && go test -coverprofile="coverage.txt" -coverpkg=./... -timeout 1h -parallel 16 ./... 2>&1 | tee /tmp/gotest.log
