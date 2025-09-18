@@ -42,52 +42,52 @@ export class MultipleActivationKey extends pulumi.CustomResource {
     /**
      * Agreement number under which the key is requested.
      */
-    public readonly agreementNumber!: pulumi.Output<string | undefined>;
+    declare public readonly agreementNumber: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * End of support of security updates activated by the MAK key.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * Number of activations/servers using the MAK key.
      */
-    public readonly installedServerNumber!: pulumi.Output<number | undefined>;
+    declare public readonly installedServerNumber: pulumi.Output<number | undefined>;
     /**
      * <code> true </code> if user has eligible on-premises Windows physical or virtual machines, and that the requested key will only be used in their organization; <code> false </code> otherwise.
      */
-    public readonly isEligible!: pulumi.Output<boolean | undefined>;
+    declare public readonly isEligible: pulumi.Output<boolean | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * MAK 5x5 key.
      */
-    public /*out*/ readonly multipleActivationKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly multipleActivationKey: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Type of OS for which the key is requested.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Type of support
      */
-    public readonly supportType!: pulumi.Output<string | undefined>;
+    declare public readonly supportType: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MultipleActivationKey resource with the given unique name, arguments, and options.
@@ -100,18 +100,18 @@ export class MultipleActivationKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agreementNumber"] = args ? args.agreementNumber : undefined;
-            resourceInputs["installedServerNumber"] = args ? args.installedServerNumber : undefined;
-            resourceInputs["isEligible"] = args ? args.isEligible : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["multipleActivationKeyName"] = args ? args.multipleActivationKeyName : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportType"] = (args ? args.supportType : undefined) ?? "SupplementalServicing";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["agreementNumber"] = args?.agreementNumber;
+            resourceInputs["installedServerNumber"] = args?.installedServerNumber;
+            resourceInputs["isEligible"] = args?.isEligible;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["multipleActivationKeyName"] = args?.multipleActivationKeyName;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportType"] = (args?.supportType) ?? "SupplementalServicing";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;
             resourceInputs["multipleActivationKey"] = undefined /*out*/;

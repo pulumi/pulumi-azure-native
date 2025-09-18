@@ -42,35 +42,35 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * The details of the storage account password.
      */
-    public readonly accessKey!: pulumi.Output<outputs.storsimple.AsymmetricEncryptedSecretResponse | undefined>;
+    declare public readonly accessKey: pulumi.Output<outputs.storsimple.AsymmetricEncryptedSecretResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The storage endpoint
      */
-    public readonly endPoint!: pulumi.Output<string>;
+    declare public readonly endPoint: pulumi.Output<string>;
     /**
      * The Kind of the object. Currently only Series8000 is supported
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
+    declare public readonly sslStatus: pulumi.Output<string>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The count of volumes using this storage account credential.
      */
-    public /*out*/ readonly volumesCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly volumesCount: pulumi.Output<number>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -83,25 +83,25 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endPoint === undefined) && !opts.urn) {
+            if (args?.endPoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endPoint'");
             }
-            if ((!args || args.managerName === undefined) && !opts.urn) {
+            if (args?.managerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !opts.urn) {
+            if (args?.sslStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sslStatus'");
             }
-            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
-            resourceInputs["endPoint"] = args ? args.endPoint : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["managerName"] = args ? args.managerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
-            resourceInputs["storageAccountCredentialName"] = args ? args.storageAccountCredentialName : undefined;
+            resourceInputs["accessKey"] = args?.accessKey;
+            resourceInputs["endPoint"] = args?.endPoint;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["managerName"] = args?.managerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sslStatus"] = args?.sslStatus;
+            resourceInputs["storageAccountCredentialName"] = args?.storageAccountCredentialName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

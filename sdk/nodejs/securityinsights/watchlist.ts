@@ -44,111 +44,111 @@ export class Watchlist extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The content type of the raw content. Example : text/csv or text/tsv
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * The time the watchlist was created
      */
-    public readonly created!: pulumi.Output<string | undefined>;
+    declare public readonly created: pulumi.Output<string | undefined>;
     /**
      * Describes a user that created the watchlist
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
+    declare public readonly createdBy: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
     /**
      * The default duration of a watchlist (in ISO 8601 duration format)
      */
-    public readonly defaultDuration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDuration: pulumi.Output<string | undefined>;
     /**
      * A description of the watchlist
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the watchlist
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * A flag that indicates if the watchlist is deleted or not
      */
-    public readonly isDeleted!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDeleted: pulumi.Output<boolean | undefined>;
     /**
      * The search key is used to optimize query performance when using watchlists for joins with other data. For example, enable a column with IP addresses to be the designated SearchKey field, then use this field as the key field when joining to other event data by IP address.
      */
-    public readonly itemsSearchKey!: pulumi.Output<string>;
+    declare public readonly itemsSearchKey: pulumi.Output<string>;
     /**
      * List of labels relevant to this watchlist
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of lines in a csv/tsv content to skip before the header
      */
-    public readonly numberOfLinesToSkip!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfLinesToSkip: pulumi.Output<number | undefined>;
     /**
      * The provider of the watchlist
      */
-    public readonly provider!: pulumi.Output<string>;
+    declare public readonly provider: pulumi.Output<string>;
     /**
      * Describes provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The raw content that represents to watchlist items to create. In case of csv/tsv content type, it's the content of the file that will parsed by the endpoint
      */
-    public readonly rawContent!: pulumi.Output<string | undefined>;
+    declare public readonly rawContent: pulumi.Output<string | undefined>;
     /**
      * The filename of the watchlist, called 'source'
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * The sourceType of the watchlist
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenantId where the watchlist belongs to
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The last time the watchlist was updated
      */
-    public readonly updated!: pulumi.Output<string | undefined>;
+    declare public readonly updated: pulumi.Output<string | undefined>;
     /**
      * Describes a user that updated the watchlist
      */
-    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
+    declare public readonly updatedBy: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
     /**
      * The status of the Watchlist upload : New, InProgress or Complete. **Note** : When a Watchlist upload status is InProgress, the Watchlist cannot be deleted
      */
-    public readonly uploadStatus!: pulumi.Output<string | undefined>;
+    declare public readonly uploadStatus: pulumi.Output<string | undefined>;
     /**
      * The alias of the watchlist
      */
-    public readonly watchlistAlias!: pulumi.Output<string | undefined>;
+    declare public readonly watchlistAlias: pulumi.Output<string | undefined>;
     /**
      * The id (a Guid) of the watchlist
      */
-    public readonly watchlistId!: pulumi.Output<string | undefined>;
+    declare public readonly watchlistId: pulumi.Output<string | undefined>;
     /**
      * The type of the watchlist
      */
-    public readonly watchlistType!: pulumi.Output<string | undefined>;
+    declare public readonly watchlistType: pulumi.Output<string | undefined>;
 
     /**
      * Create a Watchlist resource with the given unique name, arguments, and options.
@@ -161,44 +161,44 @@ export class Watchlist extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.itemsSearchKey === undefined) && !opts.urn) {
+            if (args?.itemsSearchKey === undefined && !opts.urn) {
                 throw new Error("Missing required property 'itemsSearchKey'");
             }
-            if ((!args || args.provider === undefined) && !opts.urn) {
+            if (args?.provider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provider'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["defaultDuration"] = args ? args.defaultDuration : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
-            resourceInputs["itemsSearchKey"] = args ? args.itemsSearchKey : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["numberOfLinesToSkip"] = args ? args.numberOfLinesToSkip : undefined;
-            resourceInputs["provider"] = args ? args.provider : undefined;
-            resourceInputs["rawContent"] = args ? args.rawContent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["updated"] = args ? args.updated : undefined;
-            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
-            resourceInputs["uploadStatus"] = args ? args.uploadStatus : undefined;
-            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            resourceInputs["watchlistId"] = args ? args.watchlistId : undefined;
-            resourceInputs["watchlistType"] = args ? args.watchlistType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["defaultDuration"] = args?.defaultDuration;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isDeleted"] = args?.isDeleted;
+            resourceInputs["itemsSearchKey"] = args?.itemsSearchKey;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["numberOfLinesToSkip"] = args?.numberOfLinesToSkip;
+            resourceInputs["provider"] = args?.provider;
+            resourceInputs["rawContent"] = args?.rawContent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["updated"] = args?.updated;
+            resourceInputs["updatedBy"] = args?.updatedBy;
+            resourceInputs["uploadStatus"] = args?.uploadStatus;
+            resourceInputs["watchlistAlias"] = args?.watchlistAlias;
+            resourceInputs["watchlistId"] = args?.watchlistId;
+            resourceInputs["watchlistType"] = args?.watchlistType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

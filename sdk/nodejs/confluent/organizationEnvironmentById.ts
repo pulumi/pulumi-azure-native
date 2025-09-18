@@ -44,31 +44,31 @@ export class OrganizationEnvironmentById extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of environment
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Metadata of the record
      */
-    public readonly metadata!: pulumi.Output<outputs.confluent.SCMetadataEntityResponse | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.confluent.SCMetadataEntityResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Stream governance configuration
      */
-    public readonly streamGovernanceConfig!: pulumi.Output<outputs.confluent.StreamGovernanceConfigResponse | undefined>;
+    declare public readonly streamGovernanceConfig: pulumi.Output<outputs.confluent.StreamGovernanceConfigResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.confluent.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.confluent.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OrganizationEnvironmentById resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class OrganizationEnvironmentById extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.organizationName === undefined) && !opts.urn) {
+            if (args?.organizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'organizationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["organizationName"] = args ? args.organizationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamGovernanceConfig"] = args ? args.streamGovernanceConfig : undefined;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["organizationName"] = args?.organizationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamGovernanceConfig"] = args?.streamGovernanceConfig;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

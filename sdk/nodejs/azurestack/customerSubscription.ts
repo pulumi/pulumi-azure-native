@@ -41,23 +41,23 @@ export class CustomerSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Tenant Id.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Type of Resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomerSubscription resource with the given unique name, arguments, and options.
@@ -70,16 +70,16 @@ export class CustomerSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registrationName === undefined) && !opts.urn) {
+            if (args?.registrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationName'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["customerSubscriptionName"] = args ? args.customerSubscriptionName : undefined;
-            resourceInputs["registrationName"] = args ? args.registrationName : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["customerSubscriptionName"] = args?.customerSubscriptionName;
+            resourceInputs["registrationName"] = args?.registrationName;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

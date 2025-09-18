@@ -39,39 +39,39 @@ export class SingleServerConfiguration extends pulumi.CustomResource {
     /**
      * Allowed values of the configuration.
      */
-    public /*out*/ readonly allowedValues!: pulumi.Output<string>;
+    declare public /*out*/ readonly allowedValues: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Data type of the configuration.
      */
-    public /*out*/ readonly dataType!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataType: pulumi.Output<string>;
     /**
      * Default value of the configuration.
      */
-    public /*out*/ readonly defaultValue!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultValue: pulumi.Output<string>;
     /**
      * Description of the configuration.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Source of the configuration.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Value of the configuration.
      */
-    public readonly value!: pulumi.Output<string | undefined>;
+    declare public readonly value: pulumi.Output<string | undefined>;
 
     /**
      * Create a SingleServerConfiguration resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class SingleServerConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["value"] = args?.value;
             resourceInputs["allowedValues"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataType"] = undefined /*out*/;

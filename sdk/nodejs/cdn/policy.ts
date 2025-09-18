@@ -44,64 +44,64 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes custom rules inside the policy.
      */
-    public readonly customRules!: pulumi.Output<outputs.cdn.CustomRuleListResponse | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.cdn.CustomRuleListResponse | undefined>;
     /**
      * Describes Azure CDN endpoints associated with this Web Application Firewall policy.
      */
-    public /*out*/ readonly endpointLinks!: pulumi.Output<outputs.cdn.CdnEndpointResponse[]>;
+    declare public /*out*/ readonly endpointLinks: pulumi.Output<outputs.cdn.CdnEndpointResponse[]>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Key-Value pair representing additional properties for Web Application Firewall policy.
      */
-    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly extendedProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Describes managed rules inside the policy.
      */
-    public readonly managedRules!: pulumi.Output<outputs.cdn.ManagedRuleSetListResponse | undefined>;
+    declare public readonly managedRules: pulumi.Output<outputs.cdn.ManagedRuleSetListResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Describes  policySettings for policy
      */
-    public readonly policySettings!: pulumi.Output<outputs.cdn.PolicySettingsResponse | undefined>;
+    declare public readonly policySettings: pulumi.Output<outputs.cdn.PolicySettingsResponse | undefined>;
     /**
      * Provisioning state of the WebApplicationFirewallPolicy.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Describes rate limit rules inside the policy.
      */
-    public readonly rateLimitRules!: pulumi.Output<outputs.cdn.RateLimitRuleListResponse | undefined>;
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public readonly rateLimitRules: pulumi.Output<outputs.cdn.RateLimitRuleListResponse | undefined>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * The pricing tier (defines a CDN provider, feature list and rate) of the CdnWebApplicationFirewallPolicy.
      */
-    public readonly sku!: pulumi.Output<outputs.cdn.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.cdn.SkuResponse>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -114,22 +114,22 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
-            resourceInputs["rateLimitRules"] = args ? args.rateLimitRules : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["extendedProperties"] = args?.extendedProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policySettings"] = args?.policySettings;
+            resourceInputs["rateLimitRules"] = args?.rateLimitRules;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpointLinks"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

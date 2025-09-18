@@ -42,71 +42,71 @@ export class CustomImage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The UTC timestamp when the custom image was published.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Image definition name.
      */
-    public readonly definitionName!: pulumi.Output<string>;
+    declare public readonly definitionName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This property indicates the size of the VHD to be created.
      */
-    public /*out*/ readonly osDiskImageSizeInGB!: pulumi.Output<number>;
+    declare public /*out*/ readonly osDiskImageSizeInGB: pulumi.Output<number>;
     /**
      * Product of the custom image.
      */
-    public /*out*/ readonly product!: pulumi.Output<string>;
+    declare public /*out*/ readonly product: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Release of the custom image OS.
      */
-    public /*out*/ readonly release!: pulumi.Output<string>;
+    declare public /*out*/ readonly release: pulumi.Output<string>;
     /**
      * The release version date of the release of the custom image OS.
      */
-    public /*out*/ readonly releaseVersionDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly releaseVersionDate: pulumi.Output<string>;
     /**
      * Custom image source type.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * Status of the custom image.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The validation result of the custom image.
      */
-    public /*out*/ readonly validationResults!: pulumi.Output<outputs.testbase.ImageValidationResultsResponse>;
+    declare public /*out*/ readonly validationResults: pulumi.Output<outputs.testbase.ImageValidationResultsResponse>;
     /**
      * Image version name.
      */
-    public readonly versionName!: pulumi.Output<string>;
+    declare public readonly versionName: pulumi.Output<string>;
     /**
      * The file name of the associated VHD resource.
      */
-    public /*out*/ readonly vhdFileName!: pulumi.Output<string>;
+    declare public /*out*/ readonly vhdFileName: pulumi.Output<string>;
     /**
      * The Id of the associated VHD resource.
      */
-    public readonly vhdId!: pulumi.Output<string | undefined>;
+    declare public readonly vhdId: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomImage resource with the given unique name, arguments, and options.
@@ -119,28 +119,28 @@ export class CustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definitionName === undefined) && !opts.urn) {
+            if (args?.definitionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definitionName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            if ((!args || args.versionName === undefined) && !opts.urn) {
+            if (args?.versionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versionName'");
             }
-            resourceInputs["customImageName"] = args ? args.customImageName : undefined;
-            resourceInputs["definitionName"] = args ? args.definitionName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = (args ? args.source : undefined) ?? "VHD";
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["versionName"] = args ? args.versionName : undefined;
-            resourceInputs["vhdId"] = args ? args.vhdId : undefined;
+            resourceInputs["customImageName"] = args?.customImageName;
+            resourceInputs["definitionName"] = args?.definitionName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = (args?.source) ?? "VHD";
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["versionName"] = args?.versionName;
+            resourceInputs["vhdId"] = args?.vhdId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

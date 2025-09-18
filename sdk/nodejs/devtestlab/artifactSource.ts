@@ -42,67 +42,67 @@ export class ArtifactSource extends pulumi.CustomResource {
     /**
      * The folder containing Azure Resource Manager templates.
      */
-    public readonly armTemplateFolderPath!: pulumi.Output<string | undefined>;
+    declare public readonly armTemplateFolderPath: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The artifact source's branch reference.
      */
-    public readonly branchRef!: pulumi.Output<string | undefined>;
+    declare public readonly branchRef: pulumi.Output<string | undefined>;
     /**
      * The artifact source's creation date.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The artifact source's display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The folder containing artifacts.
      */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
+    declare public readonly folderPath: pulumi.Output<string | undefined>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The security token to authenticate to the artifact source.
      */
-    public readonly securityToken!: pulumi.Output<string | undefined>;
+    declare public readonly securityToken: pulumi.Output<string | undefined>;
     /**
      * The artifact source's type.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * Indicates if the artifact source is enabled (values: Enabled, Disabled).
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * The artifact source's URI.
      */
-    public readonly uri!: pulumi.Output<string | undefined>;
+    declare public readonly uri: pulumi.Output<string | undefined>;
 
     /**
      * Create a ArtifactSource resource with the given unique name, arguments, and options.
@@ -115,25 +115,25 @@ export class ArtifactSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["armTemplateFolderPath"] = args ? args.armTemplateFolderPath : undefined;
-            resourceInputs["branchRef"] = args ? args.branchRef : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["armTemplateFolderPath"] = args?.armTemplateFolderPath;
+            resourceInputs["branchRef"] = args?.branchRef;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityToken"] = args?.securityToken;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

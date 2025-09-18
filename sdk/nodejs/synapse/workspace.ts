@@ -44,107 +44,107 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The ADLA resource ID.
      */
-    public /*out*/ readonly adlaResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly adlaResourceId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Connectivity endpoints
      */
-    public /*out*/ readonly connectivityEndpoints!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly connectivityEndpoints: pulumi.Output<{[key: string]: string}>;
     /**
      * Initial workspace AAD admin properties for a CSP subscription
      */
-    public readonly cspWorkspaceAdminProperties!: pulumi.Output<outputs.synapse.CspWorkspaceAdminPropertiesResponse | undefined>;
+    declare public readonly cspWorkspaceAdminProperties: pulumi.Output<outputs.synapse.CspWorkspaceAdminPropertiesResponse | undefined>;
     /**
      * Workspace default data lake storage account details
      */
-    public readonly defaultDataLakeStorage!: pulumi.Output<outputs.synapse.DataLakeStorageAccountDetailsResponse | undefined>;
+    declare public readonly defaultDataLakeStorage: pulumi.Output<outputs.synapse.DataLakeStorageAccountDetailsResponse | undefined>;
     /**
      * The encryption details of the workspace
      */
-    public readonly encryption!: pulumi.Output<outputs.synapse.EncryptionDetailsResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.synapse.EncryptionDetailsResponse | undefined>;
     /**
      * Workspace level configs and feature flags
      */
-    public /*out*/ readonly extraProperties!: pulumi.Output<any>;
+    declare public /*out*/ readonly extraProperties: pulumi.Output<any>;
     /**
      * Identity of the workspace
      */
-    public readonly identity!: pulumi.Output<outputs.synapse.ManagedIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.synapse.ManagedIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Workspace managed resource group. The resource group name uniquely identifies the resource group within the user subscriptionId. The resource group name must be no longer than 90 characters long, and must be alphanumeric characters (Char.IsLetterOrDigit()) and '-', '_', '(', ')' and'.'. Note that the name cannot end with '.'
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * Setting this to 'default' will ensure that all compute for this workspace is in a virtual network managed on behalf of the user.
      */
-    public readonly managedVirtualNetwork!: pulumi.Output<string | undefined>;
+    declare public readonly managedVirtualNetwork: pulumi.Output<string | undefined>;
     /**
      * Managed Virtual Network Settings
      */
-    public readonly managedVirtualNetworkSettings!: pulumi.Output<outputs.synapse.ManagedVirtualNetworkSettingsResponse | undefined>;
+    declare public readonly managedVirtualNetworkSettings: pulumi.Output<outputs.synapse.ManagedVirtualNetworkSettingsResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private endpoint connections to the workspace
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.synapse.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.synapse.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Resource provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Enable or Disable public network access to workspace
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Purview Configuration
      */
-    public readonly purviewConfiguration!: pulumi.Output<outputs.synapse.PurviewConfigurationResponse | undefined>;
+    declare public readonly purviewConfiguration: pulumi.Output<outputs.synapse.PurviewConfigurationResponse | undefined>;
     /**
      * Workspace settings
      */
-    public /*out*/ readonly settings!: pulumi.Output<{[key: string]: any}>;
+    declare public /*out*/ readonly settings: pulumi.Output<{[key: string]: any}>;
     /**
      * Login for workspace SQL active directory administrator
      */
-    public readonly sqlAdministratorLogin!: pulumi.Output<string | undefined>;
+    declare public readonly sqlAdministratorLogin: pulumi.Output<string | undefined>;
     /**
      * SQL administrator login password
      */
-    public readonly sqlAdministratorLoginPassword!: pulumi.Output<string | undefined>;
+    declare public readonly sqlAdministratorLoginPassword: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Is trustedServiceBypassEnabled for the workspace
      */
-    public readonly trustedServiceBypassEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly trustedServiceBypassEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Virtual Network profile
      */
-    public readonly virtualNetworkProfile!: pulumi.Output<outputs.synapse.VirtualNetworkProfileResponse | undefined>;
+    declare public readonly virtualNetworkProfile: pulumi.Output<outputs.synapse.VirtualNetworkProfileResponse | undefined>;
     /**
      * Git integration settings
      */
-    public readonly workspaceRepositoryConfiguration!: pulumi.Output<outputs.synapse.WorkspaceRepositoryConfigurationResponse | undefined>;
+    declare public readonly workspaceRepositoryConfiguration: pulumi.Output<outputs.synapse.WorkspaceRepositoryConfigurationResponse | undefined>;
     /**
      * The workspace unique identifier
      */
-    public /*out*/ readonly workspaceUID!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceUID: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -157,29 +157,29 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            resourceInputs["cspWorkspaceAdminProperties"] = args ? args.cspWorkspaceAdminProperties : undefined;
-            resourceInputs["defaultDataLakeStorage"] = args ? args.defaultDataLakeStorage : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedVirtualNetwork"] = args ? args.managedVirtualNetwork : undefined;
-            resourceInputs["managedVirtualNetworkSettings"] = args ? args.managedVirtualNetworkSettings : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlAdministratorLogin"] = args ? args.sqlAdministratorLogin : undefined;
-            resourceInputs["sqlAdministratorLoginPassword"] = args ? args.sqlAdministratorLoginPassword : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trustedServiceBypassEnabled"] = (args ? args.trustedServiceBypassEnabled : undefined) ?? false;
-            resourceInputs["virtualNetworkProfile"] = args ? args.virtualNetworkProfile : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceRepositoryConfiguration"] = args ? args.workspaceRepositoryConfiguration : undefined;
+            resourceInputs["azureADOnlyAuthentication"] = args?.azureADOnlyAuthentication;
+            resourceInputs["cspWorkspaceAdminProperties"] = args?.cspWorkspaceAdminProperties;
+            resourceInputs["defaultDataLakeStorage"] = args?.defaultDataLakeStorage;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedVirtualNetwork"] = args?.managedVirtualNetwork;
+            resourceInputs["managedVirtualNetworkSettings"] = args?.managedVirtualNetworkSettings;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["purviewConfiguration"] = args?.purviewConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlAdministratorLogin"] = args?.sqlAdministratorLogin;
+            resourceInputs["sqlAdministratorLoginPassword"] = args?.sqlAdministratorLoginPassword;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trustedServiceBypassEnabled"] = (args?.trustedServiceBypassEnabled) ?? false;
+            resourceInputs["virtualNetworkProfile"] = args?.virtualNetworkProfile;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceRepositoryConfiguration"] = args?.workspaceRepositoryConfiguration;
             resourceInputs["adlaResourceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectivityEndpoints"] = undefined /*out*/;

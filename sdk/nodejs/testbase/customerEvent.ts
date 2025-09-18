@@ -44,27 +44,27 @@ export class CustomerEvent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the event subscribed to.
      */
-    public readonly eventName!: pulumi.Output<string>;
+    declare public readonly eventName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The notification event receivers.
      */
-    public readonly receivers!: pulumi.Output<outputs.testbase.NotificationEventReceiverResponse[]>;
+    declare public readonly receivers: pulumi.Output<outputs.testbase.NotificationEventReceiverResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomerEvent resource with the given unique name, arguments, and options.
@@ -77,23 +77,23 @@ export class CustomerEvent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventName === undefined) && !opts.urn) {
+            if (args?.eventName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventName'");
             }
-            if ((!args || args.receivers === undefined) && !opts.urn) {
+            if (args?.receivers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'receivers'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["customerEventName"] = args ? args.customerEventName : undefined;
-            resourceInputs["eventName"] = args ? args.eventName : undefined;
-            resourceInputs["receivers"] = args ? args.receivers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
+            resourceInputs["customerEventName"] = args?.customerEventName;
+            resourceInputs["eventName"] = args?.eventName;
+            resourceInputs["receivers"] = args?.receivers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

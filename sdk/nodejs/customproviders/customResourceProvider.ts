@@ -42,39 +42,39 @@ export class CustomResourceProvider extends pulumi.CustomResource {
     /**
      * A list of actions that the custom resource provider implements.
      */
-    public readonly actions!: pulumi.Output<outputs.customproviders.CustomRPActionRouteDefinitionResponse[] | undefined>;
+    declare public readonly actions: pulumi.Output<outputs.customproviders.CustomRPActionRouteDefinitionResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource provider.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A list of resource types that the custom resource provider implements.
      */
-    public readonly resourceTypes!: pulumi.Output<outputs.customproviders.CustomRPResourceTypeRouteDefinitionResponse[] | undefined>;
+    declare public readonly resourceTypes: pulumi.Output<outputs.customproviders.CustomRPResourceTypeRouteDefinitionResponse[] | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of validations to run on the custom resource provider's requests.
      */
-    public readonly validations!: pulumi.Output<outputs.customproviders.CustomRPValidationsResponse[] | undefined>;
+    declare public readonly validations: pulumi.Output<outputs.customproviders.CustomRPValidationsResponse[] | undefined>;
 
     /**
      * Create a CustomResourceProvider resource with the given unique name, arguments, and options.
@@ -87,16 +87,16 @@ export class CustomResourceProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceProviderName"] = args ? args.resourceProviderName : undefined;
-            resourceInputs["resourceTypes"] = args ? args.resourceTypes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validations"] = args ? args.validations : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceProviderName"] = args?.resourceProviderName;
+            resourceInputs["resourceTypes"] = args?.resourceTypes;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validations"] = args?.validations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

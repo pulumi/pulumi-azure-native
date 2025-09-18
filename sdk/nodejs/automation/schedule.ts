@@ -44,71 +44,71 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * Gets or sets the advanced schedule.
      */
-    public readonly advancedSchedule!: pulumi.Output<outputs.automation.AdvancedScheduleResponse | undefined>;
+    declare public readonly advancedSchedule: pulumi.Output<outputs.automation.AdvancedScheduleResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time of the schedule.
      */
-    public readonly expiryTime!: pulumi.Output<string | undefined>;
+    declare public readonly expiryTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the expiry time's offset in minutes.
      */
-    public /*out*/ readonly expiryTimeOffsetMinutes!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly expiryTimeOffsetMinutes: pulumi.Output<number | undefined>;
     /**
      * Gets or sets the frequency of the schedule.
      */
-    public readonly frequency!: pulumi.Output<string | undefined>;
+    declare public readonly frequency: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the interval of the schedule.
      */
-    public readonly interval!: pulumi.Output<any | undefined>;
+    declare public readonly interval: pulumi.Output<any | undefined>;
     /**
      * Gets or sets a value indicating whether this schedule is enabled.
      */
-    public /*out*/ readonly isEnabled!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly isEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the next run time of the schedule.
      */
-    public /*out*/ readonly nextRun!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly nextRun: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the next run time's offset in minutes.
      */
-    public /*out*/ readonly nextRunOffsetMinutes!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly nextRunOffsetMinutes: pulumi.Output<number | undefined>;
     /**
      * Gets or sets the start time of the schedule.
      */
-    public readonly startTime!: pulumi.Output<string | undefined>;
+    declare public readonly startTime: pulumi.Output<string | undefined>;
     /**
      * Gets the start time's offset in minutes.
      */
-    public /*out*/ readonly startTimeOffsetMinutes!: pulumi.Output<number>;
+    declare public /*out*/ readonly startTimeOffsetMinutes: pulumi.Output<number>;
     /**
      * Gets or sets the time zone of the schedule.
      */
-    public readonly timeZone!: pulumi.Output<string | undefined>;
+    declare public readonly timeZone: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -121,32 +121,32 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.frequency === undefined) && !opts.urn) {
+            if (args?.frequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frequency'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startTime === undefined) && !opts.urn) {
+            if (args?.startTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startTime'");
             }
-            resourceInputs["advancedSchedule"] = args ? args.advancedSchedule : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["expiryTime"] = args ? args.expiryTime : undefined;
-            resourceInputs["frequency"] = args ? args.frequency : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
-            resourceInputs["startTime"] = args ? args.startTime : undefined;
-            resourceInputs["timeZone"] = args ? args.timeZone : undefined;
+            resourceInputs["advancedSchedule"] = args?.advancedSchedule;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["expiryTime"] = args?.expiryTime;
+            resourceInputs["frequency"] = args?.frequency;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleName"] = args?.scheduleName;
+            resourceInputs["startTime"] = args?.startTime;
+            resourceInputs["timeZone"] = args?.timeZone;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["expiryTimeOffsetMinutes"] = undefined /*out*/;

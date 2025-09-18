@@ -42,71 +42,71 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The extendedLocation of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
     /**
      * Guest agent status properties.
      */
-    public /*out*/ readonly guestAgentProfile!: pulumi.Output<outputs.azurestackhci.GuestAgentProfileResponse | undefined>;
+    declare public /*out*/ readonly guestAgentProfile: pulumi.Output<outputs.azurestackhci.GuestAgentProfileResponse | undefined>;
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseHardwareProfile | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseHardwareProfile | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.azurestackhci.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.azurestackhci.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * NetworkProfile - describes the network configuration the virtual machine
      */
-    public readonly networkProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseNetworkProfile | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseNetworkProfile | undefined>;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    public readonly osProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseOsProfile | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseOsProfile | undefined>;
     /**
      * Provisioning state of the virtual machine.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseSecurityProfile | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseSecurityProfile | undefined>;
     /**
      * The observed state of virtual machines
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.VirtualMachineStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.azurestackhci.VirtualMachineStatusResponse>;
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine
      */
-    public readonly storageProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseStorageProfile | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.azurestackhci.VirtualMachinePropertiesResponseStorageProfile | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique identifier for the vm resource.
      */
-    public /*out*/ readonly vmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmId: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -119,20 +119,20 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachinePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachinePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["guestAgentProfile"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

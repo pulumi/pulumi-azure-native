@@ -42,52 +42,52 @@ export class CIAMTenant extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The type of billing. Will be MAU for all new customers. Cannot be changed if value is 'MAU'. Learn more about Azure AD for customers billing at [aka.ms/b2cBilling](https://aka.ms/b2cbilling).
      */
-    public /*out*/ readonly billingType!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingType: pulumi.Output<string>;
     /**
      * These properties are used to create the Azure AD for customers tenant. These properties are not part of the Azure resource.
      */
-    public readonly createTenantProperties!: pulumi.Output<outputs.azureactivedirectory.CreateCIAMTenantPropertiesResponse>;
+    declare public readonly createTenantProperties: pulumi.Output<outputs.azureactivedirectory.CreateCIAMTenantPropertiesResponse>;
     /**
      * The domain name of the tenant
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * The data from which the billing type took effect
      */
-    public /*out*/ readonly effectiveStartDateUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly effectiveStartDateUtc: pulumi.Output<string>;
     /**
      * The location in which the resource is hosted and data resides. Can be one of 'United States', 'Europe', 'Asia Pacific', or 'Australia'. Refer to [this documentation](https://aka.ms/ciam-data-location) for more information.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the Azure AD for customers tenant resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SKU properties of the Azure AD for customers tenant. Learn more about Azure AD for customers billing at [https://aka.ms/ciambilling](https://aka.ms/ciambilling).
      */
-    public readonly sku!: pulumi.Output<outputs.azureactivedirectory.CIAMResourceSKUResponse>;
+    declare public readonly sku: pulumi.Output<outputs.azureactivedirectory.CIAMResourceSKUResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azureactivedirectory.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azureactivedirectory.SystemDataResponse>;
     /**
      * Resource Tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * An identifier of the Azure AD for customers tenant.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the Azure AD for customers tenant resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CIAMTenant resource with the given unique name, arguments, and options.
@@ -100,22 +100,22 @@ export class CIAMTenant extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.createTenantProperties === undefined) && !opts.urn) {
+            if (args?.createTenantProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'createTenantProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["createTenantProperties"] = args ? args.createTenantProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["createTenantProperties"] = args?.createTenantProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingType"] = undefined /*out*/;
             resourceInputs["domainName"] = undefined /*out*/;

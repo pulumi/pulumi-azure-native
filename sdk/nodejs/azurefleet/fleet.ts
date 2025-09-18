@@ -44,75 +44,75 @@ export class Fleet extends pulumi.CustomResource {
     /**
      * Represents the configuration for additional locations where Fleet resources may be deployed.
      */
-    public readonly additionalLocationsProfile!: pulumi.Output<outputs.azurefleet.AdditionalLocationsProfileResponse | undefined>;
+    declare public readonly additionalLocationsProfile: pulumi.Output<outputs.azurefleet.AdditionalLocationsProfileResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Compute Profile to use for running user's workloads.
      */
-    public readonly computeProfile!: pulumi.Output<outputs.azurefleet.ComputeProfileResponse>;
+    declare public readonly computeProfile: pulumi.Output<outputs.azurefleet.ComputeProfileResponse>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.azurefleet.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.azurefleet.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Details of the resource plan.
      */
-    public readonly plan!: pulumi.Output<outputs.azurefleet.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.azurefleet.PlanResponse | undefined>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Configuration Options for Regular instances in Compute Fleet.
      */
-    public readonly regularPriorityProfile!: pulumi.Output<outputs.azurefleet.RegularPriorityProfileResponse | undefined>;
+    declare public readonly regularPriorityProfile: pulumi.Output<outputs.azurefleet.RegularPriorityProfileResponse | undefined>;
     /**
      * Configuration Options for Spot instances in Compute Fleet.
      */
-    public readonly spotPriorityProfile!: pulumi.Output<outputs.azurefleet.SpotPriorityProfileResponse | undefined>;
+    declare public readonly spotPriorityProfile: pulumi.Output<outputs.azurefleet.SpotPriorityProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurefleet.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurefleet.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the time at which the Compute Fleet is created.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies the ID which uniquely identifies a Compute Fleet.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
     /**
      * Attribute based Fleet.
      */
-    public readonly vmAttributes!: pulumi.Output<outputs.azurefleet.VMAttributesResponse | undefined>;
+    declare public readonly vmAttributes: pulumi.Output<outputs.azurefleet.VMAttributesResponse | undefined>;
     /**
      * List of VM sizes supported for Compute Fleet
      */
-    public readonly vmSizesProfile!: pulumi.Output<outputs.azurefleet.VmSizeProfileResponse[]>;
+    declare public readonly vmSizesProfile: pulumi.Output<outputs.azurefleet.VmSizeProfileResponse[]>;
     /**
      * Zones in which the Compute Fleet is available
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a Fleet resource with the given unique name, arguments, and options.
@@ -125,28 +125,28 @@ export class Fleet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.computeProfile === undefined) && !opts.urn) {
+            if (args?.computeProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'computeProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmSizesProfile === undefined) && !opts.urn) {
+            if (args?.vmSizesProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSizesProfile'");
             }
-            resourceInputs["additionalLocationsProfile"] = args ? args.additionalLocationsProfile : undefined;
-            resourceInputs["computeProfile"] = args ? args.computeProfile : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["regularPriorityProfile"] = args ? args.regularPriorityProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spotPriorityProfile"] = args ? args.spotPriorityProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmAttributes"] = args ? args.vmAttributes : undefined;
-            resourceInputs["vmSizesProfile"] = args ? args.vmSizesProfile : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalLocationsProfile"] = args?.additionalLocationsProfile;
+            resourceInputs["computeProfile"] = args?.computeProfile;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["regularPriorityProfile"] = args?.regularPriorityProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spotPriorityProfile"] = args?.spotPriorityProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmAttributes"] = args?.vmAttributes;
+            resourceInputs["vmSizesProfile"] = args?.vmSizesProfile;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

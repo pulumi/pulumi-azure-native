@@ -44,55 +44,55 @@ export class Hunt extends pulumi.CustomResource {
     /**
      * A list of mitre attack tactics the hunt is associated with
      */
-    public readonly attackTactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly attackTactics: pulumi.Output<string[] | undefined>;
     /**
      * A list of a mitre attack techniques the hunt is associated with
      */
-    public readonly attackTechniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly attackTechniques: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of the hunt
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * The display name of the hunt
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The hypothesis status of the hunt.
      */
-    public readonly hypothesisStatus!: pulumi.Output<string | undefined>;
+    declare public readonly hypothesisStatus: pulumi.Output<string | undefined>;
     /**
      * List of labels relevant to this hunt 
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Describes a user that the hunt is assigned to
      */
-    public readonly owner!: pulumi.Output<outputs.securityinsights.HuntOwnerResponse | undefined>;
+    declare public readonly owner: pulumi.Output<outputs.securityinsights.HuntOwnerResponse | undefined>;
     /**
      * The status of the hunt.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Hunt resource with the given unique name, arguments, and options.
@@ -105,29 +105,29 @@ export class Hunt extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["attackTactics"] = args ? args.attackTactics : undefined;
-            resourceInputs["attackTechniques"] = args ? args.attackTechniques : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["huntId"] = args ? args.huntId : undefined;
-            resourceInputs["hypothesisStatus"] = (args ? args.hypothesisStatus : undefined) ?? "Unknown";
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "New";
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["attackTactics"] = args?.attackTactics;
+            resourceInputs["attackTechniques"] = args?.attackTechniques;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["huntId"] = args?.huntId;
+            resourceInputs["hypothesisStatus"] = (args?.hypothesisStatus) ?? "Unknown";
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = (args?.status) ?? "New";
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,39 +42,39 @@ export class AnalyticsItem extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The content of this item
      */
-    public readonly content!: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<string | undefined>;
     /**
      * The user-defined name of the item.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A set of properties that can be defined in the context of a specific item type. Each type may have its own properties.
      */
-    public readonly properties!: pulumi.Output<outputs.applicationinsights.ApplicationInsightsComponentAnalyticsItemPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.applicationinsights.ApplicationInsightsComponentAnalyticsItemPropertiesResponse>;
     /**
      * Enum indicating if this item definition is owned by a specific user or is shared between all users with access to the Application Insights component.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Date and time in UTC when this item was created.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * Date and time in UTC of the last modification that was made to this item.
      */
-    public /*out*/ readonly timeModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeModified: pulumi.Output<string>;
     /**
      * Enum indicating the type of the Analytics item.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * This instance's version of the data model. This can change as new features are added.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsItem resource with the given unique name, arguments, and options.
@@ -87,25 +87,25 @@ export class AnalyticsItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.scopePath === undefined) && !opts.urn) {
+            if (args?.scopePath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopePath'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["overrideItem"] = args ? args.overrideItem : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopePath"] = args ? args.scopePath : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["overrideItem"] = args?.overrideItem;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopePath"] = args?.scopePath;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["timeCreated"] = undefined /*out*/;
             resourceInputs["timeModified"] = undefined /*out*/;

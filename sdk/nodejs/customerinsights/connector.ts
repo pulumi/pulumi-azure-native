@@ -42,59 +42,59 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ID of the connector.
      */
-    public /*out*/ readonly connectorId!: pulumi.Output<number>;
+    declare public /*out*/ readonly connectorId: pulumi.Output<number>;
     /**
      * Name of the connector.
      */
-    public readonly connectorName!: pulumi.Output<string | undefined>;
+    declare public readonly connectorName: pulumi.Output<string | undefined>;
     /**
      * The connector properties.
      */
-    public readonly connectorProperties!: pulumi.Output<{[key: string]: any}>;
+    declare public readonly connectorProperties: pulumi.Output<{[key: string]: any}>;
     /**
      * Type of connector.
      */
-    public readonly connectorType!: pulumi.Output<string>;
+    declare public readonly connectorType: pulumi.Output<string>;
     /**
      * The created time.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * Description of the connector.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Display name of the connector.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * If this is an internal connector.
      */
-    public readonly isInternal!: pulumi.Output<boolean | undefined>;
+    declare public readonly isInternal: pulumi.Output<boolean | undefined>;
     /**
      * The last modified time.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of connector.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -107,26 +107,26 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorProperties === undefined) && !opts.urn) {
+            if (args?.connectorProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorProperties'");
             }
-            if ((!args || args.connectorType === undefined) && !opts.urn) {
+            if (args?.connectorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorType'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["connectorProperties"] = args ? args.connectorProperties : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["isInternal"] = args ? args.isInternal : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["connectorProperties"] = args?.connectorProperties;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["isInternal"] = args?.isInternal;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorId"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

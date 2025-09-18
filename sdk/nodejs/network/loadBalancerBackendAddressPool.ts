@@ -44,67 +44,67 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An array of references to IP addresses defined in network interfaces.
      */
-    public /*out*/ readonly backendIPConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse[]>;
+    declare public /*out*/ readonly backendIPConfigurations: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse[]>;
     /**
      * Amount of seconds Load Balancer waits for before sending RESET to client and backend address.
      */
-    public readonly drainPeriodInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly drainPeriodInSeconds: pulumi.Output<number | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * An array of references to inbound NAT rules that use this backend address pool.
      */
-    public /*out*/ readonly inboundNatRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly inboundNatRules: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * An array of backend addresses.
      */
-    public readonly loadBalancerBackendAddresses!: pulumi.Output<outputs.network.LoadBalancerBackendAddressResponse[] | undefined>;
+    declare public readonly loadBalancerBackendAddresses: pulumi.Output<outputs.network.LoadBalancerBackendAddressResponse[] | undefined>;
     /**
      * An array of references to load balancing rules that use this backend address pool.
      */
-    public /*out*/ readonly loadBalancingRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly loadBalancingRules: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The location of the backend address pool.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * A reference to an outbound rule that uses this backend address pool.
      */
-    public /*out*/ readonly outboundRule!: pulumi.Output<outputs.network.SubResourceResponse>;
+    declare public /*out*/ readonly outboundRule: pulumi.Output<outputs.network.SubResourceResponse>;
     /**
      * An array of references to outbound rules that use this backend address pool.
      */
-    public /*out*/ readonly outboundRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly outboundRules: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The provisioning state of the backend address pool resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Backend address synchronous mode for the backend pool
      */
-    public readonly syncMode!: pulumi.Output<string | undefined>;
+    declare public readonly syncMode: pulumi.Output<string | undefined>;
     /**
      * An array of gateway load balancer tunnel interfaces.
      */
-    public readonly tunnelInterfaces!: pulumi.Output<outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[] | undefined>;
+    declare public readonly tunnelInterfaces: pulumi.Output<outputs.network.GatewayLoadBalancerTunnelInterfaceResponse[] | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A reference to a virtual network.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
 
     /**
      * Create a LoadBalancerBackendAddressPool resource with the given unique name, arguments, and options.
@@ -117,23 +117,23 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.loadBalancerName === undefined) && !opts.urn) {
+            if (args?.loadBalancerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'loadBalancerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["backendAddressPoolName"] = args ? args.backendAddressPoolName : undefined;
-            resourceInputs["drainPeriodInSeconds"] = args ? args.drainPeriodInSeconds : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncMode"] = args ? args.syncMode : undefined;
-            resourceInputs["tunnelInterfaces"] = args ? args.tunnelInterfaces : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
+            resourceInputs["backendAddressPoolName"] = args?.backendAddressPoolName;
+            resourceInputs["drainPeriodInSeconds"] = args?.drainPeriodInSeconds;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["loadBalancerBackendAddresses"] = args?.loadBalancerBackendAddresses;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncMode"] = args?.syncMode;
+            resourceInputs["tunnelInterfaces"] = args?.tunnelInterfaces;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

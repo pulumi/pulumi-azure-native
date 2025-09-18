@@ -42,39 +42,39 @@ export class EventHubConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The event hub consumer group.
      */
-    public readonly consumerGroup!: pulumi.Output<string>;
+    declare public readonly consumerGroup: pulumi.Output<string>;
     /**
      * The data format of the message. Optionally the data format can be added to each message.
      */
-    public readonly dataFormat!: pulumi.Output<string | undefined>;
+    declare public readonly dataFormat: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the event hub to be used to create a data connection.
      */
-    public readonly eventHubResourceId!: pulumi.Output<string>;
+    declare public readonly eventHubResourceId: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message.
      */
-    public readonly mappingRuleName!: pulumi.Output<string | undefined>;
+    declare public readonly mappingRuleName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The table where the data should be ingested. Optionally the table information can be added to each message.
      */
-    public readonly tableName!: pulumi.Output<string | undefined>;
+    declare public readonly tableName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EventHubConnection resource with the given unique name, arguments, and options.
@@ -87,31 +87,31 @@ export class EventHubConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.consumerGroup === undefined) && !opts.urn) {
+            if (args?.consumerGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consumerGroup'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.eventHubResourceId === undefined) && !opts.urn) {
+            if (args?.eventHubResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHubResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["consumerGroup"] = args ? args.consumerGroup : undefined;
-            resourceInputs["dataFormat"] = args ? args.dataFormat : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["eventHubConnectionName"] = args ? args.eventHubConnectionName : undefined;
-            resourceInputs["eventHubResourceId"] = args ? args.eventHubResourceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mappingRuleName"] = args ? args.mappingRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["consumerGroup"] = args?.consumerGroup;
+            resourceInputs["dataFormat"] = args?.dataFormat;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["eventHubConnectionName"] = args?.eventHubConnectionName;
+            resourceInputs["eventHubResourceId"] = args?.eventHubResourceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mappingRuleName"] = args?.mappingRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

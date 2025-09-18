@@ -42,64 +42,64 @@ export class Gen1Environment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
      */
-    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessFqdn: pulumi.Output<string>;
     /**
      * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
      */
-    public /*out*/ readonly dataAccessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessId: pulumi.Output<string>;
     /**
      * ISO8601 timespan specifying the minimum number of days the environment's events will be available for query.
      */
-    public readonly dataRetentionTime!: pulumi.Output<string>;
+    declare public readonly dataRetentionTime: pulumi.Output<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen1'.
      */
-    public readonly kind!: pulumi.Output<"Gen1">;
+    declare public readonly kind: pulumi.Output<"Gen1">;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported.
      */
-    public readonly partitionKeyProperties!: pulumi.Output<outputs.timeseriesinsights.TimeSeriesIdPropertyResponse[] | undefined>;
+    declare public readonly partitionKeyProperties: pulumi.Output<outputs.timeseriesinsights.TimeSeriesIdPropertyResponse[] | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.timeseriesinsights.SkuResponse>;
     /**
      * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.timeseriesinsights.EnvironmentStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.timeseriesinsights.EnvironmentStatusResponse>;
     /**
      * The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If "PauseIngress" is specified, new events will not be read from the event source. If "PurgeOldData" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData.
      */
-    public readonly storageLimitExceededBehavior!: pulumi.Output<string | undefined>;
+    declare public readonly storageLimitExceededBehavior: pulumi.Output<string | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Gen1Environment resource with the given unique name, arguments, and options.
@@ -112,27 +112,27 @@ export class Gen1Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataRetentionTime === undefined) && !opts.urn) {
+            if (args?.dataRetentionTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataRetentionTime'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["dataRetentionTime"] = args ? args.dataRetentionTime : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["dataRetentionTime"] = args?.dataRetentionTime;
+            resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["kind"] = "Gen1";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["partitionKeyProperties"] = args ? args.partitionKeyProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageLimitExceededBehavior"] = args ? args.storageLimitExceededBehavior : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["partitionKeyProperties"] = args?.partitionKeyProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageLimitExceededBehavior"] = args?.storageLimitExceededBehavior;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;

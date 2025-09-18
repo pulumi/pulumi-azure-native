@@ -44,43 +44,43 @@ export class OriginGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    public readonly healthProbeSettings!: pulumi.Output<outputs.cdn.HealthProbeParametersResponse | undefined>;
+    declare public readonly healthProbeSettings: pulumi.Output<outputs.cdn.HealthProbeParametersResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    public readonly origins!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[]>;
+    declare public readonly origins: pulumi.Output<outputs.cdn.ResourceReferenceResponse[]>;
     /**
      * Provisioning status of the origin group.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource status of the origin group.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
      */
-    public readonly responseBasedOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
+    declare public readonly responseBasedOriginErrorDetectionSettings: pulumi.Output<outputs.cdn.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
-    public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OriginGroup resource with the given unique name, arguments, and options.
@@ -93,26 +93,26 @@ export class OriginGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.origins === undefined) && !opts.urn) {
+            if (args?.origins === undefined && !opts.urn) {
                 throw new Error("Missing required property 'origins'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
-            resourceInputs["origins"] = args ? args.origins : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responseBasedOriginErrorDetectionSettings"] = args ? args.responseBasedOriginErrorDetectionSettings : undefined;
-            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["healthProbeSettings"] = args?.healthProbeSettings;
+            resourceInputs["originGroupName"] = args?.originGroupName;
+            resourceInputs["origins"] = args?.origins;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["responseBasedOriginErrorDetectionSettings"] = args?.responseBasedOriginErrorDetectionSettings;
+            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args?.trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

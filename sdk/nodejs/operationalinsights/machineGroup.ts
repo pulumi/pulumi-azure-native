@@ -42,40 +42,40 @@ export class MachineGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Count of machines in this group. The value of count may be bigger than the number of machines in case of the group has been truncated due to exceeding the max number of machines a group can handle.
      */
-    public readonly count!: pulumi.Output<number | undefined>;
+    declare public readonly count: pulumi.Output<number | undefined>;
     /**
      * User defined name for the group
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Resource ETAG.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Type of the machine group
      */
-    public readonly groupType!: pulumi.Output<string | undefined>;
+    declare public readonly groupType: pulumi.Output<string | undefined>;
     /**
      * Additional resource type qualifier.
      * Expected value is 'machineGroup'.
      */
-    public readonly kind!: pulumi.Output<"machineGroup">;
+    declare public readonly kind: pulumi.Output<"machineGroup">;
     /**
      * References of the machines in this group. The hints within each reference do not represent the current value of the corresponding fields. They are a snapshot created during the last time the machine group was updated.
      */
-    public readonly machines!: pulumi.Output<outputs.operationalinsights.MachineReferenceWithHintsResponse[] | undefined>;
+    declare public readonly machines: pulumi.Output<outputs.operationalinsights.MachineReferenceWithHintsResponse[] | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MachineGroup resource with the given unique name, arguments, and options.
@@ -88,26 +88,26 @@ export class MachineGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["groupType"] = args?.groupType;
             resourceInputs["kind"] = "machineGroup";
-            resourceInputs["machineGroupName"] = args ? args.machineGroupName : undefined;
-            resourceInputs["machines"] = args ? args.machines : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["machineGroupName"] = args?.machineGroupName;
+            resourceInputs["machines"] = args?.machines;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,56 +42,56 @@ export class ArcAddon extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Host OS supported by the Arc addon.
      */
-    public /*out*/ readonly hostPlatform!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostPlatform: pulumi.Output<string>;
     /**
      * Platform where the runtime is hosted.
      */
-    public /*out*/ readonly hostPlatformType!: pulumi.Output<string>;
+    declare public /*out*/ readonly hostPlatformType: pulumi.Output<string>;
     /**
      * Addon type.
      * Expected value is 'ArcForKubernetes'.
      */
-    public readonly kind!: pulumi.Output<"ArcForKubernetes">;
+    declare public readonly kind: pulumi.Output<"ArcForKubernetes">;
     /**
      * The object name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Addon Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Arc resource group name
      */
-    public readonly resourceGroupName!: pulumi.Output<string>;
+    declare public readonly resourceGroupName: pulumi.Output<string>;
     /**
      * Arc resource location
      */
-    public readonly resourceLocation!: pulumi.Output<string>;
+    declare public readonly resourceLocation: pulumi.Output<string>;
     /**
      * Arc resource Name
      */
-    public readonly resourceName!: pulumi.Output<string>;
+    declare public readonly resourceName: pulumi.Output<string>;
     /**
      * Arc resource subscription Id
      */
-    public readonly subscriptionId!: pulumi.Output<string>;
+    declare public readonly subscriptionId: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of Addon
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Arc resource version
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a ArcAddon resource with the given unique name, arguments, and options.
@@ -104,35 +104,35 @@ export class ArcAddon extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceLocation === undefined) && !opts.urn) {
+            if (args?.resourceLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceLocation'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            if ((!args || args.roleName === undefined) && !opts.urn) {
+            if (args?.roleName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleName'");
             }
-            if ((!args || args.subscriptionId === undefined) && !opts.urn) {
+            if (args?.subscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subscriptionId'");
             }
-            resourceInputs["addonName"] = args ? args.addonName : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["addonName"] = args?.addonName;
+            resourceInputs["deviceName"] = args?.deviceName;
             resourceInputs["kind"] = "ArcForKubernetes";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceLocation"] = args ? args.resourceLocation : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceLocation"] = args?.resourceLocation;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hostPlatform"] = undefined /*out*/;
             resourceInputs["hostPlatformType"] = undefined /*out*/;

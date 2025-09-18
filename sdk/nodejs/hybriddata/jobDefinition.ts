@@ -42,51 +42,51 @@ export class JobDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of customer secrets containing a key identifier and key value. The key identifier is a way for the specific data source to understand the key. Value contains customer secret encrypted by the encryptionKeys.
      */
-    public readonly customerSecrets!: pulumi.Output<outputs.hybriddata.CustomerSecretResponse[] | undefined>;
+    declare public readonly customerSecrets: pulumi.Output<outputs.hybriddata.CustomerSecretResponse[] | undefined>;
     /**
      * A generic json used differently by each data service type.
      */
-    public readonly dataServiceInput!: pulumi.Output<any | undefined>;
+    declare public readonly dataServiceInput: pulumi.Output<any | undefined>;
     /**
      * Data Sink Id associated to the job definition.
      */
-    public readonly dataSinkId!: pulumi.Output<string>;
+    declare public readonly dataSinkId: pulumi.Output<string>;
     /**
      * Data Source Id associated to the job definition.
      */
-    public readonly dataSourceId!: pulumi.Output<string>;
+    declare public readonly dataSourceId: pulumi.Output<string>;
     /**
      * Last modified time of the job definition.
      */
-    public readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * Name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This is the preferred geo location for the job to run.
      */
-    public readonly runLocation!: pulumi.Output<string | undefined>;
+    declare public readonly runLocation: pulumi.Output<string | undefined>;
     /**
      * Schedule for running the job definition
      */
-    public readonly schedules!: pulumi.Output<outputs.hybriddata.ScheduleResponse[] | undefined>;
+    declare public readonly schedules: pulumi.Output<outputs.hybriddata.ScheduleResponse[] | undefined>;
     /**
      * State of the job definition.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Enum to detect if user confirmation is required. If not passed will default to NotRequired.
      */
-    public readonly userConfirmation!: pulumi.Output<string | undefined>;
+    declare public readonly userConfirmation: pulumi.Output<string | undefined>;
 
     /**
      * Create a JobDefinition resource with the given unique name, arguments, and options.
@@ -99,37 +99,37 @@ export class JobDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataManagerName === undefined) && !opts.urn) {
+            if (args?.dataManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataManagerName'");
             }
-            if ((!args || args.dataServiceName === undefined) && !opts.urn) {
+            if (args?.dataServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataServiceName'");
             }
-            if ((!args || args.dataSinkId === undefined) && !opts.urn) {
+            if (args?.dataSinkId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSinkId'");
             }
-            if ((!args || args.dataSourceId === undefined) && !opts.urn) {
+            if (args?.dataSourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["customerSecrets"] = args ? args.customerSecrets : undefined;
-            resourceInputs["dataManagerName"] = args ? args.dataManagerName : undefined;
-            resourceInputs["dataServiceInput"] = args ? args.dataServiceInput : undefined;
-            resourceInputs["dataServiceName"] = args ? args.dataServiceName : undefined;
-            resourceInputs["dataSinkId"] = args ? args.dataSinkId : undefined;
-            resourceInputs["dataSourceId"] = args ? args.dataSourceId : undefined;
-            resourceInputs["jobDefinitionName"] = args ? args.jobDefinitionName : undefined;
-            resourceInputs["lastModifiedTime"] = args ? args.lastModifiedTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runLocation"] = args ? args.runLocation : undefined;
-            resourceInputs["schedules"] = args ? args.schedules : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["userConfirmation"] = (args ? args.userConfirmation : undefined) ?? "NotRequired";
+            resourceInputs["customerSecrets"] = args?.customerSecrets;
+            resourceInputs["dataManagerName"] = args?.dataManagerName;
+            resourceInputs["dataServiceInput"] = args?.dataServiceInput;
+            resourceInputs["dataServiceName"] = args?.dataServiceName;
+            resourceInputs["dataSinkId"] = args?.dataSinkId;
+            resourceInputs["dataSourceId"] = args?.dataSourceId;
+            resourceInputs["jobDefinitionName"] = args?.jobDefinitionName;
+            resourceInputs["lastModifiedTime"] = args?.lastModifiedTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runLocation"] = args?.runLocation;
+            resourceInputs["schedules"] = args?.schedules;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["userConfirmation"] = (args?.userConfirmation) ?? "NotRequired";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

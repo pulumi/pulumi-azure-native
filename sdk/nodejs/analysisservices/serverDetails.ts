@@ -42,67 +42,67 @@ export class ServerDetails extends pulumi.CustomResource {
     /**
      * A collection of AS server administrators
      */
-    public readonly asAdministrators!: pulumi.Output<outputs.analysisservices.ServerAdministratorsResponse | undefined>;
+    declare public readonly asAdministrators: pulumi.Output<outputs.analysisservices.ServerAdministratorsResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The SAS container URI to the backup container.
      */
-    public readonly backupBlobContainerUri!: pulumi.Output<string | undefined>;
+    declare public readonly backupBlobContainerUri: pulumi.Output<string | undefined>;
     /**
      * The gateway details configured for the AS server.
      */
-    public readonly gatewayDetails!: pulumi.Output<outputs.analysisservices.GatewayDetailsResponse | undefined>;
+    declare public readonly gatewayDetails: pulumi.Output<outputs.analysisservices.GatewayDetailsResponse | undefined>;
     /**
      * The firewall settings for the AS server.
      */
-    public readonly ipV4FirewallSettings!: pulumi.Output<outputs.analysisservices.IPv4FirewallSettingsResponse | undefined>;
+    declare public readonly ipV4FirewallSettings: pulumi.Output<outputs.analysisservices.IPv4FirewallSettingsResponse | undefined>;
     /**
      * Location of the Analysis Services resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The managed mode of the server (0 = not managed, 1 = managed).
      */
-    public readonly managedMode!: pulumi.Output<number | undefined>;
+    declare public readonly managedMode: pulumi.Output<number | undefined>;
     /**
      * The name of the Analysis Services resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * How the read-write server's participation in the query pool is controlled.<br/>It can have the following values: <ul><li>readOnly - indicates that the read-write server is intended not to participate in query operations</li><li>all - indicates that the read-write server can participate in query operations</li></ul>Specifying readOnly when capacity is 1 results in error.
      */
-    public readonly querypoolConnectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly querypoolConnectionMode: pulumi.Output<string | undefined>;
     /**
      * The full name of the Analysis Services resource.
      */
-    public /*out*/ readonly serverFullName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverFullName: pulumi.Output<string>;
     /**
      * The server monitor mode for AS server
      */
-    public readonly serverMonitorMode!: pulumi.Output<number | undefined>;
+    declare public readonly serverMonitorMode: pulumi.Output<number | undefined>;
     /**
      * The SKU of the Analysis Services resource.
      */
-    public readonly sku!: pulumi.Output<outputs.analysisservices.ResourceSkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.analysisservices.ResourceSkuResponse>;
     /**
      * The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Key-value pairs of additional resource provisioning properties.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the Analysis Services resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerDetails resource with the given unique name, arguments, and options.
@@ -115,24 +115,24 @@ export class ServerDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["asAdministrators"] = args ? args.asAdministrators : undefined;
-            resourceInputs["backupBlobContainerUri"] = args ? args.backupBlobContainerUri : undefined;
-            resourceInputs["gatewayDetails"] = args ? args.gatewayDetails : undefined;
-            resourceInputs["ipV4FirewallSettings"] = args ? args.ipV4FirewallSettings : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedMode"] = (args ? args.managedMode : undefined) ?? 1;
-            resourceInputs["querypoolConnectionMode"] = (args ? args.querypoolConnectionMode : undefined) ?? "All";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverMonitorMode"] = (args ? args.serverMonitorMode : undefined) ?? 1;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["asAdministrators"] = args?.asAdministrators;
+            resourceInputs["backupBlobContainerUri"] = args?.backupBlobContainerUri;
+            resourceInputs["gatewayDetails"] = args?.gatewayDetails;
+            resourceInputs["ipV4FirewallSettings"] = args?.ipV4FirewallSettings;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedMode"] = (args?.managedMode) ?? 1;
+            resourceInputs["querypoolConnectionMode"] = (args?.querypoolConnectionMode) ?? "All";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverMonitorMode"] = (args?.serverMonitorMode) ?? 1;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.analysisservices.resourceSkuArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

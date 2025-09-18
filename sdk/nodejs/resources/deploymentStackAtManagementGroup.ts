@@ -44,95 +44,95 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
     /**
      * Defines the behavior of resources that are no longer managed after the Deployment stack is updated or deleted.
      */
-    public readonly actionOnUnmanage!: pulumi.Output<outputs.resources.ActionOnUnmanageResponse>;
+    declare public readonly actionOnUnmanage: pulumi.Output<outputs.resources.ActionOnUnmanageResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The correlation id of the last Deployment stack upsert or delete operation. It is in GUID format and is used for tracing.
      */
-    public /*out*/ readonly correlationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly correlationId: pulumi.Output<string>;
     /**
      * The debug setting of the deployment.
      */
-    public readonly debugSetting!: pulumi.Output<outputs.resources.DeploymentStacksDebugSettingResponse | undefined>;
+    declare public readonly debugSetting: pulumi.Output<outputs.resources.DeploymentStacksDebugSettingResponse | undefined>;
     /**
      * An array of resources that were deleted during the most recent Deployment stack update. Deleted means that the resource was removed from the template and relevant deletion operations were specified.
      */
-    public /*out*/ readonly deletedResources!: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
+    declare public /*out*/ readonly deletedResources: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
     /**
      * Defines how resources deployed by the stack are locked.
      */
-    public readonly denySettings!: pulumi.Output<outputs.resources.DenySettingsResponse>;
+    declare public readonly denySettings: pulumi.Output<outputs.resources.DenySettingsResponse>;
     /**
      * The resourceId of the deployment resource created by the deployment stack.
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
      */
-    public readonly deploymentScope!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentScope: pulumi.Output<string | undefined>;
     /**
      * Deployment stack description. Max length of 4096 characters.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * An array of resources that were detached during the most recent Deployment stack update. Detached means that the resource was removed from the template, but no relevant deletion operations were specified. So, the resource still exists while no longer being associated with the stack.
      */
-    public /*out*/ readonly detachedResources!: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
+    declare public /*out*/ readonly detachedResources: pulumi.Output<outputs.resources.ResourceReferenceResponse[]>;
     /**
      * The duration of the last successful Deployment stack update.
      */
-    public /*out*/ readonly duration!: pulumi.Output<string>;
+    declare public /*out*/ readonly duration: pulumi.Output<string>;
     /**
      * The error detail.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.resources.ErrorDetailResponse | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.resources.ErrorDetailResponse | undefined>;
     /**
      * An array of resources that failed to reach goal state during the most recent update. Each resourceId is accompanied by an error message.
      */
-    public /*out*/ readonly failedResources!: pulumi.Output<outputs.resources.ResourceReferenceExtendedResponse[]>;
+    declare public /*out*/ readonly failedResources: pulumi.Output<outputs.resources.ResourceReferenceExtendedResponse[]>;
     /**
      * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The outputs of the deployment resource created by the deployment stack.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<any>;
+    declare public /*out*/ readonly outputs: pulumi.Output<any>;
     /**
      * Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.resources.DeploymentParameterResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.resources.DeploymentParameterResponse} | undefined>;
     /**
      * The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
      */
-    public readonly parametersLink!: pulumi.Output<outputs.resources.DeploymentStacksParametersLinkResponse | undefined>;
+    declare public readonly parametersLink: pulumi.Output<outputs.resources.DeploymentStacksParametersLinkResponse | undefined>;
     /**
      * State of the deployment stack.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * An array of resources currently managed by the deployment stack.
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.resources.ManagedResourceReferenceResponse[]>;
+    declare public /*out*/ readonly resources: pulumi.Output<outputs.resources.ManagedResourceReferenceResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.resources.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resources.SystemDataResponse>;
     /**
      * Deployment stack resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DeploymentStackAtManagementGroup resource with the given unique name, arguments, and options.
@@ -145,29 +145,29 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actionOnUnmanage === undefined) && !opts.urn) {
+            if (args?.actionOnUnmanage === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actionOnUnmanage'");
             }
-            if ((!args || args.denySettings === undefined) && !opts.urn) {
+            if (args?.denySettings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'denySettings'");
             }
-            if ((!args || args.managementGroupId === undefined) && !opts.urn) {
+            if (args?.managementGroupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementGroupId'");
             }
-            resourceInputs["actionOnUnmanage"] = args ? args.actionOnUnmanage : undefined;
-            resourceInputs["bypassStackOutOfSyncError"] = args ? args.bypassStackOutOfSyncError : undefined;
-            resourceInputs["debugSetting"] = args ? args.debugSetting : undefined;
-            resourceInputs["denySettings"] = args ? args.denySettings : undefined;
-            resourceInputs["deploymentScope"] = args ? args.deploymentScope : undefined;
-            resourceInputs["deploymentStackName"] = args ? args.deploymentStackName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementGroupId"] = args ? args.managementGroupId : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["parametersLink"] = args ? args.parametersLink : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["templateLink"] = args ? args.templateLink : undefined;
+            resourceInputs["actionOnUnmanage"] = args?.actionOnUnmanage;
+            resourceInputs["bypassStackOutOfSyncError"] = args?.bypassStackOutOfSyncError;
+            resourceInputs["debugSetting"] = args?.debugSetting;
+            resourceInputs["denySettings"] = args?.denySettings;
+            resourceInputs["deploymentScope"] = args?.deploymentScope;
+            resourceInputs["deploymentStackName"] = args?.deploymentStackName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementGroupId"] = args?.managementGroupId;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["parametersLink"] = args?.parametersLink;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["templateLink"] = args?.templateLink;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["correlationId"] = undefined /*out*/;
             resourceInputs["deletedResources"] = undefined /*out*/;

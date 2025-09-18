@@ -44,44 +44,44 @@ export class AFDOriginGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * Health probe settings to the origin that is used to determine the health of the origin.
      */
-    public readonly healthProbeSettings!: pulumi.Output<outputs.cdn.HealthProbeParametersResponse | undefined>;
+    declare public readonly healthProbeSettings: pulumi.Output<outputs.cdn.HealthProbeParametersResponse | undefined>;
     /**
      * Load balancing settings for a backend pool
      */
-    public readonly loadBalancingSettings!: pulumi.Output<outputs.cdn.LoadBalancingSettingsParametersResponse | undefined>;
+    declare public readonly loadBalancingSettings: pulumi.Output<outputs.cdn.LoadBalancingSettingsParametersResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name of the profile which holds the origin group.
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * Provisioning status
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
      */
-    public readonly sessionAffinityState!: pulumi.Output<string | undefined>;
+    declare public readonly sessionAffinityState: pulumi.Output<string | undefined>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
      */
-    public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AFDOriginGroup resource with the given unique name, arguments, and options.
@@ -94,19 +94,19 @@ export class AFDOriginGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["healthProbeSettings"] = args ? args.healthProbeSettings : undefined;
-            resourceInputs["loadBalancingSettings"] = args ? args.loadBalancingSettings : undefined;
-            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sessionAffinityState"] = args ? args.sessionAffinityState : undefined;
-            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args ? args.trafficRestorationTimeToHealedOrNewEndpointsInMinutes : undefined;
+            resourceInputs["healthProbeSettings"] = args?.healthProbeSettings;
+            resourceInputs["loadBalancingSettings"] = args?.loadBalancingSettings;
+            resourceInputs["originGroupName"] = args?.originGroupName;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sessionAffinityState"] = args?.sessionAffinityState;
+            resourceInputs["trafficRestorationTimeToHealedOrNewEndpointsInMinutes"] = args?.trafficRestorationTimeToHealedOrNewEndpointsInMinutes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

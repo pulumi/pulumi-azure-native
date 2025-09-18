@@ -42,64 +42,64 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    public readonly alertRuleTemplateName!: pulumi.Output<string | undefined>;
+    declare public readonly alertRuleTemplateName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of the alert rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for alerts created by this alert rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * the alerts' displayNames on which the cases will not be generated
      */
-    public readonly displayNamesExcludeFilter!: pulumi.Output<string[] | undefined>;
+    declare public readonly displayNamesExcludeFilter: pulumi.Output<string[] | undefined>;
     /**
      * the alerts' displayNames on which the cases will be generated
      */
-    public readonly displayNamesFilter!: pulumi.Output<string[] | undefined>;
+    declare public readonly displayNamesFilter: pulumi.Output<string[] | undefined>;
     /**
      * Determines whether this alert rule is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The kind of the alert rule
      * Expected value is 'MicrosoftSecurityIncidentCreation'.
      */
-    public readonly kind!: pulumi.Output<"MicrosoftSecurityIncidentCreation">;
+    declare public readonly kind: pulumi.Output<"MicrosoftSecurityIncidentCreation">;
     /**
      * The last time that this alert has been modified.
      */
-    public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The alerts' productName on which the cases will be generated
      */
-    public readonly productFilter!: pulumi.Output<string>;
+    declare public readonly productFilter: pulumi.Output<string>;
     /**
      * the alerts' severities on which the cases will be generated
      */
-    public readonly severitiesFilter!: pulumi.Output<string[] | undefined>;
+    declare public readonly severitiesFilter: pulumi.Output<string[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MicrosoftSecurityIncidentCreationAlertRule resource with the given unique name, arguments, and options.
@@ -112,36 +112,36 @@ export class MicrosoftSecurityIncidentCreationAlertRule extends pulumi.CustomRes
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.productFilter === undefined) && !opts.urn) {
+            if (args?.productFilter === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productFilter'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["displayNamesExcludeFilter"] = args ? args.displayNamesExcludeFilter : undefined;
-            resourceInputs["displayNamesFilter"] = args ? args.displayNamesFilter : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
+            resourceInputs["alertRuleTemplateName"] = args?.alertRuleTemplateName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["displayNamesExcludeFilter"] = args?.displayNamesExcludeFilter;
+            resourceInputs["displayNamesFilter"] = args?.displayNamesFilter;
+            resourceInputs["enabled"] = args?.enabled;
             resourceInputs["kind"] = "MicrosoftSecurityIncidentCreation";
-            resourceInputs["productFilter"] = args ? args.productFilter : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["severitiesFilter"] = args ? args.severitiesFilter : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["productFilter"] = args?.productFilter;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["severitiesFilter"] = args?.severitiesFilter;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;
