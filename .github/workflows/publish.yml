@@ -20,41 +20,35 @@ on:
         default: true
 
 env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: azure-native
   PROVIDER_VERSION: ${{ inputs.version }}
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
-  PYPI_USERNAME: __token__
-  PYPI_PASSWORD: ${{ secrets.PYPI_API_TOKEN }}
   TRAVIS_OS_NAME: linux
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
-  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
-  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
-  ARM_CLIENT_ID: 30e520fa-12b4-4e21-b473-9426c5ac2e1e
-  ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
   ARM_LOCATION: westus2
-  ARM_SUBSCRIPTION_ID: 0282681f-7a9e-424b-80b2-96babd57a8a1
-  ARM_TENANT_ID: 706143bc-e1d4-4593-aee2-c9dc60ab9be7
   PULUMI_API: https://api.pulumi-staging.io
 
 jobs:
   publish-provider:
     runs-on: ubuntu-latest
     name: publish-provider
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
           ref: ${{ inputs.ref }}
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
@@ -97,19 +91,19 @@ jobs:
         # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
         uses: aws-actions/configure-aws-credentials@v1-node16
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-access-key-id: ${{ steps.esc-secrets.outputs.AWS_ACCESS_KEY_ID }}
           aws-region: us-east-2
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-secret-access-key: ${{ steps.esc-secrets.outputs.AWS_SECRET_ACCESS_KEY }}
           role-duration-seconds: 7200
           role-session-name: ${{ env.PROVIDER }}@githubActions
           role-external-id: upload-pulumi-release
-          role-to-assume: ${{ secrets.AWS_UPLOAD_ROLE_ARN }}
+          role-to-assume: ${{ steps.esc-secrets.outputs.AWS_UPLOAD_ROLE_ARN }}
 
       - name: Upload Provider Binaries
         run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
 
       - name: Create GH Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         if: inputs.publishGhRelease
         with:
           tag_name: v${{ inputs.version }}
@@ -120,7 +114,7 @@ jobs:
           generate_release_notes: true
           files: dist/*
         env:
-          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -134,11 +128,22 @@ jobs:
     runs-on: ubuntu-latest
     name: publish-python-sdk
     needs: publish-provider
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
@@ -159,8 +164,8 @@ jobs:
       - name: Publish PyPi Package
         run: >
           twine upload
-          -u "${PYPI_USERNAME}"
-          -p "${PYPI_PASSWORD}"
+          -u "__token__"
+          -p "${{ steps.esc-secrets.outputs.PYPI_PASSWORD }}"
           "${{ github.workspace }}/sdk/python/bin/dist/*"
           --skip-existing
           --verbose
@@ -177,11 +182,22 @@ jobs:
     runs-on: ubuntu-latest
     name: publish-dotnet-sdk
     needs: publish-provider
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Checkout Scripts Repo
         uses: actions/checkout@v4
@@ -205,7 +221,7 @@ jobs:
       - name: Publish NuGet Package
         run: |
           find "sdk/dotnet/bin/Debug/" -name 'Pulumi.*.nupkg' \
-            -exec dotnet nuget push -k "${NUGET_PUBLISH_KEY}" -s https://api.nuget.org/v3/index.json {} ';'
+            -exec dotnet nuget push -k "${{ steps.esc-secrets.outputs.NUGET_PUBLISH_KEY }}" -s https://api.nuget.org/v3/index.json {} ';'
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -219,11 +235,22 @@ jobs:
     runs-on: ubuntu-latest
     name: publish-nodejs-sdk
     needs: publish-provider
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
@@ -246,7 +273,7 @@ jobs:
         working-directory: sdk/nodejs/bin
         run: npm publish --tag "${{ steps.tag.outputs.tag }}"
         env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -262,11 +289,23 @@ jobs:
     needs: publish-provider
     env:
       PACKAGE_VERSION: ${{ inputs.version }}
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
 
@@ -292,6 +331,10 @@ jobs:
         # All other ecosystems handle prereleases correctly, Maven is the exception.
         if: inputs.prerelease == false
         run: gradle -p ./sdk/java publishToSonatype closeAndReleaseSonatypeStagingRepository
+        env:
+          SIGNING_KEY_ID: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_KEY_ID }}
+          SIGNING_KEY: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_KEY }}
+          SIGNING_PASSWORD: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_PASSWORD }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -305,11 +348,22 @@ jobs:
     runs-on: ubuntu-latest
     name: publish-go-sdk
     needs: publish-provider
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:
           submodules: true
+
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
 
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
@@ -317,7 +371,7 @@ jobs:
       - name: Checkout Go SDK repo
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           repository: pulumi/pulumi-azure-native-sdk
           path: sdk/pulumi-azure-native-sdk
           fetch-depth: 0

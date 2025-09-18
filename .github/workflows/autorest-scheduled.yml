@@ -11,11 +11,15 @@ jobs:
   version:
     uses: ./.github/workflows/version.yml
     secrets: inherit
+    permissions:
+      id-token: write # For ESC secrets.
 
   build_test:
     uses: ./.github/workflows/build-test.yml
     secrets: inherit
     needs: version
+    permissions:
+      id-token: write # For ESC secrets.
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}

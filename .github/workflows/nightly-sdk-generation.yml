@@ -4,21 +4,10 @@ on:
     - cron: 35 4 * * 1-5
   workflow_dispatch: {}
 env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PROVIDER: azure-native
-  PULUMI_ACCESS_TOKEN: ${{ secrets.PULUMI_ACCESS_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-  NUGET_PUBLISH_KEY: ${{ secrets.NUGET_PUBLISH_KEY }}
   TRAVIS_OS_NAME: linux
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PUBLISH_REPO_USERNAME: ${{ secrets.OSSRH_USERNAME }}
-  PUBLISH_REPO_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-  SIGNING_KEY_ID: ${{ secrets.JAVA_SIGNING_KEY_ID }}
-  SIGNING_KEY: ${{ secrets.JAVA_SIGNING_KEY }}
-  SIGNING_PASSWORD: ${{ secrets.JAVA_SIGNING_PASSWORD }}
   ARM_LOCATION: westus2
   PULUMI_API: https://api.pulumi-staging.io
   PROVIDER_VERSION: 3.0.0-alpha.0+dev
@@ -27,6 +16,9 @@ jobs:
     # Use a more powerful runner to fix pulumi/pulumi-azure-native#2767
     runs-on: pulumi-ubuntu-8core
     name: generate-sdk
+    permissions:
+      contents: write # For PR.
+      id-token: write # For ESC secrets.
     steps:
       # We do a deep checkout so we're able to push later
       - name: Checkout Repo
@@ -35,6 +27,15 @@ jobs:
           submodules: true
           fetch-depth: 0
 
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
         with:
@@ -42,7 +43,7 @@ jobs:
 
       - uses: azure/login@v2
         with:
-          creds: ${{ secrets.AZURE_RBAC_SERVICE_PRINCIPAL }}
+          creds: ${{ steps.esc-secrets.outputs.AZURE_RBAC_SERVICE_PRINCIPAL }}
 
       - name: Cleanup SDK Folder
         # Remove the per-language folders but preserve the checked-in go.mod
@@ -86,7 +87,7 @@ jobs:
         uses: repo-sync/pull-request@v2.12.1
         with:
           destination_branch: master
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
           pr_body: "*Automated PR*"
           pr_title: Automated SDK generation @ azure-rest-api-specs ${{
             steps.vars.outputs.commit-hash }}
@@ -111,7 +112,7 @@ jobs:
         if: steps.create-pr.outputs.has_changed_files && contains(steps.schema-tools.outputs.summary, 'Looking good! No breaking changes found.')
         run: gh pr merge ${{ steps.create-pr.outputs.pr_number }} --squash --auto --repo ${{ github.repository }}
         env:
-          GH_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack

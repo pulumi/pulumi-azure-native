@@ -21,9 +21,6 @@ on:
         type: string
         description: Override the version when building
 
-env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
-
 jobs:
   comment-notification:
     runs-on: ubuntu-latest
@@ -34,7 +31,7 @@ jobs:
       - name: Update with Result
         uses: peter-evans/create-or-update-comment@v1
         with:
-          token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           repository: ${{ github.event.client_payload.github.payload.repository.full_name }}
           issue-number: ${{ github.event.client_payload.github.payload.issue.number }}
           body: "Please view the PR build: ${{ steps.vars.outputs.run-url }}"
