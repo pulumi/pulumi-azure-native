@@ -42,63 +42,63 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Default monetary cap for each student in this lab
      */
-    public readonly budgetPerStudent!: pulumi.Output<outputs.education.AmountResponse>;
+    declare public readonly budgetPerStudent: pulumi.Output<outputs.education.AmountResponse>;
     /**
      * The type of currency being used for the value.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    declare public readonly currency: pulumi.Output<string | undefined>;
     /**
      * Detail description of this lab
      */
-    public readonly description!: pulumi.Output<string>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * Lab Display Name
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Lab creation date
      */
-    public /*out*/ readonly effectiveDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly effectiveDate: pulumi.Output<string>;
     /**
      * Default expiration date for each student in this lab
      */
-    public readonly expirationDate!: pulumi.Output<string>;
+    declare public readonly expirationDate: pulumi.Output<string>;
     /**
      * invitation code for redeemable lab
      */
-    public /*out*/ readonly invitationCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly invitationCode: pulumi.Output<string>;
     /**
      * the total number of students that can be accepted to the lab.
      */
-    public /*out*/ readonly maxStudentCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly maxStudentCount: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of this lab
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.education.SystemDataResponse>;
     /**
      * Total budget
      */
-    public /*out*/ readonly totalBudget!: pulumi.Output<outputs.education.AmountResponse>;
+    declare public /*out*/ readonly totalBudget: pulumi.Output<outputs.education.AmountResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Amount value.
      */
-    public readonly value!: pulumi.Output<number | undefined>;
+    declare public readonly value: pulumi.Output<number | undefined>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -111,36 +111,36 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.billingProfileName === undefined) && !opts.urn) {
+            if (args?.billingProfileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingProfileName'");
             }
-            if ((!args || args.budgetPerStudent === undefined) && !opts.urn) {
+            if (args?.budgetPerStudent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'budgetPerStudent'");
             }
-            if ((!args || args.description === undefined) && !opts.urn) {
+            if (args?.description === undefined && !opts.urn) {
                 throw new Error("Missing required property 'description'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.expirationDate === undefined) && !opts.urn) {
+            if (args?.expirationDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expirationDate'");
             }
-            if ((!args || args.invoiceSectionName === undefined) && !opts.urn) {
+            if (args?.invoiceSectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invoiceSectionName'");
             }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
-            resourceInputs["budgetPerStudent"] = args ? args.budgetPerStudent : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["billingProfileName"] = args?.billingProfileName;
+            resourceInputs["budgetPerStudent"] = args?.budgetPerStudent;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["invoiceSectionName"] = args?.invoiceSectionName;
+            resourceInputs["value"] = args?.value;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDate"] = undefined /*out*/;
             resourceInputs["invitationCode"] = undefined /*out*/;

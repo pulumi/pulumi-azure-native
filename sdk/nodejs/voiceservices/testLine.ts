@@ -44,39 +44,39 @@ export class TestLine extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The phone number
      */
-    public readonly phoneNumber!: pulumi.Output<string>;
+    declare public readonly phoneNumber: pulumi.Output<string>;
     /**
      * Resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Purpose of this test line, e.g. automated or manual testing
      */
-    public readonly purpose!: pulumi.Output<string>;
+    declare public readonly purpose: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.voiceservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.voiceservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TestLine resource with the given unique name, arguments, and options.
@@ -89,25 +89,25 @@ export class TestLine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.communicationsGatewayName === undefined) && !opts.urn) {
+            if (args?.communicationsGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'communicationsGatewayName'");
             }
-            if ((!args || args.phoneNumber === undefined) && !opts.urn) {
+            if (args?.phoneNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'phoneNumber'");
             }
-            if ((!args || args.purpose === undefined) && !opts.urn) {
+            if (args?.purpose === undefined && !opts.urn) {
                 throw new Error("Missing required property 'purpose'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["communicationsGatewayName"] = args ? args.communicationsGatewayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["phoneNumber"] = args ? args.phoneNumber : undefined;
-            resourceInputs["purpose"] = args ? args.purpose : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testLineName"] = args ? args.testLineName : undefined;
+            resourceInputs["communicationsGatewayName"] = args?.communicationsGatewayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["phoneNumber"] = args?.phoneNumber;
+            resourceInputs["purpose"] = args?.purpose;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testLineName"] = args?.testLineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

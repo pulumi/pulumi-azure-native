@@ -44,79 +44,79 @@ export class ViewByScope extends pulumi.CustomResource {
     /**
      * Show costs accumulated over time.
      */
-    public readonly accumulated!: pulumi.Output<string | undefined>;
+    declare public readonly accumulated: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Chart type of the main view in Cost Analysis. Required.
      */
-    public readonly chart!: pulumi.Output<string | undefined>;
+    declare public readonly chart: pulumi.Output<string | undefined>;
     /**
      * Date the user created this view.
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Currency of the current view.
      */
-    public /*out*/ readonly currency!: pulumi.Output<string>;
+    declare public /*out*/ readonly currency: pulumi.Output<string>;
     /**
      * Has definition for data in this report config.
      */
-    public readonly dataSet!: pulumi.Output<outputs.costmanagement.ReportConfigDatasetResponse | undefined>;
+    declare public readonly dataSet: pulumi.Output<outputs.costmanagement.ReportConfigDatasetResponse | undefined>;
     /**
      * Date range of the current view.
      */
-    public readonly dateRange!: pulumi.Output<string | undefined>;
+    declare public readonly dateRange: pulumi.Output<string | undefined>;
     /**
      * User input name of the view. Required.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * If true, report includes monetary commitment.
      */
-    public readonly includeMonetaryCommitment!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeMonetaryCommitment: pulumi.Output<boolean | undefined>;
     /**
      * List of KPIs to show in Cost Analysis UI.
      */
-    public readonly kpis!: pulumi.Output<outputs.costmanagement.KpiPropertiesResponse[] | undefined>;
+    declare public readonly kpis: pulumi.Output<outputs.costmanagement.KpiPropertiesResponse[] | undefined>;
     /**
      * Metric to use when displaying costs.
      */
-    public readonly metric!: pulumi.Output<string | undefined>;
+    declare public readonly metric: pulumi.Output<string | undefined>;
     /**
      * Date when the user last modified this view.
      */
-    public readonly modifiedOn!: pulumi.Output<string | undefined>;
+    declare public readonly modifiedOn: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Configuration of 3 sub-views in the Cost Analysis UI.
      */
-    public readonly pivots!: pulumi.Output<outputs.costmanagement.PivotPropertiesResponse[] | undefined>;
+    declare public readonly pivots: pulumi.Output<outputs.costmanagement.PivotPropertiesResponse[] | undefined>;
     /**
      * Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Has time period for pulling data for the report.
      */
-    public readonly timePeriod!: pulumi.Output<outputs.costmanagement.ReportConfigTimePeriodResponse | undefined>;
+    declare public readonly timePeriod: pulumi.Output<outputs.costmanagement.ReportConfigTimePeriodResponse | undefined>;
     /**
      * The time frame for pulling data for the report. If custom, then a specific time period must be provided.
      */
-    public readonly timeframe!: pulumi.Output<string>;
+    declare public readonly timeframe: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a ViewByScope resource with the given unique name, arguments, and options.
@@ -129,31 +129,31 @@ export class ViewByScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.timeframe === undefined) && !opts.urn) {
+            if (args?.timeframe === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeframe'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["accumulated"] = args ? args.accumulated : undefined;
-            resourceInputs["chart"] = args ? args.chart : undefined;
-            resourceInputs["dataSet"] = args ? args.dataSet : undefined;
-            resourceInputs["dateRange"] = args ? args.dateRange : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["includeMonetaryCommitment"] = args ? args.includeMonetaryCommitment : undefined;
-            resourceInputs["kpis"] = args ? args.kpis : undefined;
-            resourceInputs["metric"] = args ? args.metric : undefined;
-            resourceInputs["modifiedOn"] = args ? args.modifiedOn : undefined;
-            resourceInputs["pivots"] = args ? args.pivots : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["timePeriod"] = args ? args.timePeriod : undefined;
-            resourceInputs["timeframe"] = args ? args.timeframe : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["accumulated"] = args?.accumulated;
+            resourceInputs["chart"] = args?.chart;
+            resourceInputs["dataSet"] = args?.dataSet;
+            resourceInputs["dateRange"] = args?.dateRange;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["includeMonetaryCommitment"] = args?.includeMonetaryCommitment;
+            resourceInputs["kpis"] = args?.kpis;
+            resourceInputs["metric"] = args?.metric;
+            resourceInputs["modifiedOn"] = args?.modifiedOn;
+            resourceInputs["pivots"] = args?.pivots;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["timePeriod"] = args?.timePeriod;
+            resourceInputs["timeframe"] = args?.timeframe;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;
             resourceInputs["currency"] = undefined /*out*/;

@@ -44,39 +44,39 @@ export class WebAppCollectorOperation extends pulumi.CustomResource {
     /**
      * Gets or sets the collector agent properties.
      */
-    public readonly agentProperties!: pulumi.Output<outputs.migrate.CollectorAgentPropertiesBaseResponse | undefined>;
+    declare public readonly agentProperties: pulumi.Output<outputs.migrate.CollectorAgentPropertiesBaseResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the Timestamp when collector was created.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Gets the discovery site id.
      */
-    public readonly discoverySiteId!: pulumi.Output<string | undefined>;
+    declare public readonly discoverySiteId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Timestamp when collector was last updated.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a WebAppCollectorOperation resource with the given unique name, arguments, and options.
@@ -89,17 +89,17 @@ export class WebAppCollectorOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentProperties"] = args ? args.agentProperties : undefined;
-            resourceInputs["collectorName"] = args ? args.collectorName : undefined;
-            resourceInputs["discoverySiteId"] = args ? args.discoverySiteId : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["agentProperties"] = args?.agentProperties;
+            resourceInputs["collectorName"] = args?.collectorName;
+            resourceInputs["discoverySiteId"] = args?.discoverySiteId;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

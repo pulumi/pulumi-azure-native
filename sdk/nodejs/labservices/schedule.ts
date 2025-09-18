@@ -44,47 +44,47 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Notes for this schedule.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * Current provisioning state of the schedule.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The recurrence pattern of the scheduled actions.
      */
-    public readonly recurrencePattern!: pulumi.Output<outputs.labservices.RecurrencePatternResponse | undefined>;
+    declare public readonly recurrencePattern: pulumi.Output<outputs.labservices.RecurrencePatternResponse | undefined>;
     /**
      * Error details of last operation done on schedule.
      */
-    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
+    declare public /*out*/ readonly resourceOperationError: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * When lab user virtual machines will be started. Timestamp offsets will be ignored and timeZoneId is used instead.
      */
-    public readonly startAt!: pulumi.Output<string | undefined>;
+    declare public readonly startAt: pulumi.Output<string | undefined>;
     /**
      * When lab user virtual machines will be stopped. Timestamp offsets will be ignored and timeZoneId is used instead.
      */
-    public readonly stopAt!: pulumi.Output<string>;
+    declare public readonly stopAt: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the schedule.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.labservices.SystemDataResponse>;
     /**
      * The IANA timezone id for the schedule.
      */
-    public readonly timeZoneId!: pulumi.Output<string>;
+    declare public readonly timeZoneId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -97,26 +97,26 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.stopAt === undefined) && !opts.urn) {
+            if (args?.stopAt === undefined && !opts.urn) {
                 throw new Error("Missing required property 'stopAt'");
             }
-            if ((!args || args.timeZoneId === undefined) && !opts.urn) {
+            if (args?.timeZoneId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeZoneId'");
             }
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["recurrencePattern"] = args ? args.recurrencePattern : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scheduleName"] = args ? args.scheduleName : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["stopAt"] = args ? args.stopAt : undefined;
-            resourceInputs["timeZoneId"] = args ? args.timeZoneId : undefined;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["recurrencePattern"] = args?.recurrencePattern;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scheduleName"] = args?.scheduleName;
+            resourceInputs["startAt"] = args?.startAt;
+            resourceInputs["stopAt"] = args?.stopAt;
+            resourceInputs["timeZoneId"] = args?.timeZoneId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

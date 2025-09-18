@@ -44,63 +44,63 @@ export class L3IsolationDomain extends pulumi.CustomResource {
     /**
      * Administrative state of the resource.
      */
-    public /*out*/ readonly administrativeState!: pulumi.Output<string>;
+    declare public /*out*/ readonly administrativeState: pulumi.Output<string>;
     /**
      * Aggregate route configurations.
      */
-    public readonly aggregateRouteConfiguration!: pulumi.Output<outputs.managednetworkfabric.AggregateRouteConfigurationResponse | undefined>;
+    declare public readonly aggregateRouteConfiguration: pulumi.Output<outputs.managednetworkfabric.AggregateRouteConfigurationResponse | undefined>;
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration state of the resource.
      */
-    public /*out*/ readonly configurationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly configurationState: pulumi.Output<string>;
     /**
      * Connected Subnet RoutePolicy
      */
-    public readonly connectedSubnetRoutePolicy!: pulumi.Output<outputs.managednetworkfabric.ConnectedSubnetRoutePolicyResponse | undefined>;
+    declare public readonly connectedSubnetRoutePolicy: pulumi.Output<outputs.managednetworkfabric.ConnectedSubnetRoutePolicyResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM Resource ID of the Network Fabric.
      */
-    public readonly networkFabricId!: pulumi.Output<string>;
+    declare public readonly networkFabricId: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Advertise Connected Subnets. Ex: "True" | "False".
      */
-    public readonly redistributeConnectedSubnets!: pulumi.Output<string | undefined>;
+    declare public readonly redistributeConnectedSubnets: pulumi.Output<string | undefined>;
     /**
      * Advertise Static Routes. Ex: "True" | "False".
      */
-    public readonly redistributeStaticRoutes!: pulumi.Output<string | undefined>;
+    declare public readonly redistributeStaticRoutes: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a L3IsolationDomain resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class L3IsolationDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+            if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aggregateRouteConfiguration"] = args ? args.aggregateRouteConfiguration : undefined;
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["connectedSubnetRoutePolicy"] = args ? args.connectedSubnetRoutePolicy : undefined;
-            resourceInputs["l3IsolationDomainName"] = args ? args.l3IsolationDomainName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
-            resourceInputs["redistributeConnectedSubnets"] = (args ? args.redistributeConnectedSubnets : undefined) ?? "True";
-            resourceInputs["redistributeStaticRoutes"] = (args ? args.redistributeStaticRoutes : undefined) ?? "False";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aggregateRouteConfiguration"] = args?.aggregateRouteConfiguration;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["connectedSubnetRoutePolicy"] = args?.connectedSubnetRoutePolicy;
+            resourceInputs["l3IsolationDomainName"] = args?.l3IsolationDomainName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkFabricId"] = args?.networkFabricId;
+            resourceInputs["redistributeConnectedSubnets"] = (args?.redistributeConnectedSubnets) ?? "True";
+            resourceInputs["redistributeStaticRoutes"] = (args?.redistributeStaticRoutes) ?? "False";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["administrativeState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationState"] = undefined /*out*/;

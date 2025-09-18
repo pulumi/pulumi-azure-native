@@ -42,75 +42,75 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
     /**
      * The API definition.
      */
-    public /*out*/ readonly apiDefinitionUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly apiDefinitionUrl: pulumi.Output<string>;
     /**
      * The api definitions.
      */
-    public /*out*/ readonly apiDefinitions!: pulumi.Output<outputs.logic.ApiResourceDefinitionsResponse>;
+    declare public /*out*/ readonly apiDefinitions: pulumi.Output<outputs.logic.ApiResourceDefinitionsResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The backend service.
      */
-    public /*out*/ readonly backendService!: pulumi.Output<outputs.logic.ApiResourceBackendServiceResponse>;
+    declare public /*out*/ readonly backendService: pulumi.Output<outputs.logic.ApiResourceBackendServiceResponse>;
     /**
      * The capabilities.
      */
-    public /*out*/ readonly capabilities!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly capabilities: pulumi.Output<string[]>;
     /**
      * The category.
      */
-    public /*out*/ readonly category!: pulumi.Output<string>;
+    declare public /*out*/ readonly category: pulumi.Output<string>;
     /**
      * The connection parameters.
      */
-    public /*out*/ readonly connectionParameters!: pulumi.Output<{[key: string]: any}>;
+    declare public /*out*/ readonly connectionParameters: pulumi.Output<{[key: string]: any}>;
     /**
      * The integration service environment managed api deployment parameters.
      */
-    public readonly deploymentParameters!: pulumi.Output<outputs.logic.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse | undefined>;
+    declare public readonly deploymentParameters: pulumi.Output<outputs.logic.IntegrationServiceEnvironmentManagedApiDeploymentParametersResponse | undefined>;
     /**
      * The api general information.
      */
-    public /*out*/ readonly generalInformation!: pulumi.Output<outputs.logic.ApiResourceGeneralInformationResponse>;
+    declare public /*out*/ readonly generalInformation: pulumi.Output<outputs.logic.ApiResourceGeneralInformationResponse>;
     /**
      * The integration service environment reference.
      */
-    public readonly integrationServiceEnvironment!: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
+    declare public readonly integrationServiceEnvironment: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The metadata.
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.logic.ApiResourceMetadataResponse>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.logic.ApiResourceMetadataResponse>;
     /**
      * Gets the resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The policies for the API.
      */
-    public /*out*/ readonly policies!: pulumi.Output<outputs.logic.ApiResourcePoliciesResponse>;
+    declare public /*out*/ readonly policies: pulumi.Output<outputs.logic.ApiResourcePoliciesResponse>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The runtime urls.
      */
-    public /*out*/ readonly runtimeUrls!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly runtimeUrls: pulumi.Output<string[]>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IntegrationServiceEnvironmentManagedApi resource with the given unique name, arguments, and options.
@@ -123,19 +123,19 @@ export class IntegrationServiceEnvironmentManagedApi extends pulumi.CustomResour
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationServiceEnvironmentName === undefined) && !opts.urn) {
+            if (args?.integrationServiceEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationServiceEnvironmentName'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["apiName"] = args ? args.apiName : undefined;
-            resourceInputs["deploymentParameters"] = args ? args.deploymentParameters : undefined;
-            resourceInputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
-            resourceInputs["integrationServiceEnvironmentName"] = args ? args.integrationServiceEnvironmentName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiName"] = args?.apiName;
+            resourceInputs["deploymentParameters"] = args?.deploymentParameters;
+            resourceInputs["integrationServiceEnvironment"] = args?.integrationServiceEnvironment;
+            resourceInputs["integrationServiceEnvironmentName"] = args?.integrationServiceEnvironmentName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["apiDefinitionUrl"] = undefined /*out*/;
             resourceInputs["apiDefinitions"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

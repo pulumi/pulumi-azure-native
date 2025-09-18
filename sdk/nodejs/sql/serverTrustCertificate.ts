@@ -41,27 +41,27 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The certificate name
      */
-    public readonly certificateName!: pulumi.Output<string>;
+    declare public readonly certificateName: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The certificate public blob
      */
-    public readonly publicBlob!: pulumi.Output<string | undefined>;
+    declare public readonly publicBlob: pulumi.Output<string | undefined>;
     /**
      * The certificate thumbprint
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerTrustCertificate resource with the given unique name, arguments, and options.
@@ -74,16 +74,16 @@ export class ServerTrustCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["publicBlob"] = args ? args.publicBlob : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["publicBlob"] = args?.publicBlob;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["thumbprint"] = undefined /*out*/;

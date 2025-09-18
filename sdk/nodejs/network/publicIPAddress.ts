@@ -44,103 +44,103 @@ export class PublicIPAddress extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The DDoS protection custom policy associated with the public IP address.
      */
-    public readonly ddosSettings!: pulumi.Output<outputs.network.DdosSettingsResponse | undefined>;
+    declare public readonly ddosSettings: pulumi.Output<outputs.network.DdosSettingsResponse | undefined>;
     /**
      * Specify what happens to the public IP address when the VM using it is deleted
      */
-    public readonly deleteOption!: pulumi.Output<string | undefined>;
+    declare public readonly deleteOption: pulumi.Output<string | undefined>;
     /**
      * The FQDN of the DNS record associated with the public IP address.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.network.PublicIPAddressDnsSettingsResponse | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.network.PublicIPAddressDnsSettingsResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the public ip address.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * The idle timeout of the public IP address.
      */
-    public readonly idleTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly idleTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * The IP address associated with the public IP address resource.
      */
-    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddress: pulumi.Output<string | undefined>;
     /**
      * The IP configuration associated with the public IP address.
      */
-    public /*out*/ readonly ipConfiguration!: pulumi.Output<outputs.network.IPConfigurationResponse>;
+    declare public /*out*/ readonly ipConfiguration: pulumi.Output<outputs.network.IPConfigurationResponse>;
     /**
      * The list of tags associated with the public IP address.
      */
-    public readonly ipTags!: pulumi.Output<outputs.network.IpTagResponse[] | undefined>;
+    declare public readonly ipTags: pulumi.Output<outputs.network.IpTagResponse[] | undefined>;
     /**
      * The linked public IP address of the public IP address resource.
      */
-    public readonly linkedPublicIPAddress!: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
+    declare public readonly linkedPublicIPAddress: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Migration phase of Public IP Address.
      */
-    public readonly migrationPhase!: pulumi.Output<string | undefined>;
+    declare public readonly migrationPhase: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The NatGateway for the Public IP address.
      */
-    public readonly natGateway!: pulumi.Output<outputs.network.NatGatewayResponse | undefined>;
+    declare public readonly natGateway: pulumi.Output<outputs.network.NatGatewayResponse | undefined>;
     /**
      * The provisioning state of the public IP address resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The public IP address version.
      */
-    public readonly publicIPAddressVersion!: pulumi.Output<string | undefined>;
+    declare public readonly publicIPAddressVersion: pulumi.Output<string | undefined>;
     /**
      * The public IP address allocation method.
      */
-    public readonly publicIPAllocationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly publicIPAllocationMethod: pulumi.Output<string | undefined>;
     /**
      * The Public IP Prefix this Public IP Address should be allocated from.
      */
-    public readonly publicIPPrefix!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly publicIPPrefix: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The resource GUID property of the public IP address resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The service public IP address of the public IP address resource.
      */
-    public readonly servicePublicIPAddress!: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
+    declare public readonly servicePublicIPAddress: pulumi.Output<outputs.network.PublicIPAddressResponse | undefined>;
     /**
      * The public IP address SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.PublicIPAddressSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.PublicIPAddressSkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of availability zones denoting the IP allocated for the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PublicIPAddress resource with the given unique name, arguments, and options.
@@ -153,30 +153,30 @@ export class PublicIPAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["ddosSettings"] = args ? args.ddosSettings : undefined;
-            resourceInputs["deleteOption"] = args ? args.deleteOption : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["idleTimeoutInMinutes"] = args ? args.idleTimeoutInMinutes : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["linkedPublicIPAddress"] = args ? args.linkedPublicIPAddress : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrationPhase"] = args ? args.migrationPhase : undefined;
-            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
-            resourceInputs["publicIPAddressVersion"] = args ? args.publicIPAddressVersion : undefined;
-            resourceInputs["publicIPAllocationMethod"] = args ? args.publicIPAllocationMethod : undefined;
-            resourceInputs["publicIPPrefix"] = args ? args.publicIPPrefix : undefined;
-            resourceInputs["publicIpAddressName"] = args ? args.publicIpAddressName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["servicePublicIPAddress"] = args ? args.servicePublicIPAddress : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["ddosSettings"] = args?.ddosSettings;
+            resourceInputs["deleteOption"] = args?.deleteOption;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["idleTimeoutInMinutes"] = args?.idleTimeoutInMinutes;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["linkedPublicIPAddress"] = args?.linkedPublicIPAddress;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrationPhase"] = args?.migrationPhase;
+            resourceInputs["natGateway"] = args?.natGateway;
+            resourceInputs["publicIPAddressVersion"] = args?.publicIPAddressVersion;
+            resourceInputs["publicIPAllocationMethod"] = args?.publicIPAllocationMethod;
+            resourceInputs["publicIPPrefix"] = args?.publicIPPrefix;
+            resourceInputs["publicIpAddressName"] = args?.publicIpAddressName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["servicePublicIPAddress"] = args?.servicePublicIPAddress;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfiguration"] = undefined /*out*/;

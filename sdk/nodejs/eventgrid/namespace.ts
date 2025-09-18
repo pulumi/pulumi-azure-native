@@ -44,15 +44,15 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Identity information for the Namespace resource.
      */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
+    declare public readonly inboundIpRules: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
     /**
      * This is an optional property and it allows the user to specify if the namespace resource supports zone-redundancy capability or not. If this
      * property is not specified explicitly by the user, its default value depends on the following conditions:
@@ -60,56 +60,56 @@ export class Namespace extends pulumi.CustomResource {
      *     b. For non-Availability Zones enabled regions - The default property value would be false.
      * Once specified, this property cannot be updated.
      */
-    public readonly isZoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly isZoneRedundant: pulumi.Output<boolean | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this namespace. Only TLS version 1.2 is supported.
      */
-    public readonly minimumTlsVersionAllowed!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersionAllowed: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Provisioning state of the namespace resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.PubSub.NamespaceProperties.InboundIpRules" />
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Represents available Sku pricing tiers.
      */
-    public readonly sku!: pulumi.Output<outputs.eventgrid.NamespaceSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.eventgrid.NamespaceSkuResponse | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Topic spaces configuration information for the namespace resource
      */
-    public readonly topicSpacesConfiguration!: pulumi.Output<outputs.eventgrid.TopicSpacesConfigurationResponse | undefined>;
+    declare public readonly topicSpacesConfiguration: pulumi.Output<outputs.eventgrid.TopicSpacesConfigurationResponse | undefined>;
     /**
      * Topics configuration information for the namespace resource
      */
-    public readonly topicsConfiguration!: pulumi.Output<outputs.eventgrid.TopicsConfigurationResponse | undefined>;
+    declare public readonly topicsConfiguration: pulumi.Output<outputs.eventgrid.TopicsConfigurationResponse | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -122,22 +122,22 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["isZoneRedundant"] = args ? args.isZoneRedundant : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["isZoneRedundant"] = args?.isZoneRedundant;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersionAllowed"] = args?.minimumTlsVersionAllowed;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["topicSpacesConfiguration"] = args ? (args.topicSpacesConfiguration ? pulumi.output(args.topicSpacesConfiguration).apply(inputs.eventgrid.topicSpacesConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["topicsConfiguration"] = args ? args.topicsConfiguration : undefined;
+            resourceInputs["topicsConfiguration"] = args?.topicsConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

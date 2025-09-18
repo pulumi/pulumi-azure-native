@@ -44,35 +44,35 @@ export class SenderUsername extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The location where the SenderUsername resource data is stored at rest.
      */
-    public /*out*/ readonly dataLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataLocation: pulumi.Output<string>;
     /**
      * The display name for the senderUsername.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource. Unknown is the default state for Communication Services.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A sender senderUsername to be used when sending emails.
      */
-    public readonly username!: pulumi.Output<string>;
+    declare public readonly username: pulumi.Output<string>;
 
     /**
      * Create a SenderUsername resource with the given unique name, arguments, and options.
@@ -85,24 +85,24 @@ export class SenderUsername extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.emailServiceName === undefined) && !opts.urn) {
+            if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.username === undefined) && !opts.urn) {
+            if (args?.username === undefined && !opts.urn) {
                 throw new Error("Missing required property 'username'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["emailServiceName"] = args ? args.emailServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["senderUsername"] = args ? args.senderUsername : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["emailServiceName"] = args?.emailServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["senderUsername"] = args?.senderUsername;
+            resourceInputs["username"] = args?.username;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

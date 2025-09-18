@@ -41,39 +41,39 @@ export class WorkloadGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The workload group importance level.
      */
-    public readonly importance!: pulumi.Output<string | undefined>;
+    declare public readonly importance: pulumi.Output<string | undefined>;
     /**
      * The workload group cap percentage resource.
      */
-    public readonly maxResourcePercent!: pulumi.Output<number>;
+    declare public readonly maxResourcePercent: pulumi.Output<number>;
     /**
      * The workload group request maximum grant percentage.
      */
-    public readonly maxResourcePercentPerRequest!: pulumi.Output<number | undefined>;
+    declare public readonly maxResourcePercentPerRequest: pulumi.Output<number | undefined>;
     /**
      * The workload group minimum percentage resource.
      */
-    public readonly minResourcePercent!: pulumi.Output<number>;
+    declare public readonly minResourcePercent: pulumi.Output<number>;
     /**
      * The workload group request minimum grant percentage.
      */
-    public readonly minResourcePercentPerRequest!: pulumi.Output<number>;
+    declare public readonly minResourcePercentPerRequest: pulumi.Output<number>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The workload group query execution timeout.
      */
-    public readonly queryExecutionTimeout!: pulumi.Output<number | undefined>;
+    declare public readonly queryExecutionTimeout: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkloadGroup resource with the given unique name, arguments, and options.
@@ -86,34 +86,34 @@ export class WorkloadGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.maxResourcePercent === undefined) && !opts.urn) {
+            if (args?.maxResourcePercent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maxResourcePercent'");
             }
-            if ((!args || args.minResourcePercent === undefined) && !opts.urn) {
+            if (args?.minResourcePercent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercent'");
             }
-            if ((!args || args.minResourcePercentPerRequest === undefined) && !opts.urn) {
+            if (args?.minResourcePercentPerRequest === undefined && !opts.urn) {
                 throw new Error("Missing required property 'minResourcePercentPerRequest'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["importance"] = args ? args.importance : undefined;
-            resourceInputs["maxResourcePercent"] = args ? args.maxResourcePercent : undefined;
-            resourceInputs["maxResourcePercentPerRequest"] = args ? args.maxResourcePercentPerRequest : undefined;
-            resourceInputs["minResourcePercent"] = args ? args.minResourcePercent : undefined;
-            resourceInputs["minResourcePercentPerRequest"] = args ? args.minResourcePercentPerRequest : undefined;
-            resourceInputs["queryExecutionTimeout"] = args ? args.queryExecutionTimeout : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["workloadGroupName"] = args ? args.workloadGroupName : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["importance"] = args?.importance;
+            resourceInputs["maxResourcePercent"] = args?.maxResourcePercent;
+            resourceInputs["maxResourcePercentPerRequest"] = args?.maxResourcePercentPerRequest;
+            resourceInputs["minResourcePercent"] = args?.minResourcePercent;
+            resourceInputs["minResourcePercentPerRequest"] = args?.minResourcePercentPerRequest;
+            resourceInputs["queryExecutionTimeout"] = args?.queryExecutionTimeout;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["workloadGroupName"] = args?.workloadGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

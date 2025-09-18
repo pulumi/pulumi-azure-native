@@ -44,75 +44,75 @@ export class Lab extends pulumi.CustomResource {
     /**
      * The resource auto shutdown configuration for the lab. This controls whether actions are taken on resources that are sitting idle.
      */
-    public readonly autoShutdownProfile!: pulumi.Output<outputs.labservices.AutoShutdownProfileResponse>;
+    declare public readonly autoShutdownProfile: pulumi.Output<outputs.labservices.AutoShutdownProfileResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connection profile for the lab. This controls settings such as web access to lab resources or whether RDP or SSH ports are open.
      */
-    public readonly connectionProfile!: pulumi.Output<outputs.labservices.ConnectionProfileResponse>;
+    declare public readonly connectionProfile: pulumi.Output<outputs.labservices.ConnectionProfileResponse>;
     /**
      * The description of the lab.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The ID of the lab plan. Used during resource creation to provide defaults and acts as a permission container when creating a lab via labs.azure.com. Setting a labPlanId on an existing lab provides organization..
      */
-    public readonly labPlanId!: pulumi.Output<string | undefined>;
+    declare public readonly labPlanId: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The network profile for the lab, typically applied via a lab plan. This profile cannot be modified once a lab has been created.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.labservices.LabNetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.labservices.LabNetworkProfileResponse | undefined>;
     /**
      * Current provisioning state of the lab.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Error details of last operation done on lab.
      */
-    public /*out*/ readonly resourceOperationError!: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
+    declare public /*out*/ readonly resourceOperationError: pulumi.Output<outputs.labservices.ResourceOperationErrorResponse>;
     /**
      * The lab user list management profile.
      */
-    public readonly rosterProfile!: pulumi.Output<outputs.labservices.RosterProfileResponse | undefined>;
+    declare public readonly rosterProfile: pulumi.Output<outputs.labservices.RosterProfileResponse | undefined>;
     /**
      * The lab security profile.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.labservices.SecurityProfileResponse>;
+    declare public readonly securityProfile: pulumi.Output<outputs.labservices.SecurityProfileResponse>;
     /**
      * The lab state.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the lab.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.labservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.labservices.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The title of the lab.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The profile used for creating lab virtual machines.
      */
-    public readonly virtualMachineProfile!: pulumi.Output<outputs.labservices.VirtualMachineProfileResponse>;
+    declare public readonly virtualMachineProfile: pulumi.Output<outputs.labservices.VirtualMachineProfileResponse>;
 
     /**
      * Create a Lab resource with the given unique name, arguments, and options.
@@ -125,33 +125,33 @@ export class Lab extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.autoShutdownProfile === undefined) && !opts.urn) {
+            if (args?.autoShutdownProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'autoShutdownProfile'");
             }
-            if ((!args || args.connectionProfile === undefined) && !opts.urn) {
+            if (args?.connectionProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.securityProfile === undefined) && !opts.urn) {
+            if (args?.securityProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'securityProfile'");
             }
-            if ((!args || args.virtualMachineProfile === undefined) && !opts.urn) {
+            if (args?.virtualMachineProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualMachineProfile'");
             }
             resourceInputs["autoShutdownProfile"] = args ? (args.autoShutdownProfile ? pulumi.output(args.autoShutdownProfile).apply(inputs.labservices.autoShutdownProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["connectionProfile"] = args ? (args.connectionProfile ? pulumi.output(args.connectionProfile).apply(inputs.labservices.connectionProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["labPlanId"] = args ? args.labPlanId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rosterProfile"] = args ? args.rosterProfile : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["labPlanId"] = args?.labPlanId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rosterProfile"] = args?.rosterProfile;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["title"] = args?.title;
             resourceInputs["virtualMachineProfile"] = args ? (args.virtualMachineProfile ? pulumi.output(args.virtualMachineProfile).apply(inputs.labservices.virtualMachineProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

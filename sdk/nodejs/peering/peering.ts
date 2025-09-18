@@ -44,47 +44,47 @@ export class Peering extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The properties that define a direct peering.
      */
-    public readonly direct!: pulumi.Output<outputs.peering.PeeringPropertiesDirectResponse | undefined>;
+    declare public readonly direct: pulumi.Output<outputs.peering.PeeringPropertiesDirectResponse | undefined>;
     /**
      * The properties that define an exchange peering.
      */
-    public readonly exchange!: pulumi.Output<outputs.peering.PeeringPropertiesExchangeResponse | undefined>;
+    declare public readonly exchange: pulumi.Output<outputs.peering.PeeringPropertiesExchangeResponse | undefined>;
     /**
      * The kind of the peering.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The location of the peering.
      */
-    public readonly peeringLocation!: pulumi.Output<string | undefined>;
+    declare public readonly peeringLocation: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU that defines the tier and kind of the peering.
      */
-    public readonly sku!: pulumi.Output<outputs.peering.PeeringSkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.peering.PeeringSkuResponse>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Peering resource with the given unique name, arguments, and options.
@@ -97,24 +97,24 @@ export class Peering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["direct"] = args ? args.direct : undefined;
-            resourceInputs["exchange"] = args ? args.exchange : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peeringLocation"] = args ? args.peeringLocation : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["direct"] = args?.direct;
+            resourceInputs["exchange"] = args?.exchange;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peeringLocation"] = args?.peeringLocation;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

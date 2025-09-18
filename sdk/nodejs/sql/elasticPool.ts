@@ -44,59 +44,59 @@ export class ElasticPool extends pulumi.CustomResource {
     /**
      * Time in minutes after which elastic pool is automatically paused. A value of -1 means that automatic pause is disabled
      */
-    public readonly autoPauseDelay!: pulumi.Output<number | undefined>;
+    declare public readonly autoPauseDelay: pulumi.Output<number | undefined>;
     /**
      * Specifies the availability zone the pool's primary replica is pinned to.
      */
-    public readonly availabilityZone!: pulumi.Output<string | undefined>;
+    declare public readonly availabilityZone: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the elastic pool (ISO8601 format).
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The number of secondary replicas associated with the Business Critical, Premium, or Hyperscale edition elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools.
      */
-    public readonly highAvailabilityReplicaCount!: pulumi.Output<number | undefined>;
+    declare public readonly highAvailabilityReplicaCount: pulumi.Output<number | undefined>;
     /**
      * Kind of elastic pool. This is metadata used for the Azure portal experience.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The license type to apply for this elastic pool.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The storage limit for the database elastic pool in bytes.
      */
-    public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxSizeBytes: pulumi.Output<number | undefined>;
     /**
      * Minimal capacity that serverless pool will not shrink below, if not paused
      */
-    public readonly minCapacity!: pulumi.Output<number | undefined>;
+    declare public readonly minCapacity: pulumi.Output<number | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The per database settings for the elastic pool.
      */
-    public readonly perDatabaseSettings!: pulumi.Output<outputs.sql.ElasticPoolPerDatabaseSettingsResponse | undefined>;
+    declare public readonly perDatabaseSettings: pulumi.Output<outputs.sql.ElasticPoolPerDatabaseSettingsResponse | undefined>;
     /**
      * Type of enclave requested on the elastic pool.
      */
-    public readonly preferredEnclaveType!: pulumi.Output<string | undefined>;
+    declare public readonly preferredEnclaveType: pulumi.Output<string | undefined>;
     /**
      * The elastic pool SKU.
      * 
@@ -106,23 +106,23 @@ export class ElasticPool extends pulumi.CustomResource {
      * az sql elastic-pool list-editions -l <location> -o table
      * ````
      */
-    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
      * The state of the elastic pool.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a ElasticPool resource with the given unique name, arguments, and options.
@@ -135,28 +135,28 @@ export class ElasticPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["autoPauseDelay"] = args ? args.autoPauseDelay : undefined;
-            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
-            resourceInputs["elasticPoolName"] = args ? args.elasticPoolName : undefined;
-            resourceInputs["highAvailabilityReplicaCount"] = args ? args.highAvailabilityReplicaCount : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["perDatabaseSettings"] = args ? args.perDatabaseSettings : undefined;
-            resourceInputs["preferredEnclaveType"] = args ? args.preferredEnclaveType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["autoPauseDelay"] = args?.autoPauseDelay;
+            resourceInputs["availabilityZone"] = args?.availabilityZone;
+            resourceInputs["elasticPoolName"] = args?.elasticPoolName;
+            resourceInputs["highAvailabilityReplicaCount"] = args?.highAvailabilityReplicaCount;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["maxSizeBytes"] = args?.maxSizeBytes;
+            resourceInputs["minCapacity"] = args?.minCapacity;
+            resourceInputs["perDatabaseSettings"] = args?.perDatabaseSettings;
+            resourceInputs["preferredEnclaveType"] = args?.preferredEnclaveType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

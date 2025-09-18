@@ -44,91 +44,91 @@ export class GalleryImage extends pulumi.CustomResource {
     /**
      * Optional. Must be set to true if the gallery image features are being updated.
      */
-    public readonly allowUpdateImage!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowUpdateImage: pulumi.Output<boolean | undefined>;
     /**
      * The architecture of the image. Applicable to OS disks only.
      */
-    public readonly architecture!: pulumi.Output<string | undefined>;
+    declare public readonly architecture: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of this gallery image definition resource. This property is updatable.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Describes the disallowed disk types.
      */
-    public readonly disallowed!: pulumi.Output<outputs.compute.DisallowedResponse | undefined>;
+    declare public readonly disallowed: pulumi.Output<outputs.compute.DisallowedResponse | undefined>;
     /**
      * The end of life date of the gallery image definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    declare public readonly endOfLifeDate: pulumi.Output<string | undefined>;
     /**
      * The Eula agreement for the gallery image definition.
      */
-    public readonly eula!: pulumi.Output<string | undefined>;
+    declare public readonly eula: pulumi.Output<string | undefined>;
     /**
      * A list of gallery image features.
      */
-    public readonly features!: pulumi.Output<outputs.compute.GalleryImageFeatureResponse[] | undefined>;
+    declare public readonly features: pulumi.Output<outputs.compute.GalleryImageFeatureResponse[] | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine. Applicable to OS disks only.
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * This is the gallery image definition identifier.
      */
-    public readonly identifier!: pulumi.Output<outputs.compute.GalleryImageIdentifierResponse>;
+    declare public readonly identifier: pulumi.Output<outputs.compute.GalleryImageIdentifierResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This property allows the user to specify whether the virtual machines created under this image are 'Generalized' or 'Specialized'.
      */
-    public readonly osState!: pulumi.Output<string>;
+    declare public readonly osState: pulumi.Output<string>;
     /**
      * This property allows you to specify the type of the OS that is included in the disk when creating a VM from a managed image. Possible values are: **Windows,** **Linux.**
      */
-    public readonly osType!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string>;
     /**
      * The privacy statement uri.
      */
-    public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
+    declare public readonly privacyStatementUri: pulumi.Output<string | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Describes the gallery image definition purchase plan. This is used by marketplace images.
      */
-    public readonly purchasePlan!: pulumi.Output<outputs.compute.ImagePurchasePlanResponse | undefined>;
+    declare public readonly purchasePlan: pulumi.Output<outputs.compute.ImagePurchasePlanResponse | undefined>;
     /**
      * The properties describe the recommended machine configuration for this Image Definition. These properties are updatable.
      */
-    public readonly recommended!: pulumi.Output<outputs.compute.RecommendedMachineConfigurationResponse | undefined>;
+    declare public readonly recommended: pulumi.Output<outputs.compute.RecommendedMachineConfigurationResponse | undefined>;
     /**
      * The release note uri.
      */
-    public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
+    declare public readonly releaseNoteUri: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GalleryImage resource with the given unique name, arguments, and options.
@@ -141,41 +141,41 @@ export class GalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.identifier === undefined) && !opts.urn) {
+            if (args?.identifier === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identifier'");
             }
-            if ((!args || args.osState === undefined) && !opts.urn) {
+            if (args?.osState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osState'");
             }
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowUpdateImage"] = args ? args.allowUpdateImage : undefined;
-            resourceInputs["architecture"] = args ? args.architecture : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["disallowed"] = args ? args.disallowed : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["eula"] = args ? args.eula : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osState"] = args ? args.osState : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            resourceInputs["purchasePlan"] = args ? args.purchasePlan : undefined;
-            resourceInputs["recommended"] = args ? args.recommended : undefined;
-            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowUpdateImage"] = args?.allowUpdateImage;
+            resourceInputs["architecture"] = args?.architecture;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["disallowed"] = args?.disallowed;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["eula"] = args?.eula;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["galleryImageName"] = args?.galleryImageName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osState"] = args?.osState;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["privacyStatementUri"] = args?.privacyStatementUri;
+            resourceInputs["purchasePlan"] = args?.purchasePlan;
+            resourceInputs["recommended"] = args?.recommended;
+            resourceInputs["releaseNoteUri"] = args?.releaseNoteUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

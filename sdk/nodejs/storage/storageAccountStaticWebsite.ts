@@ -37,15 +37,15 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
     /**
      * The name of the container to upload blobs to.
      */
-    public /*out*/ readonly containerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerName: pulumi.Output<string>;
     /**
      * The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file.
      */
-    public readonly error404Document!: pulumi.Output<string | undefined>;
+    declare public readonly error404Document: pulumi.Output<string | undefined>;
     /**
      * The webpage that Azure Storage serves for requests to the root of a website or any sub-folder. For example, 'index.html'. The value is case-sensitive.
      */
-    public readonly indexDocument!: pulumi.Output<string | undefined>;
+    declare public readonly indexDocument: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageAccountStaticWebsite resource with the given unique name, arguments, and options.
@@ -58,16 +58,16 @@ export class StorageAccountStaticWebsite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["error404Document"] = args ? args.error404Document : undefined;
-            resourceInputs["indexDocument"] = args ? args.indexDocument : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["error404Document"] = args?.error404Document;
+            resourceInputs["indexDocument"] = args?.indexDocument;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["containerName"] = undefined /*out*/;
         } else {
             resourceInputs["containerName"] = undefined /*out*/;

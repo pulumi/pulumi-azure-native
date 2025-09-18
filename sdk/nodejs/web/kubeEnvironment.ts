@@ -41,75 +41,75 @@ export class KubeEnvironment extends pulumi.CustomResource {
         return obj['__pulumiType'] === KubeEnvironment.__pulumiType;
     }
 
-    public readonly aksResourceID!: pulumi.Output<string | undefined>;
+    declare public readonly aksResourceID: pulumi.Output<string | undefined>;
     /**
      * Cluster configuration which enables the log daemon to export
      * app logs to a destination. Currently only "log-analytics" is
      * supported
      */
-    public readonly appLogsConfiguration!: pulumi.Output<outputs.web.AppLogsConfigurationResponse | undefined>;
+    declare public readonly appLogsConfiguration: pulumi.Output<outputs.web.AppLogsConfigurationResponse | undefined>;
     /**
      * Cluster configuration which determines the ARC cluster
      * components types. Eg: Choosing between BuildService kind,
      * FrontEnd Service ArtifactsStorageType etc.
      */
-    public readonly arcConfiguration!: pulumi.Output<outputs.web.ArcConfigurationResponse | undefined>;
+    declare public readonly arcConfiguration: pulumi.Output<outputs.web.ArcConfigurationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Cluster configuration for Container Apps Environments to configure Dapr Instrumentation Key and VNET Configuration
      */
-    public readonly containerAppsConfiguration!: pulumi.Output<outputs.web.ContainerAppsConfigurationResponse | undefined>;
+    declare public readonly containerAppsConfiguration: pulumi.Output<outputs.web.ContainerAppsConfigurationResponse | undefined>;
     /**
      * Default Domain Name for the cluster
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
     /**
      * Any errors that occurred during deployment or deployment validation
      */
-    public /*out*/ readonly deploymentErrors!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentErrors: pulumi.Output<string>;
     /**
      * Type of Kubernetes Environment. Only supported for Container App Environments with value as Managed
      */
-    public readonly environmentType!: pulumi.Output<string | undefined>;
+    declare public readonly environmentType: pulumi.Output<string | undefined>;
     /**
      * Extended Location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * Only visible within Vnet/Subnet
      */
-    public readonly internalLoadBalancerEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly internalLoadBalancerEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the Kubernetes Environment.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Static IP of the KubeEnvironment
      */
-    public readonly staticIp!: pulumi.Output<string | undefined>;
+    declare public readonly staticIp: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KubeEnvironment resource with the given unique name, arguments, and options.
@@ -122,22 +122,22 @@ export class KubeEnvironment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aksResourceID"] = args ? args.aksResourceID : undefined;
-            resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
-            resourceInputs["arcConfiguration"] = args ? args.arcConfiguration : undefined;
-            resourceInputs["containerAppsConfiguration"] = args ? args.containerAppsConfiguration : undefined;
-            resourceInputs["environmentType"] = args ? args.environmentType : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staticIp"] = args ? args.staticIp : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["aksResourceID"] = args?.aksResourceID;
+            resourceInputs["appLogsConfiguration"] = args?.appLogsConfiguration;
+            resourceInputs["arcConfiguration"] = args?.arcConfiguration;
+            resourceInputs["containerAppsConfiguration"] = args?.containerAppsConfiguration;
+            resourceInputs["environmentType"] = args?.environmentType;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["internalLoadBalancerEnabled"] = args?.internalLoadBalancerEnabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staticIp"] = args?.staticIp;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;

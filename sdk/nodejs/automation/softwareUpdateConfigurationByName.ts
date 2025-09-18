@@ -44,51 +44,51 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * CreatedBy property, which only appears in the response.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Creation time of the resource, which only appears in the response.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Details of provisioning error
      */
-    public readonly error!: pulumi.Output<outputs.automation.ErrorResponseResponse | undefined>;
+    declare public readonly error: pulumi.Output<outputs.automation.ErrorResponseResponse | undefined>;
     /**
      * LastModifiedBy property, which only appears in the response.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string>;
     /**
      * Last time resource was modified, which only appears in the response.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state for the software update configuration, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Schedule information for the Software update configuration
      */
-    public readonly scheduleInfo!: pulumi.Output<outputs.automation.SUCSchedulePropertiesResponse>;
+    declare public readonly scheduleInfo: pulumi.Output<outputs.automation.SUCSchedulePropertiesResponse>;
     /**
      * Tasks information for the Software update configuration.
      */
-    public readonly tasks!: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTasksResponse | undefined>;
+    declare public readonly tasks: pulumi.Output<outputs.automation.SoftwareUpdateConfigurationTasksResponse | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * update specific properties for the Software update configuration
      */
-    public readonly updateConfiguration!: pulumi.Output<outputs.automation.UpdateConfigurationResponse>;
+    declare public readonly updateConfiguration: pulumi.Output<outputs.automation.UpdateConfigurationResponse>;
 
     /**
      * Create a SoftwareUpdateConfigurationByName resource with the given unique name, arguments, and options.
@@ -101,25 +101,25 @@ export class SoftwareUpdateConfigurationByName extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleInfo === undefined) && !opts.urn) {
+            if (args?.scheduleInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleInfo'");
             }
-            if ((!args || args.updateConfiguration === undefined) && !opts.urn) {
+            if (args?.updateConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'updateConfiguration'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["error"] = args ? args.error : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["error"] = args?.error;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["scheduleInfo"] = args ? (args.scheduleInfo ? pulumi.output(args.scheduleInfo).apply(inputs.automation.sucschedulePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["softwareUpdateConfigurationName"] = args ? args.softwareUpdateConfigurationName : undefined;
-            resourceInputs["tasks"] = args ? args.tasks : undefined;
-            resourceInputs["updateConfiguration"] = args ? args.updateConfiguration : undefined;
+            resourceInputs["softwareUpdateConfigurationName"] = args?.softwareUpdateConfigurationName;
+            resourceInputs["tasks"] = args?.tasks;
+            resourceInputs["updateConfiguration"] = args?.updateConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

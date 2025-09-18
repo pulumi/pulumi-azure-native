@@ -45,79 +45,79 @@ export class Task extends pulumi.CustomResource {
     /**
      * The machine configuration of the run agent.
      */
-    public readonly agentConfiguration!: pulumi.Output<outputs.containerregistry.AgentPropertiesResponse | undefined>;
+    declare public readonly agentConfiguration: pulumi.Output<outputs.containerregistry.AgentPropertiesResponse | undefined>;
     /**
      * The dedicated agent pool for the task.
      */
-    public readonly agentPoolName!: pulumi.Output<string | undefined>;
+    declare public readonly agentPoolName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of task.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The properties that describes a set of credentials that will be used when this run is invoked.
      */
-    public readonly credentials!: pulumi.Output<outputs.containerregistry.CredentialsResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.containerregistry.CredentialsResponse | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
     /**
      * The value of this property indicates whether the task resource is system task or not.
      */
-    public readonly isSystemTask!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSystemTask: pulumi.Output<boolean | undefined>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The template that describes the repository and tag information for run log artifact.
      */
-    public readonly logTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly logTemplate: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The platform properties against which the run has to happen.
      */
-    public readonly platform!: pulumi.Output<outputs.containerregistry.PlatformPropertiesResponse | undefined>;
+    declare public readonly platform: pulumi.Output<outputs.containerregistry.PlatformPropertiesResponse | undefined>;
     /**
      * The provisioning state of the task.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The current status of task.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The properties of a task step.
      */
-    public readonly step!: pulumi.Output<outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse | undefined>;
+    declare public readonly step: pulumi.Output<outputs.containerregistry.DockerBuildStepResponse | outputs.containerregistry.EncodedTaskStepResponse | outputs.containerregistry.FileTaskStepResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Run timeout in seconds.
      */
-    public readonly timeout!: pulumi.Output<number | undefined>;
+    declare public readonly timeout: pulumi.Output<number | undefined>;
     /**
      * The properties that describe all triggers for the task.
      */
-    public readonly trigger!: pulumi.Output<outputs.containerregistry.TriggerPropertiesResponse | undefined>;
+    declare public readonly trigger: pulumi.Output<outputs.containerregistry.TriggerPropertiesResponse | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Task resource with the given unique name, arguments, and options.
@@ -130,27 +130,27 @@ export class Task extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentConfiguration"] = args ? args.agentConfiguration : undefined;
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isSystemTask"] = (args ? args.isSystemTask : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logTemplate"] = args ? args.logTemplate : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["step"] = args ? args.step : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taskName"] = args ? args.taskName : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? 3600;
+            resourceInputs["agentConfiguration"] = args?.agentConfiguration;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isSystemTask"] = (args?.isSystemTask) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logTemplate"] = args?.logTemplate;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["step"] = args?.step;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taskName"] = args?.taskName;
+            resourceInputs["timeout"] = (args?.timeout) ?? 3600;
             resourceInputs["trigger"] = args ? (args.trigger ? pulumi.output(args.trigger).apply(inputs.containerregistry.triggerPropertiesArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

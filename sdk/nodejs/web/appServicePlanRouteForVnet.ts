@@ -44,19 +44,19 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The ending address for this route. If the start address is specified in CIDR notation, this must be omitted.
      */
-    public readonly endAddress!: pulumi.Output<string | undefined>;
+    declare public readonly endAddress: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The type of route this is:
      * DEFAULT - By default, every app has routes to the local address ranges specified by RFC1918
@@ -65,15 +65,15 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
      *
      * These values will be used for syncing an app's routes with those from a Virtual Network.
      */
-    public readonly routeType!: pulumi.Output<string | undefined>;
+    declare public readonly routeType: pulumi.Output<string | undefined>;
     /**
      * The starting address for this route. This may also include a CIDR notation, in which case the end address must not be specified.
      */
-    public readonly startAddress!: pulumi.Output<string | undefined>;
+    declare public readonly startAddress: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AppServicePlanRouteForVnet resource with the given unique name, arguments, and options.
@@ -86,23 +86,23 @@ export class AppServicePlanRouteForVnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vnetName === undefined) && !opts.urn) {
+            if (args?.vnetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vnetName'");
             }
-            resourceInputs["endAddress"] = args ? args.endAddress : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeName"] = args ? args.routeName : undefined;
-            resourceInputs["routeType"] = args ? args.routeType : undefined;
-            resourceInputs["startAddress"] = args ? args.startAddress : undefined;
-            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
+            resourceInputs["endAddress"] = args?.endAddress;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeName"] = args?.routeName;
+            resourceInputs["routeType"] = args?.routeType;
+            resourceInputs["startAddress"] = args?.startAddress;
+            resourceInputs["vnetName"] = args?.vnetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

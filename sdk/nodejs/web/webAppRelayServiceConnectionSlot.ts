@@ -41,26 +41,26 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public readonly biztalkUri!: pulumi.Output<string | undefined>;
-    public readonly entityConnectionString!: pulumi.Output<string | undefined>;
-    public readonly entityName!: pulumi.Output<string | undefined>;
-    public readonly hostname!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public readonly biztalkUri: pulumi.Output<string | undefined>;
+    declare public readonly entityConnectionString: pulumi.Output<string | undefined>;
+    declare public readonly entityName: pulumi.Output<string | undefined>;
+    declare public readonly hostname: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
-    public readonly port!: pulumi.Output<number | undefined>;
-    public readonly resourceConnectionString!: pulumi.Output<string | undefined>;
-    public readonly resourceType!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public readonly port: pulumi.Output<number | undefined>;
+    declare public readonly resourceConnectionString: pulumi.Output<string | undefined>;
+    declare public readonly resourceType: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppRelayServiceConnectionSlot resource with the given unique name, arguments, and options.
@@ -73,26 +73,26 @@ export class WebAppRelayServiceConnectionSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["biztalkUri"] = args ? args.biztalkUri : undefined;
-            resourceInputs["entityConnectionString"] = args ? args.entityConnectionString : undefined;
-            resourceInputs["entityName"] = args ? args.entityName : undefined;
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceConnectionString"] = args ? args.resourceConnectionString : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceType"] = args ? args.resourceType : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
+            resourceInputs["biztalkUri"] = args?.biztalkUri;
+            resourceInputs["entityConnectionString"] = args?.entityConnectionString;
+            resourceInputs["entityName"] = args?.entityName;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceConnectionString"] = args?.resourceConnectionString;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceType"] = args?.resourceType;
+            resourceInputs["slot"] = args?.slot;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

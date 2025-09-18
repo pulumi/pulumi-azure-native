@@ -44,63 +44,63 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
     /**
      * K8s APIServer url. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    public readonly apiServerEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly apiServerEndpoint: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * RootCA certificate of kubernetes cluster base64 encoded
      */
-    public readonly clusterRootCA!: pulumi.Output<string | undefined>;
+    declare public readonly clusterRootCA: pulumi.Output<string | undefined>;
     /**
      * Properties of the controller.
      */
-    public readonly controllerDetails!: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse>;
+    declare public readonly controllerDetails: pulumi.Output<outputs.delegatednetwork.ControllerDetailsResponse>;
     /**
      * The identity of the orchestrator
      */
-    public readonly identity!: pulumi.Output<outputs.delegatednetwork.OrchestratorIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.delegatednetwork.OrchestratorIdentityResponse | undefined>;
     /**
      * The kind of workbook. Choices are user and shared.
      */
-    public readonly kind!: pulumi.Output<string>;
+    declare public readonly kind: pulumi.Output<string>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * AAD ID used with apiserver
      */
-    public readonly orchestratorAppId!: pulumi.Output<string | undefined>;
+    declare public readonly orchestratorAppId: pulumi.Output<string | undefined>;
     /**
      * TenantID of server App ID
      */
-    public readonly orchestratorTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly orchestratorTenantId: pulumi.Output<string | undefined>;
     /**
      * private link arm resource id. Either one of apiServerEndpoint or privateLinkResourceId can be specified
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string | undefined>;
     /**
      * The current state of orchestratorInstance resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource guid.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OrchestratorInstanceServiceDetails resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class OrchestratorInstanceServiceDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.controllerDetails === undefined) && !opts.urn) {
+            if (args?.controllerDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'controllerDetails'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiServerEndpoint"] = args ? args.apiServerEndpoint : undefined;
-            resourceInputs["clusterRootCA"] = args ? args.clusterRootCA : undefined;
-            resourceInputs["controllerDetails"] = args ? args.controllerDetails : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["orchestratorAppId"] = args ? args.orchestratorAppId : undefined;
-            resourceInputs["orchestratorTenantId"] = args ? args.orchestratorTenantId : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["apiServerEndpoint"] = args?.apiServerEndpoint;
+            resourceInputs["clusterRootCA"] = args?.clusterRootCA;
+            resourceInputs["controllerDetails"] = args?.controllerDetails;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["orchestratorAppId"] = args?.orchestratorAppId;
+            resourceInputs["orchestratorTenantId"] = args?.orchestratorTenantId;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

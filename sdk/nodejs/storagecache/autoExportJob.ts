@@ -42,99 +42,99 @@ export class AutoExportJob extends pulumi.CustomResource {
     /**
      * The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
      */
-    public readonly adminStatus!: pulumi.Output<string | undefined>;
+    declare public readonly adminStatus: pulumi.Output<string | undefined>;
     /**
      * An array of blob paths/prefixes that get auto exported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths for now is 1.
      */
-    public readonly autoExportPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly autoExportPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Files discovered for export in current iteration. It may increase while more export items are found.
      */
-    public /*out*/ readonly currentIterationFilesDiscovered!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentIterationFilesDiscovered: pulumi.Output<number>;
     /**
      * Files that have been exported in current iteration.
      */
-    public /*out*/ readonly currentIterationFilesExported!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentIterationFilesExported: pulumi.Output<number>;
     /**
      * Files failed to export in current iteration.
      */
-    public /*out*/ readonly currentIterationFilesFailed!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentIterationFilesFailed: pulumi.Output<number>;
     /**
      * Data (in MiB) discovered for export in current iteration. It may increase while more export items are found.
      */
-    public /*out*/ readonly currentIterationMiBDiscovered!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentIterationMiBDiscovered: pulumi.Output<number>;
     /**
      * Data (in MiB) that have been exported in current iteration.
      */
-    public /*out*/ readonly currentIterationMiBExported!: pulumi.Output<number>;
+    declare public /*out*/ readonly currentIterationMiBExported: pulumi.Output<number>;
     /**
      * Number of iterations completed since the start of the export.
      */
-    public /*out*/ readonly exportIterationCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly exportIterationCount: pulumi.Output<number>;
     /**
      * The time (in UTC) of the last completed auto export job.
      */
-    public /*out*/ readonly lastCompletionTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastCompletionTimeUTC: pulumi.Output<string>;
     /**
      * The time (in UTC) the latest auto export job started.
      */
-    public /*out*/ readonly lastStartedTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastStartedTimeUTC: pulumi.Output<string>;
     /**
      * Time (in UTC) of the last successfully completed export iteration. Look at logging container for details.
      */
-    public /*out*/ readonly lastSuccessfulIterationCompletionTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSuccessfulIterationCompletionTimeUTC: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The operational state of auto export. InProgress indicates the export is running.  Disabling indicates the user has requested to disable the export but the disabling is still in progress. Disabled indicates auto export has been disabled.  DisableFailed indicates the disabling has failed.  Failed means the export was unable to continue, due to a fatal error.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Server-defined status code for auto export job.
      */
-    public /*out*/ readonly statusCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusCode: pulumi.Output<string>;
     /**
      * Server-defined status message for auto export job.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total files exported since the start of the export. This is accumulative, some files may be counted repeatedly.
      */
-    public /*out*/ readonly totalFilesExported!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalFilesExported: pulumi.Output<number>;
     /**
      * Total files failed to be export since the last successfully completed iteration. This is accumulative, some files may be counted repeatedly.
      */
-    public /*out*/ readonly totalFilesFailed!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalFilesFailed: pulumi.Output<number>;
     /**
      * Total data (in MiB) exported since the start of the export. This is accumulative, some files may be counted repeatedly.
      */
-    public /*out*/ readonly totalMiBExported!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalMiBExported: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutoExportJob resource with the given unique name, arguments, and options.
@@ -147,20 +147,20 @@ export class AutoExportJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amlFilesystemName === undefined) && !opts.urn) {
+            if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adminStatus"] = (args ? args.adminStatus : undefined) ?? "Enable";
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["autoExportJobName"] = args ? args.autoExportJobName : undefined;
-            resourceInputs["autoExportPrefixes"] = args ? args.autoExportPrefixes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminStatus"] = (args?.adminStatus) ?? "Enable";
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["autoExportJobName"] = args?.autoExportJobName;
+            resourceInputs["autoExportPrefixes"] = args?.autoExportPrefixes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentIterationFilesDiscovered"] = undefined /*out*/;
             resourceInputs["currentIterationFilesExported"] = undefined /*out*/;

@@ -40,35 +40,35 @@ export class PowerBIResource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the private endpoint connections of the resource.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.powerbi.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.powerbi.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * The system metadata relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.powerbi.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.powerbi.SystemDataResponse>;
     /**
      * Specifies the tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the tenant id of the resource.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Specifies the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PowerBIResource resource with the given unique name, arguments, and options.
@@ -81,15 +81,15 @@ export class PowerBIResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureResourceName"] = args ? args.azureResourceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["azureResourceName"] = args?.azureResourceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

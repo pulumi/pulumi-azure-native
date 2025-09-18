@@ -44,31 +44,31 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A description of the network manager connection.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network Manager Id.
      */
-    public readonly networkManagerId!: pulumi.Output<string | undefined>;
+    declare public readonly networkManagerId: pulumi.Output<string | undefined>;
     /**
      * The system metadata related to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.network.SystemDataResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionNetworkManagerConnection resource with the given unique name, arguments, and options.
@@ -81,9 +81,9 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["networkManagerConnectionName"] = args ? args.networkManagerConnectionName : undefined;
-            resourceInputs["networkManagerId"] = args ? args.networkManagerId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["networkManagerConnectionName"] = args?.networkManagerConnectionName;
+            resourceInputs["networkManagerId"] = args?.networkManagerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,39 +44,39 @@ export class EncryptionScope extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the creation date and time of the encryption scope in UTC.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The key vault properties for the encryption scope. This is a required field if encryption scope 'source' attribute is set to 'Microsoft.KeyVault'.
      */
-    public readonly keyVaultProperties!: pulumi.Output<outputs.storage.EncryptionScopeKeyVaultPropertiesResponse | undefined>;
+    declare public readonly keyVaultProperties: pulumi.Output<outputs.storage.EncryptionScopeKeyVaultPropertiesResponse | undefined>;
     /**
      * Gets the last modification date and time of the encryption scope in UTC.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A boolean indicating whether or not the service applies a secondary layer of encryption with platform managed keys for data at rest.
      */
-    public readonly requireInfrastructureEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireInfrastructureEncryption: pulumi.Output<boolean | undefined>;
     /**
      * The provider for the encryption scope. Possible values (case-insensitive):  Microsoft.Storage, Microsoft.KeyVault.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * The state of the encryption scope. Possible values (case-insensitive):  Enabled, Disabled.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EncryptionScope resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class EncryptionScope extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["encryptionScopeName"] = args ? args.encryptionScopeName : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["requireInfrastructureEncryption"] = args ? args.requireInfrastructureEncryption : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["encryptionScopeName"] = args?.encryptionScopeName;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["requireInfrastructureEncryption"] = args?.requireInfrastructureEncryption;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["state"] = args?.state;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

@@ -44,43 +44,43 @@ export class RouteFilter extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * A collection of references to express route circuit ipv6 peerings.
      */
-    public /*out*/ readonly ipv6Peerings!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[]>;
+    declare public /*out*/ readonly ipv6Peerings: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[]>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of references to express route circuit peerings.
      */
-    public /*out*/ readonly peerings!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[]>;
+    declare public /*out*/ readonly peerings: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringResponse[]>;
     /**
      * The provisioning state of the route filter resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Collection of RouteFilterRules contained within a route filter.
      */
-    public readonly rules!: pulumi.Output<outputs.network.RouteFilterRuleResponse[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.network.RouteFilterRuleResponse[] | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RouteFilter resource with the given unique name, arguments, and options.
@@ -93,15 +93,15 @@ export class RouteFilter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeFilterName"] = args ? args.routeFilterName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeFilterName"] = args?.routeFilterName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipv6Peerings"] = undefined /*out*/;

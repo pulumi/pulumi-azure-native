@@ -42,43 +42,43 @@ export class CollectorPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Emission policies.
      */
-    public readonly emissionPolicies!: pulumi.Output<outputs.networkfunction.EmissionPoliciesPropertiesFormatResponse[] | undefined>;
+    declare public readonly emissionPolicies: pulumi.Output<outputs.networkfunction.EmissionPoliciesPropertiesFormatResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Ingestion policies.
      */
-    public readonly ingestionPolicy!: pulumi.Output<outputs.networkfunction.IngestionPolicyPropertiesFormatResponse | undefined>;
+    declare public readonly ingestionPolicy: pulumi.Output<outputs.networkfunction.IngestionPolicyPropertiesFormatResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkfunction.TrackedResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkfunction.TrackedResourceResponseSystemData>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CollectorPolicy resource with the given unique name, arguments, and options.
@@ -91,19 +91,19 @@ export class CollectorPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureTrafficCollectorName === undefined) && !opts.urn) {
+            if (args?.azureTrafficCollectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureTrafficCollectorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureTrafficCollectorName"] = args ? args.azureTrafficCollectorName : undefined;
-            resourceInputs["collectorPolicyName"] = args ? args.collectorPolicyName : undefined;
-            resourceInputs["emissionPolicies"] = args ? args.emissionPolicies : undefined;
-            resourceInputs["ingestionPolicy"] = args ? args.ingestionPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureTrafficCollectorName"] = args?.azureTrafficCollectorName;
+            resourceInputs["collectorPolicyName"] = args?.collectorPolicyName;
+            resourceInputs["emissionPolicies"] = args?.emissionPolicies;
+            resourceInputs["ingestionPolicy"] = args?.ingestionPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

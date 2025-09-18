@@ -42,51 +42,51 @@ export class Experiment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of the details or intents of the Experiment
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The state of the Experiment
      */
-    public readonly enabledState!: pulumi.Output<string | undefined>;
+    declare public readonly enabledState: pulumi.Output<string | undefined>;
     /**
      * The endpoint A of an experiment
      */
-    public readonly endpointA!: pulumi.Output<outputs.frontdoor.EndpointResponse | undefined>;
+    declare public readonly endpointA: pulumi.Output<outputs.frontdoor.EndpointResponse | undefined>;
     /**
      * The endpoint B of an experiment
      */
-    public readonly endpointB!: pulumi.Output<outputs.frontdoor.EndpointResponse | undefined>;
+    declare public readonly endpointB: pulumi.Output<outputs.frontdoor.EndpointResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource status.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * The uri to the Script used in the Experiment
      */
-    public /*out*/ readonly scriptFileUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly scriptFileUri: pulumi.Output<string>;
     /**
      * The description of Experiment status from the server side
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Experiment resource with the given unique name, arguments, and options.
@@ -99,21 +99,21 @@ export class Experiment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["endpointA"] = args ? args.endpointA : undefined;
-            resourceInputs["endpointB"] = args ? args.endpointB : undefined;
-            resourceInputs["experimentName"] = args ? args.experimentName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["endpointA"] = args?.endpointA;
+            resourceInputs["endpointB"] = args?.endpointB;
+            resourceInputs["experimentName"] = args?.experimentName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;

@@ -42,47 +42,47 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates any errors on the connector resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.ConnectorErrorDefinitionResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.ConnectorErrorDefinitionResponse>;
     /**
      * Managed service identity (user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.workloads.UserAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Managed resource group configuration
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.workloads.ManagedRGConfigurationResponse | undefined>;
+    declare public readonly managedResourceGroupConfiguration: pulumi.Output<outputs.workloads.ManagedRGConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Defines the ID of the connector's source resource.
      */
-    public readonly sourceResourceId!: pulumi.Output<string>;
+    declare public readonly sourceResourceId: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -95,19 +95,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceResourceId === undefined) && !opts.urn) {
+            if (args?.sourceResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceId'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

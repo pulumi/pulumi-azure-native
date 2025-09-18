@@ -42,35 +42,35 @@ export class Report extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Has definition for the report.
      */
-    public readonly definition!: pulumi.Output<outputs.costmanagement.ReportDefinitionResponse>;
+    declare public readonly definition: pulumi.Output<outputs.costmanagement.ReportDefinitionResponse>;
     /**
      * Has delivery information for the report.
      */
-    public readonly deliveryInfo!: pulumi.Output<outputs.costmanagement.ReportDeliveryInfoResponse>;
+    declare public readonly deliveryInfo: pulumi.Output<outputs.costmanagement.ReportDeliveryInfoResponse>;
     /**
      * The format of the report being delivered.
      */
-    public readonly format!: pulumi.Output<string | undefined>;
+    declare public readonly format: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Has schedule information for the report.
      */
-    public readonly schedule!: pulumi.Output<outputs.costmanagement.ReportScheduleResponse | undefined>;
+    declare public readonly schedule: pulumi.Output<outputs.costmanagement.ReportScheduleResponse | undefined>;
     /**
      * Resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string}>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Report resource with the given unique name, arguments, and options.
@@ -83,17 +83,17 @@ export class Report extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.definition === undefined) && !opts.urn) {
+            if (args?.definition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'definition'");
             }
-            if ((!args || args.deliveryInfo === undefined) && !opts.urn) {
+            if (args?.deliveryInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deliveryInfo'");
             }
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["format"] = args ? args.format : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["format"] = args?.format;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["schedule"] = args?.schedule;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;

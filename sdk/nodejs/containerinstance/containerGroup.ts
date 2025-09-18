@@ -44,114 +44,114 @@ export class ContainerGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The properties for confidential container group
      */
-    public readonly confidentialComputeProperties!: pulumi.Output<outputs.containerinstance.ConfidentialComputePropertiesResponse | undefined>;
+    declare public readonly confidentialComputeProperties: pulumi.Output<outputs.containerinstance.ConfidentialComputePropertiesResponse | undefined>;
     /**
      * The reference container group profile properties.
      */
-    public readonly containerGroupProfile!: pulumi.Output<outputs.containerinstance.ContainerGroupProfileReferenceDefinitionResponse | undefined>;
+    declare public readonly containerGroupProfile: pulumi.Output<outputs.containerinstance.ContainerGroupProfileReferenceDefinitionResponse | undefined>;
     /**
      * The containers within the container group.
      */
-    public readonly containers!: pulumi.Output<outputs.containerinstance.ContainerResponse[]>;
+    declare public readonly containers: pulumi.Output<outputs.containerinstance.ContainerResponse[]>;
     /**
      * The diagnostic information for a container group.
      */
-    public readonly diagnostics!: pulumi.Output<outputs.containerinstance.ContainerGroupDiagnosticsResponse | undefined>;
+    declare public readonly diagnostics: pulumi.Output<outputs.containerinstance.ContainerGroupDiagnosticsResponse | undefined>;
     /**
      * The DNS config information for a container group.
      */
-    public readonly dnsConfig!: pulumi.Output<outputs.containerinstance.DnsConfigurationResponse | undefined>;
+    declare public readonly dnsConfig: pulumi.Output<outputs.containerinstance.DnsConfigurationResponse | undefined>;
     /**
      * The encryption properties for a container group.
      */
-    public readonly encryptionProperties!: pulumi.Output<outputs.containerinstance.EncryptionPropertiesResponse | undefined>;
+    declare public readonly encryptionProperties: pulumi.Output<outputs.containerinstance.EncryptionPropertiesResponse | undefined>;
     /**
      * extensions used by virtual kubelet
      */
-    public readonly extensions!: pulumi.Output<outputs.containerinstance.DeploymentExtensionSpecResponse[] | undefined>;
+    declare public readonly extensions: pulumi.Output<outputs.containerinstance.DeploymentExtensionSpecResponse[] | undefined>;
     /**
      * The identity of the container group, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.containerinstance.ContainerGroupIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerinstance.ContainerGroupIdentityResponse | undefined>;
     /**
      * The image registry credentials by which the container group is created from.
      */
-    public readonly imageRegistryCredentials!: pulumi.Output<outputs.containerinstance.ImageRegistryCredentialResponse[] | undefined>;
+    declare public readonly imageRegistryCredentials: pulumi.Output<outputs.containerinstance.ImageRegistryCredentialResponse[] | undefined>;
     /**
      * The init containers for a container group.
      */
-    public readonly initContainers!: pulumi.Output<outputs.containerinstance.InitContainerDefinitionResponse[] | undefined>;
+    declare public readonly initContainers: pulumi.Output<outputs.containerinstance.InitContainerDefinitionResponse[] | undefined>;
     /**
      * The instance view of the container group. Only valid in response.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.containerinstance.ContainerGroupPropertiesResponseInstanceView>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.containerinstance.ContainerGroupPropertiesResponseInstanceView>;
     /**
      * The IP address type of the container group.
      */
-    public readonly ipAddress!: pulumi.Output<outputs.containerinstance.IpAddressResponse | undefined>;
+    declare public readonly ipAddress: pulumi.Output<outputs.containerinstance.IpAddressResponse | undefined>;
     /**
      * The flag indicating whether the container group is created by standby pool.
      */
-    public /*out*/ readonly isCreatedFromStandbyPool!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isCreatedFromStandbyPool: pulumi.Output<boolean>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The operating system type required by the containers in the container group.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * The priority of the container group.
      */
-    public readonly priority!: pulumi.Output<string | undefined>;
+    declare public readonly priority: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the container group. This only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Restart policy for all containers within the container group. 
      * - `Always` Always restart
      * - `OnFailure` Restart on failure
      * - `Never` Never restart
      */
-    public readonly restartPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly restartPolicy: pulumi.Output<string | undefined>;
     /**
      * The SKU for a container group.
      */
-    public readonly sku!: pulumi.Output<string | undefined>;
+    declare public readonly sku: pulumi.Output<string | undefined>;
     /**
      * The reference standby pool profile properties.
      */
-    public readonly standbyPoolProfile!: pulumi.Output<outputs.containerinstance.StandbyPoolProfileDefinitionResponse | undefined>;
+    declare public readonly standbyPoolProfile: pulumi.Output<outputs.containerinstance.StandbyPoolProfileDefinitionResponse | undefined>;
     /**
      * The subnet resource IDs for a container group.
      */
-    public readonly subnetIds!: pulumi.Output<outputs.containerinstance.ContainerGroupSubnetIdResponse[] | undefined>;
+    declare public readonly subnetIds: pulumi.Output<outputs.containerinstance.ContainerGroupSubnetIdResponse[] | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The list of volumes that can be mounted by containers in this container group.
      */
-    public readonly volumes!: pulumi.Output<outputs.containerinstance.VolumeResponse[] | undefined>;
+    declare public readonly volumes: pulumi.Output<outputs.containerinstance.VolumeResponse[] | undefined>;
     /**
      * The zones for the container group.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ContainerGroup resource with the given unique name, arguments, and options.
@@ -164,35 +164,35 @@ export class ContainerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.containers === undefined) && !opts.urn) {
+            if (args?.containers === undefined && !opts.urn) {
                 throw new Error("Missing required property 'containers'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["confidentialComputeProperties"] = args ? args.confidentialComputeProperties : undefined;
-            resourceInputs["containerGroupName"] = args ? args.containerGroupName : undefined;
-            resourceInputs["containerGroupProfile"] = args ? args.containerGroupProfile : undefined;
-            resourceInputs["containers"] = args ? args.containers : undefined;
-            resourceInputs["diagnostics"] = args ? args.diagnostics : undefined;
-            resourceInputs["dnsConfig"] = args ? args.dnsConfig : undefined;
-            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
-            resourceInputs["extensions"] = args ? args.extensions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageRegistryCredentials"] = args ? args.imageRegistryCredentials : undefined;
-            resourceInputs["initContainers"] = args ? args.initContainers : undefined;
+            resourceInputs["confidentialComputeProperties"] = args?.confidentialComputeProperties;
+            resourceInputs["containerGroupName"] = args?.containerGroupName;
+            resourceInputs["containerGroupProfile"] = args?.containerGroupProfile;
+            resourceInputs["containers"] = args?.containers;
+            resourceInputs["diagnostics"] = args?.diagnostics;
+            resourceInputs["dnsConfig"] = args?.dnsConfig;
+            resourceInputs["encryptionProperties"] = args?.encryptionProperties;
+            resourceInputs["extensions"] = args?.extensions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageRegistryCredentials"] = args?.imageRegistryCredentials;
+            resourceInputs["initContainers"] = args?.initContainers;
             resourceInputs["ipAddress"] = args ? (args.ipAddress ? pulumi.output(args.ipAddress).apply(inputs.containerinstance.ipAddressArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restartPolicy"] = args ? args.restartPolicy : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["standbyPoolProfile"] = args ? args.standbyPoolProfile : undefined;
-            resourceInputs["subnetIds"] = args ? args.subnetIds : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restartPolicy"] = args?.restartPolicy;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["standbyPoolProfile"] = args?.standbyPoolProfile;
+            resourceInputs["subnetIds"] = args?.subnetIds;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["volumes"] = args?.volumes;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["isCreatedFromStandbyPool"] = undefined /*out*/;

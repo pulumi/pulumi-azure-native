@@ -44,47 +44,47 @@ export class CustomDomain extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Certificate parameters for securing custom HTTPS
      */
-    public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse | undefined>;
+    declare public /*out*/ readonly customHttpsParameters: pulumi.Output<outputs.cdn.CdnManagedHttpsParametersResponse | outputs.cdn.UserManagedHttpsParametersResponse | undefined>;
     /**
      * Provisioning status of the custom domain.
      */
-    public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly customHttpsProvisioningState: pulumi.Output<string>;
     /**
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
      */
-    public /*out*/ readonly customHttpsProvisioningSubstate!: pulumi.Output<string>;
+    declare public /*out*/ readonly customHttpsProvisioningSubstate: pulumi.Output<string>;
     /**
      * The host name of the custom domain. Must be a domain name.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning status of Custom Https of the custom domain.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource status of the custom domain.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Special validation or data may be required when delivering CDN to some regions due to local compliance reasons. E.g. ICP license number of a custom domain is required to deliver content in China.
      */
-    public /*out*/ readonly validationData!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly validationData: pulumi.Output<string | undefined>;
 
     /**
      * Create a CustomDomain resource with the given unique name, arguments, and options.
@@ -97,23 +97,23 @@ export class CustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customHttpsParameters"] = undefined /*out*/;
             resourceInputs["customHttpsProvisioningState"] = undefined /*out*/;

@@ -44,51 +44,51 @@ export class SourceControl extends pulumi.CustomResource {
     /**
      * The auto sync of the source control. Default is false.
      */
-    public readonly autoSync!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoSync: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The repo branch of the source control. Include branch as empty string for VsoTfvc.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string | undefined>;
     /**
      * The creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string | undefined>;
     /**
      * The description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The folder path of the source control.
      */
-    public readonly folderPath!: pulumi.Output<string | undefined>;
+    declare public readonly folderPath: pulumi.Output<string | undefined>;
     /**
      * The last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The auto publish of the source control. Default is true.
      */
-    public readonly publishRunbook!: pulumi.Output<boolean | undefined>;
+    declare public readonly publishRunbook: pulumi.Output<boolean | undefined>;
     /**
      * The repo url of the source control.
      */
-    public readonly repoUrl!: pulumi.Output<string | undefined>;
+    declare public readonly repoUrl: pulumi.Output<string | undefined>;
     /**
      * The source type. Must be one of VsoGit, VsoTfvc, GitHub.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SourceControl resource with the given unique name, arguments, and options.
@@ -101,23 +101,23 @@ export class SourceControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoSync"] = args ? args.autoSync : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["folderPath"] = args ? args.folderPath : undefined;
-            resourceInputs["publishRunbook"] = args ? args.publishRunbook : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
-            resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
+            resourceInputs["autoSync"] = args?.autoSync;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["folderPath"] = args?.folderPath;
+            resourceInputs["publishRunbook"] = args?.publishRunbook;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityToken"] = args?.securityToken;
+            resourceInputs["sourceControlName"] = args?.sourceControlName;
+            resourceInputs["sourceType"] = args?.sourceType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

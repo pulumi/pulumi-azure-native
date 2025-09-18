@@ -44,39 +44,39 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * AAD Join type of the network. This is populated based on the referenced Network Connection.
      */
-    public /*out*/ readonly domainJoinType!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainJoinType: pulumi.Output<string>;
     /**
      * Health check status values
      */
-    public /*out*/ readonly healthCheckStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly healthCheckStatus: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the NetworkConnection you want to attach.
      */
-    public readonly networkConnectionId!: pulumi.Output<string>;
+    declare public readonly networkConnectionId: pulumi.Output<string>;
     /**
      * The geo-location where the NetworkConnection resource specified in 'networkConnectionResourceId' property lives.
      */
-    public /*out*/ readonly networkConnectionLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly networkConnectionLocation: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AttachedNetworkByDevCenter resource with the given unique name, arguments, and options.
@@ -89,19 +89,19 @@ export class AttachedNetworkByDevCenter extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.networkConnectionId === undefined) && !opts.urn) {
+            if (args?.networkConnectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConnectionId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attachedNetworkConnectionName"] = args ? args.attachedNetworkConnectionName : undefined;
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["networkConnectionId"] = args ? args.networkConnectionId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["attachedNetworkConnectionName"] = args?.attachedNetworkConnectionName;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["networkConnectionId"] = args?.networkConnectionId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["domainJoinType"] = undefined /*out*/;
             resourceInputs["healthCheckStatus"] = undefined /*out*/;

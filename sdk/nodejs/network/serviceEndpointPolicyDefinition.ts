@@ -41,35 +41,35 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the service endpoint policy definition resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Service endpoint name.
      */
-    public readonly service!: pulumi.Output<string | undefined>;
+    declare public readonly service: pulumi.Output<string | undefined>;
     /**
      * A list of service resources.
      */
-    public readonly serviceResources!: pulumi.Output<string[] | undefined>;
+    declare public readonly serviceResources: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a ServiceEndpointPolicyDefinition resource with the given unique name, arguments, and options.
@@ -82,21 +82,21 @@ export class ServiceEndpointPolicyDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceEndpointPolicyName === undefined) && !opts.urn) {
+            if (args?.serviceEndpointPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceEndpointPolicyName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["service"] = args ? args.service : undefined;
-            resourceInputs["serviceEndpointPolicyDefinitionName"] = args ? args.serviceEndpointPolicyDefinitionName : undefined;
-            resourceInputs["serviceEndpointPolicyName"] = args ? args.serviceEndpointPolicyName : undefined;
-            resourceInputs["serviceResources"] = args ? args.serviceResources : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["service"] = args?.service;
+            resourceInputs["serviceEndpointPolicyDefinitionName"] = args?.serviceEndpointPolicyDefinitionName;
+            resourceInputs["serviceEndpointPolicyName"] = args?.serviceEndpointPolicyName;
+            resourceInputs["serviceResources"] = args?.serviceResources;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

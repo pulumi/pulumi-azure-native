@@ -44,31 +44,31 @@ export class LoadTestProfileMapping extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Mapped Azure Load Test resource Id.
      */
-    public readonly azureLoadTestingResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly azureLoadTestingResourceId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Mapped source resource Id.
      */
-    public readonly sourceResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly sourceResourceId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.loadtestservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.loadtestservice.SystemDataResponse>;
     /**
      * Mapped Azure Load Test resource test-profile-id.
      */
-    public readonly testProfileId!: pulumi.Output<string | undefined>;
+    declare public readonly testProfileId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LoadTestProfileMapping resource with the given unique name, arguments, and options.
@@ -81,14 +81,14 @@ export class LoadTestProfileMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["azureLoadTestingResourceId"] = args ? args.azureLoadTestingResourceId : undefined;
-            resourceInputs["loadTestProfileMappingName"] = args ? args.loadTestProfileMappingName : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["sourceResourceId"] = args ? args.sourceResourceId : undefined;
-            resourceInputs["testProfileId"] = args ? args.testProfileId : undefined;
+            resourceInputs["azureLoadTestingResourceId"] = args?.azureLoadTestingResourceId;
+            resourceInputs["loadTestProfileMappingName"] = args?.loadTestProfileMappingName;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["sourceResourceId"] = args?.sourceResourceId;
+            resourceInputs["testProfileId"] = args?.testProfileId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

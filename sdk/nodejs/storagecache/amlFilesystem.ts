@@ -44,79 +44,79 @@ export class AmlFilesystem extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Client information for the AML file system.
      */
-    public /*out*/ readonly clientInfo!: pulumi.Output<outputs.storagecache.AmlFilesystemClientInfoResponse>;
+    declare public /*out*/ readonly clientInfo: pulumi.Output<outputs.storagecache.AmlFilesystemClientInfoResponse>;
     /**
      * Specifies encryption settings of the AML file system.
      */
-    public readonly encryptionSettings!: pulumi.Output<outputs.storagecache.AmlFilesystemEncryptionSettingsResponse | undefined>;
+    declare public readonly encryptionSettings: pulumi.Output<outputs.storagecache.AmlFilesystemEncryptionSettingsResponse | undefined>;
     /**
      * Subnet used for managing the AML file system and for client-facing operations. This subnet should have at least a /24 subnet mask within the VNET's address space.
      */
-    public readonly filesystemSubnet!: pulumi.Output<string>;
+    declare public readonly filesystemSubnet: pulumi.Output<string>;
     /**
      * Health of the AML file system.
      */
-    public /*out*/ readonly health!: pulumi.Output<outputs.storagecache.AmlFilesystemHealthResponse>;
+    declare public /*out*/ readonly health: pulumi.Output<outputs.storagecache.AmlFilesystemHealthResponse>;
     /**
      * Hydration and archive settings and status
      */
-    public readonly hsm!: pulumi.Output<outputs.storagecache.AmlFilesystemResponseHsm | undefined>;
+    declare public readonly hsm: pulumi.Output<outputs.storagecache.AmlFilesystemResponseHsm | undefined>;
     /**
      * The managed identity used by the AML file system, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.storagecache.AmlFilesystemIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.storagecache.AmlFilesystemIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Start time of a 30-minute weekly maintenance window.
      */
-    public readonly maintenanceWindow!: pulumi.Output<outputs.storagecache.AmlFilesystemResponseMaintenanceWindow>;
+    declare public readonly maintenanceWindow: pulumi.Output<outputs.storagecache.AmlFilesystemResponseMaintenanceWindow>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies root squash settings of the AML file system.
      */
-    public readonly rootSquashSettings!: pulumi.Output<outputs.storagecache.AmlFilesystemRootSquashSettingsResponse | undefined>;
+    declare public readonly rootSquashSettings: pulumi.Output<outputs.storagecache.AmlFilesystemRootSquashSettingsResponse | undefined>;
     /**
      * SKU for the resource.
      */
-    public readonly sku!: pulumi.Output<outputs.storagecache.SkuNameResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.storagecache.SkuNameResponse | undefined>;
     /**
      * The size of the AML file system, in TiB. This might be rounded up.
      */
-    public readonly storageCapacityTiB!: pulumi.Output<number>;
+    declare public readonly storageCapacityTiB: pulumi.Output<number>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Throughput provisioned in MB per sec, calculated as storageCapacityTiB * per-unit storage throughput
      */
-    public /*out*/ readonly throughputProvisionedMBps!: pulumi.Output<number>;
+    declare public /*out*/ readonly throughputProvisionedMBps: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Availability zones for resources. This field should only contain a single element in the array.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AmlFilesystem resource with the given unique name, arguments, and options.
@@ -129,31 +129,31 @@ export class AmlFilesystem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.filesystemSubnet === undefined) && !opts.urn) {
+            if (args?.filesystemSubnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'filesystemSubnet'");
             }
-            if ((!args || args.maintenanceWindow === undefined) && !opts.urn) {
+            if (args?.maintenanceWindow === undefined && !opts.urn) {
                 throw new Error("Missing required property 'maintenanceWindow'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageCapacityTiB === undefined) && !opts.urn) {
+            if (args?.storageCapacityTiB === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageCapacityTiB'");
             }
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["encryptionSettings"] = args ? args.encryptionSettings : undefined;
-            resourceInputs["filesystemSubnet"] = args ? args.filesystemSubnet : undefined;
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["encryptionSettings"] = args?.encryptionSettings;
+            resourceInputs["filesystemSubnet"] = args?.filesystemSubnet;
             resourceInputs["hsm"] = args ? (args.hsm ? pulumi.output(args.hsm).apply(inputs.storagecache.amlFilesystemHsmArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceWindow"] = args ? args.maintenanceWindow : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rootSquashSettings"] = args ? args.rootSquashSettings : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageCapacityTiB"] = args ? args.storageCapacityTiB : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceWindow"] = args?.maintenanceWindow;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rootSquashSettings"] = args?.rootSquashSettings;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageCapacityTiB"] = args?.storageCapacityTiB;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clientInfo"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;

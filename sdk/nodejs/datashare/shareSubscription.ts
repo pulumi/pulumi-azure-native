@@ -42,79 +42,79 @@ export class ShareSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time at which the share subscription was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The expiration date of the share subscription.
      */
-    public readonly expirationDate!: pulumi.Output<string | undefined>;
+    declare public readonly expirationDate: pulumi.Output<string | undefined>;
     /**
      * The invitation id.
      */
-    public readonly invitationId!: pulumi.Output<string>;
+    declare public readonly invitationId: pulumi.Output<string>;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Email of the provider who created the resource
      */
-    public /*out*/ readonly providerEmail!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerEmail: pulumi.Output<string>;
     /**
      * Name of the provider who created the resource
      */
-    public /*out*/ readonly providerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerName: pulumi.Output<string>;
     /**
      * Tenant name of the provider who created the resource
      */
-    public /*out*/ readonly providerTenantName!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerTenantName: pulumi.Output<string>;
     /**
      * Provisioning state of the share subscription
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Description of share
      */
-    public /*out*/ readonly shareDescription!: pulumi.Output<string>;
+    declare public /*out*/ readonly shareDescription: pulumi.Output<string>;
     /**
      * Kind of share
      */
-    public /*out*/ readonly shareKind!: pulumi.Output<string>;
+    declare public /*out*/ readonly shareKind: pulumi.Output<string>;
     /**
      * Name of the share
      */
-    public /*out*/ readonly shareName!: pulumi.Output<string>;
+    declare public /*out*/ readonly shareName: pulumi.Output<string>;
     /**
      * Gets the current status of share subscription.
      */
-    public /*out*/ readonly shareSubscriptionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly shareSubscriptionStatus: pulumi.Output<string>;
     /**
      * Terms of a share
      */
-    public /*out*/ readonly shareTerms!: pulumi.Output<string>;
+    declare public /*out*/ readonly shareTerms: pulumi.Output<string>;
     /**
      * Source share location.
      */
-    public readonly sourceShareLocation!: pulumi.Output<string>;
+    declare public readonly sourceShareLocation: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Email of the user who created the resource
      */
-    public /*out*/ readonly userEmail!: pulumi.Output<string>;
+    declare public /*out*/ readonly userEmail: pulumi.Output<string>;
     /**
      * Name of the user who created the resource
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userName: pulumi.Output<string>;
 
     /**
      * Create a ShareSubscription resource with the given unique name, arguments, and options.
@@ -127,24 +127,24 @@ export class ShareSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.invitationId === undefined) && !opts.urn) {
+            if (args?.invitationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'invitationId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceShareLocation === undefined) && !opts.urn) {
+            if (args?.sourceShareLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceShareLocation'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invitationId"] = args ? args.invitationId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["sourceShareLocation"] = args ? args.sourceShareLocation : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["expirationDate"] = args?.expirationDate;
+            resourceInputs["invitationId"] = args?.invitationId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
+            resourceInputs["sourceShareLocation"] = args?.sourceShareLocation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

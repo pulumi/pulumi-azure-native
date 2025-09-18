@@ -44,23 +44,23 @@ export class Variable extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Variable column definitions.
      */
-    public readonly columns!: pulumi.Output<outputs.authorization.PolicyVariableColumnResponse[]>;
+    declare public readonly columns: pulumi.Output<outputs.authorization.PolicyVariableColumnResponse[]>;
     /**
      * The name of the variable.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/variables).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Variable resource with the given unique name, arguments, and options.
@@ -73,11 +73,11 @@ export class Variable extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.columns === undefined) && !opts.urn) {
+            if (args?.columns === undefined && !opts.urn) {
                 throw new Error("Missing required property 'columns'");
             }
-            resourceInputs["columns"] = args ? args.columns : undefined;
-            resourceInputs["variableName"] = args ? args.variableName : undefined;
+            resourceInputs["columns"] = args?.columns;
+            resourceInputs["variableName"] = args?.variableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

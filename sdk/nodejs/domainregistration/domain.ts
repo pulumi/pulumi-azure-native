@@ -41,88 +41,88 @@ export class Domain extends pulumi.CustomResource {
         return obj['__pulumiType'] === Domain.__pulumiType;
     }
 
-    public readonly authCode!: pulumi.Output<string | undefined>;
+    declare public readonly authCode: pulumi.Output<string | undefined>;
     /**
      * <code>true</code> if the domain should be automatically renewed; otherwise, <code>false</code>.
      */
-    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRenew: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Domain creation timestamp.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Current DNS type
      */
-    public readonly dnsType!: pulumi.Output<string | undefined>;
+    declare public readonly dnsType: pulumi.Output<string | undefined>;
     /**
      * Azure DNS Zone to use
      */
-    public readonly dnsZoneId!: pulumi.Output<string | undefined>;
+    declare public readonly dnsZoneId: pulumi.Output<string | undefined>;
     /**
      * Reasons why domain is not renewable.
      */
-    public /*out*/ readonly domainNotRenewableReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly domainNotRenewableReasons: pulumi.Output<string[]>;
     /**
      * Domain expiration timestamp.
      */
-    public /*out*/ readonly expirationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationTime: pulumi.Output<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Timestamp when the domain was renewed last time.
      */
-    public /*out*/ readonly lastRenewedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastRenewedTime: pulumi.Output<string>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * All hostnames derived from the domain and assigned to Azure resources.
      */
-    public /*out*/ readonly managedHostNames!: pulumi.Output<outputs.domainregistration.HostNameResponse[]>;
+    declare public /*out*/ readonly managedHostNames: pulumi.Output<outputs.domainregistration.HostNameResponse[]>;
     /**
      * Resource Name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Name servers.
      */
-    public /*out*/ readonly nameServers!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly nameServers: pulumi.Output<string[]>;
     /**
      * <code>true</code> if domain privacy is enabled for this domain; otherwise, <code>false</code>.
      */
-    public readonly privacy!: pulumi.Output<boolean | undefined>;
+    declare public readonly privacy: pulumi.Output<boolean | undefined>;
     /**
      * Domain provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * <code>true</code> if Azure can assign this domain to App Service apps; otherwise, <code>false</code>. This value will be <code>true</code> if domain registration status is active and 
      *  it is hosted on name servers Azure has programmatic access to.
      */
-    public /*out*/ readonly readyForDnsRecordManagement!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly readyForDnsRecordManagement: pulumi.Output<boolean>;
     /**
      * Domain registration status.
      */
-    public /*out*/ readonly registrationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly registrationStatus: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Target DNS type (would be used for migration)
      */
-    public readonly targetDnsType!: pulumi.Output<string | undefined>;
+    declare public readonly targetDnsType: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -135,40 +135,40 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.consent === undefined) && !opts.urn) {
+            if (args?.consent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'consent'");
             }
-            if ((!args || args.contactAdmin === undefined) && !opts.urn) {
+            if (args?.contactAdmin === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactAdmin'");
             }
-            if ((!args || args.contactBilling === undefined) && !opts.urn) {
+            if (args?.contactBilling === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactBilling'");
             }
-            if ((!args || args.contactRegistrant === undefined) && !opts.urn) {
+            if (args?.contactRegistrant === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactRegistrant'");
             }
-            if ((!args || args.contactTech === undefined) && !opts.urn) {
+            if (args?.contactTech === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactTech'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authCode"] = args ? args.authCode : undefined;
-            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            resourceInputs["consent"] = args ? args.consent : undefined;
-            resourceInputs["contactAdmin"] = args ? args.contactAdmin : undefined;
-            resourceInputs["contactBilling"] = args ? args.contactBilling : undefined;
-            resourceInputs["contactRegistrant"] = args ? args.contactRegistrant : undefined;
-            resourceInputs["contactTech"] = args ? args.contactTech : undefined;
-            resourceInputs["dnsType"] = args ? args.dnsType : undefined;
-            resourceInputs["dnsZoneId"] = args ? args.dnsZoneId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privacy"] = args ? args.privacy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetDnsType"] = args ? args.targetDnsType : undefined;
+            resourceInputs["authCode"] = args?.authCode;
+            resourceInputs["autoRenew"] = (args?.autoRenew) ?? true;
+            resourceInputs["consent"] = args?.consent;
+            resourceInputs["contactAdmin"] = args?.contactAdmin;
+            resourceInputs["contactBilling"] = args?.contactBilling;
+            resourceInputs["contactRegistrant"] = args?.contactRegistrant;
+            resourceInputs["contactTech"] = args?.contactTech;
+            resourceInputs["dnsType"] = args?.dnsType;
+            resourceInputs["dnsZoneId"] = args?.dnsZoneId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privacy"] = args?.privacy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetDnsType"] = args?.targetDnsType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["domainNotRenewableReasons"] = undefined /*out*/;

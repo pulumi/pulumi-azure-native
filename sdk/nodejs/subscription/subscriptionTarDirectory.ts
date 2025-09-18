@@ -42,19 +42,19 @@ export class SubscriptionTarDirectory extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Subscription Name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Subscription Changed Target Directory response properties.
      */
-    public readonly properties!: pulumi.Output<outputs.subscription.TargetDirectoryResultPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.subscription.TargetDirectoryResultPropertiesResponse>;
     /**
      * Resource type, Microsoft.Subscription/changeTenantRequest.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SubscriptionTarDirectory resource with the given unique name, arguments, and options.
@@ -67,8 +67,8 @@ export class SubscriptionTarDirectory extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

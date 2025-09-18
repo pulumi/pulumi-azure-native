@@ -44,99 +44,99 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
     /**
      * Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network.
      */
-    public readonly allowForwardedTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowForwardedTraffic: pulumi.Output<boolean | undefined>;
     /**
      * If gateway links can be used in remote virtual networking to link to this virtual network.
      */
-    public readonly allowGatewayTransit!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowGatewayTransit: pulumi.Output<boolean | undefined>;
     /**
      * Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space.
      */
-    public readonly allowVirtualNetworkAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVirtualNetworkAccess: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * If we need to verify the provisioning state of the remote gateway.
      */
-    public readonly doNotVerifyRemoteGateways!: pulumi.Output<boolean | undefined>;
+    declare public readonly doNotVerifyRemoteGateways: pulumi.Output<boolean | undefined>;
     /**
      * Whether only Ipv6 address space is peered for subnet peering.
      */
-    public readonly enableOnlyIPv6Peering!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableOnlyIPv6Peering: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The local address space of the local virtual network that is peered.
      */
-    public readonly localAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly localAddressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * List of local subnet names that are subnet peered with remote virtual network.
      */
-    public readonly localSubnetNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly localSubnetNames: pulumi.Output<string[] | undefined>;
     /**
      * The current local address space of the local virtual network that is peered.
      */
-    public readonly localVirtualNetworkAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly localVirtualNetworkAddressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Whether complete virtual network address space is peered.
      */
-    public readonly peerCompleteVnets!: pulumi.Output<boolean | undefined>;
+    declare public readonly peerCompleteVnets: pulumi.Output<boolean | undefined>;
     /**
      * The status of the virtual network peering.
      */
-    public readonly peeringState!: pulumi.Output<string | undefined>;
+    declare public readonly peeringState: pulumi.Output<string | undefined>;
     /**
      * The peering sync status of the virtual network peering.
      */
-    public readonly peeringSyncLevel!: pulumi.Output<string | undefined>;
+    declare public readonly peeringSyncLevel: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the virtual network peering resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The reference to the address space peered with the remote virtual network.
      */
-    public readonly remoteAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly remoteAddressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The reference to the remote virtual network's Bgp Communities.
      */
-    public readonly remoteBgpCommunities!: pulumi.Output<outputs.network.VirtualNetworkBgpCommunitiesResponse | undefined>;
+    declare public readonly remoteBgpCommunities: pulumi.Output<outputs.network.VirtualNetworkBgpCommunitiesResponse | undefined>;
     /**
      * List of remote subnet names from remote virtual network that are subnet peered.
      */
-    public readonly remoteSubnetNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly remoteSubnetNames: pulumi.Output<string[] | undefined>;
     /**
      * The reference to the remote virtual network. The remote virtual network can be in the same or different region (preview). See here to register for the preview and learn more (https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-create-peering).
      */
-    public readonly remoteVirtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly remoteVirtualNetwork: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The reference to the current address space of the remote virtual network.
      */
-    public readonly remoteVirtualNetworkAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly remoteVirtualNetworkAddressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The reference to the remote virtual network's encryption
      */
-    public /*out*/ readonly remoteVirtualNetworkEncryption!: pulumi.Output<outputs.network.VirtualNetworkEncryptionResponse>;
+    declare public /*out*/ readonly remoteVirtualNetworkEncryption: pulumi.Output<outputs.network.VirtualNetworkEncryptionResponse>;
     /**
      * The resourceGuid property of the Virtual Network peering resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
      */
-    public readonly useRemoteGateways!: pulumi.Output<boolean | undefined>;
+    declare public readonly useRemoteGateways: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a VirtualNetworkPeering resource with the given unique name, arguments, and options.
@@ -149,36 +149,36 @@ export class VirtualNetworkPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["allowForwardedTraffic"] = args ? args.allowForwardedTraffic : undefined;
-            resourceInputs["allowGatewayTransit"] = args ? args.allowGatewayTransit : undefined;
-            resourceInputs["allowVirtualNetworkAccess"] = args ? args.allowVirtualNetworkAccess : undefined;
-            resourceInputs["doNotVerifyRemoteGateways"] = args ? args.doNotVerifyRemoteGateways : undefined;
-            resourceInputs["enableOnlyIPv6Peering"] = args ? args.enableOnlyIPv6Peering : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["localAddressSpace"] = args ? args.localAddressSpace : undefined;
-            resourceInputs["localSubnetNames"] = args ? args.localSubnetNames : undefined;
-            resourceInputs["localVirtualNetworkAddressSpace"] = args ? args.localVirtualNetworkAddressSpace : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerCompleteVnets"] = args ? args.peerCompleteVnets : undefined;
-            resourceInputs["peeringState"] = args ? args.peeringState : undefined;
-            resourceInputs["peeringSyncLevel"] = args ? args.peeringSyncLevel : undefined;
-            resourceInputs["remoteAddressSpace"] = args ? args.remoteAddressSpace : undefined;
-            resourceInputs["remoteBgpCommunities"] = args ? args.remoteBgpCommunities : undefined;
-            resourceInputs["remoteSubnetNames"] = args ? args.remoteSubnetNames : undefined;
-            resourceInputs["remoteVirtualNetwork"] = args ? args.remoteVirtualNetwork : undefined;
-            resourceInputs["remoteVirtualNetworkAddressSpace"] = args ? args.remoteVirtualNetworkAddressSpace : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncRemoteAddressSpace"] = args ? args.syncRemoteAddressSpace : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["useRemoteGateways"] = args ? args.useRemoteGateways : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            resourceInputs["virtualNetworkPeeringName"] = args ? args.virtualNetworkPeeringName : undefined;
+            resourceInputs["allowForwardedTraffic"] = args?.allowForwardedTraffic;
+            resourceInputs["allowGatewayTransit"] = args?.allowGatewayTransit;
+            resourceInputs["allowVirtualNetworkAccess"] = args?.allowVirtualNetworkAccess;
+            resourceInputs["doNotVerifyRemoteGateways"] = args?.doNotVerifyRemoteGateways;
+            resourceInputs["enableOnlyIPv6Peering"] = args?.enableOnlyIPv6Peering;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["localAddressSpace"] = args?.localAddressSpace;
+            resourceInputs["localSubnetNames"] = args?.localSubnetNames;
+            resourceInputs["localVirtualNetworkAddressSpace"] = args?.localVirtualNetworkAddressSpace;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerCompleteVnets"] = args?.peerCompleteVnets;
+            resourceInputs["peeringState"] = args?.peeringState;
+            resourceInputs["peeringSyncLevel"] = args?.peeringSyncLevel;
+            resourceInputs["remoteAddressSpace"] = args?.remoteAddressSpace;
+            resourceInputs["remoteBgpCommunities"] = args?.remoteBgpCommunities;
+            resourceInputs["remoteSubnetNames"] = args?.remoteSubnetNames;
+            resourceInputs["remoteVirtualNetwork"] = args?.remoteVirtualNetwork;
+            resourceInputs["remoteVirtualNetworkAddressSpace"] = args?.remoteVirtualNetworkAddressSpace;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncRemoteAddressSpace"] = args?.syncRemoteAddressSpace;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["useRemoteGateways"] = args?.useRemoteGateways;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
+            resourceInputs["virtualNetworkPeeringName"] = args?.virtualNetworkPeeringName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

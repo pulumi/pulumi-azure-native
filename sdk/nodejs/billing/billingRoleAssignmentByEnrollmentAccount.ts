@@ -44,27 +44,27 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The properties of the billing role assignment.
      */
-    public readonly properties!: pulumi.Output<outputs.billing.BillingRoleAssignmentPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.billing.BillingRoleAssignmentPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.billing.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.billing.SystemDataResponse>;
     /**
      * Dictionary of metadata associated with the resource. It may not be populated for all resource types. Maximum key/value length supported of 256 characters. Keys/value should not empty value nor null. Keys can not contain < > % & \ ? /
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a BillingRoleAssignmentByEnrollmentAccount resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class BillingRoleAssignmentByEnrollmentAccount extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
+            if (args?.billingAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'billingAccountName'");
             }
-            if ((!args || args.enrollmentAccountName === undefined) && !opts.urn) {
+            if (args?.enrollmentAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enrollmentAccountName'");
             }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingRoleAssignmentName"] = args ? args.billingRoleAssignmentName : undefined;
-            resourceInputs["enrollmentAccountName"] = args ? args.enrollmentAccountName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingAccountName"] = args?.billingAccountName;
+            resourceInputs["billingRoleAssignmentName"] = args?.billingRoleAssignmentName;
+            resourceInputs["enrollmentAccountName"] = args?.enrollmentAccountName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

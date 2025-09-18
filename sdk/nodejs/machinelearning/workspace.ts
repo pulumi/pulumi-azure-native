@@ -42,59 +42,59 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation time for this workspace resource.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The key vault identifier used for encrypted workspaces.
      */
-    public readonly keyVaultIdentifierId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultIdentifierId: pulumi.Output<string | undefined>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The email id of the owner for this workspace.
      */
-    public readonly ownerEmail!: pulumi.Output<string>;
+    declare public readonly ownerEmail: pulumi.Output<string>;
     /**
      * The sku of the workspace.
      */
-    public readonly sku!: pulumi.Output<outputs.machinelearning.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.machinelearning.SkuResponse | undefined>;
     /**
      * The regional endpoint for the machine learning studio service which hosts this workspace.
      */
-    public /*out*/ readonly studioEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly studioEndpoint: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The fully qualified arm id of the storage account associated with this workspace.
      */
-    public readonly userStorageAccountId!: pulumi.Output<string>;
+    declare public readonly userStorageAccountId: pulumi.Output<string>;
     /**
      * The immutable id associated with this workspace.
      */
-    public /*out*/ readonly workspaceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceId: pulumi.Output<string>;
     /**
      * The current state of workspace resource.
      */
-    public /*out*/ readonly workspaceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceState: pulumi.Output<string>;
     /**
      * The type of this workspace.
      */
-    public /*out*/ readonly workspaceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceType: pulumi.Output<string>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -107,23 +107,23 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.ownerEmail === undefined) && !opts.urn) {
+            if (args?.ownerEmail === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ownerEmail'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userStorageAccountId === undefined) && !opts.urn) {
+            if (args?.userStorageAccountId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userStorageAccountId'");
             }
-            resourceInputs["keyVaultIdentifierId"] = args ? args.keyVaultIdentifierId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["ownerEmail"] = args ? args.ownerEmail : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userStorageAccountId"] = args ? args.userStorageAccountId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["keyVaultIdentifierId"] = args?.keyVaultIdentifierId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["ownerEmail"] = args?.ownerEmail;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userStorageAccountId"] = args?.userStorageAccountId;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

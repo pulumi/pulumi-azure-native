@@ -42,11 +42,11 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cloud shell user settings properties.
      */
-    public readonly properties!: pulumi.Output<outputs.portal.UserPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.portal.UserPropertiesResponse>;
 
     /**
      * Create a UserSettingsWithLocation resource with the given unique name, arguments, and options.
@@ -59,15 +59,15 @@ export class UserSettingsWithLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["userSettingsName"] = args ? args.userSettingsName : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["userSettingsName"] = args?.userSettingsName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;

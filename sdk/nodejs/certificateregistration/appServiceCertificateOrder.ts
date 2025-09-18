@@ -44,107 +44,107 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
     /**
      * Reasons why App Service Certificate is not renewable at the current moment.
      */
-    public /*out*/ readonly appServiceCertificateNotRenewableReasons!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly appServiceCertificateNotRenewableReasons: pulumi.Output<string[]>;
     /**
      * <code>true</code> if the certificate should be automatically renewed when it expires; otherwise, <code>false</code>.
      */
-    public readonly autoRenew!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRenew: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * State of the Key Vault secret.
      */
-    public readonly certificates!: pulumi.Output<{[key: string]: outputs.certificateregistration.AppServiceCertificateResponse} | undefined>;
+    declare public readonly certificates: pulumi.Output<{[key: string]: outputs.certificateregistration.AppServiceCertificateResponse} | undefined>;
     /**
      * Contact info
      */
-    public /*out*/ readonly contact!: pulumi.Output<outputs.certificateregistration.CertificateOrderContactResponse>;
+    declare public /*out*/ readonly contact: pulumi.Output<outputs.certificateregistration.CertificateOrderContactResponse>;
     /**
      * Last CSR that was created for this order.
      */
-    public readonly csr!: pulumi.Output<string | undefined>;
+    declare public readonly csr: pulumi.Output<string | undefined>;
     /**
      * Certificate distinguished name.
      */
-    public readonly distinguishedName!: pulumi.Output<string | undefined>;
+    declare public readonly distinguishedName: pulumi.Output<string | undefined>;
     /**
      * Domain verification token.
      */
-    public /*out*/ readonly domainVerificationToken!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainVerificationToken: pulumi.Output<string>;
     /**
      * Certificate expiration time.
      */
-    public /*out*/ readonly expirationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationTime: pulumi.Output<string>;
     /**
      * Intermediate certificate.
      */
-    public /*out*/ readonly intermediate!: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
+    declare public /*out*/ readonly intermediate: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
     /**
      * <code>true</code> if private key is external; otherwise, <code>false</code>.
      */
-    public /*out*/ readonly isPrivateKeyExternal!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isPrivateKeyExternal: pulumi.Output<boolean>;
     /**
      * Certificate key size.
      */
-    public readonly keySize!: pulumi.Output<number | undefined>;
+    declare public readonly keySize: pulumi.Output<number | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Certificate last issuance time.
      */
-    public /*out*/ readonly lastCertificateIssuanceTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastCertificateIssuanceTime: pulumi.Output<string>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource Name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Time stamp when the certificate would be auto renewed next
      */
-    public /*out*/ readonly nextAutoRenewalTimeStamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextAutoRenewalTimeStamp: pulumi.Output<string>;
     /**
      * Certificate product type.
      */
-    public readonly productType!: pulumi.Output<string>;
+    declare public readonly productType: pulumi.Output<string>;
     /**
      * Status of certificate order.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Root certificate.
      */
-    public /*out*/ readonly root!: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
+    declare public /*out*/ readonly root: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
     /**
      * Current serial number of the certificate.
      */
-    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
+    declare public /*out*/ readonly serialNumber: pulumi.Output<string>;
     /**
      * Signed certificate.
      */
-    public /*out*/ readonly signedCertificate!: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
+    declare public /*out*/ readonly signedCertificate: pulumi.Output<outputs.certificateregistration.CertificateDetailsResponse>;
     /**
      * Current order status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Duration in years (must be 1).
      */
-    public readonly validityInYears!: pulumi.Output<number | undefined>;
+    declare public readonly validityInYears: pulumi.Output<number | undefined>;
 
     /**
      * Create a AppServiceCertificateOrder resource with the given unique name, arguments, and options.
@@ -157,24 +157,24 @@ export class AppServiceCertificateOrder extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.productType === undefined) && !opts.urn) {
+            if (args?.productType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoRenew"] = (args ? args.autoRenew : undefined) ?? true;
-            resourceInputs["certificateOrderName"] = args ? args.certificateOrderName : undefined;
-            resourceInputs["certificates"] = args ? args.certificates : undefined;
-            resourceInputs["csr"] = args ? args.csr : undefined;
-            resourceInputs["distinguishedName"] = args ? args.distinguishedName : undefined;
-            resourceInputs["keySize"] = (args ? args.keySize : undefined) ?? 2048;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["productType"] = args ? args.productType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["validityInYears"] = (args ? args.validityInYears : undefined) ?? 1;
+            resourceInputs["autoRenew"] = (args?.autoRenew) ?? true;
+            resourceInputs["certificateOrderName"] = args?.certificateOrderName;
+            resourceInputs["certificates"] = args?.certificates;
+            resourceInputs["csr"] = args?.csr;
+            resourceInputs["distinguishedName"] = args?.distinguishedName;
+            resourceInputs["keySize"] = (args?.keySize) ?? 2048;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["productType"] = args?.productType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["validityInYears"] = (args?.validityInYears) ?? 1;
             resourceInputs["appServiceCertificateNotRenewableReasons"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["contact"] = undefined /*out*/;

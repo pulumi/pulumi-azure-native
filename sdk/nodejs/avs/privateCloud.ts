@@ -44,130 +44,130 @@ export class PrivateCloud extends pulumi.CustomResource {
     /**
      * Properties describing how the cloud is distributed across availability zones
      */
-    public readonly availability!: pulumi.Output<outputs.avs.AvailabilityPropertiesResponse | undefined>;
+    declare public readonly availability: pulumi.Output<outputs.avs.AvailabilityPropertiesResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An ExpressRoute Circuit
      */
-    public /*out*/ readonly circuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
+    declare public /*out*/ readonly circuit: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
      * The type of DNS zone to use.
      */
-    public readonly dnsZoneType!: pulumi.Output<string | undefined>;
+    declare public readonly dnsZoneType: pulumi.Output<string | undefined>;
     /**
      * Customer managed key encryption, can be enabled or disabled
      */
-    public readonly encryption!: pulumi.Output<outputs.avs.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.avs.EncryptionResponse | undefined>;
     /**
      * The endpoints
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.avs.EndpointsResponse>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.avs.EndpointsResponse>;
     /**
      * Array of additional networks noncontiguous with networkBlock. Networks must be
      * unique and non-overlapping across VNet in your subscription, on-premise, and
      * this privateCloud networkBlock attribute. Make sure the CIDR format conforms to
      * (A.B.C.D/X).
      */
-    public readonly extendedNetworkBlocks!: pulumi.Output<string[] | undefined>;
+    declare public readonly extendedNetworkBlocks: pulumi.Output<string[] | undefined>;
     /**
      * Array of cloud link IDs from other clouds that connect to this one
      */
-    public /*out*/ readonly externalCloudLinks!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly externalCloudLinks: pulumi.Output<string[]>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.avs.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.avs.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * vCenter Single Sign On Identity Sources
      */
-    public readonly identitySources!: pulumi.Output<outputs.avs.IdentitySourceResponse[] | undefined>;
+    declare public readonly identitySources: pulumi.Output<outputs.avs.IdentitySourceResponse[] | undefined>;
     /**
      * Connectivity to internet is enabled or disabled
      */
-    public readonly internet!: pulumi.Output<string | undefined>;
+    declare public readonly internet: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The default cluster used for management
      */
-    public readonly managementCluster!: pulumi.Output<outputs.avs.ManagementClusterResponse>;
+    declare public readonly managementCluster: pulumi.Output<outputs.avs.ManagementClusterResponse>;
     /**
      * Network used to access vCenter Server and NSX-T Manager
      */
-    public /*out*/ readonly managementNetwork!: pulumi.Output<string>;
+    declare public /*out*/ readonly managementNetwork: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The block of addresses should be unique across VNet in your subscription as
      * well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where
      * A,B,C,D are between 0 and 255, and X is between 0 and 22
      */
-    public readonly networkBlock!: pulumi.Output<string>;
+    declare public readonly networkBlock: pulumi.Output<string>;
     /**
      * Flag to indicate whether the private cloud has the quota for provisioned NSX
      * Public IP count raised from 64 to 1024
      */
-    public /*out*/ readonly nsxPublicIpQuotaRaised!: pulumi.Output<string>;
+    declare public /*out*/ readonly nsxPublicIpQuotaRaised: pulumi.Output<string>;
     /**
      * Thumbprint of the NSX-T Manager SSL certificate
      */
-    public /*out*/ readonly nsxtCertificateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly nsxtCertificateThumbprint: pulumi.Output<string>;
     /**
      * Optionally, set the NSX-T Manager password when the private cloud is created
      */
-    public readonly nsxtPassword!: pulumi.Output<string | undefined>;
+    declare public readonly nsxtPassword: pulumi.Output<string | undefined>;
     /**
      * Used for virtual machine cold migration, cloning, and snapshot migration
      */
-    public /*out*/ readonly provisioningNetwork!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningNetwork: pulumi.Output<string>;
     /**
      * The provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A secondary expressRoute circuit from a separate AZ. Only present in a
      * stretched private cloud
      */
-    public /*out*/ readonly secondaryCircuit!: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
+    declare public /*out*/ readonly secondaryCircuit: pulumi.Output<outputs.avs.CircuitResponse | undefined>;
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    public readonly sku!: pulumi.Output<outputs.avs.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.avs.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Thumbprint of the vCenter Server SSL certificate
      */
-    public /*out*/ readonly vcenterCertificateThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly vcenterCertificateThumbprint: pulumi.Output<string>;
     /**
      * Optionally, set the vCenter admin password when the private cloud is created
      */
-    public readonly vcenterPassword!: pulumi.Output<string | undefined>;
+    declare public readonly vcenterPassword: pulumi.Output<string | undefined>;
     /**
      * Azure resource ID of the virtual network
      */
-    public readonly virtualNetworkId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkId: pulumi.Output<string | undefined>;
     /**
      * Used for live migration of virtual machines
      */
-    public /*out*/ readonly vmotionNetwork!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmotionNetwork: pulumi.Output<string>;
 
     /**
      * Create a PrivateCloud resource with the given unique name, arguments, and options.
@@ -180,35 +180,35 @@ export class PrivateCloud extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managementCluster === undefined) && !opts.urn) {
+            if (args?.managementCluster === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managementCluster'");
             }
-            if ((!args || args.networkBlock === undefined) && !opts.urn) {
+            if (args?.networkBlock === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkBlock'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["availability"] = args ? args.availability : undefined;
-            resourceInputs["dnsZoneType"] = args ? args.dnsZoneType : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["extendedNetworkBlocks"] = args ? args.extendedNetworkBlocks : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["identitySources"] = args ? args.identitySources : undefined;
-            resourceInputs["internet"] = (args ? args.internet : undefined) ?? "Disabled";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementCluster"] = args ? args.managementCluster : undefined;
-            resourceInputs["networkBlock"] = args ? args.networkBlock : undefined;
-            resourceInputs["nsxtPassword"] = args ? args.nsxtPassword : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vcenterPassword"] = args ? args.vcenterPassword : undefined;
-            resourceInputs["virtualNetworkId"] = args ? args.virtualNetworkId : undefined;
+            resourceInputs["availability"] = args?.availability;
+            resourceInputs["dnsZoneType"] = args?.dnsZoneType;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["extendedNetworkBlocks"] = args?.extendedNetworkBlocks;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["identitySources"] = args?.identitySources;
+            resourceInputs["internet"] = (args?.internet) ?? "Disabled";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementCluster"] = args?.managementCluster;
+            resourceInputs["networkBlock"] = args?.networkBlock;
+            resourceInputs["nsxtPassword"] = args?.nsxtPassword;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vcenterPassword"] = args?.vcenterPassword;
+            resourceInputs["virtualNetworkId"] = args?.virtualNetworkId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuit"] = undefined /*out*/;
             resourceInputs["endpoints"] = undefined /*out*/;

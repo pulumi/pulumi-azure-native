@@ -44,43 +44,43 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the assigned machine IP address.
      */
-    public /*out*/ readonly ip!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly ip: pulumi.Output<string | undefined>;
     /**
      * Last Heartbeat from the Worker
      */
-    public /*out*/ readonly lastSeenDateTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastSeenDateTime: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the registration time of the worker machine.
      */
-    public /*out*/ readonly registeredDateTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly registeredDateTime: pulumi.Output<string | undefined>;
     /**
      * Resource system metadata.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Azure Resource Manager Id for a virtual machine.
      */
-    public readonly vmResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly vmResourceId: pulumi.Output<string | undefined>;
     /**
      * Name of the HybridWorker.
      */
-    public /*out*/ readonly workerName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly workerName: pulumi.Output<string | undefined>;
     /**
      * Type of the HybridWorker.
      */
-    public /*out*/ readonly workerType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly workerType: pulumi.Output<string | undefined>;
 
     /**
      * Create a HybridRunbookWorker resource with the given unique name, arguments, and options.
@@ -93,21 +93,21 @@ export class HybridRunbookWorker extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.hybridRunbookWorkerGroupName === undefined) && !opts.urn) {
+            if (args?.hybridRunbookWorkerGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hybridRunbookWorkerGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
-            resourceInputs["hybridRunbookWorkerId"] = args ? args.hybridRunbookWorkerId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vmResourceId"] = args ? args.vmResourceId : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["hybridRunbookWorkerGroupName"] = args?.hybridRunbookWorkerGroupName;
+            resourceInputs["hybridRunbookWorkerId"] = args?.hybridRunbookWorkerId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vmResourceId"] = args?.vmResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["ip"] = undefined /*out*/;
             resourceInputs["lastSeenDateTime"] = undefined /*out*/;

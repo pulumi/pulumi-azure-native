@@ -44,43 +44,43 @@ export class SuppressionListAddress extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The location where the SuppressionListAddress data is stored at rest. This value is inherited from the parent Domains resource.
      */
-    public /*out*/ readonly dataLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataLocation: pulumi.Output<string>;
     /**
      * Email address of the recipient.
      */
-    public readonly email!: pulumi.Output<string>;
+    declare public readonly email: pulumi.Output<string>;
     /**
      * The first name of the email recipient.
      */
-    public readonly firstName!: pulumi.Output<string | undefined>;
+    declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
      * The date the address was last updated in a suppression list.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * The last name of the email recipient.
      */
-    public readonly lastName!: pulumi.Output<string | undefined>;
+    declare public readonly lastName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * An optional property to provide contextual notes or a description for an address.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.communication.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.communication.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SuppressionListAddress resource with the given unique name, arguments, and options.
@@ -93,30 +93,30 @@ export class SuppressionListAddress extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainName === undefined) && !opts.urn) {
+            if (args?.domainName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainName'");
             }
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.emailServiceName === undefined) && !opts.urn) {
+            if (args?.emailServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'emailServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.suppressionListName === undefined) && !opts.urn) {
+            if (args?.suppressionListName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionListName'");
             }
-            resourceInputs["addressId"] = args ? args.addressId : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["emailServiceName"] = args ? args.emailServiceName : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["suppressionListName"] = args ? args.suppressionListName : undefined;
+            resourceInputs["addressId"] = args?.addressId;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["emailServiceName"] = args?.emailServiceName;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["suppressionListName"] = args?.suppressionListName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataLocation"] = undefined /*out*/;
             resourceInputs["lastModified"] = undefined /*out*/;
