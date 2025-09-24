@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Edge.Inputs
 {
 
     /// <summary>
-    /// Capability, to match in Solution Templates &amp; Targets
+    /// Capability, to match in Solution Templates and Targets
     /// </summary>
     public sealed class CapabilityArgs : global::Pulumi.ResourceArgs
     {

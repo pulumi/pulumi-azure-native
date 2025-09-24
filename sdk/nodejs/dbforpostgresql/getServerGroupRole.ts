@@ -54,6 +54,9 @@ export interface GetServerGroupRoleResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * A type definition that refers the id to an Azure Resource Manager resource.
+     */
     readonly objectId: string;
     readonly principalType: string;
     /**
@@ -65,6 +68,9 @@ export interface GetServerGroupRoleResult {
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.dbforpostgresql.SystemDataResponse;
+    /**
+     * A type definition that refers the id to an Azure Resource Manager resource.
+     */
     readonly tenantId?: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

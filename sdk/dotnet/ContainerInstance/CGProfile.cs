@@ -10,9 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
-    /// container group profile object
+    /// A container group profile object
     /// 
     /// Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
+    /// 
+    /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:containerinstance:CGProfile")]
     public partial class CGProfile : global::Pulumi.CustomResource
@@ -87,7 +89,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// The operating system type required by the containers in the container group.
         /// </summary>
         [Output("osType")]
-        public Output<string?> OsType { get; private set; } = null!;
+        public Output<string> OsType { get; private set; } = null!;
 
         /// <summary>
         /// The priority of the container group.
@@ -99,7 +101,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Registered revisions are calculated at request time based off the records in the table logs.
         /// </summary>
         [Output("registeredRevisions")]
-        public Output<ImmutableArray<double>> RegisteredRevisions { get; private set; } = null!;
+        public Output<ImmutableArray<int>> RegisteredRevisions { get; private set; } = null!;
 
         /// <summary>
         /// Restart policy for all containers within the container group. 
@@ -114,7 +116,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Container group profile current revision number
         /// </summary>
         [Output("revision")]
-        public Output<double?> Revision { get; private set; } = null!;
+        public Output<int> Revision { get; private set; } = null!;
 
         /// <summary>
         /// The container security properties.
@@ -204,6 +206,7 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:CGProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:CGProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20250901:CGProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance:ContainerGroupProfile" },
                 },
             };
@@ -240,7 +243,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         [Input("containerGroupProfileName")]
         public Input<string>? ContainerGroupProfileName { get; set; }
 
-        [Input("containers")]
+        [Input("containers", required: true)]
         private InputList<Inputs.ContainerArgs>? _containers;
 
         /// <summary>
@@ -315,26 +318,14 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
-        [Input("osType")]
-        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes>? OsType { get; set; }
+        [Input("osType", required: true)]
+        public InputUnion<string, Pulumi.AzureNative.ContainerInstance.OperatingSystemTypes> OsType { get; set; } = null!;
 
         /// <summary>
         /// The priority of the container group.
         /// </summary>
         [Input("priority")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.Priority>? Priority { get; set; }
-
-        [Input("registeredRevisions")]
-        private InputList<double>? _registeredRevisions;
-
-        /// <summary>
-        /// Registered revisions are calculated at request time based off the records in the table logs.
-        /// </summary>
-        public InputList<double> RegisteredRevisions
-        {
-            get => _registeredRevisions ?? (_registeredRevisions = new InputList<double>());
-            set => _registeredRevisions = value;
-        }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -350,12 +341,6 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// </summary>
         [Input("restartPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ContainerInstance.ContainerGroupRestartPolicy>? RestartPolicy { get; set; }
-
-        /// <summary>
-        /// Container group profile current revision number
-        /// </summary>
-        [Input("revision")]
-        public Input<double>? Revision { get; set; }
 
         /// <summary>
         /// The container security properties.

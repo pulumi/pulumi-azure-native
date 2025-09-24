@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the boot diagnostic logs for a VM instance belonging to the specified Network Virtual Appliance.
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkVirtualApplianceBootDiagnosticLogsResult> InvokeAsync(GetNetworkVirtualApplianceBootDiagnosticLogsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkVirtualApplianceBootDiagnosticLogsResult>("azure-native:network:getNetworkVirtualApplianceBootDiagnosticLogs", args ?? new GetNetworkVirtualApplianceBootDiagnosticLogsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the boot diagnostic logs for a VM instance belonging to the specified Network Virtual Appliance.
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceBootDiagnosticLogsResult> Invoke(GetNetworkVirtualApplianceBootDiagnosticLogsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceBootDiagnosticLogsResult>("azure-native:network:getNetworkVirtualApplianceBootDiagnosticLogs", args ?? new GetNetworkVirtualApplianceBootDiagnosticLogsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// Retrieves the boot diagnostic logs for a VM instance belonging to the specified Network Virtual Appliance.
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkVirtualApplianceBootDiagnosticLogsResult> Invoke(GetNetworkVirtualApplianceBootDiagnosticLogsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkVirtualApplianceBootDiagnosticLogsResult>("azure-native:network:getNetworkVirtualApplianceBootDiagnosticLogs", args ?? new GetNetworkVirtualApplianceBootDiagnosticLogsInvokeArgs(), options.WithDefaults());

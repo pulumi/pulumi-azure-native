@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// Friendly Rules name mapping to the any Rules or secret related information.
     /// 
-    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+    /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Rule")]
     public partial class Rule : global::Pulumi.CustomResource
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string?> MatchProcessingBehavior { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -56,7 +56,7 @@ namespace Pulumi.AzureNative.Cdn
         /// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         /// </summary>
         [Output("order")]
-        public Output<int> Order { get; private set; } = null!;
+        public Output<int?> Order { get; private set; } = null!;
 
         /// <summary>
         /// Provisioning status
@@ -71,13 +71,13 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> RuleSetName { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Cdn
 
     public sealed class RuleArgs : global::Pulumi.ResourceArgs
     {
-        [Input("actions", required: true)]
+        [Input("actions")]
         private InputList<object>? _actions;
 
         /// <summary>
@@ -176,17 +176,17 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         /// </summary>
-        [Input("order", required: true)]
-        public Input<int> Order { get; set; } = null!;
+        [Input("order")]
+        public Input<int>? Order { get; set; }
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? RuleName { get; set; }
 
         /// <summary>
-        /// Name of the rule set under the profile.
+        /// Name of the rule set under the profile which is unique globally.
         /// </summary>
         [Input("ruleSetName", required: true)]
         public Input<string> RuleSetName { get; set; } = null!;

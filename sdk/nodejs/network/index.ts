@@ -955,10 +955,20 @@ export const listNetworkManagerEffectiveSecurityAdminRules: typeof import("./lis
 export const listNetworkManagerEffectiveSecurityAdminRulesOutput: typeof import("./listNetworkManagerEffectiveSecurityAdminRules").listNetworkManagerEffectiveSecurityAdminRulesOutput = null as any;
 utilities.lazyLoad(exports, ["listNetworkManagerEffectiveSecurityAdminRules","listNetworkManagerEffectiveSecurityAdminRulesOutput"], () => require("./listNetworkManagerEffectiveSecurityAdminRules"));
 
+export { ListVirtualNetworkGatewayRadiusSecretsArgs, ListVirtualNetworkGatewayRadiusSecretsResult, ListVirtualNetworkGatewayRadiusSecretsOutputArgs } from "./listVirtualNetworkGatewayRadiusSecrets";
+export const listVirtualNetworkGatewayRadiusSecrets: typeof import("./listVirtualNetworkGatewayRadiusSecrets").listVirtualNetworkGatewayRadiusSecrets = null as any;
+export const listVirtualNetworkGatewayRadiusSecretsOutput: typeof import("./listVirtualNetworkGatewayRadiusSecrets").listVirtualNetworkGatewayRadiusSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listVirtualNetworkGatewayRadiusSecrets","listVirtualNetworkGatewayRadiusSecretsOutput"], () => require("./listVirtualNetworkGatewayRadiusSecrets"));
+
 export { ListVpnLinkConnectionDefaultSharedKeyArgs, ListVpnLinkConnectionDefaultSharedKeyResult, ListVpnLinkConnectionDefaultSharedKeyOutputArgs } from "./listVpnLinkConnectionDefaultSharedKey";
 export const listVpnLinkConnectionDefaultSharedKey: typeof import("./listVpnLinkConnectionDefaultSharedKey").listVpnLinkConnectionDefaultSharedKey = null as any;
 export const listVpnLinkConnectionDefaultSharedKeyOutput: typeof import("./listVpnLinkConnectionDefaultSharedKey").listVpnLinkConnectionDefaultSharedKeyOutput = null as any;
 utilities.lazyLoad(exports, ["listVpnLinkConnectionDefaultSharedKey","listVpnLinkConnectionDefaultSharedKeyOutput"], () => require("./listVpnLinkConnectionDefaultSharedKey"));
+
+export { ListVpnServerConfigurationRadiusSecretsArgs, ListVpnServerConfigurationRadiusSecretsResult, ListVpnServerConfigurationRadiusSecretsOutputArgs } from "./listVpnServerConfigurationRadiusSecrets";
+export const listVpnServerConfigurationRadiusSecrets: typeof import("./listVpnServerConfigurationRadiusSecrets").listVpnServerConfigurationRadiusSecrets = null as any;
+export const listVpnServerConfigurationRadiusSecretsOutput: typeof import("./listVpnServerConfigurationRadiusSecrets").listVpnServerConfigurationRadiusSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["listVpnServerConfigurationRadiusSecrets","listVpnServerConfigurationRadiusSecretsOutput"], () => require("./listVpnServerConfigurationRadiusSecrets"));
 
 export { LoadBalancerArgs } from "./loadBalancer";
 export type LoadBalancer = import("./loadBalancer").LoadBalancer;

@@ -105,6 +105,8 @@ __all__ = [
     'RaiPolicyContentFilterArgsDict',
     'RaiPolicyPropertiesArgs',
     'RaiPolicyPropertiesArgsDict',
+    'RaiTopicPropertiesArgs',
+    'RaiTopicPropertiesArgsDict',
     'RegionSettingArgs',
     'RegionSettingArgsDict',
     'SASAuthTypeConnectionPropertiesArgs',
@@ -4749,6 +4751,182 @@ class RaiPolicyPropertiesArgs:
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]]):
         pulumi.set(self, "mode", value)
+
+
+if not MYPY:
+    class RaiTopicPropertiesArgsDict(TypedDict):
+        """
+        RAI Custom Topic properties.
+        """
+        created_at: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Creation time of the custom topic.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Description of the custom topic.
+        """
+        failed_reason: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Failed reason if the status is Failed.
+        """
+        last_modified_at: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Last modified time of the custom topic.
+        """
+        sample_blob_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Sample blob url for the custom topic.
+        """
+        status: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Status of the custom topic.
+        """
+        topic_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unique identifier of the custom topic.
+        """
+        topic_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the custom topic.
+        """
+elif False:
+    RaiTopicPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiTopicPropertiesArgs:
+    def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 failed_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 last_modified_at: Optional[pulumi.Input[builtins.str]] = None,
+                 sample_blob_url: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[builtins.str]] = None,
+                 topic_id: Optional[pulumi.Input[builtins.str]] = None,
+                 topic_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        RAI Custom Topic properties.
+        :param pulumi.Input[builtins.str] created_at: Creation time of the custom topic.
+        :param pulumi.Input[builtins.str] description: Description of the custom topic.
+        :param pulumi.Input[builtins.str] failed_reason: Failed reason if the status is Failed.
+        :param pulumi.Input[builtins.str] last_modified_at: Last modified time of the custom topic.
+        :param pulumi.Input[builtins.str] sample_blob_url: Sample blob url for the custom topic.
+        :param pulumi.Input[builtins.str] status: Status of the custom topic.
+        :param pulumi.Input[builtins.str] topic_id: The unique identifier of the custom topic.
+        :param pulumi.Input[builtins.str] topic_name: The name of the custom topic.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if failed_reason is not None:
+            pulumi.set(__self__, "failed_reason", failed_reason)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if sample_blob_url is not None:
+            pulumi.set(__self__, "sample_blob_url", sample_blob_url)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+        if topic_id is not None:
+            pulumi.set(__self__, "topic_id", topic_id)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Creation time of the custom topic.
+        """
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Description of the custom topic.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="failedReason")
+    def failed_reason(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Failed reason if the status is Failed.
+        """
+        return pulumi.get(self, "failed_reason")
+
+    @failed_reason.setter
+    def failed_reason(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "failed_reason", value)
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Last modified time of the custom topic.
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @last_modified_at.setter
+    def last_modified_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "last_modified_at", value)
+
+    @property
+    @pulumi.getter(name="sampleBlobUrl")
+    def sample_blob_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Sample blob url for the custom topic.
+        """
+        return pulumi.get(self, "sample_blob_url")
+
+    @sample_blob_url.setter
+    def sample_blob_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "sample_blob_url", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Status of the custom topic.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="topicId")
+    def topic_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique identifier of the custom topic.
+        """
+        return pulumi.get(self, "topic_id")
+
+    @topic_id.setter
+    def topic_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic_id", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the custom topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic_name", value)
 
 
 if not MYPY:

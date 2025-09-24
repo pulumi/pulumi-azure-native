@@ -94,6 +94,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public InputUnion<string, Pulumi.AzureNative.DataFactory.ActivityState>? State { get; set; }
 
         /// <summary>
+        /// Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        [Input("treatDecimalAsString")]
+        public Input<object>? TreatDecimalAsString { get; set; }
+
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'Script'.
         /// </summary>

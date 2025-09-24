@@ -19,7 +19,6 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
-	"github.com/pkg/errors"
 
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
@@ -110,6 +109,7 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 				props.requiredProperties.Delete("priority")
 				props.requiredSpecs.Delete("priority")
 			}
+
 			// incompatible type "azure-native:containerinstance:Container" for resource "ContainerGroupProfile"
 			// ("azure-native:containerinstance:ContainerGroupProfile"): required properties do not match: only
 			// required in B: image,resources
@@ -132,8 +132,8 @@ Example of a relative ID: $self/frontEndConfigurations/my-frontend.`
 			if existing, has := m.pkg.Types[tok]; has {
 				merged, err := mergeTypes(spec, existing, isOutput)
 				if err != nil {
-					return nil, errors.Wrapf(err, "incompatible type %q for resource %q (%q)", tok, m.resourceName,
-						m.resourceToken)
+					return nil, fmt.Errorf("incompatible type %q for resource %q (%q): %w", tok, m.resourceName,
+						m.resourceToken, err)
 				}
 				spec = *merged
 			}
@@ -460,6 +460,12 @@ var typeNameOverrides = map[string]string{
 	// types are slightly different from later specs, so we have to disambiguate for top-level resources.
 	"SecurityInsights.Watchlist.UserInfo":     "WatchlistUserInfo",
 	"SecurityInsights.WatchlistItem.UserInfo": "WatchlistUserInfo",
+
+	// These generate enums which conflict with other resource types.
+	"BillingBenefits.Discount.DiscountTypeProductFamily":            "DiscountProductFamily",
+	"BillingBenefits.Discount.DiscountTypeProduct":                  "DiscountProduct",
+	"BillingBenefits.Discount.DiscountTypeCustomPrice":              "DiscountCustomPrice",
+	"BillingBenefits.Discount.DiscountTypeCustomPriceMultiCurrency": "DiscountCustomPriceMultiCurrency",
 }
 
 var typeNameOverridesV3 = map[string]string{

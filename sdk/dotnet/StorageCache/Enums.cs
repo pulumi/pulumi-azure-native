@@ -8,6 +8,37 @@ using Pulumi;
 namespace Pulumi.AzureNative.StorageCache
 {
     /// <summary>
+    /// The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdminStatus : IEquatable<AdminStatus>
+    {
+        private readonly string _value;
+
+        private AdminStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AdminStatus Enable { get; } = new AdminStatus("Enable");
+        public static AdminStatus Disable { get; } = new AdminStatus("Disable");
+
+        public static bool operator ==(AdminStatus left, AdminStatus right) => left.Equals(right);
+        public static bool operator !=(AdminStatus left, AdminStatus right) => !left.Equals(right);
+
+        public static explicit operator string(AdminStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdminStatus other && Equals(other);
+        public bool Equals(AdminStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The type of identity used for the resource.
     /// </summary>
     [EnumType]

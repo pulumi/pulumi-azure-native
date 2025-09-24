@@ -7,6 +7,7 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AdminStatus',
     'AmlFilesystemIdentityType',
     'AmlFilesystemSquashMode',
     'AutoExportJobAdminStatus',
@@ -20,6 +21,15 @@ __all__ = [
     'StorageTargetType',
     'UsernameSource',
 ]
+
+
+@pulumi.type_token("azure-native:storagecache:AdminStatus")
+class AdminStatus(builtins.str, Enum):
+    """
+    The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
+    """
+    ENABLE = "Enable"
+    DISABLE = "Disable"
 
 
 @pulumi.type_token("azure-native:storagecache:AmlFilesystemIdentityType")

@@ -32,7 +32,7 @@ class ServerGroupPrivateEndpointConnectionArgs:
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+        :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -80,7 +80,7 @@ class ServerGroupPrivateEndpointConnectionArgs:
     @pulumi.getter(name="privateEndpointConnectionName")
     def private_endpoint_connection_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the private endpoint connection associated with the cluster.
+        The name of the private endpoint connection associated with the Azure resource.
         """
         return pulumi.get(self, "private_endpoint_connection_name")
 
@@ -110,7 +110,7 @@ class ServerGroupPrivateEndpointConnection(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster.
-        :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+        :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """

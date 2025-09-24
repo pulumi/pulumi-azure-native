@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetLinkedServerResult',
@@ -27,7 +28,7 @@ class GetLinkedServerResult:
     """
     Response to put/get linked server (with properties) for Redis cache.
     """
-    def __init__(__self__, azure_api_version=None, geo_replicated_primary_host_name=None, id=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, primary_host_name=None, provisioning_state=None, server_role=None, type=None):
+    def __init__(__self__, azure_api_version=None, geo_replicated_primary_host_name=None, id=None, linked_redis_cache_id=None, linked_redis_cache_location=None, name=None, primary_host_name=None, provisioning_state=None, server_role=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -55,6 +56,9 @@ class GetLinkedServerResult:
         if server_role and not isinstance(server_role, str):
             raise TypeError("Expected argument 'server_role' to be a str")
         pulumi.set(__self__, "server_role", server_role)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -79,7 +83,7 @@ class GetLinkedServerResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -132,6 +136,14 @@ class GetLinkedServerResult:
         return pulumi.get(self, "server_role")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
@@ -155,6 +167,7 @@ class AwaitableGetLinkedServerResult(GetLinkedServerResult):
             primary_host_name=self.primary_host_name,
             provisioning_state=self.provisioning_state,
             server_role=self.server_role,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -170,7 +183,7 @@ def get_linked_server(linked_server_name: Optional[builtins.str] = None,
     Other available API versions: 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str linked_server_name: The name of the linked server.
+    :param builtins.str linked_server_name: The name of the RedisLinkedServerWithProperties
     :param builtins.str name: The name of the redis cache.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -191,6 +204,7 @@ def get_linked_server(linked_server_name: Optional[builtins.str] = None,
         primary_host_name=pulumi.get(__ret__, 'primary_host_name'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         server_role=pulumi.get(__ret__, 'server_role'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_linked_server_output(linked_server_name: Optional[pulumi.Input[builtins.str]] = None,
                              name: Optional[pulumi.Input[builtins.str]] = None,
@@ -204,7 +218,7 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[builtins.
     Other available API versions: 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str linked_server_name: The name of the linked server.
+    :param builtins.str linked_server_name: The name of the RedisLinkedServerWithProperties
     :param builtins.str name: The name of the redis cache.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -224,4 +238,5 @@ def get_linked_server_output(linked_server_name: Optional[pulumi.Input[builtins.
         primary_host_name=pulumi.get(__response__, 'primary_host_name'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         server_role=pulumi.get(__response__, 'server_role'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

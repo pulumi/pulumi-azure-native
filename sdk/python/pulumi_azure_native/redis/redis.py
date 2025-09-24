@@ -53,8 +53,8 @@ class RedisArgs:
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
-        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        :param pulumi.Input[builtins.str] name: The name of the RedisResource
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         :param pulumi.Input['RedisCommonPropertiesRedisConfigurationArgs'] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param pulumi.Input[builtins.str] redis_version: Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         :param pulumi.Input[builtins.int] replicas_per_master: The number of replicas to be created per primary.
@@ -86,8 +86,6 @@ class RedisArgs:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if name is not None:
             pulumi.set(__self__, "name", name)
-        if public_network_access is None:
-            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if redis_configuration is not None:
@@ -203,7 +201,7 @@ class RedisArgs:
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the Redis cache.
+        The name of the RedisResource
         """
         return pulumi.get(self, "name")
 
@@ -215,7 +213,7 @@ class RedisArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -410,8 +408,8 @@ class Redis(pulumi.CustomResource):
         :param pulumi.Input[Union['ManagedServiceIdentityArgs', 'ManagedServiceIdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'TlsVersion']] minimum_tls_version: Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
-        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        :param pulumi.Input[builtins.str] name: The name of the RedisResource
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         :param pulumi.Input[Union['RedisCommonPropertiesRedisConfigurationArgs', 'RedisCommonPropertiesRedisConfigurationArgsDict']] redis_configuration: All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         :param pulumi.Input[builtins.str] redis_version: Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         :param pulumi.Input[builtins.int] replicas_per_master: The number of replicas to be created per primary.
@@ -495,8 +493,6 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_tls_version"] = minimum_tls_version
             __props__.__dict__["name"] = name
-            if public_network_access is None:
-                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             __props__.__dict__["redis_configuration"] = redis_configuration
             __props__.__dict__["redis_version"] = redis_version
@@ -525,6 +521,7 @@ class Redis(pulumi.CustomResource):
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["ssl_port"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20200601:Redis"), pulumi.Alias(type_="azure-native:cache/v20230401:Redis"), pulumi.Alias(type_="azure-native:cache/v20230501preview:Redis"), pulumi.Alias(type_="azure-native:cache/v20230801:Redis"), pulumi.Alias(type_="azure-native:cache/v20240301:Redis"), pulumi.Alias(type_="azure-native:cache/v20240401preview:Redis"), pulumi.Alias(type_="azure-native:cache/v20241101:Redis"), pulumi.Alias(type_="azure-native:cache:Redis"), pulumi.Alias(type_="azure-native:redis/v20150801:Redis"), pulumi.Alias(type_="azure-native:redis/v20160401:Redis"), pulumi.Alias(type_="azure-native:redis/v20170201:Redis"), pulumi.Alias(type_="azure-native:redis/v20171001:Redis"), pulumi.Alias(type_="azure-native:redis/v20180301:Redis"), pulumi.Alias(type_="azure-native:redis/v20190701:Redis"), pulumi.Alias(type_="azure-native:redis/v20200601:Redis"), pulumi.Alias(type_="azure-native:redis/v20201201:Redis"), pulumi.Alias(type_="azure-native:redis/v20210601:Redis"), pulumi.Alias(type_="azure-native:redis/v20220501:Redis"), pulumi.Alias(type_="azure-native:redis/v20220601:Redis"), pulumi.Alias(type_="azure-native:redis/v20230401:Redis"), pulumi.Alias(type_="azure-native:redis/v20230501preview:Redis"), pulumi.Alias(type_="azure-native:redis/v20230801:Redis"), pulumi.Alias(type_="azure-native:redis/v20240301:Redis"), pulumi.Alias(type_="azure-native:redis/v20240401preview:Redis"), pulumi.Alias(type_="azure-native:redis/v20241101:Redis")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -574,6 +571,7 @@ class Redis(pulumi.CustomResource):
         __props__.__dict__["ssl_port"] = None
         __props__.__dict__["static_ip"] = None
         __props__.__dict__["subnet_id"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_settings"] = None
         __props__.__dict__["type"] = None
@@ -626,7 +624,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        The identity of the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -698,13 +696,13 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> pulumi.Output[Optional['outputs.RedisCommonPropertiesResponseRedisConfiguration']]:
+    def redis_configuration(self) -> pulumi.Output[Optional['outputs.RedisCommonPropertiesRedisConfigurationResponse']]:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
@@ -775,6 +773,14 @@ class Redis(pulumi.CustomResource):
         return pulumi.get(self, "subnet_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
@@ -818,7 +824,7 @@ class Redis(pulumi.CustomResource):
     @pulumi.getter
     def zones(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
         """
-        A list of availability zones denoting where the resource needs to come from.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 

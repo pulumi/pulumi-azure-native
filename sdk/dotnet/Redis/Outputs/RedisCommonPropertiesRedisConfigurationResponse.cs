@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Redis.Outputs
     /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
     /// </summary>
     [OutputType]
-    public sealed class RedisCommonPropertiesResponseRedisConfiguration
+    public sealed class RedisCommonPropertiesRedisConfigurationResponse
     {
         /// <summary>
         /// Specifies whether AAD based authentication has been enabled or disabled for the cache
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Redis.Outputs
         /// </summary>
         public readonly string? AofStorageConnectionString1;
         /// <summary>
-        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
         /// </summary>
         public readonly string? Authnotrequired;
         /// <summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.Redis.Outputs
         /// </summary>
         public readonly string? PreferredDataPersistenceAuthMethod;
         /// <summary>
-        /// Specifies whether the rdb backup is enabled
+        /// Specifies whether the RDB backup is enabled
         /// </summary>
         public readonly string? RdbBackupEnabled;
         /// <summary>
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.Redis.Outputs
         public readonly string ZonalConfiguration;
 
         [OutputConstructor]
-        private RedisCommonPropertiesResponseRedisConfiguration(
+        private RedisCommonPropertiesRedisConfigurationResponse(
             string? aadEnabled,
 
             string? aofBackupEnabled,

@@ -124,7 +124,13 @@ namespace Pulumi.AzureNative.Resources
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Delete the specified resources from Azure
+        /// </summary>
         public static DeploymentStacksDeleteDetachEnum Delete { get; } = new DeploymentStacksDeleteDetachEnum("delete");
+        /// <summary>
+        /// Keep the specified resources in Azure
+        /// </summary>
         public static DeploymentStacksDeleteDetachEnum Detach { get; } = new DeploymentStacksDeleteDetachEnum("detach");
 
         public static bool operator ==(DeploymentStacksDeleteDetachEnum left, DeploymentStacksDeleteDetachEnum right) => left.Equals(right);

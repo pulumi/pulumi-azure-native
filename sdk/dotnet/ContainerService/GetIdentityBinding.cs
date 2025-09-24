@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// The IdentityBinding resource.
         /// 
         /// Uses Azure REST API version 2025-06-02-preview.
+        /// 
+        /// Other available API versions: 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetIdentityBindingResult> InvokeAsync(GetIdentityBindingArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIdentityBindingResult>("azure-native:containerservice:getIdentityBinding", args ?? new GetIdentityBindingArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// The IdentityBinding resource.
         /// 
         /// Uses Azure REST API version 2025-06-02-preview.
+        /// 
+        /// Other available API versions: 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIdentityBindingResult> Invoke(GetIdentityBindingInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityBindingResult>("azure-native:containerservice:getIdentityBinding", args ?? new GetIdentityBindingInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ContainerService
         /// The IdentityBinding resource.
         /// 
         /// Uses Azure REST API version 2025-06-02-preview.
+        /// 
+        /// Other available API versions: 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetIdentityBindingResult> Invoke(GetIdentityBindingInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetIdentityBindingResult>("azure-native:containerservice:getIdentityBinding", args ?? new GetIdentityBindingInvokeArgs(), options.WithDefaults());

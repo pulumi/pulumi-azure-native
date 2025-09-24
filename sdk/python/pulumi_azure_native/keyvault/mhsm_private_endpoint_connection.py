@@ -174,7 +174,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MHSMPrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -250,7 +250,7 @@ class MHSMPrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20241101:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20241201preview:MHSMPrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20210401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211001:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20220701:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20221101:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20230201:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20230701:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20241101:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20241201preview:MHSMPrivateEndpointConnection"), pulumi.Alias(type_="azure-native:keyvault/v20250501:MHSMPrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MHSMPrivateEndpointConnection, __self__).__init__(
             'azure-native:keyvault:MHSMPrivateEndpointConnection',

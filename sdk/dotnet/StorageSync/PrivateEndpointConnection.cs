@@ -138,7 +138,7 @@ namespace Pulumi.AzureNative.StorageSync
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the storage sync service name within the specified resource group.
+        /// Name of Storage Sync Service resource.
         /// </summary>
         [Input("storageSyncServiceName", required: true)]
         public Input<string> StorageSyncServiceName { get; set; } = null!;

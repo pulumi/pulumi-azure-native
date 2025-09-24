@@ -826,7 +826,7 @@ class BackupScheduleResponse(dict):
                  time_zone: Optional[builtins.str] = None):
         """
         Schedule for backup
-        :param Sequence[builtins.str] repeating_time_intervals: ISO 8601 repeating time interval format
+        :param Sequence[builtins.str] repeating_time_intervals: Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
         :param builtins.str time_zone: Time zone for a schedule. Example: Pacific Standard Time
         """
         pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
@@ -837,7 +837,7 @@ class BackupScheduleResponse(dict):
     @pulumi.getter(name="repeatingTimeIntervals")
     def repeating_time_intervals(self) -> Sequence[builtins.str]:
         """
-        ISO 8601 repeating time interval format
+        Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
         """
         return pulumi.get(self, "repeating_time_intervals")
 

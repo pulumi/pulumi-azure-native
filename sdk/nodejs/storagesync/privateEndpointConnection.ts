@@ -139,7 +139,7 @@ export interface PrivateEndpointConnectionArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * The name of the storage sync service name within the specified resource group.
+     * Name of Storage Sync Service resource.
      */
     storageSyncServiceName: pulumi.Input<string>;
 }

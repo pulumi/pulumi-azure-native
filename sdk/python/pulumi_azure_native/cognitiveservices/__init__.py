@@ -28,6 +28,7 @@ from .get_project_connection import *
 from .get_rai_blocklist import *
 from .get_rai_blocklist_item import *
 from .get_rai_policy import *
+from .get_rai_topic import *
 from .get_shared_commitment_plan import *
 from .list_account_keys import *
 from .private_endpoint_connection import *
@@ -37,6 +38,7 @@ from .project_connection import *
 from .rai_blocklist import *
 from .rai_blocklist_item import *
 from .rai_policy import *
+from .rai_topic import *
 from .shared_commitment_plan import *
 from ._inputs import *
 from . import outputs

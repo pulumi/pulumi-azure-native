@@ -2,6 +2,70 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AntivirusSolutions = {
+    /**
+     * Option to use Microsoft Defender antivirus scanning software as the scanning solution.
+     */
+    Defender: "Defender",
+    /**
+     * Option to use the external ClamAV open-source software as an antivirus scanning solution.
+     */
+    ClamAv: "ClamAv",
+} as const;
+
+/**
+ * The list of Antivirus solutions currently provided.
+ */
+export type AntivirusSolutions = (typeof AntivirusSolutions)[keyof typeof AntivirusSolutions];
+
+export const Casing = {
+    /**
+     * Ignores casing when performing pattern matching. For example, "Hello World" would be found in "hello world".
+     */
+    Insensitive: "Insensitive",
+    /**
+     * Requires exact casing for the pattern match. For example, "Hello World" would NOT not be found in "hello world".
+     */
+    Sensitive: "Sensitive",
+} as const;
+
+/**
+ * Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+ */
+export type Casing = (typeof Casing)[keyof typeof Casing];
+
+export const DataClassType = {
+    /**
+     * Represents standard message-based data, including Azure Service and Event Hub, used in message replication.
+     */
+    Messaging: "Messaging",
+    /**
+     * Represents transactional request/response data types from API endpoints.
+     */
+    API: "API",
+    /**
+     * Represents data types that require continuous, real-time streaming replication (e.g., video).
+     */
+    Stream: "Stream",
+    /**
+     * Represents standard file-based data, including Azure Blob and Table Storage, used in general-purpose replication.
+     */
+    Files: "Files",
+    /**
+     * Represents data related to development, security, and operations workflows such as build artifacts subject to an NCDSMO policy.
+     */
+    SoftwareArtifacts: "SoftwareArtifacts",
+    /**
+     * Represents rich content types such as documents (e.g., Word, PDF) and images that require specialized replication handling.
+     */
+    Complex: "Complex",
+} as const;
+
+/**
+ * The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+ */
+export type DataClassType = (typeof DataClassType)[keyof typeof DataClassType];
+
 export const DataType = {
     Blob: "Blob",
     Table: "Table",
@@ -22,6 +86,22 @@ export const Direction = {
  */
 export type Direction = (typeof Direction)[keyof typeof Direction];
 
+export const FilterType = {
+    /**
+     * Defines an allow filter used for allowlist.
+     */
+    Allow: "Allow",
+    /**
+     * Defines a denying filter used for blocklisting.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+ */
+export type FilterType = (typeof FilterType)[keyof typeof FilterType];
+
 export const FlowBillingTier = {
     BlobTransport: "BlobTransport",
     Standard: "Standard",
@@ -32,6 +112,22 @@ export const FlowBillingTier = {
  * Billing tier for this messaging flow
  */
 export type FlowBillingTier = (typeof FlowBillingTier)[keyof typeof FlowBillingTier];
+
+export const FlowProfileStatus = {
+    /**
+     * Defines a FlowProfile that can no longer be selected.
+     */
+    Obsolete: "Obsolete",
+    /**
+     * Defines a FlowProfile that is enabled.
+     */
+    Enabled: "Enabled",
+} as const;
+
+/**
+ * The operational status of the FlowProfile.
+ */
+export type FlowProfileStatus = (typeof FlowProfileStatus)[keyof typeof FlowProfileStatus];
 
 export const FlowStatus = {
     Enabled: "Enabled",
@@ -85,6 +181,22 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const MatchType = {
+    /**
+     * The option to pattern match substrings within all text content. For example, "hello world" would be found in "chello worlds".
+     */
+    Partial: "Partial",
+    /**
+     * The option to pattern match the entire string explicitly. For example, "hello world" would NOT be found in "chello worlds".
+     */
+    Complete: "Complete",
+} as const;
+
+/**
+ * Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+ */
+export type MatchType = (typeof MatchType)[keyof typeof MatchType];
+
 export const SchemaDirection = {
     Send: "Send",
     Receive: "Receive",
@@ -125,3 +237,15 @@ export const StreamProtocol = {
  * The protocol of the stream
  */
 export type StreamProtocol = (typeof StreamProtocol)[keyof typeof StreamProtocol];
+
+export const XmlReferenceType = {
+    /**
+     * Defines a referencing procedure where the xml schema will be provided inline.
+     */
+    Inline: "Inline",
+} as const;
+
+/**
+ * Defines the method for referencing the xml schema.
+ */
+export type XmlReferenceType = (typeof XmlReferenceType)[keyof typeof XmlReferenceType];

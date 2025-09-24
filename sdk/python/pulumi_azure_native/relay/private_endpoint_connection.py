@@ -32,7 +32,7 @@ class PrivateEndpointConnectionInitArgs:
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace name
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['PrivateEndpointArgs'] private_endpoint: The Private Endpoint resource for this Connection.
         :param pulumi.Input[builtins.str] private_endpoint_connection_name: The PrivateEndpointConnection name
         :param pulumi.Input['ConnectionStateArgs'] private_link_service_connection_state: Details about the state of the connection.
@@ -65,7 +65,7 @@ class PrivateEndpointConnectionInitArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -149,7 +149,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_endpoint_connection_name: The PrivateEndpointConnection name
         :param pulumi.Input[Union['ConnectionStateArgs', 'ConnectionStateArgsDict']] private_link_service_connection_state: Details about the state of the connection.
         :param pulumi.Input[Union[builtins.str, 'EndPointProvisioningState']] provisioning_state: Provisioning state of the Private Endpoint Connection.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
         ...
     @overload
@@ -295,7 +295,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -303,7 +303,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

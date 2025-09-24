@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
  *
- * Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class WebAppSitesController extends pulumi.CustomResource {
     /**
@@ -115,7 +115,7 @@ export class WebAppSitesController extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:WebAppSitesController" }, { type: "azure-native:offazure/v20231001preview:WebAppSitesController" }, { type: "azure-native:offazure/v20240501preview:WebAppSitesController" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:offazure/v20230606:WebAppSitesController" }, { type: "azure-native:offazure/v20231001preview:WebAppSitesController" }, { type: "azure-native:offazure/v20240501preview:WebAppSitesController" }, { type: "azure-native:offazure/v20240701preview:WebAppSitesController" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebAppSitesController.__pulumiType, name, resourceInputs, opts);
     }

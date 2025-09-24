@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetFirewallRuleResult',
@@ -27,7 +28,7 @@ class GetFirewallRuleResult:
     """
     A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
     """
-    def __init__(__self__, azure_api_version=None, end_ip=None, id=None, name=None, start_ip=None, type=None):
+    def __init__(__self__, azure_api_version=None, end_ip=None, id=None, name=None, start_ip=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
@@ -43,6 +44,9 @@ class GetFirewallRuleResult:
         if start_ip and not isinstance(start_ip, str):
             raise TypeError("Expected argument 'start_ip' to be a str")
         pulumi.set(__self__, "start_ip", start_ip)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -67,7 +71,7 @@ class GetFirewallRuleResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -86,6 +90,14 @@ class GetFirewallRuleResult:
         lowest IP address included in the range
         """
         return pulumi.get(self, "start_ip")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -107,6 +119,7 @@ class AwaitableGetFirewallRuleResult(GetFirewallRuleResult):
             id=self.id,
             name=self.name,
             start_ip=self.start_ip,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -139,6 +152,7 @@ def get_firewall_rule(cache_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         start_ip=pulumi.get(__ret__, 'start_ip'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_firewall_rule_output(cache_name: Optional[pulumi.Input[builtins.str]] = None,
                              resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -168,4 +182,5 @@ def get_firewall_rule_output(cache_name: Optional[pulumi.Input[builtins.str]] = 
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         start_ip=pulumi.get(__response__, 'start_ip'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

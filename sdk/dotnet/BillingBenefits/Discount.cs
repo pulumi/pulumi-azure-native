@@ -18,55 +18,13 @@ namespace Pulumi.AzureNative.BillingBenefits
     public partial class Discount : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// List of applied scopes supported for discounts.
-        /// </summary>
-        [Output("appliedScopeType")]
-        public Output<string?> AppliedScopeType { get; private set; } = null!;
-
-        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         [Output("azureApiVersion")]
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Fully-qualified identifier of the benefit under applicable benefit list.
-        /// </summary>
-        [Output("benefitResourceId")]
-        public Output<string> BenefitResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Billing account resource id where the discount metadata is present.
-        /// </summary>
-        [Output("billingAccountResourceId")]
-        public Output<string> BillingAccountResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Billing profile resource id where the discount is scoped to.
-        /// </summary>
-        [Output("billingProfileResourceId")]
-        public Output<string> BillingProfileResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// Customer resource id where the discount is scoped to.
-        /// </summary>
-        [Output("customerResourceId")]
-        public Output<string> CustomerResourceId { get; private set; } = null!;
-
-        /// <summary>
-        /// This defines a user friendly display name for the discount.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-        /// </summary>
-        [Output("entityType")]
-        public Output<string> EntityType { get; private set; } = null!;
-
-        /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         [Output("etag")]
         public Output<string> Etag { get; private set; } = null!;
@@ -108,16 +66,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Output<Outputs.PlanResponse?> Plan { get; private set; } = null!;
 
         /// <summary>
-        /// This is the catalog UPN for the product.
+        /// Discount properties
         /// </summary>
-        [Output("productCode")]
-        public Output<string> ProductCode { get; private set; } = null!;
-
-        /// <summary>
-        /// The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
-        /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<Union<Outputs.EntityTypeAffiliateDiscountResponse, Outputs.EntityTypePrimaryDiscountResponse>> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource model definition representing SKU
@@ -126,28 +78,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Start date of the discount. Value is the date the discount started or will start in the future.
-        /// </summary>
-        [Output("startAt")]
-        public Output<string> StartAt { get; private set; } = null!;
-
-        /// <summary>
-        /// Represents the current status of the discount.
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-        /// </summary>
-        [Output("systemId")]
-        public Output<string?> SystemId { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -211,28 +145,10 @@ namespace Pulumi.AzureNative.BillingBenefits
     public sealed class DiscountArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// List of applied scopes supported for discounts.
-        /// </summary>
-        [Input("appliedScopeType")]
-        public InputUnion<string, Pulumi.AzureNative.BillingBenefits.DiscountAppliedScopeType>? AppliedScopeType { get; set; }
-
-        /// <summary>
         /// Name of the discount
         /// </summary>
         [Input("discountName")]
         public Input<string>? DiscountName { get; set; }
-
-        /// <summary>
-        /// This defines a user friendly display name for the discount.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
-        /// This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-        /// </summary>
-        [Input("entityType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.BillingBenefits.DiscountEntityType> EntityType { get; set; } = null!;
 
         /// <summary>
         /// Managed service identity (system assigned and/or user assigned identities)
@@ -265,10 +181,10 @@ namespace Pulumi.AzureNative.BillingBenefits
         public Input<Inputs.PlanArgs>? Plan { get; set; }
 
         /// <summary>
-        /// This is the catalog UPN for the product.
+        /// Discount properties
         /// </summary>
-        [Input("productCode", required: true)]
-        public Input<string> ProductCode { get; set; } = null!;
+        [Input("properties")]
+        public InputUnion<Inputs.EntityTypeAffiliateDiscountArgs, Inputs.EntityTypePrimaryDiscountArgs>? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -281,18 +197,6 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
-
-        /// <summary>
-        /// Start date of the discount. Value is the date the discount started or will start in the future.
-        /// </summary>
-        [Input("startAt", required: true)]
-        public Input<string> StartAt { get; set; } = null!;
-
-        /// <summary>
-        /// This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-        /// </summary>
-        [Input("systemId")]
-        public Input<string>? SystemId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

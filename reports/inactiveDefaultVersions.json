@@ -2,11 +2,20 @@
   "AzureData": [
     "2019-07-24-preview"
   ],
+  "AzureDataTransfer": [
+    "2025-05-30-preview"
+  ],
   "Cloudngfw": [
     "2025-05-23"
   ],
   "ComputeSchedule": [
     "2025-04-15-preview"
+  ],
+  "ContainerInstance": [
+    "2025-09-01"
+  ],
+  "ContainerService": [
+    "2025-07-02-preview"
   ],
   "ContainerStorage": [
     "2023-07-01-preview"
@@ -17,8 +26,14 @@
   "CustomerInsights": [
     "2017-04-26"
   ],
+  "DBforPostgreSQL": [
+    "2025-06-01-preview"
+  ],
   "DataCatalog": [
     "2016-03-30"
+  ],
+  "DataMigration": [
+    "2025-06-30"
   ],
   "DelegatedNetwork": [
     "2023-06-27-preview"

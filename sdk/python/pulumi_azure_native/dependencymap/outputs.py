@@ -14,11 +14,136 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ErrorAdditionalInfoResponse',
+    'ErrorDetailResponse',
+    'GetDependencyViewForAllMachinesResultPropertiesResponse',
     'SystemDataResponse',
 ]
+
+@pulumi.output_type
+class ErrorAdditionalInfoResponse(dict):
+    """
+    The resource management error additional info.
+    """
+    def __init__(__self__, *,
+                 info: Any,
+                 type: builtins.str):
+        """
+        The resource management error additional info.
+        :param Any info: The additional info.
+        :param builtins.str type: The additional info type.
+        """
+        pulumi.set(__self__, "info", info)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def info(self) -> Any:
+        """
+        The additional info.
+        """
+        return pulumi.get(self, "info")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The additional info type.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class ErrorDetailResponse(dict):
+    """
+    The error detail.
+    """
+    def __init__(__self__, *,
+                 additional_info: Sequence['outputs.ErrorAdditionalInfoResponse'],
+                 code: builtins.str,
+                 details: Sequence['outputs.ErrorDetailResponse'],
+                 message: builtins.str,
+                 target: builtins.str):
+        """
+        The error detail.
+        :param Sequence['ErrorAdditionalInfoResponse'] additional_info: The error additional info.
+        :param builtins.str code: The error code.
+        :param Sequence['ErrorDetailResponse'] details: The error details.
+        :param builtins.str message: The error message.
+        :param builtins.str target: The error target.
+        """
+        pulumi.set(__self__, "additional_info", additional_info)
+        pulumi.set(__self__, "code", code)
+        pulumi.set(__self__, "details", details)
+        pulumi.set(__self__, "message", message)
+        pulumi.set(__self__, "target", target)
+
+    @property
+    @pulumi.getter(name="additionalInfo")
+    def additional_info(self) -> Sequence['outputs.ErrorAdditionalInfoResponse']:
+        """
+        The error additional info.
+        """
+        return pulumi.get(self, "additional_info")
+
+    @property
+    @pulumi.getter
+    def code(self) -> builtins.str:
+        """
+        The error code.
+        """
+        return pulumi.get(self, "code")
+
+    @property
+    @pulumi.getter
+    def details(self) -> Sequence['outputs.ErrorDetailResponse']:
+        """
+        The error details.
+        """
+        return pulumi.get(self, "details")
+
+    @property
+    @pulumi.getter
+    def message(self) -> builtins.str:
+        """
+        The error message.
+        """
+        return pulumi.get(self, "message")
+
+    @property
+    @pulumi.getter
+    def target(self) -> builtins.str:
+        """
+        The error target.
+        """
+        return pulumi.get(self, "target")
+
+
+@pulumi.output_type
+class GetDependencyViewForAllMachinesResultPropertiesResponse(dict):
+    """
+    Model representing properties returned upon successful completion of the export dependencies asynchronous operation.
+    """
+    def __init__(__self__, *,
+                 layout_file_sas_url: builtins.str):
+        """
+        Model representing properties returned upon successful completion of the export dependencies asynchronous operation.
+        :param builtins.str layout_file_sas_url: The SAS URI of the blob containing the layout file for the multi-server view.
+        """
+        pulumi.set(__self__, "layout_file_sas_url", layout_file_sas_url)
+
+    @property
+    @pulumi.getter(name="layoutFileSasUrl")
+    def layout_file_sas_url(self) -> builtins.str:
+        """
+        The SAS URI of the blob containing the layout file for the multi-server view.
+        """
+        return pulumi.get(self, "layout_file_sas_url")
+
 
 @pulumi.output_type
 class SystemDataResponse(dict):

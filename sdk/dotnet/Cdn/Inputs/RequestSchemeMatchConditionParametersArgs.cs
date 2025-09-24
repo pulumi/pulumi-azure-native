@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
 {
 
     /// <summary>
-    /// Defines the parameters for RequestScheme match conditions 
+    /// Defines the parameters for RequestScheme match conditions
     /// </summary>
     public sealed class RequestSchemeMatchConditionParametersArgs : global::Pulumi.ResourceArgs
     {
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// Describes operator to be matched
         /// </summary>
         [Input("operator", required: true)]
-        public Input<string> Operator { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.Cdn.RequestSchemeMatchConditionParametersOperator> Operator { get; set; } = null!;
 
         [Input("transforms")]
         private InputList<Union<string, Pulumi.AzureNative.Cdn.Transform>>? _transforms;

@@ -24,7 +24,6 @@ __all__ = ['RouteArgs', 'Route']
 class RouteArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[builtins.str],
-                 origin_group: pulumi.Input['ResourceReferenceArgs'],
                  profile_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  cache_configuration: Optional[pulumi.Input['AfdRouteCacheConfigurationArgs']] = None,
@@ -33,6 +32,7 @@ class RouteArgs:
                  forwarding_protocol: Optional[pulumi.Input[Union[builtins.str, 'ForwardingProtocol']]] = None,
                  https_redirect: Optional[pulumi.Input[Union[builtins.str, 'HttpsRedirect']]] = None,
                  link_to_default_domain: Optional[pulumi.Input[Union[builtins.str, 'LinkToDefaultDomain']]] = None,
+                 origin_group: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  origin_path: Optional[pulumi.Input[builtins.str]] = None,
                  patterns_to_match: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  route_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -41,15 +41,15 @@ class RouteArgs:
         """
         The set of arguments for constructing a Route resource.
         :param pulumi.Input[builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input['ResourceReferenceArgs'] origin_group: A reference to the origin group.
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AfdRouteCacheConfigurationArgs'] cache_configuration: The caching configuration for this route. To disable caching, do not provide a cacheConfiguration object.
         :param pulumi.Input[Sequence[pulumi.Input['ActivatedResourceReferenceArgs']]] custom_domains: Domains referenced by this endpoint.
         :param pulumi.Input[Union[builtins.str, 'EnabledState']] enabled_state: Whether to enable use of this rule. Permitted values are 'Enabled' or 'Disabled'
         :param pulumi.Input[Union[builtins.str, 'ForwardingProtocol']] forwarding_protocol: Protocol this rule will use when forwarding traffic to backends.
         :param pulumi.Input[Union[builtins.str, 'HttpsRedirect']] https_redirect: Whether to automatically redirect HTTP traffic to HTTPS traffic. Note that this is a easy way to set up this rule and it will be the first rule that gets executed.
         :param pulumi.Input[Union[builtins.str, 'LinkToDefaultDomain']] link_to_default_domain: whether this route will be linked to the default endpoint domain.
+        :param pulumi.Input['ResourceReferenceArgs'] origin_group: A reference to the origin group.
         :param pulumi.Input[builtins.str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_match: The route patterns of the rule.
         :param pulumi.Input[builtins.str] route_name: Name of the routing rule.
@@ -57,7 +57,6 @@ class RouteArgs:
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "origin_group", origin_group)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if cache_configuration is not None:
@@ -78,6 +77,8 @@ class RouteArgs:
             link_to_default_domain = 'Disabled'
         if link_to_default_domain is not None:
             pulumi.set(__self__, "link_to_default_domain", link_to_default_domain)
+        if origin_group is not None:
+            pulumi.set(__self__, "origin_group", origin_group)
         if origin_path is not None:
             pulumi.set(__self__, "origin_path", origin_path)
         if patterns_to_match is not None:
@@ -102,22 +103,10 @@ class RouteArgs:
         pulumi.set(self, "endpoint_name", value)
 
     @property
-    @pulumi.getter(name="originGroup")
-    def origin_group(self) -> pulumi.Input['ResourceReferenceArgs']:
-        """
-        A reference to the origin group.
-        """
-        return pulumi.get(self, "origin_group")
-
-    @origin_group.setter
-    def origin_group(self, value: pulumi.Input['ResourceReferenceArgs']):
-        pulumi.set(self, "origin_group", value)
-
-    @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -129,7 +118,7 @@ class RouteArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -208,6 +197,18 @@ class RouteArgs:
     @link_to_default_domain.setter
     def link_to_default_domain(self, value: Optional[pulumi.Input[Union[builtins.str, 'LinkToDefaultDomain']]]):
         pulumi.set(self, "link_to_default_domain", value)
+
+    @property
+    @pulumi.getter(name="originGroup")
+    def origin_group(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+        """
+        A reference to the origin group.
+        """
+        return pulumi.get(self, "origin_group")
+
+    @origin_group.setter
+    def origin_group(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+        pulumi.set(self, "origin_group", value)
 
     @property
     @pulumi.getter(name="originPath")
@@ -295,9 +296,9 @@ class Route(pulumi.CustomResource):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -311,8 +312,8 @@ class Route(pulumi.CustomResource):
         :param pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']] origin_group: A reference to the origin group.
         :param pulumi.Input[builtins.str] origin_path: A directory path on the origin that AzureFrontDoor can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] patterns_to_match: The route patterns of the rule.
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] route_name: Name of the routing rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] rule_sets: rule sets referenced by this endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AFDEndpointProtocols']]]] supported_protocols: List of supported protocols for this route.
@@ -326,9 +327,9 @@ class Route(pulumi.CustomResource):
         """
         Friendly Routes name mapping to the any Routes or secret related information.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RouteArgs args: The arguments to use to populate this resource's properties.
@@ -384,8 +385,6 @@ class Route(pulumi.CustomResource):
             if link_to_default_domain is None:
                 link_to_default_domain = 'Disabled'
             __props__.__dict__["link_to_default_domain"] = link_to_default_domain
-            if origin_group is None and not opts.urn:
-                raise TypeError("Missing required property 'origin_group'")
             __props__.__dict__["origin_group"] = origin_group
             __props__.__dict__["origin_path"] = origin_path
             __props__.__dict__["patterns_to_match"] = patterns_to_match
@@ -521,13 +520,13 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter(name="originGroup")
-    def origin_group(self) -> pulumi.Output['outputs.ResourceReferenceResponse']:
+    def origin_group(self) -> pulumi.Output[Optional['outputs.ResourceReferenceResponse']]:
         """
         A reference to the origin group.
         """
@@ -577,7 +576,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -585,7 +584,7 @@ class Route(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
  *
- * Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
     /**
@@ -84,7 +84,7 @@ export class NetworkVirtualApplianceConnection extends pulumi.CustomResource {
             resourceInputs["properties"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230601:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230901:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20231101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240301:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240501:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240701:NetworkVirtualApplianceConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20230601:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20230901:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20231101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240101:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240301:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240501:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20240701:NetworkVirtualApplianceConnection" }, { type: "azure-native:network/v20241001:NetworkVirtualApplianceConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkVirtualApplianceConnection.__pulumiType, name, resourceInputs, opts);
     }

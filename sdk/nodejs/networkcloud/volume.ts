@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -149,7 +149,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }, { type: "azure-native:networkcloud/v20240701:Volume" }, { type: "azure-native:networkcloud/v20241001preview:Volume" }, { type: "azure-native:networkcloud/v20250201:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Volume" }, { type: "azure-native:networkcloud/v20231001preview:Volume" }, { type: "azure-native:networkcloud/v20240601preview:Volume" }, { type: "azure-native:networkcloud/v20240701:Volume" }, { type: "azure-native:networkcloud/v20241001preview:Volume" }, { type: "azure-native:networkcloud/v20250201:Volume" }, { type: "azure-native:networkcloud/v20250701preview:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }

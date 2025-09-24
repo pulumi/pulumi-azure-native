@@ -288,6 +288,8 @@ class MetricAlert(pulumi.CustomResource):
 
         Uses Azure REST API version 2018-03-01.
 
+        Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['MetricAlertActionArgs', 'MetricAlertActionArgsDict']]]] actions: the array of actions that are performed when the alert rule becomes active, and when an alert condition is resolved.
@@ -316,6 +318,8 @@ class MetricAlert(pulumi.CustomResource):
         The metric alert resource.
 
         Uses Azure REST API version 2018-03-01.
+
+        Other available API versions: 2024-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MetricAlertArgs args: The arguments to use to populate this resource's properties.
@@ -390,7 +394,7 @@ class MetricAlert(pulumi.CustomResource):
             __props__.__dict__["last_updated_time"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180301:MetricAlert"), pulumi.Alias(type_="azure-native:insights:MetricAlert"), pulumi.Alias(type_="azure-native:monitor/v20180301:MetricAlert")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights/v20180301:MetricAlert"), pulumi.Alias(type_="azure-native:insights:MetricAlert"), pulumi.Alias(type_="azure-native:monitor/v20180301:MetricAlert"), pulumi.Alias(type_="azure-native:monitor/v20240301preview:MetricAlert")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(MetricAlert, __self__).__init__(
             'azure-native:monitor:MetricAlert',

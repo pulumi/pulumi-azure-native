@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  *
- * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+ * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**
@@ -50,13 +50,13 @@ export class OriginGroup extends pulumi.CustomResource {
      */
     public readonly healthProbeSettings!: pulumi.Output<outputs.cdn.HealthProbeParametersResponse | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    public readonly origins!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[]>;
+    public readonly origins!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[] | undefined>;
     /**
      * Provisioning status of the origin group.
      */
@@ -70,7 +70,7 @@ export class OriginGroup extends pulumi.CustomResource {
      */
     public readonly responseBasedOriginErrorDetectionSettings!: pulumi.Output<outputs.cdn.ResponseBasedOriginErrorDetectionParametersResponse | undefined>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
@@ -78,7 +78,7 @@ export class OriginGroup extends pulumi.CustomResource {
      */
     public readonly trafficRestorationTimeToHealedOrNewEndpointsInMinutes!: pulumi.Output<number | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -95,9 +95,6 @@ export class OriginGroup extends pulumi.CustomResource {
         if (!opts.id) {
             if ((!args || args.endpointName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
-            }
-            if ((!args || args.origins === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'origins'");
             }
             if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
@@ -157,13 +154,13 @@ export interface OriginGroupArgs {
     /**
      * The source of the content being delivered via CDN within given origin group.
      */
-    origins: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
+    origins?: pulumi.Input<pulumi.Input<inputs.cdn.ResourceReferenceArgs>[]>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

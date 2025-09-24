@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class StorageMover extends pulumi.CustomResource {
     /**
@@ -109,7 +109,7 @@ export class StorageMover extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20230701preview:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }, { type: "azure-native:storagemover/v20240701:StorageMover" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:StorageMover" }, { type: "azure-native:storagemover/v20230301:StorageMover" }, { type: "azure-native:storagemover/v20230701preview:StorageMover" }, { type: "azure-native:storagemover/v20231001:StorageMover" }, { type: "azure-native:storagemover/v20240701:StorageMover" }, { type: "azure-native:storagemover/v20250701:StorageMover" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StorageMover.__pulumiType, name, resourceInputs, opts);
     }

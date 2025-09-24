@@ -29,7 +29,7 @@ class NamespaceAuthorizationRuleArgs:
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace name
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[builtins.str] authorization_rule_name: The authorization rule name.
         """
@@ -55,7 +55,7 @@ class NamespaceAuthorizationRuleArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -110,7 +110,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[builtins.str] namespace_name: The namespace name
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
         ...
@@ -237,7 +237,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -245,7 +245,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

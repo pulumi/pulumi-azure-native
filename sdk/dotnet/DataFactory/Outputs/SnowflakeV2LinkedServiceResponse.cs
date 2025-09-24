@@ -94,6 +94,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string Type;
         /// <summary>
+        /// Indicates whether to use UTC timezone for timestamp data types. Type: boolean.
+        /// </summary>
+        public readonly object? UseUtcTimestamps;
+        /// <summary>
         /// The name of the Snowflake user.
         /// </summary>
         public readonly object? User;
@@ -146,6 +150,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string type,
 
+            object? useUtcTimestamps,
+
             object? user,
 
             string? version,
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Scope = scope;
             TenantId = tenantId;
             Type = type;
+            UseUtcTimestamps = useUtcTimestamps;
             User = user;
             Version = version;
             Warehouse = warehouse;

@@ -175,6 +175,8 @@ class AutoExportJob(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01.
 
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'AutoExportJobAdminStatus']] admin_status: The administrative status of the auto export job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto export job. By default it is set to 'Enable'.
@@ -196,6 +198,8 @@ class AutoExportJob(pulumi.CustomResource):
         An auto export job instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 
         Uses Azure REST API version 2024-07-01.
+
+        Other available API versions: 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AutoExportJobArgs args: The arguments to use to populate this resource's properties.
@@ -262,7 +266,7 @@ class AutoExportJob(pulumi.CustomResource):
             __props__.__dict__["total_files_failed"] = None
             __props__.__dict__["total_mi_b_exported"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240701:AutoExportJob")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagecache/v20240701:AutoExportJob"), pulumi.Alias(type_="azure-native:storagecache/v20250701:AutoExportJob")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AutoExportJob, __self__).__init__(
             'azure-native:storagecache:AutoExportJob',

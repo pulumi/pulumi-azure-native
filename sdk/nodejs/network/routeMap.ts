@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2022-07-01, 2022-09-01, 2022-11-01, 2023-02-01, 2023-04-01, 2023-05-01, 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RouteMap extends pulumi.CustomResource {
     /**
@@ -114,7 +114,7 @@ export class RouteMap extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }, { type: "azure-native:network/v20230601:RouteMap" }, { type: "azure-native:network/v20230901:RouteMap" }, { type: "azure-native:network/v20231101:RouteMap" }, { type: "azure-native:network/v20240101:RouteMap" }, { type: "azure-native:network/v20240301:RouteMap" }, { type: "azure-native:network/v20240501:RouteMap" }, { type: "azure-native:network/v20240701:RouteMap" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220501:RouteMap" }, { type: "azure-native:network/v20220701:RouteMap" }, { type: "azure-native:network/v20220901:RouteMap" }, { type: "azure-native:network/v20221101:RouteMap" }, { type: "azure-native:network/v20230201:RouteMap" }, { type: "azure-native:network/v20230401:RouteMap" }, { type: "azure-native:network/v20230501:RouteMap" }, { type: "azure-native:network/v20230601:RouteMap" }, { type: "azure-native:network/v20230901:RouteMap" }, { type: "azure-native:network/v20231101:RouteMap" }, { type: "azure-native:network/v20240101:RouteMap" }, { type: "azure-native:network/v20240301:RouteMap" }, { type: "azure-native:network/v20240501:RouteMap" }, { type: "azure-native:network/v20240701:RouteMap" }, { type: "azure-native:network/v20241001:RouteMap" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RouteMap.__pulumiType, name, resourceInputs, opts);
     }

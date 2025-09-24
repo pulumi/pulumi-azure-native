@@ -35,6 +35,16 @@ export const getContainerGroupProfile: typeof import("./getContainerGroupProfile
 export const getContainerGroupProfileOutput: typeof import("./getContainerGroupProfile").getContainerGroupProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getContainerGroupProfile","getContainerGroupProfileOutput"], () => require("./getContainerGroupProfile"));
 
+export { GetNGroupArgs, GetNGroupResult, GetNGroupOutputArgs } from "./getNGroup";
+export const getNGroup: typeof import("./getNGroup").getNGroup = null as any;
+export const getNGroupOutput: typeof import("./getNGroup").getNGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNGroup","getNGroupOutput"], () => require("./getNGroup"));
+
+export { NGroupArgs } from "./ngroup";
+export type NGroup = import("./ngroup").NGroup;
+export const NGroup: typeof import("./ngroup").NGroup = null as any;
+utilities.lazyLoad(exports, ["NGroup"], () => require("./ngroup"));
+
 
 // Export enums:
 export * from "../types/enums/containerinstance";
@@ -49,6 +59,8 @@ const _module = {
                 return new ContainerGroup(name, <any>undefined, { urn })
             case "azure-native:containerinstance:ContainerGroupProfile":
                 return new ContainerGroupProfile(name, <any>undefined, { urn })
+            case "azure-native:containerinstance:NGroup":
+                return new NGroup(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

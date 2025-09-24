@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Resources
     public static class GetDeploymentStackAtSubscription
     {
         /// <summary>
-        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Gets the Deployment stack with the given name.
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Resources
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Gets the Deployment stack with the given name.
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Resources
             => global::Pulumi.Deployment.Instance.Invoke<GetDeploymentStackAtSubscriptionResult>("azure-native:resources:getDeploymentStackAtSubscription", args ?? new GetDeploymentStackAtSubscriptionInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets a Deployment stack with a given name at Subscription scope.
+        /// Gets the Deployment stack with the given name.
         /// 
         /// Uses Azure REST API version 2024-03-01.
         /// 
@@ -128,15 +128,15 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly ImmutableArray<Outputs.ResourceReferenceExtendedResponse> FailedResources;
         /// <summary>
-        /// String Id used to locate any resource on Azure.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         /// </summary>
         public readonly string? Location;
         /// <summary>
-        /// Name of this resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -164,11 +164,11 @@ namespace Pulumi.AzureNative.Resources
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Deployment stack resource tags.
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Type of this resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 

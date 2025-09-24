@@ -261,7 +261,7 @@ def get_bmc_key_set(bmc_key_set_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str bmc_key_set_name: The name of the baseboard management controller key set.
@@ -303,7 +303,7 @@ def get_bmc_key_set_output(bmc_key_set_name: Optional[pulumi.Input[builtins.str]
 
     Uses Azure REST API version 2025-02-01.
 
-    Other available API versions: 2024-07-01, 2024-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str bmc_key_set_name: The name of the baseboard management controller key set.

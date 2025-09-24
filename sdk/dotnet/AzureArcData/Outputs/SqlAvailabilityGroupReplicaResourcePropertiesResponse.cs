@@ -25,9 +25,13 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string ReplicaId;
         /// <summary>
-        /// the replica name.
+        /// The replica name.
         /// </summary>
         public readonly string? ReplicaName;
+        /// <summary>
+        /// Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
+        /// </summary>
+        public readonly string? ReplicaResourceId;
         /// <summary>
         /// null
         /// </summary>
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? replicaName,
 
+            string? replicaResourceId,
+
             Outputs.AvailabilityGroupStateResponse? state)
         {
             Configure = configure;
             ReplicaId = replicaId;
             ReplicaName = replicaName;
+            ReplicaResourceId = replicaResourceId;
             State = state;
         }
     }

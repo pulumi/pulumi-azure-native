@@ -155,7 +155,7 @@ class Agent(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -178,7 +178,7 @@ class Agent(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AgentArgs args: The arguments to use to populate this resource's properties.
@@ -240,7 +240,7 @@ class Agent(pulumi.CustomResource):
             __props__.__dict__["time_zone"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["uptime_in_seconds"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover/v20220701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230301:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20231001:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20240701:Agent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:storagemover/v20220701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230301:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20230701preview:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20231001:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20240701:Agent"), pulumi.Alias(type_="azure-native:storagemover/v20250701:Agent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Agent, __self__).__init__(
             'azure-native:storagemover:Agent',

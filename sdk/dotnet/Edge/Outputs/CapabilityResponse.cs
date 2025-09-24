@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Edge.Outputs
 {
 
     /// <summary>
-    /// Capability, to match in Solution Templates &amp; Targets
+    /// Capability, to match in Solution Templates and Targets
     /// </summary>
     [OutputType]
     public sealed class CapabilityResponse

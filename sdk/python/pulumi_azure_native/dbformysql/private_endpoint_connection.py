@@ -101,7 +101,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-30. In version 2.x of the Azure Native provider, it used API version 2022-09-30-preview.
 
-        Other available API versions: 2022-09-30-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-30-preview, 2024-12-01-preview, 2024-12-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -120,7 +120,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-06-30. In version 2.x of the Azure Native provider, it used API version 2022-09-30-preview.
 
-        Other available API versions: 2022-09-30-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-09-30-preview, 2024-12-01-preview, 2024-12-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -167,7 +167,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20220930preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20241201preview:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20180601privatepreview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20220930preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20230630:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20241201preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:dbformysql/v20241230:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:dbformysql:PrivateEndpointConnection',

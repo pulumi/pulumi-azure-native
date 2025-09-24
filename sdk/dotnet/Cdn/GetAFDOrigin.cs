@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin within an origin group.
         /// 
-        /// Uses Azure REST API version 2024-09-01.
+        /// Uses Azure REST API version 2025-06-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAFDOriginResult> InvokeAsync(GetAFDOriginArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin within an origin group.
         /// 
-        /// Uses Azure REST API version 2024-09-01.
+        /// Uses Azure REST API version 2025-06-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// Gets an existing origin within an origin group.
         /// 
-        /// Uses Azure REST API version 2024-09-01.
+        /// Uses Azure REST API version 2025-06-01.
         /// 
-        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAFDOriginResult> Invoke(GetAFDOriginInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAFDOriginResult>("azure-native:cdn:getAFDOrigin", args ?? new GetAFDOriginInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetAFDOriginArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the origin group which is unique within the profile.
+        /// Name of the origin group which is unique within the endpoint.
         /// </summary>
         [Input("originGroupName", required: true)]
         public string OriginGroupName { get; set; } = null!;
@@ -58,13 +58,13 @@ namespace Pulumi.AzureNative.Cdn
         public string OriginName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public string ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class GetAFDOriginInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the origin group which is unique within the profile.
+        /// Name of the origin group which is unique within the endpoint.
         /// </summary>
         [Input("originGroupName", required: true)]
         public Input<string> OriginGroupName { get; set; } = null!;
@@ -90,13 +90,13 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string> OriginName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Cdn
         /// <summary>
         /// The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         /// </summary>
-        public readonly string HostName;
+        public readonly string? HostName;
         /// <summary>
         /// The value of the HTTP port. Must be between 1 and 65535.
         /// </summary>
@@ -141,11 +141,11 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -169,11 +169,11 @@ namespace Pulumi.AzureNative.Cdn
         /// </summary>
         public readonly Outputs.SharedPrivateLinkResourcePropertiesResponse? SharedPrivateLinkResource;
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -193,7 +193,7 @@ namespace Pulumi.AzureNative.Cdn
 
             bool? enforceCertificateNameCheck,
 
-            string hostName,
+            string? hostName,
 
             int? httpPort,
 

@@ -120,7 +120,7 @@ def get_network_security_perimeter_logging_configuration(logging_configuration_n
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.
@@ -150,7 +150,7 @@ def get_network_security_perimeter_logging_configuration_output(logging_configur
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str logging_configuration_name: The name of the NSP logging configuration. Accepts 'instance' as name.

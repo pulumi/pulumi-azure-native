@@ -160,14 +160,14 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
 @pulumi.output_type
 class CapabilityResponse(dict):
     """
-    Capability, to match in Solution Templates & Targets
+    Capability, to match in Solution Templates and Targets
     """
     def __init__(__self__, *,
                  description: builtins.str,
                  name: builtins.str,
                  state: Optional[builtins.str] = None):
         """
-        Capability, to match in Solution Templates & Targets
+        Capability, to match in Solution Templates and Targets
         :param builtins.str description: Description of Capability
         :param builtins.str name: Name of Capability
         :param builtins.str state: State of resource

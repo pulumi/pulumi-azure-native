@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         /// If the action type is block, this field defines the default customer overridable http response status code.
         /// </summary>
         [Input("defaultCustomBlockResponseStatusCode")]
-        public Input<int>? DefaultCustomBlockResponseStatusCode { get; set; }
+        public Input<double>? DefaultCustomBlockResponseStatusCode { get; set; }
 
         /// <summary>
         /// If action type is redirect, this field represents the default redirect URL for the client.

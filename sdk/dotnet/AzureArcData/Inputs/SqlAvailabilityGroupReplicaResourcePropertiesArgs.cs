@@ -22,10 +22,16 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<Inputs.AvailabilityGroupConfigureArgs>? Configure { get; set; }
 
         /// <summary>
-        /// the replica name.
+        /// The replica name.
         /// </summary>
         [Input("replicaName")]
         public Input<string>? ReplicaName { get; set; }
+
+        /// <summary>
+        /// Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
+        /// </summary>
+        [Input("replicaResourceId")]
+        public Input<string>? ReplicaResourceId { get; set; }
 
         public SqlAvailabilityGroupReplicaResourcePropertiesArgs()
         {

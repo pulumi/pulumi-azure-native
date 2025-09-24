@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// This operation retrieves the resiliency information for an Express Route Gateway, including the gateway's current resiliency score and recommendations to further improve the score
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetVirtualNetworkGatewayResiliencyInformationResult> InvokeAsync(GetVirtualNetworkGatewayResiliencyInformationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNetworkGatewayResiliencyInformationResult>("azure-native:network:getVirtualNetworkGatewayResiliencyInformation", args ?? new GetVirtualNetworkGatewayResiliencyInformationArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// This operation retrieves the resiliency information for an Express Route Gateway, including the gateway's current resiliency score and recommendations to further improve the score
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResiliencyInformationResult> Invoke(GetVirtualNetworkGatewayResiliencyInformationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResiliencyInformationResult>("azure-native:network:getVirtualNetworkGatewayResiliencyInformation", args ?? new GetVirtualNetworkGatewayResiliencyInformationInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// This operation retrieves the resiliency information for an Express Route Gateway, including the gateway's current resiliency score and recommendations to further improve the score
         /// 
         /// Uses Azure REST API version 2024-07-01.
+        /// 
+        /// Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetVirtualNetworkGatewayResiliencyInformationResult> Invoke(GetVirtualNetworkGatewayResiliencyInformationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNetworkGatewayResiliencyInformationResult>("azure-native:network:getVirtualNetworkGatewayResiliencyInformation", args ?? new GetVirtualNetworkGatewayResiliencyInformationInvokeArgs(), options.WithDefaults());

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Discovered asset definition.
     /// 
     /// Uses Azure REST API version 2025-07-01-preview.
+    /// 
+    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:NamespaceDiscoveredAsset")]
     public partial class NamespaceDiscoveredAsset : global::Pulumi.CustomResource
@@ -235,6 +237,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20250701preview:NamespaceDiscoveredAsset" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20251001:NamespaceDiscoveredAsset" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

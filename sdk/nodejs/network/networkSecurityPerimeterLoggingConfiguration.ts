@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
  *
- * Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class NetworkSecurityPerimeterLoggingConfiguration extends pulumi.CustomR
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLoggingConfiguration" }, { type: "azure-native:network/v20240701:NetworkSecurityPerimeterLoggingConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20240601preview:NetworkSecurityPerimeterLoggingConfiguration" }, { type: "azure-native:network/v20240701:NetworkSecurityPerimeterLoggingConfiguration" }, { type: "azure-native:network/v20241001:NetworkSecurityPerimeterLoggingConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkSecurityPerimeterLoggingConfiguration.__pulumiType, name, resourceInputs, opts);
     }

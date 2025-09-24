@@ -74,6 +74,10 @@ export class LinkedServer extends pulumi.CustomResource {
      */
     public readonly serverRole!: pulumi.Output<string>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.redis.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -114,6 +118,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["geoReplicatedPrimaryHostName"] = undefined /*out*/;
             resourceInputs["primaryHostName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
@@ -124,6 +129,7 @@ export class LinkedServer extends pulumi.CustomResource {
             resourceInputs["primaryHostName"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["serverRole"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -146,11 +152,11 @@ export interface LinkedServerArgs {
      */
     linkedRedisCacheLocation: pulumi.Input<string>;
     /**
-     * The name of the linked server that is being added to the Redis cache.
+     * The name of the RedisLinkedServerWithProperties
      */
     linkedServerName?: pulumi.Input<string>;
     /**
-     * The name of the Redis cache.
+     * The name of the redis cache.
      */
     name: pulumi.Input<string>;
     /**

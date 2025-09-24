@@ -18,12 +18,1403 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CatalogClaimsItemResponse',
+    'ConditionsItemResponse',
+    'CustomPricePropertiesResponse',
+    'DiscountCustomPriceMultiCurrencyResponse',
+    'DiscountCustomPriceResponse',
+    'DiscountProductFamilyResponse',
+    'DiscountProductResponse',
+    'DiscountTypeProductSkuResponse',
+    'EntityTypeAffiliateDiscountResponse',
+    'EntityTypePrimaryDiscountResponse',
     'ManagedServiceIdentityResponse',
+    'MarketSetPricesItemsResponse',
     'PlanResponse',
+    'PriceGuaranteePropertiesResponse',
     'SkuResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
 ]
+
+@pulumi.output_type
+class CatalogClaimsItemResponse(dict):
+    """
+    Catalog claim for a discount.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogClaimsItemType":
+            suggest = "catalog_claims_item_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CatalogClaimsItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CatalogClaimsItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CatalogClaimsItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_claims_item_type: Optional[builtins.str] = None,
+                 value: Optional[builtins.str] = None):
+        """
+        Catalog claim for a discount.
+        """
+        if catalog_claims_item_type is not None:
+            pulumi.set(__self__, "catalog_claims_item_type", catalog_claims_item_type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="catalogClaimsItemType")
+    def catalog_claims_item_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "catalog_claims_item_type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class ConditionsItemResponse(dict):
+    """
+    Condition for a discount.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "conditionName":
+            suggest = "condition_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ConditionsItemResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ConditionsItemResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ConditionsItemResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 condition_name: Optional[builtins.str] = None,
+                 type: Optional[builtins.str] = None,
+                 value: Optional[Sequence[builtins.str]] = None):
+        """
+        Condition for a discount.
+        :param Sequence[builtins.str] value: These items are open-ended strings.
+        """
+        if condition_name is not None:
+            pulumi.set(__self__, "condition_name", condition_name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter(name="conditionName")
+    def condition_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "condition_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def value(self) -> Optional[Sequence[builtins.str]]:
+        """
+        These items are open-ended strings.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class CustomPricePropertiesResponse(dict):
+    """
+    Custom price properties for a given discount.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "catalogClaims":
+            suggest = "catalog_claims"
+        elif key == "catalogId":
+            suggest = "catalog_id"
+        elif key == "marketSetPrices":
+            suggest = "market_set_prices"
+        elif key == "ruleType":
+            suggest = "rule_type"
+        elif key == "billingPeriod":
+            suggest = "billing_period"
+        elif key == "meterType":
+            suggest = "meter_type"
+        elif key == "termUnits":
+            suggest = "term_units"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CustomPricePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CustomPricePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CustomPricePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 catalog_claims: Sequence['outputs.CatalogClaimsItemResponse'],
+                 catalog_id: builtins.str,
+                 market_set_prices: Sequence['outputs.MarketSetPricesItemsResponse'],
+                 rule_type: builtins.str,
+                 billing_period: Optional[builtins.str] = None,
+                 meter_type: Optional[builtins.str] = None,
+                 term_units: Optional[builtins.str] = None):
+        """
+        Custom price properties for a given discount.
+        :param Sequence['CatalogClaimsItemResponse'] catalog_claims: The set of BigCat claims. Validation: Required. Must contain AgreementType, NationalCloud, and PricingAudience claims. Additionally requires AccessPass claim when creating custom price with action == consume on the pricing instructions.
+        :param builtins.str catalog_id: The catalog instance where the priceable node lives. Validation: Required. No defined format, will vary per team.
+        :param Sequence['MarketSetPricesItemsResponse'] market_set_prices: The set of market set prices of the priceable node. Validation: Required. Must contain at least one element.
+        :param builtins.str rule_type: The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling.
+        :param builtins.str billing_period: The billing period of the priceable node. Validation: Optional, Maximum length 128 characters. Only allowed if the availability derived by market, product, sku, and claims has terms and at least one of those terms has a billing period. When specified, termUnits must be specified.
+        :param builtins.str meter_type: Must be present if the market, product, sku, and claims, and optional term information resolves to multiple availabilities that only differ by meter type. Validation: Maximum length 128 characters.
+        :param builtins.str term_units: The term units for the priceable node. Validation: Optional, Maximum length 128 characters. Must be present if and only if the availability derived by market, product, sku, and claims has terms.
+        """
+        pulumi.set(__self__, "catalog_claims", catalog_claims)
+        pulumi.set(__self__, "catalog_id", catalog_id)
+        pulumi.set(__self__, "market_set_prices", market_set_prices)
+        pulumi.set(__self__, "rule_type", rule_type)
+        if billing_period is not None:
+            pulumi.set(__self__, "billing_period", billing_period)
+        if meter_type is not None:
+            pulumi.set(__self__, "meter_type", meter_type)
+        if term_units is not None:
+            pulumi.set(__self__, "term_units", term_units)
+
+    @property
+    @pulumi.getter(name="catalogClaims")
+    def catalog_claims(self) -> Sequence['outputs.CatalogClaimsItemResponse']:
+        """
+        The set of BigCat claims. Validation: Required. Must contain AgreementType, NationalCloud, and PricingAudience claims. Additionally requires AccessPass claim when creating custom price with action == consume on the pricing instructions.
+        """
+        return pulumi.get(self, "catalog_claims")
+
+    @property
+    @pulumi.getter(name="catalogId")
+    def catalog_id(self) -> builtins.str:
+        """
+        The catalog instance where the priceable node lives. Validation: Required. No defined format, will vary per team.
+        """
+        return pulumi.get(self, "catalog_id")
+
+    @property
+    @pulumi.getter(name="marketSetPrices")
+    def market_set_prices(self) -> Sequence['outputs.MarketSetPricesItemsResponse']:
+        """
+        The set of market set prices of the priceable node. Validation: Required. Must contain at least one element.
+        """
+        return pulumi.get(self, "market_set_prices")
+
+    @property
+    @pulumi.getter(name="ruleType")
+    def rule_type(self) -> builtins.str:
+        """
+        The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling.
+        """
+        return pulumi.get(self, "rule_type")
+
+    @property
+    @pulumi.getter(name="billingPeriod")
+    def billing_period(self) -> Optional[builtins.str]:
+        """
+        The billing period of the priceable node. Validation: Optional, Maximum length 128 characters. Only allowed if the availability derived by market, product, sku, and claims has terms and at least one of those terms has a billing period. When specified, termUnits must be specified.
+        """
+        return pulumi.get(self, "billing_period")
+
+    @property
+    @pulumi.getter(name="meterType")
+    def meter_type(self) -> Optional[builtins.str]:
+        """
+        Must be present if the market, product, sku, and claims, and optional term information resolves to multiple availabilities that only differ by meter type. Validation: Maximum length 128 characters.
+        """
+        return pulumi.get(self, "meter_type")
+
+    @property
+    @pulumi.getter(name="termUnits")
+    def term_units(self) -> Optional[builtins.str]:
+        """
+        The term units for the priceable node. Validation: Optional, Maximum length 128 characters. Must be present if and only if the availability derived by market, product, sku, and claims has terms.
+        """
+        return pulumi.get(self, "term_units")
+
+
+@pulumi.output_type
+class DiscountCustomPriceMultiCurrencyResponse(dict):
+    """
+    Discount type properties including product family name, product id, sku, and custom price properties. Allows multiple entries in marketSetPrices.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyDiscountOn":
+            suggest = "apply_discount_on"
+        elif key == "discountType":
+            suggest = "discount_type"
+        elif key == "customPriceProperties":
+            suggest = "custom_price_properties"
+        elif key == "discountCombinationRule":
+            suggest = "discount_combination_rule"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "priceGuaranteeProperties":
+            suggest = "price_guarantee_properties"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+        elif key == "productId":
+            suggest = "product_id"
+        elif key == "skuId":
+            suggest = "sku_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscountCustomPriceMultiCurrencyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscountCustomPriceMultiCurrencyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscountCustomPriceMultiCurrencyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_discount_on: builtins.str,
+                 discount_type: builtins.str,
+                 conditions: Optional[Sequence['outputs.ConditionsItemResponse']] = None,
+                 custom_price_properties: Optional['outputs.CustomPricePropertiesResponse'] = None,
+                 discount_combination_rule: Optional[builtins.str] = None,
+                 discount_percentage: Optional[builtins.float] = None,
+                 price_guarantee_properties: Optional['outputs.PriceGuaranteePropertiesResponse'] = None,
+                 product_family_name: Optional[builtins.str] = None,
+                 product_id: Optional[builtins.str] = None,
+                 sku_id: Optional[builtins.str] = None):
+        """
+        Discount type properties including product family name, product id, sku, and custom price properties. Allows multiple entries in marketSetPrices.
+        :param builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        :param builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+               Expected value is 'CustomPriceMultiCurrency'.
+        :param Sequence['ConditionsItemResponse'] conditions: Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        :param 'CustomPricePropertiesResponse' custom_price_properties: Custom price properties for a given discount.
+        :param builtins.str discount_combination_rule: The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        :param builtins.float discount_percentage: Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        :param 'PriceGuaranteePropertiesResponse' price_guarantee_properties: Set only in price guarantee scenario.
+        :param builtins.str product_family_name: Product family for which the discount is given. Validation: Optional
+        :param builtins.str product_id: Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        :param builtins.str sku_id: ResourceSku for the given discount. Validation: Optional.
+        """
+        pulumi.set(__self__, "apply_discount_on", apply_discount_on)
+        pulumi.set(__self__, "discount_type", 'CustomPriceMultiCurrency')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if custom_price_properties is not None:
+            pulumi.set(__self__, "custom_price_properties", custom_price_properties)
+        if discount_combination_rule is not None:
+            pulumi.set(__self__, "discount_combination_rule", discount_combination_rule)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if price_guarantee_properties is not None:
+            pulumi.set(__self__, "price_guarantee_properties", price_guarantee_properties)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if sku_id is not None:
+            pulumi.set(__self__, "sku_id", sku_id)
+
+    @property
+    @pulumi.getter(name="applyDiscountOn")
+    def apply_discount_on(self) -> builtins.str:
+        """
+        The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        """
+        return pulumi.get(self, "apply_discount_on")
+
+    @property
+    @pulumi.getter(name="discountType")
+    def discount_type(self) -> builtins.str:
+        """
+        Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+        Expected value is 'CustomPriceMultiCurrency'.
+        """
+        return pulumi.get(self, "discount_type")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionsItemResponse']]:
+        """
+        Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="customPriceProperties")
+    def custom_price_properties(self) -> Optional['outputs.CustomPricePropertiesResponse']:
+        """
+        Custom price properties for a given discount.
+        """
+        return pulumi.get(self, "custom_price_properties")
+
+    @property
+    @pulumi.getter(name="discountCombinationRule")
+    def discount_combination_rule(self) -> Optional[builtins.str]:
+        """
+        The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        """
+        return pulumi.get(self, "discount_combination_rule")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[builtins.float]:
+        """
+        Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="priceGuaranteeProperties")
+    def price_guarantee_properties(self) -> Optional['outputs.PriceGuaranteePropertiesResponse']:
+        """
+        Set only in price guarantee scenario.
+        """
+        return pulumi.get(self, "price_guarantee_properties")
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[builtins.str]:
+        """
+        Product family for which the discount is given. Validation: Optional
+        """
+        return pulumi.get(self, "product_family_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[builtins.str]:
+        """
+        Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="skuId")
+    def sku_id(self) -> Optional[builtins.str]:
+        """
+        ResourceSku for the given discount. Validation: Optional.
+        """
+        return pulumi.get(self, "sku_id")
+
+
+@pulumi.output_type
+class DiscountCustomPriceResponse(dict):
+    """
+    Discount type properties including product family name, product id, sku, and custom price properties. Allows a single entry in marketSetPrices.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyDiscountOn":
+            suggest = "apply_discount_on"
+        elif key == "discountType":
+            suggest = "discount_type"
+        elif key == "customPriceProperties":
+            suggest = "custom_price_properties"
+        elif key == "discountCombinationRule":
+            suggest = "discount_combination_rule"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "priceGuaranteeProperties":
+            suggest = "price_guarantee_properties"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+        elif key == "productId":
+            suggest = "product_id"
+        elif key == "skuId":
+            suggest = "sku_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscountCustomPriceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscountCustomPriceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscountCustomPriceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_discount_on: builtins.str,
+                 discount_type: builtins.str,
+                 conditions: Optional[Sequence['outputs.ConditionsItemResponse']] = None,
+                 custom_price_properties: Optional['outputs.CustomPricePropertiesResponse'] = None,
+                 discount_combination_rule: Optional[builtins.str] = None,
+                 discount_percentage: Optional[builtins.float] = None,
+                 price_guarantee_properties: Optional['outputs.PriceGuaranteePropertiesResponse'] = None,
+                 product_family_name: Optional[builtins.str] = None,
+                 product_id: Optional[builtins.str] = None,
+                 sku_id: Optional[builtins.str] = None):
+        """
+        Discount type properties including product family name, product id, sku, and custom price properties. Allows a single entry in marketSetPrices.
+        :param builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        :param builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+               Expected value is 'CustomPrice'.
+        :param Sequence['ConditionsItemResponse'] conditions: Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        :param 'CustomPricePropertiesResponse' custom_price_properties: Custom price properties for a given discount.
+        :param builtins.str discount_combination_rule: The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        :param builtins.float discount_percentage: Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        :param 'PriceGuaranteePropertiesResponse' price_guarantee_properties: Set only in price guarantee scenario.
+        :param builtins.str product_family_name: Product family for which the discount is given. Validation: Optional
+        :param builtins.str product_id: Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        :param builtins.str sku_id: ResourceSku for the given discount. Validation: Optional.
+        """
+        pulumi.set(__self__, "apply_discount_on", apply_discount_on)
+        pulumi.set(__self__, "discount_type", 'CustomPrice')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if custom_price_properties is not None:
+            pulumi.set(__self__, "custom_price_properties", custom_price_properties)
+        if discount_combination_rule is not None:
+            pulumi.set(__self__, "discount_combination_rule", discount_combination_rule)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if price_guarantee_properties is not None:
+            pulumi.set(__self__, "price_guarantee_properties", price_guarantee_properties)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if sku_id is not None:
+            pulumi.set(__self__, "sku_id", sku_id)
+
+    @property
+    @pulumi.getter(name="applyDiscountOn")
+    def apply_discount_on(self) -> builtins.str:
+        """
+        The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        """
+        return pulumi.get(self, "apply_discount_on")
+
+    @property
+    @pulumi.getter(name="discountType")
+    def discount_type(self) -> builtins.str:
+        """
+        Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+        Expected value is 'CustomPrice'.
+        """
+        return pulumi.get(self, "discount_type")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionsItemResponse']]:
+        """
+        Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="customPriceProperties")
+    def custom_price_properties(self) -> Optional['outputs.CustomPricePropertiesResponse']:
+        """
+        Custom price properties for a given discount.
+        """
+        return pulumi.get(self, "custom_price_properties")
+
+    @property
+    @pulumi.getter(name="discountCombinationRule")
+    def discount_combination_rule(self) -> Optional[builtins.str]:
+        """
+        The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        """
+        return pulumi.get(self, "discount_combination_rule")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[builtins.float]:
+        """
+        Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="priceGuaranteeProperties")
+    def price_guarantee_properties(self) -> Optional['outputs.PriceGuaranteePropertiesResponse']:
+        """
+        Set only in price guarantee scenario.
+        """
+        return pulumi.get(self, "price_guarantee_properties")
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[builtins.str]:
+        """
+        Product family for which the discount is given. Validation: Optional
+        """
+        return pulumi.get(self, "product_family_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[builtins.str]:
+        """
+        Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="skuId")
+    def sku_id(self) -> Optional[builtins.str]:
+        """
+        ResourceSku for the given discount. Validation: Optional.
+        """
+        return pulumi.get(self, "sku_id")
+
+
+@pulumi.output_type
+class DiscountProductFamilyResponse(dict):
+    """
+    Discount type properties including product family name
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyDiscountOn":
+            suggest = "apply_discount_on"
+        elif key == "discountType":
+            suggest = "discount_type"
+        elif key == "discountCombinationRule":
+            suggest = "discount_combination_rule"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "priceGuaranteeProperties":
+            suggest = "price_guarantee_properties"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscountProductFamilyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscountProductFamilyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscountProductFamilyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_discount_on: builtins.str,
+                 discount_type: builtins.str,
+                 conditions: Optional[Sequence['outputs.ConditionsItemResponse']] = None,
+                 discount_combination_rule: Optional[builtins.str] = None,
+                 discount_percentage: Optional[builtins.float] = None,
+                 price_guarantee_properties: Optional['outputs.PriceGuaranteePropertiesResponse'] = None,
+                 product_family_name: Optional[builtins.str] = None):
+        """
+        Discount type properties including product family name
+        :param builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        :param builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+               Expected value is 'ProductFamily'.
+        :param Sequence['ConditionsItemResponse'] conditions: Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        :param builtins.str discount_combination_rule: The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        :param builtins.float discount_percentage: Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        :param 'PriceGuaranteePropertiesResponse' price_guarantee_properties: Set only in price guarantee scenario.
+        :param builtins.str product_family_name: Product family for which the discount is given. Validation: Optional
+        """
+        pulumi.set(__self__, "apply_discount_on", apply_discount_on)
+        pulumi.set(__self__, "discount_type", 'ProductFamily')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if discount_combination_rule is not None:
+            pulumi.set(__self__, "discount_combination_rule", discount_combination_rule)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if price_guarantee_properties is not None:
+            pulumi.set(__self__, "price_guarantee_properties", price_guarantee_properties)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+
+    @property
+    @pulumi.getter(name="applyDiscountOn")
+    def apply_discount_on(self) -> builtins.str:
+        """
+        The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        """
+        return pulumi.get(self, "apply_discount_on")
+
+    @property
+    @pulumi.getter(name="discountType")
+    def discount_type(self) -> builtins.str:
+        """
+        Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+        Expected value is 'ProductFamily'.
+        """
+        return pulumi.get(self, "discount_type")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionsItemResponse']]:
+        """
+        Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="discountCombinationRule")
+    def discount_combination_rule(self) -> Optional[builtins.str]:
+        """
+        The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        """
+        return pulumi.get(self, "discount_combination_rule")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[builtins.float]:
+        """
+        Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="priceGuaranteeProperties")
+    def price_guarantee_properties(self) -> Optional['outputs.PriceGuaranteePropertiesResponse']:
+        """
+        Set only in price guarantee scenario.
+        """
+        return pulumi.get(self, "price_guarantee_properties")
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[builtins.str]:
+        """
+        Product family for which the discount is given. Validation: Optional
+        """
+        return pulumi.get(self, "product_family_name")
+
+
+@pulumi.output_type
+class DiscountProductResponse(dict):
+    """
+    Discount type properties including product family name and product id.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyDiscountOn":
+            suggest = "apply_discount_on"
+        elif key == "discountType":
+            suggest = "discount_type"
+        elif key == "discountCombinationRule":
+            suggest = "discount_combination_rule"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "priceGuaranteeProperties":
+            suggest = "price_guarantee_properties"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+        elif key == "productId":
+            suggest = "product_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscountProductResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscountProductResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscountProductResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_discount_on: builtins.str,
+                 discount_type: builtins.str,
+                 conditions: Optional[Sequence['outputs.ConditionsItemResponse']] = None,
+                 discount_combination_rule: Optional[builtins.str] = None,
+                 discount_percentage: Optional[builtins.float] = None,
+                 price_guarantee_properties: Optional['outputs.PriceGuaranteePropertiesResponse'] = None,
+                 product_family_name: Optional[builtins.str] = None,
+                 product_id: Optional[builtins.str] = None):
+        """
+        Discount type properties including product family name and product id.
+        :param builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        :param builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+               Expected value is 'Product'.
+        :param Sequence['ConditionsItemResponse'] conditions: Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        :param builtins.str discount_combination_rule: The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        :param builtins.float discount_percentage: Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        :param 'PriceGuaranteePropertiesResponse' price_guarantee_properties: Set only in price guarantee scenario.
+        :param builtins.str product_family_name: Product family for which the discount is given. Validation: Optional
+        :param builtins.str product_id: Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        """
+        pulumi.set(__self__, "apply_discount_on", apply_discount_on)
+        pulumi.set(__self__, "discount_type", 'Product')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if discount_combination_rule is not None:
+            pulumi.set(__self__, "discount_combination_rule", discount_combination_rule)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if price_guarantee_properties is not None:
+            pulumi.set(__self__, "price_guarantee_properties", price_guarantee_properties)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+
+    @property
+    @pulumi.getter(name="applyDiscountOn")
+    def apply_discount_on(self) -> builtins.str:
+        """
+        The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        """
+        return pulumi.get(self, "apply_discount_on")
+
+    @property
+    @pulumi.getter(name="discountType")
+    def discount_type(self) -> builtins.str:
+        """
+        Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+        Expected value is 'Product'.
+        """
+        return pulumi.get(self, "discount_type")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionsItemResponse']]:
+        """
+        Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="discountCombinationRule")
+    def discount_combination_rule(self) -> Optional[builtins.str]:
+        """
+        The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        """
+        return pulumi.get(self, "discount_combination_rule")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[builtins.float]:
+        """
+        Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="priceGuaranteeProperties")
+    def price_guarantee_properties(self) -> Optional['outputs.PriceGuaranteePropertiesResponse']:
+        """
+        Set only in price guarantee scenario.
+        """
+        return pulumi.get(self, "price_guarantee_properties")
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[builtins.str]:
+        """
+        Product family for which the discount is given. Validation: Optional
+        """
+        return pulumi.get(self, "product_family_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[builtins.str]:
+        """
+        Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        """
+        return pulumi.get(self, "product_id")
+
+
+@pulumi.output_type
+class DiscountTypeProductSkuResponse(dict):
+    """
+    Discount type properties including product family name, product id, and sku id.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applyDiscountOn":
+            suggest = "apply_discount_on"
+        elif key == "discountType":
+            suggest = "discount_type"
+        elif key == "discountCombinationRule":
+            suggest = "discount_combination_rule"
+        elif key == "discountPercentage":
+            suggest = "discount_percentage"
+        elif key == "priceGuaranteeProperties":
+            suggest = "price_guarantee_properties"
+        elif key == "productFamilyName":
+            suggest = "product_family_name"
+        elif key == "productId":
+            suggest = "product_id"
+        elif key == "skuId":
+            suggest = "sku_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DiscountTypeProductSkuResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DiscountTypeProductSkuResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DiscountTypeProductSkuResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 apply_discount_on: builtins.str,
+                 discount_type: builtins.str,
+                 conditions: Optional[Sequence['outputs.ConditionsItemResponse']] = None,
+                 discount_combination_rule: Optional[builtins.str] = None,
+                 discount_percentage: Optional[builtins.float] = None,
+                 price_guarantee_properties: Optional['outputs.PriceGuaranteePropertiesResponse'] = None,
+                 product_family_name: Optional[builtins.str] = None,
+                 product_id: Optional[builtins.str] = None,
+                 sku_id: Optional[builtins.str] = None):
+        """
+        Discount type properties including product family name, product id, and sku id.
+        :param builtins.str apply_discount_on: The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        :param builtins.str discount_type: Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+               Expected value is 'Sku'.
+        :param Sequence['ConditionsItemResponse'] conditions: Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        :param builtins.str discount_combination_rule: The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        :param builtins.float discount_percentage: Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        :param 'PriceGuaranteePropertiesResponse' price_guarantee_properties: Set only in price guarantee scenario.
+        :param builtins.str product_family_name: Product family for which the discount is given. Validation: Optional
+        :param builtins.str product_id: Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        :param builtins.str sku_id: ResourceSku for the given discount. Validation: Optional.
+        """
+        pulumi.set(__self__, "apply_discount_on", apply_discount_on)
+        pulumi.set(__self__, "discount_type", 'Sku')
+        if conditions is not None:
+            pulumi.set(__self__, "conditions", conditions)
+        if discount_combination_rule is not None:
+            pulumi.set(__self__, "discount_combination_rule", discount_combination_rule)
+        if discount_percentage is not None:
+            pulumi.set(__self__, "discount_percentage", discount_percentage)
+        if price_guarantee_properties is not None:
+            pulumi.set(__self__, "price_guarantee_properties", price_guarantee_properties)
+        if product_family_name is not None:
+            pulumi.set(__self__, "product_family_name", product_family_name)
+        if product_id is not None:
+            pulumi.set(__self__, "product_id", product_id)
+        if sku_id is not None:
+            pulumi.set(__self__, "sku_id", sku_id)
+
+    @property
+    @pulumi.getter(name="applyDiscountOn")
+    def apply_discount_on(self) -> builtins.str:
+        """
+        The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+        """
+        return pulumi.get(self, "apply_discount_on")
+
+    @property
+    @pulumi.getter(name="discountType")
+    def discount_type(self) -> builtins.str:
+        """
+        Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+        Expected value is 'Sku'.
+        """
+        return pulumi.get(self, "discount_type")
+
+    @property
+    @pulumi.getter
+    def conditions(self) -> Optional[Sequence['outputs.ConditionsItemResponse']]:
+        """
+        Array of conditions for the discount. Validation: Optional. Maximum length is 1000.
+        """
+        return pulumi.get(self, "conditions")
+
+    @property
+    @pulumi.getter(name="discountCombinationRule")
+    def discount_combination_rule(self) -> Optional[builtins.str]:
+        """
+        The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+        """
+        return pulumi.get(self, "discount_combination_rule")
+
+    @property
+    @pulumi.getter(name="discountPercentage")
+    def discount_percentage(self) -> Optional[builtins.float]:
+        """
+        Discount percentage provided for the customer. Validation: Required unless this is a price rule.
+        """
+        return pulumi.get(self, "discount_percentage")
+
+    @property
+    @pulumi.getter(name="priceGuaranteeProperties")
+    def price_guarantee_properties(self) -> Optional['outputs.PriceGuaranteePropertiesResponse']:
+        """
+        Set only in price guarantee scenario.
+        """
+        return pulumi.get(self, "price_guarantee_properties")
+
+    @property
+    @pulumi.getter(name="productFamilyName")
+    def product_family_name(self) -> Optional[builtins.str]:
+        """
+        Product family for which the discount is given. Validation: Optional
+        """
+        return pulumi.get(self, "product_family_name")
+
+    @property
+    @pulumi.getter(name="productId")
+    def product_id(self) -> Optional[builtins.str]:
+        """
+        Product ID for which the discount is given. Validation: Optional. No specific format, example: DZH318Z09V6F
+        """
+        return pulumi.get(self, "product_id")
+
+    @property
+    @pulumi.getter(name="skuId")
+    def sku_id(self) -> Optional[builtins.str]:
+        """
+        ResourceSku for the given discount. Validation: Optional.
+        """
+        return pulumi.get(self, "sku_id")
+
+
+@pulumi.output_type
+class EntityTypeAffiliateDiscountResponse(dict):
+    """
+    Entity type for affiliate discounts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "benefitResourceId":
+            suggest = "benefit_resource_id"
+        elif key == "billingAccountResourceId":
+            suggest = "billing_account_resource_id"
+        elif key == "billingProfileResourceId":
+            suggest = "billing_profile_resource_id"
+        elif key == "customerResourceId":
+            suggest = "customer_resource_id"
+        elif key == "endAt":
+            suggest = "end_at"
+        elif key == "entityType":
+            suggest = "entity_type"
+        elif key == "primaryResourceId":
+            suggest = "primary_resource_id"
+        elif key == "productCode":
+            suggest = "product_code"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "startAt":
+            suggest = "start_at"
+        elif key == "appliedScopeType":
+            suggest = "applied_scope_type"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "systemId":
+            suggest = "system_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityTypeAffiliateDiscountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityTypeAffiliateDiscountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityTypeAffiliateDiscountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 benefit_resource_id: builtins.str,
+                 billing_account_resource_id: builtins.str,
+                 billing_profile_resource_id: builtins.str,
+                 customer_resource_id: builtins.str,
+                 end_at: builtins.str,
+                 entity_type: builtins.str,
+                 primary_resource_id: builtins.str,
+                 product_code: builtins.str,
+                 provisioning_state: builtins.str,
+                 start_at: builtins.str,
+                 status: builtins.str,
+                 applied_scope_type: Optional[builtins.str] = None,
+                 display_name: Optional[builtins.str] = None,
+                 system_id: Optional[builtins.str] = None):
+        """
+        Entity type for affiliate discounts
+        :param builtins.str benefit_resource_id: Fully-qualified identifier of the benefit under applicable benefit list.
+        :param builtins.str billing_account_resource_id: Billing account resource id where the discount metadata is present.
+        :param builtins.str billing_profile_resource_id: Billing profile resource id where the discount is scoped to.
+        :param builtins.str customer_resource_id: Customer resource id where the discount is scoped to.
+        :param builtins.str end_at: End date of the discount. No duration will be supported. Allowed value is any date greater than or equal to startDate.
+        :param builtins.str entity_type: This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
+               Expected value is 'Affiliate'.
+        :param builtins.str primary_resource_id: This will be present in the response if the primary has a resource ID
+        :param builtins.str product_code: This is the catalog UPN for the product.
+        :param builtins.str provisioning_state: The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
+        :param builtins.str start_at: Start date of the discount. Value is the date the discount started or will start in the future.
+        :param builtins.str status: Represents the current status of the discount.
+        :param builtins.str applied_scope_type: List of applied scopes supported for discounts.
+        :param builtins.str display_name: This defines a user friendly display name for the discount.
+        :param builtins.str system_id: This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
+        """
+        pulumi.set(__self__, "benefit_resource_id", benefit_resource_id)
+        pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
+        pulumi.set(__self__, "billing_profile_resource_id", billing_profile_resource_id)
+        pulumi.set(__self__, "customer_resource_id", customer_resource_id)
+        pulumi.set(__self__, "end_at", end_at)
+        pulumi.set(__self__, "entity_type", 'Affiliate')
+        pulumi.set(__self__, "primary_resource_id", primary_resource_id)
+        pulumi.set(__self__, "product_code", product_code)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "start_at", start_at)
+        pulumi.set(__self__, "status", status)
+        if applied_scope_type is not None:
+            pulumi.set(__self__, "applied_scope_type", applied_scope_type)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @property
+    @pulumi.getter(name="benefitResourceId")
+    def benefit_resource_id(self) -> builtins.str:
+        """
+        Fully-qualified identifier of the benefit under applicable benefit list.
+        """
+        return pulumi.get(self, "benefit_resource_id")
+
+    @property
+    @pulumi.getter(name="billingAccountResourceId")
+    def billing_account_resource_id(self) -> builtins.str:
+        """
+        Billing account resource id where the discount metadata is present.
+        """
+        return pulumi.get(self, "billing_account_resource_id")
+
+    @property
+    @pulumi.getter(name="billingProfileResourceId")
+    def billing_profile_resource_id(self) -> builtins.str:
+        """
+        Billing profile resource id where the discount is scoped to.
+        """
+        return pulumi.get(self, "billing_profile_resource_id")
+
+    @property
+    @pulumi.getter(name="customerResourceId")
+    def customer_resource_id(self) -> builtins.str:
+        """
+        Customer resource id where the discount is scoped to.
+        """
+        return pulumi.get(self, "customer_resource_id")
+
+    @property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> builtins.str:
+        """
+        End date of the discount. No duration will be supported. Allowed value is any date greater than or equal to startDate.
+        """
+        return pulumi.get(self, "end_at")
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> builtins.str:
+        """
+        This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
+        Expected value is 'Affiliate'.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="primaryResourceId")
+    def primary_resource_id(self) -> builtins.str:
+        """
+        This will be present in the response if the primary has a resource ID
+        """
+        return pulumi.get(self, "primary_resource_id")
+
+    @property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> builtins.str:
+        """
+        This is the catalog UPN for the product.
+        """
+        return pulumi.get(self, "product_code")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> builtins.str:
+        """
+        Start date of the discount. Value is the date the discount started or will start in the future.
+        """
+        return pulumi.get(self, "start_at")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        Represents the current status of the discount.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="appliedScopeType")
+    def applied_scope_type(self) -> Optional[builtins.str]:
+        """
+        List of applied scopes supported for discounts.
+        """
+        return pulumi.get(self, "applied_scope_type")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        This defines a user friendly display name for the discount.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[builtins.str]:
+        """
+        This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
+        """
+        return pulumi.get(self, "system_id")
+
+
+@pulumi.output_type
+class EntityTypePrimaryDiscountResponse(dict):
+    """
+    Entity type for primary discounts
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "benefitResourceId":
+            suggest = "benefit_resource_id"
+        elif key == "billingAccountResourceId":
+            suggest = "billing_account_resource_id"
+        elif key == "billingProfileResourceId":
+            suggest = "billing_profile_resource_id"
+        elif key == "customerResourceId":
+            suggest = "customer_resource_id"
+        elif key == "endAt":
+            suggest = "end_at"
+        elif key == "entityType":
+            suggest = "entity_type"
+        elif key == "productCode":
+            suggest = "product_code"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "startAt":
+            suggest = "start_at"
+        elif key == "appliedScopeType":
+            suggest = "applied_scope_type"
+        elif key == "discountTypeProperties":
+            suggest = "discount_type_properties"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "systemId":
+            suggest = "system_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityTypePrimaryDiscountResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityTypePrimaryDiscountResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityTypePrimaryDiscountResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 benefit_resource_id: builtins.str,
+                 billing_account_resource_id: builtins.str,
+                 billing_profile_resource_id: builtins.str,
+                 customer_resource_id: builtins.str,
+                 end_at: builtins.str,
+                 entity_type: builtins.str,
+                 product_code: builtins.str,
+                 provisioning_state: builtins.str,
+                 start_at: builtins.str,
+                 status: builtins.str,
+                 applied_scope_type: Optional[builtins.str] = None,
+                 discount_type_properties: Optional[Any] = None,
+                 display_name: Optional[builtins.str] = None,
+                 system_id: Optional[builtins.str] = None):
+        """
+        Entity type for primary discounts
+        :param builtins.str benefit_resource_id: Fully-qualified identifier of the benefit under applicable benefit list.
+        :param builtins.str billing_account_resource_id: Billing account resource id where the discount metadata is present.
+        :param builtins.str billing_profile_resource_id: Billing profile resource id where the discount is scoped to.
+        :param builtins.str customer_resource_id: Customer resource id where the discount is scoped to.
+        :param builtins.str end_at: End date of the discount. No duration will be supported. Allowed value is any date greater than or equal to startDate.
+        :param builtins.str entity_type: This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
+               Expected value is 'Primary'.
+        :param builtins.str product_code: This is the catalog UPN for the product.
+        :param builtins.str provisioning_state: The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
+        :param builtins.str start_at: Start date of the discount. Value is the date the discount started or will start in the future.
+        :param builtins.str status: Represents the current status of the discount.
+        :param builtins.str applied_scope_type: List of applied scopes supported for discounts.
+        :param Union['DiscountCustomPriceResponse', 'DiscountCustomPriceMultiCurrencyResponse', 'DiscountProductResponse', 'DiscountProductFamilyResponse', 'DiscountTypeProductSkuResponse'] discount_type_properties: This defines the conditions for a given discount type.
+        :param builtins.str display_name: This defines a user friendly display name for the discount.
+        :param builtins.str system_id: This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
+        """
+        pulumi.set(__self__, "benefit_resource_id", benefit_resource_id)
+        pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
+        pulumi.set(__self__, "billing_profile_resource_id", billing_profile_resource_id)
+        pulumi.set(__self__, "customer_resource_id", customer_resource_id)
+        pulumi.set(__self__, "end_at", end_at)
+        pulumi.set(__self__, "entity_type", 'Primary')
+        pulumi.set(__self__, "product_code", product_code)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "start_at", start_at)
+        pulumi.set(__self__, "status", status)
+        if applied_scope_type is not None:
+            pulumi.set(__self__, "applied_scope_type", applied_scope_type)
+        if discount_type_properties is not None:
+            pulumi.set(__self__, "discount_type_properties", discount_type_properties)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @property
+    @pulumi.getter(name="benefitResourceId")
+    def benefit_resource_id(self) -> builtins.str:
+        """
+        Fully-qualified identifier of the benefit under applicable benefit list.
+        """
+        return pulumi.get(self, "benefit_resource_id")
+
+    @property
+    @pulumi.getter(name="billingAccountResourceId")
+    def billing_account_resource_id(self) -> builtins.str:
+        """
+        Billing account resource id where the discount metadata is present.
+        """
+        return pulumi.get(self, "billing_account_resource_id")
+
+    @property
+    @pulumi.getter(name="billingProfileResourceId")
+    def billing_profile_resource_id(self) -> builtins.str:
+        """
+        Billing profile resource id where the discount is scoped to.
+        """
+        return pulumi.get(self, "billing_profile_resource_id")
+
+    @property
+    @pulumi.getter(name="customerResourceId")
+    def customer_resource_id(self) -> builtins.str:
+        """
+        Customer resource id where the discount is scoped to.
+        """
+        return pulumi.get(self, "customer_resource_id")
+
+    @property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> builtins.str:
+        """
+        End date of the discount. No duration will be supported. Allowed value is any date greater than or equal to startDate.
+        """
+        return pulumi.get(self, "end_at")
+
+    @property
+    @pulumi.getter(name="entityType")
+    def entity_type(self) -> builtins.str:
+        """
+        This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
+        Expected value is 'Primary'.
+        """
+        return pulumi.get(self, "entity_type")
+
+    @property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> builtins.str:
+        """
+        This is the catalog UPN for the product.
+        """
+        return pulumi.get(self, "product_code")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> builtins.str:
+        """
+        Start date of the discount. Value is the date the discount started or will start in the future.
+        """
+        return pulumi.get(self, "start_at")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        Represents the current status of the discount.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="appliedScopeType")
+    def applied_scope_type(self) -> Optional[builtins.str]:
+        """
+        List of applied scopes supported for discounts.
+        """
+        return pulumi.get(self, "applied_scope_type")
+
+    @property
+    @pulumi.getter(name="discountTypeProperties")
+    def discount_type_properties(self) -> Optional[Any]:
+        """
+        This defines the conditions for a given discount type.
+        """
+        return pulumi.get(self, "discount_type_properties")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        This defines a user friendly display name for the discount.
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[builtins.str]:
+        """
+        This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
+        """
+        return pulumi.get(self, "system_id")
+
 
 @pulumi.output_type
 class ManagedServiceIdentityResponse(dict):
@@ -103,6 +1494,46 @@ class ManagedServiceIdentityResponse(dict):
 
 
 @pulumi.output_type
+class MarketSetPricesItemsResponse(dict):
+    """
+    Items in the MarketSetPrices array.
+    """
+    def __init__(__self__, *,
+                 currency: builtins.str,
+                 markets: Sequence[builtins.str],
+                 value: builtins.float):
+        """
+        Items in the MarketSetPrices array.
+        :param builtins.str currency: The currency of the locked price value. Validation: Required. Must be a valid ISO 4217 3-letter currency code.
+        :param builtins.float value: The locked price for the priceable node. Validation: Required. Must be greater than or equal to 0. If the case of billing plans. This represents the price for each cycle charge.
+        """
+        pulumi.set(__self__, "currency", currency)
+        pulumi.set(__self__, "markets", markets)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def currency(self) -> builtins.str:
+        """
+        The currency of the locked price value. Validation: Required. Must be a valid ISO 4217 3-letter currency code.
+        """
+        return pulumi.get(self, "currency")
+
+    @property
+    @pulumi.getter
+    def markets(self) -> Sequence[builtins.str]:
+        return pulumi.get(self, "markets")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.float:
+        """
+        The locked price for the priceable node. Validation: Required. Must be greater than or equal to 0. If the case of billing plans. This represents the price for each cycle charge.
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
 class PlanResponse(dict):
     """
     Plan for the resource.
@@ -133,7 +1564,7 @@ class PlanResponse(dict):
         """
         Plan for the resource.
         :param builtins.str name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        :param builtins.str product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         :param builtins.str publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param builtins.str promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param builtins.str version: The version of the desired product/artifact.
@@ -158,7 +1589,7 @@ class PlanResponse(dict):
     @pulumi.getter
     def product(self) -> builtins.str:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
         """
         return pulumi.get(self, "product")
 
@@ -188,6 +1619,60 @@ class PlanResponse(dict):
 
 
 @pulumi.output_type
+class PriceGuaranteePropertiesResponse(dict):
+    """
+    Set only in price guarantee scenario.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "priceGuaranteeDate":
+            suggest = "price_guarantee_date"
+        elif key == "pricingPolicy":
+            suggest = "pricing_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PriceGuaranteePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PriceGuaranteePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PriceGuaranteePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 price_guarantee_date: Optional[builtins.str] = None,
+                 pricing_policy: Optional[builtins.str] = None):
+        """
+        Set only in price guarantee scenario.
+        :param builtins.str price_guarantee_date: The date on which prices are to be used for guarantee calculation. Validation: expected to be 00 hours, Format: 2024-09-30T00:00:00Z. Must be in UTC.
+        :param builtins.str pricing_policy: Supported values: Protected, Locked
+        """
+        if price_guarantee_date is not None:
+            pulumi.set(__self__, "price_guarantee_date", price_guarantee_date)
+        if pricing_policy is not None:
+            pulumi.set(__self__, "pricing_policy", pricing_policy)
+
+    @property
+    @pulumi.getter(name="priceGuaranteeDate")
+    def price_guarantee_date(self) -> Optional[builtins.str]:
+        """
+        The date on which prices are to be used for guarantee calculation. Validation: expected to be 00 hours, Format: 2024-09-30T00:00:00Z. Must be in UTC.
+        """
+        return pulumi.get(self, "price_guarantee_date")
+
+    @property
+    @pulumi.getter(name="pricingPolicy")
+    def pricing_policy(self) -> Optional[builtins.str]:
+        """
+        Supported values: Protected, Locked
+        """
+        return pulumi.get(self, "pricing_policy")
+
+
+@pulumi.output_type
 class SkuResponse(dict):
     """
     The resource model definition representing SKU
@@ -203,7 +1688,7 @@ class SkuResponse(dict):
         :param builtins.str name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param builtins.int capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param builtins.str family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        :param builtins.str size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         :param builtins.str tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -244,7 +1729,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def size(self) -> Optional[builtins.str]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
         """
         return pulumi.get(self, "size")
 

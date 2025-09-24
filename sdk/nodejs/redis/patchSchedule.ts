@@ -58,6 +58,10 @@ export class PatchSchedule extends pulumi.CustomResource {
      */
     public readonly scheduleEntries!: pulumi.Output<outputs.redis.ScheduleEntryResponse[]>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.redis.SystemDataResponse>;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -88,12 +92,14 @@ export class PatchSchedule extends pulumi.CustomResource {
             resourceInputs["scheduleEntries"] = args ? args.scheduleEntries : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["scheduleEntries"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -108,11 +114,11 @@ export class PatchSchedule extends pulumi.CustomResource {
  */
 export interface PatchScheduleArgs {
     /**
-     * Default string modeled as parameter for auto generation to work correctly.
+     * The name of the RedisPatchSchedule
      */
     default?: pulumi.Input<string>;
     /**
-     * The name of the Redis cache.
+     * The name of the redis cache.
      */
     name: pulumi.Input<string>;
     /**

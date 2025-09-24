@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Get the properties of the specified container group profile.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetCGProfileResult> InvokeAsync(GetCGProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCGProfileResult>("azure-native:containerinstance:getCGProfile", args ?? new GetCGProfileArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Get the properties of the specified container group profile.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCGProfileResult> Invoke(GetCGProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCGProfileResult>("azure-native:containerinstance:getCGProfile", args ?? new GetCGProfileInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// Get the properties of the specified container group profile.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetCGProfileResult> Invoke(GetCGProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetCGProfileResult>("azure-native:containerinstance:getCGProfile", args ?? new GetCGProfileInvokeArgs(), options.WithDefaults());
@@ -132,7 +138,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// The operating system type required by the containers in the container group.
         /// </summary>
-        public readonly string? OsType;
+        public readonly string OsType;
         /// <summary>
         /// The priority of the container group.
         /// </summary>
@@ -140,7 +146,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Registered revisions are calculated at request time based off the records in the table logs.
         /// </summary>
-        public readonly ImmutableArray<double> RegisteredRevisions;
+        public readonly ImmutableArray<int> RegisteredRevisions;
         /// <summary>
         /// Restart policy for all containers within the container group. 
         /// - `Always` Always restart
@@ -151,7 +157,7 @@ namespace Pulumi.AzureNative.ContainerInstance
         /// <summary>
         /// Container group profile current revision number
         /// </summary>
-        public readonly double? Revision;
+        public readonly int Revision;
         /// <summary>
         /// The container security properties.
         /// </summary>
@@ -219,15 +225,15 @@ namespace Pulumi.AzureNative.ContainerInstance
 
             string name,
 
-            string? osType,
+            string osType,
 
             string? priority,
 
-            ImmutableArray<double> registeredRevisions,
+            ImmutableArray<int> registeredRevisions,
 
             string? restartPolicy,
 
-            double? revision,
+            int revision,
 
             Outputs.SecurityContextDefinitionResponse? securityContext,
 

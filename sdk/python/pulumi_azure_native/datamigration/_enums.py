@@ -7,8 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AuthType',
     'AuthenticationType',
     'BackupMode',
+    'ManagedServiceIdentityType',
     'MongoDbReplication',
     'MongoDbShardKeyOrder',
     'MySqlTargetPlatformType',
@@ -21,6 +23,21 @@ __all__ = [
     'SsisStoreType',
     'TaskType',
 ]
+
+
+@pulumi.type_token("azure-native:datamigration:AuthType")
+class AuthType(builtins.str, Enum):
+    """
+    Authentication type used for accessing Azure Blob Storage.
+    """
+    ACCOUNT_KEY = "AccountKey"
+    """
+    Use an account key for authentication.
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
+    """
+    Use a managed identity for authentication.
+    """
 
 
 @pulumi.type_token("azure-native:datamigration:AuthenticationType")
@@ -42,6 +59,17 @@ class BackupMode(builtins.str, Enum):
     """
     CREATE_BACKUP = "CreateBackup"
     EXISTING_BACKUP = "ExistingBackup"
+
+
+@pulumi.type_token("azure-native:datamigration:ManagedServiceIdentityType")
+class ManagedServiceIdentityType(builtins.str, Enum):
+    """
+    Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
+    USER_ASSIGNED = "UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:datamigration:MongoDbReplication")

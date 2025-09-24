@@ -7,24 +7,24 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.AzureNative.Cdn.Outputs
+namespace Pulumi.AzureNative.AzureArcData.Outputs
 {
 
     /// <summary>
-    /// Defines the Web Application Firewall policy for the endpoint (if applicable)
+    /// Migration related configuration.
     /// </summary>
     [OutputType]
-    public sealed class EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink
+    public sealed class DataBaseMigrationResponse
     {
         /// <summary>
-        /// Resource ID.
+        /// Migration assessments related configuration.
         /// </summary>
-        public readonly string? Id;
+        public readonly Outputs.DataBaseMigrationAssessmentResponse? Assessment;
 
         [OutputConstructor]
-        private EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink(string? id)
+        private DataBaseMigrationResponse(Outputs.DataBaseMigrationAssessmentResponse? assessment)
         {
-            Id = id;
+            Assessment = assessment;
         }
     }
 }

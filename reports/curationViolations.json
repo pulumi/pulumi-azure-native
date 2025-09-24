@@ -45,10 +45,6 @@
   },
   {
     "ModuleName": "AzureArcData",
-    "Detail": "expected tracking preview but found stable"
-  },
-  {
-    "ModuleName": "AzureArcData",
     "Detail": "expected no additions but found some"
   },
   {
@@ -156,10 +152,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "DataMigration",
-    "Detail": "expected additions but found none"
-  },
-  {
     "ModuleName": "DataReplication",
     "Detail": "expected tracking stable but found preview"
   },
@@ -186,6 +178,10 @@
   {
     "ModuleName": "DependencyMap",
     "Detail": "expected tracking stable but found preview"
+  },
+  {
+    "ModuleName": "DependencyMap",
+    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "DesktopVirtualization",

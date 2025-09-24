@@ -133,6 +133,7 @@ namespace Pulumi.AzureNative.Network
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230801preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240601preview:NspAccessRule" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20240701:NspAccessRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:network/v20241001:NspAccessRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

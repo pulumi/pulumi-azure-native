@@ -105,7 +105,7 @@ export class NspProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspProfile" }, { type: "azure-native:network/v20230701preview:NspProfile" }, { type: "azure-native:network/v20230801preview:NspProfile" }, { type: "azure-native:network/v20240601preview:NspProfile" }, { type: "azure-native:network/v20240701:NspProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210201preview:NspProfile" }, { type: "azure-native:network/v20230701preview:NspProfile" }, { type: "azure-native:network/v20230801preview:NspProfile" }, { type: "azure-native:network/v20240601preview:NspProfile" }, { type: "azure-native:network/v20240701:NspProfile" }, { type: "azure-native:network/v20241001:NspProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NspProfile.__pulumiType, name, resourceInputs, opts);
     }

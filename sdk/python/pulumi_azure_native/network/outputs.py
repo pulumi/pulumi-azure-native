@@ -286,6 +286,7 @@ __all__ = [
     'QosDefinitionResponse',
     'QosIpRangeResponse',
     'QosPortRangeResponse',
+    'RadiusAuthServerResponse',
     'RadiusServerResponse',
     'ReachabilityAnalysisIntentPropertiesResponse',
     'ReachabilityAnalysisRunPropertiesResponse',
@@ -26673,6 +26674,41 @@ class QosPortRangeResponse(dict):
         Qos Port Range start.
         """
         return pulumi.get(self, "start")
+
+
+@pulumi.output_type
+class RadiusAuthServerResponse(dict):
+    """
+    Gateway or VpnServerConfiguration Radius server with radius secret details
+    """
+    def __init__(__self__, *,
+                 radius_server_address: Optional[builtins.str] = None,
+                 radius_server_secret: Optional[builtins.str] = None):
+        """
+        Gateway or VpnServerConfiguration Radius server with radius secret details
+        :param builtins.str radius_server_address: Radius server IPAddress
+        :param builtins.str radius_server_secret: Radius server secret
+        """
+        if radius_server_address is not None:
+            pulumi.set(__self__, "radius_server_address", radius_server_address)
+        if radius_server_secret is not None:
+            pulumi.set(__self__, "radius_server_secret", radius_server_secret)
+
+    @property
+    @pulumi.getter(name="radiusServerAddress")
+    def radius_server_address(self) -> Optional[builtins.str]:
+        """
+        Radius server IPAddress
+        """
+        return pulumi.get(self, "radius_server_address")
+
+    @property
+    @pulumi.getter(name="radiusServerSecret")
+    def radius_server_secret(self) -> Optional[builtins.str]:
+        """
+        Radius server secret
+        """
+        return pulumi.get(self, "radius_server_secret")
 
 
 @pulumi.output_type

@@ -7,6 +7,8 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AzureFileShareAccessTier',
+    'AzureFileShareAccessType',
     'ContainerGroupIpAddressType',
     'ContainerGroupNetworkProtocol',
     'ContainerGroupPriority',
@@ -16,11 +18,32 @@ __all__ = [
     'DnsNameLabelReusePolicy',
     'GpuSku',
     'LogAnalyticsLogType',
+    'NGroupUpdateMode',
     'OperatingSystemTypes',
     'Priority',
     'ResourceIdentityType',
     'Scheme',
 ]
+
+
+@pulumi.type_token("azure-native:containerinstance:AzureFileShareAccessTier")
+class AzureFileShareAccessTier(builtins.str, Enum):
+    """
+    Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+    """
+    COOL = "Cool"
+    HOT = "Hot"
+    PREMIUM = "Premium"
+    TRANSACTION_OPTIMIZED = "TransactionOptimized"
+
+
+@pulumi.type_token("azure-native:containerinstance:AzureFileShareAccessType")
+class AzureFileShareAccessType(builtins.str, Enum):
+    """
+     Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    """
+    SHARED = "Shared"
+    EXCLUSIVE = "Exclusive"
 
 
 @pulumi.type_token("azure-native:containerinstance:ContainerGroupIpAddressType")
@@ -113,6 +136,12 @@ class LogAnalyticsLogType(builtins.str, Enum):
     CONTAINER_INSTANCE_LOGS = "ContainerInstanceLogs"
 
 
+@pulumi.type_token("azure-native:containerinstance:NGroupUpdateMode")
+class NGroupUpdateMode(builtins.str, Enum):
+    MANUAL = "Manual"
+    ROLLING = "Rolling"
+
+
 @pulumi.type_token("azure-native:containerinstance:OperatingSystemTypes")
 class OperatingSystemTypes(builtins.str, Enum):
     """
@@ -134,7 +163,7 @@ class Priority(builtins.str, Enum):
 @pulumi.type_token("azure-native:containerinstance:ResourceIdentityType")
 class ResourceIdentityType(builtins.str, Enum):
     """
-    The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+    The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
     """
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"

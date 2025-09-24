@@ -1233,6 +1233,6 @@ export const ZonePlacementPolicyType = {
 } as const;
 
 /**
- * Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.
+ * Specifies the policy for resource's placement in availability zone. Possible values are: **Any** (used for Virtual Machines), **Auto** (used for Virtual Machine Scale Sets) - An availability zone will be automatically picked by system as part of resource creation.
  */
 export type ZonePlacementPolicyType = (typeof ZonePlacementPolicyType)[keyof typeof ZonePlacementPolicyType];

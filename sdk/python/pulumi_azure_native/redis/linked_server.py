@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['LinkedServerArgs', 'LinkedServer']
@@ -31,10 +32,10 @@ class LinkedServerArgs:
         The set of arguments for constructing a LinkedServer resource.
         :param pulumi.Input[builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[builtins.str] linked_redis_cache_location: Location of the linked redis cache.
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
+        :param pulumi.Input[builtins.str] name: The name of the redis cache.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
-        :param pulumi.Input[builtins.str] linked_server_name: The name of the linked server that is being added to the Redis cache.
+        :param pulumi.Input[builtins.str] linked_server_name: The name of the RedisLinkedServerWithProperties
         """
         pulumi.set(__self__, "linked_redis_cache_id", linked_redis_cache_id)
         pulumi.set(__self__, "linked_redis_cache_location", linked_redis_cache_location)
@@ -72,7 +73,7 @@ class LinkedServerArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Redis cache.
+        The name of the redis cache.
         """
         return pulumi.get(self, "name")
 
@@ -108,7 +109,7 @@ class LinkedServerArgs:
     @pulumi.getter(name="linkedServerName")
     def linked_server_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the linked server that is being added to the Redis cache.
+        The name of the RedisLinkedServerWithProperties
         """
         return pulumi.get(self, "linked_server_name")
 
@@ -141,8 +142,8 @@ class LinkedServer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] linked_redis_cache_id: Fully qualified resourceId of the linked redis cache.
         :param pulumi.Input[builtins.str] linked_redis_cache_location: Location of the linked redis cache.
-        :param pulumi.Input[builtins.str] linked_server_name: The name of the linked server that is being added to the Redis cache.
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
+        :param pulumi.Input[builtins.str] linked_server_name: The name of the RedisLinkedServerWithProperties
+        :param pulumi.Input[builtins.str] name: The name of the redis cache.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ReplicationRole'] server_role: Role of the linked server.
         """
@@ -209,6 +210,7 @@ class LinkedServer(pulumi.CustomResource):
             __props__.__dict__["geo_replicated_primary_host_name"] = None
             __props__.__dict__["primary_host_name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20230401:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230501preview:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20230801:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20240301:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20240401preview:LinkedServer"), pulumi.Alias(type_="azure-native:cache/v20241101:LinkedServer"), pulumi.Alias(type_="azure-native:cache:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20170201:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20171001:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20180301:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20190701:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20200601:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20201201:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20210601:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20220501:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20220601:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20230401:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20230501preview:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20230801:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20240301:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20240401preview:LinkedServer"), pulumi.Alias(type_="azure-native:redis/v20241101:LinkedServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -242,6 +244,7 @@ class LinkedServer(pulumi.CustomResource):
         __props__.__dict__["primary_host_name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["server_role"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return LinkedServer(resource_name, opts=opts, __props__=__props__)
 
@@ -308,6 +311,14 @@ class LinkedServer(pulumi.CustomResource):
         Role of the linked server.
         """
         return pulumi.get(self, "server_role")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

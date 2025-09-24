@@ -25,7 +25,7 @@ export function getPatchSchedule(args: GetPatchScheduleArgs, opts?: pulumi.Invok
 
 export interface GetPatchScheduleArgs {
     /**
-     * Default string modeled as parameter for auto generation to work correctly.
+     * The name of the RedisPatchSchedule
      */
     default: string;
     /**
@@ -47,7 +47,7 @@ export interface GetPatchScheduleResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -62,6 +62,10 @@ export interface GetPatchScheduleResult {
      * List of patch schedules for a Redis cache.
      */
     readonly scheduleEntries: outputs.redis.ScheduleEntryResponse[];
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.redis.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -85,7 +89,7 @@ export function getPatchScheduleOutput(args: GetPatchScheduleOutputArgs, opts?: 
 
 export interface GetPatchScheduleOutputArgs {
     /**
-     * Default string modeled as parameter for auto generation to work correctly.
+     * The name of the RedisPatchSchedule
      */
     default: pulumi.Input<string>;
     /**

@@ -17,6 +17,12 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ApiEntityReferenceArgs',
+    'ApiEntityReferenceArgsDict',
+    'ApplicationGatewayBackendAddressPoolArgs',
+    'ApplicationGatewayBackendAddressPoolArgsDict',
+    'ApplicationGatewayArgs',
+    'ApplicationGatewayArgsDict',
     'AzureFileVolumeArgs',
     'AzureFileVolumeArgsDict',
     'ConfidentialComputePropertiesArgs',
@@ -31,6 +37,8 @@ __all__ = [
     'ContainerGroupIdentityArgsDict',
     'ContainerGroupProfileReferenceDefinitionArgs',
     'ContainerGroupProfileReferenceDefinitionArgsDict',
+    'ContainerGroupProfileStubArgs',
+    'ContainerGroupProfileStubArgsDict',
     'ContainerGroupSubnetIdArgs',
     'ContainerGroupSubnetIdArgsDict',
     'ContainerHttpGetArgs',
@@ -45,10 +53,20 @@ __all__ = [
     'DeploymentExtensionSpecArgsDict',
     'DnsConfigurationArgs',
     'DnsConfigurationArgsDict',
+    'ElasticProfileContainerGroupNamingPolicyArgs',
+    'ElasticProfileContainerGroupNamingPolicyArgsDict',
+    'ElasticProfileGuidNamingPolicyArgs',
+    'ElasticProfileGuidNamingPolicyArgsDict',
+    'ElasticProfileArgs',
+    'ElasticProfileArgsDict',
     'EncryptionPropertiesArgs',
     'EncryptionPropertiesArgsDict',
     'EnvironmentVariableArgs',
     'EnvironmentVariableArgsDict',
+    'FileSharePropertiesArgs',
+    'FileSharePropertiesArgsDict',
+    'FileShareArgs',
+    'FileShareArgsDict',
     'GitRepoVolumeArgs',
     'GitRepoVolumeArgsDict',
     'GpuResourceArgs',
@@ -61,8 +79,26 @@ __all__ = [
     'InitContainerDefinitionArgsDict',
     'IpAddressArgs',
     'IpAddressArgsDict',
+    'LoadBalancerBackendAddressPoolArgs',
+    'LoadBalancerBackendAddressPoolArgsDict',
+    'LoadBalancerArgs',
+    'LoadBalancerArgsDict',
     'LogAnalyticsArgs',
     'LogAnalyticsArgsDict',
+    'NGroupCGPropertyContainerPropertiesArgs',
+    'NGroupCGPropertyContainerPropertiesArgsDict',
+    'NGroupCGPropertyContainerArgs',
+    'NGroupCGPropertyContainerArgsDict',
+    'NGroupCGPropertyVolumeArgs',
+    'NGroupCGPropertyVolumeArgsDict',
+    'NGroupContainerGroupPropertiesArgs',
+    'NGroupContainerGroupPropertiesArgsDict',
+    'NGroupIdentityArgs',
+    'NGroupIdentityArgsDict',
+    'NetworkProfileArgs',
+    'NetworkProfileArgsDict',
+    'PlacementProfileArgs',
+    'PlacementProfileArgsDict',
     'PortArgs',
     'PortArgsDict',
     'ResourceLimitsArgs',
@@ -77,6 +113,12 @@ __all__ = [
     'SecurityContextDefinitionArgsDict',
     'StandbyPoolProfileDefinitionArgs',
     'StandbyPoolProfileDefinitionArgsDict',
+    'StorageProfileArgs',
+    'StorageProfileArgsDict',
+    'UpdateProfileRollingUpdateProfileArgs',
+    'UpdateProfileRollingUpdateProfileArgsDict',
+    'UpdateProfileArgs',
+    'UpdateProfileArgsDict',
     'VolumeMountArgs',
     'VolumeMountArgsDict',
     'VolumeArgs',
@@ -84,6 +126,134 @@ __all__ = [
 ]
 
 MYPY = False
+
+if not MYPY:
+    class ApiEntityReferenceArgsDict(TypedDict):
+        """
+        The API entity reference.
+        """
+        id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+elif False:
+    ApiEntityReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApiEntityReferenceArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The API entity reference.
+        :param pulumi.Input[builtins.str] id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class ApplicationGatewayBackendAddressPoolArgsDict(TypedDict):
+        """
+        NGroups application gateway backend address pool
+        """
+        resource: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The application gateway backend address pool ARM resource Id.
+        """
+elif False:
+    ApplicationGatewayBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationGatewayBackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        NGroups application gateway backend address pool
+        :param pulumi.Input[builtins.str] resource: The application gateway backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The application gateway backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource", value)
+
+
+if not MYPY:
+    class ApplicationGatewayArgsDict(TypedDict):
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgsDict']]]]
+        """
+        List of Application Gateway Backend Address Pools.
+        """
+        resource: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Application Gateway ARM resource Id.
+        """
+elif False:
+    ApplicationGatewayArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationGatewayArgs:
+    def __init__(__self__, *,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]] = None,
+                 resource: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        :param pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]] backend_address_pools: List of Application Gateway Backend Address Pools.
+        :param pulumi.Input[builtins.str] resource: The Application Gateway ARM resource Id.
+        """
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]:
+        """
+        List of Application Gateway Backend Address Pools.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ApplicationGatewayBackendAddressPoolArgs']]]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Application Gateway ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource", value)
+
 
 if not MYPY:
     class AzureFileVolumeArgsDict(TypedDict):
@@ -453,6 +623,122 @@ class ContainerGroupProfileReferenceDefinitionArgs:
     @revision.setter
     def revision(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "revision", value)
+
+
+if not MYPY:
+    class ContainerGroupProfileStubArgsDict(TypedDict):
+        """
+        The object that contains a reference to a Container Group Profile and it's other related properties.
+        """
+        container_group_properties: NotRequired[pulumi.Input['NGroupContainerGroupPropertiesArgsDict']]
+        """
+         Container Group properties which can be set while creating or updating the NGroups.
+        """
+        network_profile: NotRequired[pulumi.Input['NetworkProfileArgsDict']]
+        """
+        A network profile for network settings of a ContainerGroupProfile.
+        """
+        resource: NotRequired[pulumi.Input['ApiEntityReferenceArgsDict']]
+        """
+        A reference to the container group profile ARM resource hosted in ACI RP.
+        """
+        revision: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        """
+        storage_profile: NotRequired[pulumi.Input['StorageProfileArgsDict']]
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+elif False:
+    ContainerGroupProfileStubArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ContainerGroupProfileStubArgs:
+    def __init__(__self__, *,
+                 container_group_properties: Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']] = None,
+                 network_profile: Optional[pulumi.Input['NetworkProfileArgs']] = None,
+                 resource: Optional[pulumi.Input['ApiEntityReferenceArgs']] = None,
+                 revision: Optional[pulumi.Input[builtins.int]] = None,
+                 storage_profile: Optional[pulumi.Input['StorageProfileArgs']] = None):
+        """
+        The object that contains a reference to a Container Group Profile and it's other related properties.
+        :param pulumi.Input['NGroupContainerGroupPropertiesArgs'] container_group_properties:  Container Group properties which can be set while creating or updating the NGroups.
+        :param pulumi.Input['NetworkProfileArgs'] network_profile: A network profile for network settings of a ContainerGroupProfile.
+        :param pulumi.Input['ApiEntityReferenceArgs'] resource: A reference to the container group profile ARM resource hosted in ACI RP.
+        :param pulumi.Input[builtins.int] revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        :param pulumi.Input['StorageProfileArgs'] storage_profile: Storage profile for storage related settings of a container group profile.
+        """
+        if container_group_properties is not None:
+            pulumi.set(__self__, "container_group_properties", container_group_properties)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+
+    @property
+    @pulumi.getter(name="containerGroupProperties")
+    def container_group_properties(self) -> Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']]:
+        """
+         Container Group properties which can be set while creating or updating the NGroups.
+        """
+        return pulumi.get(self, "container_group_properties")
+
+    @container_group_properties.setter
+    def container_group_properties(self, value: Optional[pulumi.Input['NGroupContainerGroupPropertiesArgs']]):
+        pulumi.set(self, "container_group_properties", value)
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional[pulumi.Input['NetworkProfileArgs']]:
+        """
+        A network profile for network settings of a ContainerGroupProfile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @network_profile.setter
+    def network_profile(self, value: Optional[pulumi.Input['NetworkProfileArgs']]):
+        pulumi.set(self, "network_profile", value)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input['ApiEntityReferenceArgs']]:
+        """
+        A reference to the container group profile ARM resource hosted in ACI RP.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input['ApiEntityReferenceArgs']]):
+        pulumi.set(self, "resource", value)
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        """
+        return pulumi.get(self, "revision")
+
+    @revision.setter
+    def revision(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "revision", value)
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional[pulumi.Input['StorageProfileArgs']]:
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        return pulumi.get(self, "storage_profile")
+
+    @storage_profile.setter
+    def storage_profile(self, value: Optional[pulumi.Input['StorageProfileArgs']]):
+        pulumi.set(self, "storage_profile", value)
 
 
 if not MYPY:
@@ -1240,6 +1526,136 @@ class DnsConfigurationArgs:
 
 
 if not MYPY:
+    class ElasticProfileContainerGroupNamingPolicyArgsDict(TypedDict):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        guid_naming_policy: NotRequired[pulumi.Input['ElasticProfileGuidNamingPolicyArgsDict']]
+elif False:
+    ElasticProfileContainerGroupNamingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ElasticProfileContainerGroupNamingPolicyArgs:
+    def __init__(__self__, *,
+                 guid_naming_policy: Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']] = None):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        if guid_naming_policy is not None:
+            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
+
+    @property
+    @pulumi.getter(name="guidNamingPolicy")
+    def guid_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']]:
+        return pulumi.get(self, "guid_naming_policy")
+
+    @guid_naming_policy.setter
+    def guid_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileGuidNamingPolicyArgs']]):
+        pulumi.set(self, "guid_naming_policy", value)
+
+
+if not MYPY:
+    class ElasticProfileGuidNamingPolicyArgsDict(TypedDict):
+        prefix: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+elif False:
+    ElasticProfileGuidNamingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ElasticProfileGuidNamingPolicyArgs:
+    def __init__(__self__, *,
+                 prefix: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        return pulumi.get(self, "prefix")
+
+    @prefix.setter
+    def prefix(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "prefix", value)
+
+
+if not MYPY:
+    class ElasticProfileArgsDict(TypedDict):
+        """
+        Describes the elastic profile of the NGroup
+        """
+        container_group_naming_policy: NotRequired[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgsDict']]
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        desired_count: NotRequired[pulumi.Input[builtins.int]]
+        maintain_desired_count: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+        """
+elif False:
+    ElasticProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ElasticProfileArgs:
+    def __init__(__self__, *,
+                 container_group_naming_policy: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']] = None,
+                 desired_count: Optional[pulumi.Input[builtins.int]] = None,
+                 maintain_desired_count: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Describes the elastic profile of the NGroup
+        :param pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs'] container_group_naming_policy: Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        :param pulumi.Input[builtins.bool] maintain_desired_count: Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+        """
+        if container_group_naming_policy is not None:
+            pulumi.set(__self__, "container_group_naming_policy", container_group_naming_policy)
+        if desired_count is not None:
+            pulumi.set(__self__, "desired_count", desired_count)
+        if maintain_desired_count is not None:
+            pulumi.set(__self__, "maintain_desired_count", maintain_desired_count)
+
+    @property
+    @pulumi.getter(name="containerGroupNamingPolicy")
+    def container_group_naming_policy(self) -> Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']]:
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        return pulumi.get(self, "container_group_naming_policy")
+
+    @container_group_naming_policy.setter
+    def container_group_naming_policy(self, value: Optional[pulumi.Input['ElasticProfileContainerGroupNamingPolicyArgs']]):
+        pulumi.set(self, "container_group_naming_policy", value)
+
+    @property
+    @pulumi.getter(name="desiredCount")
+    def desired_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "desired_count")
+
+    @desired_count.setter
+    def desired_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "desired_count", value)
+
+    @property
+    @pulumi.getter(name="maintainDesiredCount")
+    def maintain_desired_count(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+        """
+        return pulumi.get(self, "maintain_desired_count")
+
+    @maintain_desired_count.setter
+    def maintain_desired_count(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "maintain_desired_count", value)
+
+
+if not MYPY:
     class EncryptionPropertiesArgsDict(TypedDict):
         """
         The container group encryption properties.
@@ -1425,6 +1841,128 @@ class EnvironmentVariableArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class FileSharePropertiesArgsDict(TypedDict):
+        share_access_tier: NotRequired[pulumi.Input['AzureFileShareAccessTier']]
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        """
+        share_access_type: NotRequired[pulumi.Input['AzureFileShareAccessType']]
+        """
+         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+elif False:
+    FileSharePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FileSharePropertiesArgs:
+    def __init__(__self__, *,
+                 share_access_tier: Optional[pulumi.Input['AzureFileShareAccessTier']] = None,
+                 share_access_type: Optional[pulumi.Input['AzureFileShareAccessType']] = None):
+        """
+        :param pulumi.Input['AzureFileShareAccessTier'] share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        :param pulumi.Input['AzureFileShareAccessType'] share_access_type:  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        if share_access_tier is None:
+            share_access_tier = 'TransactionOptimized'
+        if share_access_tier is not None:
+            pulumi.set(__self__, "share_access_tier", share_access_tier)
+        if share_access_type is not None:
+            pulumi.set(__self__, "share_access_type", share_access_type)
+
+    @property
+    @pulumi.getter(name="shareAccessTier")
+    def share_access_tier(self) -> Optional[pulumi.Input['AzureFileShareAccessTier']]:
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        """
+        return pulumi.get(self, "share_access_tier")
+
+    @share_access_tier.setter
+    def share_access_tier(self, value: Optional[pulumi.Input['AzureFileShareAccessTier']]):
+        pulumi.set(self, "share_access_tier", value)
+
+    @property
+    @pulumi.getter(name="shareAccessType")
+    def share_access_type(self) -> Optional[pulumi.Input['AzureFileShareAccessType']]:
+        """
+         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        return pulumi.get(self, "share_access_type")
+
+    @share_access_type.setter
+    def share_access_type(self, value: Optional[pulumi.Input['AzureFileShareAccessType']]):
+        pulumi.set(self, "share_access_type", value)
+
+
+if not MYPY:
+    class FileShareArgsDict(TypedDict):
+        """
+        File shares that can be mounted on container groups.
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        properties: NotRequired[pulumi.Input['FileSharePropertiesArgsDict']]
+        resource_group_name: NotRequired[pulumi.Input[builtins.str]]
+        storage_account_name: NotRequired[pulumi.Input[builtins.str]]
+elif False:
+    FileShareArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FileShareArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 properties: Optional[pulumi.Input['FileSharePropertiesArgs']] = None,
+                 resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_account_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        File shares that can be mounted on container groups.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['FileSharePropertiesArgs']]:
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['FileSharePropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "resource_group_name")
+
+    @resource_group_name.setter
+    def resource_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "storage_account_name")
+
+    @storage_account_name.setter
+    def storage_account_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_account_name", value)
 
 
 if not MYPY:
@@ -1999,6 +2537,78 @@ class IpAddressArgs:
 
 
 if not MYPY:
+    class LoadBalancerBackendAddressPoolArgsDict(TypedDict):
+        """
+        NGroups load balancer backend address pool
+        """
+        resource: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Load Balancer backend address pool ARM resource Id.
+        """
+elif False:
+    LoadBalancerBackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 resource: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        NGroups load balancer backend address pool
+        :param pulumi.Input[builtins.str] resource: The Load Balancer backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Load Balancer backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+    @resource.setter
+    def resource(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "resource", value)
+
+
+if not MYPY:
+    class LoadBalancerArgsDict(TypedDict):
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgsDict']]]]
+        """
+        List of Load Balancer Backend Address Pools.
+        """
+elif False:
+    LoadBalancerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerArgs:
+    def __init__(__self__, *,
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]] = None):
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]] backend_address_pools: List of Load Balancer Backend Address Pools.
+        """
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]:
+        """
+        List of Load Balancer Backend Address Pools.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressPoolArgs']]]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+
+if not MYPY:
     class LogAnalyticsArgsDict(TypedDict):
         """
         Container group log analytics information.
@@ -2110,6 +2720,370 @@ class LogAnalyticsArgs:
     @workspace_resource_id.setter
     def workspace_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "workspace_resource_id", value)
+
+
+if not MYPY:
+    class NGroupCGPropertyContainerPropertiesArgsDict(TypedDict):
+        """
+        container properties
+        """
+        volume_mounts: NotRequired[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgsDict']]]]
+elif False:
+    NGroupCGPropertyContainerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupCGPropertyContainerPropertiesArgs:
+    def __init__(__self__, *,
+                 volume_mounts: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]] = None):
+        """
+        container properties
+        """
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]:
+        return pulumi.get(self, "volume_mounts")
+
+    @volume_mounts.setter
+    def volume_mounts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VolumeMountArgs']]]]):
+        pulumi.set(self, "volume_mounts", value)
+
+
+if not MYPY:
+    class NGroupCGPropertyContainerArgsDict(TypedDict):
+        """
+        Container properties that can be provided with NGroups object.
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        container name
+        """
+        properties: NotRequired[pulumi.Input['NGroupCGPropertyContainerPropertiesArgsDict']]
+        """
+        container properties
+        """
+elif False:
+    NGroupCGPropertyContainerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupCGPropertyContainerArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 properties: Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']] = None):
+        """
+        Container properties that can be provided with NGroups object.
+        :param pulumi.Input[builtins.str] name: container name
+        :param pulumi.Input['NGroupCGPropertyContainerPropertiesArgs'] properties: container properties
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        container name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']]:
+        """
+        container properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input['NGroupCGPropertyContainerPropertiesArgs']]):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class NGroupCGPropertyVolumeArgsDict(TypedDict):
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the volume.
+        """
+        azure_file: NotRequired[pulumi.Input['AzureFileVolumeArgsDict']]
+        """
+        The Azure File volume.
+        """
+elif False:
+    NGroupCGPropertyVolumeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupCGPropertyVolumeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 azure_file: Optional[pulumi.Input['AzureFileVolumeArgs']] = None):
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        :param pulumi.Input[builtins.str] name: The name of the volume.
+        :param pulumi.Input['AzureFileVolumeArgs'] azure_file: The Azure File volume.
+        """
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> Optional[pulumi.Input['AzureFileVolumeArgs']]:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+    @azure_file.setter
+    def azure_file(self, value: Optional[pulumi.Input['AzureFileVolumeArgs']]):
+        pulumi.set(self, "azure_file", value)
+
+
+if not MYPY:
+    class NGroupContainerGroupPropertiesArgsDict(TypedDict):
+        """
+        Container Group properties which can be set while creating or updating the NGroups.
+        """
+        containers: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgsDict']]]]
+        """
+        Contains information about Container which can be set while creating or updating the NGroups.
+        """
+        subnet_ids: NotRequired[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgsDict']]]]
+        """
+        Contains information about Virtual Network Subnet ARM Resource
+        """
+        volumes: NotRequired[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgsDict']]]]
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+elif False:
+    NGroupContainerGroupPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupContainerGroupPropertiesArgs:
+    def __init__(__self__, *,
+                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]] = None,
+                 subnet_ids: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]] = None,
+                 volumes: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]] = None):
+        """
+        Container Group properties which can be set while creating or updating the NGroups.
+        :param pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]] containers: Contains information about Container which can be set while creating or updating the NGroups.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]] subnet_ids: Contains information about Virtual Network Subnet ARM Resource
+        :param pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]] volumes: Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]:
+        """
+        Contains information about Container which can be set while creating or updating the NGroups.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyContainerArgs']]]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]:
+        """
+        Contains information about Virtual Network Subnet ARM Resource
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @subnet_ids.setter
+    def subnet_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerGroupSubnetIdArgs']]]]):
+        pulumi.set(self, "subnet_ids", value)
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]:
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+        return pulumi.get(self, "volumes")
+
+    @volumes.setter
+    def volumes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NGroupCGPropertyVolumeArgs']]]]):
+        pulumi.set(self, "volumes", value)
+
+
+if not MYPY:
+    class NGroupIdentityArgsDict(TypedDict):
+        """
+        Identity for the NGroup.
+        """
+        type: NotRequired[pulumi.Input['ResourceIdentityType']]
+        """
+        The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The list of user identities associated with the NGroup.
+        """
+elif False:
+    NGroupIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NGroupIdentityArgs:
+    def __init__(__self__, *,
+                 type: Optional[pulumi.Input['ResourceIdentityType']] = None,
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Identity for the NGroup.
+        :param pulumi.Input['ResourceIdentityType'] type: The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The list of user identities associated with the NGroup.
+        """
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input['ResourceIdentityType']]:
+        """
+        The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input['ResourceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The list of user identities associated with the NGroup.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class NetworkProfileArgsDict(TypedDict):
+        """
+        A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+        """
+        application_gateway: NotRequired[pulumi.Input['ApplicationGatewayArgsDict']]
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        """
+        load_balancer: NotRequired[pulumi.Input['LoadBalancerArgsDict']]
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+elif False:
+    NetworkProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NetworkProfileArgs:
+    def __init__(__self__, *,
+                 application_gateway: Optional[pulumi.Input['ApplicationGatewayArgs']] = None,
+                 load_balancer: Optional[pulumi.Input['LoadBalancerArgs']] = None):
+        """
+        A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+        :param pulumi.Input['ApplicationGatewayArgs'] application_gateway: Application Gateway the CG profile will use to interact with CGs in a backend pool
+        :param pulumi.Input['LoadBalancerArgs'] load_balancer: LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+        if application_gateway is not None:
+            pulumi.set(__self__, "application_gateway", application_gateway)
+        if load_balancer is not None:
+            pulumi.set(__self__, "load_balancer", load_balancer)
+
+    @property
+    @pulumi.getter(name="applicationGateway")
+    def application_gateway(self) -> Optional[pulumi.Input['ApplicationGatewayArgs']]:
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        """
+        return pulumi.get(self, "application_gateway")
+
+    @application_gateway.setter
+    def application_gateway(self, value: Optional[pulumi.Input['ApplicationGatewayArgs']]):
+        pulumi.set(self, "application_gateway", value)
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> Optional[pulumi.Input['LoadBalancerArgs']]:
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+        return pulumi.get(self, "load_balancer")
+
+    @load_balancer.setter
+    def load_balancer(self, value: Optional[pulumi.Input['LoadBalancerArgs']]):
+        pulumi.set(self, "load_balancer", value)
+
+
+if not MYPY:
+    class PlacementProfileArgsDict(TypedDict):
+        """
+        Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+        """
+        fault_domain_count: NotRequired[pulumi.Input[builtins.int]]
+        """
+        The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+        """
+elif False:
+    PlacementProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementProfileArgs:
+    def __init__(__self__, *,
+                 fault_domain_count: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+        :param pulumi.Input[builtins.int] fault_domain_count: The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+        """
+        if fault_domain_count is not None:
+            pulumi.set(__self__, "fault_domain_count", fault_domain_count)
+
+    @property
+    @pulumi.getter(name="faultDomainCount")
+    def fault_domain_count(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+        """
+        return pulumi.get(self, "fault_domain_count")
+
+    @fault_domain_count.setter
+    def fault_domain_count(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "fault_domain_count", value)
 
 
 if not MYPY:
@@ -2618,6 +3592,180 @@ class StandbyPoolProfileDefinitionArgs:
     @id.setter
     def id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class StorageProfileArgsDict(TypedDict):
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        file_shares: NotRequired[pulumi.Input[Sequence[pulumi.Input['FileShareArgsDict']]]]
+elif False:
+    StorageProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class StorageProfileArgs:
+    def __init__(__self__, *,
+                 file_shares: Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]] = None):
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        if file_shares is not None:
+            pulumi.set(__self__, "file_shares", file_shares)
+
+    @property
+    @pulumi.getter(name="fileShares")
+    def file_shares(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]]:
+        return pulumi.get(self, "file_shares")
+
+    @file_shares.setter
+    def file_shares(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FileShareArgs']]]]):
+        pulumi.set(self, "file_shares", value)
+
+
+if not MYPY:
+    class UpdateProfileRollingUpdateProfileArgsDict(TypedDict):
+        """
+        This profile allows the customers to customize the rolling update.
+        """
+        in_place_update: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+        """
+        max_batch_percent: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+        """
+        max_unhealthy_percent: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+        """
+        pause_time_between_batches: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+        """
+elif False:
+    UpdateProfileRollingUpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpdateProfileRollingUpdateProfileArgs:
+    def __init__(__self__, *,
+                 in_place_update: Optional[pulumi.Input[builtins.bool]] = None,
+                 max_batch_percent: Optional[pulumi.Input[builtins.int]] = None,
+                 max_unhealthy_percent: Optional[pulumi.Input[builtins.int]] = None,
+                 pause_time_between_batches: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        This profile allows the customers to customize the rolling update.
+        :param pulumi.Input[builtins.bool] in_place_update: Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+        :param pulumi.Input[builtins.int] max_batch_percent: Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+        :param pulumi.Input[builtins.int] max_unhealthy_percent: Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+        :param pulumi.Input[builtins.str] pause_time_between_batches: The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+        """
+        if in_place_update is not None:
+            pulumi.set(__self__, "in_place_update", in_place_update)
+        if max_batch_percent is not None:
+            pulumi.set(__self__, "max_batch_percent", max_batch_percent)
+        if max_unhealthy_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_percent", max_unhealthy_percent)
+        if pause_time_between_batches is not None:
+            pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
+
+    @property
+    @pulumi.getter(name="inPlaceUpdate")
+    def in_place_update(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+        """
+        return pulumi.get(self, "in_place_update")
+
+    @in_place_update.setter
+    def in_place_update(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "in_place_update", value)
+
+    @property
+    @pulumi.getter(name="maxBatchPercent")
+    def max_batch_percent(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+        """
+        return pulumi.get(self, "max_batch_percent")
+
+    @max_batch_percent.setter
+    def max_batch_percent(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_batch_percent", value)
+
+    @property
+    @pulumi.getter(name="maxUnhealthyPercent")
+    def max_unhealthy_percent(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+        """
+        return pulumi.get(self, "max_unhealthy_percent")
+
+    @max_unhealthy_percent.setter
+    def max_unhealthy_percent(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_unhealthy_percent", value)
+
+    @property
+    @pulumi.getter(name="pauseTimeBetweenBatches")
+    def pause_time_between_batches(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+        """
+        return pulumi.get(self, "pause_time_between_batches")
+
+    @pause_time_between_batches.setter
+    def pause_time_between_batches(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "pause_time_between_batches", value)
+
+
+if not MYPY:
+    class UpdateProfileArgsDict(TypedDict):
+        """
+        Used by the customer to specify the way to update the Container Groups in NGroup.
+        """
+        rolling_update_profile: NotRequired[pulumi.Input['UpdateProfileRollingUpdateProfileArgsDict']]
+        """
+        This profile allows the customers to customize the rolling update.
+        """
+        update_mode: NotRequired[pulumi.Input[Union[builtins.str, 'NGroupUpdateMode']]]
+elif False:
+    UpdateProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class UpdateProfileArgs:
+    def __init__(__self__, *,
+                 rolling_update_profile: Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']] = None,
+                 update_mode: Optional[pulumi.Input[Union[builtins.str, 'NGroupUpdateMode']]] = None):
+        """
+        Used by the customer to specify the way to update the Container Groups in NGroup.
+        :param pulumi.Input['UpdateProfileRollingUpdateProfileArgs'] rolling_update_profile: This profile allows the customers to customize the rolling update.
+        """
+        if rolling_update_profile is not None:
+            pulumi.set(__self__, "rolling_update_profile", rolling_update_profile)
+        if update_mode is not None:
+            pulumi.set(__self__, "update_mode", update_mode)
+
+    @property
+    @pulumi.getter(name="rollingUpdateProfile")
+    def rolling_update_profile(self) -> Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']]:
+        """
+        This profile allows the customers to customize the rolling update.
+        """
+        return pulumi.get(self, "rolling_update_profile")
+
+    @rolling_update_profile.setter
+    def rolling_update_profile(self, value: Optional[pulumi.Input['UpdateProfileRollingUpdateProfileArgs']]):
+        pulumi.set(self, "rolling_update_profile", value)
+
+    @property
+    @pulumi.getter(name="updateMode")
+    def update_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'NGroupUpdateMode']]]:
+        return pulumi.get(self, "update_mode")
+
+    @update_mode.setter
+    def update_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'NGroupUpdateMode']]]):
+        pulumi.set(self, "update_mode", value)
 
 
 if not MYPY:

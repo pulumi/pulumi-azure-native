@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetPatchScheduleArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Default string modeled as parameter for auto generation to work correctly.
+        /// The name of the RedisPatchSchedule
         /// </summary>
         [Input("default", required: true)]
         public string Default { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetPatchScheduleInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Default string modeled as parameter for auto generation to work correctly.
+        /// The name of the RedisPatchSchedule
         /// </summary>
         [Input("default", required: true)]
         public Input<string> Default { get; set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.Redis
         /// List of patch schedules for a Redis cache.
         /// </summary>
         public readonly ImmutableArray<Outputs.ScheduleEntryResponse> ScheduleEntries;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Redis
 
             ImmutableArray<Outputs.ScheduleEntryResponse> scheduleEntries,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Redis
             Location = location;
             Name = name;
             ScheduleEntries = scheduleEntries;
+            SystemData = systemData;
             Type = type;
         }
     }

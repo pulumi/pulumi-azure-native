@@ -19,6 +19,8 @@ from ._enums import *
 
 __all__ = [
     'AzureActiveDirectoryAppResponse',
+    'AzureBlobResponse',
+    'BackupConfigurationResponse',
     'BackupFileInfoResponse',
     'BackupSetInfoResponse',
     'BlobShareResponse',
@@ -67,6 +69,8 @@ __all__ = [
     'DatabaseFileInfoResponse',
     'DatabaseInfoResponse',
     'DatabaseMigrationPropertiesSqlDbResponse',
+    'DatabaseMigrationPropertiesSqlMiResponse',
+    'DatabaseMigrationPropertiesSqlVmResponse',
     'DatabaseSummaryResultResponse',
     'DatabaseTableResponse',
     'ErrorInfoResponse',
@@ -90,6 +94,7 @@ __all__ = [
     'GetUserTablesSqlTaskInputResponse',
     'GetUserTablesSqlTaskOutputResponse',
     'GetUserTablesSqlTaskPropertiesResponse',
+    'ManagedServiceIdentityResponse',
     'MiSqlConnectionInfoResponse',
     'MigrateMISyncCompleteCommandInputResponse',
     'MigrateMISyncCompleteCommandOutputResponse',
@@ -166,6 +171,7 @@ __all__ = [
     'MigrateSyncCompleteCommandPropertiesResponse',
     'MigrationEligibilityInfoResponse',
     'MigrationReportResultResponse',
+    'MigrationStatusDetailsResponse',
     'MigrationValidationDatabaseSummaryResultResponse',
     'MigrationValidationOptionsResponse',
     'MigrationValidationResultResponse',
@@ -190,6 +196,7 @@ __all__ = [
     'MySqlConnectionInfoResponse',
     'NodeMonitoringDataResponse',
     'ODataErrorResponse',
+    'OfflineConfigurationResponse',
     'OracleConnectionInfoResponse',
     'OrphanedUserInfoResponse',
     'PostgreSqlConnectionInfoResponse',
@@ -202,14 +209,20 @@ __all__ = [
     'SelectedCertificateInputResponse',
     'ServerPropertiesResponse',
     'ServiceSkuResponse',
+    'SourceLocationResponse',
+    'SqlBackupFileInfoResponse',
+    'SqlBackupSetInfoResponse',
     'SqlConnectionInfoResponse',
     'SqlConnectionInformationResponse',
     'SqlDbMigrationStatusDetailsResponse',
     'SqlDbOfflineConfigurationResponse',
+    'SqlFileShareResponse',
     'SsisMigrationInfoResponse',
     'StartMigrationScenarioServerRoleResultResponse',
     'SyncMigrationDatabaseErrorEventResponse',
     'SystemDataResponse',
+    'TargetLocationResponse',
+    'UserAssignedIdentityResponse',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse',
     'ValidateMigrationInputSqlServerSqlMISyncTaskInputResponse',
     'ValidateMigrationInputSqlServerSqlMISyncTaskOutputResponse',
@@ -306,6 +319,154 @@ class AzureActiveDirectoryAppResponse(dict):
         Tenant id of the customer
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class AzureBlobResponse(dict):
+    """
+    Azure Blob Details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "authType":
+            suggest = "auth_type"
+        elif key == "blobContainerName":
+            suggest = "blob_container_name"
+        elif key == "storageAccountResourceId":
+            suggest = "storage_account_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureBlobResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureBlobResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureBlobResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: Optional[builtins.str] = None,
+                 auth_type: Optional[builtins.str] = None,
+                 blob_container_name: Optional[builtins.str] = None,
+                 identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
+                 storage_account_resource_id: Optional[builtins.str] = None):
+        """
+        Azure Blob Details
+        :param builtins.str account_key: Storage Account Key.
+        :param builtins.str auth_type: Authentication type used for accessing Azure Blob Storage.
+        :param builtins.str blob_container_name: Blob container name where backups are stored.
+        :param 'ManagedServiceIdentityResponse' identity: Identity details for authentication using a Managed Identity.
+        :param builtins.str storage_account_resource_id: Resource Id of the storage account where backups are stored.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[builtins.str]:
+        """
+        Storage Account Key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[builtins.str]:
+        """
+        Authentication type used for accessing Azure Blob Storage.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[builtins.str]:
+        """
+        Blob container name where backups are stored.
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
+        """
+        Identity details for authentication using a Managed Identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the storage account where backups are stored.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+
+@pulumi.output_type
+class BackupConfigurationResponse(dict):
+    """
+    Backup Configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sourceLocation":
+            suggest = "source_location"
+        elif key == "targetLocation":
+            suggest = "target_location"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackupConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackupConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackupConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 source_location: Optional['outputs.SourceLocationResponse'] = None,
+                 target_location: Optional['outputs.TargetLocationResponse'] = None):
+        """
+        Backup Configuration
+        :param 'SourceLocationResponse' source_location: Source location of backups.
+        :param 'TargetLocationResponse' target_location: Target location for copying backups.
+        """
+        if source_location is not None:
+            pulumi.set(__self__, "source_location", source_location)
+        if target_location is not None:
+            pulumi.set(__self__, "target_location", target_location)
+
+    @property
+    @pulumi.getter(name="sourceLocation")
+    def source_location(self) -> Optional['outputs.SourceLocationResponse']:
+        """
+        Source location of backups.
+        """
+        return pulumi.get(self, "source_location")
+
+    @property
+    @pulumi.getter(name="targetLocation")
+    def target_location(self) -> Optional['outputs.TargetLocationResponse']:
+        """
+        Target location for copying backups.
+        """
+        return pulumi.get(self, "target_location")
 
 
 @pulumi.output_type
@@ -4963,6 +5124,514 @@ class DatabaseMigrationPropertiesSqlDbResponse(dict):
 
 
 @pulumi.output_type
+class DatabaseMigrationPropertiesSqlMiResponse(dict):
+    """
+    Database Migration Resource properties for SQL Managed Instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "migrationFailureError":
+            suggest = "migration_failure_error"
+        elif key == "migrationStatus":
+            suggest = "migration_status"
+        elif key == "migrationStatusDetails":
+            suggest = "migration_status_details"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceServerName":
+            suggest = "source_server_name"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "backupConfiguration":
+            suggest = "backup_configuration"
+        elif key == "migrationOperationId":
+            suggest = "migration_operation_id"
+        elif key == "migrationService":
+            suggest = "migration_service"
+        elif key == "offlineConfiguration":
+            suggest = "offline_configuration"
+        elif key == "provisioningError":
+            suggest = "provisioning_error"
+        elif key == "sourceDatabaseName":
+            suggest = "source_database_name"
+        elif key == "sourceSqlConnection":
+            suggest = "source_sql_connection"
+        elif key == "targetDatabaseCollation":
+            suggest = "target_database_collation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseMigrationPropertiesSqlMiResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseMigrationPropertiesSqlMiResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseMigrationPropertiesSqlMiResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ended_on: builtins.str,
+                 kind: builtins.str,
+                 migration_failure_error: 'outputs.ErrorInfoResponse',
+                 migration_status: builtins.str,
+                 migration_status_details: 'outputs.MigrationStatusDetailsResponse',
+                 provisioning_state: builtins.str,
+                 source_server_name: builtins.str,
+                 started_on: builtins.str,
+                 backup_configuration: Optional['outputs.BackupConfigurationResponse'] = None,
+                 migration_operation_id: Optional[builtins.str] = None,
+                 migration_service: Optional[builtins.str] = None,
+                 offline_configuration: Optional['outputs.OfflineConfigurationResponse'] = None,
+                 provisioning_error: Optional[builtins.str] = None,
+                 scope: Optional[builtins.str] = None,
+                 source_database_name: Optional[builtins.str] = None,
+                 source_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+                 target_database_collation: Optional[builtins.str] = None):
+        """
+        Database Migration Resource properties for SQL Managed Instance.
+        :param builtins.str ended_on: Database migration end time.
+        :param builtins.str kind: 
+               Expected value is 'SqlMi'.
+        :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
+        :param builtins.str migration_status: Migration status.
+        :param 'MigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
+        :param builtins.str provisioning_state: Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        :param builtins.str source_server_name: Name of the source sql server.
+        :param builtins.str started_on: Database migration start time.
+        :param 'BackupConfigurationResponse' backup_configuration: Backup configuration info.
+        :param builtins.str migration_operation_id: ID for current migration operation.
+        :param builtins.str migration_service: Resource Id of the Migration Service.
+        :param 'OfflineConfigurationResponse' offline_configuration: Offline configuration.
+        :param builtins.str provisioning_error: Error message for migration provisioning failure, if any.
+        :param builtins.str scope: Resource Id of the target resource.
+        :param builtins.str source_database_name: Name of the source database.
+        :param 'SqlConnectionInformationResponse' source_sql_connection: Source SQL Server connection details.
+        :param builtins.str target_database_collation: Database collation to be used for the target database.
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "kind", 'SqlMi')
+        pulumi.set(__self__, "migration_failure_error", migration_failure_error)
+        pulumi.set(__self__, "migration_status", migration_status)
+        pulumi.set(__self__, "migration_status_details", migration_status_details)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_server_name", source_server_name)
+        pulumi.set(__self__, "started_on", started_on)
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if offline_configuration is not None:
+            pulumi.set(__self__, "offline_configuration", offline_configuration)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> builtins.str:
+        """
+        Database migration end time.
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> builtins.str:
+        """
+
+        Expected value is 'SqlMi'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="migrationFailureError")
+    def migration_failure_error(self) -> 'outputs.ErrorInfoResponse':
+        """
+        Error details in case of migration failure.
+        """
+        return pulumi.get(self, "migration_failure_error")
+
+    @property
+    @pulumi.getter(name="migrationStatus")
+    def migration_status(self) -> builtins.str:
+        """
+        Migration status.
+        """
+        return pulumi.get(self, "migration_status")
+
+    @property
+    @pulumi.getter(name="migrationStatusDetails")
+    def migration_status_details(self) -> 'outputs.MigrationStatusDetailsResponse':
+        """
+        Detailed migration status. Not included by default.
+        """
+        return pulumi.get(self, "migration_status_details")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceServerName")
+    def source_server_name(self) -> builtins.str:
+        """
+        Name of the source sql server.
+        """
+        return pulumi.get(self, "source_server_name")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> builtins.str:
+        """
+        Database migration start time.
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional['outputs.BackupConfigurationResponse']:
+        """
+        Backup configuration info.
+        """
+        return pulumi.get(self, "backup_configuration")
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[builtins.str]:
+        """
+        ID for current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @property
+    @pulumi.getter(name="offlineConfiguration")
+    def offline_configuration(self) -> Optional['outputs.OfflineConfigurationResponse']:
+        """
+        Offline configuration.
+        """
+        return pulumi.get(self, "offline_configuration")
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[builtins.str]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the target resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[builtins.str]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional['outputs.SqlConnectionInformationResponse']:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[builtins.str]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+
+@pulumi.output_type
+class DatabaseMigrationPropertiesSqlVmResponse(dict):
+    """
+    Database Migration Resource properties for SQL Virtual Machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "endedOn":
+            suggest = "ended_on"
+        elif key == "migrationFailureError":
+            suggest = "migration_failure_error"
+        elif key == "migrationStatus":
+            suggest = "migration_status"
+        elif key == "migrationStatusDetails":
+            suggest = "migration_status_details"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sourceServerName":
+            suggest = "source_server_name"
+        elif key == "startedOn":
+            suggest = "started_on"
+        elif key == "backupConfiguration":
+            suggest = "backup_configuration"
+        elif key == "migrationOperationId":
+            suggest = "migration_operation_id"
+        elif key == "migrationService":
+            suggest = "migration_service"
+        elif key == "offlineConfiguration":
+            suggest = "offline_configuration"
+        elif key == "provisioningError":
+            suggest = "provisioning_error"
+        elif key == "sourceDatabaseName":
+            suggest = "source_database_name"
+        elif key == "sourceSqlConnection":
+            suggest = "source_sql_connection"
+        elif key == "targetDatabaseCollation":
+            suggest = "target_database_collation"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseMigrationPropertiesSqlVmResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DatabaseMigrationPropertiesSqlVmResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DatabaseMigrationPropertiesSqlVmResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ended_on: builtins.str,
+                 kind: builtins.str,
+                 migration_failure_error: 'outputs.ErrorInfoResponse',
+                 migration_status: builtins.str,
+                 migration_status_details: 'outputs.MigrationStatusDetailsResponse',
+                 provisioning_state: builtins.str,
+                 source_server_name: builtins.str,
+                 started_on: builtins.str,
+                 backup_configuration: Optional['outputs.BackupConfigurationResponse'] = None,
+                 migration_operation_id: Optional[builtins.str] = None,
+                 migration_service: Optional[builtins.str] = None,
+                 offline_configuration: Optional['outputs.OfflineConfigurationResponse'] = None,
+                 provisioning_error: Optional[builtins.str] = None,
+                 scope: Optional[builtins.str] = None,
+                 source_database_name: Optional[builtins.str] = None,
+                 source_sql_connection: Optional['outputs.SqlConnectionInformationResponse'] = None,
+                 target_database_collation: Optional[builtins.str] = None):
+        """
+        Database Migration Resource properties for SQL Virtual Machine.
+        :param builtins.str ended_on: Database migration end time.
+        :param builtins.str kind: 
+               Expected value is 'SqlVm'.
+        :param 'ErrorInfoResponse' migration_failure_error: Error details in case of migration failure.
+        :param builtins.str migration_status: Migration status.
+        :param 'MigrationStatusDetailsResponse' migration_status_details: Detailed migration status. Not included by default.
+        :param builtins.str provisioning_state: Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        :param builtins.str source_server_name: Name of the source sql server.
+        :param builtins.str started_on: Database migration start time.
+        :param 'BackupConfigurationResponse' backup_configuration: Backup configuration info.
+        :param builtins.str migration_operation_id: ID for current migration operation.
+        :param builtins.str migration_service: Resource Id of the Migration Service.
+        :param 'OfflineConfigurationResponse' offline_configuration: Offline configuration.
+        :param builtins.str provisioning_error: Error message for migration provisioning failure, if any.
+        :param builtins.str scope: Resource Id of the target resource.
+        :param builtins.str source_database_name: Name of the source database.
+        :param 'SqlConnectionInformationResponse' source_sql_connection: Source SQL Server connection details.
+        :param builtins.str target_database_collation: Database collation to be used for the target database.
+        """
+        pulumi.set(__self__, "ended_on", ended_on)
+        pulumi.set(__self__, "kind", 'SqlVm')
+        pulumi.set(__self__, "migration_failure_error", migration_failure_error)
+        pulumi.set(__self__, "migration_status", migration_status)
+        pulumi.set(__self__, "migration_status_details", migration_status_details)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "source_server_name", source_server_name)
+        pulumi.set(__self__, "started_on", started_on)
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if offline_configuration is not None:
+            pulumi.set(__self__, "offline_configuration", offline_configuration)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+
+    @property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> builtins.str:
+        """
+        Database migration end time.
+        """
+        return pulumi.get(self, "ended_on")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> builtins.str:
+        """
+
+        Expected value is 'SqlVm'.
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter(name="migrationFailureError")
+    def migration_failure_error(self) -> 'outputs.ErrorInfoResponse':
+        """
+        Error details in case of migration failure.
+        """
+        return pulumi.get(self, "migration_failure_error")
+
+    @property
+    @pulumi.getter(name="migrationStatus")
+    def migration_status(self) -> builtins.str:
+        """
+        Migration status.
+        """
+        return pulumi.get(self, "migration_status")
+
+    @property
+    @pulumi.getter(name="migrationStatusDetails")
+    def migration_status_details(self) -> 'outputs.MigrationStatusDetailsResponse':
+        """
+        Detailed migration status. Not included by default.
+        """
+        return pulumi.get(self, "migration_status_details")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning State of migration. ProvisioningState as Succeeded implies that validations have been performed and migration has started.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="sourceServerName")
+    def source_server_name(self) -> builtins.str:
+        """
+        Name of the source sql server.
+        """
+        return pulumi.get(self, "source_server_name")
+
+    @property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> builtins.str:
+        """
+        Database migration start time.
+        """
+        return pulumi.get(self, "started_on")
+
+    @property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional['outputs.BackupConfigurationResponse']:
+        """
+        Backup configuration info.
+        """
+        return pulumi.get(self, "backup_configuration")
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[builtins.str]:
+        """
+        ID for current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @property
+    @pulumi.getter(name="offlineConfiguration")
+    def offline_configuration(self) -> Optional['outputs.OfflineConfigurationResponse']:
+        """
+        Offline configuration.
+        """
+        return pulumi.get(self, "offline_configuration")
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[builtins.str]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the target resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[builtins.str]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional['outputs.SqlConnectionInformationResponse']:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[builtins.str]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+
+@pulumi.output_type
 class DatabaseSummaryResultResponse(dict):
     """
     Summary of database results in the migration
@@ -6795,6 +7464,83 @@ class GetUserTablesSqlTaskPropertiesResponse(dict):
         Task id 
         """
         return pulumi.get(self, "task_id")
+
+
+@pulumi.output_type
+class ManagedServiceIdentityResponse(dict):
+    """
+    Managed service identity (system assigned and/or user assigned identities)
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedServiceIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedServiceIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: builtins.str,
+                 tenant_id: builtins.str,
+                 type: builtins.str,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param builtins.str principal_id: The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param builtins.str tenant_id: The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        :param builtins.str type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param Mapping[str, 'UserAssignedIdentityResponse'] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentityResponse']]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
 
 
 @pulumi.output_type
@@ -16321,6 +17067,201 @@ class MigrationReportResultResponse(dict):
 
 
 @pulumi.output_type
+class MigrationStatusDetailsResponse(dict):
+    """
+    Detailed status of current migration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "activeBackupSets":
+            suggest = "active_backup_sets"
+        elif key == "blobContainerName":
+            suggest = "blob_container_name"
+        elif key == "completeRestoreErrorMessage":
+            suggest = "complete_restore_error_message"
+        elif key == "currentRestoringFilename":
+            suggest = "current_restoring_filename"
+        elif key == "fileUploadBlockingErrors":
+            suggest = "file_upload_blocking_errors"
+        elif key == "fullBackupSetInfo":
+            suggest = "full_backup_set_info"
+        elif key == "invalidFiles":
+            suggest = "invalid_files"
+        elif key == "isFullBackupRestored":
+            suggest = "is_full_backup_restored"
+        elif key == "lastRestoredBackupSetInfo":
+            suggest = "last_restored_backup_set_info"
+        elif key == "lastRestoredFilename":
+            suggest = "last_restored_filename"
+        elif key == "migrationState":
+            suggest = "migration_state"
+        elif key == "pendingLogBackupsCount":
+            suggest = "pending_log_backups_count"
+        elif key == "restoreBlockingReason":
+            suggest = "restore_blocking_reason"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationStatusDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationStatusDetailsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationStatusDetailsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 active_backup_sets: Sequence['outputs.SqlBackupSetInfoResponse'],
+                 blob_container_name: builtins.str,
+                 complete_restore_error_message: builtins.str,
+                 current_restoring_filename: builtins.str,
+                 file_upload_blocking_errors: Sequence[builtins.str],
+                 full_backup_set_info: 'outputs.SqlBackupSetInfoResponse',
+                 invalid_files: Sequence[builtins.str],
+                 is_full_backup_restored: builtins.bool,
+                 last_restored_backup_set_info: 'outputs.SqlBackupSetInfoResponse',
+                 last_restored_filename: builtins.str,
+                 migration_state: builtins.str,
+                 pending_log_backups_count: builtins.int,
+                 restore_blocking_reason: builtins.str):
+        """
+        Detailed status of current migration.
+        :param Sequence['SqlBackupSetInfoResponse'] active_backup_sets: Backup sets that are currently active.
+        :param builtins.str blob_container_name: Name of blob container.
+        :param builtins.str complete_restore_error_message: Complete restore error message, if any
+        :param builtins.str current_restoring_filename: File name that is currently being restored.
+        :param Sequence[builtins.str] file_upload_blocking_errors: File upload blocking errors, if any.
+        :param 'SqlBackupSetInfoResponse' full_backup_set_info: Details of full backup set.
+        :param Sequence[builtins.str] invalid_files: Files that are not valid backup files.
+        :param builtins.bool is_full_backup_restored: Whether full backup has been applied to the target database or not.
+        :param 'SqlBackupSetInfoResponse' last_restored_backup_set_info: Last applied backup set information.
+        :param builtins.str last_restored_filename: Last restored file name.
+        :param builtins.str migration_state: Current State of Migration.
+        :param builtins.int pending_log_backups_count: Total pending log backups.
+        :param builtins.str restore_blocking_reason: Restore blocking reason, if any
+        """
+        pulumi.set(__self__, "active_backup_sets", active_backup_sets)
+        pulumi.set(__self__, "blob_container_name", blob_container_name)
+        pulumi.set(__self__, "complete_restore_error_message", complete_restore_error_message)
+        pulumi.set(__self__, "current_restoring_filename", current_restoring_filename)
+        pulumi.set(__self__, "file_upload_blocking_errors", file_upload_blocking_errors)
+        pulumi.set(__self__, "full_backup_set_info", full_backup_set_info)
+        pulumi.set(__self__, "invalid_files", invalid_files)
+        pulumi.set(__self__, "is_full_backup_restored", is_full_backup_restored)
+        pulumi.set(__self__, "last_restored_backup_set_info", last_restored_backup_set_info)
+        pulumi.set(__self__, "last_restored_filename", last_restored_filename)
+        pulumi.set(__self__, "migration_state", migration_state)
+        pulumi.set(__self__, "pending_log_backups_count", pending_log_backups_count)
+        pulumi.set(__self__, "restore_blocking_reason", restore_blocking_reason)
+
+    @property
+    @pulumi.getter(name="activeBackupSets")
+    def active_backup_sets(self) -> Sequence['outputs.SqlBackupSetInfoResponse']:
+        """
+        Backup sets that are currently active.
+        """
+        return pulumi.get(self, "active_backup_sets")
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> builtins.str:
+        """
+        Name of blob container.
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @property
+    @pulumi.getter(name="completeRestoreErrorMessage")
+    def complete_restore_error_message(self) -> builtins.str:
+        """
+        Complete restore error message, if any
+        """
+        return pulumi.get(self, "complete_restore_error_message")
+
+    @property
+    @pulumi.getter(name="currentRestoringFilename")
+    def current_restoring_filename(self) -> builtins.str:
+        """
+        File name that is currently being restored.
+        """
+        return pulumi.get(self, "current_restoring_filename")
+
+    @property
+    @pulumi.getter(name="fileUploadBlockingErrors")
+    def file_upload_blocking_errors(self) -> Sequence[builtins.str]:
+        """
+        File upload blocking errors, if any.
+        """
+        return pulumi.get(self, "file_upload_blocking_errors")
+
+    @property
+    @pulumi.getter(name="fullBackupSetInfo")
+    def full_backup_set_info(self) -> 'outputs.SqlBackupSetInfoResponse':
+        """
+        Details of full backup set.
+        """
+        return pulumi.get(self, "full_backup_set_info")
+
+    @property
+    @pulumi.getter(name="invalidFiles")
+    def invalid_files(self) -> Sequence[builtins.str]:
+        """
+        Files that are not valid backup files.
+        """
+        return pulumi.get(self, "invalid_files")
+
+    @property
+    @pulumi.getter(name="isFullBackupRestored")
+    def is_full_backup_restored(self) -> builtins.bool:
+        """
+        Whether full backup has been applied to the target database or not.
+        """
+        return pulumi.get(self, "is_full_backup_restored")
+
+    @property
+    @pulumi.getter(name="lastRestoredBackupSetInfo")
+    def last_restored_backup_set_info(self) -> 'outputs.SqlBackupSetInfoResponse':
+        """
+        Last applied backup set information.
+        """
+        return pulumi.get(self, "last_restored_backup_set_info")
+
+    @property
+    @pulumi.getter(name="lastRestoredFilename")
+    def last_restored_filename(self) -> builtins.str:
+        """
+        Last restored file name.
+        """
+        return pulumi.get(self, "last_restored_filename")
+
+    @property
+    @pulumi.getter(name="migrationState")
+    def migration_state(self) -> builtins.str:
+        """
+        Current State of Migration.
+        """
+        return pulumi.get(self, "migration_state")
+
+    @property
+    @pulumi.getter(name="pendingLogBackupsCount")
+    def pending_log_backups_count(self) -> builtins.int:
+        """
+        Total pending log backups.
+        """
+        return pulumi.get(self, "pending_log_backups_count")
+
+    @property
+    @pulumi.getter(name="restoreBlockingReason")
+    def restore_blocking_reason(self) -> builtins.str:
+        """
+        Restore blocking reason, if any
+        """
+        return pulumi.get(self, "restore_blocking_reason")
+
+
+@pulumi.output_type
 class MigrationValidationDatabaseSummaryResultResponse(dict):
     """
     Migration Validation Database level summary result
@@ -18788,6 +19729,58 @@ class ODataErrorResponse(dict):
 
 
 @pulumi.output_type
+class OfflineConfigurationResponse(dict):
+    """
+    Offline configuration
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastBackupName":
+            suggest = "last_backup_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OfflineConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OfflineConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OfflineConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 last_backup_name: Optional[builtins.str] = None,
+                 offline: Optional[builtins.bool] = None):
+        """
+        Offline configuration
+        :param builtins.str last_backup_name: Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
+        :param builtins.bool offline: Offline migration
+        """
+        if last_backup_name is not None:
+            pulumi.set(__self__, "last_backup_name", last_backup_name)
+        if offline is not None:
+            pulumi.set(__self__, "offline", offline)
+
+    @property
+    @pulumi.getter(name="lastBackupName")
+    def last_backup_name(self) -> Optional[builtins.str]:
+        """
+        Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
+        """
+        return pulumi.get(self, "last_backup_name")
+
+    @property
+    @pulumi.getter
+    def offline(self) -> Optional[builtins.bool]:
+        """
+        Offline migration
+        """
+        return pulumi.get(self, "offline")
+
+
+@pulumi.output_type
 class OracleConnectionInfoResponse(dict):
     """
     Information for connecting to Oracle server
@@ -19882,6 +20875,370 @@ class ServiceSkuResponse(dict):
 
 
 @pulumi.output_type
+class SourceLocationResponse(dict):
+    """
+    Source Location details of backups.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileStorageType":
+            suggest = "file_storage_type"
+        elif key == "azureBlob":
+            suggest = "azure_blob"
+        elif key == "fileShare":
+            suggest = "file_share"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SourceLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SourceLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SourceLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_storage_type: builtins.str,
+                 azure_blob: Optional['outputs.AzureBlobResponse'] = None,
+                 file_share: Optional['outputs.SqlFileShareResponse'] = None):
+        """
+        Source Location details of backups.
+        :param builtins.str file_storage_type: Backup storage Type.
+        :param 'AzureBlobResponse' azure_blob: Source Azure Blob.
+        :param 'SqlFileShareResponse' file_share: Source File share.
+        """
+        pulumi.set(__self__, "file_storage_type", file_storage_type)
+        if azure_blob is not None:
+            pulumi.set(__self__, "azure_blob", azure_blob)
+        if file_share is not None:
+            pulumi.set(__self__, "file_share", file_share)
+
+    @property
+    @pulumi.getter(name="fileStorageType")
+    def file_storage_type(self) -> builtins.str:
+        """
+        Backup storage Type.
+        """
+        return pulumi.get(self, "file_storage_type")
+
+    @property
+    @pulumi.getter(name="azureBlob")
+    def azure_blob(self) -> Optional['outputs.AzureBlobResponse']:
+        """
+        Source Azure Blob.
+        """
+        return pulumi.get(self, "azure_blob")
+
+    @property
+    @pulumi.getter(name="fileShare")
+    def file_share(self) -> Optional['outputs.SqlFileShareResponse']:
+        """
+        Source File share.
+        """
+        return pulumi.get(self, "file_share")
+
+
+@pulumi.output_type
+class SqlBackupFileInfoResponse(dict):
+    """
+    Information of backup file
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "copyDuration":
+            suggest = "copy_duration"
+        elif key == "copyThroughput":
+            suggest = "copy_throughput"
+        elif key == "dataRead":
+            suggest = "data_read"
+        elif key == "dataWritten":
+            suggest = "data_written"
+        elif key == "familySequenceNumber":
+            suggest = "family_sequence_number"
+        elif key == "fileName":
+            suggest = "file_name"
+        elif key == "totalSize":
+            suggest = "total_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlBackupFileInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlBackupFileInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlBackupFileInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 copy_duration: builtins.int,
+                 copy_throughput: builtins.float,
+                 data_read: builtins.float,
+                 data_written: builtins.float,
+                 family_sequence_number: builtins.int,
+                 file_name: builtins.str,
+                 status: builtins.str,
+                 total_size: builtins.float):
+        """
+        Information of backup file
+        :param builtins.int copy_duration: Copy Duration in seconds
+        :param builtins.float copy_throughput: Copy throughput in KBps
+        :param builtins.float data_read: Bytes read
+        :param builtins.float data_written: Bytes written
+        :param builtins.int family_sequence_number: Media family sequence number
+        :param builtins.str file_name: File name.
+        :param builtins.str status: Status of the file. (Initial, Uploading, Uploaded, Restoring, Restored or Skipped)
+        :param builtins.float total_size: File size in bytes
+        """
+        pulumi.set(__self__, "copy_duration", copy_duration)
+        pulumi.set(__self__, "copy_throughput", copy_throughput)
+        pulumi.set(__self__, "data_read", data_read)
+        pulumi.set(__self__, "data_written", data_written)
+        pulumi.set(__self__, "family_sequence_number", family_sequence_number)
+        pulumi.set(__self__, "file_name", file_name)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "total_size", total_size)
+
+    @property
+    @pulumi.getter(name="copyDuration")
+    def copy_duration(self) -> builtins.int:
+        """
+        Copy Duration in seconds
+        """
+        return pulumi.get(self, "copy_duration")
+
+    @property
+    @pulumi.getter(name="copyThroughput")
+    def copy_throughput(self) -> builtins.float:
+        """
+        Copy throughput in KBps
+        """
+        return pulumi.get(self, "copy_throughput")
+
+    @property
+    @pulumi.getter(name="dataRead")
+    def data_read(self) -> builtins.float:
+        """
+        Bytes read
+        """
+        return pulumi.get(self, "data_read")
+
+    @property
+    @pulumi.getter(name="dataWritten")
+    def data_written(self) -> builtins.float:
+        """
+        Bytes written
+        """
+        return pulumi.get(self, "data_written")
+
+    @property
+    @pulumi.getter(name="familySequenceNumber")
+    def family_sequence_number(self) -> builtins.int:
+        """
+        Media family sequence number
+        """
+        return pulumi.get(self, "family_sequence_number")
+
+    @property
+    @pulumi.getter(name="fileName")
+    def file_name(self) -> builtins.str:
+        """
+        File name.
+        """
+        return pulumi.get(self, "file_name")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        Status of the file. (Initial, Uploading, Uploaded, Restoring, Restored or Skipped)
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="totalSize")
+    def total_size(self) -> builtins.float:
+        """
+        File size in bytes
+        """
+        return pulumi.get(self, "total_size")
+
+
+@pulumi.output_type
+class SqlBackupSetInfoResponse(dict):
+    """
+    Information of backup set
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backupFinishDate":
+            suggest = "backup_finish_date"
+        elif key == "backupSetId":
+            suggest = "backup_set_id"
+        elif key == "backupStartDate":
+            suggest = "backup_start_date"
+        elif key == "backupType":
+            suggest = "backup_type"
+        elif key == "familyCount":
+            suggest = "family_count"
+        elif key == "firstLSN":
+            suggest = "first_lsn"
+        elif key == "hasBackupChecksums":
+            suggest = "has_backup_checksums"
+        elif key == "ignoreReasons":
+            suggest = "ignore_reasons"
+        elif key == "isBackupRestored":
+            suggest = "is_backup_restored"
+        elif key == "lastLSN":
+            suggest = "last_lsn"
+        elif key == "listOfBackupFiles":
+            suggest = "list_of_backup_files"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlBackupSetInfoResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlBackupSetInfoResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlBackupSetInfoResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backup_finish_date: builtins.str,
+                 backup_set_id: builtins.str,
+                 backup_start_date: builtins.str,
+                 backup_type: builtins.str,
+                 family_count: builtins.int,
+                 first_lsn: builtins.str,
+                 has_backup_checksums: builtins.bool,
+                 ignore_reasons: Sequence[builtins.str],
+                 is_backup_restored: builtins.bool,
+                 last_lsn: builtins.str,
+                 list_of_backup_files: Sequence['outputs.SqlBackupFileInfoResponse']):
+        """
+        Information of backup set
+        :param builtins.str backup_finish_date: Backup end time.
+        :param builtins.str backup_set_id: Backup set id.
+        :param builtins.str backup_start_date: Backup start date.
+        :param builtins.str backup_type: Backup type.
+        :param builtins.int family_count: Media family count
+        :param builtins.str first_lsn: First LSN of the backup set.
+        :param builtins.bool has_backup_checksums: Has Backup Checksums
+        :param Sequence[builtins.str] ignore_reasons: The reasons why the backup set is ignored
+        :param builtins.bool is_backup_restored: Whether this backup set has been restored or not.
+        :param builtins.str last_lsn: Last LSN of the backup set.
+        :param Sequence['SqlBackupFileInfoResponse'] list_of_backup_files: List of files in the backup set.
+        """
+        pulumi.set(__self__, "backup_finish_date", backup_finish_date)
+        pulumi.set(__self__, "backup_set_id", backup_set_id)
+        pulumi.set(__self__, "backup_start_date", backup_start_date)
+        pulumi.set(__self__, "backup_type", backup_type)
+        pulumi.set(__self__, "family_count", family_count)
+        pulumi.set(__self__, "first_lsn", first_lsn)
+        pulumi.set(__self__, "has_backup_checksums", has_backup_checksums)
+        pulumi.set(__self__, "ignore_reasons", ignore_reasons)
+        pulumi.set(__self__, "is_backup_restored", is_backup_restored)
+        pulumi.set(__self__, "last_lsn", last_lsn)
+        pulumi.set(__self__, "list_of_backup_files", list_of_backup_files)
+
+    @property
+    @pulumi.getter(name="backupFinishDate")
+    def backup_finish_date(self) -> builtins.str:
+        """
+        Backup end time.
+        """
+        return pulumi.get(self, "backup_finish_date")
+
+    @property
+    @pulumi.getter(name="backupSetId")
+    def backup_set_id(self) -> builtins.str:
+        """
+        Backup set id.
+        """
+        return pulumi.get(self, "backup_set_id")
+
+    @property
+    @pulumi.getter(name="backupStartDate")
+    def backup_start_date(self) -> builtins.str:
+        """
+        Backup start date.
+        """
+        return pulumi.get(self, "backup_start_date")
+
+    @property
+    @pulumi.getter(name="backupType")
+    def backup_type(self) -> builtins.str:
+        """
+        Backup type.
+        """
+        return pulumi.get(self, "backup_type")
+
+    @property
+    @pulumi.getter(name="familyCount")
+    def family_count(self) -> builtins.int:
+        """
+        Media family count
+        """
+        return pulumi.get(self, "family_count")
+
+    @property
+    @pulumi.getter(name="firstLSN")
+    def first_lsn(self) -> builtins.str:
+        """
+        First LSN of the backup set.
+        """
+        return pulumi.get(self, "first_lsn")
+
+    @property
+    @pulumi.getter(name="hasBackupChecksums")
+    def has_backup_checksums(self) -> builtins.bool:
+        """
+        Has Backup Checksums
+        """
+        return pulumi.get(self, "has_backup_checksums")
+
+    @property
+    @pulumi.getter(name="ignoreReasons")
+    def ignore_reasons(self) -> Sequence[builtins.str]:
+        """
+        The reasons why the backup set is ignored
+        """
+        return pulumi.get(self, "ignore_reasons")
+
+    @property
+    @pulumi.getter(name="isBackupRestored")
+    def is_backup_restored(self) -> builtins.bool:
+        """
+        Whether this backup set has been restored or not.
+        """
+        return pulumi.get(self, "is_backup_restored")
+
+    @property
+    @pulumi.getter(name="lastLSN")
+    def last_lsn(self) -> builtins.str:
+        """
+        Last LSN of the backup set.
+        """
+        return pulumi.get(self, "last_lsn")
+
+    @property
+    @pulumi.getter(name="listOfBackupFiles")
+    def list_of_backup_files(self) -> Sequence['outputs.SqlBackupFileInfoResponse']:
+        """
+        List of files in the backup set.
+        """
+        return pulumi.get(self, "list_of_backup_files")
+
+
+@pulumi.output_type
 class SqlConnectionInfoResponse(dict):
     """
     Information for connecting to SQL database server
@@ -20291,6 +21648,41 @@ class SqlDbOfflineConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class SqlFileShareResponse(dict):
+    """
+    File share
+    """
+    def __init__(__self__, *,
+                 path: Optional[builtins.str] = None,
+                 username: Optional[builtins.str] = None):
+        """
+        File share
+        :param builtins.str path: Location as SMB share or local drive where backups are placed.
+        :param builtins.str username: Username to access the file share location for backups.
+        """
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[builtins.str]:
+        """
+        Location as SMB share or local drive where backups are placed.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[builtins.str]:
+        """
+        Username to access the file share location for backups.
+        """
+        return pulumi.get(self, "username")
+
+
+@pulumi.output_type
 class SsisMigrationInfoResponse(dict):
     """
     SSIS migration info with SSIS store type, overwrite policy.
@@ -20562,6 +21954,112 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[builtins.str]:
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetLocationResponse(dict):
+    """
+    Target Location details for optional copy of backups
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "accountKey":
+            suggest = "account_key"
+        elif key == "storageAccountResourceId":
+            suggest = "storage_account_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetLocationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetLocationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetLocationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 account_key: Optional[builtins.str] = None,
+                 storage_account_resource_id: Optional[builtins.str] = None):
+        """
+        Target Location details for optional copy of backups
+        :param builtins.str account_key: Storage Account Key.
+        :param builtins.str storage_account_resource_id: Resource Id of the storage account copying backups.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[builtins.str]:
+        """
+        Storage Account Key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[builtins.str]:
+        """
+        Resource Id of the storage account copying backups.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+
+@pulumi.output_type
+class UserAssignedIdentityResponse(dict):
+    """
+    User assigned identity properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "principalId":
+            suggest = "principal_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UserAssignedIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UserAssignedIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: builtins.str,
+                 principal_id: builtins.str):
+        """
+        User assigned identity properties
+        :param builtins.str client_id: The client ID of the assigned identity.
+        :param builtins.str principal_id: The principal ID of the assigned identity.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> builtins.str:
+        """
+        The client ID of the assigned identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
 
 @pulumi.output_type

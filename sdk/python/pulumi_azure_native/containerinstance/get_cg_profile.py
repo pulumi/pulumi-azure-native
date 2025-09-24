@@ -26,7 +26,7 @@ __all__ = [
 @pulumi.output_type
 class GetCGProfileResult:
     """
-    container group profile object
+    A container group profile object
     """
     def __init__(__self__, azure_api_version=None, confidential_compute_properties=None, containers=None, diagnostics=None, encryption_properties=None, extensions=None, id=None, image_registry_credentials=None, init_containers=None, ip_address=None, location=None, name=None, os_type=None, priority=None, registered_revisions=None, restart_policy=None, revision=None, security_context=None, shutdown_grace_period=None, sku=None, system_data=None, tags=None, time_to_live=None, type=None, use_krypton=None, volumes=None, zones=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -77,8 +77,8 @@ class GetCGProfileResult:
         if restart_policy and not isinstance(restart_policy, str):
             raise TypeError("Expected argument 'restart_policy' to be a str")
         pulumi.set(__self__, "restart_policy", restart_policy)
-        if revision and not isinstance(revision, float):
-            raise TypeError("Expected argument 'revision' to be a float")
+        if revision and not isinstance(revision, int):
+            raise TypeError("Expected argument 'revision' to be a int")
         pulumi.set(__self__, "revision", revision)
         if security_context and not isinstance(security_context, dict):
             raise TypeError("Expected argument 'security_context' to be a dict")
@@ -129,7 +129,7 @@ class GetCGProfileResult:
 
     @property
     @pulumi.getter
-    def containers(self) -> Optional[Sequence['outputs.ContainerResponse']]:
+    def containers(self) -> Sequence['outputs.ContainerResponse']:
         """
         The containers within the container group.
         """
@@ -209,7 +209,7 @@ class GetCGProfileResult:
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[builtins.str]:
+    def os_type(self) -> builtins.str:
         """
         The operating system type required by the containers in the container group.
         """
@@ -225,7 +225,7 @@ class GetCGProfileResult:
 
     @property
     @pulumi.getter(name="registeredRevisions")
-    def registered_revisions(self) -> Optional[Sequence[builtins.float]]:
+    def registered_revisions(self) -> Sequence[builtins.int]:
         """
         Registered revisions are calculated at request time based off the records in the table logs.
         """
@@ -244,7 +244,7 @@ class GetCGProfileResult:
 
     @property
     @pulumi.getter
-    def revision(self) -> Optional[builtins.float]:
+    def revision(self) -> builtins.int:
         """
         Container group profile current revision number
         """
@@ -374,6 +374,8 @@ def get_cg_profile(container_group_profile_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-11-01-preview.
 
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str container_group_profile_name: ContainerGroupProfile name.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -419,6 +421,8 @@ def get_cg_profile_output(container_group_profile_name: Optional[pulumi.Input[bu
     Get the properties of the specified container group profile.
 
     Uses Azure REST API version 2024-11-01-preview.
+
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str container_group_profile_name: ContainerGroupProfile name.

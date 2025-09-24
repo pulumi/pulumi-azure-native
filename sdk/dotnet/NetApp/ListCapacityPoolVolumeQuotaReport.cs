@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.NetApp
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListCapacityPoolVolumeQuotaReportResult> InvokeAsync(ListCapacityPoolVolumeQuotaReportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCapacityPoolVolumeQuotaReportResult>("azure-native:netapp:listCapacityPoolVolumeQuotaReport", args ?? new ListCapacityPoolVolumeQuotaReportArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.NetApp
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCapacityPoolVolumeQuotaReportResult> Invoke(ListCapacityPoolVolumeQuotaReportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCapacityPoolVolumeQuotaReportResult>("azure-native:netapp:listCapacityPoolVolumeQuotaReport", args ?? new ListCapacityPoolVolumeQuotaReportInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.NetApp
         /// 
         /// Uses Azure REST API version 2024-09-01-preview.
         /// 
-        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-03-01-preview, 2024-05-01-preview, 2024-07-01-preview, 2025-01-01-preview, 2025-03-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native netapp [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCapacityPoolVolumeQuotaReportResult> Invoke(ListCapacityPoolVolumeQuotaReportInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListCapacityPoolVolumeQuotaReportResult>("azure-native:netapp:listCapacityPoolVolumeQuotaReport", args ?? new ListCapacityPoolVolumeQuotaReportInvokeArgs(), options.WithDefaults());

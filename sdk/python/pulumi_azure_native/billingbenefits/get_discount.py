@@ -28,31 +28,10 @@ class GetDiscountResult:
     """
     Resource definition for Discounts.
     """
-    def __init__(__self__, applied_scope_type=None, azure_api_version=None, benefit_resource_id=None, billing_account_resource_id=None, billing_profile_resource_id=None, customer_resource_id=None, display_name=None, entity_type=None, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, product_code=None, provisioning_state=None, sku=None, start_at=None, status=None, system_data=None, system_id=None, tags=None, type=None):
-        if applied_scope_type and not isinstance(applied_scope_type, str):
-            raise TypeError("Expected argument 'applied_scope_type' to be a str")
-        pulumi.set(__self__, "applied_scope_type", applied_scope_type)
+    def __init__(__self__, azure_api_version=None, etag=None, id=None, identity=None, kind=None, location=None, managed_by=None, name=None, plan=None, properties=None, sku=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
-        if benefit_resource_id and not isinstance(benefit_resource_id, str):
-            raise TypeError("Expected argument 'benefit_resource_id' to be a str")
-        pulumi.set(__self__, "benefit_resource_id", benefit_resource_id)
-        if billing_account_resource_id and not isinstance(billing_account_resource_id, str):
-            raise TypeError("Expected argument 'billing_account_resource_id' to be a str")
-        pulumi.set(__self__, "billing_account_resource_id", billing_account_resource_id)
-        if billing_profile_resource_id and not isinstance(billing_profile_resource_id, str):
-            raise TypeError("Expected argument 'billing_profile_resource_id' to be a str")
-        pulumi.set(__self__, "billing_profile_resource_id", billing_profile_resource_id)
-        if customer_resource_id and not isinstance(customer_resource_id, str):
-            raise TypeError("Expected argument 'customer_resource_id' to be a str")
-        pulumi.set(__self__, "customer_resource_id", customer_resource_id)
-        if display_name and not isinstance(display_name, str):
-            raise TypeError("Expected argument 'display_name' to be a str")
-        pulumi.set(__self__, "display_name", display_name)
-        if entity_type and not isinstance(entity_type, str):
-            raise TypeError("Expected argument 'entity_type' to be a str")
-        pulumi.set(__self__, "entity_type", entity_type)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -77,41 +56,21 @@ class GetDiscountResult:
         if plan and not isinstance(plan, dict):
             raise TypeError("Expected argument 'plan' to be a dict")
         pulumi.set(__self__, "plan", plan)
-        if product_code and not isinstance(product_code, str):
-            raise TypeError("Expected argument 'product_code' to be a str")
-        pulumi.set(__self__, "product_code", product_code)
-        if provisioning_state and not isinstance(provisioning_state, str):
-            raise TypeError("Expected argument 'provisioning_state' to be a str")
-        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if properties and not isinstance(properties, dict):
+            raise TypeError("Expected argument 'properties' to be a dict")
+        pulumi.set(__self__, "properties", properties)
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
-        if start_at and not isinstance(start_at, str):
-            raise TypeError("Expected argument 'start_at' to be a str")
-        pulumi.set(__self__, "start_at", start_at)
-        if status and not isinstance(status, str):
-            raise TypeError("Expected argument 'status' to be a str")
-        pulumi.set(__self__, "status", status)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
-        if system_id and not isinstance(system_id, str):
-            raise TypeError("Expected argument 'system_id' to be a str")
-        pulumi.set(__self__, "system_id", system_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="appliedScopeType")
-    def applied_scope_type(self) -> Optional[builtins.str]:
-        """
-        List of applied scopes supported for discounts.
-        """
-        return pulumi.get(self, "applied_scope_type")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -122,58 +81,10 @@ class GetDiscountResult:
         return pulumi.get(self, "azure_api_version")
 
     @property
-    @pulumi.getter(name="benefitResourceId")
-    def benefit_resource_id(self) -> builtins.str:
-        """
-        Fully-qualified identifier of the benefit under applicable benefit list.
-        """
-        return pulumi.get(self, "benefit_resource_id")
-
-    @property
-    @pulumi.getter(name="billingAccountResourceId")
-    def billing_account_resource_id(self) -> builtins.str:
-        """
-        Billing account resource id where the discount metadata is present.
-        """
-        return pulumi.get(self, "billing_account_resource_id")
-
-    @property
-    @pulumi.getter(name="billingProfileResourceId")
-    def billing_profile_resource_id(self) -> builtins.str:
-        """
-        Billing profile resource id where the discount is scoped to.
-        """
-        return pulumi.get(self, "billing_profile_resource_id")
-
-    @property
-    @pulumi.getter(name="customerResourceId")
-    def customer_resource_id(self) -> builtins.str:
-        """
-        Customer resource id where the discount is scoped to.
-        """
-        return pulumi.get(self, "customer_resource_id")
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> Optional[builtins.str]:
-        """
-        This defines a user friendly display name for the discount.
-        """
-        return pulumi.get(self, "display_name")
-
-    @property
-    @pulumi.getter(name="entityType")
-    def entity_type(self) -> builtins.str:
-        """
-        This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-        """
-        return pulumi.get(self, "entity_type")
-
-    @property
     @pulumi.getter
     def etag(self) -> builtins.str:
         """
-        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         """
         return pulumi.get(self, "etag")
 
@@ -234,20 +145,12 @@ class GetDiscountResult:
         return pulumi.get(self, "plan")
 
     @property
-    @pulumi.getter(name="productCode")
-    def product_code(self) -> builtins.str:
+    @pulumi.getter
+    def properties(self) -> Any:
         """
-        This is the catalog UPN for the product.
+        Discount properties
         """
-        return pulumi.get(self, "product_code")
-
-    @property
-    @pulumi.getter(name="provisioningState")
-    def provisioning_state(self) -> builtins.str:
-        """
-        The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
-        """
-        return pulumi.get(self, "provisioning_state")
+        return pulumi.get(self, "properties")
 
     @property
     @pulumi.getter
@@ -258,36 +161,12 @@ class GetDiscountResult:
         return pulumi.get(self, "sku")
 
     @property
-    @pulumi.getter(name="startAt")
-    def start_at(self) -> builtins.str:
-        """
-        Start date of the discount. Value is the date the discount started or will start in the future.
-        """
-        return pulumi.get(self, "start_at")
-
-    @property
-    @pulumi.getter
-    def status(self) -> builtins.str:
-        """
-        Represents the current status of the discount.
-        """
-        return pulumi.get(self, "status")
-
-    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
-
-    @property
-    @pulumi.getter(name="systemId")
-    def system_id(self) -> Optional[builtins.str]:
-        """
-        This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-        """
-        return pulumi.get(self, "system_id")
 
     @property
     @pulumi.getter
@@ -312,14 +191,7 @@ class AwaitableGetDiscountResult(GetDiscountResult):
         if False:
             yield self
         return GetDiscountResult(
-            applied_scope_type=self.applied_scope_type,
             azure_api_version=self.azure_api_version,
-            benefit_resource_id=self.benefit_resource_id,
-            billing_account_resource_id=self.billing_account_resource_id,
-            billing_profile_resource_id=self.billing_profile_resource_id,
-            customer_resource_id=self.customer_resource_id,
-            display_name=self.display_name,
-            entity_type=self.entity_type,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -328,13 +200,9 @@ class AwaitableGetDiscountResult(GetDiscountResult):
             managed_by=self.managed_by,
             name=self.name,
             plan=self.plan,
-            product_code=self.product_code,
-            provisioning_state=self.provisioning_state,
+            properties=self.properties,
             sku=self.sku,
-            start_at=self.start_at,
-            status=self.status,
             system_data=self.system_data,
-            system_id=self.system_id,
             tags=self.tags,
             type=self.type)
 
@@ -358,14 +226,7 @@ def get_discount(discount_name: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:billingbenefits:getDiscount', __args__, opts=opts, typ=GetDiscountResult).value
 
     return AwaitableGetDiscountResult(
-        applied_scope_type=pulumi.get(__ret__, 'applied_scope_type'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
-        benefit_resource_id=pulumi.get(__ret__, 'benefit_resource_id'),
-        billing_account_resource_id=pulumi.get(__ret__, 'billing_account_resource_id'),
-        billing_profile_resource_id=pulumi.get(__ret__, 'billing_profile_resource_id'),
-        customer_resource_id=pulumi.get(__ret__, 'customer_resource_id'),
-        display_name=pulumi.get(__ret__, 'display_name'),
-        entity_type=pulumi.get(__ret__, 'entity_type'),
         etag=pulumi.get(__ret__, 'etag'),
         id=pulumi.get(__ret__, 'id'),
         identity=pulumi.get(__ret__, 'identity'),
@@ -374,13 +235,9 @@ def get_discount(discount_name: Optional[builtins.str] = None,
         managed_by=pulumi.get(__ret__, 'managed_by'),
         name=pulumi.get(__ret__, 'name'),
         plan=pulumi.get(__ret__, 'plan'),
-        product_code=pulumi.get(__ret__, 'product_code'),
-        provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        properties=pulumi.get(__ret__, 'properties'),
         sku=pulumi.get(__ret__, 'sku'),
-        start_at=pulumi.get(__ret__, 'start_at'),
-        status=pulumi.get(__ret__, 'status'),
         system_data=pulumi.get(__ret__, 'system_data'),
-        system_id=pulumi.get(__ret__, 'system_id'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_discount_output(discount_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -401,14 +258,7 @@ def get_discount_output(discount_name: Optional[pulumi.Input[builtins.str]] = No
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:billingbenefits:getDiscount', __args__, opts=opts, typ=GetDiscountResult)
     return __ret__.apply(lambda __response__: GetDiscountResult(
-        applied_scope_type=pulumi.get(__response__, 'applied_scope_type'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
-        benefit_resource_id=pulumi.get(__response__, 'benefit_resource_id'),
-        billing_account_resource_id=pulumi.get(__response__, 'billing_account_resource_id'),
-        billing_profile_resource_id=pulumi.get(__response__, 'billing_profile_resource_id'),
-        customer_resource_id=pulumi.get(__response__, 'customer_resource_id'),
-        display_name=pulumi.get(__response__, 'display_name'),
-        entity_type=pulumi.get(__response__, 'entity_type'),
         etag=pulumi.get(__response__, 'etag'),
         id=pulumi.get(__response__, 'id'),
         identity=pulumi.get(__response__, 'identity'),
@@ -417,12 +267,8 @@ def get_discount_output(discount_name: Optional[pulumi.Input[builtins.str]] = No
         managed_by=pulumi.get(__response__, 'managed_by'),
         name=pulumi.get(__response__, 'name'),
         plan=pulumi.get(__response__, 'plan'),
-        product_code=pulumi.get(__response__, 'product_code'),
-        provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        properties=pulumi.get(__response__, 'properties'),
         sku=pulumi.get(__response__, 'sku'),
-        start_at=pulumi.get(__response__, 'start_at'),
-        status=pulumi.get(__response__, 'status'),
         system_data=pulumi.get(__response__, 'system_data'),
-        system_id=pulumi.get(__response__, 'system_id'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

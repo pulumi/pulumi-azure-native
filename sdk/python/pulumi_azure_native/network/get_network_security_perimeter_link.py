@@ -227,7 +227,7 @@ def get_network_security_perimeter_link(link_name: Optional[builtins.str] = None
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str link_name: The name of the NSP link.
@@ -266,7 +266,7 @@ def get_network_security_perimeter_link_output(link_name: Optional[pulumi.Input[
 
     Uses Azure REST API version 2024-06-01-preview.
 
-    Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str link_name: The name of the NSP link.

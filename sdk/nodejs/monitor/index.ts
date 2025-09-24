@@ -85,6 +85,11 @@ export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDi
 export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
 
+export { GetIssueArgs, GetIssueResult, GetIssueOutputArgs } from "./getIssue";
+export const getIssue: typeof import("./getIssue").getIssue = null as any;
+export const getIssueOutput: typeof import("./getIssue").getIssueOutput = null as any;
+utilities.lazyLoad(exports, ["getIssue","getIssueOutput"], () => require("./getIssue"));
+
 export { GetManagementGroupDiagnosticSettingArgs, GetManagementGroupDiagnosticSettingResult, GetManagementGroupDiagnosticSettingOutputArgs } from "./getManagementGroupDiagnosticSetting";
 export const getManagementGroupDiagnosticSetting: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSetting = null as any;
 export const getManagementGroupDiagnosticSettingOutput: typeof import("./getManagementGroupDiagnosticSetting").getManagementGroupDiagnosticSettingOutput = null as any;
@@ -130,10 +135,25 @@ export const getTenantActionGroup: typeof import("./getTenantActionGroup").getTe
 export const getTenantActionGroupOutput: typeof import("./getTenantActionGroup").getTenantActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTenantActionGroup","getTenantActionGroupOutput"], () => require("./getTenantActionGroup"));
 
+export { IssueArgs } from "./issue";
+export type Issue = import("./issue").Issue;
+export const Issue: typeof import("./issue").Issue = null as any;
+utilities.lazyLoad(exports, ["Issue"], () => require("./issue"));
+
 export { ListDiagnosticSettingsCategoryArgs, ListDiagnosticSettingsCategoryResult, ListDiagnosticSettingsCategoryOutputArgs } from "./listDiagnosticSettingsCategory";
 export const listDiagnosticSettingsCategory: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategory = null as any;
 export const listDiagnosticSettingsCategoryOutput: typeof import("./listDiagnosticSettingsCategory").listDiagnosticSettingsCategoryOutput = null as any;
 utilities.lazyLoad(exports, ["listDiagnosticSettingsCategory","listDiagnosticSettingsCategoryOutput"], () => require("./listDiagnosticSettingsCategory"));
+
+export { ListIssueAlertsArgs, ListIssueAlertsResult, ListIssueAlertsOutputArgs } from "./listIssueAlerts";
+export const listIssueAlerts: typeof import("./listIssueAlerts").listIssueAlerts = null as any;
+export const listIssueAlertsOutput: typeof import("./listIssueAlerts").listIssueAlertsOutput = null as any;
+utilities.lazyLoad(exports, ["listIssueAlerts","listIssueAlertsOutput"], () => require("./listIssueAlerts"));
+
+export { ListIssueResourcesArgs, ListIssueResourcesResult, ListIssueResourcesOutputArgs } from "./listIssueResources";
+export const listIssueResources: typeof import("./listIssueResources").listIssueResources = null as any;
+export const listIssueResourcesOutput: typeof import("./listIssueResources").listIssueResourcesOutput = null as any;
+utilities.lazyLoad(exports, ["listIssueResources","listIssueResourcesOutput"], () => require("./listIssueResources"));
 
 export { ManagementGroupDiagnosticSettingArgs } from "./managementGroupDiagnosticSetting";
 export type ManagementGroupDiagnosticSetting = import("./managementGroupDiagnosticSetting").ManagementGroupDiagnosticSetting;
@@ -204,6 +224,8 @@ const _module = {
                 return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
             case "azure-native:monitor:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:monitor:Issue":
+                return new Issue(name, <any>undefined, { urn })
             case "azure-native:monitor:ManagementGroupDiagnosticSetting":
                 return new ManagementGroupDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:MetricAlert":

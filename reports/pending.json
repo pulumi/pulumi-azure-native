@@ -116,10 +116,7 @@
   ],
   "AwsConnector": [],
   "AzureActiveDirectory": [],
-  "AzureArcData": [
-    "2024-05-01-preview",
-    "2025-03-01-preview"
-  ],
+  "AzureArcData": [],
   "AzureData": [],
   "AzureDataTransfer": [
     "2025-03-01-preview",
@@ -157,7 +154,8 @@
     "2024-12-01-preview",
     "2025-02-01-preview",
     "2025-04-01-preview",
-    "2025-06-01-preview"
+    "2025-06-01-preview",
+    "2025-09-15-preview"
   ],
   "AzureTerraform": [],
   "BareMetalInfrastructure": [],
@@ -190,7 +188,8 @@
   "CodeSigning": [],
   "CognitiveServices": [
     "2025-04-01-preview",
-    "2025-06-01"
+    "2025-06-01",
+    "2025-07-01-preview"
   ],
   "Commerce": [],
   "Communication": [
@@ -214,7 +213,8 @@
     "2024-07-01",
     "2024-11-01",
     "2024-11-04",
-    "2025-01-02"
+    "2025-01-02",
+    "2025-04-01"
   ],
   "ComputeSchedule": [],
   "ConfidentialLedger": [
@@ -223,7 +223,8 @@
     "2025-06-10-preview"
   ],
   "Confluent": [
-    "2025-07-17-preview"
+    "2025-07-17-preview",
+    "2025-08-18-preview"
   ],
   "ConnectedCache": [
     "2024-11-30-preview"
@@ -236,7 +237,8 @@
   "ContainerInstance": [
     "2024-09-01-preview",
     "2024-10-01-preview",
-    "2024-11-01-preview"
+    "2024-11-01-preview",
+    "2025-09-01"
   ],
   "ContainerRegistry": [
     "2019-12-01-preview",
@@ -347,7 +349,8 @@
     "2025-05-01",
     "2025-05-02-preview",
     "2025-06-02-preview",
-    "2025-07-01"
+    "2025-07-01",
+    "2025-07-02-preview"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -452,7 +455,8 @@
     "2024-02-01-preview",
     "2024-06-01-preview",
     "2024-10-01-preview",
-    "2024-12-01-preview"
+    "2024-12-01-preview",
+    "2024-12-30"
   ],
   "DBforPostgreSQL": [
     "2017-12-01-preview",
@@ -501,7 +505,8 @@
   "DataLakeStore": [],
   "DataMigration": [
     "2025-03-15-preview",
-    "2025-06-30"
+    "2025-06-30",
+    "2025-09-01-preview"
   ],
   "DataProtection": [
     "2025-02-01",
@@ -522,7 +527,8 @@
   "Datadog": [],
   "DelegatedNetwork": [],
   "DependencyMap": [
-    "2025-05-01-preview"
+    "2025-05-01-preview",
+    "2025-07-01-preview"
   ],
   "DesktopVirtualization": [
     "2024-04-08-preview",
@@ -548,7 +554,9 @@
     "2025-03-01-preview"
   ],
   "DevOps": [],
-  "DevOpsInfrastructure": [],
+  "DevOpsInfrastructure": [
+    "2025-09-20"
+  ],
   "DevSpaces": [],
   "DevTestLab": [],
   "DeviceProvisioningServices": [
@@ -556,7 +564,8 @@
   ],
   "DeviceRegistry": [
     "2024-11-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-10-01"
   ],
   "DeviceUpdate": [],
   "DigitalTwins": [],
@@ -576,6 +585,7 @@
   "Edge": [
     "2025-03-01-preview",
     "2025-06-01",
+    "2025-06-01-preview",
     "2025-08-01"
   ],
   "EdgeMarketplace": [
@@ -701,7 +711,8 @@
   ],
   "IoTCentral": [],
   "IoTFirmwareDefense": [
-    "2025-04-01-preview"
+    "2025-04-01-preview",
+    "2025-08-02"
   ],
   "IoTHub": [
     "2023-06-30-preview"
@@ -714,7 +725,8 @@
   "IoTOperationsMQ": [],
   "IoTOperationsOrchestrator": [],
   "KeyVault": [
-    "2024-12-01-preview"
+    "2024-12-01-preview",
+    "2025-05-01"
   ],
   "Kubernetes": [
     "2021-10-01",
@@ -727,7 +739,8 @@
     "2024-07-01-preview",
     "2024-07-15-preview",
     "2024-12-01-preview",
-    "2025-08-01-preview"
+    "2025-08-01-preview",
+    "2025-12-01-preview"
   ],
   "KubernetesConfiguration": [
     "2022-07-01",
@@ -803,7 +816,8 @@
     "2025-04-01",
     "2025-04-01-preview",
     "2025-06-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-09-01"
   ],
   "Maintenance": [],
   "ManagedIdentity": [
@@ -868,7 +882,8 @@
   "MongoCluster": [
     "2024-10-01-preview",
     "2025-04-01-preview",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-08-01-preview"
   ],
   "Monitor": [
     "2018-04-16",
@@ -906,6 +921,7 @@
     "2023-10-01-preview",
     "2023-12-01",
     "2024-01-01-preview",
+    "2024-03-01-preview",
     "2024-10-01-preview",
     "2025-01-01-preview",
     "2025-05-03-preview"
@@ -932,7 +948,8 @@
     "2025-01-01-preview",
     "2025-03-01",
     "2025-03-01-preview",
-    "2025-06-01"
+    "2025-06-01",
+    "2025-07-01-preview"
   ],
   "Network": [
     "2019-04-01",
@@ -977,15 +994,19 @@
     "2024-05-01",
     "2024-06-01-preview",
     "2024-07-01",
-    "2024-09-01-preview"
+    "2024-09-01-preview",
+    "2024-10-01"
   ],
-  "NetworkCloud": [],
+  "NetworkCloud": [
+    "2025-07-01-preview"
+  ],
   "NetworkFunction": [],
   "NotificationHubs": [],
   "OffAzure": [
     "2023-06-06",
     "2023-10-01-preview",
-    "2024-05-01-preview"
+    "2024-05-01-preview",
+    "2024-07-01-preview"
   ],
   "OffAzureSpringBoot": [],
   "OnlineExperimentation": [
@@ -1039,11 +1060,13 @@
   "ProviderHub": [],
   "Purview": [],
   "Quantum": [
-    "2025-01-01-preview"
+    "2025-01-01-preview",
+    "2025-08-11-preview"
   ],
   "Quota": [
     "2025-03-15-preview",
-    "2025-07-15"
+    "2025-07-15",
+    "2025-09-01"
   ],
   "RecommendationsService": [],
   "RecoveryServices": [
@@ -1113,7 +1136,9 @@
   ],
   "Scheduler": [],
   "Scom": [],
-  "Search": [],
+  "Search": [
+    "2025-10-01-preview"
+  ],
   "SecretSyncController": [],
   "Security": [
     "2019-01-01",
@@ -1152,6 +1177,8 @@
     "2025-02-01-preview",
     "2025-03-01",
     "2025-05-04-preview",
+    "2025-06-01",
+    "2025-07-01-preview",
     "2025-09-01-preview"
   ],
   "SecurityAndCompliance": [],
@@ -1172,7 +1199,8 @@
     "2025-03-01",
     "2025-04-01-preview",
     "2025-06-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-09-01"
   ],
   "SerialConsole": [],
   "ServiceBus": [
@@ -1246,10 +1274,15 @@
   ],
   "StorageActions": [],
   "StorageCache": [
-    "2024-07-01"
+    "2024-07-01",
+    "2025-07-01"
   ],
-  "StorageDiscovery": [],
-  "StorageMover": [],
+  "StorageDiscovery": [
+    "2025-09-01"
+  ],
+  "StorageMover": [
+    "2025-07-01"
+  ],
   "StoragePool": [],
   "StorageSync": [],
   "StreamAnalytics": [
