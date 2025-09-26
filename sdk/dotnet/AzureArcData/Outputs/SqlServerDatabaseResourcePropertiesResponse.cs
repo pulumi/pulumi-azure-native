@@ -34,6 +34,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? CreateMode;
         /// <summary>
+        /// Total size in MB for the data (mdf and ndf) files for this database.
+        /// </summary>
+        public readonly double? DataFileSizeMB;
+        /// <summary>
         /// Creation date of the database.
         /// </summary>
         public readonly string? DatabaseCreationDate;
@@ -54,6 +58,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string LastDatabaseUploadTime;
         /// <summary>
+        /// Total size in MB for the log (ldf) files for this database.
+        /// </summary>
+        public readonly double? LogFileSizeMB;
+        /// <summary>
+        /// Migration related configuration.
+        /// </summary>
+        public readonly Outputs.DataBaseMigrationResponse? Migration;
+        /// <summary>
         /// The provisioning state of the Arc-enabled SQL Server database resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -70,7 +82,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly double? SizeMB;
         /// <summary>
-        /// The resource identifier of the source database associated with create operation of this database.
+        /// The name of the source database associated with create operation of this database.
         /// </summary>
         public readonly string? SourceDatabaseId;
         /// <summary>
@@ -81,6 +93,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// State of the database.
         /// </summary>
         public readonly string? State;
+        /// <summary>
+        /// The unique ID of the hybrid machine that this resource belongs to.
+        /// </summary>
+        public readonly string VmId;
 
         [OutputConstructor]
         private SqlServerDatabaseResourcePropertiesResponse(
@@ -94,6 +110,8 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? createMode,
 
+            double? dataFileSizeMB,
+
             string? databaseCreationDate,
 
             Outputs.SqlServerDatabaseResourcePropertiesResponseDatabaseOptions? databaseOptions,
@@ -103,6 +121,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
             bool? isReadOnly,
 
             string lastDatabaseUploadTime,
+
+            double? logFileSizeMB,
+
+            Outputs.DataBaseMigrationResponse? migration,
 
             string provisioningState,
 
@@ -116,18 +138,23 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             double? spaceAvailableMB,
 
-            string? state)
+            string? state,
+
+            string vmId)
         {
             BackupInformation = backupInformation;
             BackupPolicy = backupPolicy;
             CollationName = collationName;
             CompatibilityLevel = compatibilityLevel;
             CreateMode = createMode;
+            DataFileSizeMB = dataFileSizeMB;
             DatabaseCreationDate = databaseCreationDate;
             DatabaseOptions = databaseOptions;
             EarliestRestoreDate = earliestRestoreDate;
             IsReadOnly = isReadOnly;
             LastDatabaseUploadTime = lastDatabaseUploadTime;
+            LogFileSizeMB = logFileSizeMB;
+            Migration = migration;
             ProvisioningState = provisioningState;
             RecoveryMode = recoveryMode;
             RestorePointInTime = restorePointInTime;
@@ -135,6 +162,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
             SourceDatabaseId = sourceDatabaseId;
             SpaceAvailableMB = spaceAvailableMB;
             State = state;
+            VmId = vmId;
         }
     }
 }

@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// HDInsight cluster authentication type.
+        /// </summary>
+        [Input("clusterAuthType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.HDInsightClusterAuthenticationType>? ClusterAuthType { get; set; }
+
+        /// <summary>
         /// HDInsight cluster URI. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("clusterUri", required: true)]
@@ -38,6 +44,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
+
+        /// <summary>
+        /// The credential reference containing MI authentication information for the HDInsight cluster.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
 
         /// <summary>
         /// Linked service description.

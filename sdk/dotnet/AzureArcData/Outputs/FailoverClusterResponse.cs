@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class FailoverClusterResponse
     {
         /// <summary>
+        /// The IP addresses and subnet masks associated with the SQL Failover Cluster Instance on this host.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.HostIPAddressInformationResponse> HostIPAddresses;
+        /// <summary>
         /// The host names which are part of the SQL FCI resource group.
         /// </summary>
         public readonly ImmutableArray<string> HostNames;
@@ -35,6 +39,8 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private FailoverClusterResponse(
+            ImmutableArray<Outputs.HostIPAddressInformationResponse> hostIPAddresses,
+
             ImmutableArray<string> hostNames,
 
             string id,
@@ -43,6 +49,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             ImmutableArray<string> sqlInstanceIds)
         {
+            HostIPAddresses = hostIPAddresses;
             HostNames = hostNames;
             Id = id;
             NetworkName = networkName;

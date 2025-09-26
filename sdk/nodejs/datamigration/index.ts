@@ -20,6 +20,16 @@ export type DatabaseMigrationsSqlDb = import("./databaseMigrationsSqlDb").Databa
 export const DatabaseMigrationsSqlDb: typeof import("./databaseMigrationsSqlDb").DatabaseMigrationsSqlDb = null as any;
 utilities.lazyLoad(exports, ["DatabaseMigrationsSqlDb"], () => require("./databaseMigrationsSqlDb"));
 
+export { DatabaseMigrationsSqlMiArgs } from "./databaseMigrationsSqlMi";
+export type DatabaseMigrationsSqlMi = import("./databaseMigrationsSqlMi").DatabaseMigrationsSqlMi;
+export const DatabaseMigrationsSqlMi: typeof import("./databaseMigrationsSqlMi").DatabaseMigrationsSqlMi = null as any;
+utilities.lazyLoad(exports, ["DatabaseMigrationsSqlMi"], () => require("./databaseMigrationsSqlMi"));
+
+export { DatabaseMigrationsSqlVmArgs } from "./databaseMigrationsSqlVm";
+export type DatabaseMigrationsSqlVm = import("./databaseMigrationsSqlVm").DatabaseMigrationsSqlVm;
+export const DatabaseMigrationsSqlVm: typeof import("./databaseMigrationsSqlVm").DatabaseMigrationsSqlVm = null as any;
+utilities.lazyLoad(exports, ["DatabaseMigrationsSqlVm"], () => require("./databaseMigrationsSqlVm"));
+
 export { FileArgs } from "./file";
 export type File = import("./file").File;
 export const File: typeof import("./file").File = null as any;
@@ -39,6 +49,16 @@ export { GetDatabaseMigrationsSqlDbArgs, GetDatabaseMigrationsSqlDbResult, GetDa
 export const getDatabaseMigrationsSqlDb: typeof import("./getDatabaseMigrationsSqlDb").getDatabaseMigrationsSqlDb = null as any;
 export const getDatabaseMigrationsSqlDbOutput: typeof import("./getDatabaseMigrationsSqlDb").getDatabaseMigrationsSqlDbOutput = null as any;
 utilities.lazyLoad(exports, ["getDatabaseMigrationsSqlDb","getDatabaseMigrationsSqlDbOutput"], () => require("./getDatabaseMigrationsSqlDb"));
+
+export { GetDatabaseMigrationsSqlMiArgs, GetDatabaseMigrationsSqlMiResult, GetDatabaseMigrationsSqlMiOutputArgs } from "./getDatabaseMigrationsSqlMi";
+export const getDatabaseMigrationsSqlMi: typeof import("./getDatabaseMigrationsSqlMi").getDatabaseMigrationsSqlMi = null as any;
+export const getDatabaseMigrationsSqlMiOutput: typeof import("./getDatabaseMigrationsSqlMi").getDatabaseMigrationsSqlMiOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseMigrationsSqlMi","getDatabaseMigrationsSqlMiOutput"], () => require("./getDatabaseMigrationsSqlMi"));
+
+export { GetDatabaseMigrationsSqlVmArgs, GetDatabaseMigrationsSqlVmResult, GetDatabaseMigrationsSqlVmOutputArgs } from "./getDatabaseMigrationsSqlVm";
+export const getDatabaseMigrationsSqlVm: typeof import("./getDatabaseMigrationsSqlVm").getDatabaseMigrationsSqlVm = null as any;
+export const getDatabaseMigrationsSqlVmOutput: typeof import("./getDatabaseMigrationsSqlVm").getDatabaseMigrationsSqlVmOutput = null as any;
+utilities.lazyLoad(exports, ["getDatabaseMigrationsSqlVm","getDatabaseMigrationsSqlVmOutput"], () => require("./getDatabaseMigrationsSqlVm"));
 
 export { GetFileArgs, GetFileResult, GetFileOutputArgs } from "./getFile";
 export const getFile: typeof import("./getFile").getFile = null as any;
@@ -129,6 +149,10 @@ const _module = {
                 return new DatabaseMigrationsMongoToCosmosDbvCoreMongo(name, <any>undefined, { urn })
             case "azure-native:datamigration:DatabaseMigrationsSqlDb":
                 return new DatabaseMigrationsSqlDb(name, <any>undefined, { urn })
+            case "azure-native:datamigration:DatabaseMigrationsSqlMi":
+                return new DatabaseMigrationsSqlMi(name, <any>undefined, { urn })
+            case "azure-native:datamigration:DatabaseMigrationsSqlVm":
+                return new DatabaseMigrationsSqlVm(name, <any>undefined, { urn })
             case "azure-native:datamigration:File":
                 return new File(name, <any>undefined, { urn })
             case "azure-native:datamigration:MigrationService":

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkSecurityPerimeterProfileResult> InvokeAsync(GetNetworkSecurityPerimeterProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Network
         /// 
         /// Uses Azure REST API version 2024-06-01-preview.
         /// 
-        /// Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkSecurityPerimeterProfileResult> Invoke(GetNetworkSecurityPerimeterProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkSecurityPerimeterProfileResult>("azure-native:network:getNetworkSecurityPerimeterProfile", args ?? new GetNetworkSecurityPerimeterProfileInvokeArgs(), options.WithDefaults());

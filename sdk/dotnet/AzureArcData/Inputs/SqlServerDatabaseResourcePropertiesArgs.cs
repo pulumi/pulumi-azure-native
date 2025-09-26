@@ -43,6 +43,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public InputUnion<string, Pulumi.AzureNative.AzureArcData.DatabaseCreateMode>? CreateMode { get; set; }
 
         /// <summary>
+        /// Total size in MB for the data (mdf and ndf) files for this database.
+        /// </summary>
+        [Input("dataFileSizeMB")]
+        public Input<double>? DataFileSizeMB { get; set; }
+
+        /// <summary>
         /// Creation date of the database.
         /// </summary>
         [Input("databaseCreationDate")]
@@ -59,6 +65,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// </summary>
         [Input("isReadOnly")]
         public Input<bool>? IsReadOnly { get; set; }
+
+        /// <summary>
+        /// Total size in MB for the log (ldf) files for this database.
+        /// </summary>
+        [Input("logFileSizeMB")]
+        public Input<double>? LogFileSizeMB { get; set; }
 
         /// <summary>
         /// Status of the database.
@@ -79,7 +91,7 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<double>? SizeMB { get; set; }
 
         /// <summary>
-        /// The resource identifier of the source database associated with create operation of this database.
+        /// The name of the source database associated with create operation of this database.
         /// </summary>
         [Input("sourceDatabaseId")]
         public Input<string>? SourceDatabaseId { get; set; }

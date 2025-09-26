@@ -68,7 +68,7 @@ class GetRuleResult:
 
     @property
     @pulumi.getter
-    def actions(self) -> Sequence[Any]:
+    def actions(self) -> Optional[Sequence[Any]]:
         """
         A list of actions that are executed when all the conditions of a rule are satisfied.
         """
@@ -99,7 +99,7 @@ class GetRuleResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -115,13 +115,13 @@ class GetRuleResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def order(self) -> builtins.int:
+    def order(self) -> Optional[builtins.int]:
         """
         The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
         """
@@ -147,7 +147,7 @@ class GetRuleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -155,7 +155,7 @@ class GetRuleResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -188,15 +188,15 @@ def get_rule(profile_name: Optional[builtins.str] = None,
     """
     Gets an existing delivery rule within a rule set.
 
-    Uses Azure REST API version 2024-09-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str rule_name: Name of the delivery rule which is unique within the endpoint.
-    :param builtins.str rule_set_name: Name of the rule set under the profile.
+    :param builtins.str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
     __args__ = dict()
     __args__['profileName'] = profile_name
@@ -227,15 +227,15 @@ def get_rule_output(profile_name: Optional[pulumi.Input[builtins.str]] = None,
     """
     Gets an existing delivery rule within a rule set.
 
-    Uses Azure REST API version 2024-09-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str rule_name: Name of the delivery rule which is unique within the endpoint.
-    :param builtins.str rule_set_name: Name of the rule set under the profile.
+    :param builtins.str rule_set_name: Name of the rule set under the profile which is unique globally.
     """
     __args__ = dict()
     __args__['profileName'] = profile_name

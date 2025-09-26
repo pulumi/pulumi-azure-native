@@ -95,7 +95,7 @@ class GetNamespaceAuthorizationRuleResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -103,7 +103,7 @@ class GetNamespaceAuthorizationRuleResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -137,7 +137,7 @@ def get_namespace_authorization_rule(authorization_rule_name: Optional[builtins.
 
     :param builtins.str authorization_rule_name: The authorization rule name.
     :param builtins.str namespace_name: The namespace name
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
@@ -168,7 +168,7 @@ def get_namespace_authorization_rule_output(authorization_rule_name: Optional[pu
 
     :param builtins.str authorization_rule_name: The authorization rule name.
     :param builtins.str namespace_name: The namespace name
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name

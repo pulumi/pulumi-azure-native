@@ -107,7 +107,7 @@ def list_workspace_keys(resource_group_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2023-11-13-preview.
 
-    Other available API versions: 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-01-01-preview, 2025-08-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -133,7 +133,7 @@ def list_workspace_keys_output(resource_group_name: Optional[pulumi.Input[builti
 
     Uses Azure REST API version 2023-11-13-preview.
 
-    Other available API versions: 2025-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-01-01-preview, 2025-08-11-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quantum [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

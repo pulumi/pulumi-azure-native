@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Redis.Inputs
         public Input<string>? AofStorageConnectionString1 { get; set; }
 
         /// <summary>
-        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
         /// </summary>
         [Input("authnotrequired")]
         public Input<string>? Authnotrequired { get; set; }
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Redis.Inputs
         public Input<string>? PreferredDataPersistenceAuthMethod { get; set; }
 
         /// <summary>
-        /// Specifies whether the rdb backup is enabled
+        /// Specifies whether the RDB backup is enabled
         /// </summary>
         [Input("rdbBackupEnabled")]
         public Input<string>? RdbBackupEnabled { get; set; }

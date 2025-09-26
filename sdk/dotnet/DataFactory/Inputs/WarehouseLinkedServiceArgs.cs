@@ -34,10 +34,22 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object> ArtifactId { get; set; } = null!;
 
         /// <summary>
+        /// The authentication type to use.
+        /// </summary>
+        [Input("authenticationType")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.WarehouseAuthenticationType>? AuthenticationType { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
         public Input<Inputs.IntegrationRuntimeReferenceArgs>? ConnectVia { get; set; }
+
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        [Input("credential")]
+        public Input<Inputs.CredentialReferenceArgs>? Credential { get; set; }
 
         /// <summary>
         /// Linked service description.

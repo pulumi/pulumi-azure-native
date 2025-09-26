@@ -528,6 +528,8 @@ def get_namespace_asset(asset_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01-preview.
 
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str asset_name: The name of the asset.
     :param builtins.str namespace_name: The name of the namespace.
@@ -589,6 +591,8 @@ def get_namespace_asset_output(asset_name: Optional[pulumi.Input[builtins.str]] 
     Get a NamespaceAsset
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str asset_name: The name of the asset.

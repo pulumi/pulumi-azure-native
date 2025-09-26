@@ -160,7 +160,7 @@ def get_server_group_private_endpoint_connection(cluster_name: Optional[builtins
 
 
     :param builtins.str cluster_name: The name of the cluster.
-    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -193,7 +193,7 @@ def get_server_group_private_endpoint_connection_output(cluster_name: Optional[p
 
 
     :param builtins.str cluster_name: The name of the cluster.
-    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the cluster.
+    :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()

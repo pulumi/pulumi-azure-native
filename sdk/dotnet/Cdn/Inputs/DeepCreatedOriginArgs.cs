@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public Input<int>? HttpsPort { get; set; }
 
         /// <summary>
-        /// Origin name which must be unique within the endpoint. 
+        /// Origin name which must be unique within the endpoint.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

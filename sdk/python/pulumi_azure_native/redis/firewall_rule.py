@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['FirewallRuleArgs', 'FirewallRule']
 
@@ -185,6 +186,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["start_ip"] = start_ip
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20230401:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20230801:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20240301:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20240401preview:FirewallRule"), pulumi.Alias(type_="azure-native:cache/v20241101:FirewallRule"), pulumi.Alias(type_="azure-native:cache:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20160401:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20170201:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20171001:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20180301:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20190701:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20200601:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20201201:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20210601:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20220501:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20220601:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20230401:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20230501preview:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20230801:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20240301:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20240401preview:FirewallRule"), pulumi.Alias(type_="azure-native:redis/v20241101:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -214,6 +216,7 @@ class FirewallRule(pulumi.CustomResource):
         __props__.__dict__["end_ip"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["start_ip"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return FirewallRule(resource_name, opts=opts, __props__=__props__)
 
@@ -248,6 +251,14 @@ class FirewallRule(pulumi.CustomResource):
         lowest IP address included in the range
         """
         return pulumi.get(self, "start_ip")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

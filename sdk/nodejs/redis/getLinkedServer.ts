@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -22,7 +25,7 @@ export function getLinkedServer(args: GetLinkedServerArgs, opts?: pulumi.InvokeO
 
 export interface GetLinkedServerArgs {
     /**
-     * The name of the linked server.
+     * The name of the RedisLinkedServerWithProperties
      */
     linkedServerName: string;
     /**
@@ -48,7 +51,7 @@ export interface GetLinkedServerResult {
      */
     readonly geoReplicatedPrimaryHostName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -76,6 +79,10 @@ export interface GetLinkedServerResult {
      */
     readonly serverRole: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.redis.SystemDataResponse;
+    /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
@@ -98,7 +105,7 @@ export function getLinkedServerOutput(args: GetLinkedServerOutputArgs, opts?: pu
 
 export interface GetLinkedServerOutputArgs {
     /**
-     * The name of the linked server.
+     * The name of the RedisLinkedServerWithProperties
      */
     linkedServerName: pulumi.Input<string>;
     /**

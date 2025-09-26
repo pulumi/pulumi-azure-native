@@ -18,14 +18,21 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AntivirusRulesetResponse',
     'ApiFlowOptionsResponse',
+    'ArchiveRulesetResponse',
     'ConnectionPropertiesResponse',
+    'DataSizeRulesetResponse',
+    'FlowProfilePropertiesResponse',
+    'FlowProfileRulesetsResponse',
     'FlowPropertiesResponse',
     'FlowResponse',
     'InternalMetadataPropertiesResponse',
     'ListFlowsByPipelineConnectionResponse',
     'ManagedServiceIdentityResponse',
     'MessagingOptionsResponse',
+    'MimeFilterRulesetResponse',
+    'MimeTypeFilterResponse',
     'OperationStatusPropertiesResponse',
     'PendingConnectionResponse',
     'PendingFlowResponse',
@@ -38,8 +45,51 @@ __all__ = [
     'StreamSourceAddressesResponse',
     'SubscriberResponse',
     'SystemDataResponse',
+    'TextMatchResponse',
+    'TextMatchingRulesetResponse',
     'UserAssignedIdentityResponse',
+    'XmlFilterRulesetResponse',
 ]
+
+@pulumi.output_type
+class AntivirusRulesetResponse(dict):
+    """
+    Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "avSolutions":
+            suggest = "av_solutions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AntivirusRulesetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AntivirusRulesetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AntivirusRulesetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 av_solutions: Optional[Sequence[builtins.str]] = None):
+        """
+        Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+        :param Sequence[builtins.str] av_solutions: Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+        """
+        if av_solutions is not None:
+            pulumi.set(__self__, "av_solutions", av_solutions)
+
+    @property
+    @pulumi.getter(name="avSolutions")
+    def av_solutions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+        """
+        return pulumi.get(self, "av_solutions")
+
 
 @pulumi.output_type
 class ApiFlowOptionsResponse(dict):
@@ -161,6 +211,90 @@ class ApiFlowOptionsResponse(dict):
         Sender's app user assigned Manage Identity client ID. The property has reached end of life support starting version 2025-05-30-preview. Please create and use the authentication property instead.
         """
         return pulumi.get(self, "sender_client_id")
+
+
+@pulumi.output_type
+class ArchiveRulesetResponse(dict):
+    """
+    Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "maximumCompressionRatioLimit":
+            suggest = "maximum_compression_ratio_limit"
+        elif key == "maximumDepthLimit":
+            suggest = "maximum_depth_limit"
+        elif key == "maximumExpansionSizeLimit":
+            suggest = "maximum_expansion_size_limit"
+        elif key == "minimumSizeForExpansion":
+            suggest = "minimum_size_for_expansion"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArchiveRulesetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArchiveRulesetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArchiveRulesetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 maximum_compression_ratio_limit: Optional[builtins.float] = None,
+                 maximum_depth_limit: Optional[builtins.float] = None,
+                 maximum_expansion_size_limit: Optional[builtins.float] = None,
+                 minimum_size_for_expansion: Optional[builtins.float] = None):
+        """
+        Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+        :param builtins.float maximum_compression_ratio_limit: Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+        :param builtins.float maximum_depth_limit: Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+        :param builtins.float maximum_expansion_size_limit: Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+        :param builtins.float minimum_size_for_expansion: Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+        """
+        if maximum_compression_ratio_limit is not None:
+            pulumi.set(__self__, "maximum_compression_ratio_limit", maximum_compression_ratio_limit)
+        if maximum_depth_limit is not None:
+            pulumi.set(__self__, "maximum_depth_limit", maximum_depth_limit)
+        if maximum_expansion_size_limit is not None:
+            pulumi.set(__self__, "maximum_expansion_size_limit", maximum_expansion_size_limit)
+        if minimum_size_for_expansion is None:
+            minimum_size_for_expansion = 0
+        if minimum_size_for_expansion is not None:
+            pulumi.set(__self__, "minimum_size_for_expansion", minimum_size_for_expansion)
+
+    @property
+    @pulumi.getter(name="maximumCompressionRatioLimit")
+    def maximum_compression_ratio_limit(self) -> Optional[builtins.float]:
+        """
+        Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+        """
+        return pulumi.get(self, "maximum_compression_ratio_limit")
+
+    @property
+    @pulumi.getter(name="maximumDepthLimit")
+    def maximum_depth_limit(self) -> Optional[builtins.float]:
+        """
+        Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+        """
+        return pulumi.get(self, "maximum_depth_limit")
+
+    @property
+    @pulumi.getter(name="maximumExpansionSizeLimit")
+    def maximum_expansion_size_limit(self) -> Optional[builtins.float]:
+        """
+        Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+        """
+        return pulumi.get(self, "maximum_expansion_size_limit")
+
+    @property
+    @pulumi.getter(name="minimumSizeForExpansion")
+    def minimum_size_for_expansion(self) -> Optional[builtins.float]:
+        """
+        Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+        """
+        return pulumi.get(self, "minimum_size_for_expansion")
 
 
 @pulumi.output_type
@@ -429,6 +563,248 @@ class ConnectionPropertiesResponse(dict):
         The secondary contacts for this connection request
         """
         return pulumi.get(self, "secondary_contacts")
+
+
+@pulumi.output_type
+class DataSizeRulesetResponse(dict):
+    """
+    Defines rules that enforce minimum and maximum file size limits for data replication.
+    """
+    def __init__(__self__, *,
+                 maximum: Optional[builtins.float] = None,
+                 minimum: Optional[builtins.float] = None):
+        """
+        Defines rules that enforce minimum and maximum file size limits for data replication.
+        :param builtins.float maximum: Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+        :param builtins.float minimum: Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+        """
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is None:
+            minimum = 0
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[builtins.float]:
+        """
+        Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+        """
+        return pulumi.get(self, "maximum")
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[builtins.float]:
+        """
+        Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+        """
+        return pulumi.get(self, "minimum")
+
+
+@pulumi.output_type
+class FlowProfilePropertiesResponse(dict):
+    """
+    Defines the full set of properties for a FlowProfile resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "flowProfileId":
+            suggest = "flow_profile_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "replicationScenario":
+            suggest = "replication_scenario"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowProfilePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowProfilePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowProfilePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 description: builtins.str,
+                 flow_profile_id: builtins.str,
+                 provisioning_state: builtins.str,
+                 replication_scenario: builtins.str,
+                 status: builtins.str,
+                 rulesets: Optional['outputs.FlowProfileRulesetsResponse'] = None):
+        """
+        Defines the full set of properties for a FlowProfile resource.
+        :param builtins.str description: A user-defined description of the FlowProfile.
+        :param builtins.str flow_profile_id: A guid represented as a string for the FlowProfile resource, assigned by the system.
+        :param builtins.str provisioning_state: The current provisioning state of the FlowProfile.
+        :param builtins.str replication_scenario: The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+        :param builtins.str status: The operational status of the FlowProfile.
+        :param 'FlowProfileRulesetsResponse' rulesets: A set of configurable rulesets applied to this FlowProfile.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "flow_profile_id", flow_profile_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "replication_scenario", replication_scenario)
+        pulumi.set(__self__, "status", status)
+        if rulesets is not None:
+            pulumi.set(__self__, "rulesets", rulesets)
+
+    @property
+    @pulumi.getter
+    def description(self) -> builtins.str:
+        """
+        A user-defined description of the FlowProfile.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="flowProfileId")
+    def flow_profile_id(self) -> builtins.str:
+        """
+        A guid represented as a string for the FlowProfile resource, assigned by the system.
+        """
+        return pulumi.get(self, "flow_profile_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The current provisioning state of the FlowProfile.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="replicationScenario")
+    def replication_scenario(self) -> builtins.str:
+        """
+        The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+        """
+        return pulumi.get(self, "replication_scenario")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        The operational status of the FlowProfile.
+        """
+        return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter
+    def rulesets(self) -> Optional['outputs.FlowProfileRulesetsResponse']:
+        """
+        A set of configurable rulesets applied to this FlowProfile.
+        """
+        return pulumi.get(self, "rulesets")
+
+
+@pulumi.output_type
+class FlowProfileRulesetsResponse(dict):
+    """
+    The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dataSize":
+            suggest = "data_size"
+        elif key == "mimeFilters":
+            suggest = "mime_filters"
+        elif key == "textMatching":
+            suggest = "text_matching"
+        elif key == "xmlFilters":
+            suggest = "xml_filters"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FlowProfileRulesetsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FlowProfileRulesetsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FlowProfileRulesetsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 antivirus: Optional['outputs.AntivirusRulesetResponse'] = None,
+                 archives: Optional['outputs.ArchiveRulesetResponse'] = None,
+                 data_size: Optional['outputs.DataSizeRulesetResponse'] = None,
+                 mime_filters: Optional['outputs.MimeFilterRulesetResponse'] = None,
+                 text_matching: Optional['outputs.TextMatchingRulesetResponse'] = None,
+                 xml_filters: Optional['outputs.XmlFilterRulesetResponse'] = None):
+        """
+        The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+        :param 'AntivirusRulesetResponse' antivirus: Antivirus scanning rules for replicated data.
+        :param 'ArchiveRulesetResponse' archives: Rules for handling archive files during replication.
+        :param 'DataSizeRulesetResponse' data_size: Rules that enforce minimum and maximum data size limits.
+        :param 'MimeFilterRulesetResponse' mime_filters: Rules for filtering files based on MIME types.
+        :param 'TextMatchingRulesetResponse' text_matching: Rules for detecting and blocking specific text patterns.
+        :param 'XmlFilterRulesetResponse' xml_filters: Rules for filtering XML content using XSD schemas.
+        """
+        if antivirus is not None:
+            pulumi.set(__self__, "antivirus", antivirus)
+        if archives is not None:
+            pulumi.set(__self__, "archives", archives)
+        if data_size is not None:
+            pulumi.set(__self__, "data_size", data_size)
+        if mime_filters is not None:
+            pulumi.set(__self__, "mime_filters", mime_filters)
+        if text_matching is not None:
+            pulumi.set(__self__, "text_matching", text_matching)
+        if xml_filters is not None:
+            pulumi.set(__self__, "xml_filters", xml_filters)
+
+    @property
+    @pulumi.getter
+    def antivirus(self) -> Optional['outputs.AntivirusRulesetResponse']:
+        """
+        Antivirus scanning rules for replicated data.
+        """
+        return pulumi.get(self, "antivirus")
+
+    @property
+    @pulumi.getter
+    def archives(self) -> Optional['outputs.ArchiveRulesetResponse']:
+        """
+        Rules for handling archive files during replication.
+        """
+        return pulumi.get(self, "archives")
+
+    @property
+    @pulumi.getter(name="dataSize")
+    def data_size(self) -> Optional['outputs.DataSizeRulesetResponse']:
+        """
+        Rules that enforce minimum and maximum data size limits.
+        """
+        return pulumi.get(self, "data_size")
+
+    @property
+    @pulumi.getter(name="mimeFilters")
+    def mime_filters(self) -> Optional['outputs.MimeFilterRulesetResponse']:
+        """
+        Rules for filtering files based on MIME types.
+        """
+        return pulumi.get(self, "mime_filters")
+
+    @property
+    @pulumi.getter(name="textMatching")
+    def text_matching(self) -> Optional['outputs.TextMatchingRulesetResponse']:
+        """
+        Rules for detecting and blocking specific text patterns.
+        """
+        return pulumi.get(self, "text_matching")
+
+    @property
+    @pulumi.getter(name="xmlFilters")
+    def xml_filters(self) -> Optional['outputs.XmlFilterRulesetResponse']:
+        """
+        Rules for filtering XML content using XSD schemas.
+        """
+        return pulumi.get(self, "xml_filters")
 
 
 @pulumi.output_type
@@ -1165,6 +1541,76 @@ class MessagingOptionsResponse(dict):
         Billing tier for this messaging flow
         """
         return pulumi.get(self, "billing_tier")
+
+
+@pulumi.output_type
+class MimeFilterRulesetResponse(dict):
+    """
+    Rules for filtering files based on Media types (f.k.a MIME types).
+    """
+    def __init__(__self__, *,
+                 filters: Optional[Sequence['outputs.MimeTypeFilterResponse']] = None,
+                 type: Optional[builtins.str] = None):
+        """
+        Rules for filtering files based on Media types (f.k.a MIME types).
+        :param Sequence['MimeTypeFilterResponse'] filters: Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+        :param builtins.str type: Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[Sequence['outputs.MimeTypeFilterResponse']]:
+        """
+        Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+        """
+        return pulumi.get(self, "filters")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class MimeTypeFilterResponse(dict):
+    """
+    Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+    """
+    def __init__(__self__, *,
+                 extensions: Optional[Sequence[builtins.str]] = None,
+                 media: Optional[builtins.str] = None):
+        """
+        Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+        :param Sequence[builtins.str] extensions: A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+        :param builtins.str media: The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if media is not None:
+            pulumi.set(__self__, "media", media)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[Sequence[builtins.str]]:
+        """
+        A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+        """
+        return pulumi.get(self, "extensions")
+
+    @property
+    @pulumi.getter
+    def media(self) -> Optional[builtins.str]:
+        """
+        The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+        """
+        return pulumi.get(self, "media")
 
 
 @pulumi.output_type
@@ -2635,6 +3081,96 @@ class SystemDataResponse(dict):
 
 
 @pulumi.output_type
+class TextMatchResponse(dict):
+    """
+    Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "caseSensitivity":
+            suggest = "case_sensitivity"
+        elif key == "matchType":
+            suggest = "match_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TextMatchResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TextMatchResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TextMatchResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 case_sensitivity: Optional[builtins.str] = None,
+                 match_type: Optional[builtins.str] = None,
+                 text: builtins.str):
+        """
+        Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+        :param builtins.str case_sensitivity: Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+        :param builtins.str match_type: Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+        :param builtins.str text: The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+        """
+        if case_sensitivity is None:
+            case_sensitivity = 'Insensitive'
+        pulumi.set(__self__, "case_sensitivity", case_sensitivity)
+        if match_type is None:
+            match_type = 'Partial'
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="caseSensitivity")
+    def case_sensitivity(self) -> builtins.str:
+        """
+        Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+        """
+        return pulumi.get(self, "case_sensitivity")
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> builtins.str:
+        """
+        Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+        """
+        return pulumi.get(self, "match_type")
+
+    @property
+    @pulumi.getter
+    def text(self) -> builtins.str:
+        """
+        The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+        """
+        return pulumi.get(self, "text")
+
+
+@pulumi.output_type
+class TextMatchingRulesetResponse(dict):
+    """
+    Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+    """
+    def __init__(__self__, *,
+                 deny: Optional[Sequence['outputs.TextMatchResponse']] = None):
+        """
+        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+        :param Sequence['TextMatchResponse'] deny: A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        if deny is not None:
+            pulumi.set(__self__, "deny", deny)
+
+    @property
+    @pulumi.getter
+    def deny(self) -> Optional[Sequence['outputs.TextMatchResponse']]:
+        """
+        A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        return pulumi.get(self, "deny")
+
+
+@pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
     User assigned identity properties
@@ -2684,5 +3220,69 @@ class UserAssignedIdentityResponse(dict):
         The principal ID of the assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class XmlFilterRulesetResponse(dict):
+    """
+    Rules for filtering XML content using XSD schemas.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultNamespace":
+            suggest = "default_namespace"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in XmlFilterRulesetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        XmlFilterRulesetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        XmlFilterRulesetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_namespace: Optional[builtins.str] = None,
+                 reference: Optional[builtins.str] = None,
+                 schema: Optional[builtins.str] = None):
+        """
+        Rules for filtering XML content using XSD schemas.
+        :param builtins.str default_namespace: The default XML namespace used for schema validation.
+        :param builtins.str reference: Defines the method for referencing the xml schema.
+        :param builtins.str schema: The inline XSD schema to be used for validation.
+        """
+        if default_namespace is not None:
+            pulumi.set(__self__, "default_namespace", default_namespace)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="defaultNamespace")
+    def default_namespace(self) -> Optional[builtins.str]:
+        """
+        The default XML namespace used for schema validation.
+        """
+        return pulumi.get(self, "default_namespace")
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional[builtins.str]:
+        """
+        Defines the method for referencing the xml schema.
+        """
+        return pulumi.get(self, "reference")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[builtins.str]:
+        """
+        The inline XSD schema to be used for validation.
+        """
+        return pulumi.get(self, "schema")
 
 

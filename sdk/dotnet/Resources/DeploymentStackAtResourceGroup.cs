@@ -98,13 +98,13 @@ namespace Pulumi.AzureNative.Resources
         public Output<ImmutableArray<Outputs.ResourceReferenceExtendedResponse>> FailedResources { get; private set; } = null!;
 
         /// <summary>
-        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         /// </summary>
         [Output("location")]
         public Output<string?> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Name of this resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,13 +146,13 @@ namespace Pulumi.AzureNative.Resources
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Deployment stack resource tags.
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Type of this resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.AzureNative.Resources
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        /// The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -283,7 +283,7 @@ namespace Pulumi.AzureNative.Resources
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Deployment stack resource tags.
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

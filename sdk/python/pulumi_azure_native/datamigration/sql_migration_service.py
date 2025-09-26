@@ -97,7 +97,7 @@ class SqlMigrationService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-03-30-preview.
 
-        Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -115,7 +115,7 @@ class SqlMigrationService(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2022-03-30-preview.
 
-        Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-10-30-preview, 2022-01-30-preview, 2022-03-30-preview, 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SqlMigrationServiceArgs args: The arguments to use to populate this resource's properties.
@@ -157,7 +157,7 @@ class SqlMigrationService(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20211030preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20250315preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20250630:SqlMigrationService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:datamigration/v20211030preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220130preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20220330preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20230715preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20250315preview:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20250630:SqlMigrationService"), pulumi.Alias(type_="azure-native:datamigration/v20250901preview:SqlMigrationService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SqlMigrationService, __self__).__init__(
             'azure-native:datamigration:SqlMigrationService',

@@ -17,6 +17,8 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AFDDomainHttpsCustomizedCipherSuiteSetArgs',
+    'AFDDomainHttpsCustomizedCipherSuiteSetArgsDict',
     'AFDDomainHttpsParametersArgs',
     'AFDDomainHttpsParametersArgsDict',
     'ActivatedResourceReferenceArgs',
@@ -133,6 +135,8 @@ __all__ = [
     'ManagedServiceIdentityArgsDict',
     'MatchConditionArgs',
     'MatchConditionArgsDict',
+    'OriginAuthenticationPropertiesArgs',
+    'OriginAuthenticationPropertiesArgsDict',
     'OriginGroupOverrideActionParametersArgs',
     'OriginGroupOverrideActionParametersArgsDict',
     'OriginGroupOverrideActionArgs',
@@ -216,6 +220,62 @@ __all__ = [
 MYPY = False
 
 if not MYPY:
+    class AFDDomainHttpsCustomizedCipherSuiteSetArgsDict(TypedDict):
+        """
+        Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        cipher_suite_set_for_tls12: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls12']]]]]
+        """
+        Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
+        """
+        cipher_suite_set_for_tls13: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls13']]]]]
+        """
+        Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
+        """
+elif False:
+    AFDDomainHttpsCustomizedCipherSuiteSetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AFDDomainHttpsCustomizedCipherSuiteSetArgs:
+    def __init__(__self__, *,
+                 cipher_suite_set_for_tls12: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls12']]]]] = None,
+                 cipher_suite_set_for_tls13: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls13']]]]] = None):
+        """
+        Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls12']]]] cipher_suite_set_for_tls12: Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls13']]]] cipher_suite_set_for_tls13: Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
+        """
+        if cipher_suite_set_for_tls12 is not None:
+            pulumi.set(__self__, "cipher_suite_set_for_tls12", cipher_suite_set_for_tls12)
+        if cipher_suite_set_for_tls13 is not None:
+            pulumi.set(__self__, "cipher_suite_set_for_tls13", cipher_suite_set_for_tls13)
+
+    @property
+    @pulumi.getter(name="cipherSuiteSetForTls12")
+    def cipher_suite_set_for_tls12(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls12']]]]]:
+        """
+        Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
+        """
+        return pulumi.get(self, "cipher_suite_set_for_tls12")
+
+    @cipher_suite_set_for_tls12.setter
+    def cipher_suite_set_for_tls12(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls12']]]]]):
+        pulumi.set(self, "cipher_suite_set_for_tls12", value)
+
+    @property
+    @pulumi.getter(name="cipherSuiteSetForTls13")
+    def cipher_suite_set_for_tls13(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls13']]]]]:
+        """
+        Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
+        """
+        return pulumi.get(self, "cipher_suite_set_for_tls13")
+
+    @cipher_suite_set_for_tls13.setter
+    def cipher_suite_set_for_tls13(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AfdCustomizedCipherSuiteForTls13']]]]]):
+        pulumi.set(self, "cipher_suite_set_for_tls13", value)
+
+
+if not MYPY:
     class AFDDomainHttpsParametersArgsDict(TypedDict):
         """
         The JSON object that contains the properties to secure a domain.
@@ -224,9 +284,17 @@ if not MYPY:
         """
         Defines the source of the SSL certificate.
         """
+        cipher_suite_set_type: NotRequired[pulumi.Input[Union[builtins.str, 'AfdCipherSuiteSetType']]]
+        """
+        cipher suite set type that will be used for Https
+        """
+        customized_cipher_suite_set: NotRequired[pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgsDict']]
+        """
+        Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        """
         minimum_tls_version: NotRequired[pulumi.Input['AfdMinimumTlsVersion']]
         """
-        TLS protocol version that will be used for Https
+        TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         """
         secret: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
         """
@@ -239,15 +307,23 @@ elif False:
 class AFDDomainHttpsParametersArgs:
     def __init__(__self__, *,
                  certificate_type: pulumi.Input[Union[builtins.str, 'AfdCertificateType']],
+                 cipher_suite_set_type: Optional[pulumi.Input[Union[builtins.str, 'AfdCipherSuiteSetType']]] = None,
+                 customized_cipher_suite_set: Optional[pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgs']] = None,
                  minimum_tls_version: Optional[pulumi.Input['AfdMinimumTlsVersion']] = None,
                  secret: Optional[pulumi.Input['ResourceReferenceArgs']] = None):
         """
         The JSON object that contains the properties to secure a domain.
         :param pulumi.Input[Union[builtins.str, 'AfdCertificateType']] certificate_type: Defines the source of the SSL certificate.
-        :param pulumi.Input['AfdMinimumTlsVersion'] minimum_tls_version: TLS protocol version that will be used for Https
+        :param pulumi.Input[Union[builtins.str, 'AfdCipherSuiteSetType']] cipher_suite_set_type: cipher suite set type that will be used for Https
+        :param pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgs'] customized_cipher_suite_set: Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        :param pulumi.Input['AfdMinimumTlsVersion'] minimum_tls_version: TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         :param pulumi.Input['ResourceReferenceArgs'] secret: Resource reference to the secret. ie. subs/rg/profile/secret
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
+        if cipher_suite_set_type is not None:
+            pulumi.set(__self__, "cipher_suite_set_type", cipher_suite_set_type)
+        if customized_cipher_suite_set is not None:
+            pulumi.set(__self__, "customized_cipher_suite_set", customized_cipher_suite_set)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if secret is not None:
@@ -266,10 +342,34 @@ class AFDDomainHttpsParametersArgs:
         pulumi.set(self, "certificate_type", value)
 
     @property
+    @pulumi.getter(name="cipherSuiteSetType")
+    def cipher_suite_set_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'AfdCipherSuiteSetType']]]:
+        """
+        cipher suite set type that will be used for Https
+        """
+        return pulumi.get(self, "cipher_suite_set_type")
+
+    @cipher_suite_set_type.setter
+    def cipher_suite_set_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'AfdCipherSuiteSetType']]]):
+        pulumi.set(self, "cipher_suite_set_type", value)
+
+    @property
+    @pulumi.getter(name="customizedCipherSuiteSet")
+    def customized_cipher_suite_set(self) -> Optional[pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgs']]:
+        """
+        Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        return pulumi.get(self, "customized_cipher_suite_set")
+
+    @customized_cipher_suite_set.setter
+    def customized_cipher_suite_set(self, value: Optional[pulumi.Input['AFDDomainHttpsCustomizedCipherSuiteSetArgs']]):
+        pulumi.set(self, "customized_cipher_suite_set", value)
+
+    @property
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[pulumi.Input['AfdMinimumTlsVersion']]:
         """
-        TLS protocol version that will be used for Https
+        TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -1229,10 +1329,6 @@ if not MYPY:
         """
         Version of the secret to be used
         """
-        subject_alternative_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
-        """
-        The list of SANs.
-        """
         use_latest_version: NotRequired[pulumi.Input[builtins.bool]]
         """
         Whether to use the latest version for the certificate
@@ -1246,7 +1342,6 @@ class CustomerCertificateParametersArgs:
                  secret_source: pulumi.Input['ResourceReferenceArgs'],
                  type: pulumi.Input[builtins.str],
                  secret_version: Optional[pulumi.Input[builtins.str]] = None,
-                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  use_latest_version: Optional[pulumi.Input[builtins.bool]] = None):
         """
         Customer Certificate used for https
@@ -1254,15 +1349,12 @@ class CustomerCertificateParametersArgs:
         :param pulumi.Input[builtins.str] type: The type of the secret resource.
                Expected value is 'CustomerCertificate'.
         :param pulumi.Input[builtins.str] secret_version: Version of the secret to be used
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] subject_alternative_names: The list of SANs.
         :param pulumi.Input[builtins.bool] use_latest_version: Whether to use the latest version for the certificate
         """
         pulumi.set(__self__, "secret_source", secret_source)
         pulumi.set(__self__, "type", 'CustomerCertificate')
         if secret_version is not None:
             pulumi.set(__self__, "secret_version", secret_version)
-        if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if use_latest_version is not None:
             pulumi.set(__self__, "use_latest_version", use_latest_version)
 
@@ -1302,18 +1394,6 @@ class CustomerCertificateParametersArgs:
     @secret_version.setter
     def secret_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "secret_version", value)
-
-    @property
-    @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
-        """
-        The list of SANs.
-        """
-        return pulumi.get(self, "subject_alternative_names")
-
-    @subject_alternative_names.setter
-    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
-        pulumi.set(self, "subject_alternative_names", value)
 
     @property
     @pulumi.getter(name="useLatestVersion")
@@ -1453,7 +1533,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        Origin name which must be unique within the endpoint. 
+        Origin name which must be unique within the endpoint.
         """
         enabled: NotRequired[pulumi.Input[builtins.bool]]
         """
@@ -1516,7 +1596,7 @@ class DeepCreatedOriginArgs:
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param pulumi.Input[builtins.str] host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-        :param pulumi.Input[builtins.str] name: Origin name which must be unique within the endpoint. 
+        :param pulumi.Input[builtins.str] name: Origin name which must be unique within the endpoint.
         :param pulumi.Input[builtins.bool] enabled: Origin is enabled for load balancing or not. By default, origin is always enabled.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
@@ -1567,7 +1647,7 @@ class DeepCreatedOriginArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        Origin name which must be unique within the endpoint. 
+        Origin name which must be unique within the endpoint.
         """
         return pulumi.get(self, "name")
 
@@ -4613,6 +4693,82 @@ class MatchConditionArgs:
 
 
 if not MYPY:
+    class OriginAuthenticationPropertiesArgsDict(TypedDict):
+        """
+        The JSON object that contains the properties of the origin authentication settings.
+        """
+        scope: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
+        """
+        type: NotRequired[pulumi.Input[Union[builtins.str, 'OriginAuthenticationType']]]
+        """
+        The type of the authentication for the origin.
+        """
+        user_assigned_identity: NotRequired[pulumi.Input['ResourceReferenceArgsDict']]
+        """
+        The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
+        """
+elif False:
+    OriginAuthenticationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OriginAuthenticationPropertiesArgs:
+    def __init__(__self__, *,
+                 scope: Optional[pulumi.Input[builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[builtins.str, 'OriginAuthenticationType']]] = None,
+                 user_assigned_identity: Optional[pulumi.Input['ResourceReferenceArgs']] = None):
+        """
+        The JSON object that contains the properties of the origin authentication settings.
+        :param pulumi.Input[builtins.str] scope: The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
+        :param pulumi.Input[Union[builtins.str, 'OriginAuthenticationType']] type: The type of the authentication for the origin.
+        :param pulumi.Input['ResourceReferenceArgs'] user_assigned_identity: The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
+        """
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[builtins.str, 'OriginAuthenticationType']]]:
+        """
+        The type of the authentication for the origin.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'OriginAuthenticationType']]]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional[pulumi.Input['ResourceReferenceArgs']]:
+        """
+        The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+    @user_assigned_identity.setter
+    def user_assigned_identity(self, value: Optional[pulumi.Input['ResourceReferenceArgs']]):
+        pulumi.set(self, "user_assigned_identity", value)
+
+
+if not MYPY:
     class OriginGroupOverrideActionParametersArgsDict(TypedDict):
         """
         Defines the parameters for the origin group override action.
@@ -4791,7 +4947,7 @@ if not MYPY:
         """
         If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
         """
-        default_custom_block_response_status_code: NotRequired[pulumi.Input[builtins.int]]
+        default_custom_block_response_status_code: NotRequired[pulumi.Input[builtins.float]]
         """
         If the action type is block, this field defines the default customer overridable http response status code.
         """
@@ -4814,14 +4970,14 @@ elif False:
 class PolicySettingsArgs:
     def __init__(__self__, *,
                  default_custom_block_response_body: Optional[pulumi.Input[builtins.str]] = None,
-                 default_custom_block_response_status_code: Optional[pulumi.Input[builtins.int]] = None,
+                 default_custom_block_response_status_code: Optional[pulumi.Input[builtins.float]] = None,
                  default_redirect_url: Optional[pulumi.Input[builtins.str]] = None,
                  enabled_state: Optional[pulumi.Input[Union[builtins.str, 'PolicyEnabledState']]] = None,
                  mode: Optional[pulumi.Input[Union[builtins.str, 'PolicyMode']]] = None):
         """
         Defines contents of a web application firewall global configuration
         :param pulumi.Input[builtins.str] default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        :param pulumi.Input[builtins.int] default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
+        :param pulumi.Input[builtins.float] default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
         :param pulumi.Input[builtins.str] default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
         :param pulumi.Input[Union[builtins.str, 'PolicyEnabledState']] enabled_state: describes if the policy is in enabled state or disabled state
         :param pulumi.Input[Union[builtins.str, 'PolicyMode']] mode: Describes if it is in detection mode or prevention mode at policy level.
@@ -4851,14 +5007,14 @@ class PolicySettingsArgs:
 
     @property
     @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
-    def default_custom_block_response_status_code(self) -> Optional[pulumi.Input[builtins.int]]:
+    def default_custom_block_response_status_code(self) -> Optional[pulumi.Input[builtins.float]]:
         """
         If the action type is block, this field defines the default customer overridable http response status code.
         """
         return pulumi.get(self, "default_custom_block_response_status_code")
 
     @default_custom_block_response_status_code.setter
-    def default_custom_block_response_status_code(self, value: Optional[pulumi.Input[builtins.int]]):
+    def default_custom_block_response_status_code(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "default_custom_block_response_status_code", value)
 
     @property
@@ -5991,9 +6147,9 @@ class RequestMethodMatchConditionParametersArgs:
 if not MYPY:
     class RequestSchemeMatchConditionParametersArgsDict(TypedDict):
         """
-        Defines the parameters for RequestScheme match conditions 
+        Defines the parameters for RequestScheme match conditions
         """
-        operator: pulumi.Input[builtins.str]
+        operator: pulumi.Input[Union[builtins.str, 'RequestSchemeMatchConditionParametersOperator']]
         """
         Describes operator to be matched
         """
@@ -6020,14 +6176,14 @@ elif False:
 @pulumi.input_type
 class RequestSchemeMatchConditionParametersArgs:
     def __init__(__self__, *,
-                 operator: pulumi.Input[builtins.str],
+                 operator: pulumi.Input[Union[builtins.str, 'RequestSchemeMatchConditionParametersOperator']],
                  type_name: pulumi.Input[builtins.str],
                  match_values: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'RequestSchemeMatchValue']]]]] = None,
                  negate_condition: Optional[pulumi.Input[builtins.bool]] = None,
                  transforms: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'Transform']]]]] = None):
         """
-        Defines the parameters for RequestScheme match conditions 
-        :param pulumi.Input[builtins.str] operator: Describes operator to be matched
+        Defines the parameters for RequestScheme match conditions
+        :param pulumi.Input[Union[builtins.str, 'RequestSchemeMatchConditionParametersOperator']] operator: Describes operator to be matched
         :param pulumi.Input[builtins.str] type_name: 
                Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
         :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'RequestSchemeMatchValue']]]] match_values: The match value for the condition of the delivery rule
@@ -6047,14 +6203,14 @@ class RequestSchemeMatchConditionParametersArgs:
 
     @property
     @pulumi.getter
-    def operator(self) -> pulumi.Input[builtins.str]:
+    def operator(self) -> pulumi.Input[Union[builtins.str, 'RequestSchemeMatchConditionParametersOperator']]:
         """
         Describes operator to be matched
         """
         return pulumi.get(self, "operator")
 
     @operator.setter
-    def operator(self, value: pulumi.Input[builtins.str]):
+    def operator(self, value: pulumi.Input[Union[builtins.str, 'RequestSchemeMatchConditionParametersOperator']]):
         pulumi.set(self, "operator", value)
 
     @property
@@ -6827,7 +6983,6 @@ class SkuArgs:
         StandardPlus_ChinaCdn = The SKU name for a China CDN profile for live-streaming using GB based billing model.
         StandardPlus_955BandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using 95-5 peak bandwidth billing model.
         StandardPlus_AvgBandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using monthly average peak bandwidth billing model.
-
         :param pulumi.Input[Union[builtins.str, 'SkuName']] name: Name of the pricing tier.
         """
         if name is not None:
@@ -7880,7 +8035,7 @@ if not MYPY:
         """
         parameter_name_override: NotRequired[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgsDict']]]]
         """
-        Defines which query string parameters in the url to be considered for expires, key id etc. 
+        Defines which query string parameters in the url to be considered for expires, key id etc.
         """
 elif False:
     UrlSigningActionParametersArgsDict: TypeAlias = Mapping[str, Any]
@@ -7896,7 +8051,7 @@ class UrlSigningActionParametersArgs:
         :param pulumi.Input[builtins.str] type_name: 
                Expected value is 'DeliveryRuleUrlSigningActionParameters'.
         :param pulumi.Input[Union[builtins.str, 'Algorithm']] algorithm: Algorithm to use for URL signing
-        :param pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
+        :param pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc.
         """
         pulumi.set(__self__, "type_name", 'DeliveryRuleUrlSigningActionParameters')
         if algorithm is not None:
@@ -7933,7 +8088,7 @@ class UrlSigningActionParametersArgs:
     @pulumi.getter(name="parameterNameOverride")
     def parameter_name_override(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UrlSigningParamIdentifierArgs']]]]:
         """
-        Defines which query string parameters in the url to be considered for expires, key id etc. 
+        Defines which query string parameters in the url to be considered for expires, key id etc.
         """
         return pulumi.get(self, "parameter_name_override")
 

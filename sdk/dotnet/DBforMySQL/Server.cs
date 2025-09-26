@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DBforMySQL
     /// 
     /// Uses Azure REST API version 2024-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-01-01.
     /// 
-    /// Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-01-01, 2022-09-30-preview, 2023-06-01-preview, 2023-06-30, 2023-10-01-preview, 2023-12-01-preview, 2023-12-30, 2024-06-01-preview, 2024-10-01-preview, 2024-12-01-preview, 2024-12-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbformysql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbformysql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -206,6 +206,7 @@ namespace Pulumi.AzureNative.DBforMySQL
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20240601preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20241001preview:Server" },
                     new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20241201preview:Server" },
+                    new global::Pulumi.Alias { Type = "azure-native:dbformysql/v20241230:Server" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

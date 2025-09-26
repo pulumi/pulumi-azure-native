@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string AlwaysOnRole;
         /// <summary>
+        /// Authentication related configuration for the SQL Server Instance.
+        /// </summary>
+        public readonly Outputs.AuthenticationResponse? Authentication;
+        /// <summary>
         /// Status of Azure Defender.
         /// </summary>
         public readonly string AzureDefenderStatus;
@@ -32,6 +36,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// The backup profile for the SQL server.
         /// </summary>
         public readonly Outputs.BackupPolicyResponse? BackupPolicy;
+        /// <summary>
+        /// Client connection related configuration.
+        /// </summary>
+        public readonly Outputs.ClientConnectionResponse? ClientConnection;
         /// <summary>
         /// SQL Server collation.
         /// </summary>
@@ -53,6 +61,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string CurrentVersion;
         /// <summary>
+        /// Database mirroring endpoint related properties.
+        /// </summary>
+        public readonly Outputs.DBMEndpointResponse? DatabaseMirroringEndpoint;
+        /// <summary>
+        /// Indicates whether database master key exists in SQL Server.
+        /// </summary>
+        public readonly bool DbMasterKeyExists;
+        /// <summary>
         /// SQL Server edition.
         /// </summary>
         public readonly string? Edition;
@@ -69,6 +85,18 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string? InstanceName;
         /// <summary>
+        /// Indicates whether DigiCert PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
+        /// </summary>
+        public readonly bool IsDigiCertPkiCertTrustConfigured;
+        /// <summary>
+        /// Indicates whether always On availability groups is enabled in SQL Server.
+        /// </summary>
+        public readonly bool IsHadrEnabled;
+        /// <summary>
+        /// Indicates whether Microsoft PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
+        /// </summary>
+        public readonly bool IsMicrosoftPkiCertTrustConfigured;
+        /// <summary>
         /// The time when last successful inventory upload was performed.
         /// </summary>
         public readonly string LastInventoryUploadTime;
@@ -80,6 +108,14 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// SQL Server license type.
         /// </summary>
         public readonly string LicenseType;
+        /// <summary>
+        /// max server memory (MB) value configured for this instance.
+        /// </summary>
+        public readonly double MaxServerMemoryMB;
+        /// <summary>
+        /// Migration related configuration.
+        /// </summary>
+        public readonly Outputs.MigrationResponse? Migration;
         /// <summary>
         /// The monitoring configuration.
         /// </summary>
@@ -97,6 +133,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+        /// </summary>
+        public readonly string? ServiceType;
+        /// <summary>
         /// The cloud connectivity status.
         /// </summary>
         public readonly string Status;
@@ -109,6 +149,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string TcpStaticPorts;
         /// <summary>
+        /// An array of integers, where each value represents the enabled trace flags in SQL Server.
+        /// </summary>
+        public readonly ImmutableArray<int> TraceFlags;
+        /// <summary>
         /// Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         /// </summary>
         public readonly string? UpgradeLockedUntil;
@@ -120,16 +164,24 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// SQL Server version.
         /// </summary>
         public readonly string? Version;
+        /// <summary>
+        /// The unique ID of the hybrid machine that this resource belongs to.
+        /// </summary>
+        public readonly string VmId;
 
         [OutputConstructor]
         private SqlServerInstancePropertiesResponse(
             string alwaysOnRole,
+
+            Outputs.AuthenticationResponse? authentication,
 
             string azureDefenderStatus,
 
             string azureDefenderStatusLastUpdated,
 
             Outputs.BackupPolicyResponse? backupPolicy,
+
+            Outputs.ClientConnectionResponse? clientConnection,
 
             string collation,
 
@@ -141,6 +193,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string currentVersion,
 
+            Outputs.DBMEndpointResponse? databaseMirroringEndpoint,
+
+            bool dbMasterKeyExists,
+
             string? edition,
 
             Outputs.FailoverClusterResponse? failoverCluster,
@@ -149,11 +205,21 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string? instanceName,
 
+            bool isDigiCertPkiCertTrustConfigured,
+
+            bool isHadrEnabled,
+
+            bool isMicrosoftPkiCertTrustConfigured,
+
             string lastInventoryUploadTime,
 
             string lastUsageUploadTime,
 
             string licenseType,
+
+            double maxServerMemoryMB,
+
+            Outputs.MigrationResponse? migration,
 
             Outputs.MonitoringResponse? monitoring,
 
@@ -163,44 +229,62 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string provisioningState,
 
+            string? serviceType,
+
             string status,
 
             string tcpDynamicPorts,
 
             string tcpStaticPorts,
 
+            ImmutableArray<int> traceFlags,
+
             string? upgradeLockedUntil,
 
             string vCore,
 
-            string? version)
+            string? version,
+
+            string vmId)
         {
             AlwaysOnRole = alwaysOnRole;
+            Authentication = authentication;
             AzureDefenderStatus = azureDefenderStatus;
             AzureDefenderStatusLastUpdated = azureDefenderStatusLastUpdated;
             BackupPolicy = backupPolicy;
+            ClientConnection = clientConnection;
             Collation = collation;
             ContainerResourceId = containerResourceId;
             Cores = cores;
             CreateTime = createTime;
             CurrentVersion = currentVersion;
+            DatabaseMirroringEndpoint = databaseMirroringEndpoint;
+            DbMasterKeyExists = dbMasterKeyExists;
             Edition = edition;
             FailoverCluster = failoverCluster;
             HostType = hostType;
             InstanceName = instanceName;
+            IsDigiCertPkiCertTrustConfigured = isDigiCertPkiCertTrustConfigured;
+            IsHadrEnabled = isHadrEnabled;
+            IsMicrosoftPkiCertTrustConfigured = isMicrosoftPkiCertTrustConfigured;
             LastInventoryUploadTime = lastInventoryUploadTime;
             LastUsageUploadTime = lastUsageUploadTime;
             LicenseType = licenseType;
+            MaxServerMemoryMB = maxServerMemoryMB;
+            Migration = migration;
             Monitoring = monitoring;
             PatchLevel = patchLevel;
             ProductId = productId;
             ProvisioningState = provisioningState;
+            ServiceType = serviceType;
             Status = status;
             TcpDynamicPorts = tcpDynamicPorts;
             TcpStaticPorts = tcpStaticPorts;
+            TraceFlags = traceFlags;
             UpgradeLockedUntil = upgradeLockedUntil;
             VCore = vCore;
             Version = version;
+            VmId = vmId;
         }
     }
 }

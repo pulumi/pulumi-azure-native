@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing origin within an origin group.
  *
- * Uses Azure REST API version 2024-09-01.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions): Promise<GetAFDOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,7 +26,7 @@ export function getAFDOrigin(args: GetAFDOriginArgs, opts?: pulumi.InvokeOptions
 
 export interface GetAFDOriginArgs {
     /**
-     * Name of the origin group which is unique within the profile.
+     * Name of the origin group which is unique within the endpoint.
      */
     originGroupName: string;
     /**
@@ -34,11 +34,11 @@ export interface GetAFDOriginArgs {
      */
     originName: string;
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -67,7 +67,7 @@ export interface GetAFDOriginResult {
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
-    readonly hostName: string;
+    readonly hostName?: string;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
@@ -77,11 +77,11 @@ export interface GetAFDOriginResult {
      */
     readonly httpsPort?: number;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -105,11 +105,11 @@ export interface GetAFDOriginResult {
      */
     readonly sharedPrivateLinkResource?: outputs.cdn.SharedPrivateLinkResourcePropertiesResponse;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.cdn.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**
@@ -120,9 +120,9 @@ export interface GetAFDOriginResult {
 /**
  * Gets an existing origin within an origin group.
  *
- * Uses Azure REST API version 2024-09-01.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetAFDOriginResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -136,7 +136,7 @@ export function getAFDOriginOutput(args: GetAFDOriginOutputArgs, opts?: pulumi.I
 
 export interface GetAFDOriginOutputArgs {
     /**
-     * Name of the origin group which is unique within the profile.
+     * Name of the origin group which is unique within the endpoint.
      */
     originGroupName: pulumi.Input<string>;
     /**
@@ -144,11 +144,11 @@ export interface GetAFDOriginOutputArgs {
      */
     originName: pulumi.Input<string>;
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

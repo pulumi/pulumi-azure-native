@@ -152,7 +152,7 @@ class AuthorizationType(builtins.str, Enum):
 @pulumi.type_token("azure-native:apimanagement:BackendProtocol")
 class BackendProtocol(builtins.str, Enum):
     """
-    Backend communication protocol.
+    Backend communication protocol. Required when backend type is 'Single'.
     """
     HTTP = "http"
     """

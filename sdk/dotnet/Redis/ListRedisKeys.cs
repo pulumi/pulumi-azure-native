@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class ListRedisKeysArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisResource
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class ListRedisKeysInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisResource
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

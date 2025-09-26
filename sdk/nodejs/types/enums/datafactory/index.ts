@@ -393,6 +393,17 @@ export const HDInsightActivityDebugInfoOption = {
  */
 export type HDInsightActivityDebugInfoOption = (typeof HDInsightActivityDebugInfoOption)[keyof typeof HDInsightActivityDebugInfoOption];
 
+export const HDInsightClusterAuthenticationType = {
+    BasicAuth: "BasicAuth",
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * HDInsight cluster authentication type.
+ */
+export type HDInsightClusterAuthenticationType = (typeof HDInsightClusterAuthenticationType)[keyof typeof HDInsightClusterAuthenticationType];
+
 export const HiveAuthenticationType = {
     Anonymous: "Anonymous",
     Username: "Username",
@@ -512,6 +523,17 @@ export const IntegrationRuntimeType = {
  * Type of integration runtime.
  */
 export type IntegrationRuntimeType = (typeof IntegrationRuntimeType)[keyof typeof IntegrationRuntimeType];
+
+export const LakehouseAuthenticationType = {
+    ServicePrincipal: "ServicePrincipal",
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * The authentication type to use.
+ */
+export type LakehouseAuthenticationType = (typeof LakehouseAuthenticationType)[keyof typeof LakehouseAuthenticationType];
 
 export const ManagedVirtualNetworkReferenceType = {
     ManagedVirtualNetworkReference: "ManagedVirtualNetworkReference",
@@ -977,6 +999,17 @@ export const VariableType = {
  * Variable type.
  */
 export type VariableType = (typeof VariableType)[keyof typeof VariableType];
+
+export const WarehouseAuthenticationType = {
+    ServicePrincipal: "ServicePrincipal",
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * The authentication type to use.
+ */
+export type WarehouseAuthenticationType = (typeof WarehouseAuthenticationType)[keyof typeof WarehouseAuthenticationType];
 
 export const WebActivityMethod = {
     GET: "GET",

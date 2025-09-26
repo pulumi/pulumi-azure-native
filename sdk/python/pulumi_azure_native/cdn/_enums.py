@@ -10,6 +10,9 @@ __all__ = [
     'AFDEndpointProtocols',
     'ActionType',
     'AfdCertificateType',
+    'AfdCipherSuiteSetType',
+    'AfdCustomizedCipherSuiteForTls12',
+    'AfdCustomizedCipherSuiteForTls13',
     'AfdMinimumTlsVersion',
     'AfdQueryStringCachingBehavior',
     'Algorithm',
@@ -41,6 +44,7 @@ __all__ = [
     'MatchVariable',
     'Operator',
     'OptimizationType',
+    'OriginAuthenticationType',
     'ParamIndicator',
     'PolicyEnabledState',
     'PolicyMode',
@@ -56,6 +60,7 @@ __all__ = [
     'RequestHeaderOperator',
     'RequestMethodMatchValue',
     'RequestMethodOperator',
+    'RequestSchemeMatchConditionParametersOperator',
     'RequestSchemeMatchValue',
     'RequestUriOperator',
     'ResponseBasedDetectedErrorTypes',
@@ -113,13 +118,41 @@ class AfdCertificateType(builtins.str, Enum):
     AZURE_FIRST_PARTY_MANAGED_CERTIFICATE = "AzureFirstPartyManagedCertificate"
 
 
+@pulumi.type_token("azure-native:cdn:AfdCipherSuiteSetType")
+class AfdCipherSuiteSetType(builtins.str, Enum):
+    """
+    cipher suite set type that will be used for Https
+    """
+    CUSTOMIZED = "Customized"
+    TLS10_2019 = "TLS10_2019"
+    TLS12_2022 = "TLS12_2022"
+    TLS12_2023 = "TLS12_2023"
+
+
+@pulumi.type_token("azure-native:cdn:AfdCustomizedCipherSuiteForTls12")
+class AfdCustomizedCipherSuiteForTls12(builtins.str, Enum):
+    ECDH_E_RS_A_AES128_GC_M_SHA256 = "ECDHE_RSA_AES128_GCM_SHA256"
+    ECDH_E_RS_A_AES256_GC_M_SHA384 = "ECDHE_RSA_AES256_GCM_SHA384"
+    DH_E_RS_A_AES256_GC_M_SHA384 = "DHE_RSA_AES256_GCM_SHA384"
+    DH_E_RS_A_AES128_GC_M_SHA256 = "DHE_RSA_AES128_GCM_SHA256"
+    ECDH_E_RS_A_AES128_SHA256 = "ECDHE_RSA_AES128_SHA256"
+    ECDH_E_RS_A_AES256_SHA384 = "ECDHE_RSA_AES256_SHA384"
+
+
+@pulumi.type_token("azure-native:cdn:AfdCustomizedCipherSuiteForTls13")
+class AfdCustomizedCipherSuiteForTls13(builtins.str, Enum):
+    TL_S_AE_S_128_GC_M_SHA256 = "TLS_AES_128_GCM_SHA256"
+    TL_S_AE_S_256_GC_M_SHA384 = "TLS_AES_256_GCM_SHA384"
+
+
 @pulumi.type_token("azure-native:cdn:AfdMinimumTlsVersion")
 class AfdMinimumTlsVersion(builtins.str, Enum):
     """
-    TLS protocol version that will be used for Https
+    TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
     """
     TLS10 = "TLS10"
     TLS12 = "TLS12"
+    TLS13 = "TLS13"
 
 
 @pulumi.type_token("azure-native:cdn:AfdQueryStringCachingBehavior")
@@ -401,7 +434,7 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     NONE = "None"
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
-    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned, UserAssigned"
+    SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
 @pulumi.type_token("azure-native:cdn:MatchProcessingBehavior")
@@ -468,6 +501,15 @@ class OptimizationType(builtins.str, Enum):
     VIDEO_ON_DEMAND_MEDIA_STREAMING = "VideoOnDemandMediaStreaming"
     LARGE_FILE_DOWNLOAD = "LargeFileDownload"
     DYNAMIC_SITE_ACCELERATION = "DynamicSiteAcceleration"
+
+
+@pulumi.type_token("azure-native:cdn:OriginAuthenticationType")
+class OriginAuthenticationType(builtins.str, Enum):
+    """
+    The type of the authentication for the origin.
+    """
+    SYSTEM_ASSIGNED_IDENTITY = "SystemAssignedIdentity"
+    USER_ASSIGNED_IDENTITY = "UserAssignedIdentity"
 
 
 @pulumi.type_token("azure-native:cdn:ParamIndicator")
@@ -641,6 +683,14 @@ class RequestMethodMatchValue(builtins.str, Enum):
 
 @pulumi.type_token("azure-native:cdn:RequestMethodOperator")
 class RequestMethodOperator(builtins.str, Enum):
+    """
+    Describes operator to be matched
+    """
+    EQUAL = "Equal"
+
+
+@pulumi.type_token("azure-native:cdn:RequestSchemeMatchConditionParametersOperator")
+class RequestSchemeMatchConditionParametersOperator(builtins.str, Enum):
     """
     Describes operator to be matched
     """

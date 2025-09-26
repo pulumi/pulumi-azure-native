@@ -385,6 +385,13 @@ jobs:
     permissions:
       id-token: write # required for OIDC auth
     steps:
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        with:
+          tool-cache: false
+          swap-storage: false
+          dotnet: false
+
       - name: Checkout Repo
         uses: actions/checkout@v4
         with:

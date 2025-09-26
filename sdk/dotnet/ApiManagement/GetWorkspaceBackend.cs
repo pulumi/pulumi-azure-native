@@ -141,9 +141,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly Outputs.BackendPropertiesResponse Properties;
         /// <summary>
-        /// Backend communication protocol.
+        /// Backend communication protocol. Required when backend type is 'Single'.
         /// </summary>
-        public readonly string Protocol;
+        public readonly string? Protocol;
         /// <summary>
         /// Backend gateway Contract Properties
         /// </summary>
@@ -165,9 +165,9 @@ namespace Pulumi.AzureNative.ApiManagement
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Runtime Url of the Backend.
+        /// Runtime Url of the Backend. Required when backend type is 'Single'.
         /// </summary>
-        public readonly string Url;
+        public readonly string? Url;
 
         [OutputConstructor]
         private GetWorkspaceBackendResult(
@@ -187,7 +187,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             Outputs.BackendPropertiesResponse properties,
 
-            string protocol,
+            string? protocol,
 
             Outputs.BackendProxyContractResponse? proxy,
 
@@ -199,7 +199,7 @@ namespace Pulumi.AzureNative.ApiManagement
 
             string type,
 
-            string url)
+            string? url)
         {
             AzureApiVersion = azureApiVersion;
             CircuitBreaker = circuitBreaker;

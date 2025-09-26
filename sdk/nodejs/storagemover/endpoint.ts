@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
  *
- * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class Endpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Endpoint" }, { type: "azure-native:storagemover/v20230301:Endpoint" }, { type: "azure-native:storagemover/v20230701preview:Endpoint" }, { type: "azure-native:storagemover/v20231001:Endpoint" }, { type: "azure-native:storagemover/v20240701:Endpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagemover/v20220701preview:Endpoint" }, { type: "azure-native:storagemover/v20230301:Endpoint" }, { type: "azure-native:storagemover/v20230701preview:Endpoint" }, { type: "azure-native:storagemover/v20231001:Endpoint" }, { type: "azure-native:storagemover/v20240701:Endpoint" }, { type: "azure-native:storagemover/v20250701:Endpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Endpoint.__pulumiType, name, resourceInputs, opts);
     }

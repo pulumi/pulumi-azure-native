@@ -47,10 +47,10 @@ class DeploymentStackAtResourceGroupArgs:
         :param pulumi.Input[builtins.str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param pulumi.Input[builtins.str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[builtins.str] description: Deployment stack description. Max length of 4096 characters.
-        :param pulumi.Input[builtins.str] location: The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input[Mapping[str, pulumi.Input['DeploymentParameterArgs']]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input['DeploymentStacksParametersLinkArgs'] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Deployment stack resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input['DeploymentStacksTemplateLinkArgs'] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
@@ -180,7 +180,7 @@ class DeploymentStackAtResourceGroupArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         """
         return pulumi.get(self, "location")
 
@@ -216,7 +216,7 @@ class DeploymentStackAtResourceGroupArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
-        Deployment stack resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -286,11 +286,11 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] deployment_scope: The scope at which the initial deployment should be created. If a scope is not specified, it will default to the scope of the deployment stack. Valid scopes are: management group (format: '/providers/Microsoft.Management/managementGroups/{managementGroupId}'), subscription (format: '/subscriptions/{subscriptionId}'), resource group (format: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}').
         :param pulumi.Input[builtins.str] deployment_stack_name: Name of the deployment stack.
         :param pulumi.Input[builtins.str] description: Deployment stack description. Max length of 4096 characters.
-        :param pulumi.Input[builtins.str] location: The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['DeploymentParameterArgs', 'DeploymentParameterArgsDict']]]] parameters: Name and value pairs that define the deployment parameters for the template. Use this element when providing the parameter values directly in the request, rather than linking to an existing parameter file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[Union['DeploymentStacksParametersLinkArgs', 'DeploymentStacksParametersLinkArgsDict']] parameters_link: The URI of parameters file. Use this element to link to an existing parameters file. Use either the parametersLink property or the parameters property, but not both.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Deployment stack resource tags.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param Any template: The template content. You use this element when you want to pass the template syntax directly in the request rather than link to an existing template. It can be a JObject or well-formed JSON string. Use either the templateLink property or the template property, but not both.
         :param pulumi.Input[Union['DeploymentStacksTemplateLinkArgs', 'DeploymentStacksTemplateLinkArgsDict']] template_link: The URI of the template. Use either the templateLink property or the template property, but not both.
         """
@@ -536,7 +536,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         """
         return pulumi.get(self, "location")
 
@@ -544,7 +544,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Name of this resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -600,7 +600,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         """
-        Deployment stack resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -608,7 +608,7 @@ class DeploymentStackAtResourceGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Type of this resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

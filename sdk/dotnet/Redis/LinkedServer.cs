@@ -68,6 +68,12 @@ namespace Pulumi.AzureNative.Redis
         public Output<string> ServerRole { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -156,13 +162,13 @@ namespace Pulumi.AzureNative.Redis
         public Input<string> LinkedRedisCacheLocation { get; set; } = null!;
 
         /// <summary>
-        /// The name of the linked server that is being added to the Redis cache.
+        /// The name of the RedisLinkedServerWithProperties
         /// </summary>
         [Input("linkedServerName")]
         public Input<string>? LinkedServerName { get; set; }
 
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the redis cache.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

@@ -1355,6 +1355,7 @@ _utilities.register(
   "classes": {
    "azure-native:azuredatatransfer:Connection": "Connection",
    "azure-native:azuredatatransfer:Flow": "Flow",
+   "azure-native:azuredatatransfer:FlowProfile": "FlowProfile",
    "azure-native:azuredatatransfer:Pipeline": "Pipeline"
   }
  },
@@ -1615,6 +1616,7 @@ _utilities.register(
    "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
    "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
    "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices:RaiTopic": "RaiTopic",
    "azure-native:cognitiveservices:SharedCommitmentPlan": "SharedCommitmentPlan"
   }
  },
@@ -1756,7 +1758,8 @@ _utilities.register(
   "classes": {
    "azure-native:containerinstance:CGProfile": "CGProfile",
    "azure-native:containerinstance:ContainerGroup": "ContainerGroup",
-   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile"
+   "azure-native:containerinstance:ContainerGroupProfile": "ContainerGroupProfile",
+   "azure-native:containerinstance:NGroup": "NGroup"
   }
  },
  {
@@ -1795,6 +1798,7 @@ _utilities.register(
    "azure-native:containerservice:FleetMember": "FleetMember",
    "azure-native:containerservice:FleetUpdateStrategy": "FleetUpdateStrategy",
    "azure-native:containerservice:IdentityBinding": "IdentityBinding",
+   "azure-native:containerservice:JWTAuthenticator": "JWTAuthenticator",
    "azure-native:containerservice:LoadBalancer": "LoadBalancer",
    "azure-native:containerservice:MaintenanceConfiguration": "MaintenanceConfiguration",
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
@@ -2074,6 +2078,8 @@ _utilities.register(
    "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbRUMongo": "DatabaseMigrationsMongoToCosmosDbRUMongo",
    "azure-native:datamigration:DatabaseMigrationsMongoToCosmosDbvCoreMongo": "DatabaseMigrationsMongoToCosmosDbvCoreMongo",
    "azure-native:datamigration:DatabaseMigrationsSqlDb": "DatabaseMigrationsSqlDb",
+   "azure-native:datamigration:DatabaseMigrationsSqlMi": "DatabaseMigrationsSqlMi",
+   "azure-native:datamigration:DatabaseMigrationsSqlVm": "DatabaseMigrationsSqlVm",
    "azure-native:datamigration:File": "File",
    "azure-native:datamigration:MigrationService": "MigrationService",
    "azure-native:datamigration:Project": "Project",
@@ -3342,6 +3348,7 @@ _utilities.register(
    "azure-native:monitor:DataCollectionRule": "DataCollectionRule",
    "azure-native:monitor:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
    "azure-native:monitor:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:monitor:Issue": "Issue",
    "azure-native:monitor:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
    "azure-native:monitor:MetricAlert": "MetricAlert",
    "azure-native:monitor:PipelineGroup": "PipelineGroup",
@@ -4371,6 +4378,7 @@ _utilities.register(
   "classes": {
    "azure-native:storagecache:AmlFilesystem": "AmlFilesystem",
    "azure-native:storagecache:AutoExportJob": "AutoExportJob",
+   "azure-native:storagecache:AutoImportJob": "AutoImportJob",
    "azure-native:storagecache:Cache": "Cache",
    "azure-native:storagecache:ImportJob": "ImportJob",
    "azure-native:storagecache:StorageTarget": "StorageTarget"

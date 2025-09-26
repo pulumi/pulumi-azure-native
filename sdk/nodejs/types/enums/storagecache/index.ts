@@ -2,6 +2,16 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AdminStatus = {
+    Enable: "Enable",
+    Disable: "Disable",
+} as const;
+
+/**
+ * The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
+ */
+export type AdminStatus = (typeof AdminStatus)[keyof typeof AdminStatus];
+
 export const AmlFilesystemIdentityType = {
     UserAssigned: "UserAssigned",
     None: "None",

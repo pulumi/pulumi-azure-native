@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Discovered device definition.
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NamespaceDiscoveredDevice extends pulumi.CustomResource {
     /**
@@ -174,7 +176,7 @@ export class NamespaceDiscoveredDevice extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20250701preview:NamespaceDiscoveredDevice" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20250701preview:NamespaceDiscoveredDevice" }, { type: "azure-native:deviceregistry/v20251001:NamespaceDiscoveredDevice" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NamespaceDiscoveredDevice.__pulumiType, name, resourceInputs, opts);
     }

@@ -62,7 +62,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly hostName!: pulumi.Output<string>;
     /**
-     * The identity of the resource.
+     * The managed service identities assigned to this resource.
      */
     public readonly identity!: pulumi.Output<outputs.redis.ManagedServiceIdentityResponse | undefined>;
     /**
@@ -98,13 +98,13 @@ export class Redis extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
-    public readonly redisConfiguration!: pulumi.Output<outputs.redis.RedisCommonPropertiesResponseRedisConfiguration | undefined>;
+    public readonly redisConfiguration!: pulumi.Output<outputs.redis.RedisCommonPropertiesRedisConfigurationResponse | undefined>;
     /**
      * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
      */
@@ -138,6 +138,10 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string | undefined>;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    public /*out*/ readonly systemData!: pulumi.Output<outputs.redis.SystemDataResponse>;
+    /**
      * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -158,7 +162,7 @@ export class Redis extends pulumi.CustomResource {
      */
     public readonly zonalAllocationPolicy!: pulumi.Output<string | undefined>;
     /**
-     * A list of availability zones denoting where the resource needs to come from.
+     * The availability zones.
      */
     public readonly zones!: pulumi.Output<string[] | undefined>;
 
@@ -185,7 +189,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
+            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
             resourceInputs["redisConfiguration"] = args ? args.redisConfiguration : undefined;
             resourceInputs["redisVersion"] = args ? args.redisVersion : undefined;
             resourceInputs["replicasPerMaster"] = args ? args.replicasPerMaster : undefined;
@@ -209,6 +213,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["sslPort"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessKeys"] = undefined /*out*/;
@@ -235,6 +240,7 @@ export class Redis extends pulumi.CustomResource {
             resourceInputs["sslPort"] = undefined /*out*/;
             resourceInputs["staticIP"] = undefined /*out*/;
             resourceInputs["subnetId"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["tenantSettings"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -274,11 +280,11 @@ export interface RedisArgs {
      */
     minimumTlsVersion?: pulumi.Input<string | enums.redis.TlsVersion>;
     /**
-     * The name of the Redis cache.
+     * The name of the RedisResource
      */
     name?: pulumi.Input<string>;
     /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.redis.PublicNetworkAccess>;
     /**

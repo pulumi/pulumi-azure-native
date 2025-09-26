@@ -47,8 +47,8 @@ class EndpointArgs:
         """
         The set of arguments for constructing a Endpoint resource.
         :param pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginArgs']]] origins: The source of the content being delivered via CDN.
-        :param pulumi.Input[builtins.str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] content_types_to_compress: List of content types on which compression applies. The value should be a valid MIME type.
         :param pulumi.Input['ResourceReferenceArgs'] default_origin_group: A reference to the origin group.
         :param pulumi.Input['EndpointPropertiesUpdateParametersDeliveryPolicyArgs'] delivery_policy: A policy that specifies the delivery rules to be used for an endpoint.
@@ -57,7 +57,7 @@ class EndpointArgs:
         :param pulumi.Input[builtins.bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[builtins.bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[builtins.bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'OptimizationType']] optimization_type: Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
         :param pulumi.Input[Sequence[pulumi.Input['DeepCreatedOriginGroupArgs']]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
@@ -130,7 +130,7 @@ class EndpointArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the CDN profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -142,7 +142,7 @@ class EndpointArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -250,7 +250,7 @@ class EndpointArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -398,9 +398,9 @@ class Endpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -412,16 +412,16 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] is_compression_enabled: Indicates whether content compression is enabled on CDN. Default value is false. If compression is enabled, content will be served as compressed if user requests for a compressed version. Content won't be compressed on CDN when requested content is smaller than 1 byte or larger than 1 MB.
         :param pulumi.Input[builtins.bool] is_http_allowed: Indicates whether HTTP traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
         :param pulumi.Input[builtins.bool] is_https_allowed: Indicates whether HTTPS traffic is allowed on the endpoint. Default value is true. At least one protocol (HTTP or HTTPS) must be allowed.
-        :param pulumi.Input[builtins.str] location: Resource location.
+        :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union[builtins.str, 'OptimizationType']] optimization_type: Specifies what scenario the customer wants this CDN endpoint to optimize for, e.g. Download, Media services. With this information, CDN can apply scenario driven optimization.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeepCreatedOriginGroupArgs', 'DeepCreatedOriginGroupArgsDict']]]] origin_groups: The origin groups comprising of origins that are used for load balancing the traffic based on availability.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value sent to the origin with each request. This property at Endpoint is only allowed when endpoint uses single origin and can be overridden by the same property specified at origin.If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default.
         :param pulumi.Input[builtins.str] origin_path: A directory path on the origin that CDN can use to retrieve content from, e.g. contoso.cloudapp.net/originpath.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeepCreatedOriginArgs', 'DeepCreatedOriginArgsDict']]]] origins: The source of the content being delivered via CDN.
         :param pulumi.Input[builtins.str] probe_path: Path to a file hosted on the origin which helps accelerate delivery of the dynamic content and calculate the most optimal routes for the CDN. This is relative to the origin path. This property is only relevant when using a single origin.
-        :param pulumi.Input[builtins.str] profile_name: Name of the CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         :param pulumi.Input['QueryStringCachingBehavior'] query_string_caching_behavior: Defines how CDN caches requests that include query strings. You can ignore any query strings when caching, bypass caching to prevent requests that contain query strings from being cached, or cache every request with a unique URL.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[Union['UrlSigningKeyArgs', 'UrlSigningKeyArgsDict']]]] url_signing_keys: List of keys used to validate the signed URL hashes.
         :param pulumi.Input[Union['EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgs', 'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkArgsDict']] web_application_firewall_policy_link: Defines the Web Application Firewall policy for the endpoint (if applicable)
@@ -435,9 +435,9 @@ class Endpoint(pulumi.CustomResource):
         """
         CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -611,7 +611,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="deliveryPolicy")
-    def delivery_policy(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy']]:
+    def delivery_policy(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersDeliveryPolicyResponse']]:
         """
         A policy that specifies the delivery rules to be used for an endpoint.
         """
@@ -661,7 +661,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[builtins.str]:
         """
-        Resource location.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -669,7 +669,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -749,7 +749,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -765,7 +765,7 @@ class Endpoint(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -779,7 +779,7 @@ class Endpoint(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="webApplicationFirewallPolicyLink")
-    def web_application_firewall_policy_link(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink']]:
+    def web_application_firewall_policy_link(self) -> pulumi.Output[Optional['outputs.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse']]:
         """
         Defines the Web Application Firewall policy for the endpoint (if applicable)
         """

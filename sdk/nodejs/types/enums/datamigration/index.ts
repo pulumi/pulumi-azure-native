@@ -2,6 +2,22 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AuthType = {
+    /**
+     * Use an account key for authentication.
+     */
+    AccountKey: "AccountKey",
+    /**
+     * Use a managed identity for authentication.
+     */
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+/**
+ * Authentication type used for accessing Azure Blob Storage.
+ */
+export type AuthType = (typeof AuthType)[keyof typeof AuthType];
+
 export const AuthenticationType = {
     None: "None",
     WindowsAuthentication: "WindowsAuthentication",
@@ -24,6 +40,18 @@ export const BackupMode = {
  * Backup Mode to specify whether to use existing backup or create new backup.
  */
 export type BackupMode = (typeof BackupMode)[keyof typeof BackupMode];
+
+export const ManagedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+    UserAssigned: "UserAssigned",
+    SystemAssigned_UserAssigned: "SystemAssigned,UserAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+ */
+export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
 export const MongoDbReplication = {
     Disabled: "Disabled",

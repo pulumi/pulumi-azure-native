@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.StorageSync
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>

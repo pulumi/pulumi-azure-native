@@ -137,7 +137,7 @@ class NetworkSecurityPerimeterProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-        Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -159,7 +159,7 @@ class NetworkSecurityPerimeterProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-        Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterProfileArgs args: The arguments to use to populate this resource's properties.
@@ -206,7 +206,7 @@ class NetworkSecurityPerimeterProfile(pulumi.CustomResource):
             __props__.__dict__["diagnostic_settings_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network:NspProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspProfile"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network/v20241001:NetworkSecurityPerimeterProfile"), pulumi.Alias(type_="azure-native:network:NspProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterProfile, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterProfile',

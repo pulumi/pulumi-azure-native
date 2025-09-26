@@ -7,18 +7,86 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AntivirusSolutions',
+    'Casing',
+    'DataClassType',
     'DataType',
     'Direction',
+    'FilterType',
     'FlowBillingTier',
+    'FlowProfileStatus',
     'FlowStatus',
     'FlowType',
     'ListApprovedSchemasDirection',
     'ManagedServiceIdentityType',
+    'MatchType',
     'SchemaDirection',
     'SchemaStatus',
     'SchemaType',
     'StreamProtocol',
+    'XmlReferenceType',
 ]
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:AntivirusSolutions")
+class AntivirusSolutions(builtins.str, Enum):
+    """
+    The list of Antivirus solutions currently provided.
+    """
+    DEFENDER = "Defender"
+    """
+    Option to use Microsoft Defender antivirus scanning software as the scanning solution.
+    """
+    CLAM_AV = "ClamAv"
+    """
+    Option to use the external ClamAV open-source software as an antivirus scanning solution.
+    """
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:Casing")
+class Casing(builtins.str, Enum):
+    """
+    Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+    """
+    INSENSITIVE = "Insensitive"
+    """
+    Ignores casing when performing pattern matching. For example, "Hello World" would be found in "hello world".
+    """
+    SENSITIVE = "Sensitive"
+    """
+    Requires exact casing for the pattern match. For example, "Hello World" would NOT not be found in "hello world".
+    """
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:DataClassType")
+class DataClassType(builtins.str, Enum):
+    """
+    The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+    """
+    MESSAGING = "Messaging"
+    """
+    Represents standard message-based data, including Azure Service and Event Hub, used in message replication.
+    """
+    API = "API"
+    """
+    Represents transactional request/response data types from API endpoints.
+    """
+    STREAM = "Stream"
+    """
+    Represents data types that require continuous, real-time streaming replication (e.g., video).
+    """
+    FILES = "Files"
+    """
+    Represents standard file-based data, including Azure Blob and Table Storage, used in general-purpose replication.
+    """
+    SOFTWARE_ARTIFACTS = "SoftwareArtifacts"
+    """
+    Represents data related to development, security, and operations workflows such as build artifacts subject to an NCDSMO policy.
+    """
+    COMPLEX = "Complex"
+    """
+    Represents rich content types such as documents (e.g., Word, PDF) and images that require specialized replication handling.
+    """
 
 
 @pulumi.type_token("azure-native:azuredatatransfer:DataType")
@@ -39,6 +107,21 @@ class Direction(builtins.str, Enum):
     RECEIVE = "Receive"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:FilterType")
+class FilterType(builtins.str, Enum):
+    """
+    Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+    """
+    ALLOW = "Allow"
+    """
+    Defines an allow filter used for allowlist.
+    """
+    DENY = "Deny"
+    """
+    Defines a denying filter used for blocklisting.
+    """
+
+
 @pulumi.type_token("azure-native:azuredatatransfer:FlowBillingTier")
 class FlowBillingTier(builtins.str, Enum):
     """
@@ -47,6 +130,21 @@ class FlowBillingTier(builtins.str, Enum):
     BLOB_TRANSPORT = "BlobTransport"
     STANDARD = "Standard"
     PREMIUM = "Premium"
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:FlowProfileStatus")
+class FlowProfileStatus(builtins.str, Enum):
+    """
+    The operational status of the FlowProfile.
+    """
+    OBSOLETE = "Obsolete"
+    """
+    Defines a FlowProfile that can no longer be selected.
+    """
+    ENABLED = "Enabled"
+    """
+    Defines a FlowProfile that is enabled.
+    """
 
 
 @pulumi.type_token("azure-native:azuredatatransfer:FlowStatus")
@@ -97,6 +195,21 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:azuredatatransfer:MatchType")
+class MatchType(builtins.str, Enum):
+    """
+    Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+    """
+    PARTIAL = "Partial"
+    """
+    The option to pattern match substrings within all text content. For example, "hello world" would be found in "chello worlds".
+    """
+    COMPLETE = "Complete"
+    """
+    The option to pattern match the entire string explicitly. For example, "hello world" would NOT be found in "chello worlds".
+    """
+
+
 @pulumi.type_token("azure-native:azuredatatransfer:SchemaDirection")
 class SchemaDirection(builtins.str, Enum):
     """
@@ -132,3 +245,14 @@ class StreamProtocol(builtins.str, Enum):
     UDP = "UDP"
     SRT = "SRT"
     RTP = "RTP"
+
+
+@pulumi.type_token("azure-native:azuredatatransfer:XmlReferenceType")
+class XmlReferenceType(builtins.str, Enum):
+    """
+    Defines the method for referencing the xml schema.
+    """
+    INLINE = "Inline"
+    """
+    Defines a referencing procedure where the xml schema will be provided inline.
+    """

@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetAccessPolicyAssignmentResult',
@@ -27,7 +28,7 @@ class GetAccessPolicyAssignmentResult:
     """
     Response to an operation on access policy assignment
     """
-    def __init__(__self__, access_policy_name=None, azure_api_version=None, id=None, name=None, object_id=None, object_id_alias=None, provisioning_state=None, type=None):
+    def __init__(__self__, access_policy_name=None, azure_api_version=None, id=None, name=None, object_id=None, object_id_alias=None, provisioning_state=None, system_data=None, type=None):
         if access_policy_name and not isinstance(access_policy_name, str):
             raise TypeError("Expected argument 'access_policy_name' to be a str")
         pulumi.set(__self__, "access_policy_name", access_policy_name)
@@ -49,6 +50,9 @@ class GetAccessPolicyAssignmentResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -73,7 +77,7 @@ class GetAccessPolicyAssignmentResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -110,6 +114,14 @@ class GetAccessPolicyAssignmentResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> builtins.str:
         """
@@ -131,6 +143,7 @@ class AwaitableGetAccessPolicyAssignmentResult(GetAccessPolicyAssignmentResult):
             object_id=self.object_id,
             object_id_alias=self.object_id_alias,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             type=self.type)
 
 
@@ -165,6 +178,7 @@ def get_access_policy_assignment(access_policy_assignment_name: Optional[builtin
         object_id=pulumi.get(__ret__, 'object_id'),
         object_id_alias=pulumi.get(__ret__, 'object_id_alias'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         type=pulumi.get(__ret__, 'type'))
 def get_access_policy_assignment_output(access_policy_assignment_name: Optional[pulumi.Input[builtins.str]] = None,
                                         cache_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -196,4 +210,5 @@ def get_access_policy_assignment_output(access_policy_assignment_name: Optional[
         object_id=pulumi.get(__response__, 'object_id'),
         object_id_alias=pulumi.get(__response__, 'object_id_alias'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
+        system_data=pulumi.get(__response__, 'system_data'),
         type=pulumi.get(__response__, 'type')))

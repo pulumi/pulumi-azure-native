@@ -29,7 +29,7 @@ export interface GetPrivateEndpointConnectionArgs {
      */
     cacheName: string;
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: string;
     /**
@@ -39,7 +39,7 @@ export interface GetPrivateEndpointConnectionArgs {
 }
 
 /**
- * The Private Endpoint Connection resource.
+ * The private endpoint connection resource.
  */
 export interface GetPrivateEndpointConnectionResult {
     /**
@@ -47,7 +47,11 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * The group ids for the private endpoint resource.
+     */
+    readonly groupIds: string[];
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -55,7 +59,7 @@ export interface GetPrivateEndpointConnectionResult {
      */
     readonly name: string;
     /**
-     * The resource of private end point.
+     * The private endpoint resource.
      */
     readonly privateEndpoint?: outputs.redis.PrivateEndpointResponse;
     /**
@@ -66,6 +70,10 @@ export interface GetPrivateEndpointConnectionResult {
      * The provisioning state of the private endpoint connection resource.
      */
     readonly provisioningState: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.redis.SystemDataResponse;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -93,7 +101,7 @@ export interface GetPrivateEndpointConnectionOutputArgs {
      */
     cacheName: pulumi.Input<string>;
     /**
-     * The name of the private endpoint connection associated with the Azure resource
+     * The name of the private endpoint connection associated with the Azure resource.
      */
     privateEndpointConnectionName: pulumi.Input<string>;
     /**

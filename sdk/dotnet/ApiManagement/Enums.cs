@@ -252,7 +252,7 @@ namespace Pulumi.AzureNative.ApiManagement
     }
 
     /// <summary>
-    /// Backend communication protocol.
+    /// Backend communication protocol. Required when backend type is 'Single'.
     /// </summary>
     [EnumType]
     public readonly struct BackendProtocol : IEquatable<BackendProtocol>

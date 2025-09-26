@@ -21,7 +21,15 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string CertificateType;
         /// <summary>
-        /// TLS protocol version that will be used for Https
+        /// cipher suite set type that will be used for Https
+        /// </summary>
+        public readonly string? CipherSuiteSetType;
+        /// <summary>
+        /// Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        /// </summary>
+        public readonly Outputs.AFDDomainHttpsCustomizedCipherSuiteSetResponse? CustomizedCipherSuiteSet;
+        /// <summary>
+        /// TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         /// </summary>
         public readonly string? MinimumTlsVersion;
         /// <summary>
@@ -33,11 +41,17 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         private AFDDomainHttpsParametersResponse(
             string certificateType,
 
+            string? cipherSuiteSetType,
+
+            Outputs.AFDDomainHttpsCustomizedCipherSuiteSetResponse? customizedCipherSuiteSet,
+
             string? minimumTlsVersion,
 
             Outputs.ResourceReferenceResponse? secret)
         {
             CertificateType = certificateType;
+            CipherSuiteSetType = cipherSuiteSetType;
+            CustomizedCipherSuiteSet = customizedCipherSuiteSet;
             MinimumTlsVersion = minimumTlsVersion;
             Secret = secret;
         }

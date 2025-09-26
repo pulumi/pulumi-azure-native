@@ -12,13 +12,19 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
     /// 
-    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+    /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:AFDOriginGroup")]
     public partial class AFDOriginGroup : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Authentication settings for origin in origin group.
+        /// </summary>
+        [Output("authentication")]
+        public Output<Outputs.OriginAuthenticationPropertiesResponse?> Authentication { get; private set; } = null!;
+
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -41,7 +47,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<Outputs.LoadBalancingSettingsParametersResponse?> LoadBalancingSettings { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -65,7 +71,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string?> SessionAffinityState { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -77,7 +83,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<int?> TrafficRestorationTimeToHealedOrNewEndpointsInMinutes { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -144,6 +150,12 @@ namespace Pulumi.AzureNative.Cdn
     public sealed class AFDOriginGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication settings for origin in origin group.
+        /// </summary>
+        [Input("authentication")]
+        public Input<Inputs.OriginAuthenticationPropertiesArgs>? Authentication { get; set; }
+
+        /// <summary>
         /// Health probe settings to the origin that is used to determine the health of the origin.
         /// </summary>
         [Input("healthProbeSettings")]
@@ -162,13 +174,13 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? OriginGroupName { get; set; }
 
         /// <summary>
-        /// Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

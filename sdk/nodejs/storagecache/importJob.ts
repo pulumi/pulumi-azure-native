@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-03-01.
  *
- * Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagecache [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class ImportJob extends pulumi.CustomResource {
     /**
@@ -185,7 +185,7 @@ export class ImportJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native:storagecache/v20240701:ImportJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:storagecache/v20240301:ImportJob" }, { type: "azure-native:storagecache/v20240701:ImportJob" }, { type: "azure-native:storagecache/v20250701:ImportJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ImportJob.__pulumiType, name, resourceInputs, opts);
     }

@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly int? HttpsPort;
         /// <summary>
-        /// Origin name which must be unique within the endpoint. 
+        /// Origin name which must be unique within the endpoint.
         /// </summary>
         public readonly string Name;
         /// <summary>

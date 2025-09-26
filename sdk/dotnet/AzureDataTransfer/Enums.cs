@@ -8,6 +8,133 @@ using Pulumi;
 namespace Pulumi.AzureNative.AzureDataTransfer
 {
     /// <summary>
+    /// The list of Antivirus solutions currently provided.
+    /// </summary>
+    [EnumType]
+    public readonly struct AntivirusSolutions : IEquatable<AntivirusSolutions>
+    {
+        private readonly string _value;
+
+        private AntivirusSolutions(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Option to use Microsoft Defender antivirus scanning software as the scanning solution.
+        /// </summary>
+        public static AntivirusSolutions Defender { get; } = new AntivirusSolutions("Defender");
+        /// <summary>
+        /// Option to use the external ClamAV open-source software as an antivirus scanning solution.
+        /// </summary>
+        public static AntivirusSolutions ClamAv { get; } = new AntivirusSolutions("ClamAv");
+
+        public static bool operator ==(AntivirusSolutions left, AntivirusSolutions right) => left.Equals(right);
+        public static bool operator !=(AntivirusSolutions left, AntivirusSolutions right) => !left.Equals(right);
+
+        public static explicit operator string(AntivirusSolutions value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AntivirusSolutions other && Equals(other);
+        public bool Equals(AntivirusSolutions other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+    /// </summary>
+    [EnumType]
+    public readonly struct Casing : IEquatable<Casing>
+    {
+        private readonly string _value;
+
+        private Casing(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Ignores casing when performing pattern matching. For example, "Hello World" would be found in "hello world".
+        /// </summary>
+        public static Casing Insensitive { get; } = new Casing("Insensitive");
+        /// <summary>
+        /// Requires exact casing for the pattern match. For example, "Hello World" would NOT not be found in "hello world".
+        /// </summary>
+        public static Casing Sensitive { get; } = new Casing("Sensitive");
+
+        public static bool operator ==(Casing left, Casing right) => left.Equals(right);
+        public static bool operator !=(Casing left, Casing right) => !left.Equals(right);
+
+        public static explicit operator string(Casing value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Casing other && Equals(other);
+        public bool Equals(Casing other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+    /// </summary>
+    [EnumType]
+    public readonly struct DataClassType : IEquatable<DataClassType>
+    {
+        private readonly string _value;
+
+        private DataClassType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents standard message-based data, including Azure Service and Event Hub, used in message replication.
+        /// </summary>
+        public static DataClassType Messaging { get; } = new DataClassType("Messaging");
+        /// <summary>
+        /// Represents transactional request/response data types from API endpoints.
+        /// </summary>
+        public static DataClassType API { get; } = new DataClassType("API");
+        /// <summary>
+        /// Represents data types that require continuous, real-time streaming replication (e.g., video).
+        /// </summary>
+        public static DataClassType Stream { get; } = new DataClassType("Stream");
+        /// <summary>
+        /// Represents standard file-based data, including Azure Blob and Table Storage, used in general-purpose replication.
+        /// </summary>
+        public static DataClassType Files { get; } = new DataClassType("Files");
+        /// <summary>
+        /// Represents data related to development, security, and operations workflows such as build artifacts subject to an NCDSMO policy.
+        /// </summary>
+        public static DataClassType SoftwareArtifacts { get; } = new DataClassType("SoftwareArtifacts");
+        /// <summary>
+        /// Represents rich content types such as documents (e.g., Word, PDF) and images that require specialized replication handling.
+        /// </summary>
+        public static DataClassType Complex { get; } = new DataClassType("Complex");
+
+        public static bool operator ==(DataClassType left, DataClassType right) => left.Equals(right);
+        public static bool operator !=(DataClassType left, DataClassType right) => !left.Equals(right);
+
+        public static explicit operator string(DataClassType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DataClassType other && Equals(other);
+        public bool Equals(DataClassType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Transfer Storage Blobs or Tables
     /// </summary>
     [EnumType]
@@ -70,6 +197,43 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     }
 
     /// <summary>
+    /// Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+    /// </summary>
+    [EnumType]
+    public readonly struct FilterType : IEquatable<FilterType>
+    {
+        private readonly string _value;
+
+        private FilterType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Defines an allow filter used for allowlist.
+        /// </summary>
+        public static FilterType Allow { get; } = new FilterType("Allow");
+        /// <summary>
+        /// Defines a denying filter used for blocklisting.
+        /// </summary>
+        public static FilterType Deny { get; } = new FilterType("Deny");
+
+        public static bool operator ==(FilterType left, FilterType right) => left.Equals(right);
+        public static bool operator !=(FilterType left, FilterType right) => !left.Equals(right);
+
+        public static explicit operator string(FilterType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FilterType other && Equals(other);
+        public bool Equals(FilterType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Billing tier for this messaging flow
     /// </summary>
     [EnumType]
@@ -94,6 +258,43 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is FlowBillingTier other && Equals(other);
         public bool Equals(FlowBillingTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The operational status of the FlowProfile.
+    /// </summary>
+    [EnumType]
+    public readonly struct FlowProfileStatus : IEquatable<FlowProfileStatus>
+    {
+        private readonly string _value;
+
+        private FlowProfileStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Defines a FlowProfile that can no longer be selected.
+        /// </summary>
+        public static FlowProfileStatus Obsolete { get; } = new FlowProfileStatus("Obsolete");
+        /// <summary>
+        /// Defines a FlowProfile that is enabled.
+        /// </summary>
+        public static FlowProfileStatus Enabled { get; } = new FlowProfileStatus("Enabled");
+
+        public static bool operator ==(FlowProfileStatus left, FlowProfileStatus right) => left.Equals(right);
+        public static bool operator !=(FlowProfileStatus left, FlowProfileStatus right) => !left.Equals(right);
+
+        public static explicit operator string(FlowProfileStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is FlowProfileStatus other && Equals(other);
+        public bool Equals(FlowProfileStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -238,6 +439,43 @@ namespace Pulumi.AzureNative.AzureDataTransfer
     }
 
     /// <summary>
+    /// Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+    /// </summary>
+    [EnumType]
+    public readonly struct MatchType : IEquatable<MatchType>
+    {
+        private readonly string _value;
+
+        private MatchType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The option to pattern match substrings within all text content. For example, "hello world" would be found in "chello worlds".
+        /// </summary>
+        public static MatchType Partial { get; } = new MatchType("Partial");
+        /// <summary>
+        /// The option to pattern match the entire string explicitly. For example, "hello world" would NOT be found in "chello worlds".
+        /// </summary>
+        public static MatchType Complete { get; } = new MatchType("Complete");
+
+        public static bool operator ==(MatchType left, MatchType right) => left.Equals(right);
+        public static bool operator !=(MatchType left, MatchType right) => !left.Equals(right);
+
+        public static explicit operator string(MatchType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MatchType other && Equals(other);
+        public bool Equals(MatchType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The direction of the schema.
     /// </summary>
     [EnumType]
@@ -355,6 +593,39 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StreamProtocol other && Equals(other);
         public bool Equals(StreamProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the method for referencing the xml schema.
+    /// </summary>
+    [EnumType]
+    public readonly struct XmlReferenceType : IEquatable<XmlReferenceType>
+    {
+        private readonly string _value;
+
+        private XmlReferenceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Defines a referencing procedure where the xml schema will be provided inline.
+        /// </summary>
+        public static XmlReferenceType Inline { get; } = new XmlReferenceType("Inline");
+
+        public static bool operator ==(XmlReferenceType left, XmlReferenceType right) => left.Equals(right);
+        public static bool operator !=(XmlReferenceType left, XmlReferenceType right) => !left.Equals(right);
+
+        public static explicit operator string(XmlReferenceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is XmlReferenceType other && Equals(other);
+        public bool Equals(XmlReferenceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -122,7 +122,7 @@ class Key(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -143,7 +143,7 @@ class Key(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
-        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-02-01, 2023-07-01, 2024-04-01-preview, 2024-12-01-preview, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native keyvault [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param KeyArgs args: The arguments to use to populate this resource's properties.
@@ -198,7 +198,7 @@ class Key(pulumi.CustomResource):
             __props__.__dict__["release_policy"] = None
             __props__.__dict__["rotation_policy"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Key"), pulumi.Alias(type_="azure-native:keyvault/v20221101:Key"), pulumi.Alias(type_="azure-native:keyvault/v20230201:Key"), pulumi.Alias(type_="azure-native:keyvault/v20230701:Key"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20241101:Key"), pulumi.Alias(type_="azure-native:keyvault/v20241201preview:Key")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:keyvault/v20190901:Key"), pulumi.Alias(type_="azure-native:keyvault/v20200401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20210601preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211001:Key"), pulumi.Alias(type_="azure-native:keyvault/v20211101preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220201preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20220701:Key"), pulumi.Alias(type_="azure-native:keyvault/v20221101:Key"), pulumi.Alias(type_="azure-native:keyvault/v20230201:Key"), pulumi.Alias(type_="azure-native:keyvault/v20230701:Key"), pulumi.Alias(type_="azure-native:keyvault/v20240401preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20241101:Key"), pulumi.Alias(type_="azure-native:keyvault/v20241201preview:Key"), pulumi.Alias(type_="azure-native:keyvault/v20250501:Key")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Key, __self__).__init__(
             'azure-native:keyvault:Key',

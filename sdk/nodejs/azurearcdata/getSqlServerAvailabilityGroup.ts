@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Retrieves an Arc Sql Server availability group.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2025-03-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlServerAvailabilityGroup(args: GetSqlServerAvailabilityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlServerAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -78,9 +78,9 @@ export interface GetSqlServerAvailabilityGroupResult {
 /**
  * Retrieves an Arc Sql Server availability group.
  *
- * Uses Azure REST API version 2024-01-01.
+ * Uses Azure REST API version 2025-03-01-preview.
  *
- * Other available API versions: 2024-05-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-01-01, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getSqlServerAvailabilityGroupOutput(args: GetSqlServerAvailabilityGroupOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetSqlServerAvailabilityGroupResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

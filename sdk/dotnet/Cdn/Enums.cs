@@ -104,7 +104,100 @@ namespace Pulumi.AzureNative.Cdn
     }
 
     /// <summary>
-    /// TLS protocol version that will be used for Https
+    /// cipher suite set type that will be used for Https
+    /// </summary>
+    [EnumType]
+    public readonly struct AfdCipherSuiteSetType : IEquatable<AfdCipherSuiteSetType>
+    {
+        private readonly string _value;
+
+        private AfdCipherSuiteSetType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AfdCipherSuiteSetType Customized { get; } = new AfdCipherSuiteSetType("Customized");
+        public static AfdCipherSuiteSetType TLS10_2019 { get; } = new AfdCipherSuiteSetType("TLS10_2019");
+        public static AfdCipherSuiteSetType TLS12_2022 { get; } = new AfdCipherSuiteSetType("TLS12_2022");
+        public static AfdCipherSuiteSetType TLS12_2023 { get; } = new AfdCipherSuiteSetType("TLS12_2023");
+
+        public static bool operator ==(AfdCipherSuiteSetType left, AfdCipherSuiteSetType right) => left.Equals(right);
+        public static bool operator !=(AfdCipherSuiteSetType left, AfdCipherSuiteSetType right) => !left.Equals(right);
+
+        public static explicit operator string(AfdCipherSuiteSetType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AfdCipherSuiteSetType other && Equals(other);
+        public bool Equals(AfdCipherSuiteSetType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AfdCustomizedCipherSuiteForTls12 : IEquatable<AfdCustomizedCipherSuiteForTls12>
+    {
+        private readonly string _value;
+
+        private AfdCustomizedCipherSuiteForTls12(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AfdCustomizedCipherSuiteForTls12 ECDHE_RSA_AES128_GCM_SHA256 { get; } = new AfdCustomizedCipherSuiteForTls12("ECDHE_RSA_AES128_GCM_SHA256");
+        public static AfdCustomizedCipherSuiteForTls12 ECDHE_RSA_AES256_GCM_SHA384 { get; } = new AfdCustomizedCipherSuiteForTls12("ECDHE_RSA_AES256_GCM_SHA384");
+        public static AfdCustomizedCipherSuiteForTls12 DHE_RSA_AES256_GCM_SHA384 { get; } = new AfdCustomizedCipherSuiteForTls12("DHE_RSA_AES256_GCM_SHA384");
+        public static AfdCustomizedCipherSuiteForTls12 DHE_RSA_AES128_GCM_SHA256 { get; } = new AfdCustomizedCipherSuiteForTls12("DHE_RSA_AES128_GCM_SHA256");
+        public static AfdCustomizedCipherSuiteForTls12 ECDHE_RSA_AES128_SHA256 { get; } = new AfdCustomizedCipherSuiteForTls12("ECDHE_RSA_AES128_SHA256");
+        public static AfdCustomizedCipherSuiteForTls12 ECDHE_RSA_AES256_SHA384 { get; } = new AfdCustomizedCipherSuiteForTls12("ECDHE_RSA_AES256_SHA384");
+
+        public static bool operator ==(AfdCustomizedCipherSuiteForTls12 left, AfdCustomizedCipherSuiteForTls12 right) => left.Equals(right);
+        public static bool operator !=(AfdCustomizedCipherSuiteForTls12 left, AfdCustomizedCipherSuiteForTls12 right) => !left.Equals(right);
+
+        public static explicit operator string(AfdCustomizedCipherSuiteForTls12 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AfdCustomizedCipherSuiteForTls12 other && Equals(other);
+        public bool Equals(AfdCustomizedCipherSuiteForTls12 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AfdCustomizedCipherSuiteForTls13 : IEquatable<AfdCustomizedCipherSuiteForTls13>
+    {
+        private readonly string _value;
+
+        private AfdCustomizedCipherSuiteForTls13(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AfdCustomizedCipherSuiteForTls13 TLS_AES_128_GCM_SHA256 { get; } = new AfdCustomizedCipherSuiteForTls13("TLS_AES_128_GCM_SHA256");
+        public static AfdCustomizedCipherSuiteForTls13 TLS_AES_256_GCM_SHA384 { get; } = new AfdCustomizedCipherSuiteForTls13("TLS_AES_256_GCM_SHA384");
+
+        public static bool operator ==(AfdCustomizedCipherSuiteForTls13 left, AfdCustomizedCipherSuiteForTls13 right) => left.Equals(right);
+        public static bool operator !=(AfdCustomizedCipherSuiteForTls13 left, AfdCustomizedCipherSuiteForTls13 right) => !left.Equals(right);
+
+        public static explicit operator string(AfdCustomizedCipherSuiteForTls13 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AfdCustomizedCipherSuiteForTls13 other && Equals(other);
+        public bool Equals(AfdCustomizedCipherSuiteForTls13 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
     /// </summary>
     [EnumType]
     public readonly struct AfdMinimumTlsVersion : IEquatable<AfdMinimumTlsVersion>
@@ -118,6 +211,7 @@ namespace Pulumi.AzureNative.Cdn
 
         public static AfdMinimumTlsVersion TLS10 { get; } = new AfdMinimumTlsVersion("TLS10");
         public static AfdMinimumTlsVersion TLS12 { get; } = new AfdMinimumTlsVersion("TLS12");
+        public static AfdMinimumTlsVersion TLS13 { get; } = new AfdMinimumTlsVersion("TLS13");
 
         public static bool operator ==(AfdMinimumTlsVersion left, AfdMinimumTlsVersion right) => left.Equals(right);
         public static bool operator !=(AfdMinimumTlsVersion left, AfdMinimumTlsVersion right) => !left.Equals(right);
@@ -971,7 +1065,7 @@ namespace Pulumi.AzureNative.Cdn
         public static ManagedServiceIdentityType None { get; } = new ManagedServiceIdentityType("None");
         public static ManagedServiceIdentityType SystemAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned");
         public static ManagedServiceIdentityType UserAssigned { get; } = new ManagedServiceIdentityType("UserAssigned");
-        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned, UserAssigned");
+        public static ManagedServiceIdentityType SystemAssigned_UserAssigned { get; } = new ManagedServiceIdentityType("SystemAssigned,UserAssigned");
 
         public static bool operator ==(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => left.Equals(right);
         public static bool operator !=(ManagedServiceIdentityType left, ManagedServiceIdentityType right) => !left.Equals(right);
@@ -1135,6 +1229,37 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OptimizationType other && Equals(other);
         public bool Equals(OptimizationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the authentication for the origin.
+    /// </summary>
+    [EnumType]
+    public readonly struct OriginAuthenticationType : IEquatable<OriginAuthenticationType>
+    {
+        private readonly string _value;
+
+        private OriginAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static OriginAuthenticationType SystemAssignedIdentity { get; } = new OriginAuthenticationType("SystemAssignedIdentity");
+        public static OriginAuthenticationType UserAssignedIdentity { get; } = new OriginAuthenticationType("UserAssignedIdentity");
+
+        public static bool operator ==(OriginAuthenticationType left, OriginAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(OriginAuthenticationType left, OriginAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(OriginAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is OriginAuthenticationType other && Equals(other);
+        public bool Equals(OriginAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1642,6 +1767,36 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is RequestMethodOperator other && Equals(other);
         public bool Equals(RequestMethodOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Describes operator to be matched
+    /// </summary>
+    [EnumType]
+    public readonly struct RequestSchemeMatchConditionParametersOperator : IEquatable<RequestSchemeMatchConditionParametersOperator>
+    {
+        private readonly string _value;
+
+        private RequestSchemeMatchConditionParametersOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RequestSchemeMatchConditionParametersOperator Equal { get; } = new RequestSchemeMatchConditionParametersOperator("Equal");
+
+        public static bool operator ==(RequestSchemeMatchConditionParametersOperator left, RequestSchemeMatchConditionParametersOperator right) => left.Equals(right);
+        public static bool operator !=(RequestSchemeMatchConditionParametersOperator left, RequestSchemeMatchConditionParametersOperator right) => !left.Equals(right);
+
+        public static explicit operator string(RequestSchemeMatchConditionParametersOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RequestSchemeMatchConditionParametersOperator other && Equals(other);
+        public bool Equals(RequestSchemeMatchConditionParametersOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

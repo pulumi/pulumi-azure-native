@@ -29,7 +29,7 @@ class HybridConnectionArgs:
         """
         The set of arguments for constructing a HybridConnection resource.
         :param pulumi.Input[builtins.str] namespace_name: The namespace name
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] hybrid_connection_name: The hybrid connection name.
         :param pulumi.Input[builtins.bool] requires_client_authorization: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
         :param pulumi.Input[builtins.str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
@@ -59,7 +59,7 @@ class HybridConnectionArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -128,7 +128,7 @@ class HybridConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] hybrid_connection_name: The hybrid connection name.
         :param pulumi.Input[builtins.str] namespace_name: The namespace name
         :param pulumi.Input[builtins.bool] requires_client_authorization: Returns true if client authorization is needed for this hybrid connection; otherwise, false.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] user_metadata: The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored.
         """
         ...
@@ -278,7 +278,7 @@ class HybridConnection(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -286,7 +286,7 @@ class HybridConnection(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

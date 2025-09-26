@@ -131,7 +131,7 @@ class GetOriginResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource ID.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -139,7 +139,7 @@ class GetOriginResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -219,7 +219,7 @@ class GetOriginResult:
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -227,7 +227,7 @@ class GetOriginResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -275,15 +275,15 @@ def get_origin(endpoint_name: Optional[builtins.str] = None,
     """
     Gets an existing origin within an endpoint.
 
-    Uses Azure REST API version 2024-09-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param builtins.str origin_name: Name of the origin which is unique within the endpoint.
-    :param builtins.str profile_name: Name of the CDN profile which is unique within the resource group.
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
@@ -321,15 +321,15 @@ def get_origin_output(endpoint_name: Optional[pulumi.Input[builtins.str]] = None
     """
     Gets an existing origin within an endpoint.
 
-    Uses Azure REST API version 2024-09-01.
+    Uses Azure REST API version 2025-06-01.
 
-    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str endpoint_name: Name of the endpoint under the profile which is unique globally.
     :param builtins.str origin_name: Name of the origin which is unique within the endpoint.
-    :param builtins.str profile_name: Name of the CDN profile which is unique within the resource group.
-    :param builtins.str resource_group_name: Name of the Resource group within the Azure subscription.
+    :param builtins.str profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+    :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['endpointName'] = endpoint_name

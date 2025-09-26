@@ -24,32 +24,33 @@ __all__ = ['OriginGroupArgs', 'OriginGroup']
 class OriginGroupArgs:
     def __init__(__self__, *,
                  endpoint_name: pulumi.Input[builtins.str],
-                 origins: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]],
                  profile_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
                  origin_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]] = None,
                  response_based_origin_error_detection_settings: Optional[pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs']] = None,
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a OriginGroup resource.
         :param pulumi.Input[builtins.str] endpoint_name: Name of the endpoint under the profile which is unique globally.
-        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
-        :param pulumi.Input[builtins.str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]] origins: The source of the content being delivered via CDN within given origin group.
         :param pulumi.Input['ResponseBasedOriginErrorDetectionParametersArgs'] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[builtins.int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
         pulumi.set(__self__, "endpoint_name", endpoint_name)
-        pulumi.set(__self__, "origins", origins)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if health_probe_settings is not None:
             pulumi.set(__self__, "health_probe_settings", health_probe_settings)
         if origin_group_name is not None:
             pulumi.set(__self__, "origin_group_name", origin_group_name)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
         if response_based_origin_error_detection_settings is not None:
             pulumi.set(__self__, "response_based_origin_error_detection_settings", response_based_origin_error_detection_settings)
         if traffic_restoration_time_to_healed_or_new_endpoints_in_minutes is not None:
@@ -68,22 +69,10 @@ class OriginGroupArgs:
         pulumi.set(self, "endpoint_name", value)
 
     @property
-    @pulumi.getter
-    def origins(self) -> pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]:
-        """
-        The source of the content being delivered via CDN within given origin group.
-        """
-        return pulumi.get(self, "origins")
-
-    @origins.setter
-    def origins(self, value: pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]):
-        pulumi.set(self, "origins", value)
-
-    @property
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the CDN profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -95,7 +84,7 @@ class OriginGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -126,6 +115,18 @@ class OriginGroupArgs:
     @origin_group_name.setter
     def origin_group_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "origin_group_name", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]:
+        """
+        The source of the content being delivered via CDN within given origin group.
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ResourceReferenceArgs']]]]):
+        pulumi.set(self, "origins", value)
 
     @property
     @pulumi.getter(name="responseBasedOriginErrorDetectionSettings")
@@ -170,9 +171,9 @@ class OriginGroup(pulumi.CustomResource):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,8 +181,8 @@ class OriginGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ResourceReferenceArgs', 'ResourceReferenceArgsDict']]]] origins: The source of the content being delivered via CDN within given origin group.
-        :param pulumi.Input[builtins.str] profile_name: Name of the CDN profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ResponseBasedOriginErrorDetectionParametersArgs', 'ResponseBasedOriginErrorDetectionParametersArgsDict']] response_based_origin_error_detection_settings: The JSON object that contains the properties to determine origin health using real requests/responses. This property is currently not supported.
         :param pulumi.Input[builtins.int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
@@ -194,9 +195,9 @@ class OriginGroup(pulumi.CustomResource):
         """
         Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param OriginGroupArgs args: The arguments to use to populate this resource's properties.
@@ -235,8 +236,6 @@ class OriginGroup(pulumi.CustomResource):
             __props__.__dict__["endpoint_name"] = endpoint_name
             __props__.__dict__["health_probe_settings"] = health_probe_settings
             __props__.__dict__["origin_group_name"] = origin_group_name
-            if origins is None and not opts.urn:
-                raise TypeError("Missing required property 'origins'")
             __props__.__dict__["origins"] = origins
             if profile_name is None and not opts.urn:
                 raise TypeError("Missing required property 'profile_name'")
@@ -308,13 +307,13 @@ class OriginGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
     @property
     @pulumi.getter
-    def origins(self) -> pulumi.Output[Sequence['outputs.ResourceReferenceResponse']]:
+    def origins(self) -> pulumi.Output[Optional[Sequence['outputs.ResourceReferenceResponse']]]:
         """
         The source of the content being delivered via CDN within given origin group.
         """
@@ -348,7 +347,7 @@ class OriginGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -364,7 +363,7 @@ class OriginGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

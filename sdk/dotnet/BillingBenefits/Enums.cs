@@ -8,6 +8,38 @@ using Pulumi;
 namespace Pulumi.AzureNative.BillingBenefits
 {
     /// <summary>
+    /// The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplyDiscountOn : IEquatable<ApplyDiscountOn>
+    {
+        private readonly string _value;
+
+        private ApplyDiscountOn(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplyDiscountOn Purchase { get; } = new ApplyDiscountOn("Purchase");
+        public static ApplyDiscountOn Consume { get; } = new ApplyDiscountOn("Consume");
+        public static ApplyDiscountOn Renew { get; } = new ApplyDiscountOn("Renew");
+
+        public static bool operator ==(ApplyDiscountOn left, ApplyDiscountOn right) => left.Equals(right);
+        public static bool operator !=(ApplyDiscountOn left, ApplyDiscountOn right) => !left.Equals(right);
+
+        public static explicit operator string(ApplyDiscountOn value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplyDiscountOn other && Equals(other);
+        public bool Equals(ApplyDiscountOn other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// List of applied scopes supported for discounts.
     /// </summary>
     [EnumType]
@@ -32,6 +64,37 @@ namespace Pulumi.AzureNative.BillingBenefits
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiscountAppliedScopeType other && Equals(other);
         public bool Equals(DiscountAppliedScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscountCombinationRule : IEquatable<DiscountCombinationRule>
+    {
+        private readonly string _value;
+
+        private DiscountCombinationRule(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiscountCombinationRule BestOf { get; } = new DiscountCombinationRule("BestOf");
+        public static DiscountCombinationRule Stackable { get; } = new DiscountCombinationRule("Stackable");
+
+        public static bool operator ==(DiscountCombinationRule left, DiscountCombinationRule right) => left.Equals(right);
+        public static bool operator !=(DiscountCombinationRule left, DiscountCombinationRule right) => !left.Equals(right);
+
+        public static explicit operator string(DiscountCombinationRule value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscountCombinationRule other && Equals(other);
+        public bool Equals(DiscountCombinationRule other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -71,6 +134,72 @@ namespace Pulumi.AzureNative.BillingBenefits
     }
 
     /// <summary>
+    /// The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscountRuleType : IEquatable<DiscountRuleType>
+    {
+        private readonly string _value;
+
+        private DiscountRuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiscountRuleType FixedPriceLock { get; } = new DiscountRuleType("FixedPriceLock");
+        public static DiscountRuleType FixedListPrice { get; } = new DiscountRuleType("FixedListPrice");
+        public static DiscountRuleType PriceCeiling { get; } = new DiscountRuleType("PriceCeiling");
+
+        public static bool operator ==(DiscountRuleType left, DiscountRuleType right) => left.Equals(right);
+        public static bool operator !=(DiscountRuleType left, DiscountRuleType right) => !left.Equals(right);
+
+        public static explicit operator string(DiscountRuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscountRuleType other && Equals(other);
+        public bool Equals(DiscountRuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscountType : IEquatable<DiscountType>
+    {
+        private readonly string _value;
+
+        private DiscountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiscountType ProductFamily { get; } = new DiscountType("ProductFamily");
+        public static DiscountType Product { get; } = new DiscountType("Product");
+        public static DiscountType Sku { get; } = new DiscountType("Sku");
+        public static DiscountType CustomPrice { get; } = new DiscountType("CustomPrice");
+        public static DiscountType CustomPriceMultiCurrency { get; } = new DiscountType("CustomPriceMultiCurrency");
+
+        public static bool operator ==(DiscountType left, DiscountType right) => left.Equals(right);
+        public static bool operator !=(DiscountType left, DiscountType right) => !left.Equals(right);
+
+        public static explicit operator string(DiscountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscountType other && Equals(other);
+        public bool Equals(DiscountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
     /// </summary>
     [EnumType]
@@ -96,6 +225,37 @@ namespace Pulumi.AzureNative.BillingBenefits
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ManagedServiceIdentityType other && Equals(other);
         public bool Equals(ManagedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Supported values: Protected, Locked
+    /// </summary>
+    [EnumType]
+    public readonly struct PricingPolicy : IEquatable<PricingPolicy>
+    {
+        private readonly string _value;
+
+        private PricingPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PricingPolicy Protected { get; } = new PricingPolicy("Protected");
+        public static PricingPolicy Locked { get; } = new PricingPolicy("Locked");
+
+        public static bool operator ==(PricingPolicy left, PricingPolicy right) => left.Equals(right);
+        public static bool operator !=(PricingPolicy left, PricingPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(PricingPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PricingPolicy other && Equals(other);
+        public bool Equals(PricingPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

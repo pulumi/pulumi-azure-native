@@ -35,7 +35,7 @@ export interface ListWCFRelayKeysArgs {
      */
     relayName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
 }
@@ -96,7 +96,7 @@ export interface ListWCFRelayKeysOutputArgs {
      */
     relayName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
 }

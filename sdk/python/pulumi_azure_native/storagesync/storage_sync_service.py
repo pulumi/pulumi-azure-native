@@ -286,7 +286,7 @@ class StorageSyncService(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.ManagedServiceIdentityResponse']]:
         """
-        managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 

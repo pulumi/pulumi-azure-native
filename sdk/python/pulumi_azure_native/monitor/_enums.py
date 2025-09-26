@@ -52,6 +52,7 @@ __all__ = [
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
     'ScopedResourceKind',
+    'Status',
     'StreamEncodingType',
     'SyslogProtocol',
     'TimeAggregation',
@@ -561,6 +562,33 @@ class ScopedResourceKind(builtins.str, Enum):
     """
     RESOURCE = "Resource"
     METRICS = "Metrics"
+
+
+@pulumi.type_token("azure-native:monitor:Status")
+class Status(builtins.str, Enum):
+    """
+    The issue status
+    """
+    NEW = "New"
+    """
+    The issue is new
+    """
+    IN_PROGRESS = "InProgress"
+    """
+    The issue is in progress
+    """
+    MITIGATED = "Mitigated"
+    """
+    The issue is mitigated
+    """
+    CLOSED = "Closed"
+    """
+    The issue is closed
+    """
+    CANCELED = "Canceled"
+    """
+    The issue is canceled
+    """
 
 
 @pulumi.type_token("azure-native:monitor:StreamEncodingType")

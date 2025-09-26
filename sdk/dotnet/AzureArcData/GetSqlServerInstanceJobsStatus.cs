@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlServerInstanceJobsStatusResult> InvokeAsync(GetSqlServerInstanceJobsStatusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.AzureArcData
         /// <summary>
         /// Gets jobs status details for sql arc resource
         /// 
-        /// Uses Azure REST API version 2024-05-01-preview.
+        /// Uses Azure REST API version 2025-03-01-preview.
         /// 
-        /// Other available API versions: 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurearcdata [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlServerInstanceJobsStatusResult> Invoke(GetSqlServerInstanceJobsStatusInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlServerInstanceJobsStatusResult>("azure-native:azurearcdata:getSqlServerInstanceJobsStatus", args ?? new GetSqlServerInstanceJobsStatusInvokeArgs(), options.WithDefaults());

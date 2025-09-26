@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly ImmutableArray<object> Annotations;
         /// <summary>
+        /// HDInsight cluster authentication type.
+        /// </summary>
+        public readonly string? ClusterAuthType;
+        /// <summary>
         /// HDInsight cluster URI. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object ClusterUri;
@@ -28,6 +32,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
+        /// <summary>
+        /// The credential reference containing MI authentication information for the HDInsight cluster.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -78,9 +86,13 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         private HDInsightLinkedServiceResponse(
             ImmutableArray<object> annotations,
 
+            string? clusterAuthType,
+
             object clusterUri,
 
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
+
+            Outputs.CredentialReferenceResponse? credential,
 
             string? description,
 
@@ -105,8 +117,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             string? version)
         {
             Annotations = annotations;
+            ClusterAuthType = clusterAuthType;
             ClusterUri = clusterUri;
             ConnectVia = connectVia;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             FileSystem = fileSystem;

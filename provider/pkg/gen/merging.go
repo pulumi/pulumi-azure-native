@@ -35,7 +35,7 @@ func mergeTypes(t1 schema.ComplexTypeSpec, t2 schema.ComplexTypeSpec, isOutput b
 				t2Fmt := strings.Join(t2Only.SortedValues(), ",")
 				requiredErrors = append(requiredErrors, fmt.Sprintf("only required in B: %s", t2Fmt))
 			}
-			return nil, errors.Errorf("required properties do not match: %s", strings.Join(requiredErrors, "; "))
+			return nil, errors.Errorf("required properties do not match: %s", strings.Join(requiredErrors, "; ")+" (check playbooks/Resolving-api-merge-conflicts.md)")
 		}
 	}
 

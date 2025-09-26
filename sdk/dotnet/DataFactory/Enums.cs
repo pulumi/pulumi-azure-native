@@ -1155,6 +1155,38 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// HDInsight cluster authentication type.
+    /// </summary>
+    [EnumType]
+    public readonly struct HDInsightClusterAuthenticationType : IEquatable<HDInsightClusterAuthenticationType>
+    {
+        private readonly string _value;
+
+        private HDInsightClusterAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HDInsightClusterAuthenticationType BasicAuth { get; } = new HDInsightClusterAuthenticationType("BasicAuth");
+        public static HDInsightClusterAuthenticationType SystemAssignedManagedIdentity { get; } = new HDInsightClusterAuthenticationType("SystemAssignedManagedIdentity");
+        public static HDInsightClusterAuthenticationType UserAssignedManagedIdentity { get; } = new HDInsightClusterAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(HDInsightClusterAuthenticationType left, HDInsightClusterAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(HDInsightClusterAuthenticationType left, HDInsightClusterAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(HDInsightClusterAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HDInsightClusterAuthenticationType other && Equals(other);
+        public bool Equals(HDInsightClusterAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication method used to access the Hive server.
     /// </summary>
     [EnumType]
@@ -1498,6 +1530,38 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IntegrationRuntimeType other && Equals(other);
         public bool Equals(IntegrationRuntimeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct LakehouseAuthenticationType : IEquatable<LakehouseAuthenticationType>
+    {
+        private readonly string _value;
+
+        private LakehouseAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static LakehouseAuthenticationType ServicePrincipal { get; } = new LakehouseAuthenticationType("ServicePrincipal");
+        public static LakehouseAuthenticationType SystemAssignedManagedIdentity { get; } = new LakehouseAuthenticationType("SystemAssignedManagedIdentity");
+        public static LakehouseAuthenticationType UserAssignedManagedIdentity { get; } = new LakehouseAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(LakehouseAuthenticationType left, LakehouseAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(LakehouseAuthenticationType left, LakehouseAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(LakehouseAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is LakehouseAuthenticationType other && Equals(other);
+        public bool Equals(LakehouseAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -2866,6 +2930,38 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is VariableType other && Equals(other);
         public bool Equals(VariableType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The authentication type to use.
+    /// </summary>
+    [EnumType]
+    public readonly struct WarehouseAuthenticationType : IEquatable<WarehouseAuthenticationType>
+    {
+        private readonly string _value;
+
+        private WarehouseAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static WarehouseAuthenticationType ServicePrincipal { get; } = new WarehouseAuthenticationType("ServicePrincipal");
+        public static WarehouseAuthenticationType SystemAssignedManagedIdentity { get; } = new WarehouseAuthenticationType("SystemAssignedManagedIdentity");
+        public static WarehouseAuthenticationType UserAssignedManagedIdentity { get; } = new WarehouseAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(WarehouseAuthenticationType left, WarehouseAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(WarehouseAuthenticationType left, WarehouseAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(WarehouseAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is WarehouseAuthenticationType other && Equals(other);
+        public bool Equals(WarehouseAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

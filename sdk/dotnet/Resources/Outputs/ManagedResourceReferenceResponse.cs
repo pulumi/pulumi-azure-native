@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Resources.Outputs
         /// </summary>
         public readonly string? DenyStatus;
         /// <summary>
-        /// The resourceId of a resource managed by the deployment stack.
+        /// The ARM Resource ID of a resource managed by the deployment stack.
         /// </summary>
         public readonly string Id;
         /// <summary>

@@ -33,9 +33,11 @@ class ServerGroupRoleArgs:
         """
         The set of arguments for constructing a ServerGroupRole resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster.
+        :param pulumi.Input[builtins.str] object_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] password: The password of the cluster role. If an identity is used, password will not be required.
         :param pulumi.Input[builtins.str] role_name: The name of the cluster role.
+        :param pulumi.Input[builtins.str] tenant_id: A type definition that refers the id to an Azure Resource Manager resource.
         """
         pulumi.set(__self__, "cluster_name", cluster_name)
         pulumi.set(__self__, "object_id", object_id)
@@ -67,6 +69,9 @@ class ServerGroupRoleArgs:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Input[builtins.str]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "object_id")
 
     @object_id.setter
@@ -130,6 +135,9 @@ class ServerGroupRoleArgs:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "tenant_id")
 
     @tenant_id.setter
@@ -162,9 +170,11 @@ class ServerGroupRole(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] cluster_name: The name of the cluster.
+        :param pulumi.Input[builtins.str] object_id: A type definition that refers the id to an Azure Resource Manager resource.
         :param pulumi.Input[builtins.str] password: The password of the cluster role. If an identity is used, password will not be required.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] role_name: The name of the cluster role.
+        :param pulumi.Input[builtins.str] tenant_id: A type definition that refers the id to an Azure Resource Manager resource.
         """
         ...
     @overload
@@ -288,6 +298,9 @@ class ServerGroupRole(pulumi.CustomResource):
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> pulumi.Output[builtins.str]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "object_id")
 
     @property
@@ -319,6 +332,9 @@ class ServerGroupRole(pulumi.CustomResource):
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "tenant_id")
 
     @property

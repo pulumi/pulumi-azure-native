@@ -197,7 +197,9 @@ from .list_network_manager_deployment_status import *
 from .list_network_manager_effective_connectivity_configurations import *
 from .list_network_manager_effective_security_admin_rule import *
 from .list_network_manager_effective_security_admin_rules import *
+from .list_virtual_network_gateway_radius_secrets import *
 from .list_vpn_link_connection_default_shared_key import *
+from .list_vpn_server_configuration_radius_secrets import *
 from .load_balancer import *
 from .load_balancer_backend_address_pool import *
 from .local_network_gateway import *

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
     /// 
     /// Uses Azure REST API version 2025-01-21. In version 2.x of the Azure Native provider, it used API version 2023-10-30-preview.
     /// 
-    /// Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-10-30-preview, 2023-12-13-preview, 2024-03-26-preview, 2024-04-04-preview, 2024-10-19, 2025-09-20. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native devopsinfrastructure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:devopsinfrastructure:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
@@ -128,6 +128,7 @@ namespace Pulumi.AzureNative.DevOpsInfrastructure
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20240404preview:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20241019:Pool" },
                     new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20250121:Pool" },
+                    new global::Pulumi.Alias { Type = "azure-native:devopsinfrastructure/v20250920:Pool" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

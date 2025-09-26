@@ -50,7 +50,7 @@ namespace Pulumi.AzureNative.Redis
         public Output<string> HostName { get; private set; } = null!;
 
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Redis
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.AzureNative.Redis
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         /// </summary>
         [Output("redisConfiguration")]
-        public Output<Outputs.RedisCommonPropertiesResponseRedisConfiguration?> RedisConfiguration { get; private set; } = null!;
+        public Output<Outputs.RedisCommonPropertiesRedisConfigurationResponse?> RedisConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
@@ -164,6 +164,12 @@ namespace Pulumi.AzureNative.Redis
         public Output<string?> SubnetId { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]
@@ -194,7 +200,7 @@ namespace Pulumi.AzureNative.Redis
         public Output<string?> ZonalAllocationPolicy { get; private set; } = null!;
 
         /// <summary>
-        /// A list of availability zones denoting where the resource needs to come from.
+        /// The availability zones.
         /// </summary>
         [Output("zones")]
         public Output<ImmutableArray<string>> Zones { get; private set; } = null!;
@@ -303,13 +309,13 @@ namespace Pulumi.AzureNative.Redis
         public InputUnion<string, Pulumi.AzureNative.Redis.TlsVersion>? MinimumTlsVersion { get; set; }
 
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisResource
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Redis.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
@@ -420,7 +426,6 @@ namespace Pulumi.AzureNative.Redis
         {
             DisableAccessKeyAuthentication = false;
             EnableNonSslPort = false;
-            PublicNetworkAccess = "Enabled";
         }
         public static new RedisArgs Empty => new RedisArgs();
     }

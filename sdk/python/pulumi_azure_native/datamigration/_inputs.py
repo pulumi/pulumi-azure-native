@@ -19,6 +19,10 @@ from ._enums import *
 __all__ = [
     'AzureActiveDirectoryAppArgs',
     'AzureActiveDirectoryAppArgsDict',
+    'AzureBlobArgs',
+    'AzureBlobArgsDict',
+    'BackupConfigurationArgs',
+    'BackupConfigurationArgsDict',
     'BlobShareArgs',
     'BlobShareArgsDict',
     'ConnectToMongoDbTaskPropertiesArgs',
@@ -73,6 +77,10 @@ __all__ = [
     'DatabaseInfoArgsDict',
     'DatabaseMigrationPropertiesSqlDbArgs',
     'DatabaseMigrationPropertiesSqlDbArgsDict',
+    'DatabaseMigrationPropertiesSqlMiArgs',
+    'DatabaseMigrationPropertiesSqlMiArgsDict',
+    'DatabaseMigrationPropertiesSqlVmArgs',
+    'DatabaseMigrationPropertiesSqlVmArgsDict',
     'FileShareArgs',
     'FileShareArgsDict',
     'GetTdeCertificatesSqlTaskInputArgs',
@@ -99,6 +107,8 @@ __all__ = [
     'GetUserTablesSqlTaskInputArgsDict',
     'GetUserTablesSqlTaskPropertiesArgs',
     'GetUserTablesSqlTaskPropertiesArgsDict',
+    'ManagedServiceIdentityArgs',
+    'ManagedServiceIdentityArgsDict',
     'MiSqlConnectionInfoArgs',
     'MiSqlConnectionInfoArgsDict',
     'MigrateMongoDbTaskPropertiesArgs',
@@ -177,6 +187,8 @@ __all__ = [
     'MongoMigrationCollectionArgsDict',
     'MySqlConnectionInfoArgs',
     'MySqlConnectionInfoArgsDict',
+    'OfflineConfigurationArgs',
+    'OfflineConfigurationArgsDict',
     'OracleConnectionInfoArgs',
     'OracleConnectionInfoArgsDict',
     'PostgreSqlConnectionInfoArgs',
@@ -187,12 +199,18 @@ __all__ = [
     'SelectedCertificateInputArgsDict',
     'ServiceSkuArgs',
     'ServiceSkuArgsDict',
+    'SourceLocationArgs',
+    'SourceLocationArgsDict',
     'SqlConnectionInformationArgs',
     'SqlConnectionInformationArgsDict',
     'SqlConnectionInfoArgs',
     'SqlConnectionInfoArgsDict',
+    'SqlFileShareArgs',
+    'SqlFileShareArgsDict',
     'SsisMigrationInfoArgs',
     'SsisMigrationInfoArgsDict',
+    'TargetLocationArgs',
+    'TargetLocationArgsDict',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgs',
     'ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesArgsDict',
     'ValidateMigrationInputSqlServerSqlMISyncTaskInputArgs',
@@ -307,6 +325,178 @@ class AzureActiveDirectoryAppArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+if not MYPY:
+    class AzureBlobArgsDict(TypedDict):
+        """
+        Azure Blob Details
+        """
+        account_key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Storage Account Key.
+        """
+        auth_type: NotRequired[pulumi.Input['AuthType']]
+        """
+        Authentication type used for accessing Azure Blob Storage.
+        """
+        blob_container_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Blob container name where backups are stored.
+        """
+        identity: NotRequired[pulumi.Input['ManagedServiceIdentityArgsDict']]
+        """
+        Identity details for authentication using a Managed Identity.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the storage account where backups are stored.
+        """
+elif False:
+    AzureBlobArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureBlobArgs:
+    def __init__(__self__, *,
+                 account_key: Optional[pulumi.Input[builtins.str]] = None,
+                 auth_type: Optional[pulumi.Input['AuthType']] = None,
+                 blob_container_name: Optional[pulumi.Input[builtins.str]] = None,
+                 identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
+                 storage_account_resource_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Azure Blob Details
+        :param pulumi.Input[builtins.str] account_key: Storage Account Key.
+        :param pulumi.Input['AuthType'] auth_type: Authentication type used for accessing Azure Blob Storage.
+        :param pulumi.Input[builtins.str] blob_container_name: Blob container name where backups are stored.
+        :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Identity details for authentication using a Managed Identity.
+        :param pulumi.Input[builtins.str] storage_account_resource_id: Resource Id of the storage account where backups are stored.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if blob_container_name is not None:
+            pulumi.set(__self__, "blob_container_name", blob_container_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Storage Account Key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> Optional[pulumi.Input['AuthType']]:
+        """
+        Authentication type used for accessing Azure Blob Storage.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: Optional[pulumi.Input['AuthType']]):
+        pulumi.set(self, "auth_type", value)
+
+    @property
+    @pulumi.getter(name="blobContainerName")
+    def blob_container_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Blob container name where backups are stored.
+        """
+        return pulumi.get(self, "blob_container_name")
+
+    @blob_container_name.setter
+    def blob_container_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "blob_container_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['ManagedServiceIdentityArgs']]:
+        """
+        Identity details for authentication using a Managed Identity.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['ManagedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the storage account where backups are stored.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+    @storage_account_resource_id.setter
+    def storage_account_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_account_resource_id", value)
+
+
+if not MYPY:
+    class BackupConfigurationArgsDict(TypedDict):
+        """
+        Backup Configuration
+        """
+        source_location: NotRequired[pulumi.Input['SourceLocationArgsDict']]
+        """
+        Source location of backups.
+        """
+        target_location: NotRequired[pulumi.Input['TargetLocationArgsDict']]
+        """
+        Target location for copying backups.
+        """
+elif False:
+    BackupConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackupConfigurationArgs:
+    def __init__(__self__, *,
+                 source_location: Optional[pulumi.Input['SourceLocationArgs']] = None,
+                 target_location: Optional[pulumi.Input['TargetLocationArgs']] = None):
+        """
+        Backup Configuration
+        :param pulumi.Input['SourceLocationArgs'] source_location: Source location of backups.
+        :param pulumi.Input['TargetLocationArgs'] target_location: Target location for copying backups.
+        """
+        if source_location is not None:
+            pulumi.set(__self__, "source_location", source_location)
+        if target_location is not None:
+            pulumi.set(__self__, "target_location", target_location)
+
+    @property
+    @pulumi.getter(name="sourceLocation")
+    def source_location(self) -> Optional[pulumi.Input['SourceLocationArgs']]:
+        """
+        Source location of backups.
+        """
+        return pulumi.get(self, "source_location")
+
+    @source_location.setter
+    def source_location(self, value: Optional[pulumi.Input['SourceLocationArgs']]):
+        pulumi.set(self, "source_location", value)
+
+    @property
+    @pulumi.getter(name="targetLocation")
+    def target_location(self) -> Optional[pulumi.Input['TargetLocationArgs']]:
+        """
+        Target location for copying backups.
+        """
+        return pulumi.get(self, "target_location")
+
+    @target_location.setter
+    def target_location(self, value: Optional[pulumi.Input['TargetLocationArgs']]):
+        pulumi.set(self, "target_location", value)
 
 
 if not MYPY:
@@ -2434,6 +2624,442 @@ class DatabaseMigrationPropertiesSqlDbArgs:
 
 
 if not MYPY:
+    class DatabaseMigrationPropertiesSqlMiArgsDict(TypedDict):
+        """
+        Database Migration Resource properties for SQL Managed Instance.
+        """
+        kind: pulumi.Input[builtins.str]
+        """
+
+        Expected value is 'SqlMi'.
+        """
+        backup_configuration: NotRequired[pulumi.Input['BackupConfigurationArgsDict']]
+        """
+        Backup configuration info.
+        """
+        migration_operation_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ID for current migration operation.
+        """
+        migration_service: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the Migration Service.
+        """
+        offline_configuration: NotRequired[pulumi.Input['OfflineConfigurationArgsDict']]
+        """
+        Offline configuration.
+        """
+        provisioning_error: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        scope: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the target resource.
+        """
+        source_database_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the source database.
+        """
+        source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+        """
+        Source SQL Server connection details.
+        """
+        target_database_collation: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Database collation to be used for the target database.
+        """
+elif False:
+    DatabaseMigrationPropertiesSqlMiArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabaseMigrationPropertiesSqlMiArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[builtins.str],
+                 backup_configuration: Optional[pulumi.Input['BackupConfigurationArgs']] = None,
+                 migration_operation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 migration_service: Optional[pulumi.Input[builtins.str]] = None,
+                 offline_configuration: Optional[pulumi.Input['OfflineConfigurationArgs']] = None,
+                 provisioning_error: Optional[pulumi.Input[builtins.str]] = None,
+                 scope: Optional[pulumi.Input[builtins.str]] = None,
+                 source_database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
+                 target_database_collation: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Database Migration Resource properties for SQL Managed Instance.
+        :param pulumi.Input[builtins.str] kind: 
+               Expected value is 'SqlMi'.
+        :param pulumi.Input['BackupConfigurationArgs'] backup_configuration: Backup configuration info.
+        :param pulumi.Input[builtins.str] migration_operation_id: ID for current migration operation.
+        :param pulumi.Input[builtins.str] migration_service: Resource Id of the Migration Service.
+        :param pulumi.Input['OfflineConfigurationArgs'] offline_configuration: Offline configuration.
+        :param pulumi.Input[builtins.str] provisioning_error: Error message for migration provisioning failure, if any.
+        :param pulumi.Input[builtins.str] scope: Resource Id of the target resource.
+        :param pulumi.Input[builtins.str] source_database_name: Name of the source database.
+        :param pulumi.Input['SqlConnectionInformationArgs'] source_sql_connection: Source SQL Server connection details.
+        :param pulumi.Input[builtins.str] target_database_collation: Database collation to be used for the target database.
+        """
+        pulumi.set(__self__, "kind", 'SqlMi')
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if offline_configuration is not None:
+            pulumi.set(__self__, "offline_configuration", offline_configuration)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[builtins.str]:
+        """
+
+        Expected value is 'SqlMi'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional[pulumi.Input['BackupConfigurationArgs']]:
+        """
+        Backup configuration info.
+        """
+        return pulumi.get(self, "backup_configuration")
+
+    @backup_configuration.setter
+    def backup_configuration(self, value: Optional[pulumi.Input['BackupConfigurationArgs']]):
+        pulumi.set(self, "backup_configuration", value)
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID for current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @migration_operation_id.setter
+    def migration_operation_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "migration_operation_id", value)
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @migration_service.setter
+    def migration_service(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "migration_service", value)
+
+    @property
+    @pulumi.getter(name="offlineConfiguration")
+    def offline_configuration(self) -> Optional[pulumi.Input['OfflineConfigurationArgs']]:
+        """
+        Offline configuration.
+        """
+        return pulumi.get(self, "offline_configuration")
+
+    @offline_configuration.setter
+    def offline_configuration(self, value: Optional[pulumi.Input['OfflineConfigurationArgs']]):
+        pulumi.set(self, "offline_configuration", value)
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @provisioning_error.setter
+    def provisioning_error(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "provisioning_error", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the target resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @source_database_name.setter
+    def source_database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_database_name", value)
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @source_sql_connection.setter
+    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+        pulumi.set(self, "source_sql_connection", value)
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+    @target_database_collation.setter
+    def target_database_collation(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "target_database_collation", value)
+
+
+if not MYPY:
+    class DatabaseMigrationPropertiesSqlVmArgsDict(TypedDict):
+        """
+        Database Migration Resource properties for SQL Virtual Machine.
+        """
+        kind: pulumi.Input[builtins.str]
+        """
+
+        Expected value is 'SqlVm'.
+        """
+        backup_configuration: NotRequired[pulumi.Input['BackupConfigurationArgsDict']]
+        """
+        Backup configuration info.
+        """
+        migration_operation_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ID for current migration operation.
+        """
+        migration_service: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the Migration Service.
+        """
+        offline_configuration: NotRequired[pulumi.Input['OfflineConfigurationArgsDict']]
+        """
+        Offline configuration.
+        """
+        provisioning_error: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        scope: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the target resource.
+        """
+        source_database_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the source database.
+        """
+        source_sql_connection: NotRequired[pulumi.Input['SqlConnectionInformationArgsDict']]
+        """
+        Source SQL Server connection details.
+        """
+        target_database_collation: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Database collation to be used for the target database.
+        """
+elif False:
+    DatabaseMigrationPropertiesSqlVmArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DatabaseMigrationPropertiesSqlVmArgs:
+    def __init__(__self__, *,
+                 kind: pulumi.Input[builtins.str],
+                 backup_configuration: Optional[pulumi.Input['BackupConfigurationArgs']] = None,
+                 migration_operation_id: Optional[pulumi.Input[builtins.str]] = None,
+                 migration_service: Optional[pulumi.Input[builtins.str]] = None,
+                 offline_configuration: Optional[pulumi.Input['OfflineConfigurationArgs']] = None,
+                 provisioning_error: Optional[pulumi.Input[builtins.str]] = None,
+                 scope: Optional[pulumi.Input[builtins.str]] = None,
+                 source_database_name: Optional[pulumi.Input[builtins.str]] = None,
+                 source_sql_connection: Optional[pulumi.Input['SqlConnectionInformationArgs']] = None,
+                 target_database_collation: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Database Migration Resource properties for SQL Virtual Machine.
+        :param pulumi.Input[builtins.str] kind: 
+               Expected value is 'SqlVm'.
+        :param pulumi.Input['BackupConfigurationArgs'] backup_configuration: Backup configuration info.
+        :param pulumi.Input[builtins.str] migration_operation_id: ID for current migration operation.
+        :param pulumi.Input[builtins.str] migration_service: Resource Id of the Migration Service.
+        :param pulumi.Input['OfflineConfigurationArgs'] offline_configuration: Offline configuration.
+        :param pulumi.Input[builtins.str] provisioning_error: Error message for migration provisioning failure, if any.
+        :param pulumi.Input[builtins.str] scope: Resource Id of the target resource.
+        :param pulumi.Input[builtins.str] source_database_name: Name of the source database.
+        :param pulumi.Input['SqlConnectionInformationArgs'] source_sql_connection: Source SQL Server connection details.
+        :param pulumi.Input[builtins.str] target_database_collation: Database collation to be used for the target database.
+        """
+        pulumi.set(__self__, "kind", 'SqlVm')
+        if backup_configuration is not None:
+            pulumi.set(__self__, "backup_configuration", backup_configuration)
+        if migration_operation_id is not None:
+            pulumi.set(__self__, "migration_operation_id", migration_operation_id)
+        if migration_service is not None:
+            pulumi.set(__self__, "migration_service", migration_service)
+        if offline_configuration is not None:
+            pulumi.set(__self__, "offline_configuration", offline_configuration)
+        if provisioning_error is not None:
+            pulumi.set(__self__, "provisioning_error", provisioning_error)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if source_database_name is not None:
+            pulumi.set(__self__, "source_database_name", source_database_name)
+        if source_sql_connection is not None:
+            pulumi.set(__self__, "source_sql_connection", source_sql_connection)
+        if target_database_collation is not None:
+            pulumi.set(__self__, "target_database_collation", target_database_collation)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[builtins.str]:
+        """
+
+        Expected value is 'SqlVm'.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="backupConfiguration")
+    def backup_configuration(self) -> Optional[pulumi.Input['BackupConfigurationArgs']]:
+        """
+        Backup configuration info.
+        """
+        return pulumi.get(self, "backup_configuration")
+
+    @backup_configuration.setter
+    def backup_configuration(self, value: Optional[pulumi.Input['BackupConfigurationArgs']]):
+        pulumi.set(self, "backup_configuration", value)
+
+    @property
+    @pulumi.getter(name="migrationOperationId")
+    def migration_operation_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ID for current migration operation.
+        """
+        return pulumi.get(self, "migration_operation_id")
+
+    @migration_operation_id.setter
+    def migration_operation_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "migration_operation_id", value)
+
+    @property
+    @pulumi.getter(name="migrationService")
+    def migration_service(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the Migration Service.
+        """
+        return pulumi.get(self, "migration_service")
+
+    @migration_service.setter
+    def migration_service(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "migration_service", value)
+
+    @property
+    @pulumi.getter(name="offlineConfiguration")
+    def offline_configuration(self) -> Optional[pulumi.Input['OfflineConfigurationArgs']]:
+        """
+        Offline configuration.
+        """
+        return pulumi.get(self, "offline_configuration")
+
+    @offline_configuration.setter
+    def offline_configuration(self, value: Optional[pulumi.Input['OfflineConfigurationArgs']]):
+        pulumi.set(self, "offline_configuration", value)
+
+    @property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Error message for migration provisioning failure, if any.
+        """
+        return pulumi.get(self, "provisioning_error")
+
+    @provisioning_error.setter
+    def provisioning_error(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "provisioning_error", value)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the target resource.
+        """
+        return pulumi.get(self, "scope")
+
+    @scope.setter
+    def scope(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scope", value)
+
+    @property
+    @pulumi.getter(name="sourceDatabaseName")
+    def source_database_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the source database.
+        """
+        return pulumi.get(self, "source_database_name")
+
+    @source_database_name.setter
+    def source_database_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "source_database_name", value)
+
+    @property
+    @pulumi.getter(name="sourceSqlConnection")
+    def source_sql_connection(self) -> Optional[pulumi.Input['SqlConnectionInformationArgs']]:
+        """
+        Source SQL Server connection details.
+        """
+        return pulumi.get(self, "source_sql_connection")
+
+    @source_sql_connection.setter
+    def source_sql_connection(self, value: Optional[pulumi.Input['SqlConnectionInformationArgs']]):
+        pulumi.set(self, "source_sql_connection", value)
+
+    @property
+    @pulumi.getter(name="targetDatabaseCollation")
+    def target_database_collation(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Database collation to be used for the target database.
+        """
+        return pulumi.get(self, "target_database_collation")
+
+    @target_database_collation.setter
+    def target_database_collation(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "target_database_collation", value)
+
+
+if not MYPY:
     class FileShareArgsDict(TypedDict):
         """
         File share information with Path, Username, and Password.
@@ -3395,6 +4021,61 @@ class GetUserTablesSqlTaskPropertiesArgs:
     @task_id.setter
     def task_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "task_id", value)
+
+
+if not MYPY:
+    class ManagedServiceIdentityArgsDict(TypedDict):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        """
+        type: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']]
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        user_assigned_identities: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+elif False:
+    ManagedServiceIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']],
+                 user_assigned_identities: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
+        """
+        Managed service identity (system assigned and/or user assigned identities)
+        :param pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']] type: Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] user_assigned_identities: The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']]:
+        """
+        Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[builtins.str, 'ManagedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+    @user_assigned_identities.setter
+    def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "user_assigned_identities", value)
 
 
 if not MYPY:
@@ -7850,6 +8531,62 @@ class MySqlConnectionInfoArgs:
 
 
 if not MYPY:
+    class OfflineConfigurationArgsDict(TypedDict):
+        """
+        Offline configuration
+        """
+        last_backup_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
+        """
+        offline: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Offline migration
+        """
+elif False:
+    OfflineConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OfflineConfigurationArgs:
+    def __init__(__self__, *,
+                 last_backup_name: Optional[pulumi.Input[builtins.str]] = None,
+                 offline: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Offline configuration
+        :param pulumi.Input[builtins.str] last_backup_name: Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
+        :param pulumi.Input[builtins.bool] offline: Offline migration
+        """
+        if last_backup_name is not None:
+            pulumi.set(__self__, "last_backup_name", last_backup_name)
+        if offline is not None:
+            pulumi.set(__self__, "offline", offline)
+
+    @property
+    @pulumi.getter(name="lastBackupName")
+    def last_backup_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Last backup name for offline migration. This is optional for migrations from file share. If it is not provided, then the service will determine the last backup file name based on latest backup files present in file share.
+        """
+        return pulumi.get(self, "last_backup_name")
+
+    @last_backup_name.setter
+    def last_backup_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "last_backup_name", value)
+
+    @property
+    @pulumi.getter
+    def offline(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Offline migration
+        """
+        return pulumi.get(self, "offline")
+
+    @offline.setter
+    def offline(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "offline", value)
+
+
+if not MYPY:
     class OracleConnectionInfoArgsDict(TypedDict):
         """
         Information for connecting to Oracle server
@@ -8553,6 +9290,62 @@ class ServiceSkuArgs:
 
 
 if not MYPY:
+    class SourceLocationArgsDict(TypedDict):
+        """
+        Source Location details of backups.
+        """
+        azure_blob: NotRequired[pulumi.Input['AzureBlobArgsDict']]
+        """
+        Source Azure Blob.
+        """
+        file_share: NotRequired[pulumi.Input['SqlFileShareArgsDict']]
+        """
+        Source File share.
+        """
+elif False:
+    SourceLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SourceLocationArgs:
+    def __init__(__self__, *,
+                 azure_blob: Optional[pulumi.Input['AzureBlobArgs']] = None,
+                 file_share: Optional[pulumi.Input['SqlFileShareArgs']] = None):
+        """
+        Source Location details of backups.
+        :param pulumi.Input['AzureBlobArgs'] azure_blob: Source Azure Blob.
+        :param pulumi.Input['SqlFileShareArgs'] file_share: Source File share.
+        """
+        if azure_blob is not None:
+            pulumi.set(__self__, "azure_blob", azure_blob)
+        if file_share is not None:
+            pulumi.set(__self__, "file_share", file_share)
+
+    @property
+    @pulumi.getter(name="azureBlob")
+    def azure_blob(self) -> Optional[pulumi.Input['AzureBlobArgs']]:
+        """
+        Source Azure Blob.
+        """
+        return pulumi.get(self, "azure_blob")
+
+    @azure_blob.setter
+    def azure_blob(self, value: Optional[pulumi.Input['AzureBlobArgs']]):
+        pulumi.set(self, "azure_blob", value)
+
+    @property
+    @pulumi.getter(name="fileShare")
+    def file_share(self) -> Optional[pulumi.Input['SqlFileShareArgs']]:
+        """
+        Source File share.
+        """
+        return pulumi.get(self, "file_share")
+
+    @file_share.setter
+    def file_share(self, value: Optional[pulumi.Input['SqlFileShareArgs']]):
+        pulumi.set(self, "file_share", value)
+
+
+if not MYPY:
     class SqlConnectionInformationArgsDict(TypedDict):
         """
         Source SQL Connection
@@ -8990,6 +9783,82 @@ class SqlConnectionInfoArgs:
 
 
 if not MYPY:
+    class SqlFileShareArgsDict(TypedDict):
+        """
+        File share
+        """
+        password: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Password for username to access file share location.
+        """
+        path: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Location as SMB share or local drive where backups are placed.
+        """
+        username: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Username to access the file share location for backups.
+        """
+elif False:
+    SqlFileShareArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlFileShareArgs:
+    def __init__(__self__, *,
+                 password: Optional[pulumi.Input[builtins.str]] = None,
+                 path: Optional[pulumi.Input[builtins.str]] = None,
+                 username: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        File share
+        :param pulumi.Input[builtins.str] password: Password for username to access file share location.
+        :param pulumi.Input[builtins.str] path: Location as SMB share or local drive where backups are placed.
+        :param pulumi.Input[builtins.str] username: Username to access the file share location for backups.
+        """
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if path is not None:
+            pulumi.set(__self__, "path", path)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Password for username to access file share location.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def path(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Location as SMB share or local drive where backups are placed.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Username to access the file share location for backups.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "username", value)
+
+
+if not MYPY:
     class SsisMigrationInfoArgsDict(TypedDict):
         """
         SSIS migration info with SSIS store type, overwrite policy.
@@ -9063,6 +9932,62 @@ class SsisMigrationInfoArgs:
     @ssis_store_type.setter
     def ssis_store_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'SsisStoreType']]]):
         pulumi.set(self, "ssis_store_type", value)
+
+
+if not MYPY:
+    class TargetLocationArgsDict(TypedDict):
+        """
+        Target Location details for optional copy of backups
+        """
+        account_key: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Storage Account Key.
+        """
+        storage_account_resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource Id of the storage account copying backups.
+        """
+elif False:
+    TargetLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TargetLocationArgs:
+    def __init__(__self__, *,
+                 account_key: Optional[pulumi.Input[builtins.str]] = None,
+                 storage_account_resource_id: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Target Location details for optional copy of backups
+        :param pulumi.Input[builtins.str] account_key: Storage Account Key.
+        :param pulumi.Input[builtins.str] storage_account_resource_id: Resource Id of the storage account copying backups.
+        """
+        if account_key is not None:
+            pulumi.set(__self__, "account_key", account_key)
+        if storage_account_resource_id is not None:
+            pulumi.set(__self__, "storage_account_resource_id", storage_account_resource_id)
+
+    @property
+    @pulumi.getter(name="accountKey")
+    def account_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Storage Account Key.
+        """
+        return pulumi.get(self, "account_key")
+
+    @account_key.setter
+    def account_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "account_key", value)
+
+    @property
+    @pulumi.getter(name="storageAccountResourceId")
+    def storage_account_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource Id of the storage account copying backups.
+        """
+        return pulumi.get(self, "storage_account_resource_id")
+
+    @storage_account_resource_id.setter
+    def storage_account_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "storage_account_resource_id", value)
 
 
 if not MYPY:

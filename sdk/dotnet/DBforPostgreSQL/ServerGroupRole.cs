@@ -31,6 +31,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Output("objectId")]
         public Output<string> ObjectId { get; private set; } = null!;
 
@@ -52,6 +55,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Output("tenantId")]
         public Output<string?> TenantId { get; private set; } = null!;
 
@@ -120,6 +126,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Input("clusterName", required: true)]
         public Input<string> ClusterName { get; set; } = null!;
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Input("objectId", required: true)]
         public Input<string> ObjectId { get; set; } = null!;
 
@@ -147,6 +156,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         [Input("roleType")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.RoleType>? RoleType { get; set; }
 
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 

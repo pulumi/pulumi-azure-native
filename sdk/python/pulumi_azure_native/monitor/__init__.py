@@ -23,6 +23,7 @@ from .get_data_collection_endpoint import *
 from .get_data_collection_rule import *
 from .get_data_collection_rule_association import *
 from .get_diagnostic_setting import *
+from .get_issue import *
 from .get_management_group_diagnostic_setting import *
 from .get_metric_alert import *
 from .get_pipeline_group import *
@@ -32,7 +33,10 @@ from .get_private_link_scoped_resource import *
 from .get_scheduled_query_rule import *
 from .get_subscription_diagnostic_setting import *
 from .get_tenant_action_group import *
+from .issue import *
 from .list_diagnostic_settings_category import *
+from .list_issue_alerts import *
+from .list_issue_resources import *
 from .management_group_diagnostic_setting import *
 from .metric_alert import *
 from .pipeline_group import *

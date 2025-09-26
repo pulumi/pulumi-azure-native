@@ -25,9 +25,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object ArtifactId;
         /// <summary>
+        /// The authentication type to use.
+        /// </summary>
+        public readonly string? AuthenticationType;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
+        /// <summary>
+        /// The credential reference containing authentication information.
+        /// </summary>
+        public readonly Outputs.CredentialReferenceResponse? Credential;
         /// <summary>
         /// Linked service description.
         /// </summary>
@@ -84,7 +92,11 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object artifactId,
 
+            string? authenticationType,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
+
+            Outputs.CredentialReferenceResponse? credential,
 
             string? description,
 
@@ -112,7 +124,9 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         {
             Annotations = annotations;
             ArtifactId = artifactId;
+            AuthenticationType = authenticationType;
             ConnectVia = connectVia;
+            Credential = credential;
             Description = description;
             EncryptedCredential = encryptedCredential;
             Endpoint = endpoint;

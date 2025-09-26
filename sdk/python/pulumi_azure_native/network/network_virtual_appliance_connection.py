@@ -140,7 +140,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01.
 
-        Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-06-01, 2023-09-01, 2023-11-01, 2024-01-01, 2024-03-01, 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NetworkVirtualApplianceConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -205,7 +205,7 @@ class NetworkVirtualApplianceConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_api_version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230901:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20231101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240301:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240501:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkVirtualApplianceConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20230601:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20230901:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20231101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240101:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240301:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240501:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkVirtualApplianceConnection"), pulumi.Alias(type_="azure-native:network/v20241001:NetworkVirtualApplianceConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkVirtualApplianceConnection, __self__).__init__(
             'azure-native:network:NetworkVirtualApplianceConnection',

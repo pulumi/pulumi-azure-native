@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// </summary>
         public readonly string? Algorithm;
         /// <summary>
-        /// Defines which query string parameters in the url to be considered for expires, key id etc. 
+        /// Defines which query string parameters in the url to be considered for expires, key id etc.
         /// </summary>
         public readonly ImmutableArray<Outputs.UrlSigningParamIdentifierResponse> ParameterNameOverride;
         /// <summary>

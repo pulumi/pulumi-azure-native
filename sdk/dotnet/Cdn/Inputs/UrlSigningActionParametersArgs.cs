@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         private InputList<Inputs.UrlSigningParamIdentifierArgs>? _parameterNameOverride;
 
         /// <summary>
-        /// Defines which query string parameters in the url to be considered for expires, key id etc. 
+        /// Defines which query string parameters in the url to be considered for expires, key id etc.
         /// </summary>
         public InputList<Inputs.UrlSigningParamIdentifierArgs> ParameterNameOverride
         {

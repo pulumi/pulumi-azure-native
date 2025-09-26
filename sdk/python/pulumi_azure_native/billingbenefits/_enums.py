@@ -7,11 +7,26 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'ApplyDiscountOn',
     'DiscountAppliedScopeType',
+    'DiscountCombinationRule',
     'DiscountEntityType',
+    'DiscountRuleType',
+    'DiscountType',
     'ManagedServiceIdentityType',
+    'PricingPolicy',
     'SkuTier',
 ]
+
+
+@pulumi.type_token("azure-native:billingbenefits:ApplyDiscountOn")
+class ApplyDiscountOn(builtins.str, Enum):
+    """
+    The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+    """
+    PURCHASE = "Purchase"
+    CONSUME = "Consume"
+    RENEW = "Renew"
 
 
 @pulumi.type_token("azure-native:billingbenefits:DiscountAppliedScopeType")
@@ -24,6 +39,15 @@ class DiscountAppliedScopeType(builtins.str, Enum):
     CUSTOMER = "Customer"
 
 
+@pulumi.type_token("azure-native:billingbenefits:DiscountCombinationRule")
+class DiscountCombinationRule(builtins.str, Enum):
+    """
+    The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+    """
+    BEST_OF = "BestOf"
+    STACKABLE = "Stackable"
+
+
 @pulumi.type_token("azure-native:billingbenefits:DiscountEntityType")
 class DiscountEntityType(builtins.str, Enum):
     """
@@ -31,6 +55,28 @@ class DiscountEntityType(builtins.str, Enum):
     """
     PRIMARY = "Primary"
     AFFILIATE = "Affiliate"
+
+
+@pulumi.type_token("azure-native:billingbenefits:DiscountRuleType")
+class DiscountRuleType(builtins.str, Enum):
+    """
+    The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling.
+    """
+    FIXED_PRICE_LOCK = "FixedPriceLock"
+    FIXED_LIST_PRICE = "FixedListPrice"
+    PRICE_CEILING = "PriceCeiling"
+
+
+@pulumi.type_token("azure-native:billingbenefits:DiscountType")
+class DiscountType(builtins.str, Enum):
+    """
+    Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+    """
+    PRODUCT_FAMILY = "ProductFamily"
+    PRODUCT = "Product"
+    SKU = "Sku"
+    CUSTOM_PRICE = "CustomPrice"
+    CUSTOM_PRICE_MULTI_CURRENCY = "CustomPriceMultiCurrency"
 
 
 @pulumi.type_token("azure-native:billingbenefits:ManagedServiceIdentityType")
@@ -42,6 +88,15 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED = "SystemAssigned"
     USER_ASSIGNED = "UserAssigned"
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
+
+
+@pulumi.type_token("azure-native:billingbenefits:PricingPolicy")
+class PricingPolicy(builtins.str, Enum):
+    """
+    Supported values: Protected, Locked
+    """
+    PROTECTED = "Protected"
+    LOCKED = "Locked"
 
 
 @pulumi.type_token("azure-native:billingbenefits:SkuTier")

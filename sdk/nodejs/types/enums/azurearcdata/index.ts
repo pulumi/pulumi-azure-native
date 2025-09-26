@@ -46,6 +46,28 @@ export const ArcSqlManagedInstanceLicenseType = {
  */
 export type ArcSqlManagedInstanceLicenseType = (typeof ArcSqlManagedInstanceLicenseType)[keyof typeof ArcSqlManagedInstanceLicenseType];
 
+export const ArcSqlServerAvailabilityMode = {
+    SYNCHRONOUS_COMMIT: "SYNCHRONOUS_COMMIT",
+    ASYNCHRONOUS_COMMIT: "ASYNCHRONOUS_COMMIT",
+} as const;
+
+/**
+ * Property that determines whether a given availability replica can run in synchronous-commit mode
+ */
+export type ArcSqlServerAvailabilityMode = (typeof ArcSqlServerAvailabilityMode)[keyof typeof ArcSqlServerAvailabilityMode];
+
+export const ArcSqlServerFailoverMode = {
+    AUTOMATIC: "AUTOMATIC",
+    MANUAL: "MANUAL",
+    EXTERNAL: "EXTERNAL",
+    NONE: "NONE",
+} as const;
+
+/**
+ * Property to set the failover mode of the availability group replica
+ */
+export type ArcSqlServerFailoverMode = (typeof ArcSqlServerFailoverMode)[keyof typeof ArcSqlServerFailoverMode];
+
 export const BillingPlan = {
     PAYG: "PAYG",
     Paid: "Paid",
@@ -55,6 +77,24 @@ export const BillingPlan = {
  * SQL Server license type.
  */
 export type BillingPlan = (typeof BillingPlan)[keyof typeof BillingPlan];
+
+export const ConnectionAuth = {
+    Windows_NTLM: "Windows_NTLM",
+    Windows_Kerberos: "Windows_Kerberos",
+    Windows_Negotiate: "Windows_Negotiate",
+    Certificate: "Certificate",
+    Windows_NTLM_Certificate: "Windows_NTLM_Certificate",
+    Windows_Kerberos_Certificate: "Windows_Kerberos_Certificate",
+    Windows_Negotiate_Certificate: "Windows_Negotiate_Certificate",
+    Certificate_Windows_NTLM: "Certificate_Windows_NTLM",
+    Certificate_Windows_Kerberos: "Certificate_Windows_Kerberos",
+    Certificate_Windows_Negotiate: "Certificate_Windows_Negotiate",
+} as const;
+
+/**
+ * Permitted authentication modes for the mirroring endpoint.
+ */
+export type ConnectionAuth = (typeof ConnectionAuth)[keyof typeof ConnectionAuth];
 
 export const DatabaseCreateMode = {
     Default: "Default",
@@ -138,6 +178,22 @@ export const HostType = {
  */
 export type HostType = (typeof HostType)[keyof typeof HostType];
 
+export const IdentityType = {
+    /**
+     * System Assigned Managed Identity
+     */
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    /**
+     * User Assigned Managed Identity
+     */
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * The method used for Entra authentication
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
+
 export const Infrastructure = {
     Azure: "azure",
     Gcp: "gcp",
@@ -173,6 +229,26 @@ export const LicenseCategory = {
  */
 export type LicenseCategory = (typeof LicenseCategory)[keyof typeof LicenseCategory];
 
+export const Mode = {
+    /**
+     * Mixed mode authentication for SQL Server which includes windows and SQL Authentication.
+     */
+    Mixed: "Mixed",
+    /**
+     * Windows Authentication for SQL Server.
+     */
+    Windows: "Windows",
+    /**
+     * Used for scenarios were the mode cannot be determined.
+     */
+    Undefined: "Undefined",
+} as const;
+
+/**
+ * Mode of authentication in SqlServer.
+ */
+export type Mode = (typeof Mode)[keyof typeof Mode];
+
 export const PostgresInstanceSkuTier = {
     Hyperscale: "Hyperscale",
 } as const;
@@ -181,6 +257,16 @@ export const PostgresInstanceSkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier.
  */
 export type PostgresInstanceSkuTier = (typeof PostgresInstanceSkuTier)[keyof typeof PostgresInstanceSkuTier];
+
+export const PrimaryAllowConnections = {
+    ALL: "ALL",
+    READ_WRITE: "READ_WRITE",
+} as const;
+
+/**
+ * Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+ */
+export type PrimaryAllowConnections = (typeof PrimaryAllowConnections)[keyof typeof PrimaryAllowConnections];
 
 export const RecoveryMode = {
     Full: "Full",
@@ -203,6 +289,55 @@ export const ScopeType = {
  * The Azure scope to which the license will apply.
  */
 export type ScopeType = (typeof ScopeType)[keyof typeof ScopeType];
+
+export const SecondaryAllowConnections = {
+    NO: "NO",
+    ALL: "ALL",
+    READ_ONLY: "READ_ONLY",
+} as const;
+
+/**
+ * Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+ */
+export type SecondaryAllowConnections = (typeof SecondaryAllowConnections)[keyof typeof SecondaryAllowConnections];
+
+export const SeedingMode = {
+    AUTOMATIC: "AUTOMATIC",
+    MANUAL: "MANUAL",
+} as const;
+
+/**
+ * Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+ */
+export type SeedingMode = (typeof SeedingMode)[keyof typeof SeedingMode];
+
+export const ServiceType = {
+    /**
+     * SQL Server Database Services.
+     */
+    Engine: "Engine",
+    /**
+     * SQL Server Reporting Services.
+     */
+    SSRS: "SSRS",
+    /**
+     * SQL Server Analysis Services.
+     */
+    SSAS: "SSAS",
+    /**
+     * SQL Server Integration Services.
+     */
+    SSIS: "SSIS",
+    /**
+     * Power BI Report Server.
+     */
+    PBIRS: "PBIRS",
+} as const;
+
+/**
+ * Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+ */
+export type ServiceType = (typeof ServiceType)[keyof typeof ServiceType];
 
 export const SqlManagedInstanceSkuName = {
     VCore: "vCore",

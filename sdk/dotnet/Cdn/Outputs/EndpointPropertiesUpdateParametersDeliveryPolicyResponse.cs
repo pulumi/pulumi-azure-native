@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     /// A policy that specifies the delivery rules to be used for an endpoint.
     /// </summary>
     [OutputType]
-    public sealed class EndpointPropertiesUpdateParametersResponseDeliveryPolicy
+    public sealed class EndpointPropertiesUpdateParametersDeliveryPolicyResponse
     {
         /// <summary>
         /// User-friendly description of the policy.
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         public readonly ImmutableArray<Outputs.DeliveryRuleResponse> Rules;
 
         [OutputConstructor]
-        private EndpointPropertiesUpdateParametersResponseDeliveryPolicy(
+        private EndpointPropertiesUpdateParametersDeliveryPolicyResponse(
             string? description,
 
             ImmutableArray<Outputs.DeliveryRuleResponse> rules)

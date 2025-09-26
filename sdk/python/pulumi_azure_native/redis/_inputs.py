@@ -185,7 +185,7 @@ if not MYPY:
         """
         authnotrequired: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
         """
         maxfragmentationmemory_reserved: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -213,7 +213,7 @@ if not MYPY:
         """
         rdb_backup_enabled: NotRequired[pulumi.Input[builtins.str]]
         """
-        Specifies whether the rdb backup is enabled
+        Specifies whether the RDB backup is enabled
         """
         rdb_backup_frequency: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -259,14 +259,14 @@ class RedisCommonPropertiesRedisConfigurationArgs:
         :param pulumi.Input[builtins.str] aof_backup_enabled: Specifies whether the aof backup is enabled
         :param pulumi.Input[builtins.str] aof_storage_connection_string0: First storage account connection string
         :param pulumi.Input[builtins.str] aof_storage_connection_string1: Second storage account connection string
-        :param pulumi.Input[builtins.str] authnotrequired: Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        :param pulumi.Input[builtins.str] authnotrequired: Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
         :param pulumi.Input[builtins.str] maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
         :param pulumi.Input[builtins.str] maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[builtins.str] maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
         :param pulumi.Input[builtins.str] maxmemory_reserved: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param pulumi.Input[builtins.str] notify_keyspace_events: The keyspace events which should be monitored.
         :param pulumi.Input[builtins.str] preferred_data_persistence_auth_method: Preferred auth method to communicate to storage account used for data persistence, specify SAS or ManagedIdentity, default value is SAS
-        :param pulumi.Input[builtins.str] rdb_backup_enabled: Specifies whether the rdb backup is enabled
+        :param pulumi.Input[builtins.str] rdb_backup_enabled: Specifies whether the RDB backup is enabled
         :param pulumi.Input[builtins.str] rdb_backup_frequency: Specifies the frequency for creating rdb backup in minutes. Valid values: (15, 30, 60, 360, 720, 1440)
         :param pulumi.Input[builtins.str] rdb_backup_max_snapshot_count: Specifies the maximum number of snapshots for rdb backup
         :param pulumi.Input[builtins.str] rdb_storage_connection_string: The storage account connection string for storing rdb file
@@ -357,7 +357,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @pulumi.getter
     def authnotrequired(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view; you should never disable authentication using this property!
         """
         return pulumi.get(self, "authnotrequired")
 
@@ -441,7 +441,7 @@ class RedisCommonPropertiesRedisConfigurationArgs:
     @pulumi.getter(name="rdbBackupEnabled")
     def rdb_backup_enabled(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Specifies whether the rdb backup is enabled
+        Specifies whether the RDB backup is enabled
         """
         return pulumi.get(self, "rdb_backup_enabled")
 
@@ -513,7 +513,7 @@ if not MYPY:
         """
         maintenance_window: NotRequired[pulumi.Input[builtins.str]]
         """
-        ISO8601 timespan specifying how much time cache patching can take. 
+        ISO8601 timespan specifying how much time cache patching can take.
         """
 elif False:
     ScheduleEntryArgsDict: TypeAlias = Mapping[str, Any]
@@ -528,7 +528,7 @@ class ScheduleEntryArgs:
         Patch schedule entry for a Premium Redis Cache.
         :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week when a cache can be patched.
         :param pulumi.Input[builtins.int] start_hour_utc: Start hour after which cache patching can start.
-        :param pulumi.Input[builtins.str] maintenance_window: ISO8601 timespan specifying how much time cache patching can take. 
+        :param pulumi.Input[builtins.str] maintenance_window: ISO8601 timespan specifying how much time cache patching can take.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "start_hour_utc", start_hour_utc)
@@ -563,7 +563,7 @@ class ScheduleEntryArgs:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        ISO8601 timespan specifying how much time cache patching can take. 
+        ISO8601 timespan specifying how much time cache patching can take.
         """
         return pulumi.get(self, "maintenance_window")
 

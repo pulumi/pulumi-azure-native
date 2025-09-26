@@ -22,7 +22,19 @@ namespace Pulumi.AzureNative.Cdn.Inputs
         public InputUnion<string, Pulumi.AzureNative.Cdn.AfdCertificateType> CertificateType { get; set; } = null!;
 
         /// <summary>
-        /// TLS protocol version that will be used for Https
+        /// cipher suite set type that will be used for Https
+        /// </summary>
+        [Input("cipherSuiteSetType")]
+        public InputUnion<string, Pulumi.AzureNative.Cdn.AfdCipherSuiteSetType>? CipherSuiteSetType { get; set; }
+
+        /// <summary>
+        /// Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        /// </summary>
+        [Input("customizedCipherSuiteSet")]
+        public Input<Inputs.AFDDomainHttpsCustomizedCipherSuiteSetArgs>? CustomizedCipherSuiteSet { get; set; }
+
+        /// <summary>
+        /// TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         /// </summary>
         [Input("minimumTlsVersion")]
         public Input<Pulumi.AzureNative.Cdn.AfdMinimumTlsVersion>? MinimumTlsVersion { get; set; }

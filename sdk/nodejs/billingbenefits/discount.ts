@@ -40,39 +40,11 @@ export class Discount extends pulumi.CustomResource {
     }
 
     /**
-     * List of applied scopes supported for discounts.
-     */
-    public readonly appliedScopeType!: pulumi.Output<string | undefined>;
-    /**
      * The Azure API version of the resource.
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
     /**
-     * Fully-qualified identifier of the benefit under applicable benefit list.
-     */
-    public /*out*/ readonly benefitResourceId!: pulumi.Output<string>;
-    /**
-     * Billing account resource id where the discount metadata is present.
-     */
-    public /*out*/ readonly billingAccountResourceId!: pulumi.Output<string>;
-    /**
-     * Billing profile resource id where the discount is scoped to.
-     */
-    public /*out*/ readonly billingProfileResourceId!: pulumi.Output<string>;
-    /**
-     * Customer resource id where the discount is scoped to.
-     */
-    public /*out*/ readonly customerResourceId!: pulumi.Output<string>;
-    /**
-     * This defines a user friendly display name for the discount.
-     */
-    public readonly displayName!: pulumi.Output<string | undefined>;
-    /**
-     * This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-     */
-    public readonly entityType!: pulumi.Output<string>;
-    /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
@@ -100,33 +72,17 @@ export class Discount extends pulumi.CustomResource {
      */
     public readonly plan!: pulumi.Output<outputs.billingbenefits.PlanResponse | undefined>;
     /**
-     * This is the catalog UPN for the product.
+     * Discount properties
      */
-    public readonly productCode!: pulumi.Output<string>;
-    /**
-     * The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
-     */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    public readonly properties!: pulumi.Output<outputs.billingbenefits.EntityTypeAffiliateDiscountResponse | outputs.billingbenefits.EntityTypePrimaryDiscountResponse>;
     /**
      * The resource model definition representing SKU
      */
     public readonly sku!: pulumi.Output<outputs.billingbenefits.SkuResponse | undefined>;
     /**
-     * Start date of the discount. Value is the date the discount started or will start in the future.
-     */
-    public readonly startAt!: pulumi.Output<string>;
-    /**
-     * Represents the current status of the discount.
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.billingbenefits.SystemDataResponse>;
-    /**
-     * This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-     */
-    public readonly systemId!: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
@@ -147,53 +103,26 @@ export class Discount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.entityType === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'entityType'");
-            }
-            if ((!args || args.productCode === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'productCode'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startAt === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'startAt'");
-            }
-            resourceInputs["appliedScopeType"] = args ? args.appliedScopeType : undefined;
             resourceInputs["discountName"] = args ? args.discountName : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedBy"] = args ? args.managedBy : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
+            resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["startAt"] = args ? args.startAt : undefined;
-            resourceInputs["systemId"] = args ? args.systemId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["benefitResourceId"] = undefined /*out*/;
-            resourceInputs["billingAccountResourceId"] = undefined /*out*/;
-            resourceInputs["billingProfileResourceId"] = undefined /*out*/;
-            resourceInputs["customerResourceId"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["appliedScopeType"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
-            resourceInputs["benefitResourceId"] = undefined /*out*/;
-            resourceInputs["billingAccountResourceId"] = undefined /*out*/;
-            resourceInputs["billingProfileResourceId"] = undefined /*out*/;
-            resourceInputs["customerResourceId"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["entityType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
@@ -201,13 +130,9 @@ export class Discount extends pulumi.CustomResource {
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["plan"] = undefined /*out*/;
-            resourceInputs["productCode"] = undefined /*out*/;
-            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["sku"] = undefined /*out*/;
-            resourceInputs["startAt"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["systemId"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
@@ -223,21 +148,9 @@ export class Discount extends pulumi.CustomResource {
  */
 export interface DiscountArgs {
     /**
-     * List of applied scopes supported for discounts.
-     */
-    appliedScopeType?: pulumi.Input<string | enums.billingbenefits.DiscountAppliedScopeType>;
-    /**
      * Name of the discount
      */
     discountName?: pulumi.Input<string>;
-    /**
-     * This defines a user friendly display name for the discount.
-     */
-    displayName?: pulumi.Input<string>;
-    /**
-     * This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-     */
-    entityType: pulumi.Input<string | enums.billingbenefits.DiscountEntityType>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
@@ -259,9 +172,9 @@ export interface DiscountArgs {
      */
     plan?: pulumi.Input<inputs.billingbenefits.PlanArgs>;
     /**
-     * This is the catalog UPN for the product.
+     * Discount properties
      */
-    productCode: pulumi.Input<string>;
+    properties?: pulumi.Input<inputs.billingbenefits.EntityTypeAffiliateDiscountArgs | inputs.billingbenefits.EntityTypePrimaryDiscountArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -270,14 +183,6 @@ export interface DiscountArgs {
      * The resource model definition representing SKU
      */
     sku?: pulumi.Input<inputs.billingbenefits.SkuArgs>;
-    /**
-     * Start date of the discount. Value is the date the discount started or will start in the future.
-     */
-    startAt: pulumi.Input<string>;
-    /**
-     * This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-     */
-    systemId?: pulumi.Input<string>;
     /**
      * Resource tags.
      */

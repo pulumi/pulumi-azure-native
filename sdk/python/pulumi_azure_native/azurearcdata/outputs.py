@@ -25,17 +25,25 @@ __all__ = [
     'ActiveDirectoryConnectorStatusResponse',
     'ActiveDirectoryDomainControllerResponse',
     'ActiveDirectoryDomainControllersResponse',
+    'AuthenticationResponse',
     'AvailabilityGroupConfigureResponse',
     'AvailabilityGroupInfoResponse',
     'AvailabilityGroupStateResponse',
     'BackgroundJobResponse',
     'BackupPolicyResponse',
     'BasicLoginInformationResponse',
+    'ClientConnectionResponse',
+    'DBMEndpointResponse',
+    'DataBaseMigrationAssessmentResponse',
+    'DataBaseMigrationAssessmentResponseDatabaseAssessments',
+    'DataBaseMigrationResponse',
     'DataControllerPropertiesResponse',
+    'EntraAuthenticationResponse',
     'ExtendedLocationResponse',
     'FailoverClusterResponse',
     'FailoverGroupPropertiesResponse',
     'FailoverGroupSpecResponse',
+    'HostIPAddressInformationResponse',
     'K8sActiveDirectoryResponse',
     'K8sActiveDirectoryResponseConnector',
     'K8sNetworkSettingsResponse',
@@ -46,13 +54,31 @@ __all__ = [
     'K8sSettingsResponse',
     'K8stransparentDataEncryptionResponse',
     'LogAnalyticsWorkspaceConfigResponse',
+    'MigrationAssessmentResponse',
+    'MigrationAssessmentResponseImpactedObjects',
+    'MigrationAssessmentResponseServerAssessments',
+    'MigrationResponse',
     'MonitoringResponse',
     'OnPremisePropertyResponse',
     'PostgresInstancePropertiesResponse',
     'PostgresInstanceSkuResponse',
     'SequencerActionResponse',
+    'SkuRecommendationResultsAzureSqlDatabaseResponse',
+    'SkuRecommendationResultsAzureSqlDatabaseResponseCategory',
+    'SkuRecommendationResultsAzureSqlDatabaseResponseTargetSku',
+    'SkuRecommendationResultsAzureSqlManagedInstanceResponse',
+    'SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory',
+    'SkuRecommendationResultsAzureSqlManagedInstanceResponseTargetSku',
+    'SkuRecommendationResultsAzureSqlVirtualMachineResponse',
+    'SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory',
+    'SkuRecommendationResultsAzureSqlVirtualMachineResponseTargetSku',
+    'SkuRecommendationResultsMonthlyCostResponse',
+    'SkuRecommendationResultsResponse',
+    'SkuRecommendationSummaryResponse',
     'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse',
     'SqlAvailabilityGroupReplicaResourcePropertiesResponse',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesResponse',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks',
     'SqlManagedInstanceK8sRawResponse',
     'SqlManagedInstanceK8sSpecResponse',
     'SqlManagedInstancePropertiesResponse',
@@ -69,6 +95,7 @@ __all__ = [
     'SqlServerInstanceTelemetryColumnResponse',
     'SqlServerLicensePropertiesResponse',
     'SystemDataResponse',
+    'TargetReadinessResponse',
     'UploadServicePrincipalResponse',
     'UploadWatermarkResponse',
 ]
@@ -520,6 +547,58 @@ class ActiveDirectoryDomainControllersResponse(dict):
 
 
 @pulumi.output_type
+class AuthenticationResponse(dict):
+    """
+    Authentication related configuration for the SQL Server Instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "sqlServerEntraIdentity":
+            suggest = "sql_server_entra_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 mode: Optional[builtins.str] = None,
+                 sql_server_entra_identity: Optional[Sequence['outputs.EntraAuthenticationResponse']] = None):
+        """
+        Authentication related configuration for the SQL Server Instance.
+        :param builtins.str mode: Mode of authentication in SqlServer.
+        :param Sequence['EntraAuthenticationResponse'] sql_server_entra_identity: Entra Authentication configuration for the SQL Server Instance.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if sql_server_entra_identity is not None:
+            pulumi.set(__self__, "sql_server_entra_identity", sql_server_entra_identity)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[builtins.str]:
+        """
+        Mode of authentication in SqlServer.
+        """
+        return pulumi.get(self, "mode")
+
+    @property
+    @pulumi.getter(name="sqlServerEntraIdentity")
+    def sql_server_entra_identity(self) -> Optional[Sequence['outputs.EntraAuthenticationResponse']]:
+        """
+        Entra Authentication configuration for the SQL Server Instance.
+        """
+        return pulumi.get(self, "sql_server_entra_identity")
+
+
+@pulumi.output_type
 class AvailabilityGroupConfigureResponse(dict):
     """
     The specifications of the availability group replica configuration
@@ -541,14 +620,32 @@ class AvailabilityGroupConfigureResponse(dict):
             suggest = "secondary_role_allow_connections_description"
         elif key == "seedingModeDescription":
             suggest = "seeding_mode_description"
+        elif key == "availabilityMode":
+            suggest = "availability_mode"
         elif key == "backupPriority":
             suggest = "backup_priority"
+        elif key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "endpointAuthenticationMode":
+            suggest = "endpoint_authentication_mode"
+        elif key == "endpointConnectLogin":
+            suggest = "endpoint_connect_login"
+        elif key == "endpointName":
+            suggest = "endpoint_name"
         elif key == "endpointUrl":
             suggest = "endpoint_url"
+        elif key == "failoverMode":
+            suggest = "failover_mode"
+        elif key == "primaryAllowConnections":
+            suggest = "primary_allow_connections"
         elif key == "readOnlyRoutingUrl":
             suggest = "read_only_routing_url"
         elif key == "readWriteRoutingUrl":
             suggest = "read_write_routing_url"
+        elif key == "secondaryAllowConnections":
+            suggest = "secondary_allow_connections"
+        elif key == "seedingMode":
+            suggest = "seeding_mode"
         elif key == "sessionTimeout":
             suggest = "session_timeout"
 
@@ -571,10 +668,19 @@ class AvailabilityGroupConfigureResponse(dict):
                  replica_modify_date: builtins.str,
                  secondary_role_allow_connections_description: builtins.str,
                  seeding_mode_description: builtins.str,
+                 availability_mode: Optional[builtins.str] = None,
                  backup_priority: Optional[builtins.int] = None,
+                 certificate_name: Optional[builtins.str] = None,
+                 endpoint_authentication_mode: Optional[builtins.str] = None,
+                 endpoint_connect_login: Optional[builtins.str] = None,
+                 endpoint_name: Optional[builtins.str] = None,
                  endpoint_url: Optional[builtins.str] = None,
+                 failover_mode: Optional[builtins.str] = None,
+                 primary_allow_connections: Optional[builtins.str] = None,
                  read_only_routing_url: Optional[builtins.str] = None,
                  read_write_routing_url: Optional[builtins.str] = None,
+                 secondary_allow_connections: Optional[builtins.str] = None,
+                 seeding_mode: Optional[builtins.str] = None,
                  session_timeout: Optional[builtins.int] = None):
         """
         The specifications of the availability group replica configuration
@@ -585,10 +691,19 @@ class AvailabilityGroupConfigureResponse(dict):
         :param builtins.str replica_modify_date: Date that the replica was modified.
         :param builtins.str secondary_role_allow_connections_description: Whether an availability replica that is performing the secondary role (that is, a secondary replica) can accept connections from clients.
         :param builtins.str seeding_mode_description: Describes seeding mode.
+        :param builtins.str availability_mode: Property that determines whether a given availability replica can run in synchronous-commit mode
         :param builtins.int backup_priority: Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        :param builtins.str certificate_name: Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        :param builtins.str endpoint_authentication_mode: Permitted authentication modes for the mirroring endpoint.
+        :param builtins.str endpoint_connect_login: The login which will connect to the mirroring endpoint.
+        :param builtins.str endpoint_name: Name of the mirroring endpoint URL
         :param builtins.str endpoint_url: Mirroring endpoint URL of availability group replica
+        :param builtins.str failover_mode: Property to set the failover mode of the availability group replica
+        :param builtins.str primary_allow_connections: Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
         :param builtins.str read_only_routing_url: Connectivity endpoint (URL) of the read only availability replica.
         :param builtins.str read_write_routing_url: Connectivity endpoint (URL) of the read write availability replica.
+        :param builtins.str secondary_allow_connections: Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        :param builtins.str seeding_mode: Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
         :param builtins.int session_timeout: The time-out period of availability group session replica, in seconds.
         """
         pulumi.set(__self__, "availability_mode_description", availability_mode_description)
@@ -598,14 +713,32 @@ class AvailabilityGroupConfigureResponse(dict):
         pulumi.set(__self__, "replica_modify_date", replica_modify_date)
         pulumi.set(__self__, "secondary_role_allow_connections_description", secondary_role_allow_connections_description)
         pulumi.set(__self__, "seeding_mode_description", seeding_mode_description)
+        if availability_mode is not None:
+            pulumi.set(__self__, "availability_mode", availability_mode)
         if backup_priority is not None:
             pulumi.set(__self__, "backup_priority", backup_priority)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if endpoint_authentication_mode is not None:
+            pulumi.set(__self__, "endpoint_authentication_mode", endpoint_authentication_mode)
+        if endpoint_connect_login is not None:
+            pulumi.set(__self__, "endpoint_connect_login", endpoint_connect_login)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if failover_mode is not None:
+            pulumi.set(__self__, "failover_mode", failover_mode)
+        if primary_allow_connections is not None:
+            pulumi.set(__self__, "primary_allow_connections", primary_allow_connections)
         if read_only_routing_url is not None:
             pulumi.set(__self__, "read_only_routing_url", read_only_routing_url)
         if read_write_routing_url is not None:
             pulumi.set(__self__, "read_write_routing_url", read_write_routing_url)
+        if secondary_allow_connections is not None:
+            pulumi.set(__self__, "secondary_allow_connections", secondary_allow_connections)
+        if seeding_mode is not None:
+            pulumi.set(__self__, "seeding_mode", seeding_mode)
         if session_timeout is not None:
             pulumi.set(__self__, "session_timeout", session_timeout)
 
@@ -666,6 +799,14 @@ class AvailabilityGroupConfigureResponse(dict):
         return pulumi.get(self, "seeding_mode_description")
 
     @property
+    @pulumi.getter(name="availabilityMode")
+    def availability_mode(self) -> Optional[builtins.str]:
+        """
+        Property that determines whether a given availability replica can run in synchronous-commit mode
+        """
+        return pulumi.get(self, "availability_mode")
+
+    @property
     @pulumi.getter(name="backupPriority")
     def backup_priority(self) -> Optional[builtins.int]:
         """
@@ -674,12 +815,60 @@ class AvailabilityGroupConfigureResponse(dict):
         return pulumi.get(self, "backup_priority")
 
     @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[builtins.str]:
+        """
+        Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @property
+    @pulumi.getter(name="endpointAuthenticationMode")
+    def endpoint_authentication_mode(self) -> Optional[builtins.str]:
+        """
+        Permitted authentication modes for the mirroring endpoint.
+        """
+        return pulumi.get(self, "endpoint_authentication_mode")
+
+    @property
+    @pulumi.getter(name="endpointConnectLogin")
+    def endpoint_connect_login(self) -> Optional[builtins.str]:
+        """
+        The login which will connect to the mirroring endpoint.
+        """
+        return pulumi.get(self, "endpoint_connect_login")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[builtins.str]:
+        """
+        Name of the mirroring endpoint URL
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[builtins.str]:
         """
         Mirroring endpoint URL of availability group replica
         """
         return pulumi.get(self, "endpoint_url")
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> Optional[builtins.str]:
+        """
+        Property to set the failover mode of the availability group replica
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @property
+    @pulumi.getter(name="primaryAllowConnections")
+    def primary_allow_connections(self) -> Optional[builtins.str]:
+        """
+        Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+        """
+        return pulumi.get(self, "primary_allow_connections")
 
     @property
     @pulumi.getter(name="readOnlyRoutingUrl")
@@ -696,6 +885,22 @@ class AvailabilityGroupConfigureResponse(dict):
         Connectivity endpoint (URL) of the read write availability replica.
         """
         return pulumi.get(self, "read_write_routing_url")
+
+    @property
+    @pulumi.getter(name="secondaryAllowConnections")
+    def secondary_allow_connections(self) -> Optional[builtins.str]:
+        """
+        Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        """
+        return pulumi.get(self, "secondary_allow_connections")
+
+    @property
+    @pulumi.getter(name="seedingMode")
+    def seeding_mode(self) -> Optional[builtins.str]:
+        """
+        Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+        """
+        return pulumi.get(self, "seeding_mode")
 
     @property
     @pulumi.getter(name="sessionTimeout")
@@ -772,6 +977,7 @@ class AvailabilityGroupInfoResponse(dict):
                  health_check_timeout: Optional[builtins.int] = None,
                  is_contained: Optional[builtins.bool] = None,
                  is_distributed: Optional[builtins.bool] = None,
+                 listener: Optional['outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponse'] = None,
                  required_synchronized_secondaries_to_commit: Optional[builtins.int] = None):
         """
         The specifications of the availability group state
@@ -789,6 +995,7 @@ class AvailabilityGroupInfoResponse(dict):
         :param builtins.int health_check_timeout: Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
         :param builtins.bool is_contained: SQL Server availability group contained system databases.
         :param builtins.bool is_distributed: Specifies whether this is a distributed availability group.
+        :param 'SqlAvailabilityGroupStaticIPListenerPropertiesResponse' listener: The listener for the sql server availability group
         :param builtins.int required_synchronized_secondaries_to_commit: The number of secondary replicas that must be in a synchronized state for a commit to complete.
         """
         pulumi.set(__self__, "automated_backup_preference_description", automated_backup_preference_description)
@@ -813,6 +1020,8 @@ class AvailabilityGroupInfoResponse(dict):
             pulumi.set(__self__, "is_contained", is_contained)
         if is_distributed is not None:
             pulumi.set(__self__, "is_distributed", is_distributed)
+        if listener is not None:
+            pulumi.set(__self__, "listener", listener)
         if required_synchronized_secondaries_to_commit is not None:
             pulumi.set(__self__, "required_synchronized_secondaries_to_commit", required_synchronized_secondaries_to_commit)
 
@@ -932,6 +1141,14 @@ class AvailabilityGroupInfoResponse(dict):
         Specifies whether this is a distributed availability group.
         """
         return pulumi.get(self, "is_distributed")
+
+    @property
+    @pulumi.getter
+    def listener(self) -> Optional['outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponse']:
+        """
+        The listener for the sql server availability group
+        """
+        return pulumi.get(self, "listener")
 
     @property
     @pulumi.getter(name="requiredSynchronizedSecondariesToCommit")
@@ -1248,6 +1465,316 @@ class BasicLoginInformationResponse(dict):
 
 
 @pulumi.output_type
+class ClientConnectionResponse(dict):
+    """
+    Client connection related configuration.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[builtins.bool] = None):
+        """
+        Client connection related configuration.
+        :param builtins.bool enabled: Indicates if client connection is enabled for this SQL Server instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        """
+        Indicates if client connection is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class DBMEndpointResponse(dict):
+    """
+    Database mirroring endpoint related properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateName":
+            suggest = "certificate_name"
+        elif key == "connectionAuth":
+            suggest = "connection_auth"
+        elif key == "encryptionAlgorithm":
+            suggest = "encryption_algorithm"
+        elif key == "endpointName":
+            suggest = "endpoint_name"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "isDynamicPort":
+            suggest = "is_dynamic_port"
+        elif key == "isEncryptionEnabled":
+            suggest = "is_encryption_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DBMEndpointResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DBMEndpointResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DBMEndpointResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_name: builtins.str,
+                 connection_auth: builtins.str,
+                 encryption_algorithm: builtins.str,
+                 endpoint_name: builtins.str,
+                 ip_address: builtins.str,
+                 is_dynamic_port: builtins.bool,
+                 is_encryption_enabled: builtins.bool,
+                 port: builtins.int,
+                 role: builtins.str):
+        """
+        Database mirroring endpoint related properties.
+        :param builtins.str certificate_name: Name of the certificate.
+        :param builtins.str connection_auth: The type of connection authentication required for connections to this endpoint
+        :param builtins.str encryption_algorithm: Encryption Algorithm
+        :param builtins.str endpoint_name: Name of the database mirroring endpoint.
+        :param builtins.str ip_address: Listener IP address.
+        :param builtins.bool is_dynamic_port: Is the port number dynamically assigned.
+        :param builtins.bool is_encryption_enabled: Is Encryption enabled
+        :param builtins.int port: The port number that the endpoint is listening on.
+        :param builtins.str role: Mirroring Role
+        """
+        pulumi.set(__self__, "certificate_name", certificate_name)
+        pulumi.set(__self__, "connection_auth", connection_auth)
+        pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        pulumi.set(__self__, "endpoint_name", endpoint_name)
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "is_dynamic_port", is_dynamic_port)
+        pulumi.set(__self__, "is_encryption_enabled", is_encryption_enabled)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "role", role)
+
+    @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> builtins.str:
+        """
+        Name of the certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @property
+    @pulumi.getter(name="connectionAuth")
+    def connection_auth(self) -> builtins.str:
+        """
+        The type of connection authentication required for connections to this endpoint
+        """
+        return pulumi.get(self, "connection_auth")
+
+    @property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> builtins.str:
+        """
+        Encryption Algorithm
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> builtins.str:
+        """
+        Name of the database mirroring endpoint.
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> builtins.str:
+        """
+        Listener IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="isDynamicPort")
+    def is_dynamic_port(self) -> builtins.bool:
+        """
+        Is the port number dynamically assigned.
+        """
+        return pulumi.get(self, "is_dynamic_port")
+
+    @property
+    @pulumi.getter(name="isEncryptionEnabled")
+    def is_encryption_enabled(self) -> builtins.bool:
+        """
+        Is Encryption enabled
+        """
+        return pulumi.get(self, "is_encryption_enabled")
+
+    @property
+    @pulumi.getter
+    def port(self) -> builtins.int:
+        """
+        The port number that the endpoint is listening on.
+        """
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def role(self) -> builtins.str:
+        """
+        Mirroring Role
+        """
+        return pulumi.get(self, "role")
+
+
+@pulumi.output_type
+class DataBaseMigrationAssessmentResponse(dict):
+    """
+    The migration assessment related configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentUploadTime":
+            suggest = "assessment_upload_time"
+        elif key == "databaseAssessments":
+            suggest = "database_assessments"
+        elif key == "targetReadiness":
+            suggest = "target_readiness"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBaseMigrationAssessmentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBaseMigrationAssessmentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBaseMigrationAssessmentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_upload_time: builtins.str,
+                 database_assessments: Sequence['outputs.DataBaseMigrationAssessmentResponseDatabaseAssessments'],
+                 target_readiness: 'outputs.TargetReadinessResponse'):
+        """
+        The migration assessment related configuration.
+        :param builtins.str assessment_upload_time: The time when Migration Assessment Report upload was last performed.
+        :param Sequence['DataBaseMigrationAssessmentResponseDatabaseAssessments'] database_assessments: Issues and warnings impacting the migration of Database to particular Azure Migration Target.
+        :param 'TargetReadinessResponse' target_readiness: The target readiness for migration for this database.
+        """
+        pulumi.set(__self__, "assessment_upload_time", assessment_upload_time)
+        pulumi.set(__self__, "database_assessments", database_assessments)
+        pulumi.set(__self__, "target_readiness", target_readiness)
+
+    @property
+    @pulumi.getter(name="assessmentUploadTime")
+    def assessment_upload_time(self) -> builtins.str:
+        """
+        The time when Migration Assessment Report upload was last performed.
+        """
+        return pulumi.get(self, "assessment_upload_time")
+
+    @property
+    @pulumi.getter(name="databaseAssessments")
+    def database_assessments(self) -> Sequence['outputs.DataBaseMigrationAssessmentResponseDatabaseAssessments']:
+        """
+        Issues and warnings impacting the migration of Database to particular Azure Migration Target.
+        """
+        return pulumi.get(self, "database_assessments")
+
+    @property
+    @pulumi.getter(name="targetReadiness")
+    def target_readiness(self) -> 'outputs.TargetReadinessResponse':
+        """
+        The target readiness for migration for this database.
+        """
+        return pulumi.get(self, "target_readiness")
+
+
+@pulumi.output_type
+class DataBaseMigrationAssessmentResponseDatabaseAssessments(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appliesToMigrationTargetPlatform":
+            suggest = "applies_to_migration_target_platform"
+        elif key == "featureId":
+            suggest = "feature_id"
+        elif key == "issueCategory":
+            suggest = "issue_category"
+        elif key == "moreInformation":
+            suggest = "more_information"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DataBaseMigrationAssessmentResponseDatabaseAssessments. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DataBaseMigrationAssessmentResponseDatabaseAssessments.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DataBaseMigrationAssessmentResponseDatabaseAssessments.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 applies_to_migration_target_platform: Optional[builtins.str] = None,
+                 feature_id: Optional[builtins.str] = None,
+                 issue_category: Optional[builtins.str] = None,
+                 more_information: Optional[builtins.str] = None):
+        if applies_to_migration_target_platform is not None:
+            pulumi.set(__self__, "applies_to_migration_target_platform", applies_to_migration_target_platform)
+        if feature_id is not None:
+            pulumi.set(__self__, "feature_id", feature_id)
+        if issue_category is not None:
+            pulumi.set(__self__, "issue_category", issue_category)
+        if more_information is not None:
+            pulumi.set(__self__, "more_information", more_information)
+
+    @property
+    @pulumi.getter(name="appliesToMigrationTargetPlatform")
+    def applies_to_migration_target_platform(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "applies_to_migration_target_platform")
+
+    @property
+    @pulumi.getter(name="featureId")
+    def feature_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "feature_id")
+
+    @property
+    @pulumi.getter(name="issueCategory")
+    def issue_category(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "issue_category")
+
+    @property
+    @pulumi.getter(name="moreInformation")
+    def more_information(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "more_information")
+
+
+@pulumi.output_type
+class DataBaseMigrationResponse(dict):
+    """
+    Migration related configuration.
+    """
+    def __init__(__self__, *,
+                 assessment: Optional['outputs.DataBaseMigrationAssessmentResponse'] = None):
+        """
+        Migration related configuration.
+        :param 'DataBaseMigrationAssessmentResponse' assessment: Migration assessments related configuration.
+        """
+        if assessment is not None:
+            pulumi.set(__self__, "assessment", assessment)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> Optional['outputs.DataBaseMigrationAssessmentResponse']:
+        """
+        Migration assessments related configuration.
+        """
+        return pulumi.get(self, "assessment")
+
+
+@pulumi.output_type
 class DataControllerPropertiesResponse(dict):
     """
     The data controller properties.
@@ -1455,6 +1982,60 @@ class DataControllerPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class EntraAuthenticationResponse(dict):
+    """
+    Entra Authentication configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "identityType":
+            suggest = "identity_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntraAuthenticationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntraAuthenticationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntraAuthenticationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 client_id: Optional[builtins.str] = None,
+                 identity_type: Optional[builtins.str] = None):
+        """
+        Entra Authentication configuration.
+        :param builtins.str client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
+        :param builtins.str identity_type: The method used for Entra authentication
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[builtins.str]:
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[builtins.str]:
+        """
+        The method used for Entra authentication
+        """
+        return pulumi.get(self, "identity_type")
+
+
+@pulumi.output_type
 class ExtendedLocationResponse(dict):
     """
     The complex type of the extended location.
@@ -1497,7 +2078,9 @@ class FailoverClusterResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "hostNames":
+        if key == "hostIPAddresses":
+            suggest = "host_ip_addresses"
+        elif key == "hostNames":
             suggest = "host_names"
         elif key == "networkName":
             suggest = "network_name"
@@ -1516,21 +2099,32 @@ class FailoverClusterResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 host_ip_addresses: Sequence['outputs.HostIPAddressInformationResponse'],
                  host_names: Sequence[builtins.str],
                  id: builtins.str,
                  network_name: builtins.str,
                  sql_instance_ids: Sequence[builtins.str]):
         """
         Failover Cluster Instance properties.
+        :param Sequence['HostIPAddressInformationResponse'] host_ip_addresses: The IP addresses and subnet masks associated with the SQL Failover Cluster Instance on this host.
         :param Sequence[builtins.str] host_names: The host names which are part of the SQL FCI resource group.
         :param builtins.str id: The GUID of the SQL Server's underlying Failover Cluster.
         :param builtins.str network_name: The network name to connect to the SQL FCI.
         :param Sequence[builtins.str] sql_instance_ids: The ARM IDs of the Arc SQL Server resources, belonging to the current server's Failover cluster.
         """
+        pulumi.set(__self__, "host_ip_addresses", host_ip_addresses)
         pulumi.set(__self__, "host_names", host_names)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "network_name", network_name)
         pulumi.set(__self__, "sql_instance_ids", sql_instance_ids)
+
+    @property
+    @pulumi.getter(name="hostIPAddresses")
+    def host_ip_addresses(self) -> Sequence['outputs.HostIPAddressInformationResponse']:
+        """
+        The IP addresses and subnet masks associated with the SQL Failover Cluster Instance on this host.
+        """
+        return pulumi.get(self, "host_ip_addresses")
 
     @property
     @pulumi.getter(name="hostNames")
@@ -1763,6 +2357,58 @@ class FailoverGroupSpecResponse(dict):
         The name of the SQL managed instance with this failover group role.
         """
         return pulumi.get(self, "source_mi")
+
+
+@pulumi.output_type
+class HostIPAddressInformationResponse(dict):
+    """
+    IP address and subnet mask.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "subnetMask":
+            suggest = "subnet_mask"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HostIPAddressInformationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HostIPAddressInformationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HostIPAddressInformationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: builtins.str,
+                 subnet_mask: builtins.str):
+        """
+        IP address and subnet mask.
+        :param builtins.str ip_address: IP address
+        :param builtins.str subnet_mask: Subnet mask
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "subnet_mask", subnet_mask)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> builtins.str:
+        """
+        IP address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter(name="subnetMask")
+    def subnet_mask(self) -> builtins.str:
+        """
+        Subnet mask
+        """
+        return pulumi.get(self, "subnet_mask")
 
 
 @pulumi.output_type
@@ -2198,6 +2844,224 @@ class LogAnalyticsWorkspaceConfigResponse(dict):
 
 
 @pulumi.output_type
+class MigrationAssessmentResponse(dict):
+    """
+    The migration assessment related configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "assessmentUploadTime":
+            suggest = "assessment_upload_time"
+        elif key == "serverAssessments":
+            suggest = "server_assessments"
+        elif key == "skuRecommendationResults":
+            suggest = "sku_recommendation_results"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationAssessmentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationAssessmentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationAssessmentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 assessment_upload_time: builtins.str,
+                 server_assessments: Sequence['outputs.MigrationAssessmentResponseServerAssessments'],
+                 sku_recommendation_results: 'outputs.SkuRecommendationResultsResponse',
+                 enabled: Optional[builtins.bool] = None):
+        """
+        The migration assessment related configuration.
+        :param builtins.str assessment_upload_time: The time when Migration Assessment Report upload was last performed.
+        :param Sequence['MigrationAssessmentResponseServerAssessments'] server_assessments: Issues and warnings impacting the migration of SQL Server instance to particular Azure Migration Target.
+        :param 'SkuRecommendationResultsResponse' sku_recommendation_results: SKU Recommendation results for Azure migration targets for SQL Server.
+        :param builtins.bool enabled: Indicates if migration assessment is enabled for this SQL Server instance.
+        """
+        pulumi.set(__self__, "assessment_upload_time", assessment_upload_time)
+        pulumi.set(__self__, "server_assessments", server_assessments)
+        pulumi.set(__self__, "sku_recommendation_results", sku_recommendation_results)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter(name="assessmentUploadTime")
+    def assessment_upload_time(self) -> builtins.str:
+        """
+        The time when Migration Assessment Report upload was last performed.
+        """
+        return pulumi.get(self, "assessment_upload_time")
+
+    @property
+    @pulumi.getter(name="serverAssessments")
+    def server_assessments(self) -> Sequence['outputs.MigrationAssessmentResponseServerAssessments']:
+        """
+        Issues and warnings impacting the migration of SQL Server instance to particular Azure Migration Target.
+        """
+        return pulumi.get(self, "server_assessments")
+
+    @property
+    @pulumi.getter(name="skuRecommendationResults")
+    def sku_recommendation_results(self) -> 'outputs.SkuRecommendationResultsResponse':
+        """
+        SKU Recommendation results for Azure migration targets for SQL Server.
+        """
+        return pulumi.get(self, "sku_recommendation_results")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[builtins.bool]:
+        """
+        Indicates if migration assessment is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class MigrationAssessmentResponseImpactedObjects(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "impactDetail":
+            suggest = "impact_detail"
+        elif key == "objectType":
+            suggest = "object_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationAssessmentResponseImpactedObjects. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationAssessmentResponseImpactedObjects.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationAssessmentResponseImpactedObjects.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 impact_detail: Optional[builtins.str] = None,
+                 name: Optional[builtins.str] = None,
+                 object_type: Optional[builtins.str] = None):
+        if impact_detail is not None:
+            pulumi.set(__self__, "impact_detail", impact_detail)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if object_type is not None:
+            pulumi.set(__self__, "object_type", object_type)
+
+    @property
+    @pulumi.getter(name="impactDetail")
+    def impact_detail(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "impact_detail")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="objectType")
+    def object_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "object_type")
+
+
+@pulumi.output_type
+class MigrationAssessmentResponseServerAssessments(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "appliesToMigrationTargetPlatform":
+            suggest = "applies_to_migration_target_platform"
+        elif key == "featureId":
+            suggest = "feature_id"
+        elif key == "impactedObjects":
+            suggest = "impacted_objects"
+        elif key == "issueCategory":
+            suggest = "issue_category"
+        elif key == "moreInformation":
+            suggest = "more_information"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MigrationAssessmentResponseServerAssessments. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MigrationAssessmentResponseServerAssessments.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MigrationAssessmentResponseServerAssessments.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 applies_to_migration_target_platform: Optional[builtins.str] = None,
+                 feature_id: Optional[builtins.str] = None,
+                 impacted_objects: Optional[Sequence['outputs.MigrationAssessmentResponseImpactedObjects']] = None,
+                 issue_category: Optional[builtins.str] = None,
+                 more_information: Optional[builtins.str] = None):
+        if applies_to_migration_target_platform is not None:
+            pulumi.set(__self__, "applies_to_migration_target_platform", applies_to_migration_target_platform)
+        if feature_id is not None:
+            pulumi.set(__self__, "feature_id", feature_id)
+        if impacted_objects is not None:
+            pulumi.set(__self__, "impacted_objects", impacted_objects)
+        if issue_category is not None:
+            pulumi.set(__self__, "issue_category", issue_category)
+        if more_information is not None:
+            pulumi.set(__self__, "more_information", more_information)
+
+    @property
+    @pulumi.getter(name="appliesToMigrationTargetPlatform")
+    def applies_to_migration_target_platform(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "applies_to_migration_target_platform")
+
+    @property
+    @pulumi.getter(name="featureId")
+    def feature_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "feature_id")
+
+    @property
+    @pulumi.getter(name="impactedObjects")
+    def impacted_objects(self) -> Optional[Sequence['outputs.MigrationAssessmentResponseImpactedObjects']]:
+        return pulumi.get(self, "impacted_objects")
+
+    @property
+    @pulumi.getter(name="issueCategory")
+    def issue_category(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "issue_category")
+
+    @property
+    @pulumi.getter(name="moreInformation")
+    def more_information(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "more_information")
+
+
+@pulumi.output_type
+class MigrationResponse(dict):
+    """
+    Migration related configuration.
+    """
+    def __init__(__self__, *,
+                 assessment: Optional['outputs.MigrationAssessmentResponse'] = None):
+        """
+        Migration related configuration.
+        :param 'MigrationAssessmentResponse' assessment: Migration assessments related configuration.
+        """
+        if assessment is not None:
+            pulumi.set(__self__, "assessment", assessment)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> Optional['outputs.MigrationAssessmentResponse']:
+        """
+        Migration assessments related configuration.
+        """
+        return pulumi.get(self, "assessment")
+
+
+@pulumi.output_type
 class MonitoringResponse(dict):
     """
     The monitoring configuration.
@@ -2525,6 +3389,703 @@ class SequencerActionResponse(dict):
 
 
 @pulumi.output_type
+class SkuRecommendationResultsAzureSqlDatabaseResponse(dict):
+    """
+    SKU Recommendation results for Azure SQL Database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyCost":
+            suggest = "monthly_cost"
+        elif key == "numberOfServerBlockerIssues":
+            suggest = "number_of_server_blocker_issues"
+        elif key == "recommendationStatus":
+            suggest = "recommendation_status"
+        elif key == "targetSku":
+            suggest = "target_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlDatabaseResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlDatabaseResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlDatabaseResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monthly_cost: Optional['outputs.SkuRecommendationResultsMonthlyCostResponse'] = None,
+                 number_of_server_blocker_issues: Optional[builtins.int] = None,
+                 recommendation_status: Optional[builtins.str] = None,
+                 target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponseTargetSku'] = None):
+        """
+        SKU Recommendation results for Azure SQL Database.
+        :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
+        :param builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
+        :param builtins.str recommendation_status: The target recommendation Status for this database.
+        """
+        if monthly_cost is not None:
+            pulumi.set(__self__, "monthly_cost", monthly_cost)
+        if number_of_server_blocker_issues is not None:
+            pulumi.set(__self__, "number_of_server_blocker_issues", number_of_server_blocker_issues)
+        if recommendation_status is not None:
+            pulumi.set(__self__, "recommendation_status", recommendation_status)
+        if target_sku is not None:
+            pulumi.set(__self__, "target_sku", target_sku)
+
+    @property
+    @pulumi.getter(name="monthlyCost")
+    def monthly_cost(self) -> Optional['outputs.SkuRecommendationResultsMonthlyCostResponse']:
+        """
+        The Monthly cost of the particular SKU.
+        """
+        return pulumi.get(self, "monthly_cost")
+
+    @property
+    @pulumi.getter(name="numberOfServerBlockerIssues")
+    def number_of_server_blocker_issues(self) -> Optional[builtins.int]:
+        """
+        Number of blocker issues to fix before migrating to the target platform.
+        """
+        return pulumi.get(self, "number_of_server_blocker_issues")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> Optional[builtins.str]:
+        """
+        The target recommendation Status for this database.
+        """
+        return pulumi.get(self, "recommendation_status")
+
+    @property
+    @pulumi.getter(name="targetSku")
+    def target_sku(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponseTargetSku']:
+        return pulumi.get(self, "target_sku")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlDatabaseResponseCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTier":
+            suggest = "compute_tier"
+        elif key == "hardwareType":
+            suggest = "hardware_type"
+        elif key == "sqlPurchasingModel":
+            suggest = "sql_purchasing_model"
+        elif key == "sqlServiceTier":
+            suggest = "sql_service_tier"
+        elif key == "zoneRedundancyAvailable":
+            suggest = "zone_redundancy_available"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlDatabaseResponseCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlDatabaseResponseCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlDatabaseResponseCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_tier: Optional[builtins.str] = None,
+                 hardware_type: Optional[builtins.str] = None,
+                 sql_purchasing_model: Optional[builtins.str] = None,
+                 sql_service_tier: Optional[builtins.str] = None,
+                 zone_redundancy_available: Optional[builtins.bool] = None):
+        """
+        :param builtins.str compute_tier: The compute tier of the target SKU.
+        :param builtins.str hardware_type: The hardware type of the target SKU.
+        :param builtins.str sql_purchasing_model: The SQL purchasing model of the target SKU.
+        :param builtins.str sql_service_tier: The SQL service tier of the target SKU.
+        :param builtins.bool zone_redundancy_available: Indicates if zone redundancy is available for the target SKU.
+        """
+        if compute_tier is not None:
+            pulumi.set(__self__, "compute_tier", compute_tier)
+        if hardware_type is not None:
+            pulumi.set(__self__, "hardware_type", hardware_type)
+        if sql_purchasing_model is not None:
+            pulumi.set(__self__, "sql_purchasing_model", sql_purchasing_model)
+        if sql_service_tier is not None:
+            pulumi.set(__self__, "sql_service_tier", sql_service_tier)
+        if zone_redundancy_available is not None:
+            pulumi.set(__self__, "zone_redundancy_available", zone_redundancy_available)
+
+    @property
+    @pulumi.getter(name="computeTier")
+    def compute_tier(self) -> Optional[builtins.str]:
+        """
+        The compute tier of the target SKU.
+        """
+        return pulumi.get(self, "compute_tier")
+
+    @property
+    @pulumi.getter(name="hardwareType")
+    def hardware_type(self) -> Optional[builtins.str]:
+        """
+        The hardware type of the target SKU.
+        """
+        return pulumi.get(self, "hardware_type")
+
+    @property
+    @pulumi.getter(name="sqlPurchasingModel")
+    def sql_purchasing_model(self) -> Optional[builtins.str]:
+        """
+        The SQL purchasing model of the target SKU.
+        """
+        return pulumi.get(self, "sql_purchasing_model")
+
+    @property
+    @pulumi.getter(name="sqlServiceTier")
+    def sql_service_tier(self) -> Optional[builtins.str]:
+        """
+        The SQL service tier of the target SKU.
+        """
+        return pulumi.get(self, "sql_service_tier")
+
+    @property
+    @pulumi.getter(name="zoneRedundancyAvailable")
+    def zone_redundancy_available(self) -> Optional[builtins.bool]:
+        """
+        Indicates if zone redundancy is available for the target SKU.
+        """
+        return pulumi.get(self, "zone_redundancy_available")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlDatabaseResponseTargetSku(dict):
+    def __init__(__self__, *,
+                 category: Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponseCategory'] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponseCategory']:
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlManagedInstanceResponse(dict):
+    """
+    SKU Recommendation results for Azure SQL Managed Instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyCost":
+            suggest = "monthly_cost"
+        elif key == "numberOfServerBlockerIssues":
+            suggest = "number_of_server_blocker_issues"
+        elif key == "recommendationStatus":
+            suggest = "recommendation_status"
+        elif key == "targetSku":
+            suggest = "target_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlManagedInstanceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlManagedInstanceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlManagedInstanceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monthly_cost: Optional['outputs.SkuRecommendationResultsMonthlyCostResponse'] = None,
+                 number_of_server_blocker_issues: Optional[builtins.int] = None,
+                 recommendation_status: Optional[builtins.str] = None,
+                 target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponseTargetSku'] = None):
+        """
+        SKU Recommendation results for Azure SQL Managed Instance.
+        :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
+        :param builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
+        :param builtins.str recommendation_status: The target recommendation Status for this database.
+        """
+        if monthly_cost is not None:
+            pulumi.set(__self__, "monthly_cost", monthly_cost)
+        if number_of_server_blocker_issues is not None:
+            pulumi.set(__self__, "number_of_server_blocker_issues", number_of_server_blocker_issues)
+        if recommendation_status is not None:
+            pulumi.set(__self__, "recommendation_status", recommendation_status)
+        if target_sku is not None:
+            pulumi.set(__self__, "target_sku", target_sku)
+
+    @property
+    @pulumi.getter(name="monthlyCost")
+    def monthly_cost(self) -> Optional['outputs.SkuRecommendationResultsMonthlyCostResponse']:
+        """
+        The Monthly cost of the particular SKU.
+        """
+        return pulumi.get(self, "monthly_cost")
+
+    @property
+    @pulumi.getter(name="numberOfServerBlockerIssues")
+    def number_of_server_blocker_issues(self) -> Optional[builtins.int]:
+        """
+        Number of blocker issues to fix before migrating to the target platform.
+        """
+        return pulumi.get(self, "number_of_server_blocker_issues")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> Optional[builtins.str]:
+        """
+        The target recommendation Status for this database.
+        """
+        return pulumi.get(self, "recommendation_status")
+
+    @property
+    @pulumi.getter(name="targetSku")
+    def target_sku(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponseTargetSku']:
+        return pulumi.get(self, "target_sku")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeTier":
+            suggest = "compute_tier"
+        elif key == "hardwareType":
+            suggest = "hardware_type"
+        elif key == "sqlPurchasingModel":
+            suggest = "sql_purchasing_model"
+        elif key == "sqlServiceTier":
+            suggest = "sql_service_tier"
+        elif key == "zoneRedundancyAvailable":
+            suggest = "zone_redundancy_available"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_tier: Optional[builtins.str] = None,
+                 hardware_type: Optional[builtins.str] = None,
+                 sql_purchasing_model: Optional[builtins.str] = None,
+                 sql_service_tier: Optional[builtins.str] = None,
+                 zone_redundancy_available: Optional[builtins.bool] = None):
+        """
+        :param builtins.str compute_tier: The compute tier of the target SKU.
+        :param builtins.str hardware_type: The hardware type of the target SKU.
+        :param builtins.str sql_purchasing_model: The SQL purchasing model of the target SKU.
+        :param builtins.str sql_service_tier: The SQL service tier of the target SKU.
+        :param builtins.bool zone_redundancy_available: Indicates if zone redundancy is available for the target SKU.
+        """
+        if compute_tier is not None:
+            pulumi.set(__self__, "compute_tier", compute_tier)
+        if hardware_type is not None:
+            pulumi.set(__self__, "hardware_type", hardware_type)
+        if sql_purchasing_model is not None:
+            pulumi.set(__self__, "sql_purchasing_model", sql_purchasing_model)
+        if sql_service_tier is not None:
+            pulumi.set(__self__, "sql_service_tier", sql_service_tier)
+        if zone_redundancy_available is not None:
+            pulumi.set(__self__, "zone_redundancy_available", zone_redundancy_available)
+
+    @property
+    @pulumi.getter(name="computeTier")
+    def compute_tier(self) -> Optional[builtins.str]:
+        """
+        The compute tier of the target SKU.
+        """
+        return pulumi.get(self, "compute_tier")
+
+    @property
+    @pulumi.getter(name="hardwareType")
+    def hardware_type(self) -> Optional[builtins.str]:
+        """
+        The hardware type of the target SKU.
+        """
+        return pulumi.get(self, "hardware_type")
+
+    @property
+    @pulumi.getter(name="sqlPurchasingModel")
+    def sql_purchasing_model(self) -> Optional[builtins.str]:
+        """
+        The SQL purchasing model of the target SKU.
+        """
+        return pulumi.get(self, "sql_purchasing_model")
+
+    @property
+    @pulumi.getter(name="sqlServiceTier")
+    def sql_service_tier(self) -> Optional[builtins.str]:
+        """
+        The SQL service tier of the target SKU.
+        """
+        return pulumi.get(self, "sql_service_tier")
+
+    @property
+    @pulumi.getter(name="zoneRedundancyAvailable")
+    def zone_redundancy_available(self) -> Optional[builtins.bool]:
+        """
+        Indicates if zone redundancy is available for the target SKU.
+        """
+        return pulumi.get(self, "zone_redundancy_available")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlManagedInstanceResponseTargetSku(dict):
+    def __init__(__self__, *,
+                 category: Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory'] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponseCategory']:
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlVirtualMachineResponse(dict):
+    """
+    SKU Recommendation results for Azure SQL Virtual Machine.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "monthlyCost":
+            suggest = "monthly_cost"
+        elif key == "numberOfServerBlockerIssues":
+            suggest = "number_of_server_blocker_issues"
+        elif key == "recommendationStatus":
+            suggest = "recommendation_status"
+        elif key == "targetSku":
+            suggest = "target_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlVirtualMachineResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlVirtualMachineResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlVirtualMachineResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 monthly_cost: Optional['outputs.SkuRecommendationResultsMonthlyCostResponse'] = None,
+                 number_of_server_blocker_issues: Optional[builtins.int] = None,
+                 recommendation_status: Optional[builtins.str] = None,
+                 target_sku: Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponseTargetSku'] = None):
+        """
+        SKU Recommendation results for Azure SQL Virtual Machine.
+        :param 'SkuRecommendationResultsMonthlyCostResponse' monthly_cost: The Monthly cost of the particular SKU.
+        :param builtins.int number_of_server_blocker_issues: Number of blocker issues to fix before migrating to the target platform.
+        :param builtins.str recommendation_status: The target recommendation Status for this database.
+        """
+        if monthly_cost is not None:
+            pulumi.set(__self__, "monthly_cost", monthly_cost)
+        if number_of_server_blocker_issues is not None:
+            pulumi.set(__self__, "number_of_server_blocker_issues", number_of_server_blocker_issues)
+        if recommendation_status is not None:
+            pulumi.set(__self__, "recommendation_status", recommendation_status)
+        if target_sku is not None:
+            pulumi.set(__self__, "target_sku", target_sku)
+
+    @property
+    @pulumi.getter(name="monthlyCost")
+    def monthly_cost(self) -> Optional['outputs.SkuRecommendationResultsMonthlyCostResponse']:
+        """
+        The Monthly cost of the particular SKU.
+        """
+        return pulumi.get(self, "monthly_cost")
+
+    @property
+    @pulumi.getter(name="numberOfServerBlockerIssues")
+    def number_of_server_blocker_issues(self) -> Optional[builtins.int]:
+        """
+        Number of blocker issues to fix before migrating to the target platform.
+        """
+        return pulumi.get(self, "number_of_server_blocker_issues")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> Optional[builtins.str]:
+        """
+        The target recommendation Status for this database.
+        """
+        return pulumi.get(self, "recommendation_status")
+
+    @property
+    @pulumi.getter(name="targetSku")
+    def target_sku(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponseTargetSku']:
+        return pulumi.get(self, "target_sku")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "availableVmSkus":
+            suggest = "available_vm_skus"
+        elif key == "virtualMachineFamily":
+            suggest = "virtual_machine_family"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 available_vm_skus: Optional[Sequence[builtins.str]] = None,
+                 virtual_machine_family: Optional[builtins.str] = None):
+        """
+        :param Sequence[builtins.str] available_vm_skus: Available VM SKUs for the Azure SQL Virtual Machine.
+        :param builtins.str virtual_machine_family: The virtual machine family of the target SKU.
+        """
+        if available_vm_skus is not None:
+            pulumi.set(__self__, "available_vm_skus", available_vm_skus)
+        if virtual_machine_family is not None:
+            pulumi.set(__self__, "virtual_machine_family", virtual_machine_family)
+
+    @property
+    @pulumi.getter(name="availableVmSkus")
+    def available_vm_skus(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Available VM SKUs for the Azure SQL Virtual Machine.
+        """
+        return pulumi.get(self, "available_vm_skus")
+
+    @property
+    @pulumi.getter(name="virtualMachineFamily")
+    def virtual_machine_family(self) -> Optional[builtins.str]:
+        """
+        The virtual machine family of the target SKU.
+        """
+        return pulumi.get(self, "virtual_machine_family")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsAzureSqlVirtualMachineResponseTargetSku(dict):
+    def __init__(__self__, *,
+                 category: Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory'] = None):
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponseCategory']:
+        return pulumi.get(self, "category")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsMonthlyCostResponse(dict):
+    """
+    The Monthly cost of the particular SKU.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeCost":
+            suggest = "compute_cost"
+        elif key == "storageCost":
+            suggest = "storage_cost"
+        elif key == "totalCost":
+            suggest = "total_cost"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsMonthlyCostResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsMonthlyCostResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsMonthlyCostResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_cost: Optional[builtins.float] = None,
+                 storage_cost: Optional[builtins.float] = None,
+                 total_cost: Optional[builtins.float] = None):
+        """
+        The Monthly cost of the particular SKU.
+        :param builtins.float compute_cost: Represents the Cost of Compute.
+        :param builtins.float storage_cost: Represents the Cost of Storage.
+        :param builtins.float total_cost: Represents the Total Cost.
+        """
+        if compute_cost is not None:
+            pulumi.set(__self__, "compute_cost", compute_cost)
+        if storage_cost is not None:
+            pulumi.set(__self__, "storage_cost", storage_cost)
+        if total_cost is not None:
+            pulumi.set(__self__, "total_cost", total_cost)
+
+    @property
+    @pulumi.getter(name="computeCost")
+    def compute_cost(self) -> Optional[builtins.float]:
+        """
+        Represents the Cost of Compute.
+        """
+        return pulumi.get(self, "compute_cost")
+
+    @property
+    @pulumi.getter(name="storageCost")
+    def storage_cost(self) -> Optional[builtins.float]:
+        """
+        Represents the Cost of Storage.
+        """
+        return pulumi.get(self, "storage_cost")
+
+    @property
+    @pulumi.getter(name="totalCost")
+    def total_cost(self) -> Optional[builtins.float]:
+        """
+        Represents the Total Cost.
+        """
+        return pulumi.get(self, "total_cost")
+
+
+@pulumi.output_type
+class SkuRecommendationResultsResponse(dict):
+    """
+    SKU Recommendation results for Azure migration targets for SQL Server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlDatabase":
+            suggest = "azure_sql_database"
+        elif key == "azureSqlManagedInstance":
+            suggest = "azure_sql_managed_instance"
+        elif key == "azureSqlVirtualMachine":
+            suggest = "azure_sql_virtual_machine"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationResultsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationResultsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationResultsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_database: Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponse'] = None,
+                 azure_sql_managed_instance: Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponse'] = None,
+                 azure_sql_virtual_machine: Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponse'] = None):
+        """
+        SKU Recommendation results for Azure migration targets for SQL Server.
+        :param 'SkuRecommendationResultsAzureSqlDatabaseResponse' azure_sql_database: SKU Recommendation results for Azure SQL Database.
+        :param 'SkuRecommendationResultsAzureSqlManagedInstanceResponse' azure_sql_managed_instance: SKU Recommendation results for Azure SQL Managed Instance.
+        :param 'SkuRecommendationResultsAzureSqlVirtualMachineResponse' azure_sql_virtual_machine: SKU Recommendation results for Azure SQL Virtual Machine.
+        """
+        if azure_sql_database is not None:
+            pulumi.set(__self__, "azure_sql_database", azure_sql_database)
+        if azure_sql_managed_instance is not None:
+            pulumi.set(__self__, "azure_sql_managed_instance", azure_sql_managed_instance)
+        if azure_sql_virtual_machine is not None:
+            pulumi.set(__self__, "azure_sql_virtual_machine", azure_sql_virtual_machine)
+
+    @property
+    @pulumi.getter(name="azureSqlDatabase")
+    def azure_sql_database(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlDatabaseResponse']:
+        """
+        SKU Recommendation results for Azure SQL Database.
+        """
+        return pulumi.get(self, "azure_sql_database")
+
+    @property
+    @pulumi.getter(name="azureSqlManagedInstance")
+    def azure_sql_managed_instance(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlManagedInstanceResponse']:
+        """
+        SKU Recommendation results for Azure SQL Managed Instance.
+        """
+        return pulumi.get(self, "azure_sql_managed_instance")
+
+    @property
+    @pulumi.getter(name="azureSqlVirtualMachine")
+    def azure_sql_virtual_machine(self) -> Optional['outputs.SkuRecommendationResultsAzureSqlVirtualMachineResponse']:
+        """
+        SKU Recommendation results for Azure SQL Virtual Machine.
+        """
+        return pulumi.get(self, "azure_sql_virtual_machine")
+
+
+@pulumi.output_type
+class SkuRecommendationSummaryResponse(dict):
+    """
+    The SKU recommendation summary.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "numOfBlockerIssues":
+            suggest = "num_of_blocker_issues"
+        elif key == "recommendationStatus":
+            suggest = "recommendation_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SkuRecommendationSummaryResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SkuRecommendationSummaryResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SkuRecommendationSummaryResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 num_of_blocker_issues: Optional[builtins.int] = None,
+                 recommendation_status: Optional[builtins.str] = None):
+        """
+        The SKU recommendation summary.
+        :param builtins.int num_of_blocker_issues: Number of blocker issues to fix before migrating this database to the target platform.
+        :param builtins.str recommendation_status: The target recommendation Status for this database.
+        """
+        if num_of_blocker_issues is not None:
+            pulumi.set(__self__, "num_of_blocker_issues", num_of_blocker_issues)
+        if recommendation_status is not None:
+            pulumi.set(__self__, "recommendation_status", recommendation_status)
+
+    @property
+    @pulumi.getter(name="numOfBlockerIssues")
+    def num_of_blocker_issues(self) -> Optional[builtins.int]:
+        """
+        Number of blocker issues to fix before migrating this database to the target platform.
+        """
+        return pulumi.get(self, "num_of_blocker_issues")
+
+    @property
+    @pulumi.getter(name="recommendationStatus")
+    def recommendation_status(self) -> Optional[builtins.str]:
+        """
+        The target recommendation Status for this database.
+        """
+        return pulumi.get(self, "recommendation_status")
+
+
+@pulumi.output_type
 class SqlAvailabilityGroupDatabaseReplicaResourcePropertiesResponse(dict):
     """
     The properties of Arc Sql availability group database replica resource
@@ -2693,6 +4254,8 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
             suggest = "replica_id"
         elif key == "replicaName":
             suggest = "replica_name"
+        elif key == "replicaResourceId":
+            suggest = "replica_resource_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SqlAvailabilityGroupReplicaResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -2709,12 +4272,14 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
                  replica_id: builtins.str,
                  configure: Optional['outputs.AvailabilityGroupConfigureResponse'] = None,
                  replica_name: Optional[builtins.str] = None,
+                 replica_resource_id: Optional[builtins.str] = None,
                  state: Optional['outputs.AvailabilityGroupStateResponse'] = None):
         """
         The properties of Arc Sql availability group replica resource
         :param builtins.str replica_id: ID GUID of the availability group.
         :param 'AvailabilityGroupConfigureResponse' configure: null
-        :param builtins.str replica_name: the replica name.
+        :param builtins.str replica_name: The replica name.
+        :param builtins.str replica_resource_id: Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
         :param 'AvailabilityGroupStateResponse' state: null
         """
         pulumi.set(__self__, "replica_id", replica_id)
@@ -2722,6 +4287,8 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
             pulumi.set(__self__, "configure", configure)
         if replica_name is not None:
             pulumi.set(__self__, "replica_name", replica_name)
+        if replica_resource_id is not None:
+            pulumi.set(__self__, "replica_resource_id", replica_resource_id)
         if state is not None:
             pulumi.set(__self__, "state", state)
 
@@ -2745,9 +4312,17 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
     @pulumi.getter(name="replicaName")
     def replica_name(self) -> Optional[builtins.str]:
         """
-        the replica name.
+        The replica name.
         """
         return pulumi.get(self, "replica_name")
+
+    @property
+    @pulumi.getter(name="replicaResourceId")
+    def replica_resource_id(self) -> Optional[builtins.str]:
+        """
+        Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
+        """
+        return pulumi.get(self, "replica_resource_id")
 
     @property
     @pulumi.getter
@@ -2756,6 +4331,134 @@ class SqlAvailabilityGroupReplicaResourcePropertiesResponse(dict):
         null
         """
         return pulumi.get(self, "state")
+
+
+@pulumi.output_type
+class SqlAvailabilityGroupStaticIPListenerPropertiesResponse(dict):
+    """
+    The properties of a static IP Arc Sql availability group listener
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dnsName":
+            suggest = "dns_name"
+        elif key == "ipV4AddressesAndMasks":
+            suggest = "ip_v4_addresses_and_masks"
+        elif key == "ipV6Addresses":
+            suggest = "ip_v6_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAvailabilityGroupStaticIPListenerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAvailabilityGroupStaticIPListenerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAvailabilityGroupStaticIPListenerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dns_name: Optional[builtins.str] = None,
+                 ip_v4_addresses_and_masks: Optional[Sequence['outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks']] = None,
+                 ip_v6_addresses: Optional[Sequence[builtins.str]] = None,
+                 port: Optional[builtins.int] = None):
+        """
+        The properties of a static IP Arc Sql availability group listener
+        :param builtins.str dns_name: the DNS name for the listener.
+        :param Sequence['SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks'] ip_v4_addresses_and_masks: IP V4 Addresses and masks for the listener.
+        :param Sequence[builtins.str] ip_v6_addresses: IP V6 Addresses for the listener
+        :param builtins.int port: Network port for the listener. Default is 1433.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_v4_addresses_and_masks is not None:
+            pulumi.set(__self__, "ip_v4_addresses_and_masks", ip_v4_addresses_and_masks)
+        if ip_v6_addresses is not None:
+            pulumi.set(__self__, "ip_v6_addresses", ip_v6_addresses)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[builtins.str]:
+        """
+        the DNS name for the listener.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @property
+    @pulumi.getter(name="ipV4AddressesAndMasks")
+    def ip_v4_addresses_and_masks(self) -> Optional[Sequence['outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks']]:
+        """
+        IP V4 Addresses and masks for the listener.
+        """
+        return pulumi.get(self, "ip_v4_addresses_and_masks")
+
+    @property
+    @pulumi.getter(name="ipV6Addresses")
+    def ip_v6_addresses(self) -> Optional[Sequence[builtins.str]]:
+        """
+        IP V6 Addresses for the listener
+        """
+        return pulumi.get(self, "ip_v6_addresses")
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[builtins.int]:
+        """
+        Network port for the listener. Default is 1433.
+        """
+        return pulumi.get(self, "port")
+
+
+@pulumi.output_type
+class SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlAvailabilityGroupStaticIPListenerPropertiesResponseIpV4AddressesAndMasks.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: Optional[builtins.str] = None,
+                 mask: Optional[builtins.str] = None):
+        """
+        :param builtins.str ip_address: IPV4 address
+        :param builtins.str mask: IPV4 netmask
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if mask is not None:
+            pulumi.set(__self__, "mask", mask)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[builtins.str]:
+        """
+        IPV4 address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def mask(self) -> Optional[builtins.str]:
+        """
+        IPV4 netmask
+        """
+        return pulumi.get(self, "mask")
 
 
 @pulumi.output_type
@@ -3123,6 +4826,8 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
             suggest = "provisioning_state"
         elif key == "serverName":
             suggest = "server_name"
+        elif key == "vmId":
+            suggest = "vm_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SqlServerAvailabilityGroupResourcePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3141,6 +4846,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
                  instance_name: builtins.str,
                  provisioning_state: builtins.str,
                  server_name: builtins.str,
+                 vm_id: builtins.str,
                  databases: Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseDatabases'] = None,
                  info: Optional['outputs.AvailabilityGroupInfoResponse'] = None,
                  replicas: Optional['outputs.SqlServerAvailabilityGroupResourcePropertiesResponseReplicas'] = None):
@@ -3151,6 +4857,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
         :param builtins.str instance_name: the SQL Server Instance name.
         :param builtins.str provisioning_state: The provisioning state of the Arc-enabled SQL Server availability group resource.
         :param builtins.str server_name: the SQL server name.
+        :param builtins.str vm_id: The unique ID of the hybrid machine that this resource belongs to.
         :param 'SqlServerAvailabilityGroupResourcePropertiesResponseDatabases' databases: A list of Availability Group Database Replicas.
         :param 'AvailabilityGroupInfoResponse' info: Availability Group Info
         :param 'SqlServerAvailabilityGroupResourcePropertiesResponseReplicas' replicas: A list of Availability Group Replicas.
@@ -3160,6 +4867,7 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
         pulumi.set(__self__, "instance_name", instance_name)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "server_name", server_name)
+        pulumi.set(__self__, "vm_id", vm_id)
         if databases is not None:
             pulumi.set(__self__, "databases", databases)
         if info is not None:
@@ -3206,6 +4914,14 @@ class SqlServerAvailabilityGroupResourcePropertiesResponse(dict):
         the SQL server name.
         """
         return pulumi.get(self, "server_name")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> builtins.str:
+        """
+        The unique ID of the hybrid machine that this resource belongs to.
+        """
+        return pulumi.get(self, "vm_id")
 
     @property
     @pulumi.getter
@@ -3348,6 +5064,8 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
             suggest = "last_database_upload_time"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "vmId":
+            suggest = "vm_id"
         elif key == "backupInformation":
             suggest = "backup_information"
         elif key == "backupPolicy":
@@ -3358,12 +5076,16 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
             suggest = "compatibility_level"
         elif key == "createMode":
             suggest = "create_mode"
+        elif key == "dataFileSizeMB":
+            suggest = "data_file_size_mb"
         elif key == "databaseCreationDate":
             suggest = "database_creation_date"
         elif key == "databaseOptions":
             suggest = "database_options"
         elif key == "isReadOnly":
             suggest = "is_read_only"
+        elif key == "logFileSizeMB":
+            suggest = "log_file_size_mb"
         elif key == "recoveryMode":
             suggest = "recovery_mode"
         elif key == "restorePointInTime":
@@ -3390,14 +5112,18 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
                  earliest_restore_date: builtins.str,
                  last_database_upload_time: builtins.str,
                  provisioning_state: builtins.str,
+                 vm_id: builtins.str,
                  backup_information: Optional['outputs.SqlServerDatabaseResourcePropertiesResponseBackupInformation'] = None,
                  backup_policy: Optional['outputs.BackupPolicyResponse'] = None,
                  collation_name: Optional[builtins.str] = None,
                  compatibility_level: Optional[builtins.int] = None,
                  create_mode: Optional[builtins.str] = None,
+                 data_file_size_mb: Optional[builtins.float] = None,
                  database_creation_date: Optional[builtins.str] = None,
                  database_options: Optional['outputs.SqlServerDatabaseResourcePropertiesResponseDatabaseOptions'] = None,
                  is_read_only: Optional[builtins.bool] = None,
+                 log_file_size_mb: Optional[builtins.float] = None,
+                 migration: Optional['outputs.DataBaseMigrationResponse'] = None,
                  recovery_mode: Optional[builtins.str] = None,
                  restore_point_in_time: Optional[builtins.str] = None,
                  size_mb: Optional[builtins.float] = None,
@@ -3409,23 +5135,28 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         :param builtins.str earliest_restore_date: This records the earliest start date and time that restore is available for this database (ISO8601 format).
         :param builtins.str last_database_upload_time: The time when last successful database upload was performed.
         :param builtins.str provisioning_state: The provisioning state of the Arc-enabled SQL Server database resource.
+        :param builtins.str vm_id: The unique ID of the hybrid machine that this resource belongs to.
         :param 'BackupPolicyResponse' backup_policy: The backup profile for the SQL server.
         :param builtins.str collation_name: Collation of the database.
         :param builtins.int compatibility_level: Compatibility level of the database
         :param builtins.str create_mode: Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        :param builtins.float data_file_size_mb: Total size in MB for the data (mdf and ndf) files for this database.
         :param builtins.str database_creation_date: Creation date of the database.
         :param 'SqlServerDatabaseResourcePropertiesResponseDatabaseOptions' database_options: List of features that are enabled for the database
         :param builtins.bool is_read_only: Whether the database is read only or not.
+        :param builtins.float log_file_size_mb: Total size in MB for the log (ldf) files for this database.
+        :param 'DataBaseMigrationResponse' migration: Migration related configuration.
         :param builtins.str recovery_mode: Status of the database.
         :param builtins.str restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param builtins.float size_mb: Size of the database.
-        :param builtins.str source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param builtins.str source_database_id: The name of the source database associated with create operation of this database.
         :param builtins.float space_available_mb: Space left of the database.
         :param builtins.str state: State of the database.
         """
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
         pulumi.set(__self__, "last_database_upload_time", last_database_upload_time)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "vm_id", vm_id)
         if backup_information is not None:
             pulumi.set(__self__, "backup_information", backup_information)
         if backup_policy is not None:
@@ -3436,12 +5167,18 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if data_file_size_mb is not None:
+            pulumi.set(__self__, "data_file_size_mb", data_file_size_mb)
         if database_creation_date is not None:
             pulumi.set(__self__, "database_creation_date", database_creation_date)
         if database_options is not None:
             pulumi.set(__self__, "database_options", database_options)
         if is_read_only is not None:
             pulumi.set(__self__, "is_read_only", is_read_only)
+        if log_file_size_mb is not None:
+            pulumi.set(__self__, "log_file_size_mb", log_file_size_mb)
+        if migration is not None:
+            pulumi.set(__self__, "migration", migration)
         if recovery_mode is not None:
             pulumi.set(__self__, "recovery_mode", recovery_mode)
         if restore_point_in_time is not None:
@@ -3478,6 +5215,14 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         The provisioning state of the Arc-enabled SQL Server database resource.
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> builtins.str:
+        """
+        The unique ID of the hybrid machine that this resource belongs to.
+        """
+        return pulumi.get(self, "vm_id")
 
     @property
     @pulumi.getter(name="backupInformation")
@@ -3517,6 +5262,14 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         return pulumi.get(self, "create_mode")
 
     @property
+    @pulumi.getter(name="dataFileSizeMB")
+    def data_file_size_mb(self) -> Optional[builtins.float]:
+        """
+        Total size in MB for the data (mdf and ndf) files for this database.
+        """
+        return pulumi.get(self, "data_file_size_mb")
+
+    @property
     @pulumi.getter(name="databaseCreationDate")
     def database_creation_date(self) -> Optional[builtins.str]:
         """
@@ -3539,6 +5292,22 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
         Whether the database is read only or not.
         """
         return pulumi.get(self, "is_read_only")
+
+    @property
+    @pulumi.getter(name="logFileSizeMB")
+    def log_file_size_mb(self) -> Optional[builtins.float]:
+        """
+        Total size in MB for the log (ldf) files for this database.
+        """
+        return pulumi.get(self, "log_file_size_mb")
+
+    @property
+    @pulumi.getter
+    def migration(self) -> Optional['outputs.DataBaseMigrationResponse']:
+        """
+        Migration related configuration.
+        """
+        return pulumi.get(self, "migration")
 
     @property
     @pulumi.getter(name="recoveryMode")
@@ -3568,7 +5337,7 @@ class SqlServerDatabaseResourcePropertiesResponse(dict):
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> Optional[builtins.str]:
         """
-        The resource identifier of the source database associated with create operation of this database.
+        The name of the source database associated with create operation of this database.
         """
         return pulumi.get(self, "source_database_id")
 
@@ -3989,12 +5758,22 @@ class SqlServerInstancePropertiesResponse(dict):
             suggest = "create_time"
         elif key == "currentVersion":
             suggest = "current_version"
+        elif key == "dbMasterKeyExists":
+            suggest = "db_master_key_exists"
+        elif key == "isDigiCertPkiCertTrustConfigured":
+            suggest = "is_digi_cert_pki_cert_trust_configured"
+        elif key == "isHadrEnabled":
+            suggest = "is_hadr_enabled"
+        elif key == "isMicrosoftPkiCertTrustConfigured":
+            suggest = "is_microsoft_pki_cert_trust_configured"
         elif key == "lastInventoryUploadTime":
             suggest = "last_inventory_upload_time"
         elif key == "lastUsageUploadTime":
             suggest = "last_usage_upload_time"
         elif key == "licenseType":
             suggest = "license_type"
+        elif key == "maxServerMemoryMB":
+            suggest = "max_server_memory_mb"
         elif key == "patchLevel":
             suggest = "patch_level"
         elif key == "productId":
@@ -4005,16 +5784,26 @@ class SqlServerInstancePropertiesResponse(dict):
             suggest = "tcp_dynamic_ports"
         elif key == "tcpStaticPorts":
             suggest = "tcp_static_ports"
+        elif key == "traceFlags":
+            suggest = "trace_flags"
         elif key == "vCore":
             suggest = "v_core"
+        elif key == "vmId":
+            suggest = "vm_id"
         elif key == "backupPolicy":
             suggest = "backup_policy"
+        elif key == "clientConnection":
+            suggest = "client_connection"
+        elif key == "databaseMirroringEndpoint":
+            suggest = "database_mirroring_endpoint"
         elif key == "failoverCluster":
             suggest = "failover_cluster"
         elif key == "hostType":
             suggest = "host_type"
         elif key == "instanceName":
             suggest = "instance_name"
+        elif key == "serviceType":
+            suggest = "service_type"
         elif key == "upgradeLockedUntil":
             suggest = "upgrade_locked_until"
 
@@ -4037,23 +5826,35 @@ class SqlServerInstancePropertiesResponse(dict):
                  container_resource_id: builtins.str,
                  create_time: builtins.str,
                  current_version: builtins.str,
+                 db_master_key_exists: builtins.bool,
+                 is_digi_cert_pki_cert_trust_configured: builtins.bool,
+                 is_hadr_enabled: builtins.bool,
+                 is_microsoft_pki_cert_trust_configured: builtins.bool,
                  last_inventory_upload_time: builtins.str,
                  last_usage_upload_time: builtins.str,
                  license_type: builtins.str,
+                 max_server_memory_mb: builtins.float,
                  patch_level: builtins.str,
                  product_id: builtins.str,
                  provisioning_state: builtins.str,
                  status: builtins.str,
                  tcp_dynamic_ports: builtins.str,
                  tcp_static_ports: builtins.str,
+                 trace_flags: Sequence[builtins.int],
                  v_core: builtins.str,
+                 vm_id: builtins.str,
+                 authentication: Optional['outputs.AuthenticationResponse'] = None,
                  backup_policy: Optional['outputs.BackupPolicyResponse'] = None,
+                 client_connection: Optional['outputs.ClientConnectionResponse'] = None,
                  cores: Optional[builtins.str] = None,
+                 database_mirroring_endpoint: Optional['outputs.DBMEndpointResponse'] = None,
                  edition: Optional[builtins.str] = None,
                  failover_cluster: Optional['outputs.FailoverClusterResponse'] = None,
                  host_type: Optional[builtins.str] = None,
                  instance_name: Optional[builtins.str] = None,
+                 migration: Optional['outputs.MigrationResponse'] = None,
                  monitoring: Optional['outputs.MonitoringResponse'] = None,
+                 service_type: Optional[builtins.str] = None,
                  upgrade_locked_until: Optional[builtins.str] = None,
                  version: Optional[builtins.str] = None):
         """
@@ -4065,23 +5866,35 @@ class SqlServerInstancePropertiesResponse(dict):
         :param builtins.str container_resource_id: ARM Resource id of the container resource (Azure Arc for Servers).
         :param builtins.str create_time: The time when the resource was created.
         :param builtins.str current_version: SQL Server current version.
+        :param builtins.bool db_master_key_exists: Indicates whether database master key exists in SQL Server.
+        :param builtins.bool is_digi_cert_pki_cert_trust_configured: Indicates whether DigiCert PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
+        :param builtins.bool is_hadr_enabled: Indicates whether always On availability groups is enabled in SQL Server.
+        :param builtins.bool is_microsoft_pki_cert_trust_configured: Indicates whether Microsoft PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
         :param builtins.str last_inventory_upload_time: The time when last successful inventory upload was performed.
         :param builtins.str last_usage_upload_time: The time when last successful usage upload was performed.
         :param builtins.str license_type: SQL Server license type.
+        :param builtins.float max_server_memory_mb: max server memory (MB) value configured for this instance.
         :param builtins.str patch_level: SQL Server update level.
         :param builtins.str product_id: SQL Server product ID.
         :param builtins.str provisioning_state: The provisioning state of the Arc-enabled SQL Server resource.
         :param builtins.str status: The cloud connectivity status.
         :param builtins.str tcp_dynamic_ports: Dynamic TCP ports used by SQL Server.
         :param builtins.str tcp_static_ports: Static TCP ports used by SQL Server.
+        :param Sequence[builtins.int] trace_flags: An array of integers, where each value represents the enabled trace flags in SQL Server.
         :param builtins.str v_core: The number of logical processors used by the SQL Server instance.
+        :param builtins.str vm_id: The unique ID of the hybrid machine that this resource belongs to.
+        :param 'AuthenticationResponse' authentication: Authentication related configuration for the SQL Server Instance.
         :param 'BackupPolicyResponse' backup_policy: The backup profile for the SQL server.
+        :param 'ClientConnectionResponse' client_connection: Client connection related configuration.
         :param builtins.str cores: The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
+        :param 'DBMEndpointResponse' database_mirroring_endpoint: Database mirroring endpoint related properties.
         :param builtins.str edition: SQL Server edition.
         :param 'FailoverClusterResponse' failover_cluster: Failover Cluster Instance properties.
         :param builtins.str host_type: Type of host for Azure Arc SQL Server
         :param builtins.str instance_name: SQL Server instance name.
+        :param 'MigrationResponse' migration: Migration related configuration.
         :param 'MonitoringResponse' monitoring: The monitoring configuration.
+        :param builtins.str service_type: Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
         :param builtins.str upgrade_locked_until: Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         :param builtins.str version: SQL Server version.
         """
@@ -4092,20 +5905,33 @@ class SqlServerInstancePropertiesResponse(dict):
         pulumi.set(__self__, "container_resource_id", container_resource_id)
         pulumi.set(__self__, "create_time", create_time)
         pulumi.set(__self__, "current_version", current_version)
+        pulumi.set(__self__, "db_master_key_exists", db_master_key_exists)
+        pulumi.set(__self__, "is_digi_cert_pki_cert_trust_configured", is_digi_cert_pki_cert_trust_configured)
+        pulumi.set(__self__, "is_hadr_enabled", is_hadr_enabled)
+        pulumi.set(__self__, "is_microsoft_pki_cert_trust_configured", is_microsoft_pki_cert_trust_configured)
         pulumi.set(__self__, "last_inventory_upload_time", last_inventory_upload_time)
         pulumi.set(__self__, "last_usage_upload_time", last_usage_upload_time)
         pulumi.set(__self__, "license_type", license_type)
+        pulumi.set(__self__, "max_server_memory_mb", max_server_memory_mb)
         pulumi.set(__self__, "patch_level", patch_level)
         pulumi.set(__self__, "product_id", product_id)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "status", status)
         pulumi.set(__self__, "tcp_dynamic_ports", tcp_dynamic_ports)
         pulumi.set(__self__, "tcp_static_ports", tcp_static_ports)
+        pulumi.set(__self__, "trace_flags", trace_flags)
         pulumi.set(__self__, "v_core", v_core)
+        pulumi.set(__self__, "vm_id", vm_id)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
+        if client_connection is not None:
+            pulumi.set(__self__, "client_connection", client_connection)
         if cores is not None:
             pulumi.set(__self__, "cores", cores)
+        if database_mirroring_endpoint is not None:
+            pulumi.set(__self__, "database_mirroring_endpoint", database_mirroring_endpoint)
         if edition is not None:
             pulumi.set(__self__, "edition", edition)
         if failover_cluster is not None:
@@ -4114,8 +5940,12 @@ class SqlServerInstancePropertiesResponse(dict):
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
+        if migration is not None:
+            pulumi.set(__self__, "migration", migration)
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
+        if service_type is not None:
+            pulumi.set(__self__, "service_type", service_type)
         if upgrade_locked_until is not None:
             pulumi.set(__self__, "upgrade_locked_until", upgrade_locked_until)
         if version is not None:
@@ -4178,6 +6008,38 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "current_version")
 
     @property
+    @pulumi.getter(name="dbMasterKeyExists")
+    def db_master_key_exists(self) -> builtins.bool:
+        """
+        Indicates whether database master key exists in SQL Server.
+        """
+        return pulumi.get(self, "db_master_key_exists")
+
+    @property
+    @pulumi.getter(name="isDigiCertPkiCertTrustConfigured")
+    def is_digi_cert_pki_cert_trust_configured(self) -> builtins.bool:
+        """
+        Indicates whether DigiCert PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
+        """
+        return pulumi.get(self, "is_digi_cert_pki_cert_trust_configured")
+
+    @property
+    @pulumi.getter(name="isHadrEnabled")
+    def is_hadr_enabled(self) -> builtins.bool:
+        """
+        Indicates whether always On availability groups is enabled in SQL Server.
+        """
+        return pulumi.get(self, "is_hadr_enabled")
+
+    @property
+    @pulumi.getter(name="isMicrosoftPkiCertTrustConfigured")
+    def is_microsoft_pki_cert_trust_configured(self) -> builtins.bool:
+        """
+        Indicates whether Microsoft PKI root-authority certificate (trusted by Azure) exists in SQL Server and trusted for Azure database.windows.net domains.
+        """
+        return pulumi.get(self, "is_microsoft_pki_cert_trust_configured")
+
+    @property
     @pulumi.getter(name="lastInventoryUploadTime")
     def last_inventory_upload_time(self) -> builtins.str:
         """
@@ -4200,6 +6062,14 @@ class SqlServerInstancePropertiesResponse(dict):
         SQL Server license type.
         """
         return pulumi.get(self, "license_type")
+
+    @property
+    @pulumi.getter(name="maxServerMemoryMB")
+    def max_server_memory_mb(self) -> builtins.float:
+        """
+        max server memory (MB) value configured for this instance.
+        """
+        return pulumi.get(self, "max_server_memory_mb")
 
     @property
     @pulumi.getter(name="patchLevel")
@@ -4250,12 +6120,36 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "tcp_static_ports")
 
     @property
+    @pulumi.getter(name="traceFlags")
+    def trace_flags(self) -> Sequence[builtins.int]:
+        """
+        An array of integers, where each value represents the enabled trace flags in SQL Server.
+        """
+        return pulumi.get(self, "trace_flags")
+
+    @property
     @pulumi.getter(name="vCore")
     def v_core(self) -> builtins.str:
         """
         The number of logical processors used by the SQL Server instance.
         """
         return pulumi.get(self, "v_core")
+
+    @property
+    @pulumi.getter(name="vmId")
+    def vm_id(self) -> builtins.str:
+        """
+        The unique ID of the hybrid machine that this resource belongs to.
+        """
+        return pulumi.get(self, "vm_id")
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional['outputs.AuthenticationResponse']:
+        """
+        Authentication related configuration for the SQL Server Instance.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -4266,12 +6160,28 @@ class SqlServerInstancePropertiesResponse(dict):
         return pulumi.get(self, "backup_policy")
 
     @property
+    @pulumi.getter(name="clientConnection")
+    def client_connection(self) -> Optional['outputs.ClientConnectionResponse']:
+        """
+        Client connection related configuration.
+        """
+        return pulumi.get(self, "client_connection")
+
+    @property
     @pulumi.getter
     def cores(self) -> Optional[builtins.str]:
         """
         The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
         """
         return pulumi.get(self, "cores")
+
+    @property
+    @pulumi.getter(name="databaseMirroringEndpoint")
+    def database_mirroring_endpoint(self) -> Optional['outputs.DBMEndpointResponse']:
+        """
+        Database mirroring endpoint related properties.
+        """
+        return pulumi.get(self, "database_mirroring_endpoint")
 
     @property
     @pulumi.getter
@@ -4307,11 +6217,27 @@ class SqlServerInstancePropertiesResponse(dict):
 
     @property
     @pulumi.getter
+    def migration(self) -> Optional['outputs.MigrationResponse']:
+        """
+        Migration related configuration.
+        """
+        return pulumi.get(self, "migration")
+
+    @property
+    @pulumi.getter
     def monitoring(self) -> Optional['outputs.MonitoringResponse']:
         """
         The monitoring configuration.
         """
         return pulumi.get(self, "monitoring")
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> Optional[builtins.str]:
+        """
+        Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+        """
+        return pulumi.get(self, "service_type")
 
     @property
     @pulumi.getter(name="upgradeLockedUntil")
@@ -4603,6 +6529,74 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class TargetReadinessResponse(dict):
+    """
+    The target readiness for migration for this database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureSqlDatabase":
+            suggest = "azure_sql_database"
+        elif key == "azureSqlManagedInstance":
+            suggest = "azure_sql_managed_instance"
+        elif key == "azureSqlVirtualMachine":
+            suggest = "azure_sql_virtual_machine"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in TargetReadinessResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        TargetReadinessResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        TargetReadinessResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_sql_database: Optional['outputs.SkuRecommendationSummaryResponse'] = None,
+                 azure_sql_managed_instance: Optional['outputs.SkuRecommendationSummaryResponse'] = None,
+                 azure_sql_virtual_machine: Optional['outputs.SkuRecommendationSummaryResponse'] = None):
+        """
+        The target readiness for migration for this database.
+        :param 'SkuRecommendationSummaryResponse' azure_sql_database: The SKU recommendation summary.
+        :param 'SkuRecommendationSummaryResponse' azure_sql_managed_instance: The SKU recommendation summary.
+        :param 'SkuRecommendationSummaryResponse' azure_sql_virtual_machine: The SKU recommendation summary.
+        """
+        if azure_sql_database is not None:
+            pulumi.set(__self__, "azure_sql_database", azure_sql_database)
+        if azure_sql_managed_instance is not None:
+            pulumi.set(__self__, "azure_sql_managed_instance", azure_sql_managed_instance)
+        if azure_sql_virtual_machine is not None:
+            pulumi.set(__self__, "azure_sql_virtual_machine", azure_sql_virtual_machine)
+
+    @property
+    @pulumi.getter(name="azureSqlDatabase")
+    def azure_sql_database(self) -> Optional['outputs.SkuRecommendationSummaryResponse']:
+        """
+        The SKU recommendation summary.
+        """
+        return pulumi.get(self, "azure_sql_database")
+
+    @property
+    @pulumi.getter(name="azureSqlManagedInstance")
+    def azure_sql_managed_instance(self) -> Optional['outputs.SkuRecommendationSummaryResponse']:
+        """
+        The SKU recommendation summary.
+        """
+        return pulumi.get(self, "azure_sql_managed_instance")
+
+    @property
+    @pulumi.getter(name="azureSqlVirtualMachine")
+    def azure_sql_virtual_machine(self) -> Optional['outputs.SkuRecommendationSummaryResponse']:
+        """
+        The SKU recommendation summary.
+        """
+        return pulumi.get(self, "azure_sql_virtual_machine")
 
 
 @pulumi.output_type

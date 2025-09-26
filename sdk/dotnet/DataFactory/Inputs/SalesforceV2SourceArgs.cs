@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? PageSize { get; set; }
 
         /// <summary>
+        /// Partition option for the SalesforceV2 connector in copy activity, AutoDetect or None. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("partitionOption")]
+        public Input<object>? PartitionOption { get; set; }
+
+        /// <summary>
         /// You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("query")]

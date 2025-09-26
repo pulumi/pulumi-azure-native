@@ -17,14 +17,28 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AntivirusRulesetArgs',
+    'AntivirusRulesetArgsDict',
+    'ArchiveRulesetArgs',
+    'ArchiveRulesetArgsDict',
     'ConnectionPropertiesArgs',
     'ConnectionPropertiesArgsDict',
+    'DataSizeRulesetArgs',
+    'DataSizeRulesetArgsDict',
+    'FlowProfilePropertiesArgs',
+    'FlowProfilePropertiesArgsDict',
+    'FlowProfileRulesetsArgs',
+    'FlowProfileRulesetsArgsDict',
     'FlowPropertiesArgs',
     'FlowPropertiesArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
     'MessagingOptionsArgs',
     'MessagingOptionsArgsDict',
+    'MimeFilterRulesetArgs',
+    'MimeFilterRulesetArgsDict',
+    'MimeTypeFilterArgs',
+    'MimeTypeFilterArgsDict',
     'PipelinePropertiesArgs',
     'PipelinePropertiesArgsDict',
     'PlanArgs',
@@ -37,9 +51,149 @@ __all__ = [
     'StreamSourceAddressesArgsDict',
     'SubscriberArgs',
     'SubscriberArgsDict',
+    'TextMatchingRulesetArgs',
+    'TextMatchingRulesetArgsDict',
+    'TextMatchArgs',
+    'TextMatchArgsDict',
+    'XmlFilterRulesetArgs',
+    'XmlFilterRulesetArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AntivirusRulesetArgsDict(TypedDict):
+        """
+        Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+        """
+        av_solutions: NotRequired[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AntivirusSolutions']]]]]
+        """
+        Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+        """
+elif False:
+    AntivirusRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AntivirusRulesetArgs:
+    def __init__(__self__, *,
+                 av_solutions: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AntivirusSolutions']]]]] = None):
+        """
+        Antivirus scanning rules for replicating data. By default, all antivirus scanning solutions are disabled.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AntivirusSolutions']]]] av_solutions: Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+        """
+        if av_solutions is not None:
+            pulumi.set(__self__, "av_solutions", av_solutions)
+
+    @property
+    @pulumi.getter(name="avSolutions")
+    def av_solutions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AntivirusSolutions']]]]]:
+        """
+        Optional. The list of antiviruses to be used as a scanning solution for replicating data.
+        """
+        return pulumi.get(self, "av_solutions")
+
+    @av_solutions.setter
+    def av_solutions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[builtins.str, 'AntivirusSolutions']]]]]):
+        pulumi.set(self, "av_solutions", value)
+
+
+if not MYPY:
+    class ArchiveRulesetArgsDict(TypedDict):
+        """
+        Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+        """
+        maximum_compression_ratio_limit: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+        """
+        maximum_depth_limit: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+        """
+        maximum_expansion_size_limit: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+        """
+        minimum_size_for_expansion: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+        """
+elif False:
+    ArchiveRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ArchiveRulesetArgs:
+    def __init__(__self__, *,
+                 maximum_compression_ratio_limit: Optional[pulumi.Input[builtins.float]] = None,
+                 maximum_depth_limit: Optional[pulumi.Input[builtins.float]] = None,
+                 maximum_expansion_size_limit: Optional[pulumi.Input[builtins.float]] = None,
+                 minimum_size_for_expansion: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        Rules for regulating supported archive files (BZip2, Cpio, Deb, GZip, Rpm, Tar, Zip) during data replication. All properties are optional and only the configured options will be applied against archives. As an example, suppose minimumSizeForExpansion is 10 MiB and maximumExpansionSizeLimit is 1 GiB. Then all archives smaller than 10 MiB will be treated as though the archive ruleset is disabled, although other rulesets will apply as usual. Furthermore, all archives at least 10 MiB in size but with a decompressed size greater than 1 GiB will fail the ruleset. All other archives will have their contents extracted and each extracted element will be applied to all rulesets.
+        :param pulumi.Input[builtins.float] maximum_compression_ratio_limit: Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+        :param pulumi.Input[builtins.float] maximum_depth_limit: Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+        :param pulumi.Input[builtins.float] maximum_expansion_size_limit: Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+        :param pulumi.Input[builtins.float] minimum_size_for_expansion: Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+        """
+        if maximum_compression_ratio_limit is not None:
+            pulumi.set(__self__, "maximum_compression_ratio_limit", maximum_compression_ratio_limit)
+        if maximum_depth_limit is not None:
+            pulumi.set(__self__, "maximum_depth_limit", maximum_depth_limit)
+        if maximum_expansion_size_limit is not None:
+            pulumi.set(__self__, "maximum_expansion_size_limit", maximum_expansion_size_limit)
+        if minimum_size_for_expansion is None:
+            minimum_size_for_expansion = 0
+        if minimum_size_for_expansion is not None:
+            pulumi.set(__self__, "minimum_size_for_expansion", minimum_size_for_expansion)
+
+    @property
+    @pulumi.getter(name="maximumCompressionRatioLimit")
+    def maximum_compression_ratio_limit(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. Provides the multiplication value for an archive in total based on the initial object being validated. This value takes the root object size and multiplies it by this value to create a maximum. Once this maximum is exceeded, the archive is failed. Used to detect and block archives with suspiciously high compression (e.g., zip bombs).
+        """
+        return pulumi.get(self, "maximum_compression_ratio_limit")
+
+    @maximum_compression_ratio_limit.setter
+    def maximum_compression_ratio_limit(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "maximum_compression_ratio_limit", value)
+
+    @property
+    @pulumi.getter(name="maximumDepthLimit")
+    def maximum_depth_limit(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. The maximum depth of nested archives that can be expanded. Limits how many layers of embedded archives will be processed. Archives exceeding the max limit will be denied for replication.
+        """
+        return pulumi.get(self, "maximum_depth_limit")
+
+    @maximum_depth_limit.setter
+    def maximum_depth_limit(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "maximum_depth_limit", value)
+
+    @property
+    @pulumi.getter(name="maximumExpansionSizeLimit")
+    def maximum_expansion_size_limit(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. The combined maximum size (in bytes) of all extracted files that an expanded archive is allowed to reach. Archives exceeding the max limit will be denied for replication.
+        """
+        return pulumi.get(self, "maximum_expansion_size_limit")
+
+    @maximum_expansion_size_limit.setter
+    def maximum_expansion_size_limit(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "maximum_expansion_size_limit", value)
+
+    @property
+    @pulumi.getter(name="minimumSizeForExpansion")
+    def minimum_size_for_expansion(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. Default is 0. The minimum archive file size (in bytes) required to trigger expansion during replication. Any archive file size below the configured threshold will skip the rest of the configured rulesets for archives.
+        """
+        return pulumi.get(self, "minimum_size_for_expansion")
+
+    @minimum_size_for_expansion.setter
+    def minimum_size_for_expansion(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "minimum_size_for_expansion", value)
+
 
 if not MYPY:
     class ConnectionPropertiesArgsDict(TypedDict):
@@ -294,6 +448,293 @@ class ConnectionPropertiesArgs:
     @secondary_contacts.setter
     def secondary_contacts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "secondary_contacts", value)
+
+
+if not MYPY:
+    class DataSizeRulesetArgsDict(TypedDict):
+        """
+        Defines rules that enforce minimum and maximum file size limits for data replication.
+        """
+        maximum: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+        """
+        minimum: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+        """
+elif False:
+    DataSizeRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DataSizeRulesetArgs:
+    def __init__(__self__, *,
+                 maximum: Optional[pulumi.Input[builtins.float]] = None,
+                 minimum: Optional[pulumi.Input[builtins.float]] = None):
+        """
+        Defines rules that enforce minimum and maximum file size limits for data replication.
+        :param pulumi.Input[builtins.float] maximum: Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+        :param pulumi.Input[builtins.float] minimum: Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+        """
+        if maximum is not None:
+            pulumi.set(__self__, "maximum", maximum)
+        if minimum is None:
+            minimum = 0
+        if minimum is not None:
+            pulumi.set(__self__, "minimum", minimum)
+
+    @property
+    @pulumi.getter
+    def maximum(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. Specifies the maximum allowed size (in bytes) for files to be replicated. Any file size greater than maximum will be denied replication.
+        """
+        return pulumi.get(self, "maximum")
+
+    @maximum.setter
+    def maximum(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "maximum", value)
+
+    @property
+    @pulumi.getter
+    def minimum(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Optional. Default is 0. Specifies the minimum required size (in bytes) for a file to be eligible for replication. Any file size less than minimum will be denied replication.
+        """
+        return pulumi.get(self, "minimum")
+
+    @minimum.setter
+    def minimum(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "minimum", value)
+
+
+if not MYPY:
+    class FlowProfilePropertiesArgsDict(TypedDict):
+        """
+        Defines the full set of properties for a FlowProfile resource.
+        """
+        description: pulumi.Input[builtins.str]
+        """
+        A user-defined description of the FlowProfile.
+        """
+        replication_scenario: pulumi.Input[Union[builtins.str, 'DataClassType']]
+        """
+        The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+        """
+        status: pulumi.Input[Union[builtins.str, 'FlowProfileStatus']]
+        """
+        The operational status of the FlowProfile.
+        """
+        rulesets: NotRequired[pulumi.Input['FlowProfileRulesetsArgsDict']]
+        """
+        A set of configurable rulesets applied to this FlowProfile.
+        """
+elif False:
+    FlowProfilePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 description: pulumi.Input[builtins.str],
+                 replication_scenario: pulumi.Input[Union[builtins.str, 'DataClassType']],
+                 status: pulumi.Input[Union[builtins.str, 'FlowProfileStatus']],
+                 rulesets: Optional[pulumi.Input['FlowProfileRulesetsArgs']] = None):
+        """
+        Defines the full set of properties for a FlowProfile resource.
+        :param pulumi.Input[builtins.str] description: A user-defined description of the FlowProfile.
+        :param pulumi.Input[Union[builtins.str, 'DataClassType']] replication_scenario: The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+        :param pulumi.Input[Union[builtins.str, 'FlowProfileStatus']] status: The operational status of the FlowProfile.
+        :param pulumi.Input['FlowProfileRulesetsArgs'] rulesets: A set of configurable rulesets applied to this FlowProfile.
+        """
+        pulumi.set(__self__, "description", description)
+        pulumi.set(__self__, "replication_scenario", replication_scenario)
+        pulumi.set(__self__, "status", status)
+        if rulesets is not None:
+            pulumi.set(__self__, "rulesets", rulesets)
+
+    @property
+    @pulumi.getter
+    def description(self) -> pulumi.Input[builtins.str]:
+        """
+        A user-defined description of the FlowProfile.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="replicationScenario")
+    def replication_scenario(self) -> pulumi.Input[Union[builtins.str, 'DataClassType']]:
+        """
+        The data replication scenario handled by this FlowProfile. Please not, that this value cannot be updated after creation.
+        """
+        return pulumi.get(self, "replication_scenario")
+
+    @replication_scenario.setter
+    def replication_scenario(self, value: pulumi.Input[Union[builtins.str, 'DataClassType']]):
+        pulumi.set(self, "replication_scenario", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Union[builtins.str, 'FlowProfileStatus']]:
+        """
+        The operational status of the FlowProfile.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Union[builtins.str, 'FlowProfileStatus']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def rulesets(self) -> Optional[pulumi.Input['FlowProfileRulesetsArgs']]:
+        """
+        A set of configurable rulesets applied to this FlowProfile.
+        """
+        return pulumi.get(self, "rulesets")
+
+    @rulesets.setter
+    def rulesets(self, value: Optional[pulumi.Input['FlowProfileRulesetsArgs']]):
+        pulumi.set(self, "rulesets", value)
+
+
+if not MYPY:
+    class FlowProfileRulesetsArgsDict(TypedDict):
+        """
+        The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+        """
+        antivirus: NotRequired[pulumi.Input['AntivirusRulesetArgsDict']]
+        """
+        Antivirus scanning rules for replicated data.
+        """
+        archives: NotRequired[pulumi.Input['ArchiveRulesetArgsDict']]
+        """
+        Rules for handling archive files during replication.
+        """
+        data_size: NotRequired[pulumi.Input['DataSizeRulesetArgsDict']]
+        """
+        Rules that enforce minimum and maximum data size limits.
+        """
+        mime_filters: NotRequired[pulumi.Input['MimeFilterRulesetArgsDict']]
+        """
+        Rules for filtering files based on MIME types.
+        """
+        text_matching: NotRequired[pulumi.Input['TextMatchingRulesetArgsDict']]
+        """
+        Rules for detecting and blocking specific text patterns.
+        """
+        xml_filters: NotRequired[pulumi.Input['XmlFilterRulesetArgsDict']]
+        """
+        Rules for filtering XML content using XSD schemas.
+        """
+elif False:
+    FlowProfileRulesetsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FlowProfileRulesetsArgs:
+    def __init__(__self__, *,
+                 antivirus: Optional[pulumi.Input['AntivirusRulesetArgs']] = None,
+                 archives: Optional[pulumi.Input['ArchiveRulesetArgs']] = None,
+                 data_size: Optional[pulumi.Input['DataSizeRulesetArgs']] = None,
+                 mime_filters: Optional[pulumi.Input['MimeFilterRulesetArgs']] = None,
+                 text_matching: Optional[pulumi.Input['TextMatchingRulesetArgs']] = None,
+                 xml_filters: Optional[pulumi.Input['XmlFilterRulesetArgs']] = None):
+        """
+        The allowed set of configurable rulesets for a FlowProfile resource, used during data replication. All rulesets are optional, and any ruleset configured will be applied to every applicable replicating data. Any data that fails a ruleset will be denied replication. If a ruleset is not configured then the ruleset is considered disabled and will not apply towards replicating data.
+        :param pulumi.Input['AntivirusRulesetArgs'] antivirus: Antivirus scanning rules for replicated data.
+        :param pulumi.Input['ArchiveRulesetArgs'] archives: Rules for handling archive files during replication.
+        :param pulumi.Input['DataSizeRulesetArgs'] data_size: Rules that enforce minimum and maximum data size limits.
+        :param pulumi.Input['MimeFilterRulesetArgs'] mime_filters: Rules for filtering files based on MIME types.
+        :param pulumi.Input['TextMatchingRulesetArgs'] text_matching: Rules for detecting and blocking specific text patterns.
+        :param pulumi.Input['XmlFilterRulesetArgs'] xml_filters: Rules for filtering XML content using XSD schemas.
+        """
+        if antivirus is not None:
+            pulumi.set(__self__, "antivirus", antivirus)
+        if archives is not None:
+            pulumi.set(__self__, "archives", archives)
+        if data_size is not None:
+            pulumi.set(__self__, "data_size", data_size)
+        if mime_filters is not None:
+            pulumi.set(__self__, "mime_filters", mime_filters)
+        if text_matching is not None:
+            pulumi.set(__self__, "text_matching", text_matching)
+        if xml_filters is not None:
+            pulumi.set(__self__, "xml_filters", xml_filters)
+
+    @property
+    @pulumi.getter
+    def antivirus(self) -> Optional[pulumi.Input['AntivirusRulesetArgs']]:
+        """
+        Antivirus scanning rules for replicated data.
+        """
+        return pulumi.get(self, "antivirus")
+
+    @antivirus.setter
+    def antivirus(self, value: Optional[pulumi.Input['AntivirusRulesetArgs']]):
+        pulumi.set(self, "antivirus", value)
+
+    @property
+    @pulumi.getter
+    def archives(self) -> Optional[pulumi.Input['ArchiveRulesetArgs']]:
+        """
+        Rules for handling archive files during replication.
+        """
+        return pulumi.get(self, "archives")
+
+    @archives.setter
+    def archives(self, value: Optional[pulumi.Input['ArchiveRulesetArgs']]):
+        pulumi.set(self, "archives", value)
+
+    @property
+    @pulumi.getter(name="dataSize")
+    def data_size(self) -> Optional[pulumi.Input['DataSizeRulesetArgs']]:
+        """
+        Rules that enforce minimum and maximum data size limits.
+        """
+        return pulumi.get(self, "data_size")
+
+    @data_size.setter
+    def data_size(self, value: Optional[pulumi.Input['DataSizeRulesetArgs']]):
+        pulumi.set(self, "data_size", value)
+
+    @property
+    @pulumi.getter(name="mimeFilters")
+    def mime_filters(self) -> Optional[pulumi.Input['MimeFilterRulesetArgs']]:
+        """
+        Rules for filtering files based on MIME types.
+        """
+        return pulumi.get(self, "mime_filters")
+
+    @mime_filters.setter
+    def mime_filters(self, value: Optional[pulumi.Input['MimeFilterRulesetArgs']]):
+        pulumi.set(self, "mime_filters", value)
+
+    @property
+    @pulumi.getter(name="textMatching")
+    def text_matching(self) -> Optional[pulumi.Input['TextMatchingRulesetArgs']]:
+        """
+        Rules for detecting and blocking specific text patterns.
+        """
+        return pulumi.get(self, "text_matching")
+
+    @text_matching.setter
+    def text_matching(self, value: Optional[pulumi.Input['TextMatchingRulesetArgs']]):
+        pulumi.set(self, "text_matching", value)
+
+    @property
+    @pulumi.getter(name="xmlFilters")
+    def xml_filters(self) -> Optional[pulumi.Input['XmlFilterRulesetArgs']]:
+        """
+        Rules for filtering XML content using XSD schemas.
+        """
+        return pulumi.get(self, "xml_filters")
+
+    @xml_filters.setter
+    def xml_filters(self, value: Optional[pulumi.Input['XmlFilterRulesetArgs']]):
+        pulumi.set(self, "xml_filters", value)
 
 
 if not MYPY:
@@ -801,6 +1242,118 @@ class MessagingOptionsArgs:
     @billing_tier.setter
     def billing_tier(self, value: Optional[pulumi.Input[Union[builtins.str, 'FlowBillingTier']]]):
         pulumi.set(self, "billing_tier", value)
+
+
+if not MYPY:
+    class MimeFilterRulesetArgsDict(TypedDict):
+        """
+        Rules for filtering files based on Media types (f.k.a MIME types).
+        """
+        filters: NotRequired[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgsDict']]]]
+        """
+        Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+        """
+        type: NotRequired[pulumi.Input[Union[builtins.str, 'FilterType']]]
+        """
+        Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+        """
+elif False:
+    MimeFilterRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MimeFilterRulesetArgs:
+    def __init__(__self__, *,
+                 filters: Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]] = None,
+                 type: Optional[pulumi.Input[Union[builtins.str, 'FilterType']]] = None):
+        """
+        Rules for filtering files based on Media types (f.k.a MIME types).
+        :param pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]] filters: Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+        :param pulumi.Input[Union[builtins.str, 'FilterType']] type: Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+        """
+        if filters is not None:
+            pulumi.set(__self__, "filters", filters)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def filters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]:
+        """
+        Defines the Media types (f.k.a MIME types) and associated file extensions to be filtered. For more detail, please refer to the MimeTypeFiler model.
+        """
+        return pulumi.get(self, "filters")
+
+    @filters.setter
+    def filters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MimeTypeFilterArgs']]]]):
+        pulumi.set(self, "filters", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[builtins.str, 'FilterType']]]:
+        """
+        Specifies whether the filter is an allow list or deny list. For more detail, please refer to the FilterType model.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'FilterType']]]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class MimeTypeFilterArgsDict(TypedDict):
+        """
+        Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+        """
+        extensions: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+        """
+        media: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+        """
+elif False:
+    MimeTypeFilterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MimeTypeFilterArgs:
+    def __init__(__self__, *,
+                 extensions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 media: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Defines a list of Media types (f.k.a MIME Types) and associated file extensions subject to filtering.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] extensions: A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+        :param pulumi.Input[builtins.str] media: The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+        """
+        if extensions is not None:
+            pulumi.set(__self__, "extensions", extensions)
+        if media is not None:
+            pulumi.set(__self__, "media", media)
+
+    @property
+    @pulumi.getter
+    def extensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        A list of file extensions associated with the specified Media type (e.g., .json, .png). To specify files with no extension, use an empty string ""."
+        """
+        return pulumi.get(self, "extensions")
+
+    @extensions.setter
+    def extensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "extensions", value)
+
+    @property
+    @pulumi.getter
+    def media(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Media Types (f.k.a MIME types), following IANA standards (e.g., application/json, image/png). For a more detailed list of allowed media types please refer to the Tika documentation: https://github.com/apache/tika/blob/main/tika-core/src/main/resources/org/apache/tika/mime/tika-mimetypes.xml
+        """
+        return pulumi.get(self, "media")
+
+    @media.setter
+    def media(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "media", value)
 
 
 if not MYPY:
@@ -1388,5 +1941,194 @@ class SubscriberArgs:
     @notifications.setter
     def notifications(self, value: Optional[pulumi.Input[builtins.float]]):
         pulumi.set(self, "notifications", value)
+
+
+if not MYPY:
+    class TextMatchingRulesetArgsDict(TypedDict):
+        """
+        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+        """
+        deny: NotRequired[pulumi.Input[Sequence[pulumi.Input['TextMatchArgsDict']]]]
+        """
+        A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+elif False:
+    TextMatchingRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TextMatchingRulesetArgs:
+    def __init__(__self__, *,
+                 deny: Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]] = None):
+        """
+        Rules for detecting and blocking specific text patterns. If a file contains a text pattern that is part of the configured deny list, the file will be denied.
+        :param pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]] deny: A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        if deny is not None:
+            pulumi.set(__self__, "deny", deny)
+
+    @property
+    @pulumi.getter
+    def deny(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]]:
+        """
+        A list of text patterns to block, each with matching rules and case sensitivity options.
+        """
+        return pulumi.get(self, "deny")
+
+    @deny.setter
+    def deny(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TextMatchArgs']]]]):
+        pulumi.set(self, "deny", value)
+
+
+if not MYPY:
+    class TextMatchArgsDict(TypedDict):
+        """
+        Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+        """
+        case_sensitivity: pulumi.Input[Union[builtins.str, 'Casing']]
+        """
+        Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+        """
+        match_type: pulumi.Input[Union[builtins.str, 'MatchType']]
+        """
+        Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+        """
+        text: pulumi.Input[builtins.str]
+        """
+        The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+        """
+elif False:
+    TextMatchArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TextMatchArgs:
+    def __init__(__self__, *,
+                 case_sensitivity: Optional[pulumi.Input[Union[builtins.str, 'Casing']]] = None,
+                 match_type: Optional[pulumi.Input[Union[builtins.str, 'MatchType']]] = None,
+                 text: pulumi.Input[builtins.str]):
+        """
+        Configuration options for the text matching ruleset. For example, if the configuration is to deny "hello world" for partial case-insensitive words then "chello worlds" would get detected and the resulting file would be denied.
+        :param pulumi.Input[Union[builtins.str, 'Casing']] case_sensitivity: Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+        :param pulumi.Input[Union[builtins.str, 'MatchType']] match_type: Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+        :param pulumi.Input[builtins.str] text: The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+        """
+        if case_sensitivity is None:
+            case_sensitivity = 'Insensitive'
+        pulumi.set(__self__, "case_sensitivity", case_sensitivity)
+        if match_type is None:
+            match_type = 'Partial'
+        pulumi.set(__self__, "match_type", match_type)
+        pulumi.set(__self__, "text", text)
+
+    @property
+    @pulumi.getter(name="caseSensitivity")
+    def case_sensitivity(self) -> pulumi.Input[Union[builtins.str, 'Casing']]:
+        """
+        Specifies the text matching conditions based on casing. For more detail please refer to the Casing model.
+        """
+        return pulumi.get(self, "case_sensitivity")
+
+    @case_sensitivity.setter
+    def case_sensitivity(self, value: pulumi.Input[Union[builtins.str, 'Casing']]):
+        pulumi.set(self, "case_sensitivity", value)
+
+    @property
+    @pulumi.getter(name="matchType")
+    def match_type(self) -> pulumi.Input[Union[builtins.str, 'MatchType']]:
+        """
+        Specifies the text matching condition for text comparison. For more detail please refer to the MatchType model.
+        """
+        return pulumi.get(self, "match_type")
+
+    @match_type.setter
+    def match_type(self, value: pulumi.Input[Union[builtins.str, 'MatchType']]):
+        pulumi.set(self, "match_type", value)
+
+    @property
+    @pulumi.getter
+    def text(self) -> pulumi.Input[builtins.str]:
+        """
+        The word or phrase to match against replicated content. A phrase with spaces will be considered a single substring.
+        """
+        return pulumi.get(self, "text")
+
+    @text.setter
+    def text(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "text", value)
+
+
+if not MYPY:
+    class XmlFilterRulesetArgsDict(TypedDict):
+        """
+        Rules for filtering XML content using XSD schemas.
+        """
+        default_namespace: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The default XML namespace used for schema validation.
+        """
+        reference: NotRequired[pulumi.Input[Union[builtins.str, 'XmlReferenceType']]]
+        """
+        Defines the method for referencing the xml schema.
+        """
+        schema: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The inline XSD schema to be used for validation.
+        """
+elif False:
+    XmlFilterRulesetArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class XmlFilterRulesetArgs:
+    def __init__(__self__, *,
+                 default_namespace: Optional[pulumi.Input[builtins.str]] = None,
+                 reference: Optional[pulumi.Input[Union[builtins.str, 'XmlReferenceType']]] = None,
+                 schema: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Rules for filtering XML content using XSD schemas.
+        :param pulumi.Input[builtins.str] default_namespace: The default XML namespace used for schema validation.
+        :param pulumi.Input[Union[builtins.str, 'XmlReferenceType']] reference: Defines the method for referencing the xml schema.
+        :param pulumi.Input[builtins.str] schema: The inline XSD schema to be used for validation.
+        """
+        if default_namespace is not None:
+            pulumi.set(__self__, "default_namespace", default_namespace)
+        if reference is not None:
+            pulumi.set(__self__, "reference", reference)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+
+    @property
+    @pulumi.getter(name="defaultNamespace")
+    def default_namespace(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The default XML namespace used for schema validation.
+        """
+        return pulumi.get(self, "default_namespace")
+
+    @default_namespace.setter
+    def default_namespace(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "default_namespace", value)
+
+    @property
+    @pulumi.getter
+    def reference(self) -> Optional[pulumi.Input[Union[builtins.str, 'XmlReferenceType']]]:
+        """
+        Defines the method for referencing the xml schema.
+        """
+        return pulumi.get(self, "reference")
+
+    @reference.setter
+    def reference(self, value: Optional[pulumi.Input[Union[builtins.str, 'XmlReferenceType']]]):
+        pulumi.set(self, "reference", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The inline XSD schema to be used for validation.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "schema", value)
 
 

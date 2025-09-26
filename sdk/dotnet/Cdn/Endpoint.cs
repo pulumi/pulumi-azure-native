@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.Cdn
     /// <summary>
     /// CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format &lt;endpointname&gt;.azureedge.net.
     /// 
-    /// Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+    /// Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
     /// 
-    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cdn:Endpoint")]
     public partial class Endpoint : global::Pulumi.CustomResource
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Cdn
         /// A policy that specifies the delivery rules to be used for an endpoint.
         /// </summary>
         [Output("deliveryPolicy")]
-        public Output<Outputs.EndpointPropertiesUpdateParametersResponseDeliveryPolicy?> DeliveryPolicy { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesUpdateParametersDeliveryPolicyResponse?> DeliveryPolicy { get; private set; } = null!;
 
         /// <summary>
         /// List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
@@ -80,13 +80,13 @@ namespace Pulumi.AzureNative.Cdn
         public Output<bool?> IsHttpsAllowed { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<string> ResourceState { get; private set; } = null!;
 
         /// <summary>
-        /// Read only system data
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
@@ -158,7 +158,7 @@ namespace Pulumi.AzureNative.Cdn
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.AzureNative.Cdn
         /// Defines the Web Application Firewall policy for the endpoint (if applicable)
         /// </summary>
         [Output("webApplicationFirewallPolicyLink")]
-        public Output<Outputs.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink?> WebApplicationFirewallPolicyLink { get; private set; } = null!;
+        public Output<Outputs.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse?> WebApplicationFirewallPolicyLink { get; private set; } = null!;
 
 
         /// <summary>
@@ -308,7 +308,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<bool>? IsHttpsAllowed { get; set; }
 
         /// <summary>
-        /// Resource location.
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -362,7 +362,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<string>? ProbePath { get; set; }
 
         /// <summary>
-        /// Name of the CDN profile which is unique within the resource group.
+        /// Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         /// </summary>
         [Input("profileName", required: true)]
         public Input<string> ProfileName { get; set; } = null!;
@@ -374,7 +374,7 @@ namespace Pulumi.AzureNative.Cdn
         public Input<Pulumi.AzureNative.Cdn.QueryStringCachingBehavior>? QueryStringCachingBehavior { get; set; }
 
         /// <summary>
-        /// Name of the Resource group within the Azure subscription.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;

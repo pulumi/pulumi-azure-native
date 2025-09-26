@@ -44,7 +44,13 @@ export const DeploymentMode = {
 export type DeploymentMode = (typeof DeploymentMode)[keyof typeof DeploymentMode];
 
 export const DeploymentStacksDeleteDetachEnum = {
+    /**
+     * Delete the specified resources from Azure
+     */
     Delete: "delete",
+    /**
+     * Keep the specified resources in Azure
+     */
     Detach: "detach",
 } as const;
 

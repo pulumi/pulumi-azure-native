@@ -1727,7 +1727,7 @@ class ManagedResourceReferenceResponse(dict):
                  status: Optional[builtins.str] = None):
         """
         The managed resource model.
-        :param builtins.str id: The resourceId of a resource managed by the deployment stack.
+        :param builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         :param builtins.str deny_status: denyAssignment settings applied to the resource.
         :param builtins.str status: Current management state of the resource in the deployment stack.
         """
@@ -1743,7 +1743,7 @@ class ManagedResourceReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The resourceId of a resource managed by the deployment stack.
+        The ARM Resource ID of a resource managed by the deployment stack.
         """
         return pulumi.get(self, "id")
 
@@ -2400,7 +2400,7 @@ class ResourceReferenceExtendedResponse(dict):
                  error: Optional['outputs.ErrorDetailResponse'] = None):
         """
         The resourceId extended model. This is used to document failed resources with a resourceId and a corresponding error.
-        :param builtins.str id: The resourceId of a resource managed by the deployment stack.
+        :param builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         :param 'ErrorDetailResponse' error: The error detail.
         """
         pulumi.set(__self__, "id", id)
@@ -2411,7 +2411,7 @@ class ResourceReferenceExtendedResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The resourceId of a resource managed by the deployment stack.
+        The ARM Resource ID of a resource managed by the deployment stack.
         """
         return pulumi.get(self, "id")
 
@@ -2433,7 +2433,7 @@ class ResourceReferenceResponse(dict):
                  id: builtins.str):
         """
         The resourceId model.
-        :param builtins.str id: The resourceId of a resource managed by the deployment stack.
+        :param builtins.str id: The ARM Resource ID of a resource managed by the deployment stack.
         """
         pulumi.set(__self__, "id", id)
 
@@ -2441,7 +2441,7 @@ class ResourceReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        The resourceId of a resource managed by the deployment stack.
+        The ARM Resource ID of a resource managed by the deployment stack.
         """
         return pulumi.get(self, "id")
 

@@ -106,7 +106,7 @@ AVS:
 AzureActiveDirectory:
 AzureArcData:
   expectTracking: preview
-  notes: 4 previews since last stable in 2021
+  notes: 2025-06-01-preview is exluded in openapi/discover.go due to an invalid reference.
 AzureData:
   expectTracking: preview
   notes: Only preview versions
@@ -146,8 +146,8 @@ Cache:
   notes: Resources split between services. Regular stable versions
 Capacity:
 Cdn:
-  preview: exclude
-  notes: Regular stable versions, only 2 previews since last stable so let's wait for next stable
+  expectTracking: stable
+  notes: 2025-05-01-preview is excluded in openapi/discover.go due to duplicated CustomRule definitions.
 CertificateRegistration:
 ChangeAnalysis:
   expectTracking: preview
@@ -245,7 +245,7 @@ DBforPostgreSQL:
     Expecting additions because postgresqlhsc is a different product under the same namespace,
     and its latest API version is 2022-11-08.
   folders: ["postgresql", "postgresqlhsc"]
-Dashboard: 
+Dashboard:
 DataBox:
 DataBoxEdge:
   exclusions:
@@ -269,7 +269,7 @@ DeploymentManager:
   expectTracking: preview
   notes: Only preview versions
 DesktopVirtualization:
-  expectAdditions: true  # recent development happened in preview versions
+  expectAdditions: true # recent development happened in preview versions
 DevCenter:
   expectTracking: preview
   notes: Only preview versions
@@ -335,7 +335,7 @@ Education:
   expectTracking: preview
   notes: Only single preview version
 Elastic:
-  expectAdditions: true  # getOrganizationElasticToAzureSubscriptionMapping in latest preview
+  expectAdditions: true # getOrganizationElasticToAzureSubscriptionMapping in latest preview
   notes: Only previews since original launch stable version in 2020
 ElasticSan:
   expectTracking: preview
@@ -347,7 +347,7 @@ EnterpriseKnowledgeGraph:
 EventGrid:
   expectAdditions: true
   exclusions:
-    EventChannel: 2021-10-15-preview  # legacy
+    EventChannel: 2021-10-15-preview # legacy
   notes: There are many additions in 2023-06-01-preview but it doesn't replace the stable version.
 EventHub:
 ExtendedLocation:
@@ -785,3 +785,4 @@ Workloads:
     2021-12-01-preview being retired.
     PhpWorkload and WordpressInstance don't exist in other versions so we'll exclude them.
 ---
+

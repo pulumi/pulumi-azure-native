@@ -11,19 +11,28 @@ __all__ = [
     'ActivationState',
     'AggregationType',
     'ArcSqlManagedInstanceLicenseType',
+    'ArcSqlServerAvailabilityMode',
+    'ArcSqlServerFailoverMode',
     'BillingPlan',
+    'ConnectionAuth',
     'DatabaseCreateMode',
     'DatabaseState',
     'EditionType',
     'ExtendedLocationTypes',
     'FailoverGroupPartnerSyncMode',
     'HostType',
+    'IdentityType',
     'Infrastructure',
     'InstanceFailoverGroupRole',
     'LicenseCategory',
+    'Mode',
     'PostgresInstanceSkuTier',
+    'PrimaryAllowConnections',
     'RecoveryMode',
     'ScopeType',
+    'SecondaryAllowConnections',
+    'SeedingMode',
+    'ServiceType',
     'SqlManagedInstanceSkuName',
     'SqlManagedInstanceSkuTier',
     'SqlVersion',
@@ -72,6 +81,26 @@ class ArcSqlManagedInstanceLicenseType(builtins.str, Enum):
     DISASTER_RECOVERY = "DisasterRecovery"
 
 
+@pulumi.type_token("azure-native:azurearcdata:ArcSqlServerAvailabilityMode")
+class ArcSqlServerAvailabilityMode(builtins.str, Enum):
+    """
+    Property that determines whether a given availability replica can run in synchronous-commit mode
+    """
+    SYNCHRONOU_S_COMMIT = "SYNCHRONOUS_COMMIT"
+    ASYNCHRONOU_S_COMMIT = "ASYNCHRONOUS_COMMIT"
+
+
+@pulumi.type_token("azure-native:azurearcdata:ArcSqlServerFailoverMode")
+class ArcSqlServerFailoverMode(builtins.str, Enum):
+    """
+    Property to set the failover mode of the availability group replica
+    """
+    AUTOMATIC = "AUTOMATIC"
+    MANUAL = "MANUAL"
+    EXTERNAL = "EXTERNAL"
+    NONE = "NONE"
+
+
 @pulumi.type_token("azure-native:azurearcdata:BillingPlan")
 class BillingPlan(builtins.str, Enum):
     """
@@ -79,6 +108,23 @@ class BillingPlan(builtins.str, Enum):
     """
     PAYG = "PAYG"
     PAID = "Paid"
+
+
+@pulumi.type_token("azure-native:azurearcdata:ConnectionAuth")
+class ConnectionAuth(builtins.str, Enum):
+    """
+    Permitted authentication modes for the mirroring endpoint.
+    """
+    WINDOWS_NTLM = "Windows_NTLM"
+    WINDOWS_KERBEROS = "Windows_Kerberos"
+    WINDOWS_NEGOTIATE = "Windows_Negotiate"
+    CERTIFICATE = "Certificate"
+    WINDOWS_NTL_M_CERTIFICATE = "Windows_NTLM_Certificate"
+    WINDOWS_KERBEROS_CERTIFICATE = "Windows_Kerberos_Certificate"
+    WINDOWS_NEGOTIATE_CERTIFICATE = "Windows_Negotiate_Certificate"
+    CERTIFICATE_WINDOWS_NTLM = "Certificate_Windows_NTLM"
+    CERTIFICATE_WINDOWS_KERBEROS = "Certificate_Windows_Kerberos"
+    CERTIFICATE_WINDOWS_NEGOTIATE = "Certificate_Windows_Negotiate"
 
 
 @pulumi.type_token("azure-native:azurearcdata:DatabaseCreateMode")
@@ -157,6 +203,21 @@ class HostType(builtins.str, Enum):
     OTHER = "Other"
 
 
+@pulumi.type_token("azure-native:azurearcdata:IdentityType")
+class IdentityType(builtins.str, Enum):
+    """
+    The method used for Entra authentication
+    """
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    """
+    System Assigned Managed Identity
+    """
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+    """
+    User Assigned Managed Identity
+    """
+
+
 @pulumi.type_token("azure-native:azurearcdata:Infrastructure")
 class Infrastructure(builtins.str, Enum):
     """
@@ -189,12 +250,40 @@ class LicenseCategory(builtins.str, Enum):
     CORE = "Core"
 
 
+@pulumi.type_token("azure-native:azurearcdata:Mode")
+class Mode(builtins.str, Enum):
+    """
+    Mode of authentication in SqlServer.
+    """
+    MIXED = "Mixed"
+    """
+    Mixed mode authentication for SQL Server which includes windows and SQL Authentication.
+    """
+    WINDOWS = "Windows"
+    """
+    Windows Authentication for SQL Server.
+    """
+    UNDEFINED = "Undefined"
+    """
+    Used for scenarios were the mode cannot be determined.
+    """
+
+
 @pulumi.type_token("azure-native:azurearcdata:PostgresInstanceSkuTier")
 class PostgresInstanceSkuTier(builtins.str, Enum):
     """
     This field is required to be implemented by the Resource Provider if the service has more than one tier.
     """
     HYPERSCALE = "Hyperscale"
+
+
+@pulumi.type_token("azure-native:azurearcdata:PrimaryAllowConnections")
+class PrimaryAllowConnections(builtins.str, Enum):
+    """
+    Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+    """
+    ALL = "ALL"
+    REA_D_WRITE = "READ_WRITE"
 
 
 @pulumi.type_token("azure-native:azurearcdata:RecoveryMode")
@@ -215,6 +304,52 @@ class ScopeType(builtins.str, Enum):
     TENANT = "Tenant"
     SUBSCRIPTION = "Subscription"
     RESOURCE_GROUP = "ResourceGroup"
+
+
+@pulumi.type_token("azure-native:azurearcdata:SecondaryAllowConnections")
+class SecondaryAllowConnections(builtins.str, Enum):
+    """
+    Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+    """
+    NO = "NO"
+    ALL = "ALL"
+    REA_D_ONLY = "READ_ONLY"
+
+
+@pulumi.type_token("azure-native:azurearcdata:SeedingMode")
+class SeedingMode(builtins.str, Enum):
+    """
+    Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+    """
+    AUTOMATIC = "AUTOMATIC"
+    MANUAL = "MANUAL"
+
+
+@pulumi.type_token("azure-native:azurearcdata:ServiceType")
+class ServiceType(builtins.str, Enum):
+    """
+    Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+    """
+    ENGINE = "Engine"
+    """
+    SQL Server Database Services.
+    """
+    SSRS = "SSRS"
+    """
+    SQL Server Reporting Services.
+    """
+    SSAS = "SSAS"
+    """
+    SQL Server Analysis Services.
+    """
+    SSIS = "SSIS"
+    """
+    SQL Server Integration Services.
+    """
+    PBIRS = "PBIRS"
+    """
+    Power BI Report Server.
+    """
 
 
 @pulumi.type_token("azure-native:azurearcdata:SqlManagedInstanceSkuName")

@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? State;
         /// <summary>
+        /// Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
+        /// </summary>
+        public readonly object? TreatDecimalAsString;
+        /// <summary>
         /// Type of activity.
         /// Expected value is 'Script'.
         /// </summary>
@@ -94,6 +98,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? state,
 
+            object? treatDecimalAsString,
+
             string type,
 
             ImmutableArray<Outputs.UserPropertyResponse> userProperties)
@@ -109,6 +115,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ScriptBlockExecutionTimeout = scriptBlockExecutionTimeout;
             Scripts = scripts;
             State = state;
+            TreatDecimalAsString = treatDecimalAsString;
             Type = type;
             UserProperties = userProperties;
         }

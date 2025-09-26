@@ -33,6 +33,8 @@ __all__ = [
     'ActiveDirectoryDomainControllerArgsDict',
     'ActiveDirectoryInformationArgs',
     'ActiveDirectoryInformationArgsDict',
+    'AuthenticationArgs',
+    'AuthenticationArgsDict',
     'AvailabilityGroupConfigureArgs',
     'AvailabilityGroupConfigureArgsDict',
     'AvailabilityGroupInfoArgs',
@@ -41,8 +43,12 @@ __all__ = [
     'BackupPolicyArgsDict',
     'BasicLoginInformationArgs',
     'BasicLoginInformationArgsDict',
+    'ClientConnectionArgs',
+    'ClientConnectionArgsDict',
     'DataControllerPropertiesArgs',
     'DataControllerPropertiesArgsDict',
+    'EntraAuthenticationArgs',
+    'EntraAuthenticationArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
     'FailoverGroupPropertiesArgs',
@@ -71,6 +77,10 @@ __all__ = [
     'KeytabInformationArgsDict',
     'LogAnalyticsWorkspaceConfigArgs',
     'LogAnalyticsWorkspaceConfigArgsDict',
+    'MigrationAssessmentArgs',
+    'MigrationAssessmentArgsDict',
+    'MigrationArgs',
+    'MigrationArgsDict',
     'MonitoringArgs',
     'MonitoringArgsDict',
     'OnPremisePropertyArgs',
@@ -83,6 +93,10 @@ __all__ = [
     'SqlAvailabilityGroupDatabaseReplicaResourcePropertiesArgsDict',
     'SqlAvailabilityGroupReplicaResourcePropertiesArgs',
     'SqlAvailabilityGroupReplicaResourcePropertiesArgsDict',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgsDict',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesArgs',
+    'SqlAvailabilityGroupStaticIPListenerPropertiesArgsDict',
     'SqlManagedInstanceK8sRawArgs',
     'SqlManagedInstanceK8sRawArgsDict',
     'SqlManagedInstanceK8sSpecArgs',
@@ -666,17 +680,101 @@ class ActiveDirectoryInformationArgs:
 
 
 if not MYPY:
+    class AuthenticationArgsDict(TypedDict):
+        """
+        Authentication related configuration for the SQL Server Instance.
+        """
+        mode: NotRequired[pulumi.Input[Union[builtins.str, 'Mode']]]
+        """
+        Mode of authentication in SqlServer.
+        """
+        sql_server_entra_identity: NotRequired[pulumi.Input[Sequence[pulumi.Input['EntraAuthenticationArgsDict']]]]
+        """
+        Entra Authentication configuration for the SQL Server Instance.
+        """
+elif False:
+    AuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AuthenticationArgs:
+    def __init__(__self__, *,
+                 mode: Optional[pulumi.Input[Union[builtins.str, 'Mode']]] = None,
+                 sql_server_entra_identity: Optional[pulumi.Input[Sequence[pulumi.Input['EntraAuthenticationArgs']]]] = None):
+        """
+        Authentication related configuration for the SQL Server Instance.
+        :param pulumi.Input[Union[builtins.str, 'Mode']] mode: Mode of authentication in SqlServer.
+        :param pulumi.Input[Sequence[pulumi.Input['EntraAuthenticationArgs']]] sql_server_entra_identity: Entra Authentication configuration for the SQL Server Instance.
+        """
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if sql_server_entra_identity is not None:
+            pulumi.set(__self__, "sql_server_entra_identity", sql_server_entra_identity)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'Mode']]]:
+        """
+        Mode of authentication in SqlServer.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'Mode']]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="sqlServerEntraIdentity")
+    def sql_server_entra_identity(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EntraAuthenticationArgs']]]]:
+        """
+        Entra Authentication configuration for the SQL Server Instance.
+        """
+        return pulumi.get(self, "sql_server_entra_identity")
+
+    @sql_server_entra_identity.setter
+    def sql_server_entra_identity(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EntraAuthenticationArgs']]]]):
+        pulumi.set(self, "sql_server_entra_identity", value)
+
+
+if not MYPY:
     class AvailabilityGroupConfigureArgsDict(TypedDict):
         """
         The specifications of the availability group replica configuration
+        """
+        availability_mode: NotRequired[pulumi.Input[Union[builtins.str, 'ArcSqlServerAvailabilityMode']]]
+        """
+        Property that determines whether a given availability replica can run in synchronous-commit mode
         """
         backup_priority: NotRequired[pulumi.Input[builtins.int]]
         """
         Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
         """
+        certificate_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        """
+        endpoint_authentication_mode: NotRequired[pulumi.Input[Union[builtins.str, 'ConnectionAuth']]]
+        """
+        Permitted authentication modes for the mirroring endpoint.
+        """
+        endpoint_connect_login: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The login which will connect to the mirroring endpoint.
+        """
+        endpoint_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the mirroring endpoint URL
+        """
         endpoint_url: NotRequired[pulumi.Input[builtins.str]]
         """
         Mirroring endpoint URL of availability group replica
+        """
+        failover_mode: NotRequired[pulumi.Input[Union[builtins.str, 'ArcSqlServerFailoverMode']]]
+        """
+        Property to set the failover mode of the availability group replica
+        """
+        primary_allow_connections: NotRequired[pulumi.Input['PrimaryAllowConnections']]
+        """
+        Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
         """
         read_only_routing_url: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -685,6 +783,14 @@ if not MYPY:
         read_write_routing_url: NotRequired[pulumi.Input[builtins.str]]
         """
         Connectivity endpoint (URL) of the read write availability replica.
+        """
+        secondary_allow_connections: NotRequired[pulumi.Input['SecondaryAllowConnections']]
+        """
+        Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        """
+        seeding_mode: NotRequired[pulumi.Input['SeedingMode']]
+        """
+        Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
         """
         session_timeout: NotRequired[pulumi.Input[builtins.int]]
         """
@@ -696,29 +802,77 @@ elif False:
 @pulumi.input_type
 class AvailabilityGroupConfigureArgs:
     def __init__(__self__, *,
+                 availability_mode: Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerAvailabilityMode']]] = None,
                  backup_priority: Optional[pulumi.Input[builtins.int]] = None,
+                 certificate_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoint_authentication_mode: Optional[pulumi.Input[Union[builtins.str, 'ConnectionAuth']]] = None,
+                 endpoint_connect_login: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoint_name: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint_url: Optional[pulumi.Input[builtins.str]] = None,
+                 failover_mode: Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerFailoverMode']]] = None,
+                 primary_allow_connections: Optional[pulumi.Input['PrimaryAllowConnections']] = None,
                  read_only_routing_url: Optional[pulumi.Input[builtins.str]] = None,
                  read_write_routing_url: Optional[pulumi.Input[builtins.str]] = None,
+                 secondary_allow_connections: Optional[pulumi.Input['SecondaryAllowConnections']] = None,
+                 seeding_mode: Optional[pulumi.Input['SeedingMode']] = None,
                  session_timeout: Optional[pulumi.Input[builtins.int]] = None):
         """
         The specifications of the availability group replica configuration
+        :param pulumi.Input[Union[builtins.str, 'ArcSqlServerAvailabilityMode']] availability_mode: Property that determines whether a given availability replica can run in synchronous-commit mode
         :param pulumi.Input[builtins.int] backup_priority: Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
+        :param pulumi.Input[builtins.str] certificate_name: Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        :param pulumi.Input[Union[builtins.str, 'ConnectionAuth']] endpoint_authentication_mode: Permitted authentication modes for the mirroring endpoint.
+        :param pulumi.Input[builtins.str] endpoint_connect_login: The login which will connect to the mirroring endpoint.
+        :param pulumi.Input[builtins.str] endpoint_name: Name of the mirroring endpoint URL
         :param pulumi.Input[builtins.str] endpoint_url: Mirroring endpoint URL of availability group replica
+        :param pulumi.Input[Union[builtins.str, 'ArcSqlServerFailoverMode']] failover_mode: Property to set the failover mode of the availability group replica
+        :param pulumi.Input['PrimaryAllowConnections'] primary_allow_connections: Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
         :param pulumi.Input[builtins.str] read_only_routing_url: Connectivity endpoint (URL) of the read only availability replica.
         :param pulumi.Input[builtins.str] read_write_routing_url: Connectivity endpoint (URL) of the read write availability replica.
+        :param pulumi.Input['SecondaryAllowConnections'] secondary_allow_connections: Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        :param pulumi.Input['SeedingMode'] seeding_mode: Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
         :param pulumi.Input[builtins.int] session_timeout: The time-out period of availability group session replica, in seconds.
         """
+        if availability_mode is not None:
+            pulumi.set(__self__, "availability_mode", availability_mode)
         if backup_priority is not None:
             pulumi.set(__self__, "backup_priority", backup_priority)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
+        if endpoint_authentication_mode is not None:
+            pulumi.set(__self__, "endpoint_authentication_mode", endpoint_authentication_mode)
+        if endpoint_connect_login is not None:
+            pulumi.set(__self__, "endpoint_connect_login", endpoint_connect_login)
+        if endpoint_name is not None:
+            pulumi.set(__self__, "endpoint_name", endpoint_name)
         if endpoint_url is not None:
             pulumi.set(__self__, "endpoint_url", endpoint_url)
+        if failover_mode is not None:
+            pulumi.set(__self__, "failover_mode", failover_mode)
+        if primary_allow_connections is not None:
+            pulumi.set(__self__, "primary_allow_connections", primary_allow_connections)
         if read_only_routing_url is not None:
             pulumi.set(__self__, "read_only_routing_url", read_only_routing_url)
         if read_write_routing_url is not None:
             pulumi.set(__self__, "read_write_routing_url", read_write_routing_url)
+        if secondary_allow_connections is not None:
+            pulumi.set(__self__, "secondary_allow_connections", secondary_allow_connections)
+        if seeding_mode is not None:
+            pulumi.set(__self__, "seeding_mode", seeding_mode)
         if session_timeout is not None:
             pulumi.set(__self__, "session_timeout", session_timeout)
+
+    @property
+    @pulumi.getter(name="availabilityMode")
+    def availability_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerAvailabilityMode']]]:
+        """
+        Property that determines whether a given availability replica can run in synchronous-commit mode
+        """
+        return pulumi.get(self, "availability_mode")
+
+    @availability_mode.setter
+    def availability_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerAvailabilityMode']]]):
+        pulumi.set(self, "availability_mode", value)
 
     @property
     @pulumi.getter(name="backupPriority")
@@ -733,6 +887,54 @@ class AvailabilityGroupConfigureArgs:
         pulumi.set(self, "backup_priority", value)
 
     @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
+    @pulumi.getter(name="endpointAuthenticationMode")
+    def endpoint_authentication_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'ConnectionAuth']]]:
+        """
+        Permitted authentication modes for the mirroring endpoint.
+        """
+        return pulumi.get(self, "endpoint_authentication_mode")
+
+    @endpoint_authentication_mode.setter
+    def endpoint_authentication_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'ConnectionAuth']]]):
+        pulumi.set(self, "endpoint_authentication_mode", value)
+
+    @property
+    @pulumi.getter(name="endpointConnectLogin")
+    def endpoint_connect_login(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The login which will connect to the mirroring endpoint.
+        """
+        return pulumi.get(self, "endpoint_connect_login")
+
+    @endpoint_connect_login.setter
+    def endpoint_connect_login(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "endpoint_connect_login", value)
+
+    @property
+    @pulumi.getter(name="endpointName")
+    def endpoint_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the mirroring endpoint URL
+        """
+        return pulumi.get(self, "endpoint_name")
+
+    @endpoint_name.setter
+    def endpoint_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "endpoint_name", value)
+
+    @property
     @pulumi.getter(name="endpointUrl")
     def endpoint_url(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -743,6 +945,30 @@ class AvailabilityGroupConfigureArgs:
     @endpoint_url.setter
     def endpoint_url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "endpoint_url", value)
+
+    @property
+    @pulumi.getter(name="failoverMode")
+    def failover_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerFailoverMode']]]:
+        """
+        Property to set the failover mode of the availability group replica
+        """
+        return pulumi.get(self, "failover_mode")
+
+    @failover_mode.setter
+    def failover_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'ArcSqlServerFailoverMode']]]):
+        pulumi.set(self, "failover_mode", value)
+
+    @property
+    @pulumi.getter(name="primaryAllowConnections")
+    def primary_allow_connections(self) -> Optional[pulumi.Input['PrimaryAllowConnections']]:
+        """
+        Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+        """
+        return pulumi.get(self, "primary_allow_connections")
+
+    @primary_allow_connections.setter
+    def primary_allow_connections(self, value: Optional[pulumi.Input['PrimaryAllowConnections']]):
+        pulumi.set(self, "primary_allow_connections", value)
 
     @property
     @pulumi.getter(name="readOnlyRoutingUrl")
@@ -767,6 +993,30 @@ class AvailabilityGroupConfigureArgs:
     @read_write_routing_url.setter
     def read_write_routing_url(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "read_write_routing_url", value)
+
+    @property
+    @pulumi.getter(name="secondaryAllowConnections")
+    def secondary_allow_connections(self) -> Optional[pulumi.Input['SecondaryAllowConnections']]:
+        """
+        Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        """
+        return pulumi.get(self, "secondary_allow_connections")
+
+    @secondary_allow_connections.setter
+    def secondary_allow_connections(self, value: Optional[pulumi.Input['SecondaryAllowConnections']]):
+        pulumi.set(self, "secondary_allow_connections", value)
+
+    @property
+    @pulumi.getter(name="seedingMode")
+    def seeding_mode(self) -> Optional[pulumi.Input['SeedingMode']]:
+        """
+        Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+        """
+        return pulumi.get(self, "seeding_mode")
+
+    @seeding_mode.setter
+    def seeding_mode(self, value: Optional[pulumi.Input['SeedingMode']]):
+        pulumi.set(self, "seeding_mode", value)
 
     @property
     @pulumi.getter(name="sessionTimeout")
@@ -814,6 +1064,10 @@ if not MYPY:
         """
         Specifies whether this is a distributed availability group.
         """
+        listener: NotRequired[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesArgsDict']]
+        """
+        The listener for the sql server availability group
+        """
         required_synchronized_secondaries_to_commit: NotRequired[pulumi.Input[builtins.int]]
         """
         The number of secondary replicas that must be in a synchronized state for a commit to complete.
@@ -831,6 +1085,7 @@ class AvailabilityGroupInfoArgs:
                  health_check_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  is_contained: Optional[pulumi.Input[builtins.bool]] = None,
                  is_distributed: Optional[pulumi.Input[builtins.bool]] = None,
+                 listener: Optional[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesArgs']] = None,
                  required_synchronized_secondaries_to_commit: Optional[pulumi.Input[builtins.int]] = None):
         """
         The specifications of the availability group state
@@ -841,6 +1096,7 @@ class AvailabilityGroupInfoArgs:
         :param pulumi.Input[builtins.int] health_check_timeout: Wait time (in milliseconds) for the sp_server_diagnostics system stored procedure to return server-health information, before the server instance is assumed to be slow or not responding.
         :param pulumi.Input[builtins.bool] is_contained: SQL Server availability group contained system databases.
         :param pulumi.Input[builtins.bool] is_distributed: Specifies whether this is a distributed availability group.
+        :param pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesArgs'] listener: The listener for the sql server availability group
         :param pulumi.Input[builtins.int] required_synchronized_secondaries_to_commit: The number of secondary replicas that must be in a synchronized state for a commit to complete.
         """
         if basic_features is not None:
@@ -857,6 +1113,8 @@ class AvailabilityGroupInfoArgs:
             pulumi.set(__self__, "is_contained", is_contained)
         if is_distributed is not None:
             pulumi.set(__self__, "is_distributed", is_distributed)
+        if listener is not None:
+            pulumi.set(__self__, "listener", listener)
         if required_synchronized_secondaries_to_commit is not None:
             pulumi.set(__self__, "required_synchronized_secondaries_to_commit", required_synchronized_secondaries_to_commit)
 
@@ -943,6 +1201,18 @@ class AvailabilityGroupInfoArgs:
     @is_distributed.setter
     def is_distributed(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "is_distributed", value)
+
+    @property
+    @pulumi.getter
+    def listener(self) -> Optional[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesArgs']]:
+        """
+        The listener for the sql server availability group
+        """
+        return pulumi.get(self, "listener")
+
+    @listener.setter
+    def listener(self, value: Optional[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesArgs']]):
+        pulumi.set(self, "listener", value)
 
     @property
     @pulumi.getter(name="requiredSynchronizedSecondariesToCommit")
@@ -1107,6 +1377,42 @@ class BasicLoginInformationArgs:
     @username.setter
     def username(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "username", value)
+
+
+if not MYPY:
+    class ClientConnectionArgsDict(TypedDict):
+        """
+        Client connection related configuration.
+        """
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates if client connection is enabled for this SQL Server instance.
+        """
+elif False:
+    ClientConnectionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClientConnectionArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        Client connection related configuration.
+        :param pulumi.Input[builtins.bool] enabled: Indicates if client connection is enabled for this SQL Server instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates if client connection is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
 
 
 if not MYPY:
@@ -1365,6 +1671,62 @@ class DataControllerPropertiesArgs:
     @upload_watermark.setter
     def upload_watermark(self, value: Optional[pulumi.Input['UploadWatermarkArgs']]):
         pulumi.set(self, "upload_watermark", value)
+
+
+if not MYPY:
+    class EntraAuthenticationArgsDict(TypedDict):
+        """
+        Entra Authentication configuration.
+        """
+        client_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
+        """
+        identity_type: NotRequired[pulumi.Input[Union[builtins.str, 'IdentityType']]]
+        """
+        The method used for Entra authentication
+        """
+elif False:
+    EntraAuthenticationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class EntraAuthenticationArgs:
+    def __init__(__self__, *,
+                 client_id: Optional[pulumi.Input[builtins.str]] = None,
+                 identity_type: Optional[pulumi.Input[Union[builtins.str, 'IdentityType']]] = None):
+        """
+        Entra Authentication configuration.
+        :param pulumi.Input[builtins.str] client_id: The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
+        :param pulumi.Input[Union[builtins.str, 'IdentityType']] identity_type: The method used for Entra authentication
+        """
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if identity_type is not None:
+            pulumi.set(__self__, "identity_type", identity_type)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The client Id of the Managed Identity to query Microsoft Graph API. An empty string must be used for the system assigned Managed Identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="identityType")
+    def identity_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'IdentityType']]]:
+        """
+        The method used for Entra authentication
+        """
+        return pulumi.get(self, "identity_type")
+
+    @identity_type.setter
+    def identity_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'IdentityType']]]):
+        pulumi.set(self, "identity_type", value)
 
 
 if not MYPY:
@@ -2282,6 +2644,78 @@ class LogAnalyticsWorkspaceConfigArgs:
 
 
 if not MYPY:
+    class MigrationAssessmentArgsDict(TypedDict):
+        """
+        The migration assessment related configuration.
+        """
+        enabled: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Indicates if migration assessment is enabled for this SQL Server instance.
+        """
+elif False:
+    MigrationAssessmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MigrationAssessmentArgs:
+    def __init__(__self__, *,
+                 enabled: Optional[pulumi.Input[builtins.bool]] = None):
+        """
+        The migration assessment related configuration.
+        :param pulumi.Input[builtins.bool] enabled: Indicates if migration assessment is enabled for this SQL Server instance.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Indicates if migration assessment is enabled for this SQL Server instance.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enabled", value)
+
+
+if not MYPY:
+    class MigrationArgsDict(TypedDict):
+        """
+        Migration related configuration.
+        """
+        assessment: NotRequired[pulumi.Input['MigrationAssessmentArgsDict']]
+        """
+        Migration assessments related configuration.
+        """
+elif False:
+    MigrationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MigrationArgs:
+    def __init__(__self__, *,
+                 assessment: Optional[pulumi.Input['MigrationAssessmentArgs']] = None):
+        """
+        Migration related configuration.
+        :param pulumi.Input['MigrationAssessmentArgs'] assessment: Migration assessments related configuration.
+        """
+        if assessment is not None:
+            pulumi.set(__self__, "assessment", assessment)
+
+    @property
+    @pulumi.getter
+    def assessment(self) -> Optional[pulumi.Input['MigrationAssessmentArgs']]:
+        """
+        Migration assessments related configuration.
+        """
+        return pulumi.get(self, "assessment")
+
+    @assessment.setter
+    def assessment(self, value: Optional[pulumi.Input['MigrationAssessmentArgs']]):
+        pulumi.set(self, "assessment", value)
+
+
+if not MYPY:
     class MonitoringArgsDict(TypedDict):
         """
         The monitoring configuration.
@@ -2693,7 +3127,11 @@ if not MYPY:
         """
         replica_name: NotRequired[pulumi.Input[builtins.str]]
         """
-        the replica name.
+        The replica name.
+        """
+        replica_resource_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
         """
 elif False:
     SqlAvailabilityGroupReplicaResourcePropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -2702,16 +3140,20 @@ elif False:
 class SqlAvailabilityGroupReplicaResourcePropertiesArgs:
     def __init__(__self__, *,
                  configure: Optional[pulumi.Input['AvailabilityGroupConfigureArgs']] = None,
-                 replica_name: Optional[pulumi.Input[builtins.str]] = None):
+                 replica_name: Optional[pulumi.Input[builtins.str]] = None,
+                 replica_resource_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         The properties of Arc Sql availability group replica resource
         :param pulumi.Input['AvailabilityGroupConfigureArgs'] configure: null
-        :param pulumi.Input[builtins.str] replica_name: the replica name.
+        :param pulumi.Input[builtins.str] replica_name: The replica name.
+        :param pulumi.Input[builtins.str] replica_resource_id: Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
         """
         if configure is not None:
             pulumi.set(__self__, "configure", configure)
         if replica_name is not None:
             pulumi.set(__self__, "replica_name", replica_name)
+        if replica_resource_id is not None:
+            pulumi.set(__self__, "replica_resource_id", replica_resource_id)
 
     @property
     @pulumi.getter
@@ -2729,13 +3171,173 @@ class SqlAvailabilityGroupReplicaResourcePropertiesArgs:
     @pulumi.getter(name="replicaName")
     def replica_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        the replica name.
+        The replica name.
         """
         return pulumi.get(self, "replica_name")
 
     @replica_name.setter
     def replica_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "replica_name", value)
+
+    @property
+    @pulumi.getter(name="replicaResourceId")
+    def replica_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Resource id of this replica. This is required for a distributed availability group, in which case it describes the location of the availability group that hosts one replica in the DAG. In a non-distributed availability group this field is optional but can be used to store the Azure resource id for AG.
+        """
+        return pulumi.get(self, "replica_resource_id")
+
+    @replica_resource_id.setter
+    def replica_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "replica_resource_id", value)
+
+
+if not MYPY:
+    class SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgsDict(TypedDict):
+        ip_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        IPV4 address
+        """
+        mask: NotRequired[pulumi.Input[builtins.str]]
+        """
+        IPV4 netmask
+        """
+elif False:
+    SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs:
+    def __init__(__self__, *,
+                 ip_address: Optional[pulumi.Input[builtins.str]] = None,
+                 mask: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        :param pulumi.Input[builtins.str] ip_address: IPV4 address
+        :param pulumi.Input[builtins.str] mask: IPV4 netmask
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if mask is not None:
+            pulumi.set(__self__, "mask", mask)
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IPV4 address
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @property
+    @pulumi.getter
+    def mask(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        IPV4 netmask
+        """
+        return pulumi.get(self, "mask")
+
+    @mask.setter
+    def mask(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "mask", value)
+
+
+if not MYPY:
+    class SqlAvailabilityGroupStaticIPListenerPropertiesArgsDict(TypedDict):
+        """
+        The properties of a static IP Arc Sql availability group listener
+        """
+        dns_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        the DNS name for the listener.
+        """
+        ip_v4_addresses_and_masks: NotRequired[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgsDict']]]]
+        """
+        IP V4 Addresses and masks for the listener.
+        """
+        ip_v6_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        IP V6 Addresses for the listener
+        """
+        port: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Network port for the listener. Default is 1433.
+        """
+elif False:
+    SqlAvailabilityGroupStaticIPListenerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SqlAvailabilityGroupStaticIPListenerPropertiesArgs:
+    def __init__(__self__, *,
+                 dns_name: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_v4_addresses_and_masks: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs']]]] = None,
+                 ip_v6_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 port: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        The properties of a static IP Arc Sql availability group listener
+        :param pulumi.Input[builtins.str] dns_name: the DNS name for the listener.
+        :param pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs']]] ip_v4_addresses_and_masks: IP V4 Addresses and masks for the listener.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] ip_v6_addresses: IP V6 Addresses for the listener
+        :param pulumi.Input[builtins.int] port: Network port for the listener. Default is 1433.
+        """
+        if dns_name is not None:
+            pulumi.set(__self__, "dns_name", dns_name)
+        if ip_v4_addresses_and_masks is not None:
+            pulumi.set(__self__, "ip_v4_addresses_and_masks", ip_v4_addresses_and_masks)
+        if ip_v6_addresses is not None:
+            pulumi.set(__self__, "ip_v6_addresses", ip_v6_addresses)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+
+    @property
+    @pulumi.getter(name="dnsName")
+    def dns_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        the DNS name for the listener.
+        """
+        return pulumi.get(self, "dns_name")
+
+    @dns_name.setter
+    def dns_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "dns_name", value)
+
+    @property
+    @pulumi.getter(name="ipV4AddressesAndMasks")
+    def ip_v4_addresses_and_masks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs']]]]:
+        """
+        IP V4 Addresses and masks for the listener.
+        """
+        return pulumi.get(self, "ip_v4_addresses_and_masks")
+
+    @ip_v4_addresses_and_masks.setter
+    def ip_v4_addresses_and_masks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SqlAvailabilityGroupStaticIPListenerPropertiesIpV4AddressesAndMasksArgs']]]]):
+        pulumi.set(self, "ip_v4_addresses_and_masks", value)
+
+    @property
+    @pulumi.getter(name="ipV6Addresses")
+    def ip_v6_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        IP V6 Addresses for the listener
+        """
+        return pulumi.get(self, "ip_v6_addresses")
+
+    @ip_v6_addresses.setter
+    def ip_v6_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "ip_v6_addresses", value)
+
+    @property
+    @pulumi.getter
+    def port(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Network port for the listener. Default is 1433.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "port", value)
 
 
 if not MYPY:
@@ -3589,6 +4191,10 @@ if not MYPY:
         """
         Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
         """
+        data_file_size_mb: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Total size in MB for the data (mdf and ndf) files for this database.
+        """
         database_creation_date: NotRequired[pulumi.Input[builtins.str]]
         """
         Creation date of the database.
@@ -3600,6 +4206,10 @@ if not MYPY:
         is_read_only: NotRequired[pulumi.Input[builtins.bool]]
         """
         Whether the database is read only or not.
+        """
+        log_file_size_mb: NotRequired[pulumi.Input[builtins.float]]
+        """
+        Total size in MB for the log (ldf) files for this database.
         """
         recovery_mode: NotRequired[pulumi.Input[Union[builtins.str, 'RecoveryMode']]]
         """
@@ -3615,7 +4225,7 @@ if not MYPY:
         """
         source_database_id: NotRequired[pulumi.Input[builtins.str]]
         """
-        The resource identifier of the source database associated with create operation of this database.
+        The name of the source database associated with create operation of this database.
         """
         space_available_mb: NotRequired[pulumi.Input[builtins.float]]
         """
@@ -3636,9 +4246,11 @@ class SqlServerDatabaseResourcePropertiesArgs:
                  collation_name: Optional[pulumi.Input[builtins.str]] = None,
                  compatibility_level: Optional[pulumi.Input[builtins.int]] = None,
                  create_mode: Optional[pulumi.Input[Union[builtins.str, 'DatabaseCreateMode']]] = None,
+                 data_file_size_mb: Optional[pulumi.Input[builtins.float]] = None,
                  database_creation_date: Optional[pulumi.Input[builtins.str]] = None,
                  database_options: Optional[pulumi.Input['SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs']] = None,
                  is_read_only: Optional[pulumi.Input[builtins.bool]] = None,
+                 log_file_size_mb: Optional[pulumi.Input[builtins.float]] = None,
                  recovery_mode: Optional[pulumi.Input[Union[builtins.str, 'RecoveryMode']]] = None,
                  restore_point_in_time: Optional[pulumi.Input[builtins.str]] = None,
                  size_mb: Optional[pulumi.Input[builtins.float]] = None,
@@ -3651,13 +4263,15 @@ class SqlServerDatabaseResourcePropertiesArgs:
         :param pulumi.Input[builtins.str] collation_name: Collation of the database.
         :param pulumi.Input[builtins.int] compatibility_level: Compatibility level of the database
         :param pulumi.Input[Union[builtins.str, 'DatabaseCreateMode']] create_mode: Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
+        :param pulumi.Input[builtins.float] data_file_size_mb: Total size in MB for the data (mdf and ndf) files for this database.
         :param pulumi.Input[builtins.str] database_creation_date: Creation date of the database.
         :param pulumi.Input['SqlServerDatabaseResourcePropertiesDatabaseOptionsArgs'] database_options: List of features that are enabled for the database
         :param pulumi.Input[builtins.bool] is_read_only: Whether the database is read only or not.
+        :param pulumi.Input[builtins.float] log_file_size_mb: Total size in MB for the log (ldf) files for this database.
         :param pulumi.Input[Union[builtins.str, 'RecoveryMode']] recovery_mode: Status of the database.
         :param pulumi.Input[builtins.str] restore_point_in_time: Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database.
         :param pulumi.Input[builtins.float] size_mb: Size of the database.
-        :param pulumi.Input[builtins.str] source_database_id: The resource identifier of the source database associated with create operation of this database.
+        :param pulumi.Input[builtins.str] source_database_id: The name of the source database associated with create operation of this database.
         :param pulumi.Input[builtins.float] space_available_mb: Space left of the database.
         :param pulumi.Input[Union[builtins.str, 'DatabaseState']] state: State of the database.
         """
@@ -3671,12 +4285,16 @@ class SqlServerDatabaseResourcePropertiesArgs:
             pulumi.set(__self__, "compatibility_level", compatibility_level)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
+        if data_file_size_mb is not None:
+            pulumi.set(__self__, "data_file_size_mb", data_file_size_mb)
         if database_creation_date is not None:
             pulumi.set(__self__, "database_creation_date", database_creation_date)
         if database_options is not None:
             pulumi.set(__self__, "database_options", database_options)
         if is_read_only is not None:
             pulumi.set(__self__, "is_read_only", is_read_only)
+        if log_file_size_mb is not None:
+            pulumi.set(__self__, "log_file_size_mb", log_file_size_mb)
         if recovery_mode is not None:
             pulumi.set(__self__, "recovery_mode", recovery_mode)
         if restore_point_in_time is not None:
@@ -3748,6 +4366,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
         pulumi.set(self, "create_mode", value)
 
     @property
+    @pulumi.getter(name="dataFileSizeMB")
+    def data_file_size_mb(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Total size in MB for the data (mdf and ndf) files for this database.
+        """
+        return pulumi.get(self, "data_file_size_mb")
+
+    @data_file_size_mb.setter
+    def data_file_size_mb(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "data_file_size_mb", value)
+
+    @property
     @pulumi.getter(name="databaseCreationDate")
     def database_creation_date(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -3782,6 +4412,18 @@ class SqlServerDatabaseResourcePropertiesArgs:
     @is_read_only.setter
     def is_read_only(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "is_read_only", value)
+
+    @property
+    @pulumi.getter(name="logFileSizeMB")
+    def log_file_size_mb(self) -> Optional[pulumi.Input[builtins.float]]:
+        """
+        Total size in MB for the log (ldf) files for this database.
+        """
+        return pulumi.get(self, "log_file_size_mb")
+
+    @log_file_size_mb.setter
+    def log_file_size_mb(self, value: Optional[pulumi.Input[builtins.float]]):
+        pulumi.set(self, "log_file_size_mb", value)
 
     @property
     @pulumi.getter(name="recoveryMode")
@@ -3823,7 +4465,7 @@ class SqlServerDatabaseResourcePropertiesArgs:
     @pulumi.getter(name="sourceDatabaseId")
     def source_database_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The resource identifier of the source database associated with create operation of this database.
+        The name of the source database associated with create operation of this database.
         """
         return pulumi.get(self, "source_database_id")
 
@@ -3972,9 +4614,17 @@ if not MYPY:
         """
         Properties of SqlServerInstance.
         """
+        authentication: NotRequired[pulumi.Input['AuthenticationArgsDict']]
+        """
+        Authentication related configuration for the SQL Server Instance.
+        """
         backup_policy: NotRequired[pulumi.Input['BackupPolicyArgsDict']]
         """
         The backup profile for the SQL server.
+        """
+        client_connection: NotRequired[pulumi.Input['ClientConnectionArgsDict']]
+        """
+        Client connection related configuration.
         """
         cores: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -3992,9 +4642,17 @@ if not MYPY:
         """
         SQL Server instance name.
         """
+        migration: NotRequired[pulumi.Input['MigrationArgsDict']]
+        """
+        Migration related configuration.
+        """
         monitoring: NotRequired[pulumi.Input['MonitoringArgsDict']]
         """
         The monitoring configuration.
+        """
+        service_type: NotRequired[pulumi.Input[Union[builtins.str, 'ServiceType']]]
+        """
+        Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
         """
         upgrade_locked_until: NotRequired[pulumi.Input[builtins.str]]
         """
@@ -4010,27 +4668,39 @@ elif False:
 @pulumi.input_type
 class SqlServerInstancePropertiesArgs:
     def __init__(__self__, *,
+                 authentication: Optional[pulumi.Input['AuthenticationArgs']] = None,
                  backup_policy: Optional[pulumi.Input['BackupPolicyArgs']] = None,
+                 client_connection: Optional[pulumi.Input['ClientConnectionArgs']] = None,
                  cores: Optional[pulumi.Input[builtins.str]] = None,
                  edition: Optional[pulumi.Input[Union[builtins.str, 'EditionType']]] = None,
                  host_type: Optional[pulumi.Input[Union[builtins.str, 'HostType']]] = None,
                  instance_name: Optional[pulumi.Input[builtins.str]] = None,
+                 migration: Optional[pulumi.Input['MigrationArgs']] = None,
                  monitoring: Optional[pulumi.Input['MonitoringArgs']] = None,
+                 service_type: Optional[pulumi.Input[Union[builtins.str, 'ServiceType']]] = None,
                  upgrade_locked_until: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[Union[builtins.str, 'SqlVersion']]] = None):
         """
         Properties of SqlServerInstance.
+        :param pulumi.Input['AuthenticationArgs'] authentication: Authentication related configuration for the SQL Server Instance.
         :param pulumi.Input['BackupPolicyArgs'] backup_policy: The backup profile for the SQL server.
+        :param pulumi.Input['ClientConnectionArgs'] client_connection: Client connection related configuration.
         :param pulumi.Input[builtins.str] cores: The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
         :param pulumi.Input[Union[builtins.str, 'EditionType']] edition: SQL Server edition.
         :param pulumi.Input[Union[builtins.str, 'HostType']] host_type: Type of host for Azure Arc SQL Server
         :param pulumi.Input[builtins.str] instance_name: SQL Server instance name.
+        :param pulumi.Input['MigrationArgs'] migration: Migration related configuration.
         :param pulumi.Input['MonitoringArgs'] monitoring: The monitoring configuration.
+        :param pulumi.Input[Union[builtins.str, 'ServiceType']] service_type: Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
         :param pulumi.Input[builtins.str] upgrade_locked_until: Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.
         :param pulumi.Input[Union[builtins.str, 'SqlVersion']] version: SQL Server version.
         """
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if backup_policy is not None:
             pulumi.set(__self__, "backup_policy", backup_policy)
+        if client_connection is not None:
+            pulumi.set(__self__, "client_connection", client_connection)
         if cores is not None:
             pulumi.set(__self__, "cores", cores)
         if edition is not None:
@@ -4039,12 +4709,28 @@ class SqlServerInstancePropertiesArgs:
             pulumi.set(__self__, "host_type", host_type)
         if instance_name is not None:
             pulumi.set(__self__, "instance_name", instance_name)
+        if migration is not None:
+            pulumi.set(__self__, "migration", migration)
         if monitoring is not None:
             pulumi.set(__self__, "monitoring", monitoring)
+        if service_type is not None:
+            pulumi.set(__self__, "service_type", service_type)
         if upgrade_locked_until is not None:
             pulumi.set(__self__, "upgrade_locked_until", upgrade_locked_until)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['AuthenticationArgs']]:
+        """
+        Authentication related configuration for the SQL Server Instance.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['AuthenticationArgs']]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="backupPolicy")
@@ -4057,6 +4743,18 @@ class SqlServerInstancePropertiesArgs:
     @backup_policy.setter
     def backup_policy(self, value: Optional[pulumi.Input['BackupPolicyArgs']]):
         pulumi.set(self, "backup_policy", value)
+
+    @property
+    @pulumi.getter(name="clientConnection")
+    def client_connection(self) -> Optional[pulumi.Input['ClientConnectionArgs']]:
+        """
+        Client connection related configuration.
+        """
+        return pulumi.get(self, "client_connection")
+
+    @client_connection.setter
+    def client_connection(self, value: Optional[pulumi.Input['ClientConnectionArgs']]):
+        pulumi.set(self, "client_connection", value)
 
     @property
     @pulumi.getter
@@ -4108,6 +4806,18 @@ class SqlServerInstancePropertiesArgs:
 
     @property
     @pulumi.getter
+    def migration(self) -> Optional[pulumi.Input['MigrationArgs']]:
+        """
+        Migration related configuration.
+        """
+        return pulumi.get(self, "migration")
+
+    @migration.setter
+    def migration(self, value: Optional[pulumi.Input['MigrationArgs']]):
+        pulumi.set(self, "migration", value)
+
+    @property
+    @pulumi.getter
     def monitoring(self) -> Optional[pulumi.Input['MonitoringArgs']]:
         """
         The monitoring configuration.
@@ -4117,6 +4827,18 @@ class SqlServerInstancePropertiesArgs:
     @monitoring.setter
     def monitoring(self, value: Optional[pulumi.Input['MonitoringArgs']]):
         pulumi.set(self, "monitoring", value)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ServiceType']]]:
+        """
+        Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+        """
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ServiceType']]]):
+        pulumi.set(self, "service_type", value)
 
     @property
     @pulumi.getter(name="upgradeLockedUntil")

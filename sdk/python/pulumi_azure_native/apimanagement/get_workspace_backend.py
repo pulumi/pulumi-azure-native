@@ -138,9 +138,9 @@ class GetWorkspaceBackendResult:
 
     @property
     @pulumi.getter
-    def protocol(self) -> builtins.str:
+    def protocol(self) -> Optional[builtins.str]:
         """
-        Backend communication protocol.
+        Backend communication protocol. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "protocol")
 
@@ -186,9 +186,9 @@ class GetWorkspaceBackendResult:
 
     @property
     @pulumi.getter
-    def url(self) -> builtins.str:
+    def url(self) -> Optional[builtins.str]:
         """
-        Runtime Url of the Backend.
+        Runtime Url of the Backend. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "url")
 

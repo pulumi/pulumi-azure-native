@@ -29,10 +29,10 @@ class PatchScheduleArgs:
                  default: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a PatchSchedule resource.
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
+        :param pulumi.Input[builtins.str] name: The name of the redis cache.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input['ScheduleEntryArgs']]] schedule_entries: List of patch schedules for a Redis cache.
-        :param pulumi.Input[builtins.str] default: Default string modeled as parameter for auto generation to work correctly.
+        :param pulumi.Input[builtins.str] default: The name of the RedisPatchSchedule
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -44,7 +44,7 @@ class PatchScheduleArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the Redis cache.
+        The name of the redis cache.
         """
         return pulumi.get(self, "name")
 
@@ -80,7 +80,7 @@ class PatchScheduleArgs:
     @pulumi.getter
     def default(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Default string modeled as parameter for auto generation to work correctly.
+        The name of the RedisPatchSchedule
         """
         return pulumi.get(self, "default")
 
@@ -109,8 +109,8 @@ class PatchSchedule(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] default: Default string modeled as parameter for auto generation to work correctly.
-        :param pulumi.Input[builtins.str] name: The name of the Redis cache.
+        :param pulumi.Input[builtins.str] default: The name of the RedisPatchSchedule
+        :param pulumi.Input[builtins.str] name: The name of the redis cache.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ScheduleEntryArgs', 'ScheduleEntryArgsDict']]]] schedule_entries: List of patch schedules for a Redis cache.
         """
@@ -167,6 +167,7 @@ class PatchSchedule(pulumi.CustomResource):
             __props__.__dict__["schedule_entries"] = schedule_entries
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["location"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20230401:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230501preview:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20230801:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20240301:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20240401preview:PatchSchedule"), pulumi.Alias(type_="azure-native:cache/v20241101:PatchSchedule"), pulumi.Alias(type_="azure-native:cache:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20171001:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20180301:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20190701:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20200601:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20201201:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20210601:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20220501:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20220601:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20230401:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20230501preview:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20230801:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20240301:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20240401preview:PatchSchedule"), pulumi.Alias(type_="azure-native:redis/v20241101:PatchSchedule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -196,6 +197,7 @@ class PatchSchedule(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["schedule_entries"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PatchSchedule(resource_name, opts=opts, __props__=__props__)
 
@@ -230,6 +232,14 @@ class PatchSchedule(pulumi.CustomResource):
         List of patch schedules for a Redis cache.
         """
         return pulumi.get(self, "schedule_entries")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

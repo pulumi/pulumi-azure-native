@@ -16,10 +16,22 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     public sealed class SqlServerInstancePropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Authentication related configuration for the SQL Server Instance.
+        /// </summary>
+        [Input("authentication")]
+        public Input<Inputs.AuthenticationArgs>? Authentication { get; set; }
+
+        /// <summary>
         /// The backup profile for the SQL server.
         /// </summary>
         [Input("backupPolicy")]
         public Input<Inputs.BackupPolicyArgs>? BackupPolicy { get; set; }
+
+        /// <summary>
+        /// Client connection related configuration.
+        /// </summary>
+        [Input("clientConnection")]
+        public Input<Inputs.ClientConnectionArgs>? ClientConnection { get; set; }
 
         /// <summary>
         /// The number of total cores of the Operating System Environment (OSE) hosting the SQL Server instance.
@@ -46,10 +58,22 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<string>? InstanceName { get; set; }
 
         /// <summary>
+        /// Migration related configuration.
+        /// </summary>
+        [Input("migration")]
+        public Input<Inputs.MigrationArgs>? Migration { get; set; }
+
+        /// <summary>
         /// The monitoring configuration.
         /// </summary>
         [Input("monitoring")]
         public Input<Inputs.MonitoringArgs>? Monitoring { get; set; }
+
+        /// <summary>
+        /// Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+        /// </summary>
+        [Input("serviceType")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ServiceType>? ServiceType { get; set; }
 
         /// <summary>
         /// Upgrade Action for this resource is locked until it expires. The Expiration time indicated by this value. It is not locked when it is empty.

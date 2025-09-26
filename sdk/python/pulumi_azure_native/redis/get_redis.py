@@ -28,7 +28,7 @@ class GetRedisResult:
     """
     A single Redis item in List or Get Operation.
     """
-    def __init__(__self__, access_keys=None, azure_api_version=None, disable_access_key_authentication=None, enable_non_ssl_port=None, host_name=None, id=None, identity=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, replicas_per_primary=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, tags=None, tenant_settings=None, type=None, update_channel=None, zonal_allocation_policy=None, zones=None):
+    def __init__(__self__, access_keys=None, azure_api_version=None, disable_access_key_authentication=None, enable_non_ssl_port=None, host_name=None, id=None, identity=None, instances=None, linked_servers=None, location=None, minimum_tls_version=None, name=None, port=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, redis_configuration=None, redis_version=None, replicas_per_master=None, replicas_per_primary=None, shard_count=None, sku=None, ssl_port=None, static_ip=None, subnet_id=None, system_data=None, tags=None, tenant_settings=None, type=None, update_channel=None, zonal_allocation_policy=None, zones=None):
         if access_keys and not isinstance(access_keys, dict):
             raise TypeError("Expected argument 'access_keys' to be a dict")
         pulumi.set(__self__, "access_keys", access_keys)
@@ -104,6 +104,9 @@ class GetRedisResult:
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -167,7 +170,7 @@ class GetRedisResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -175,7 +178,7 @@ class GetRedisResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
-        The identity of the resource.
+        The managed service identities assigned to this resource.
         """
         return pulumi.get(self, "identity")
 
@@ -247,13 +250,13 @@ class GetRedisResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[builtins.str]:
         """
-        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
     @property
     @pulumi.getter(name="redisConfiguration")
-    def redis_configuration(self) -> Optional['outputs.RedisCommonPropertiesResponseRedisConfiguration']:
+    def redis_configuration(self) -> Optional['outputs.RedisCommonPropertiesRedisConfigurationResponse']:
         """
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         """
@@ -324,6 +327,14 @@ class GetRedisResult:
         return pulumi.get(self, "subnet_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -367,7 +378,7 @@ class GetRedisResult:
     @pulumi.getter
     def zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        A list of availability zones denoting where the resource needs to come from.
+        The availability zones.
         """
         return pulumi.get(self, "zones")
 
@@ -403,6 +414,7 @@ class AwaitableGetRedisResult(GetRedisResult):
             ssl_port=self.ssl_port,
             static_ip=self.static_ip,
             subnet_id=self.subnet_id,
+            system_data=self.system_data,
             tags=self.tags,
             tenant_settings=self.tenant_settings,
             type=self.type,
@@ -422,7 +434,7 @@ def get_redis(name: Optional[builtins.str] = None,
     Other available API versions: 2015-08-01, 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str name: The name of the Redis cache.
+    :param builtins.str name: The name of the RedisResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -457,6 +469,7 @@ def get_redis(name: Optional[builtins.str] = None,
         ssl_port=pulumi.get(__ret__, 'ssl_port'),
         static_ip=pulumi.get(__ret__, 'static_ip'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_settings=pulumi.get(__ret__, 'tenant_settings'),
         type=pulumi.get(__ret__, 'type'),
@@ -474,7 +487,7 @@ def get_redis_output(name: Optional[pulumi.Input[builtins.str]] = None,
     Other available API versions: 2015-08-01, 2016-04-01, 2017-02-01, 2017-10-01, 2018-03-01, 2019-07-01, 2020-06-01, 2020-12-01, 2021-06-01, 2022-05-01, 2022-06-01, 2023-04-01, 2023-05-01-preview, 2023-08-01, 2024-03-01, 2024-04-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redis [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param builtins.str name: The name of the Redis cache.
+    :param builtins.str name: The name of the RedisResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -508,6 +521,7 @@ def get_redis_output(name: Optional[pulumi.Input[builtins.str]] = None,
         ssl_port=pulumi.get(__response__, 'ssl_port'),
         static_ip=pulumi.get(__response__, 'static_ip'),
         subnet_id=pulumi.get(__response__, 'subnet_id'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         tenant_settings=pulumi.get(__response__, 'tenant_settings'),
         type=pulumi.get(__response__, 'type'),

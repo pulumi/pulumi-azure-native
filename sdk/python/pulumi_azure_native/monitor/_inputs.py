@@ -109,6 +109,8 @@ __all__ = [
     'IncidentReceiverArgsDict',
     'IncidentServiceConnectionArgs',
     'IncidentServiceConnectionArgsDict',
+    'IssuePropertiesArgs',
+    'IssuePropertiesArgsDict',
     'ItsmReceiverArgs',
     'ItsmReceiverArgsDict',
     'JsonArrayMapperArgs',
@@ -4282,6 +4284,98 @@ class IncidentServiceConnectionArgs:
     @name.setter
     def name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class IssuePropertiesArgsDict(TypedDict):
+        """
+        The issue properties
+        """
+        impact_time: pulumi.Input[builtins.str]
+        """
+        The issue impact time (in UTC)
+        """
+        severity: pulumi.Input[builtins.str]
+        """
+        The issue severity
+        """
+        status: pulumi.Input[Union[builtins.str, 'Status']]
+        """
+        The issue status
+        """
+        title: pulumi.Input[builtins.str]
+        """
+        The issue title
+        """
+elif False:
+    IssuePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IssuePropertiesArgs:
+    def __init__(__self__, *,
+                 impact_time: pulumi.Input[builtins.str],
+                 severity: pulumi.Input[builtins.str],
+                 status: pulumi.Input[Union[builtins.str, 'Status']],
+                 title: pulumi.Input[builtins.str]):
+        """
+        The issue properties
+        :param pulumi.Input[builtins.str] impact_time: The issue impact time (in UTC)
+        :param pulumi.Input[builtins.str] severity: The issue severity
+        :param pulumi.Input[Union[builtins.str, 'Status']] status: The issue status
+        :param pulumi.Input[builtins.str] title: The issue title
+        """
+        pulumi.set(__self__, "impact_time", impact_time)
+        pulumi.set(__self__, "severity", severity)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "title", title)
+
+    @property
+    @pulumi.getter(name="impactTime")
+    def impact_time(self) -> pulumi.Input[builtins.str]:
+        """
+        The issue impact time (in UTC)
+        """
+        return pulumi.get(self, "impact_time")
+
+    @impact_time.setter
+    def impact_time(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "impact_time", value)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> pulumi.Input[builtins.str]:
+        """
+        The issue severity
+        """
+        return pulumi.get(self, "severity")
+
+    @severity.setter
+    def severity(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "severity", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[Union[builtins.str, 'Status']]:
+        """
+        The issue status
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[Union[builtins.str, 'Status']]):
+        pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter
+    def title(self) -> pulumi.Input[builtins.str]:
+        """
+        The issue title
+        """
+        return pulumi.get(self, "title")
+
+    @title.setter
+    def title(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "title", value)
 
 
 if not MYPY:
