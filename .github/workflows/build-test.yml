@@ -419,6 +419,7 @@ jobs:
 
       - name: Build dist packages
         run: make dist
+        shell: bash
         env:
           AZURE_SIGNING_CLIENT_ID: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_CLIENT_ID }}
           AZURE_SIGNING_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.AZURE_SIGNING_CLIENT_SECRET }}
