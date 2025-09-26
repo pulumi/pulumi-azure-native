@@ -53,6 +53,8 @@ jobs:
           if ! git diff-files --quiet; then 
           	echo "changes=1" >> "$GITHUB_OUTPUT"
           fi
+        env:
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
       - run: make ensure
       - name: Provider with Pulumi Upgrade
         if: steps.gomod.outputs.changes != 0
