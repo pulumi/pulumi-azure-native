@@ -95,6 +95,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240701preview:HyperVSite" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:HypervSitesController" },
                 },
             };

@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetRedisArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisResource
         /// </summary>
         [Input("name", required: true)]
         public string Name { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetRedisInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the RedisResource
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -108,11 +108,11 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string HostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The identity of the resource.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
@@ -148,13 +148,13 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
-        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+        /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
         /// All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
         /// </summary>
-        public readonly Outputs.RedisCommonPropertiesResponseRedisConfiguration? RedisConfiguration;
+        public readonly Outputs.RedisCommonPropertiesRedisConfigurationResponse? RedisConfiguration;
         /// <summary>
         /// Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
         /// </summary>
@@ -188,6 +188,10 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -208,7 +212,7 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string? ZonalAllocationPolicy;
         /// <summary>
-        /// A list of availability zones denoting where the resource needs to come from.
+        /// The availability zones.
         /// </summary>
         public readonly ImmutableArray<string> Zones;
 
@@ -246,7 +250,7 @@ namespace Pulumi.AzureNative.Redis
 
             string? publicNetworkAccess,
 
-            Outputs.RedisCommonPropertiesResponseRedisConfiguration? redisConfiguration,
+            Outputs.RedisCommonPropertiesRedisConfigurationResponse? redisConfiguration,
 
             string? redisVersion,
 
@@ -263,6 +267,8 @@ namespace Pulumi.AzureNative.Redis
             string? staticIP,
 
             string? subnetId,
+
+            Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -301,6 +307,7 @@ namespace Pulumi.AzureNative.Redis
             SslPort = sslPort;
             StaticIP = staticIP;
             SubnetId = subnetId;
+            SystemData = systemData;
             Tags = tags;
             TenantSettings = tenantSettings;
             Type = type;

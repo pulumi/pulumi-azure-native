@@ -18,6 +18,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'AFDDomainHttpsCustomizedCipherSuiteSetResponse',
     'AFDDomainHttpsParametersResponse',
     'ActivatedResourceReferenceResponse',
     'AfdRouteCacheConfigurationResponse',
@@ -63,8 +64,8 @@ __all__ = [
     'DeliveryRuleUrlFileNameConditionResponse',
     'DeliveryRuleUrlPathConditionResponse',
     'DomainValidationPropertiesResponse',
-    'EndpointPropertiesUpdateParametersResponseDeliveryPolicy',
-    'EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink',
+    'EndpointPropertiesUpdateParametersDeliveryPolicyResponse',
+    'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse',
     'GeoFilterResponse',
     'HeaderActionParametersResponse',
     'HealthProbeParametersResponse',
@@ -82,6 +83,7 @@ __all__ = [
     'ManagedRuleSetResponse',
     'ManagedServiceIdentityResponse',
     'MatchConditionResponse',
+    'OriginAuthenticationPropertiesResponse',
     'OriginGroupOverrideActionParametersResponse',
     'OriginGroupOverrideActionResponse',
     'OriginGroupOverrideResponse',
@@ -127,6 +129,60 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class AFDDomainHttpsCustomizedCipherSuiteSetResponse(dict):
+    """
+    Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "cipherSuiteSetForTls12":
+            suggest = "cipher_suite_set_for_tls12"
+        elif key == "cipherSuiteSetForTls13":
+            suggest = "cipher_suite_set_for_tls13"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AFDDomainHttpsCustomizedCipherSuiteSetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AFDDomainHttpsCustomizedCipherSuiteSetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AFDDomainHttpsCustomizedCipherSuiteSetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cipher_suite_set_for_tls12: Optional[Sequence[builtins.str]] = None,
+                 cipher_suite_set_for_tls13: Optional[Sequence[builtins.str]] = None):
+        """
+        Customized cipher suite set object that will be used for Https when cipherSuiteSetType is Customized.
+        :param Sequence[builtins.str] cipher_suite_set_for_tls12: Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
+        :param Sequence[builtins.str] cipher_suite_set_for_tls13: Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
+        """
+        if cipher_suite_set_for_tls12 is not None:
+            pulumi.set(__self__, "cipher_suite_set_for_tls12", cipher_suite_set_for_tls12)
+        if cipher_suite_set_for_tls13 is not None:
+            pulumi.set(__self__, "cipher_suite_set_for_tls13", cipher_suite_set_for_tls13)
+
+    @property
+    @pulumi.getter(name="cipherSuiteSetForTls12")
+    def cipher_suite_set_for_tls12(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Cipher suites for TLS 1.2. Required at least one in minimumTlsVersion TLS 1.2.
+        """
+        return pulumi.get(self, "cipher_suite_set_for_tls12")
+
+    @property
+    @pulumi.getter(name="cipherSuiteSetForTls13")
+    def cipher_suite_set_for_tls13(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Cipher suites for TLS 1.3. Required at least one in minimumTlsVersion TLS 1.2, TLS 1.3.
+        """
+        return pulumi.get(self, "cipher_suite_set_for_tls13")
+
+
+@pulumi.output_type
 class AFDDomainHttpsParametersResponse(dict):
     """
     The JSON object that contains the properties to secure a domain.
@@ -136,6 +192,10 @@ class AFDDomainHttpsParametersResponse(dict):
         suggest = None
         if key == "certificateType":
             suggest = "certificate_type"
+        elif key == "cipherSuiteSetType":
+            suggest = "cipher_suite_set_type"
+        elif key == "customizedCipherSuiteSet":
+            suggest = "customized_cipher_suite_set"
         elif key == "minimumTlsVersion":
             suggest = "minimum_tls_version"
 
@@ -152,15 +212,23 @@ class AFDDomainHttpsParametersResponse(dict):
 
     def __init__(__self__, *,
                  certificate_type: builtins.str,
+                 cipher_suite_set_type: Optional[builtins.str] = None,
+                 customized_cipher_suite_set: Optional['outputs.AFDDomainHttpsCustomizedCipherSuiteSetResponse'] = None,
                  minimum_tls_version: Optional[builtins.str] = None,
                  secret: Optional['outputs.ResourceReferenceResponse'] = None):
         """
         The JSON object that contains the properties to secure a domain.
         :param builtins.str certificate_type: Defines the source of the SSL certificate.
-        :param builtins.str minimum_tls_version: TLS protocol version that will be used for Https
+        :param builtins.str cipher_suite_set_type: cipher suite set type that will be used for Https
+        :param 'AFDDomainHttpsCustomizedCipherSuiteSetResponse' customized_cipher_suite_set: Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        :param builtins.str minimum_tls_version: TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         :param 'ResourceReferenceResponse' secret: Resource reference to the secret. ie. subs/rg/profile/secret
         """
         pulumi.set(__self__, "certificate_type", certificate_type)
+        if cipher_suite_set_type is not None:
+            pulumi.set(__self__, "cipher_suite_set_type", cipher_suite_set_type)
+        if customized_cipher_suite_set is not None:
+            pulumi.set(__self__, "customized_cipher_suite_set", customized_cipher_suite_set)
         if minimum_tls_version is not None:
             pulumi.set(__self__, "minimum_tls_version", minimum_tls_version)
         if secret is not None:
@@ -175,10 +243,26 @@ class AFDDomainHttpsParametersResponse(dict):
         return pulumi.get(self, "certificate_type")
 
     @property
+    @pulumi.getter(name="cipherSuiteSetType")
+    def cipher_suite_set_type(self) -> Optional[builtins.str]:
+        """
+        cipher suite set type that will be used for Https
+        """
+        return pulumi.get(self, "cipher_suite_set_type")
+
+    @property
+    @pulumi.getter(name="customizedCipherSuiteSet")
+    def customized_cipher_suite_set(self) -> Optional['outputs.AFDDomainHttpsCustomizedCipherSuiteSetResponse']:
+        """
+        Customized cipher suites object that will be used for Https when cipherSuiteSetType is Customized.
+        """
+        return pulumi.get(self, "customized_cipher_suite_set")
+
+    @property
     @pulumi.getter(name="minimumTlsVersion")
     def minimum_tls_version(self) -> Optional[builtins.str]:
         """
-        TLS protocol version that will be used for Https
+        TLS protocol version that will be used for Https when cipherSuiteSetType is Customized.
         """
         return pulumi.get(self, "minimum_tls_version")
 
@@ -350,7 +434,7 @@ class AzureFirstPartyManagedCertificateParametersResponse(dict):
         Azure FirstParty Managed Certificate provided by other first party resource providers to enable HTTPS.
         :param builtins.str certificate_authority: Certificate issuing authority.
         :param builtins.str expiration_date: Certificate expiration date.
-        :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{certificateName}
         :param builtins.str subject: Subject name in the certificate.
         :param builtins.str thumbprint: Certificate thumbprint.
         :param builtins.str type: The type of the secret resource.
@@ -386,7 +470,7 @@ class AzureFirstPartyManagedCertificateParametersResponse(dict):
     @pulumi.getter(name="secretSource")
     def secret_source(self) -> 'outputs.ResourceReferenceResponse':
         """
-        Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
+        Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}/secrets/{certificateName}
         """
         return pulumi.get(self, "secret_source")
 
@@ -1204,10 +1288,10 @@ class CustomerCertificateParametersResponse(dict):
             suggest = "expiration_date"
         elif key == "secretSource":
             suggest = "secret_source"
-        elif key == "secretVersion":
-            suggest = "secret_version"
         elif key == "subjectAlternativeNames":
             suggest = "subject_alternative_names"
+        elif key == "secretVersion":
+            suggest = "secret_version"
         elif key == "useLatestVersion":
             suggest = "use_latest_version"
 
@@ -1227,10 +1311,10 @@ class CustomerCertificateParametersResponse(dict):
                  expiration_date: builtins.str,
                  secret_source: 'outputs.ResourceReferenceResponse',
                  subject: builtins.str,
+                 subject_alternative_names: Sequence[builtins.str],
                  thumbprint: builtins.str,
                  type: builtins.str,
                  secret_version: Optional[builtins.str] = None,
-                 subject_alternative_names: Optional[Sequence[builtins.str]] = None,
                  use_latest_version: Optional[builtins.bool] = None):
         """
         Customer Certificate used for https
@@ -1238,23 +1322,22 @@ class CustomerCertificateParametersResponse(dict):
         :param builtins.str expiration_date: Certificate expiration date.
         :param 'ResourceReferenceResponse' secret_source: Resource reference to the Azure Key Vault certificate. Expected to be in format of /subscriptions/{​​​​​​​​​subscriptionId}​​​​​​​​​/resourceGroups/{​​​​​​​​​resourceGroupName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/providers/Microsoft.KeyVault/vaults/{vaultName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​/secrets/{certificateName}​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​​
         :param builtins.str subject: Subject name in the certificate.
+        :param Sequence[builtins.str] subject_alternative_names: The list of SANs.
         :param builtins.str thumbprint: Certificate thumbprint.
         :param builtins.str type: The type of the secret resource.
                Expected value is 'CustomerCertificate'.
         :param builtins.str secret_version: Version of the secret to be used
-        :param Sequence[builtins.str] subject_alternative_names: The list of SANs.
         :param builtins.bool use_latest_version: Whether to use the latest version for the certificate
         """
         pulumi.set(__self__, "certificate_authority", certificate_authority)
         pulumi.set(__self__, "expiration_date", expiration_date)
         pulumi.set(__self__, "secret_source", secret_source)
         pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         pulumi.set(__self__, "thumbprint", thumbprint)
         pulumi.set(__self__, "type", 'CustomerCertificate')
         if secret_version is not None:
             pulumi.set(__self__, "secret_version", secret_version)
-        if subject_alternative_names is not None:
-            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if use_latest_version is not None:
             pulumi.set(__self__, "use_latest_version", use_latest_version)
 
@@ -1291,6 +1374,14 @@ class CustomerCertificateParametersResponse(dict):
         return pulumi.get(self, "subject")
 
     @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Sequence[builtins.str]:
+        """
+        The list of SANs.
+        """
+        return pulumi.get(self, "subject_alternative_names")
+
+    @property
     @pulumi.getter
     def thumbprint(self) -> builtins.str:
         """
@@ -1314,14 +1405,6 @@ class CustomerCertificateParametersResponse(dict):
         Version of the secret to be used
         """
         return pulumi.get(self, "secret_version")
-
-    @property
-    @pulumi.getter(name="subjectAlternativeNames")
-    def subject_alternative_names(self) -> Optional[Sequence[builtins.str]]:
-        """
-        The list of SANs.
-        """
-        return pulumi.get(self, "subject_alternative_names")
 
     @property
     @pulumi.getter(name="useLatestVersion")
@@ -1541,7 +1624,7 @@ class DeepCreatedOriginResponse(dict):
         """
         The main origin of CDN content which is added when creating a CDN endpoint.
         :param builtins.str host_name: The address of the origin. It can be a domain name, IPv4 address, or IPv6 address. This should be unique across all origins in an endpoint.
-        :param builtins.str name: Origin name which must be unique within the endpoint. 
+        :param builtins.str name: Origin name which must be unique within the endpoint.
         :param builtins.str private_endpoint_status: The approval status for the connection to the Private Link
         :param builtins.bool enabled: Origin is enabled for load balancing or not. By default, origin is always enabled.
         :param builtins.int http_port: The value of the HTTP port. Must be between 1 and 65535.
@@ -1590,7 +1673,7 @@ class DeepCreatedOriginResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Origin name which must be unique within the endpoint. 
+        Origin name which must be unique within the endpoint.
         """
         return pulumi.get(self, "name")
 
@@ -2633,7 +2716,7 @@ class DomainValidationPropertiesResponse(dict):
 
 
 @pulumi.output_type
-class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
+class EndpointPropertiesUpdateParametersDeliveryPolicyResponse(dict):
     """
     A policy that specifies the delivery rules to be used for an endpoint.
     """
@@ -2667,7 +2750,7 @@ class EndpointPropertiesUpdateParametersResponseDeliveryPolicy(dict):
 
 
 @pulumi.output_type
-class EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink(dict):
+class EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse(dict):
     """
     Defines the Web Application Firewall policy for the endpoint (if applicable)
     """
@@ -4009,6 +4092,70 @@ class MatchConditionResponse(dict):
 
 
 @pulumi.output_type
+class OriginAuthenticationPropertiesResponse(dict):
+    """
+    The JSON object that contains the properties of the origin authentication settings.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "userAssignedIdentity":
+            suggest = "user_assigned_identity"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in OriginAuthenticationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        OriginAuthenticationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        OriginAuthenticationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 scope: Optional[builtins.str] = None,
+                 type: Optional[builtins.str] = None,
+                 user_assigned_identity: Optional['outputs.ResourceReferenceResponse'] = None):
+        """
+        The JSON object that contains the properties of the origin authentication settings.
+        :param builtins.str scope: The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
+        :param builtins.str type: The type of the authentication for the origin.
+        :param 'ResourceReferenceResponse' user_assigned_identity: The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
+        """
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identity is not None:
+            pulumi.set(__self__, "user_assigned_identity", user_assigned_identity)
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[builtins.str]:
+        """
+        The scope used when requesting token from Microsoft Entra. For example, for Azure Blob Storage, scope could be "https://storage.azure.com/.default".
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        The type of the authentication for the origin.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentity")
+    def user_assigned_identity(self) -> Optional['outputs.ResourceReferenceResponse']:
+        """
+        The user assigned managed identity to use for the origin authentication if type is UserAssignedIdentity.
+        """
+        return pulumi.get(self, "user_assigned_identity")
+
+
+@pulumi.output_type
 class OriginGroupOverrideActionParametersResponse(dict):
     """
     Defines the parameters for the origin group override action.
@@ -4181,14 +4328,14 @@ class PolicySettingsResponse(dict):
 
     def __init__(__self__, *,
                  default_custom_block_response_body: Optional[builtins.str] = None,
-                 default_custom_block_response_status_code: Optional[builtins.int] = None,
+                 default_custom_block_response_status_code: Optional[builtins.float] = None,
                  default_redirect_url: Optional[builtins.str] = None,
                  enabled_state: Optional[builtins.str] = None,
                  mode: Optional[builtins.str] = None):
         """
         Defines contents of a web application firewall global configuration
         :param builtins.str default_custom_block_response_body: If the action type is block, customer can override the response body. The body must be specified in base64 encoding.
-        :param builtins.int default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
+        :param builtins.float default_custom_block_response_status_code: If the action type is block, this field defines the default customer overridable http response status code.
         :param builtins.str default_redirect_url: If action type is redirect, this field represents the default redirect URL for the client.
         :param builtins.str enabled_state: describes if the policy is in enabled state or disabled state
         :param builtins.str mode: Describes if it is in detection mode or prevention mode at policy level.
@@ -4214,7 +4361,7 @@ class PolicySettingsResponse(dict):
 
     @property
     @pulumi.getter(name="defaultCustomBlockResponseStatusCode")
-    def default_custom_block_response_status_code(self) -> Optional[builtins.int]:
+    def default_custom_block_response_status_code(self) -> Optional[builtins.float]:
         """
         If the action type is block, this field defines the default customer overridable http response status code.
         """
@@ -5099,7 +5246,7 @@ class RequestMethodMatchConditionParametersResponse(dict):
 @pulumi.output_type
 class RequestSchemeMatchConditionParametersResponse(dict):
     """
-    Defines the parameters for RequestScheme match conditions 
+    Defines the parameters for RequestScheme match conditions
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5129,7 +5276,7 @@ class RequestSchemeMatchConditionParametersResponse(dict):
                  negate_condition: Optional[builtins.bool] = None,
                  transforms: Optional[Sequence[builtins.str]] = None):
         """
-        Defines the parameters for RequestScheme match conditions 
+        Defines the parameters for RequestScheme match conditions
         :param builtins.str operator: Describes operator to be matched
         :param builtins.str type_name: 
                Expected value is 'DeliveryRuleRequestSchemeConditionParameters'.
@@ -5782,7 +5929,6 @@ class SkuResponse(dict):
         StandardPlus_ChinaCdn = The SKU name for a China CDN profile for live-streaming using GB based billing model.
         StandardPlus_955BandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using 95-5 peak bandwidth billing model.
         StandardPlus_AvgBandWidth_ChinaCdn = The SKU name for a China CDN live-streaming profile using monthly average peak bandwidth billing model.
-
         :param builtins.str name: Name of the pricing tier.
         """
         if name is not None:
@@ -6735,7 +6881,7 @@ class UrlSigningActionParametersResponse(dict):
         :param builtins.str type_name: 
                Expected value is 'DeliveryRuleUrlSigningActionParameters'.
         :param builtins.str algorithm: Algorithm to use for URL signing
-        :param Sequence['UrlSigningParamIdentifierResponse'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc. 
+        :param Sequence['UrlSigningParamIdentifierResponse'] parameter_name_override: Defines which query string parameters in the url to be considered for expires, key id etc.
         """
         pulumi.set(__self__, "type_name", 'DeliveryRuleUrlSigningActionParameters')
         if algorithm is not None:
@@ -6764,7 +6910,7 @@ class UrlSigningActionParametersResponse(dict):
     @pulumi.getter(name="parameterNameOverride")
     def parameter_name_override(self) -> Optional[Sequence['outputs.UrlSigningParamIdentifierResponse']]:
         """
-        Defines which query string parameters in the url to be considered for expires, key id etc. 
+        Defines which query string parameters in the url to be considered for expires, key id etc.
         """
         return pulumi.get(self, "parameter_name_override")
 

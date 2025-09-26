@@ -123,7 +123,7 @@ class GetJobDefinitionResult:
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
         """
-        A description for the Job Definition.
+        A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
         """
         return pulumi.get(self, "description")
 
@@ -277,7 +277,7 @@ def get_job_definition(job_definition_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str job_definition_name: The name of the Job Definition resource.
@@ -323,7 +323,7 @@ def get_job_definition_output(job_definition_name: Optional[pulumi.Input[builtin
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str job_definition_name: The name of the Job Definition resource.

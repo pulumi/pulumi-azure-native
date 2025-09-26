@@ -64,7 +64,13 @@ class DeploymentStacksDeleteDetachEnum(builtins.str, Enum):
     Specifies an action for a newly unmanaged resource. Delete will attempt to delete the resource from Azure. Detach will leave the resource in it's current state.
     """
     DELETE = "delete"
+    """
+    Delete the specified resources from Azure
+    """
     DETACH = "detach"
+    """
+    Keep the specified resources in Azure
+    """
 
 
 @pulumi.type_token("azure-native:resources:ExpressionEvaluationOptionsScopeType")

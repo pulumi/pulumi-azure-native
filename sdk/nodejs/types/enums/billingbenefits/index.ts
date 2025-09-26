@@ -2,6 +2,17 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ApplyDiscountOn = {
+    Purchase: "Purchase",
+    Consume: "Consume",
+    Renew: "Renew",
+} as const;
+
+/**
+ * The customer action on which the discount is applied. Supported values are Purchase, Consume, and Renew. Validation: Required, one of supported values.
+ */
+export type ApplyDiscountOn = (typeof ApplyDiscountOn)[keyof typeof ApplyDiscountOn];
+
 export const DiscountAppliedScopeType = {
     BillingAccount: "BillingAccount",
     BillingProfile: "BillingProfile",
@@ -13,6 +24,16 @@ export const DiscountAppliedScopeType = {
  */
 export type DiscountAppliedScopeType = (typeof DiscountAppliedScopeType)[keyof typeof DiscountAppliedScopeType];
 
+export const DiscountCombinationRule = {
+    BestOf: "BestOf",
+    Stackable: "Stackable",
+} as const;
+
+/**
+ * The discount combination rule when there are multiple applicable custom prices. Validation: Required. Supported values are Stackable and BestOf.
+ */
+export type DiscountCombinationRule = (typeof DiscountCombinationRule)[keyof typeof DiscountCombinationRule];
+
 export const DiscountEntityType = {
     Primary: "Primary",
     Affiliate: "Affiliate",
@@ -22,6 +43,30 @@ export const DiscountEntityType = {
  * This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
  */
 export type DiscountEntityType = (typeof DiscountEntityType)[keyof typeof DiscountEntityType];
+
+export const DiscountRuleType = {
+    FixedPriceLock: "FixedPriceLock",
+    FixedListPrice: "FixedListPrice",
+    PriceCeiling: "PriceCeiling",
+} as const;
+
+/**
+ * The type of the priceable node pricing rule. Validation: Required. Supported values are fixedPriceLock, fixedListPrice, and priceCeiling.
+ */
+export type DiscountRuleType = (typeof DiscountRuleType)[keyof typeof DiscountRuleType];
+
+export const DiscountType = {
+    ProductFamily: "ProductFamily",
+    Product: "Product",
+    Sku: "Sku",
+    CustomPrice: "CustomPrice",
+    CustomPriceMultiCurrency: "CustomPriceMultiCurrency",
+} as const;
+
+/**
+ * Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
+ */
+export type DiscountType = (typeof DiscountType)[keyof typeof DiscountType];
 
 export const ManagedServiceIdentityType = {
     None: "None",
@@ -34,6 +79,16 @@ export const ManagedServiceIdentityType = {
  * Type of managed service identity (where both SystemAssigned and UserAssigned types are allowed).
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
+
+export const PricingPolicy = {
+    Protected: "Protected",
+    Locked: "Locked",
+} as const;
+
+/**
+ * Supported values: Protected, Locked
+ */
+export type PricingPolicy = (typeof PricingPolicy)[keyof typeof PricingPolicy];
 
 export const SkuTier = {
     Free: "Free",

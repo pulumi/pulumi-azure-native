@@ -9,10 +9,12 @@ import typing
 from ._enums import *
 from .connection import *
 from .flow import *
+from .flow_profile import *
 from .get_connection import *
 from .get_flow import *
 from .get_flow_destination_endpoint_ports import *
 from .get_flow_destination_endpoints import *
+from .get_flow_profile import *
 from .get_flow_source_addresses import *
 from .get_flow_stream_connection_string import *
 from .get_pipeline import *

@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.Redis
         public Output<ImmutableArray<Outputs.ScheduleEntryResponse>> ScheduleEntries { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
@@ -119,13 +125,13 @@ namespace Pulumi.AzureNative.Redis
     public sealed class PatchScheduleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Default string modeled as parameter for auto generation to work correctly.
+        /// The name of the RedisPatchSchedule
         /// </summary>
         [Input("default")]
         public Input<string>? Default { get; set; }
 
         /// <summary>
-        /// The name of the Redis cache.
+        /// The name of the redis cache.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;

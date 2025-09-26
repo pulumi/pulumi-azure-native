@@ -81,6 +81,18 @@ __all__ = [
     'IstioPluginCertificateAuthorityArgsDict',
     'IstioServiceMeshArgs',
     'IstioServiceMeshArgsDict',
+    'JWTAuthenticatorClaimMappingExpressionArgs',
+    'JWTAuthenticatorClaimMappingExpressionArgsDict',
+    'JWTAuthenticatorClaimMappingsArgs',
+    'JWTAuthenticatorClaimMappingsArgsDict',
+    'JWTAuthenticatorExtraClaimMappingExpressionArgs',
+    'JWTAuthenticatorExtraClaimMappingExpressionArgsDict',
+    'JWTAuthenticatorIssuerArgs',
+    'JWTAuthenticatorIssuerArgsDict',
+    'JWTAuthenticatorPropertiesArgs',
+    'JWTAuthenticatorPropertiesArgsDict',
+    'JWTAuthenticatorValidationRuleArgs',
+    'JWTAuthenticatorValidationRuleArgsDict',
     'KubeletConfigArgs',
     'KubeletConfigArgsDict',
     'LabelSelectorRequirementArgs',
@@ -2296,6 +2308,393 @@ class IstioServiceMeshArgs:
     @revisions.setter
     def revisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "revisions", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorClaimMappingExpressionArgsDict(TypedDict):
+        """
+        The claim mapping expression for JWTAuthenticator.
+        """
+        expression: pulumi.Input[builtins.str]
+        """
+        The CEL expression used to access token claims.
+        """
+elif False:
+    JWTAuthenticatorClaimMappingExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorClaimMappingExpressionArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[builtins.str]):
+        """
+        The claim mapping expression for JWTAuthenticator.
+        :param pulumi.Input[builtins.str] expression: The CEL expression used to access token claims.
+        """
+        pulumi.set(__self__, "expression", expression)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[builtins.str]:
+        """
+        The CEL expression used to access token claims.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "expression", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorClaimMappingsArgsDict(TypedDict):
+        """
+        The claim mappings for JWTAuthenticator.
+        """
+        username: pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgsDict']
+        """
+        The expression to extract username attribute from the token claims.
+        """
+        extra: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgsDict']]]]
+        """
+        The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
+        """
+        groups: NotRequired[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgsDict']]
+        """
+        The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
+        """
+        uid: NotRequired[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgsDict']]
+        """
+        The expression to extract uid attribute from the token claims. When not provided, no uid is extracted from the token claims.
+        """
+elif False:
+    JWTAuthenticatorClaimMappingsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorClaimMappingsArgs:
+    def __init__(__self__, *,
+                 username: pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs'],
+                 extra: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]] = None,
+                 groups: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']] = None,
+                 uid: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']] = None):
+        """
+        The claim mappings for JWTAuthenticator.
+        :param pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs'] username: The expression to extract username attribute from the token claims.
+        :param pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]] extra: The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
+        :param pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs'] groups: The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
+        :param pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs'] uid: The expression to extract uid attribute from the token claims. When not provided, no uid is extracted from the token claims.
+        """
+        pulumi.set(__self__, "username", username)
+        if extra is not None:
+            pulumi.set(__self__, "extra", extra)
+        if groups is not None:
+            pulumi.set(__self__, "groups", groups)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
+
+    @property
+    @pulumi.getter
+    def username(self) -> pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']:
+        """
+        The expression to extract username attribute from the token claims.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']):
+        pulumi.set(self, "username", value)
+
+    @property
+    @pulumi.getter
+    def extra(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]:
+        """
+        The expression to extract extra attribute from the token claims. When not provided, no extra attributes are extracted from the token claims.
+        """
+        return pulumi.get(self, "extra")
+
+    @extra.setter
+    def extra(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorExtraClaimMappingExpressionArgs']]]]):
+        pulumi.set(self, "extra", value)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]:
+        """
+        The expression to extract groups attribute from the token claims. When not provided, no groups are extracted from the token claims.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def uid(self) -> Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]:
+        """
+        The expression to extract uid attribute from the token claims. When not provided, no uid is extracted from the token claims.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: Optional[pulumi.Input['JWTAuthenticatorClaimMappingExpressionArgs']]):
+        pulumi.set(self, "uid", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorExtraClaimMappingExpressionArgsDict(TypedDict):
+        """
+        The extra claim mapping expression for JWTAuthenticator.
+        """
+        key: pulumi.Input[builtins.str]
+        """
+        The key of the extra attribute.
+        """
+        value_expression: pulumi.Input[builtins.str]
+        """
+        The CEL expression used to extract the value of the extra attribute.
+        """
+elif False:
+    JWTAuthenticatorExtraClaimMappingExpressionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorExtraClaimMappingExpressionArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[builtins.str],
+                 value_expression: pulumi.Input[builtins.str]):
+        """
+        The extra claim mapping expression for JWTAuthenticator.
+        :param pulumi.Input[builtins.str] key: The key of the extra attribute.
+        :param pulumi.Input[builtins.str] value_expression: The CEL expression used to extract the value of the extra attribute.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value_expression", value_expression)
+
+    @property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[builtins.str]:
+        """
+        The key of the extra attribute.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @property
+    @pulumi.getter(name="valueExpression")
+    def value_expression(self) -> pulumi.Input[builtins.str]:
+        """
+        The CEL expression used to extract the value of the extra attribute.
+        """
+        return pulumi.get(self, "value_expression")
+
+    @value_expression.setter
+    def value_expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "value_expression", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorIssuerArgsDict(TypedDict):
+        """
+        The OIDC issuer details for JWTAuthenticator.
+        """
+        audiences: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]
+        """
+        The set of acceptable audiences the JWT must be issued to. At least one is required. When multiple is set, AudienceMatchPolicy is used in API Server configuration.
+        """
+        url: pulumi.Input[builtins.str]
+        """
+        The issuer URL. The URL must begin with the scheme https and cannot contain a query string or fragment. This must match the "iss" claim in the presented JWT, and the issuer returned from discovery.
+        """
+elif False:
+    JWTAuthenticatorIssuerArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorIssuerArgs:
+    def __init__(__self__, *,
+                 audiences: pulumi.Input[Sequence[pulumi.Input[builtins.str]]],
+                 url: pulumi.Input[builtins.str]):
+        """
+        The OIDC issuer details for JWTAuthenticator.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] audiences: The set of acceptable audiences the JWT must be issued to. At least one is required. When multiple is set, AudienceMatchPolicy is used in API Server configuration.
+        :param pulumi.Input[builtins.str] url: The issuer URL. The URL must begin with the scheme https and cannot contain a query string or fragment. This must match the "iss" claim in the presented JWT, and the issuer returned from discovery.
+        """
+        pulumi.set(__self__, "audiences", audiences)
+        pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter
+    def audiences(self) -> pulumi.Input[Sequence[pulumi.Input[builtins.str]]]:
+        """
+        The set of acceptable audiences the JWT must be issued to. At least one is required. When multiple is set, AudienceMatchPolicy is used in API Server configuration.
+        """
+        return pulumi.get(self, "audiences")
+
+    @audiences.setter
+    def audiences(self, value: pulumi.Input[Sequence[pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "audiences", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> pulumi.Input[builtins.str]:
+        """
+        The issuer URL. The URL must begin with the scheme https and cannot contain a query string or fragment. This must match the "iss" claim in the presented JWT, and the issuer returned from discovery.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "url", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorPropertiesArgsDict(TypedDict):
+        """
+        The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
+        """
+        claim_mappings: pulumi.Input['JWTAuthenticatorClaimMappingsArgsDict']
+        """
+        The mappings that define how user attributes are extracted from the token claims.
+        """
+        issuer: pulumi.Input['JWTAuthenticatorIssuerArgsDict']
+        """
+        The JWT OIDC issuer details.
+        """
+        claim_validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]
+        """
+        The rules that are applied to validate token claims to authenticate users. All the expressions must evaluate to true for validation to succeed.
+        """
+        user_validation_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgsDict']]]]
+        """
+        The rules that are applied to the mapped user before completing authentication. All the expressions must evaluate to true for validation to succeed.
+        """
+elif False:
+    JWTAuthenticatorPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorPropertiesArgs:
+    def __init__(__self__, *,
+                 claim_mappings: pulumi.Input['JWTAuthenticatorClaimMappingsArgs'],
+                 issuer: pulumi.Input['JWTAuthenticatorIssuerArgs'],
+                 claim_validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None,
+                 user_validation_rules: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]] = None):
+        """
+        The properties of JWTAuthenticator. For details on how to configure the properties of a JWT authenticator, please refer to the Kubernetes documentation: https://kubernetes.io/docs/reference/access-authn-authz/authentication/#using-authentication-configuration. Please note that not all fields available in the Kubernetes documentation are supported by AKS. For troubleshooting, please see https://aka.ms/aks-external-issuers-docs.
+        :param pulumi.Input['JWTAuthenticatorClaimMappingsArgs'] claim_mappings: The mappings that define how user attributes are extracted from the token claims.
+        :param pulumi.Input['JWTAuthenticatorIssuerArgs'] issuer: The JWT OIDC issuer details.
+        :param pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]] claim_validation_rules: The rules that are applied to validate token claims to authenticate users. All the expressions must evaluate to true for validation to succeed.
+        :param pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]] user_validation_rules: The rules that are applied to the mapped user before completing authentication. All the expressions must evaluate to true for validation to succeed.
+        """
+        pulumi.set(__self__, "claim_mappings", claim_mappings)
+        pulumi.set(__self__, "issuer", issuer)
+        if claim_validation_rules is not None:
+            pulumi.set(__self__, "claim_validation_rules", claim_validation_rules)
+        if user_validation_rules is not None:
+            pulumi.set(__self__, "user_validation_rules", user_validation_rules)
+
+    @property
+    @pulumi.getter(name="claimMappings")
+    def claim_mappings(self) -> pulumi.Input['JWTAuthenticatorClaimMappingsArgs']:
+        """
+        The mappings that define how user attributes are extracted from the token claims.
+        """
+        return pulumi.get(self, "claim_mappings")
+
+    @claim_mappings.setter
+    def claim_mappings(self, value: pulumi.Input['JWTAuthenticatorClaimMappingsArgs']):
+        pulumi.set(self, "claim_mappings", value)
+
+    @property
+    @pulumi.getter
+    def issuer(self) -> pulumi.Input['JWTAuthenticatorIssuerArgs']:
+        """
+        The JWT OIDC issuer details.
+        """
+        return pulumi.get(self, "issuer")
+
+    @issuer.setter
+    def issuer(self, value: pulumi.Input['JWTAuthenticatorIssuerArgs']):
+        pulumi.set(self, "issuer", value)
+
+    @property
+    @pulumi.getter(name="claimValidationRules")
+    def claim_validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
+        """
+        The rules that are applied to validate token claims to authenticate users. All the expressions must evaluate to true for validation to succeed.
+        """
+        return pulumi.get(self, "claim_validation_rules")
+
+    @claim_validation_rules.setter
+    def claim_validation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
+        pulumi.set(self, "claim_validation_rules", value)
+
+    @property
+    @pulumi.getter(name="userValidationRules")
+    def user_validation_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]:
+        """
+        The rules that are applied to the mapped user before completing authentication. All the expressions must evaluate to true for validation to succeed.
+        """
+        return pulumi.get(self, "user_validation_rules")
+
+    @user_validation_rules.setter
+    def user_validation_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['JWTAuthenticatorValidationRuleArgs']]]]):
+        pulumi.set(self, "user_validation_rules", value)
+
+
+if not MYPY:
+    class JWTAuthenticatorValidationRuleArgsDict(TypedDict):
+        """
+        The validation rule for JWTAuthenticator.
+        """
+        expression: pulumi.Input[builtins.str]
+        """
+        The CEL expression used to validate the claim or attribute.
+        """
+        message: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The validation error message.
+        """
+elif False:
+    JWTAuthenticatorValidationRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class JWTAuthenticatorValidationRuleArgs:
+    def __init__(__self__, *,
+                 expression: pulumi.Input[builtins.str],
+                 message: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        The validation rule for JWTAuthenticator.
+        :param pulumi.Input[builtins.str] expression: The CEL expression used to validate the claim or attribute.
+        :param pulumi.Input[builtins.str] message: The validation error message.
+        """
+        pulumi.set(__self__, "expression", expression)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def expression(self) -> pulumi.Input[builtins.str]:
+        """
+        The CEL expression used to validate the claim or attribute.
+        """
+        return pulumi.get(self, "expression")
+
+    @expression.setter
+    def expression(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "expression", value)
+
+    @property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The validation error message.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "message", value)
 
 
 if not MYPY:

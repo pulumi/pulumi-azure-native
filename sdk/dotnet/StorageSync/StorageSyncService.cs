@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.StorageSync
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// managed identities for the Storage Sync service to interact with other Azure services without maintaining any secrets or credentials in code.
+        /// The managed service identities assigned to this resource.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;

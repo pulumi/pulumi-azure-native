@@ -143,6 +143,8 @@ def get_storage_discovery_workspace(resource_group_name: Optional[builtins.str] 
 
     Uses Azure REST API version 2025-06-01-preview.
 
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str storage_discovery_workspace_name: The name of the StorageDiscoveryWorkspace
@@ -169,6 +171,8 @@ def get_storage_discovery_workspace_output(resource_group_name: Optional[pulumi.
     Get a StorageDiscoveryWorkspace
 
     Uses Azure REST API version 2025-06-01-preview.
+
+    Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

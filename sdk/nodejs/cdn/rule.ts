@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Friendly Rules name mapping to the any Rules or secret related information.
  *
- * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+ * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Rule extends pulumi.CustomResource {
     /**
@@ -44,7 +44,7 @@ export class Rule extends pulumi.CustomResource {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    public readonly actions!: pulumi.Output<(outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[]>;
+    public readonly actions!: pulumi.Output<(outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
@@ -59,13 +59,13 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly matchProcessingBehavior!: pulumi.Output<string | undefined>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    public readonly order!: pulumi.Output<number>;
+    public readonly order!: pulumi.Output<number | undefined>;
     /**
      * Provisioning status
      */
@@ -75,11 +75,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly ruleSetName!: pulumi.Output<string>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -94,12 +94,6 @@ export class Rule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'actions'");
-            }
-            if ((!args || args.order === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'order'");
-            }
             if ((!args || args.profileName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
@@ -150,7 +144,7 @@ export interface RuleArgs {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    actions: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.DeliveryRuleRouteConfigurationOverrideActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
+    actions?: pulumi.Input<pulumi.Input<inputs.cdn.DeliveryRuleCacheExpirationActionArgs | inputs.cdn.DeliveryRuleCacheKeyQueryStringActionArgs | inputs.cdn.DeliveryRuleRequestHeaderActionArgs | inputs.cdn.DeliveryRuleResponseHeaderActionArgs | inputs.cdn.DeliveryRuleRouteConfigurationOverrideActionArgs | inputs.cdn.OriginGroupOverrideActionArgs | inputs.cdn.UrlRedirectActionArgs | inputs.cdn.UrlRewriteActionArgs | inputs.cdn.UrlSigningActionArgs>[]>;
     /**
      * A list of conditions that must be matched for the actions to be executed
      */
@@ -162,13 +156,13 @@ export interface RuleArgs {
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    order: pulumi.Input<number>;
+    order?: pulumi.Input<number>;
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -176,7 +170,7 @@ export interface RuleArgs {
      */
     ruleName?: pulumi.Input<string>;
     /**
-     * Name of the rule set under the profile.
+     * Name of the rule set under the profile which is unique globally.
      */
     ruleSetName: pulumi.Input<string>;
 }

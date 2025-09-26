@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Redis.Inputs
         public Input<Pulumi.AzureNative.Redis.DayOfWeek> DayOfWeek { get; set; } = null!;
 
         /// <summary>
-        /// ISO8601 timespan specifying how much time cache patching can take. 
+        /// ISO8601 timespan specifying how much time cache patching can take.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<string>? MaintenanceWindow { get; set; }

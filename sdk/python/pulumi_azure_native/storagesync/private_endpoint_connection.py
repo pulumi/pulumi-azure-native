@@ -31,7 +31,7 @@ class PrivateEndpointConnectionArgs:
         The set of arguments for constructing a PrivateEndpointConnection resource.
         :param pulumi.Input['PrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] storage_sync_service_name: The name of the storage sync service name within the specified resource group.
+        :param pulumi.Input[builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         """
         pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
@@ -68,7 +68,7 @@ class PrivateEndpointConnectionArgs:
     @pulumi.getter(name="storageSyncServiceName")
     def storage_sync_service_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the storage sync service name within the specified resource group.
+        Name of Storage Sync Service resource.
         """
         return pulumi.get(self, "storage_sync_service_name")
 
@@ -112,7 +112,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
         :param pulumi.Input[Union['PrivateLinkServiceConnectionStateArgs', 'PrivateLinkServiceConnectionStateArgsDict']] private_link_service_connection_state: A collection of information about the state of the connection between service consumer and provider.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] storage_sync_service_name: The name of the storage sync service name within the specified resource group.
+        :param pulumi.Input[builtins.str] storage_sync_service_name: Name of Storage Sync Service resource.
         """
         ...
     @overload

@@ -275,7 +275,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-        Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -305,7 +305,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-06-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-06-01-preview.
 
-        Other available API versions: 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NetworkSecurityPerimeterAccessRuleArgs args: The arguments to use to populate this resource's properties.
@@ -370,7 +370,7 @@ class NetworkSecurityPerimeterAccessRule(pulumi.CustomResource):
             __props__.__dict__["network_security_perimeters"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network:NspAccessRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210201preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20210201preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20230801preview:NspAccessRule"), pulumi.Alias(type_="azure-native:network/v20240601preview:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20240701:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network/v20241001:NetworkSecurityPerimeterAccessRule"), pulumi.Alias(type_="azure-native:network:NspAccessRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkSecurityPerimeterAccessRule, __self__).__init__(
             'azure-native:network:NetworkSecurityPerimeterAccessRule',

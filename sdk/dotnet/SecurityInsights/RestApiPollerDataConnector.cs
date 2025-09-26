@@ -426,6 +426,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250401preview:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250601:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250701preview:RestApiPollerDataConnector" },
+                    new global::Pulumi.Alias { Type = "azure-native:securityinsights/v20250901:RestApiPollerDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AADDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:AATPDataConnector" },
                     new global::Pulumi.Alias { Type = "azure-native:securityinsights:ASCDataConnector" },

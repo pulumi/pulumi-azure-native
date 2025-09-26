@@ -110,6 +110,11 @@ export const getRaiPolicy: typeof import("./getRaiPolicy").getRaiPolicy = null a
 export const getRaiPolicyOutput: typeof import("./getRaiPolicy").getRaiPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getRaiPolicy","getRaiPolicyOutput"], () => require("./getRaiPolicy"));
 
+export { GetRaiTopicArgs, GetRaiTopicResult, GetRaiTopicOutputArgs } from "./getRaiTopic";
+export const getRaiTopic: typeof import("./getRaiTopic").getRaiTopic = null as any;
+export const getRaiTopicOutput: typeof import("./getRaiTopic").getRaiTopicOutput = null as any;
+utilities.lazyLoad(exports, ["getRaiTopic","getRaiTopicOutput"], () => require("./getRaiTopic"));
+
 export { GetSharedCommitmentPlanArgs, GetSharedCommitmentPlanResult, GetSharedCommitmentPlanOutputArgs } from "./getSharedCommitmentPlan";
 export const getSharedCommitmentPlan: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlan = null as any;
 export const getSharedCommitmentPlanOutput: typeof import("./getSharedCommitmentPlan").getSharedCommitmentPlanOutput = null as any;
@@ -155,6 +160,11 @@ export type RaiPolicy = import("./raiPolicy").RaiPolicy;
 export const RaiPolicy: typeof import("./raiPolicy").RaiPolicy = null as any;
 utilities.lazyLoad(exports, ["RaiPolicy"], () => require("./raiPolicy"));
 
+export { RaiTopicArgs } from "./raiTopic";
+export type RaiTopic = import("./raiTopic").RaiTopic;
+export const RaiTopic: typeof import("./raiTopic").RaiTopic = null as any;
+utilities.lazyLoad(exports, ["RaiTopic"], () => require("./raiTopic"));
+
 export { SharedCommitmentPlanArgs } from "./sharedCommitmentPlan";
 export type SharedCommitmentPlan = import("./sharedCommitmentPlan").SharedCommitmentPlan;
 export const SharedCommitmentPlan: typeof import("./sharedCommitmentPlan").SharedCommitmentPlan = null as any;
@@ -196,6 +206,8 @@ const _module = {
                 return new RaiBlocklistItem(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:RaiPolicy":
                 return new RaiPolicy(name, <any>undefined, { urn })
+            case "azure-native:cognitiveservices:RaiTopic":
+                return new RaiTopic(name, <any>undefined, { urn })
             case "azure-native:cognitiveservices:SharedCommitmentPlan":
                 return new SharedCommitmentPlan(name, <any>undefined, { urn })
             default:

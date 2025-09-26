@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetLinkedServerArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the linked server.
+        /// The name of the RedisLinkedServerWithProperties
         /// </summary>
         [Input("linkedServerName", required: true)]
         public string LinkedServerName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.Redis
     public sealed class GetLinkedServerInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the linked server.
+        /// The name of the RedisLinkedServerWithProperties
         /// </summary>
         [Input("linkedServerName", required: true)]
         public Input<string> LinkedServerName { get; set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string GeoReplicatedPrimaryHostName;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -136,6 +136,10 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string ServerRole;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.Redis
 
             string serverRole,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -171,6 +177,7 @@ namespace Pulumi.AzureNative.Redis
             PrimaryHostName = primaryHostName;
             ProvisioningState = provisioningState;
             ServerRole = serverRole;
+            SystemData = systemData;
             Type = type;
         }
     }

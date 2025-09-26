@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         public Input<bool>? IsDistributed { get; set; }
 
         /// <summary>
+        /// The listener for the sql server availability group
+        /// </summary>
+        [Input("listener")]
+        public Input<Inputs.SqlAvailabilityGroupStaticIPListenerPropertiesArgs>? Listener { get; set; }
+
+        /// <summary>
         /// The number of secondary replicas that must be in a synchronized state for a commit to complete.
         /// </summary>
         [Input("requiredSynchronizedSecondariesToCommit")]

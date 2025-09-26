@@ -43,6 +43,7 @@ __all__ = [
     'GreenplumAuthenticationType',
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
+    'HDInsightClusterAuthenticationType',
     'HiveAuthenticationType',
     'HiveServerType',
     'HiveThriftTransportProtocol',
@@ -54,6 +55,7 @@ __all__ = [
     'IntegrationRuntimeLicenseType',
     'IntegrationRuntimeSsisCatalogPricingTier',
     'IntegrationRuntimeType',
+    'LakehouseAuthenticationType',
     'ManagedVirtualNetworkReferenceType',
     'MappingType',
     'MongoDbAuthenticationType',
@@ -97,6 +99,7 @@ __all__ = [
     'Type',
     'ValueType',
     'VariableType',
+    'WarehouseAuthenticationType',
     'WebActivityMethod',
     'WebAuthenticationType',
     'WebHookActivityMethod',
@@ -459,6 +462,16 @@ class HDInsightActivityDebugInfoOption(builtins.str, Enum):
     FAILURE = "Failure"
 
 
+@pulumi.type_token("azure-native:datafactory:HDInsightClusterAuthenticationType")
+class HDInsightClusterAuthenticationType(builtins.str, Enum):
+    """
+    HDInsight cluster authentication type.
+    """
+    BASIC_AUTH = "BasicAuth"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
 @pulumi.type_token("azure-native:datafactory:HiveAuthenticationType")
 class HiveAuthenticationType(builtins.str, Enum):
     """
@@ -566,6 +579,16 @@ class IntegrationRuntimeType(builtins.str, Enum):
     """
     MANAGED = "Managed"
     SELF_HOSTED = "SelfHosted"
+
+
+@pulumi.type_token("azure-native:datafactory:LakehouseAuthenticationType")
+class LakehouseAuthenticationType(builtins.str, Enum):
+    """
+    The authentication type to use.
+    """
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
 @pulumi.type_token("azure-native:datafactory:ManagedVirtualNetworkReferenceType")
@@ -988,6 +1011,16 @@ class VariableType(builtins.str, Enum):
     STRING = "String"
     BOOL = "Bool"
     ARRAY = "Array"
+
+
+@pulumi.type_token("azure-native:datafactory:WarehouseAuthenticationType")
+class WarehouseAuthenticationType(builtins.str, Enum):
+    """
+    The authentication type to use.
+    """
+    SERVICE_PRINCIPAL = "ServicePrincipal"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 
 
 @pulumi.type_token("azure-native:datafactory:WebActivityMethod")

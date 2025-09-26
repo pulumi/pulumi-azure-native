@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DeviceRegistry
     /// Namespace definition.
     /// 
     /// Uses Azure REST API version 2025-07-01-preview.
+    /// 
+    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceregistry:Namespace")]
     public partial class Namespace : global::Pulumi.CustomResource
@@ -103,6 +105,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20250701preview:Namespace" },
+                    new global::Pulumi.Alias { Type = "azure-native:deviceregistry/v20251001:Namespace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

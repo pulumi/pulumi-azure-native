@@ -8,6 +8,70 @@ using Pulumi;
 namespace Pulumi.AzureNative.ContainerInstance
 {
     /// <summary>
+    /// Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureFileShareAccessTier : IEquatable<AzureFileShareAccessTier>
+    {
+        private readonly string _value;
+
+        private AzureFileShareAccessTier(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureFileShareAccessTier Cool { get; } = new AzureFileShareAccessTier("Cool");
+        public static AzureFileShareAccessTier Hot { get; } = new AzureFileShareAccessTier("Hot");
+        public static AzureFileShareAccessTier Premium { get; } = new AzureFileShareAccessTier("Premium");
+        public static AzureFileShareAccessTier TransactionOptimized { get; } = new AzureFileShareAccessTier("TransactionOptimized");
+
+        public static bool operator ==(AzureFileShareAccessTier left, AzureFileShareAccessTier right) => left.Equals(right);
+        public static bool operator !=(AzureFileShareAccessTier left, AzureFileShareAccessTier right) => !left.Equals(right);
+
+        public static explicit operator string(AzureFileShareAccessTier value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureFileShareAccessTier other && Equals(other);
+        public bool Equals(AzureFileShareAccessTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    ///  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureFileShareAccessType : IEquatable<AzureFileShareAccessType>
+    {
+        private readonly string _value;
+
+        private AzureFileShareAccessType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureFileShareAccessType Shared { get; } = new AzureFileShareAccessType("Shared");
+        public static AzureFileShareAccessType Exclusive { get; } = new AzureFileShareAccessType("Exclusive");
+
+        public static bool operator ==(AzureFileShareAccessType left, AzureFileShareAccessType right) => left.Equals(right);
+        public static bool operator !=(AzureFileShareAccessType left, AzureFileShareAccessType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureFileShareAccessType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureFileShareAccessType other && Equals(other);
+        public bool Equals(AzureFileShareAccessType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies if the IP is exposed to the public internet or private VNET.
     /// </summary>
     [EnumType]
@@ -295,6 +359,34 @@ namespace Pulumi.AzureNative.ContainerInstance
         public override string ToString() => _value;
     }
 
+    [EnumType]
+    public readonly struct NGroupUpdateMode : IEquatable<NGroupUpdateMode>
+    {
+        private readonly string _value;
+
+        private NGroupUpdateMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NGroupUpdateMode Manual { get; } = new NGroupUpdateMode("Manual");
+        public static NGroupUpdateMode Rolling { get; } = new NGroupUpdateMode("Rolling");
+
+        public static bool operator ==(NGroupUpdateMode left, NGroupUpdateMode right) => left.Equals(right);
+        public static bool operator !=(NGroupUpdateMode left, NGroupUpdateMode right) => !left.Equals(right);
+
+        public static explicit operator string(NGroupUpdateMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NGroupUpdateMode other && Equals(other);
+        public bool Equals(NGroupUpdateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
     /// <summary>
     /// The operating system type required by the containers in the container group.
     /// </summary>
@@ -358,7 +450,7 @@ namespace Pulumi.AzureNative.ContainerInstance
     }
 
     /// <summary>
-    /// The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+    /// The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>

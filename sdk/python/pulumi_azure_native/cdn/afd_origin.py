@@ -23,13 +23,13 @@ __all__ = ['AFDOriginArgs', 'AFDOrigin']
 @pulumi.input_type
 class AFDOriginArgs:
     def __init__(__self__, *,
-                 host_name: pulumi.Input[builtins.str],
                  origin_group_name: pulumi.Input[builtins.str],
                  profile_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
                  azure_origin: Optional[pulumi.Input['ResourceReferenceArgs']] = None,
                  enabled_state: Optional[pulumi.Input[Union[builtins.str, 'EnabledState']]] = None,
                  enforce_certificate_name_check: Optional[pulumi.Input[builtins.bool]] = None,
+                 host_name: Optional[pulumi.Input[builtins.str]] = None,
                  http_port: Optional[pulumi.Input[builtins.int]] = None,
                  https_port: Optional[pulumi.Input[builtins.int]] = None,
                  origin_host_header: Optional[pulumi.Input[builtins.str]] = None,
@@ -39,22 +39,21 @@ class AFDOriginArgs:
                  weight: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a AFDOrigin resource.
-        :param pulumi.Input[builtins.str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-        :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the profile.
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ResourceReferenceArgs'] azure_origin: Resource reference to the Azure origin resource.
         :param pulumi.Input[Union[builtins.str, 'EnabledState']] enabled_state: Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
         :param pulumi.Input[builtins.bool] enforce_certificate_name_check: Whether to enable certificate name check at origin level
+        :param pulumi.Input[builtins.str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-        :param pulumi.Input[builtins.str] origin_name: Name of the origin that is unique within the profile.
+        :param pulumi.Input[builtins.str] origin_name: Name of the origin which is unique within the profile.
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
         :param pulumi.Input['SharedPrivateLinkResourcePropertiesArgs'] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[builtins.int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
-        pulumi.set(__self__, "host_name", host_name)
         pulumi.set(__self__, "origin_group_name", origin_group_name)
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -66,6 +65,8 @@ class AFDOriginArgs:
             enforce_certificate_name_check = True
         if enforce_certificate_name_check is not None:
             pulumi.set(__self__, "enforce_certificate_name_check", enforce_certificate_name_check)
+        if host_name is not None:
+            pulumi.set(__self__, "host_name", host_name)
         if http_port is None:
             http_port = 80
         if http_port is not None:
@@ -86,22 +87,10 @@ class AFDOriginArgs:
             pulumi.set(__self__, "weight", weight)
 
     @property
-    @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Input[builtins.str]:
-        """
-        The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
-        """
-        return pulumi.get(self, "host_name")
-
-    @host_name.setter
-    def host_name(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "host_name", value)
-
-    @property
     @pulumi.getter(name="originGroupName")
     def origin_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the origin group which is unique within the profile.
+        Name of the origin group which is unique within the endpoint.
         """
         return pulumi.get(self, "origin_group_name")
 
@@ -113,7 +102,7 @@ class AFDOriginArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -125,7 +114,7 @@ class AFDOriginArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -170,6 +159,18 @@ class AFDOriginArgs:
         pulumi.set(self, "enforce_certificate_name_check", value)
 
     @property
+    @pulumi.getter(name="hostName")
+    def host_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
+        """
+        return pulumi.get(self, "host_name")
+
+    @host_name.setter
+    def host_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "host_name", value)
+
+    @property
     @pulumi.getter(name="httpPort")
     def http_port(self) -> Optional[pulumi.Input[builtins.int]]:
         """
@@ -209,7 +210,7 @@ class AFDOriginArgs:
     @pulumi.getter(name="originName")
     def origin_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of the origin that is unique within the profile.
+        Name of the origin which is unique within the profile.
         """
         return pulumi.get(self, "origin_name")
 
@@ -278,9 +279,9 @@ class AFDOrigin(pulumi.CustomResource):
         """
         Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -290,12 +291,12 @@ class AFDOrigin(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] host_name: The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         :param pulumi.Input[builtins.int] http_port: The value of the HTTP port. Must be between 1 and 65535.
         :param pulumi.Input[builtins.int] https_port: The value of the HTTPS port. Must be between 1 and 65535.
-        :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the profile.
+        :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
         :param pulumi.Input[builtins.str] origin_host_header: The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
-        :param pulumi.Input[builtins.str] origin_name: Name of the origin that is unique within the profile.
+        :param pulumi.Input[builtins.str] origin_name: Name of the origin which is unique within the profile.
         :param pulumi.Input[builtins.int] priority: Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['SharedPrivateLinkResourcePropertiesArgs', 'SharedPrivateLinkResourcePropertiesArgsDict']] shared_private_link_resource: The properties of the private link resource for private origin.
         :param pulumi.Input[builtins.int] weight: Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
         """
@@ -308,9 +309,9 @@ class AFDOrigin(pulumi.CustomResource):
         """
         Azure Front Door origin is the source of the content being delivered via Azure Front Door. When the edge nodes represented by an endpoint do not have the requested content cached, they attempt to fetch it from one or more of the configured origins.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AFDOriginArgs args: The arguments to use to populate this resource's properties.
@@ -355,8 +356,6 @@ class AFDOrigin(pulumi.CustomResource):
             if enforce_certificate_name_check is None:
                 enforce_certificate_name_check = True
             __props__.__dict__["enforce_certificate_name_check"] = enforce_certificate_name_check
-            if host_name is None and not opts.urn:
-                raise TypeError("Missing required property 'host_name'")
             __props__.__dict__["host_name"] = host_name
             if http_port is None:
                 http_port = 80
@@ -466,7 +465,7 @@ class AFDOrigin(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="hostName")
-    def host_name(self) -> pulumi.Output[builtins.str]:
+    def host_name(self) -> pulumi.Output[Optional[builtins.str]]:
         """
         The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
         """
@@ -492,7 +491,7 @@ class AFDOrigin(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -540,7 +539,7 @@ class AFDOrigin(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -548,7 +547,7 @@ class AFDOrigin(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

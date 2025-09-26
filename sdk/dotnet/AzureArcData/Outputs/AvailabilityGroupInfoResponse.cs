@@ -53,6 +53,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly bool? IsDistributed;
         /// <summary>
+        /// The listener for the sql server availability group
+        /// </summary>
+        public readonly Outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponse? Listener;
+        /// <summary>
         /// Indicates the recovery health of the primary replica.
         /// </summary>
         public readonly string PrimaryRecoveryHealthDescription;
@@ -98,6 +102,8 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             bool? isDistributed,
 
+            Outputs.SqlAvailabilityGroupStaticIPListenerPropertiesResponse? listener,
+
             string primaryRecoveryHealthDescription,
 
             string primaryReplica,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
             HealthCheckTimeout = healthCheckTimeout;
             IsContained = isContained;
             IsDistributed = isDistributed;
+            Listener = listener;
             PrimaryRecoveryHealthDescription = primaryRecoveryHealthDescription;
             PrimaryReplica = primaryReplica;
             ReplicationPartnerType = replicationPartnerType;

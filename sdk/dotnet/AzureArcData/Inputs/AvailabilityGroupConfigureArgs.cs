@@ -16,16 +16,58 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
     public sealed class AvailabilityGroupConfigureArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Property that determines whether a given availability replica can run in synchronous-commit mode
+        /// </summary>
+        [Input("availabilityMode")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ArcSqlServerAvailabilityMode>? AvailabilityMode { get; set; }
+
+        /// <summary>
         /// Represents the user-specified priority for performing backups on this replica relative to the other replicas in the same availability group.
         /// </summary>
         [Input("backupPriority")]
         public Input<int>? BackupPriority { get; set; }
 
         /// <summary>
+        /// Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        /// </summary>
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
+
+        /// <summary>
+        /// Permitted authentication modes for the mirroring endpoint.
+        /// </summary>
+        [Input("endpointAuthenticationMode")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ConnectionAuth>? EndpointAuthenticationMode { get; set; }
+
+        /// <summary>
+        /// The login which will connect to the mirroring endpoint.
+        /// </summary>
+        [Input("endpointConnectLogin")]
+        public Input<string>? EndpointConnectLogin { get; set; }
+
+        /// <summary>
+        /// Name of the mirroring endpoint URL
+        /// </summary>
+        [Input("endpointName")]
+        public Input<string>? EndpointName { get; set; }
+
+        /// <summary>
         /// Mirroring endpoint URL of availability group replica
         /// </summary>
         [Input("endpointUrl")]
         public Input<string>? EndpointUrl { get; set; }
+
+        /// <summary>
+        /// Property to set the failover mode of the availability group replica
+        /// </summary>
+        [Input("failoverMode")]
+        public InputUnion<string, Pulumi.AzureNative.AzureArcData.ArcSqlServerFailoverMode>? FailoverMode { get; set; }
+
+        /// <summary>
+        /// Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+        /// </summary>
+        [Input("primaryAllowConnections")]
+        public Input<Pulumi.AzureNative.AzureArcData.PrimaryAllowConnections>? PrimaryAllowConnections { get; set; }
 
         /// <summary>
         /// Connectivity endpoint (URL) of the read only availability replica.
@@ -38,6 +80,18 @@ namespace Pulumi.AzureNative.AzureArcData.Inputs
         /// </summary>
         [Input("readWriteRoutingUrl")]
         public Input<string>? ReadWriteRoutingUrl { get; set; }
+
+        /// <summary>
+        /// Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        /// </summary>
+        [Input("secondaryAllowConnections")]
+        public Input<Pulumi.AzureNative.AzureArcData.SecondaryAllowConnections>? SecondaryAllowConnections { get; set; }
+
+        /// <summary>
+        /// Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+        /// </summary>
+        [Input("seedingMode")]
+        public Input<Pulumi.AzureNative.AzureArcData.SeedingMode>? SeedingMode { get; set; }
 
         /// <summary>
         /// The time-out period of availability group session replica, in seconds.

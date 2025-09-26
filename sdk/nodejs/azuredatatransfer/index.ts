@@ -15,6 +15,11 @@ export type Flow = import("./flow").Flow;
 export const Flow: typeof import("./flow").Flow = null as any;
 utilities.lazyLoad(exports, ["Flow"], () => require("./flow"));
 
+export { FlowProfileArgs } from "./flowProfile";
+export type FlowProfile = import("./flowProfile").FlowProfile;
+export const FlowProfile: typeof import("./flowProfile").FlowProfile = null as any;
+utilities.lazyLoad(exports, ["FlowProfile"], () => require("./flowProfile"));
+
 export { GetConnectionArgs, GetConnectionResult, GetConnectionOutputArgs } from "./getConnection";
 export const getConnection: typeof import("./getConnection").getConnection = null as any;
 export const getConnectionOutput: typeof import("./getConnection").getConnectionOutput = null as any;
@@ -34,6 +39,11 @@ export { GetFlowDestinationEndpointsArgs, GetFlowDestinationEndpointsResult, Get
 export const getFlowDestinationEndpoints: typeof import("./getFlowDestinationEndpoints").getFlowDestinationEndpoints = null as any;
 export const getFlowDestinationEndpointsOutput: typeof import("./getFlowDestinationEndpoints").getFlowDestinationEndpointsOutput = null as any;
 utilities.lazyLoad(exports, ["getFlowDestinationEndpoints","getFlowDestinationEndpointsOutput"], () => require("./getFlowDestinationEndpoints"));
+
+export { GetFlowProfileArgs, GetFlowProfileResult, GetFlowProfileOutputArgs } from "./getFlowProfile";
+export const getFlowProfile: typeof import("./getFlowProfile").getFlowProfile = null as any;
+export const getFlowProfileOutput: typeof import("./getFlowProfile").getFlowProfileOutput = null as any;
+utilities.lazyLoad(exports, ["getFlowProfile","getFlowProfileOutput"], () => require("./getFlowProfile"));
 
 export { GetFlowSourceAddressesArgs, GetFlowSourceAddressesResult, GetFlowSourceAddressesOutputArgs } from "./getFlowSourceAddresses";
 export const getFlowSourceAddresses: typeof import("./getFlowSourceAddresses").getFlowSourceAddresses = null as any;
@@ -92,6 +102,8 @@ const _module = {
                 return new Connection(name, <any>undefined, { urn })
             case "azure-native:azuredatatransfer:Flow":
                 return new Flow(name, <any>undefined, { urn })
+            case "azure-native:azuredatatransfer:FlowProfile":
+                return new FlowProfile(name, <any>undefined, { urn })
             case "azure-native:azuredatatransfer:Pipeline":
                 return new Pipeline(name, <any>undefined, { urn })
             default:

@@ -23,7 +23,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         /// <summary>
         /// If the action type is block, this field defines the default customer overridable http response status code.
         /// </summary>
-        public readonly int? DefaultCustomBlockResponseStatusCode;
+        public readonly double? DefaultCustomBlockResponseStatusCode;
         /// <summary>
         /// If action type is redirect, this field represents the default redirect URL for the client.
         /// </summary>
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
         private PolicySettingsResponse(
             string? defaultCustomBlockResponseBody,
 
-            int? defaultCustomBlockResponseStatusCode,
+            double? defaultCustomBlockResponseStatusCode,
 
             string? defaultRedirectUrl,
 

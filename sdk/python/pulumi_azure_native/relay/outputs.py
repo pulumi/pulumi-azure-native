@@ -102,8 +102,8 @@ class PrivateEndpointConnectionResponse(dict):
         :param builtins.str id: Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         :param builtins.str location: The geo-location where the resource lives
         :param builtins.str name: The name of the resource
-        :param 'SystemDataResponse' system_data: The system meta data relating to this resource.
-        :param builtins.str type: The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        :param 'SystemDataResponse' system_data: Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        :param builtins.str type: The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         :param 'PrivateEndpointResponse' private_endpoint: The Private Endpoint resource for this Connection.
         :param 'ConnectionStateResponse' private_link_service_connection_state: Details about the state of the connection.
         :param builtins.str provisioning_state: Provisioning state of the Private Endpoint Connection.
@@ -148,7 +148,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -156,7 +156,7 @@ class PrivateEndpointConnectionResponse(dict):
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

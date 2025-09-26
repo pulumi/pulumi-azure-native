@@ -24,7 +24,7 @@ export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetRedisArgs {
     /**
-     * The name of the Redis cache.
+     * The name of the RedisResource
      */
     name: string;
     /**
@@ -58,11 +58,11 @@ export interface GetRedisResult {
      */
     readonly hostName: string;
     /**
-     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
-     * The identity of the resource.
+     * The managed service identities assigned to this resource.
      */
     readonly identity?: outputs.redis.ManagedServiceIdentityResponse;
     /**
@@ -98,13 +98,13 @@ export interface GetRedisResult {
      */
     readonly provisioningState: string;
     /**
-     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+     * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
      */
     readonly publicNetworkAccess?: string;
     /**
      * All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta, maxmemory-policy,notify-keyspace-events, aof-backup-enabled, aof-storage-connection-string-0, aof-storage-connection-string-1 etc.
      */
-    readonly redisConfiguration?: outputs.redis.RedisCommonPropertiesResponseRedisConfiguration;
+    readonly redisConfiguration?: outputs.redis.RedisCommonPropertiesRedisConfigurationResponse;
     /**
      * Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'.
      */
@@ -138,6 +138,10 @@ export interface GetRedisResult {
      */
     readonly subnetId?: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.redis.SystemDataResponse;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};
@@ -158,7 +162,7 @@ export interface GetRedisResult {
      */
     readonly zonalAllocationPolicy?: string;
     /**
-     * A list of availability zones denoting where the resource needs to come from.
+     * The availability zones.
      */
     readonly zones?: string[];
 }
@@ -179,7 +183,7 @@ export function getRedisOutput(args: GetRedisOutputArgs, opts?: pulumi.InvokeOut
 
 export interface GetRedisOutputArgs {
     /**
-     * The name of the Redis cache.
+     * The name of the RedisResource
      */
     name: pulumi.Input<string>;
     /**

@@ -39879,6 +39879,8 @@ class HDInsightLinkedServiceResponse(dict):
         suggest = None
         if key == "clusterUri":
             suggest = "cluster_uri"
+        elif key == "clusterAuthType":
+            suggest = "cluster_auth_type"
         elif key == "connectVia":
             suggest = "connect_via"
         elif key == "encryptedCredential":
@@ -39909,7 +39911,9 @@ class HDInsightLinkedServiceResponse(dict):
                  cluster_uri: Any,
                  type: builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
+                 cluster_auth_type: Optional[builtins.str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  file_system: Optional[Any] = None,
@@ -39926,7 +39930,9 @@ class HDInsightLinkedServiceResponse(dict):
         :param builtins.str type: Type of linked service.
                Expected value is 'HDInsight'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param builtins.str cluster_auth_type: HDInsight cluster authentication type.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing MI authentication information for the HDInsight cluster.
         :param builtins.str description: Linked service description.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Any file_system: Specify the FileSystem if the main storage for the HDInsight is ADLS Gen2. Type: string (or Expression with resultType string).
@@ -39942,8 +39948,12 @@ class HDInsightLinkedServiceResponse(dict):
         pulumi.set(__self__, "type", 'HDInsight')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if cluster_auth_type is not None:
+            pulumi.set(__self__, "cluster_auth_type", cluster_auth_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -39991,12 +40001,28 @@ class HDInsightLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="clusterAuthType")
+    def cluster_auth_type(self) -> Optional[builtins.str]:
+        """
+        HDInsight cluster authentication type.
+        """
+        return pulumi.get(self, "cluster_auth_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing MI authentication information for the HDInsight cluster.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter
@@ -47651,6 +47677,8 @@ class LakeHouseLinkedServiceResponse(dict):
         suggest = None
         if key == "artifactId":
             suggest = "artifact_id"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
         elif key == "encryptedCredential":
@@ -47681,7 +47709,9 @@ class LakeHouseLinkedServiceResponse(dict):
                  type: builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
                  artifact_id: Optional[Any] = None,
+                 authentication_type: Optional[builtins.str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -47698,7 +47728,9 @@ class LakeHouseLinkedServiceResponse(dict):
                Expected value is 'Lakehouse'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any artifact_id: The ID of Microsoft Fabric Lakehouse artifact. Type: string (or Expression with resultType string).
+        :param builtins.str authentication_type: The authentication type to use.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param builtins.str description: Linked service description.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -47715,8 +47747,12 @@ class LakeHouseLinkedServiceResponse(dict):
             pulumi.set(__self__, "annotations", annotations)
         if artifact_id is not None:
             pulumi.set(__self__, "artifact_id", artifact_id)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -47764,12 +47800,28 @@ class LakeHouseLinkedServiceResponse(dict):
         return pulumi.get(self, "artifact_id")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[builtins.str]:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter
@@ -49100,6 +49152,8 @@ class LookupActivityResponse(dict):
             suggest = "linked_service_name"
         elif key == "onInactiveMarkAs":
             suggest = "on_inactive_mark_as"
+        elif key == "treatDecimalAsString":
+            suggest = "treat_decimal_as_string"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -49126,6 +49180,7 @@ class LookupActivityResponse(dict):
                  on_inactive_mark_as: Optional[builtins.str] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  state: Optional[builtins.str] = None,
+                 treat_decimal_as_string: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Lookup activity.
@@ -49141,6 +49196,7 @@ class LookupActivityResponse(dict):
         :param builtins.str on_inactive_mark_as: Status result of the activity when the state is set to Inactive. This is an optional property and if not provided when the activity is inactive, the status will be Succeeded by default.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
+        :param Any treat_decimal_as_string: Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "dataset", dataset)
@@ -49161,6 +49217,8 @@ class LookupActivityResponse(dict):
             pulumi.set(__self__, "policy", policy)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if treat_decimal_as_string is not None:
+            pulumi.set(__self__, "treat_decimal_as_string", treat_decimal_as_string)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -49252,6 +49310,14 @@ class LookupActivityResponse(dict):
         Activity state. This is an optional property and if not provided, the state will be Active by default.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="treatDecimalAsString")
+    def treat_decimal_as_string(self) -> Optional[Any]:
+        """
+        Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "treat_decimal_as_string")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -70014,6 +70080,8 @@ class SalesforceV2SourceResponse(dict):
             suggest = "max_concurrent_connections"
         elif key == "pageSize":
             suggest = "page_size"
+        elif key == "partitionOption":
+            suggest = "partition_option"
         elif key == "queryTimeout":
             suggest = "query_timeout"
         elif key == "sOQLQuery":
@@ -70041,6 +70109,7 @@ class SalesforceV2SourceResponse(dict):
                  include_deleted_objects: Optional[Any] = None,
                  max_concurrent_connections: Optional[Any] = None,
                  page_size: Optional[Any] = None,
+                 partition_option: Optional[Any] = None,
                  query: Optional[Any] = None,
                  query_timeout: Optional[Any] = None,
                  s_oql_query: Optional[Any] = None,
@@ -70055,6 +70124,7 @@ class SalesforceV2SourceResponse(dict):
         :param Any include_deleted_objects: This property control whether query result contains Deleted objects. Default is false. Type: boolean (or Expression with resultType boolean).
         :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
         :param Any page_size: Page size for each http request, too large pageSize will caused timeout, default 300,000. Type: integer (or Expression with resultType integer).
+        :param Any partition_option: Partition option for the SalesforceV2 connector in copy activity, AutoDetect or None. Type: string (or Expression with resultType string).
         :param Any query: You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Any s_oql_query: Deprecating, please use 'query' property instead. Type: string (or Expression with resultType string).
@@ -70072,6 +70142,8 @@ class SalesforceV2SourceResponse(dict):
             pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
         if page_size is not None:
             pulumi.set(__self__, "page_size", page_size)
+        if partition_option is not None:
+            pulumi.set(__self__, "partition_option", partition_option)
         if query is not None:
             pulumi.set(__self__, "query", query)
         if query_timeout is not None:
@@ -70131,6 +70203,14 @@ class SalesforceV2SourceResponse(dict):
         Page size for each http request, too large pageSize will caused timeout, default 300,000. Type: integer (or Expression with resultType integer).
         """
         return pulumi.get(self, "page_size")
+
+    @property
+    @pulumi.getter(name="partitionOption")
+    def partition_option(self) -> Optional[Any]:
+        """
+        Partition option for the SalesforceV2 connector in copy activity, AutoDetect or None. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "partition_option")
 
     @property
     @pulumi.getter
@@ -74563,6 +74643,8 @@ class ScriptActivityResponse(dict):
             suggest = "return_multistatement_result"
         elif key == "scriptBlockExecutionTimeout":
             suggest = "script_block_execution_timeout"
+        elif key == "treatDecimalAsString":
+            suggest = "treat_decimal_as_string"
         elif key == "userProperties":
             suggest = "user_properties"
 
@@ -74590,6 +74672,7 @@ class ScriptActivityResponse(dict):
                  script_block_execution_timeout: Optional[Any] = None,
                  scripts: Optional[Sequence['outputs.ScriptActivityScriptBlockResponse']] = None,
                  state: Optional[builtins.str] = None,
+                 treat_decimal_as_string: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
         """
         Script activity type.
@@ -74606,6 +74689,7 @@ class ScriptActivityResponse(dict):
         :param Any script_block_execution_timeout: ScriptBlock execution timeout. Type: string (or Expression with resultType string), pattern: ((\\d+)\\.)?(\\d\\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
         :param Sequence['ScriptActivityScriptBlockResponse'] scripts: Array of script blocks. Type: array.
         :param builtins.str state: Activity state. This is an optional property and if not provided, the state will be Active by default.
+        :param Any treat_decimal_as_string: Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
@@ -74629,6 +74713,8 @@ class ScriptActivityResponse(dict):
             pulumi.set(__self__, "scripts", scripts)
         if state is not None:
             pulumi.set(__self__, "state", state)
+        if treat_decimal_as_string is not None:
+            pulumi.set(__self__, "treat_decimal_as_string", treat_decimal_as_string)
         if user_properties is not None:
             pulumi.set(__self__, "user_properties", user_properties)
 
@@ -74728,6 +74814,14 @@ class ScriptActivityResponse(dict):
         Activity state. This is an optional property and if not provided, the state will be Active by default.
         """
         return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter(name="treatDecimalAsString")
+    def treat_decimal_as_string(self) -> Optional[Any]:
+        """
+        Indicates whether to treat decimal values as strings to avoid value overflow issue. This option is enabled for SnowflakeV2 connector only. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "treat_decimal_as_string")
 
     @property
     @pulumi.getter(name="userProperties")
@@ -79396,6 +79490,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
             suggest = "private_key_passphrase"
         elif key == "tenantId":
             suggest = "tenant_id"
+        elif key == "useUtcTimestamps":
+            suggest = "use_utc_timestamps"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in SnowflakeV2LinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -79429,6 +79525,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
                  schema: Optional[Any] = None,
                  scope: Optional[Any] = None,
                  tenant_id: Optional[Any] = None,
+                 use_utc_timestamps: Optional[Any] = None,
                  user: Optional[Any] = None,
                  version: Optional[builtins.str] = None):
         """
@@ -79454,6 +79551,7 @@ class SnowflakeV2LinkedServiceResponse(dict):
         :param Any schema: Schema name for connection. Type: string (or Expression with resultType string).
         :param Any scope: The scope of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         :param Any tenant_id: The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
+        :param Any use_utc_timestamps: Indicates whether to use UTC timezone for timestamp data types. Type: boolean.
         :param Any user: The name of the Snowflake user.
         :param builtins.str version: Version of the linked service.
         """
@@ -79495,6 +79593,8 @@ class SnowflakeV2LinkedServiceResponse(dict):
             pulumi.set(__self__, "scope", scope)
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if use_utc_timestamps is not None:
+            pulumi.set(__self__, "use_utc_timestamps", use_utc_timestamps)
         if user is not None:
             pulumi.set(__self__, "user", user)
         if version is not None:
@@ -79660,6 +79760,14 @@ class SnowflakeV2LinkedServiceResponse(dict):
         The tenant ID of the application registered in Azure Active Directory for AADServicePrincipal authentication.
         """
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="useUtcTimestamps")
+    def use_utc_timestamps(self) -> Optional[Any]:
+        """
+        Indicates whether to use UTC timezone for timestamp data types. Type: boolean.
+        """
+        return pulumi.get(self, "use_utc_timestamps")
 
     @property
     @pulumi.getter
@@ -89241,6 +89349,8 @@ class WarehouseLinkedServiceResponse(dict):
         suggest = None
         if key == "artifactId":
             suggest = "artifact_id"
+        elif key == "authenticationType":
+            suggest = "authentication_type"
         elif key == "connectVia":
             suggest = "connect_via"
         elif key == "encryptedCredential":
@@ -89272,7 +89382,9 @@ class WarehouseLinkedServiceResponse(dict):
                  endpoint: Any,
                  type: builtins.str,
                  annotations: Optional[Sequence[Any]] = None,
+                 authentication_type: Optional[builtins.str] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[builtins.str] = None,
                  encrypted_credential: Optional[builtins.str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
@@ -89290,7 +89402,9 @@ class WarehouseLinkedServiceResponse(dict):
         :param builtins.str type: Type of linked service.
                Expected value is 'Warehouse'.
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param builtins.str authentication_type: The authentication type to use.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param builtins.str description: Linked service description.
         :param builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
@@ -89307,8 +89421,12 @@ class WarehouseLinkedServiceResponse(dict):
         pulumi.set(__self__, "type", 'Warehouse')
         if annotations is not None:
             pulumi.set(__self__, "annotations", annotations)
+        if authentication_type is not None:
+            pulumi.set(__self__, "authentication_type", authentication_type)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
+        if credential is not None:
+            pulumi.set(__self__, "credential", credential)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
@@ -89364,12 +89482,28 @@ class WarehouseLinkedServiceResponse(dict):
         return pulumi.get(self, "annotations")
 
     @property
+    @pulumi.getter(name="authenticationType")
+    def authentication_type(self) -> Optional[builtins.str]:
+        """
+        The authentication type to use.
+        """
+        return pulumi.get(self, "authentication_type")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
         The integration runtime reference.
         """
         return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def credential(self) -> Optional['outputs.CredentialReferenceResponse']:
+        """
+        The credential reference containing authentication information.
+        """
+        return pulumi.get(self, "credential")
 
     @property
     @pulumi.getter

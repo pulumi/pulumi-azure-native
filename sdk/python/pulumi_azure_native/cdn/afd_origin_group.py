@@ -25,6 +25,7 @@ class AFDOriginGroupArgs:
     def __init__(__self__, *,
                  profile_name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
+                 authentication: Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']] = None,
                  health_probe_settings: Optional[pulumi.Input['HealthProbeParametersArgs']] = None,
                  load_balancing_settings: Optional[pulumi.Input['LoadBalancingSettingsParametersArgs']] = None,
                  origin_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -32,8 +33,9 @@ class AFDOriginGroupArgs:
                  traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a AFDOriginGroup resource.
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input['OriginAuthenticationPropertiesArgs'] authentication: Authentication settings for origin in origin group.
         :param pulumi.Input['HealthProbeParametersArgs'] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input['LoadBalancingSettingsParametersArgs'] load_balancing_settings: Load balancing settings for a backend pool
         :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
@@ -42,6 +44,8 @@ class AFDOriginGroupArgs:
         """
         pulumi.set(__self__, "profile_name", profile_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if authentication is not None:
+            pulumi.set(__self__, "authentication", authentication)
         if health_probe_settings is not None:
             pulumi.set(__self__, "health_probe_settings", health_probe_settings)
         if load_balancing_settings is not None:
@@ -57,7 +61,7 @@ class AFDOriginGroupArgs:
     @pulumi.getter(name="profileName")
     def profile_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+        Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
         """
         return pulumi.get(self, "profile_name")
 
@@ -69,13 +73,25 @@ class AFDOriginGroupArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[builtins.str]:
         """
-        Name of the Resource group within the Azure subscription.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']]:
+        """
+        Authentication settings for origin in origin group.
+        """
+        return pulumi.get(self, "authentication")
+
+    @authentication.setter
+    def authentication(self, value: Optional[pulumi.Input['OriginAuthenticationPropertiesArgs']]):
+        pulumi.set(self, "authentication", value)
 
     @property
     @pulumi.getter(name="healthProbeSettings")
@@ -144,6 +160,7 @@ class AFDOriginGroup(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication: Optional[pulumi.Input[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
                  health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
                  load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -155,17 +172,18 @@ class AFDOriginGroup(pulumi.CustomResource):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']] authentication: Authentication settings for origin in origin group.
         :param pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']] health_probe_settings: Health probe settings to the origin that is used to determine the health of the origin.
         :param pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']] load_balancing_settings: Load balancing settings for a backend pool
         :param pulumi.Input[builtins.str] origin_group_name: Name of the origin group which is unique within the endpoint.
-        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
-        :param pulumi.Input[builtins.str] resource_group_name: Name of the Resource group within the Azure subscription.
+        :param pulumi.Input[builtins.str] profile_name: Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
+        :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'EnabledState']] session_affinity_state: Whether to allow session affinity on this host. Valid options are 'Enabled' or 'Disabled'
         :param pulumi.Input[builtins.int] traffic_restoration_time_to_healed_or_new_endpoints_in_minutes: Time in minutes to shift the traffic to the endpoint gradually when an unhealthy endpoint comes healthy or a new endpoint is added. Default is 10 mins. This property is currently not supported.
         """
@@ -178,9 +196,9 @@ class AFDOriginGroup(pulumi.CustomResource):
         """
         AFDOrigin group comprising of origins is used for load balancing to origins when the content cannot be served from Azure Front Door.
 
-        Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+        Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AFDOriginGroupArgs args: The arguments to use to populate this resource's properties.
@@ -197,6 +215,7 @@ class AFDOriginGroup(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 authentication: Optional[pulumi.Input[Union['OriginAuthenticationPropertiesArgs', 'OriginAuthenticationPropertiesArgsDict']]] = None,
                  health_probe_settings: Optional[pulumi.Input[Union['HealthProbeParametersArgs', 'HealthProbeParametersArgsDict']]] = None,
                  load_balancing_settings: Optional[pulumi.Input[Union['LoadBalancingSettingsParametersArgs', 'LoadBalancingSettingsParametersArgsDict']]] = None,
                  origin_group_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -213,6 +232,7 @@ class AFDOriginGroup(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AFDOriginGroupArgs.__new__(AFDOriginGroupArgs)
 
+            __props__.__dict__["authentication"] = authentication
             __props__.__dict__["health_probe_settings"] = health_probe_settings
             __props__.__dict__["load_balancing_settings"] = load_balancing_settings
             __props__.__dict__["origin_group_name"] = origin_group_name
@@ -254,6 +274,7 @@ class AFDOriginGroup(pulumi.CustomResource):
 
         __props__ = AFDOriginGroupArgs.__new__(AFDOriginGroupArgs)
 
+        __props__.__dict__["authentication"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["deployment_status"] = None
         __props__.__dict__["health_probe_settings"] = None
@@ -266,6 +287,14 @@ class AFDOriginGroup(pulumi.CustomResource):
         __props__.__dict__["traffic_restoration_time_to_healed_or_new_endpoints_in_minutes"] = None
         __props__.__dict__["type"] = None
         return AFDOriginGroup(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def authentication(self) -> pulumi.Output[Optional['outputs.OriginAuthenticationPropertiesResponse']]:
+        """
+        Authentication settings for origin in origin group.
+        """
+        return pulumi.get(self, "authentication")
 
     @property
     @pulumi.getter(name="azureApiVersion")
@@ -300,7 +329,7 @@ class AFDOriginGroup(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -332,7 +361,7 @@ class AFDOriginGroup(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        Read only system data
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -348,7 +377,7 @@ class AFDOriginGroup(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

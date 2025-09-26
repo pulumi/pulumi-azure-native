@@ -111,6 +111,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         public readonly string ObjectId;
         public readonly string PrincipalType;
         /// <summary>
@@ -122,6 +125,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// A type definition that refers the id to an Azure Resource Manager resource.
+        /// </summary>
         public readonly string? TenantId;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Quota
     /// 
     /// Uses Azure REST API version 2025-03-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
     /// 
-    /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-06-01-preview, 2024-10-15-preview, 2024-12-18-preview, 2025-03-15-preview, 2025-07-15, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native quota [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:quota:GroupQuotaSubscription")]
     public partial class GroupQuotaSubscription : global::Pulumi.CustomResource
@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.Quota
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20250301:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20250315preview:GroupQuotaSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:quota/v20250715:GroupQuotaSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:quota/v20250901:GroupQuotaSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

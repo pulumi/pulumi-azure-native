@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.OffAzure
     /// 
     /// Uses Azure REST API version 2023-10-01-preview. In version 2.x of the Azure Native provider, it used API version 2023-06-06.
     /// 
-    /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:offazure:HypervSitesController")]
     public partial class HypervSitesController : global::Pulumi.CustomResource
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20230606:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20231001preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:HypervSitesController" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20240701preview:HypervSitesController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:HyperVSite" },
                 },
             };

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// Get a StorageDiscoveryWorkspace
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetStorageDiscoveryWorkspaceResult> InvokeAsync(GetStorageDiscoveryWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStorageDiscoveryWorkspaceResult>("azure-native:storagediscovery:getStorageDiscoveryWorkspace", args ?? new GetStorageDiscoveryWorkspaceArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// Get a StorageDiscoveryWorkspace
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageDiscoveryWorkspaceResult> Invoke(GetStorageDiscoveryWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageDiscoveryWorkspaceResult>("azure-native:storagediscovery:getStorageDiscoveryWorkspace", args ?? new GetStorageDiscoveryWorkspaceInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
         /// Get a StorageDiscoveryWorkspace
         /// 
         /// Uses Azure REST API version 2025-06-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetStorageDiscoveryWorkspaceResult> Invoke(GetStorageDiscoveryWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetStorageDiscoveryWorkspaceResult>("azure-native:storagediscovery:getStorageDiscoveryWorkspace", args ?? new GetStorageDiscoveryWorkspaceInvokeArgs(), options.WithDefaults());

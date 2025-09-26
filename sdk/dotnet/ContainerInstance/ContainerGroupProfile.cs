@@ -168,6 +168,7 @@ namespace Pulumi.AzureNative.ContainerInstance
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20240501preview:ContainerGroupProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:CGProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20241101preview:ContainerGroupProfile" },
+                    new global::Pulumi.Alias { Type = "azure-native:containerinstance/v20250901:ContainerGroupProfile" },
                     new global::Pulumi.Alias { Type = "azure-native:containerinstance:CGProfile" },
                 },
             };

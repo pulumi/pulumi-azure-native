@@ -23,10 +23,11 @@ __all__ = ['CGProfileArgs', 'CGProfile']
 @pulumi.input_type
 class CGProfileArgs:
     def __init__(__self__, *,
+                 containers: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]],
+                 os_type: pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']],
                  resource_group_name: pulumi.Input[builtins.str],
                  confidential_compute_properties: Optional[pulumi.Input['ConfidentialComputePropertiesArgs']] = None,
                  container_group_profile_name: Optional[pulumi.Input[builtins.str]] = None,
-                 containers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]] = None,
                  diagnostics: Optional[pulumi.Input['ContainerGroupDiagnosticsArgs']] = None,
                  encryption_properties: Optional[pulumi.Input['EncryptionPropertiesArgs']] = None,
                  extensions: Optional[pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]]] = None,
@@ -34,11 +35,8 @@ class CGProfileArgs:
                  init_containers: Optional[pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]]] = None,
                  ip_address: Optional[pulumi.Input['IpAddressArgs']] = None,
                  location: Optional[pulumi.Input[builtins.str]] = None,
-                 os_type: Optional[pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]] = None,
                  priority: Optional[pulumi.Input[Union[builtins.str, 'Priority']]] = None,
-                 registered_revisions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]] = None,
                  restart_policy: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 revision: Optional[pulumi.Input[builtins.float]] = None,
                  security_context: Optional[pulumi.Input['SecurityContextDefinitionArgs']] = None,
                  shutdown_grace_period: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupSku']]] = None,
@@ -49,10 +47,11 @@ class CGProfileArgs:
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None):
         """
         The set of arguments for constructing a CGProfile resource.
+        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
+        :param pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfidentialComputePropertiesArgs'] confidential_compute_properties: The properties for confidential container group
         :param pulumi.Input[builtins.str] container_group_profile_name: ContainerGroupProfile name.
-        :param pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]] containers: The containers within the container group.
         :param pulumi.Input['ContainerGroupDiagnosticsArgs'] diagnostics: The diagnostic information for a container group.
         :param pulumi.Input['EncryptionPropertiesArgs'] encryption_properties: The encryption properties for a container group.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentExtensionSpecArgs']]] extensions: extensions used by virtual kubelet
@@ -60,14 +59,11 @@ class CGProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['InitContainerDefinitionArgs']]] init_containers: The init containers for a container group.
         :param pulumi.Input['IpAddressArgs'] ip_address: The IP address type of the container group.
         :param pulumi.Input[builtins.str] location: The resource location.
-        :param pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[Union[builtins.str, 'Priority']] priority: The priority of the container group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] registered_revisions: Registered revisions are calculated at request time based off the records in the table logs.
         :param pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
-        :param pulumi.Input[builtins.float] revision: Container group profile current revision number
         :param pulumi.Input['SecurityContextDefinitionArgs'] security_context: The container security properties.
         :param pulumi.Input[builtins.str] shutdown_grace_period: Shutdown grace period for containers in a container group.
         :param pulumi.Input[Union[builtins.str, 'ContainerGroupSku']] sku: The SKU for a container group.
@@ -77,13 +73,13 @@ class CGProfileArgs:
         :param pulumi.Input[Sequence[pulumi.Input['VolumeArgs']]] volumes: The list of volumes that can be mounted by containers in this container group.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The zones for the container group.
         """
+        pulumi.set(__self__, "containers", containers)
+        pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if confidential_compute_properties is not None:
             pulumi.set(__self__, "confidential_compute_properties", confidential_compute_properties)
         if container_group_profile_name is not None:
             pulumi.set(__self__, "container_group_profile_name", container_group_profile_name)
-        if containers is not None:
-            pulumi.set(__self__, "containers", containers)
         if diagnostics is not None:
             pulumi.set(__self__, "diagnostics", diagnostics)
         if encryption_properties is not None:
@@ -98,16 +94,10 @@ class CGProfileArgs:
             pulumi.set(__self__, "ip_address", ip_address)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if os_type is not None:
-            pulumi.set(__self__, "os_type", os_type)
         if priority is not None:
             pulumi.set(__self__, "priority", priority)
-        if registered_revisions is not None:
-            pulumi.set(__self__, "registered_revisions", registered_revisions)
         if restart_policy is not None:
             pulumi.set(__self__, "restart_policy", restart_policy)
-        if revision is not None:
-            pulumi.set(__self__, "revision", revision)
         if security_context is not None:
             pulumi.set(__self__, "security_context", security_context)
         if shutdown_grace_period is not None:
@@ -124,6 +114,30 @@ class CGProfileArgs:
             pulumi.set(__self__, "volumes", volumes)
         if zones is not None:
             pulumi.set(__self__, "zones", zones)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]:
+        """
+        The containers within the container group.
+        """
+        return pulumi.get(self, "containers")
+
+    @containers.setter
+    def containers(self, value: pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]):
+        pulumi.set(self, "containers", value)
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]:
+        """
+        The operating system type required by the containers in the container group.
+        """
+        return pulumi.get(self, "os_type")
+
+    @os_type.setter
+    def os_type(self, value: pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]):
+        pulumi.set(self, "os_type", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -160,18 +174,6 @@ class CGProfileArgs:
     @container_group_profile_name.setter
     def container_group_profile_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "container_group_profile_name", value)
-
-    @property
-    @pulumi.getter
-    def containers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]:
-        """
-        The containers within the container group.
-        """
-        return pulumi.get(self, "containers")
-
-    @containers.setter
-    def containers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerArgs']]]]):
-        pulumi.set(self, "containers", value)
 
     @property
     @pulumi.getter
@@ -258,18 +260,6 @@ class CGProfileArgs:
         pulumi.set(self, "location", value)
 
     @property
-    @pulumi.getter(name="osType")
-    def os_type(self) -> Optional[pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]]:
-        """
-        The operating system type required by the containers in the container group.
-        """
-        return pulumi.get(self, "os_type")
-
-    @os_type.setter
-    def os_type(self, value: Optional[pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]]):
-        pulumi.set(self, "os_type", value)
-
-    @property
     @pulumi.getter
     def priority(self) -> Optional[pulumi.Input[Union[builtins.str, 'Priority']]]:
         """
@@ -280,18 +270,6 @@ class CGProfileArgs:
     @priority.setter
     def priority(self, value: Optional[pulumi.Input[Union[builtins.str, 'Priority']]]):
         pulumi.set(self, "priority", value)
-
-    @property
-    @pulumi.getter(name="registeredRevisions")
-    def registered_revisions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]:
-        """
-        Registered revisions are calculated at request time based off the records in the table logs.
-        """
-        return pulumi.get(self, "registered_revisions")
-
-    @registered_revisions.setter
-    def registered_revisions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]]):
-        pulumi.set(self, "registered_revisions", value)
 
     @property
     @pulumi.getter(name="restartPolicy")
@@ -307,18 +285,6 @@ class CGProfileArgs:
     @restart_policy.setter
     def restart_policy(self, value: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']]]):
         pulumi.set(self, "restart_policy", value)
-
-    @property
-    @pulumi.getter
-    def revision(self) -> Optional[pulumi.Input[builtins.float]]:
-        """
-        Container group profile current revision number
-        """
-        return pulumi.get(self, "revision")
-
-    @revision.setter
-    def revision(self, value: Optional[pulumi.Input[builtins.float]]):
-        pulumi.set(self, "revision", value)
 
     @property
     @pulumi.getter(name="securityContext")
@@ -435,10 +401,8 @@ class CGProfile(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  os_type: Optional[pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]] = None,
                  priority: Optional[pulumi.Input[Union[builtins.str, 'Priority']]] = None,
-                 registered_revisions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 revision: Optional[pulumi.Input[builtins.float]] = None,
                  security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
                  shutdown_grace_period: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupSku']]] = None,
@@ -449,9 +413,11 @@ class CGProfile(pulumi.CustomResource):
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  __props__=None):
         """
-        container group profile object
+        A container group profile object
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
+
+        Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -467,13 +433,11 @@ class CGProfile(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: The resource location.
         :param pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']] os_type: The operating system type required by the containers in the container group.
         :param pulumi.Input[Union[builtins.str, 'Priority']] priority: The priority of the container group.
-        :param pulumi.Input[Sequence[pulumi.Input[builtins.float]]] registered_revisions: Registered revisions are calculated at request time based off the records in the table logs.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']] restart_policy: Restart policy for all containers within the container group. 
                - `Always` Always restart
                - `OnFailure` Restart on failure
                - `Never` Never restart
-        :param pulumi.Input[builtins.float] revision: Container group profile current revision number
         :param pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']] security_context: The container security properties.
         :param pulumi.Input[builtins.str] shutdown_grace_period: Shutdown grace period for containers in a container group.
         :param pulumi.Input[Union[builtins.str, 'ContainerGroupSku']] sku: The SKU for a container group.
@@ -490,9 +454,11 @@ class CGProfile(pulumi.CustomResource):
                  args: CGProfileArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        container group profile object
+        A container group profile object
 
         Uses Azure REST API version 2024-11-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-11-01-preview.
+
+        Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerinstance [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CGProfileArgs args: The arguments to use to populate this resource's properties.
@@ -521,10 +487,8 @@ class CGProfile(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  os_type: Optional[pulumi.Input[Union[builtins.str, 'OperatingSystemTypes']]] = None,
                  priority: Optional[pulumi.Input[Union[builtins.str, 'Priority']]] = None,
-                 registered_revisions: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.float]]]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  restart_policy: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupRestartPolicy']]] = None,
-                 revision: Optional[pulumi.Input[builtins.float]] = None,
                  security_context: Optional[pulumi.Input[Union['SecurityContextDefinitionArgs', 'SecurityContextDefinitionArgsDict']]] = None,
                  shutdown_grace_period: Optional[pulumi.Input[builtins.str]] = None,
                  sku: Optional[pulumi.Input[Union[builtins.str, 'ContainerGroupSku']]] = None,
@@ -544,6 +508,8 @@ class CGProfile(pulumi.CustomResource):
 
             __props__.__dict__["confidential_compute_properties"] = confidential_compute_properties
             __props__.__dict__["container_group_profile_name"] = container_group_profile_name
+            if containers is None and not opts.urn:
+                raise TypeError("Missing required property 'containers'")
             __props__.__dict__["containers"] = containers
             __props__.__dict__["diagnostics"] = diagnostics
             __props__.__dict__["encryption_properties"] = encryption_properties
@@ -552,14 +518,14 @@ class CGProfile(pulumi.CustomResource):
             __props__.__dict__["init_containers"] = init_containers
             __props__.__dict__["ip_address"] = ip_address
             __props__.__dict__["location"] = location
+            if os_type is None and not opts.urn:
+                raise TypeError("Missing required property 'os_type'")
             __props__.__dict__["os_type"] = os_type
             __props__.__dict__["priority"] = priority
-            __props__.__dict__["registered_revisions"] = registered_revisions
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["restart_policy"] = restart_policy
-            __props__.__dict__["revision"] = revision
             __props__.__dict__["security_context"] = security_context
             __props__.__dict__["shutdown_grace_period"] = shutdown_grace_period
             __props__.__dict__["sku"] = sku
@@ -570,9 +536,11 @@ class CGProfile(pulumi.CustomResource):
             __props__.__dict__["zones"] = zones
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["registered_revisions"] = None
+            __props__.__dict__["revision"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:ContainerGroupProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance:ContainerGroupProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20240501preview:ContainerGroupProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20241101preview:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance/v20250901:CGProfile"), pulumi.Alias(type_="azure-native:containerinstance:ContainerGroupProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CGProfile, __self__).__init__(
             'azure-native:containerinstance:CGProfile',
@@ -642,7 +610,7 @@ class CGProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def containers(self) -> pulumi.Output[Optional[Sequence['outputs.ContainerResponse']]]:
+    def containers(self) -> pulumi.Output[Sequence['outputs.ContainerResponse']]:
         """
         The containers within the container group.
         """
@@ -714,7 +682,7 @@ class CGProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="osType")
-    def os_type(self) -> pulumi.Output[Optional[builtins.str]]:
+    def os_type(self) -> pulumi.Output[builtins.str]:
         """
         The operating system type required by the containers in the container group.
         """
@@ -730,7 +698,7 @@ class CGProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="registeredRevisions")
-    def registered_revisions(self) -> pulumi.Output[Optional[Sequence[builtins.float]]]:
+    def registered_revisions(self) -> pulumi.Output[Sequence[builtins.int]]:
         """
         Registered revisions are calculated at request time based off the records in the table logs.
         """
@@ -749,7 +717,7 @@ class CGProfile(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def revision(self) -> pulumi.Output[Optional[builtins.float]]:
+    def revision(self) -> pulumi.Output[builtins.int]:
         """
         Container group profile current revision number
         """

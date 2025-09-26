@@ -36,39 +36,11 @@ export interface GetDiscountArgs {
  */
 export interface GetDiscountResult {
     /**
-     * List of applied scopes supported for discounts.
-     */
-    readonly appliedScopeType?: string;
-    /**
      * The Azure API version of the resource.
      */
     readonly azureApiVersion: string;
     /**
-     * Fully-qualified identifier of the benefit under applicable benefit list.
-     */
-    readonly benefitResourceId: string;
-    /**
-     * Billing account resource id where the discount metadata is present.
-     */
-    readonly billingAccountResourceId: string;
-    /**
-     * Billing profile resource id where the discount is scoped to.
-     */
-    readonly billingProfileResourceId: string;
-    /**
-     * Customer resource id where the discount is scoped to.
-     */
-    readonly customerResourceId: string;
-    /**
-     * This defines a user friendly display name for the discount.
-     */
-    readonly displayName?: string;
-    /**
-     * This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-     */
-    readonly entityType: string;
-    /**
-     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+     * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
     readonly etag: string;
     /**
@@ -100,33 +72,17 @@ export interface GetDiscountResult {
      */
     readonly plan?: outputs.billingbenefits.PlanResponse;
     /**
-     * This is the catalog UPN for the product.
+     * Discount properties
      */
-    readonly productCode: string;
-    /**
-     * The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
-     */
-    readonly provisioningState: string;
+    readonly properties: outputs.billingbenefits.EntityTypeAffiliateDiscountResponse | outputs.billingbenefits.EntityTypePrimaryDiscountResponse;
     /**
      * The resource model definition representing SKU
      */
     readonly sku?: outputs.billingbenefits.SkuResponse;
     /**
-     * Start date of the discount. Value is the date the discount started or will start in the future.
-     */
-    readonly startAt: string;
-    /**
-     * Represents the current status of the discount.
-     */
-    readonly status: string;
-    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.billingbenefits.SystemDataResponse;
-    /**
-     * This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-     */
-    readonly systemId?: string;
     /**
      * Resource tags.
      */

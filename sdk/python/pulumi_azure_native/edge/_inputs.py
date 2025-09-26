@@ -124,7 +124,7 @@ class AzureResourceManagerCommonTypesExtendedLocationArgs:
 if not MYPY:
     class CapabilityArgsDict(TypedDict):
         """
-        Capability, to match in Solution Templates & Targets
+        Capability, to match in Solution Templates and Targets
         """
         description: pulumi.Input[builtins.str]
         """
@@ -148,7 +148,7 @@ class CapabilityArgs:
                  name: pulumi.Input[builtins.str],
                  state: Optional[pulumi.Input[Union[builtins.str, 'ResourceState']]] = None):
         """
-        Capability, to match in Solution Templates & Targets
+        Capability, to match in Solution Templates and Targets
         :param pulumi.Input[builtins.str] description: Description of Capability
         :param pulumi.Input[builtins.str] name: Name of Capability
         :param pulumi.Input[Union[builtins.str, 'ResourceState']] state: State of resource

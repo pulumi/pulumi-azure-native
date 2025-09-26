@@ -14,6 +14,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = ['AccessPolicyAssignmentArgs', 'AccessPolicyAssignment']
 
@@ -207,6 +208,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20230501preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20230801:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240301:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20240401preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache/v20241101:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:cache:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redis/v20230501preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redis/v20230801:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redis/v20240301:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redis/v20240401preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redis/v20241101:AccessPolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -238,6 +240,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         __props__.__dict__["object_id"] = None
         __props__.__dict__["object_id_alias"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return AccessPolicyAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -288,6 +291,14 @@ class AccessPolicyAssignment(pulumi.CustomResource):
         Provisioning state of an access policy assignment set
         """
         return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.StorageDiscovery
     /// A Storage Discovery Workspace resource. This resource configures the collection of storage account metrics.
     /// 
     /// Uses Azure REST API version 2025-06-01-preview.
+    /// 
+    /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagediscovery [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagediscovery:StorageDiscoveryWorkspace")]
     public partial class StorageDiscoveryWorkspace : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.StorageDiscovery
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:storagediscovery/v20250601preview:StorageDiscoveryWorkspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagediscovery/v20250901:StorageDiscoveryWorkspace" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

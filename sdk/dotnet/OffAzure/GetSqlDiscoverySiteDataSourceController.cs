@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSqlDiscoverySiteDataSourceControllerResult> InvokeAsync(GetSqlDiscoverySiteDataSourceControllerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.OffAzure
         /// 
         /// Uses Azure REST API version 2023-10-01-preview.
         /// 
-        /// Other available API versions: 2023-06-06, 2024-05-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-06-06, 2024-05-01-preview, 2024-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native offazure [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSqlDiscoverySiteDataSourceControllerResult> Invoke(GetSqlDiscoverySiteDataSourceControllerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSqlDiscoverySiteDataSourceControllerResult>("azure-native:offazure:getSqlDiscoverySiteDataSourceController", args ?? new GetSqlDiscoverySiteDataSourceControllerInvokeArgs(), options.WithDefaults());

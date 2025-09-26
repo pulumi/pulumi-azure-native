@@ -8556,7 +8556,7 @@ class PatchSettingsResponse(dict):
 @pulumi.output_type
 class PlacementResponse(dict):
     """
-    Describes the user-defined constraints for virtual machine hardware placement.
+    Describes the user-defined constraints for resource hardware placement.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -8584,10 +8584,10 @@ class PlacementResponse(dict):
                  include_zones: Optional[Sequence[builtins.str]] = None,
                  zone_placement_policy: Optional[builtins.str] = None):
         """
-        Describes the user-defined constraints for virtual machine hardware placement.
-        :param Sequence[builtins.str] exclude_zones: This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
-        :param Sequence[builtins.str] include_zones: This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
-        :param builtins.str zone_placement_policy: Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.
+        Describes the user-defined constraints for resource hardware placement.
+        :param Sequence[builtins.str] exclude_zones: This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
+        :param Sequence[builtins.str] include_zones: This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
+        :param builtins.str zone_placement_policy: Specifies the policy for resource's placement in availability zone. Possible values are: **Any** (used for Virtual Machines), **Auto** (used for Virtual Machine Scale Sets) - An availability zone will be automatically picked by system as part of resource creation.
         """
         if exclude_zones is not None:
             pulumi.set(__self__, "exclude_zones", exclude_zones)
@@ -8600,7 +8600,7 @@ class PlacementResponse(dict):
     @pulumi.getter(name="excludeZones")
     def exclude_zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
+        This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
         """
         return pulumi.get(self, "exclude_zones")
 
@@ -8608,7 +8608,7 @@ class PlacementResponse(dict):
     @pulumi.getter(name="includeZones")
     def include_zones(self) -> Optional[Sequence[builtins.str]]:
         """
-        This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
+        This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
         """
         return pulumi.get(self, "include_zones")
 
@@ -8616,7 +8616,7 @@ class PlacementResponse(dict):
     @pulumi.getter(name="zonePlacementPolicy")
     def zone_placement_policy(self) -> Optional[builtins.str]:
         """
-        Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.
+        Specifies the policy for resource's placement in availability zone. Possible values are: **Any** (used for Virtual Machines), **Auto** (used for Virtual Machine Scale Sets) - An availability zone will be automatically picked by system as part of resource creation.
         """
         return pulumi.get(self, "zone_placement_policy")
 
@@ -9595,7 +9595,7 @@ class ResourceSharingProfileResponse(dict):
     def __init__(__self__, *,
                  subscription_ids: Optional[Sequence['outputs.SubResourceResponse']] = None):
         """
-        :param Sequence['SubResourceResponse'] subscription_ids: Specifies an array of subscription resource IDs that capacity reservation group is shared with. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        :param Sequence['SubResourceResponse'] subscription_ids: Specifies an array of subscription resource IDs that capacity reservation group is shared with. Block Capacity Reservations does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         """
         if subscription_ids is not None:
             pulumi.set(__self__, "subscription_ids", subscription_ids)
@@ -9604,7 +9604,7 @@ class ResourceSharingProfileResponse(dict):
     @pulumi.getter(name="subscriptionIds")
     def subscription_ids(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
-        Specifies an array of subscription resource IDs that capacity reservation group is shared with. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        Specifies an array of subscription resource IDs that capacity reservation group is shared with. Block Capacity Reservations does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         """
         return pulumi.get(self, "subscription_ids")
 
@@ -14644,7 +14644,7 @@ class VirtualMachineRunCommandInstanceViewResponse(dict):
 @pulumi.output_type
 class VirtualMachineRunCommandScriptSourceResponse(dict):
     """
-    Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+    Describes the script sources for run command. Use only one of these script sources: script, scriptUri, commandId, galleryScriptReferenceId.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -14673,8 +14673,8 @@ class VirtualMachineRunCommandScriptSourceResponse(dict):
                  script_uri: Optional[builtins.str] = None,
                  script_uri_managed_identity: Optional['outputs.RunCommandManagedIdentityResponse'] = None):
         """
-        Describes the script sources for run command. Use only one of script, scriptUri, commandId.
-        :param builtins.str command_id: Specifies a commandId of predefined built-in script.
+        Describes the script sources for run command. Use only one of these script sources: script, scriptUri, commandId, galleryScriptReferenceId.
+        :param builtins.str command_id: Specifies a commandId of predefined built-in script. Command IDs available for Linux are listed at https://aka.ms/RunCommandManagedLinux#available-commands, Windows at https://aka.ms/RunCommandManagedWindows#available-commands.
         :param builtins.str script: Specifies the script content to be executed on the VM.
         :param builtins.str script_uri: Specifies the script download location. It can be either SAS URI of an Azure storage blob with read access or public URI.
         :param 'RunCommandManagedIdentityResponse' script_uri_managed_identity: User-assigned managed identity that has access to scriptUri in case of Azure storage blob. Use an empty object in case of system-assigned identity. Make sure the Azure storage blob exists, and managed identity has been given access to blob's container with 'Storage Blob Data Reader' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged.
@@ -14692,7 +14692,7 @@ class VirtualMachineRunCommandScriptSourceResponse(dict):
     @pulumi.getter(name="commandId")
     def command_id(self) -> Optional[builtins.str]:
         """
-        Specifies a commandId of predefined built-in script.
+        Specifies a commandId of predefined built-in script. Command IDs available for Linux are listed at https://aka.ms/RunCommandManagedLinux#available-commands, Windows at https://aka.ms/RunCommandManagedWindows#available-commands.
         """
         return pulumi.get(self, "command_id")
 

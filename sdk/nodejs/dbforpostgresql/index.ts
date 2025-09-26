@@ -65,6 +65,11 @@ export const getMigration: typeof import("./getMigration").getMigration = null a
 export const getMigrationOutput: typeof import("./getMigration").getMigrationOutput = null as any;
 utilities.lazyLoad(exports, ["getMigration","getMigrationOutput"], () => require("./getMigration"));
 
+export { GetPrivateDnsZoneSuffixArgs, GetPrivateDnsZoneSuffixResult } from "./getPrivateDnsZoneSuffix";
+export const getPrivateDnsZoneSuffix: typeof import("./getPrivateDnsZoneSuffix").getPrivateDnsZoneSuffix = null as any;
+export const getPrivateDnsZoneSuffixOutput: typeof import("./getPrivateDnsZoneSuffix").getPrivateDnsZoneSuffixOutput = null as any;
+utilities.lazyLoad(exports, ["getPrivateDnsZoneSuffix","getPrivateDnsZoneSuffixOutput"], () => require("./getPrivateDnsZoneSuffix"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;

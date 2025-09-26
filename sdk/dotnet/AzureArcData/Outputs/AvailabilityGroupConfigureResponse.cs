@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
     public sealed class AvailabilityGroupConfigureResponse
     {
         /// <summary>
+        /// Property that determines whether a given availability replica can run in synchronous-commit mode
+        /// </summary>
+        public readonly string? AvailabilityMode;
+        /// <summary>
         /// The Availability Synchronization mode of the availability group replica.
         /// </summary>
         public readonly string AvailabilityModeDescription;
@@ -25,13 +29,37 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly int? BackupPriority;
         /// <summary>
+        /// Name of certificate to use for authentication. Required if any CERTIFICATE authentication modes are specified.
+        /// </summary>
+        public readonly string? CertificateName;
+        /// <summary>
+        /// Permitted authentication modes for the mirroring endpoint.
+        /// </summary>
+        public readonly string? EndpointAuthenticationMode;
+        /// <summary>
+        /// The login which will connect to the mirroring endpoint.
+        /// </summary>
+        public readonly string? EndpointConnectLogin;
+        /// <summary>
+        /// Name of the mirroring endpoint URL
+        /// </summary>
+        public readonly string? EndpointName;
+        /// <summary>
         /// Mirroring endpoint URL of availability group replica
         /// </summary>
         public readonly string? EndpointUrl;
         /// <summary>
+        /// Property to set the failover mode of the availability group replica
+        /// </summary>
+        public readonly string? FailoverMode;
+        /// <summary>
         /// The failover mode of the availability group replica.
         /// </summary>
         public readonly string FailoverModeDescription;
+        /// <summary>
+        /// Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+        /// </summary>
+        public readonly string? PrimaryAllowConnections;
         /// <summary>
         /// Whether the availability allows all connections or only read-write connections.
         /// </summary>
@@ -53,9 +81,17 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// </summary>
         public readonly string ReplicaModifyDate;
         /// <summary>
+        /// Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+        /// </summary>
+        public readonly string? SecondaryAllowConnections;
+        /// <summary>
         /// Whether an availability replica that is performing the secondary role (that is, a secondary replica) can accept connections from clients.
         /// </summary>
         public readonly string SecondaryRoleAllowConnectionsDescription;
+        /// <summary>
+        /// Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+        /// </summary>
+        public readonly string? SeedingMode;
         /// <summary>
         /// Describes seeding mode.
         /// </summary>
@@ -67,13 +103,27 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
         [OutputConstructor]
         private AvailabilityGroupConfigureResponse(
+            string? availabilityMode,
+
             string availabilityModeDescription,
 
             int? backupPriority,
 
+            string? certificateName,
+
+            string? endpointAuthenticationMode,
+
+            string? endpointConnectLogin,
+
+            string? endpointName,
+
             string? endpointUrl,
 
+            string? failoverMode,
+
             string failoverModeDescription,
+
+            string? primaryAllowConnections,
 
             string primaryRoleAllowConnectionsDescription,
 
@@ -85,22 +135,35 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             string replicaModifyDate,
 
+            string? secondaryAllowConnections,
+
             string secondaryRoleAllowConnectionsDescription,
+
+            string? seedingMode,
 
             string seedingModeDescription,
 
             int? sessionTimeout)
         {
+            AvailabilityMode = availabilityMode;
             AvailabilityModeDescription = availabilityModeDescription;
             BackupPriority = backupPriority;
+            CertificateName = certificateName;
+            EndpointAuthenticationMode = endpointAuthenticationMode;
+            EndpointConnectLogin = endpointConnectLogin;
+            EndpointName = endpointName;
             EndpointUrl = endpointUrl;
+            FailoverMode = failoverMode;
             FailoverModeDescription = failoverModeDescription;
+            PrimaryAllowConnections = primaryAllowConnections;
             PrimaryRoleAllowConnectionsDescription = primaryRoleAllowConnectionsDescription;
             ReadOnlyRoutingUrl = readOnlyRoutingUrl;
             ReadWriteRoutingUrl = readWriteRoutingUrl;
             ReplicaCreateDate = replicaCreateDate;
             ReplicaModifyDate = replicaModifyDate;
+            SecondaryAllowConnections = secondaryAllowConnections;
             SecondaryRoleAllowConnectionsDescription = secondaryRoleAllowConnectionsDescription;
+            SeedingMode = seedingMode;
             SeedingModeDescription = seedingModeDescription;
             SessionTimeout = sessionTimeout;
         }

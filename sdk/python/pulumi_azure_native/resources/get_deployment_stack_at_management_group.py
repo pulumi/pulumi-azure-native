@@ -210,7 +210,7 @@ class GetDeploymentStackAtManagementGroupResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        String Id used to locate any resource on Azure.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -218,7 +218,7 @@ class GetDeploymentStackAtManagementGroupResult:
     @pulumi.getter
     def location(self) -> Optional[builtins.str]:
         """
-        The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+        The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
         """
         return pulumi.get(self, "location")
 
@@ -226,7 +226,7 @@ class GetDeploymentStackAtManagementGroupResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Name of this resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -282,7 +282,7 @@ class GetDeploymentStackAtManagementGroupResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
-        Deployment stack resource tags.
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -290,7 +290,7 @@ class GetDeploymentStackAtManagementGroupResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Type of this resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -331,7 +331,7 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[bui
                                              management_group_id: Optional[builtins.str] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDeploymentStackAtManagementGroupResult:
     """
-    Gets a Deployment stack with a given name at Management Group scope.
+    Gets the Deployment stack with the given name.
 
     Uses Azure REST API version 2024-03-01.
 
@@ -339,7 +339,7 @@ def get_deployment_stack_at_management_group(deployment_stack_name: Optional[bui
 
 
     :param builtins.str deployment_stack_name: Name of the deployment stack.
-    :param builtins.str management_group_id: Management Group id.
+    :param builtins.str management_group_id: The name of the management group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name
@@ -376,7 +376,7 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
                                                     management_group_id: Optional[pulumi.Input[builtins.str]] = None,
                                                     opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetDeploymentStackAtManagementGroupResult]:
     """
-    Gets a Deployment stack with a given name at Management Group scope.
+    Gets the Deployment stack with the given name.
 
     Uses Azure REST API version 2024-03-01.
 
@@ -384,7 +384,7 @@ def get_deployment_stack_at_management_group_output(deployment_stack_name: Optio
 
 
     :param builtins.str deployment_stack_name: Name of the deployment stack.
-    :param builtins.str management_group_id: Management Group id.
+    :param builtins.str management_group_id: The name of the management group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['deploymentStackName'] = deployment_stack_name

@@ -10,7 +10,13 @@ export const DayOfWeek = {
     Friday: "Friday",
     Saturday: "Saturday",
     Sunday: "Sunday",
+    /**
+     * As a convenience, 'Everyday' is also accepted and means the same as specifying all days of the week.
+     */
     Everyday: "Everyday",
+    /**
+     * As a convenience, 'Weekend' is also accepted and means the same as specifying Saturday and Sunday.
+     */
     Weekend: "Weekend",
 } as const;
 
@@ -43,12 +49,18 @@ export const PrivateEndpointServiceConnectionStatus = {
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
 
 export const PublicNetworkAccess = {
+    /**
+     * Public internet access to the cache, via its public IP address, is enabled. Connections may use any network path.
+     */
     Enabled: "Enabled",
+    /**
+     * Public internet access to the cache, via its public IP address, is disabled. Connections must use be made via private endpoints.
+     */
     Disabled: "Disabled",
 } as const;
 
 /**
- * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+ * Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
@@ -63,7 +75,13 @@ export const ReplicationRole = {
 export type ReplicationRole = (typeof ReplicationRole)[keyof typeof ReplicationRole];
 
 export const SkuFamily = {
+    /**
+     * The SKU family to use - must be 'C' for Basic/Standard SKU redis caches.
+     */
     C: "C",
+    /**
+     * The SKU family to use - must be 'P' for Premium SKU redis caches.
+     */
     P: "P",
 } as const;
 
@@ -73,8 +91,17 @@ export const SkuFamily = {
 export type SkuFamily = (typeof SkuFamily)[keyof typeof SkuFamily];
 
 export const SkuName = {
+    /**
+     * The well known 'Basic' SKU for Azure Cache for Redis. Basic SKU does not have an availability SLA.
+     */
     Basic: "Basic",
+    /**
+     * The well known 'Standard' SKU for Azure Cache for Redis. Standard SKU has an availability SLA.
+     */
     Standard: "Standard",
+    /**
+     * The well known 'Premium' SKU for Azure Cache for Redis. Premium SKU has an availability SLA, and higher performance tiers and more features compared with Standard SKU.
+     */
     Premium: "Premium",
 } as const;
 
@@ -84,8 +111,17 @@ export const SkuName = {
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
 export const TlsVersion = {
+    /**
+     * TLS protocol version 1.0 -- deprecated for security reasons. Do not use this value for new caches.
+     */
     TlsVersion_1_0: "1.0",
+    /**
+     * TLS protocol version 1.1 -- deprecated for security reasons. Do not use this value for new caches.
+     */
     TlsVersion_1_1: "1.1",
+    /**
+     * TLS protocol version 1.2 -- use this value, or higher, for new caches. Or do not specify, so that your cache uses the recommended default value
+     */
     TlsVersion_1_2: "1.2",
 } as const;
 
@@ -95,7 +131,13 @@ export const TlsVersion = {
 export type TlsVersion = (typeof TlsVersion)[keyof typeof TlsVersion];
 
 export const UpdateChannel = {
+    /**
+     * Stable channel receives updates, which may include important security and stability updates, later than Preview channel.
+     */
     Stable: "Stable",
+    /**
+     * Preview channel normally receives updates before Stable channel, and is the recommended channel for non-production workloads.
+     */
     Preview: "Preview",
 } as const;
 
@@ -105,8 +147,17 @@ export const UpdateChannel = {
 export type UpdateChannel = (typeof UpdateChannel)[keyof typeof UpdateChannel];
 
 export const ZonalAllocationPolicy = {
+    /**
+     * The zones for the cache will be selected automatically based on availability and capacity.
+     */
     Automatic: "Automatic",
+    /**
+     * UserDefined means the zones for the cache are manually configured using the 'zones' property, and can not be automatically selected.
+     */
     UserDefined: "UserDefined",
+    /**
+     * The cache will not use multiple availability zones.
+     */
     NoZones: "NoZones",
 } as const;
 

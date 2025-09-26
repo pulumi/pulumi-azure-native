@@ -10,10 +10,14 @@ from ._enums import *
 from .database_migrations_mongo_to_cosmos_db_ru_mongo import *
 from .database_migrations_mongo_to_cosmos_dbv_core_mongo import *
 from .database_migrations_sql_db import *
+from .database_migrations_sql_mi import *
+from .database_migrations_sql_vm import *
 from .file import *
 from .get_database_migrations_mongo_to_cosmos_db_ru_mongo import *
 from .get_database_migrations_mongo_to_cosmos_dbv_core_mongo import *
 from .get_database_migrations_sql_db import *
+from .get_database_migrations_sql_mi import *
+from .get_database_migrations_sql_vm import *
 from .get_file import *
 from .get_migration_service import *
 from .get_project import *

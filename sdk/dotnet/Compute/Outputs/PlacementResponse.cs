@@ -11,21 +11,21 @@ namespace Pulumi.AzureNative.Compute.Outputs
 {
 
     /// <summary>
-    /// Describes the user-defined constraints for virtual machine hardware placement.
+    /// Describes the user-defined constraints for resource hardware placement.
     /// </summary>
     [OutputType]
     public sealed class PlacementResponse
     {
         /// <summary>
-        /// This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
+        /// This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must not be present in the list of availability zones passed with 'excludeZones'. If 'excludeZones' is not provided, all availability zones in region will be considered for selection.
         /// </summary>
         public readonly ImmutableArray<string> ExcludeZones;
         /// <summary>
-        /// This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
+        /// This property supplements the 'zonePlacementPolicy' property. If 'zonePlacementPolicy' is set to 'Any'/'Auto', availability zone selected by the system must be present in the list of availability zones passed with 'includeZones'. If 'includeZones' is not provided, all availability zones in region will be considered for selection.
         /// </summary>
         public readonly ImmutableArray<string> IncludeZones;
         /// <summary>
-        /// Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.
+        /// Specifies the policy for resource's placement in availability zone. Possible values are: **Any** (used for Virtual Machines), **Auto** (used for Virtual Machine Scale Sets) - An availability zone will be automatically picked by system as part of resource creation.
         /// </summary>
         public readonly string? ZonePlacementPolicy;
 

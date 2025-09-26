@@ -2,6 +2,28 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AzureFileShareAccessTier = {
+    Cool: "Cool",
+    Hot: "Hot",
+    Premium: "Premium",
+    TransactionOptimized: "TransactionOptimized",
+} as const;
+
+/**
+ * Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+ */
+export type AzureFileShareAccessTier = (typeof AzureFileShareAccessTier)[keyof typeof AzureFileShareAccessTier];
+
+export const AzureFileShareAccessType = {
+    Shared: "Shared",
+    Exclusive: "Exclusive",
+} as const;
+
+/**
+ *  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+ */
+export type AzureFileShareAccessType = (typeof AzureFileShareAccessType)[keyof typeof AzureFileShareAccessType];
+
 export const ContainerGroupIpAddressType = {
     Public: "Public",
     Private: "Private",
@@ -101,6 +123,13 @@ export const LogAnalyticsLogType = {
  */
 export type LogAnalyticsLogType = (typeof LogAnalyticsLogType)[keyof typeof LogAnalyticsLogType];
 
+export const NGroupUpdateMode = {
+    Manual: "Manual",
+    Rolling: "Rolling",
+} as const;
+
+export type NGroupUpdateMode = (typeof NGroupUpdateMode)[keyof typeof NGroupUpdateMode];
+
 export const OperatingSystemTypes = {
     Windows: "Windows",
     Linux: "Linux",
@@ -129,7 +158,7 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * The type of identity used for the container group. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the container group.
+ * The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 

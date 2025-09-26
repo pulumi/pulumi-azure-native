@@ -33,7 +33,13 @@ class DayOfWeek(builtins.str, Enum):
     SATURDAY = "Saturday"
     SUNDAY = "Sunday"
     EVERYDAY = "Everyday"
+    """
+    As a convenience, 'Everyday' is also accepted and means the same as specifying all days of the week.
+    """
     WEEKEND = "Weekend"
+    """
+    As a convenience, 'Weekend' is also accepted and means the same as specifying Saturday and Sunday.
+    """
 
 
 @pulumi.type_token("azure-native:redis:ManagedServiceIdentityType")
@@ -60,10 +66,16 @@ class PrivateEndpointServiceConnectionStatus(builtins.str, Enum):
 @pulumi.type_token("azure-native:redis:PublicNetworkAccess")
 class PublicNetworkAccess(builtins.str, Enum):
     """
-    Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
     """
     ENABLED = "Enabled"
+    """
+    Public internet access to the cache, via its public IP address, is enabled. Connections may use any network path.
+    """
     DISABLED = "Disabled"
+    """
+    Public internet access to the cache, via its public IP address, is disabled. Connections must use be made via private endpoints.
+    """
 
 
 @pulumi.type_token("azure-native:redis:ReplicationRole")
@@ -81,7 +93,13 @@ class SkuFamily(builtins.str, Enum):
     The SKU family to use. Valid values: (C, P). (C = Basic/Standard, P = Premium).
     """
     C = "C"
+    """
+    The SKU family to use - must be 'C' for Basic/Standard SKU redis caches.
+    """
     P = "P"
+    """
+    The SKU family to use - must be 'P' for Premium SKU redis caches.
+    """
 
 
 @pulumi.type_token("azure-native:redis:SkuName")
@@ -90,8 +108,17 @@ class SkuName(builtins.str, Enum):
     The type of Redis cache to deploy. Valid values: (Basic, Standard, Premium)
     """
     BASIC = "Basic"
+    """
+    The well known 'Basic' SKU for Azure Cache for Redis. Basic SKU does not have an availability SLA.
+    """
     STANDARD = "Standard"
+    """
+    The well known 'Standard' SKU for Azure Cache for Redis. Standard SKU has an availability SLA.
+    """
     PREMIUM = "Premium"
+    """
+    The well known 'Premium' SKU for Azure Cache for Redis. Premium SKU has an availability SLA, and higher performance tiers and more features compared with Standard SKU.
+    """
 
 
 @pulumi.type_token("azure-native:redis:TlsVersion")
@@ -100,8 +127,17 @@ class TlsVersion(builtins.str, Enum):
     Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')
     """
     TLS_VERSION_1_0 = "1.0"
+    """
+    TLS protocol version 1.0 -- deprecated for security reasons. Do not use this value for new caches.
+    """
     TLS_VERSION_1_1 = "1.1"
+    """
+    TLS protocol version 1.1 -- deprecated for security reasons. Do not use this value for new caches.
+    """
     TLS_VERSION_1_2 = "1.2"
+    """
+    TLS protocol version 1.2 -- use this value, or higher, for new caches. Or do not specify, so that your cache uses the recommended default value
+    """
 
 
 @pulumi.type_token("azure-native:redis:UpdateChannel")
@@ -110,7 +146,13 @@ class UpdateChannel(builtins.str, Enum):
     Optional: Specifies the update channel for the monthly Redis updates your Redis Cache will receive. Caches using 'Preview' update channel get latest Redis updates at least 4 weeks ahead of 'Stable' channel caches. Default value is 'Stable'.
     """
     STABLE = "Stable"
+    """
+    Stable channel receives updates, which may include important security and stability updates, later than Preview channel.
+    """
     PREVIEW = "Preview"
+    """
+    Preview channel normally receives updates before Stable channel, and is the recommended channel for non-production workloads.
+    """
 
 
 @pulumi.type_token("azure-native:redis:ZonalAllocationPolicy")
@@ -119,5 +161,14 @@ class ZonalAllocationPolicy(builtins.str, Enum):
     Optional: Specifies how availability zones are allocated to the Redis cache. 'Automatic' enables zone redundancy and Azure will automatically select zones based on regional availability and capacity. 'UserDefined' will select availability zones passed in by you using the 'zones' parameter. 'NoZones' will produce a non-zonal cache. If 'zonalAllocationPolicy' is not passed, it will be set to 'UserDefined' when zones are passed in, otherwise, it will be set to 'Automatic' in regions where zones are supported and 'NoZones' in regions where zones are not supported.
     """
     AUTOMATIC = "Automatic"
+    """
+    The zones for the cache will be selected automatically based on availability and capacity.
+    """
     USER_DEFINED = "UserDefined"
+    """
+    UserDefined means the zones for the cache are manually configured using the 'zones' property, and can not be automatically selected.
+    """
     NO_ZONES = "NoZones"
+    """
+    The cache will not use multiple availability zones.
+    """

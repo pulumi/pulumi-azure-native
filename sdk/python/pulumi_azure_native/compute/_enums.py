@@ -1240,6 +1240,6 @@ class ZonalPlatformFaultDomainAlignMode(builtins.str, Enum):
 @pulumi.type_token("azure-native:compute:ZonePlacementPolicyType")
 class ZonePlacementPolicyType(builtins.str, Enum):
     """
-    Specifies the policy for virtual machine's placement in availability zone. Possible values are: **Any** - An availability zone will be automatically picked by system as part of virtual machine creation.
+    Specifies the policy for resource's placement in availability zone. Possible values are: **Any** (used for Virtual Machines), **Auto** (used for Virtual Machine Scale Sets) - An availability zone will be automatically picked by system as part of resource creation.
     """
     ANY = "Any"

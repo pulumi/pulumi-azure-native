@@ -120,16 +120,28 @@ AwsConnector:
 AzureActiveDirectory:
     tracking: 2023-05-17-preview
 AzureArcData:
-    tracking: "2024-01-01"
+    tracking: 2025-06-01-preview
     additions:
-        SqlServerEsuLicense: 2024-05-01-preview
-        SqlServerLicense: 2024-05-01-preview
-        getSqlServerInstanceJobsStatus: 2024-05-01-preview
+        ActiveDirectoryConnector: 2025-03-01-preview
+        DataController: 2025-03-01-preview
+        FailoverGroup: 2025-03-01-preview
+        PostgresInstance: 2025-03-01-preview
+        SqlManagedInstance: 2025-03-01-preview
+        SqlServerAvailabilityGroup: 2025-03-01-preview
+        SqlServerDatabase: 2025-03-01-preview
+        SqlServerEsuLicense: 2025-03-01-preview
+        SqlServerInstance: 2025-03-01-preview
+        SqlServerLicense: 2025-03-01-preview
+        getSqlServerAvailabilityGroupDetailView: 2025-03-01-preview
+        getSqlServerInstanceJobsStatus: 2025-03-01-preview
+        getSqlServerInstanceTelemetry: 2025-03-01-preview
 AzureData:
     tracking: 2019-07-24-preview
 AzureDataTransfer:
     tracking: "2024-09-27"
     additions:
+        FlowProfile: 2025-05-30-preview
+        listAzureDataTransferFlowProfiles: 2025-05-30-preview
         listListFlowsByPipeline: "2025-05-21"
 AzureFleet:
     tracking: "2024-11-01"
@@ -177,7 +189,7 @@ BotService:
 Capacity: {}
 Carbon: {}
 Cdn:
-    tracking: "2024-09-01"
+    tracking: "2025-06-01"
     additions:
         AFDTargetGroup: 2024-06-01-preview
         KeyGroup: 2024-06-01-preview
@@ -202,6 +214,7 @@ CognitiveServices:
         Project: 2025-04-01-preview
         ProjectCapabilityHost: 2025-04-01-preview
         ProjectConnection: 2025-04-01-preview
+        RaiTopic: 2025-07-01-preview
 Commerce: {}
 Communication:
     tracking: 2023-06-01-preview
@@ -271,6 +284,11 @@ ContainerInstance:
     tracking: 2024-05-01-preview
     additions:
         CGProfile: 2024-11-01-preview
+        NGroup: "2025-09-01"
+    exclusionErrors:
+        - modulename: ContainerInstance
+          resourcename: NGroup
+          detail: version 2025-09-01 is greater than 2024-11-01-preview
 ContainerRegistry:
     additions:
         AgentPool: 2019-06-01-preview
@@ -307,6 +325,7 @@ ContainerService:
         FleetMember: 2024-05-02-preview
         FleetUpdateStrategy: 2024-05-02-preview
         IdentityBinding: 2025-06-02-preview
+        JWTAuthenticator: 2025-07-02-preview
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
@@ -469,9 +488,26 @@ DBforMySQL:
         - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-12-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Configuration
+          detail: version 2024-12-30 is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Database
+          detail: version 2024-12-30 is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2024-12-30 is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2024-12-30 is greater than 2018-06-01
+        - modulename: DBforMySQL
+          resourcename: Server
+          detail: version 2024-12-30 is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2024-08-01"
     additions:
+        AdministratorsMicrosoftEntra: 2025-06-01-preview
+        BackupsAutomaticAndOnDemand: 2025-06-01-preview
         ServerGroupCluster: 2023-03-02-preview
         ServerGroupFirewallRule: 2023-03-02-preview
         ServerGroupPrivateEndpointConnection: 2023-03-02-preview
@@ -483,6 +519,7 @@ DBforPostgreSQL:
         SingleServerServerAdministrator: "2017-12-01"
         SingleServerServerSecurityAlertPolicy: "2017-12-01"
         SingleServerVirtualNetworkRule: "2017-12-01"
+        getPrivateDnsZoneSuffix: 2025-06-01-preview
     exclusionErrors:
         - modulename: DBforPostgreSQL
           resourcename: Configuration
@@ -616,6 +653,9 @@ DataLakeStore:
     tracking: "2016-11-01"
 DataMigration:
     tracking: 2023-07-15-preview
+    additions:
+        DatabaseMigrationsSqlMi: "2025-06-30"
+        DatabaseMigrationsSqlVm: "2025-06-30"
 DataProtection:
     tracking: "2025-01-01"
 DataReplication:
@@ -638,6 +678,8 @@ DelegatedNetwork:
     tracking: 2023-06-27-preview
 DependencyMap:
     tracking: 2025-01-31-preview
+    additions:
+        getMapDependencyViewForAllMachines: 2025-07-01-preview
 DesktopVirtualization:
     tracking: "2024-04-03"
 DevCenter:
@@ -1055,6 +1097,7 @@ Monitor:
         DataCollectionRule: "2022-06-01"
         DataCollectionRuleAssociation: "2022-06-01"
         DiagnosticSetting: 2021-05-01-preview
+        Issue: 2025-05-03-preview
         ManagementGroupDiagnosticSetting: 2021-05-01-preview
         MetricAlert: "2018-03-01"
         PrivateEndpointConnection: 2023-06-01-preview
@@ -1064,6 +1107,8 @@ Monitor:
         SubscriptionDiagnosticSetting: 2021-05-01-preview
         TenantActionGroup: 2023-05-01-preview
         listDiagnosticSettingsCategory: 2021-05-01-preview
+        listIssueAlerts: 2025-05-03-preview
+        listIssueResources: 2025-05-03-preview
 MySQLDiscovery:
     tracking: 2024-09-30-preview
 NetApp:
@@ -1227,7 +1272,9 @@ Network:
         listNetworkManagerEffectiveConnectivityConfigurations: "2024-05-01"
         listNetworkManagerEffectiveSecurityAdminRule: 2021-02-01-preview
         listNetworkManagerEffectiveSecurityAdminRules: "2024-05-01"
+        listVirtualNetworkGatewayRadiusSecrets: "2024-10-01"
         listVpnLinkConnectionDefaultSharedKey: "2024-05-01"
+        listVpnServerConfigurationRadiusSecrets: "2024-10-01"
     exclusionErrors:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
@@ -1262,6 +1309,9 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-07-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2024-10-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:
@@ -1570,6 +1620,7 @@ StorageCache:
     tracking: "2024-03-01"
     additions:
         AutoExportJob: "2024-07-01"
+        AutoImportJob: "2025-07-01"
 StorageDiscovery:
     tracking: 2025-06-01-preview
 StorageMover:

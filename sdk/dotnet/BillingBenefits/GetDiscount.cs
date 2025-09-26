@@ -82,39 +82,11 @@ namespace Pulumi.AzureNative.BillingBenefits
     public sealed class GetDiscountResult
     {
         /// <summary>
-        /// List of applied scopes supported for discounts.
-        /// </summary>
-        public readonly string? AppliedScopeType;
-        /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Fully-qualified identifier of the benefit under applicable benefit list.
-        /// </summary>
-        public readonly string BenefitResourceId;
-        /// <summary>
-        /// Billing account resource id where the discount metadata is present.
-        /// </summary>
-        public readonly string BillingAccountResourceId;
-        /// <summary>
-        /// Billing profile resource id where the discount is scoped to.
-        /// </summary>
-        public readonly string BillingProfileResourceId;
-        /// <summary>
-        /// Customer resource id where the discount is scoped to.
-        /// </summary>
-        public readonly string CustomerResourceId;
-        /// <summary>
-        /// This defines a user friendly display name for the discount.
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
-        /// This defines whether the entity being created is primary or affiliate. Supported values: primary, affiliate. Validation: Required, must match one of the 2 values.
-        /// </summary>
-        public readonly string EntityType;
-        /// <summary>
-        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
+        /// The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
         /// </summary>
         public readonly string Etag;
         /// <summary>
@@ -146,33 +118,17 @@ namespace Pulumi.AzureNative.BillingBenefits
         /// </summary>
         public readonly Outputs.PlanResponse? Plan;
         /// <summary>
-        /// This is the catalog UPN for the product.
+        /// Discount properties
         /// </summary>
-        public readonly string ProductCode;
-        /// <summary>
-        /// The state of the resource. Supported values are Pending, Failed, Succeeded, Canceled.
-        /// </summary>
-        public readonly string ProvisioningState;
+        public readonly Union<Outputs.EntityTypeAffiliateDiscountResponse, Outputs.EntityTypePrimaryDiscountResponse> Properties;
         /// <summary>
         /// The resource model definition representing SKU
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Start date of the discount. Value is the date the discount started or will start in the future.
-        /// </summary>
-        public readonly string StartAt;
-        /// <summary>
-        /// Represents the current status of the discount.
-        /// </summary>
-        public readonly string Status;
-        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// This is the globally unique identifier of the Discount which will not change for the lifetime of the Discount.
-        /// </summary>
-        public readonly string? SystemId;
         /// <summary>
         /// Resource tags.
         /// </summary>
@@ -184,21 +140,7 @@ namespace Pulumi.AzureNative.BillingBenefits
 
         [OutputConstructor]
         private GetDiscountResult(
-            string? appliedScopeType,
-
             string azureApiVersion,
-
-            string benefitResourceId,
-
-            string billingAccountResourceId,
-
-            string billingProfileResourceId,
-
-            string customerResourceId,
-
-            string? displayName,
-
-            string entityType,
 
             string etag,
 
@@ -216,32 +158,17 @@ namespace Pulumi.AzureNative.BillingBenefits
 
             Outputs.PlanResponse? plan,
 
-            string productCode,
-
-            string provisioningState,
+            Union<Outputs.EntityTypeAffiliateDiscountResponse, Outputs.EntityTypePrimaryDiscountResponse> properties,
 
             Outputs.SkuResponse? sku,
 
-            string startAt,
-
-            string status,
-
             Outputs.SystemDataResponse systemData,
-
-            string? systemId,
 
             ImmutableDictionary<string, string>? tags,
 
             string type)
         {
-            AppliedScopeType = appliedScopeType;
             AzureApiVersion = azureApiVersion;
-            BenefitResourceId = benefitResourceId;
-            BillingAccountResourceId = billingAccountResourceId;
-            BillingProfileResourceId = billingProfileResourceId;
-            CustomerResourceId = customerResourceId;
-            DisplayName = displayName;
-            EntityType = entityType;
             Etag = etag;
             Id = id;
             Identity = identity;
@@ -250,13 +177,9 @@ namespace Pulumi.AzureNative.BillingBenefits
             ManagedBy = managedBy;
             Name = name;
             Plan = plan;
-            ProductCode = productCode;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             Sku = sku;
-            StartAt = startAt;
-            Status = status;
             SystemData = systemData;
-            SystemId = systemId;
             Tags = tags;
             Type = type;
         }

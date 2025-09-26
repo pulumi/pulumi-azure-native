@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  *
- * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
+ * Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -60,7 +60,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * A policy that specifies the delivery rules to be used for an endpoint.
      */
-    public readonly deliveryPolicy!: pulumi.Output<outputs.cdn.EndpointPropertiesUpdateParametersResponseDeliveryPolicy | undefined>;
+    public readonly deliveryPolicy!: pulumi.Output<outputs.cdn.EndpointPropertiesUpdateParametersDeliveryPolicyResponse | undefined>;
     /**
      * List of rules defining the user's geo access within a CDN endpoint. Each geo filter defines an access rule to a specified path or content, e.g. block APAC for path /pictures/
      */
@@ -82,11 +82,11 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly isHttpsAllowed!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Resource name.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public /*out*/ readonly resourceState!: pulumi.Output<string>;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
@@ -134,7 +134,7 @@ export class Endpoint extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * Defines the Web Application Firewall policy for the endpoint (if applicable)
      */
-    public readonly webApplicationFirewallPolicyLink!: pulumi.Output<outputs.cdn.EndpointPropertiesUpdateParametersResponseWebApplicationFirewallPolicyLink | undefined>;
+    public readonly webApplicationFirewallPolicyLink!: pulumi.Output<outputs.cdn.EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -267,7 +267,7 @@ export interface EndpointArgs {
      */
     isHttpsAllowed?: pulumi.Input<boolean>;
     /**
-     * Resource location.
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -295,7 +295,7 @@ export interface EndpointArgs {
      */
     probePath?: pulumi.Input<string>;
     /**
-     * Name of the CDN profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
@@ -303,7 +303,7 @@ export interface EndpointArgs {
      */
     queryStringCachingBehavior?: pulumi.Input<enums.cdn.QueryStringCachingBehavior>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.StorageMover
     /// 
     /// Uses Azure REST API version 2024-07-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
     /// 
-    /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-03-01, 2023-07-01-preview, 2023-10-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native storagemover [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:storagemover:JobDefinition")]
     public partial class JobDefinition : global::Pulumi.CustomResource
@@ -44,7 +44,7 @@ namespace Pulumi.AzureNative.StorageMover
         public Output<string> CopyMode { get; private set; } = null!;
 
         /// <summary>
-        /// A description for the Job Definition.
+        /// A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.StorageMover
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20230701preview:JobDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20231001:JobDefinition" },
                     new global::Pulumi.Alias { Type = "azure-native:storagemover/v20240701:JobDefinition" },
+                    new global::Pulumi.Alias { Type = "azure-native:storagemover/v20250701:JobDefinition" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -193,7 +194,7 @@ namespace Pulumi.AzureNative.StorageMover
         public InputUnion<string, Pulumi.AzureNative.StorageMover.CopyMode> CopyMode { get; set; } = null!;
 
         /// <summary>
-        /// A description for the Job Definition.
+        /// A description for the Job Definition. OnPremToCloud is for migrating data from on-premises to cloud. CloudToCloud is for migrating data between cloud to cloud.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }

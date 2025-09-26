@@ -59,10 +59,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<Outputs.BackendPropertiesResponse> Properties { get; private set; } = null!;
 
         /// <summary>
-        /// Backend communication protocol.
+        /// Backend communication protocol. Required when backend type is 'Single'.
         /// </summary>
         [Output("protocol")]
-        public Output<string> Protocol { get; private set; } = null!;
+        public Output<string?> Protocol { get; private set; } = null!;
 
         /// <summary>
         /// Backend gateway Contract Properties
@@ -95,10 +95,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Runtime Url of the Backend.
+        /// Runtime Url of the Backend. Required when backend type is 'Single'.
         /// </summary>
         [Output("url")]
-        public Output<string> Url { get; private set; } = null!;
+        public Output<string?> Url { get; private set; } = null!;
 
 
         /// <summary>
@@ -186,10 +186,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public Input<Inputs.BackendPropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Backend communication protocol.
+        /// Backend communication protocol. Required when backend type is 'Single'.
         /// </summary>
-        [Input("protocol", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendProtocol> Protocol { get; set; } = null!;
+        [Input("protocol")]
+        public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendProtocol>? Protocol { get; set; }
 
         /// <summary>
         /// Backend gateway Contract Properties
@@ -234,10 +234,10 @@ namespace Pulumi.AzureNative.ApiManagement
         public InputUnion<string, Pulumi.AzureNative.ApiManagement.BackendType>? Type { get; set; }
 
         /// <summary>
-        /// Runtime Url of the Backend.
+        /// Runtime Url of the Backend. Required when backend type is 'Single'.
         /// </summary>
-        [Input("url", required: true)]
-        public Input<string> Url { get; set; } = null!;
+        [Input("url")]
+        public Input<string>? Url { get; set; }
 
         /// <summary>
         /// Workspace identifier. Must be unique in the current API Management service instance.

@@ -108,7 +108,7 @@ namespace Pulumi.AzureNative.Redis
         /// </summary>
         public readonly string EndIP;
         /// <summary>
-        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -119,6 +119,10 @@ namespace Pulumi.AzureNative.Redis
         /// lowest IP address included in the range
         /// </summary>
         public readonly string StartIP;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -136,6 +140,8 @@ namespace Pulumi.AzureNative.Redis
 
             string startIP,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             AzureApiVersion = azureApiVersion;
@@ -143,6 +149,7 @@ namespace Pulumi.AzureNative.Redis
             Id = id;
             Name = name;
             StartIP = startIP;
+            SystemData = systemData;
             Type = type;
         }
     }

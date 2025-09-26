@@ -94,11 +94,11 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly failedResources!: pulumi.Output<outputs.resources.ResourceReferenceExtendedResponse[]>;
     /**
-     * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+     * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */
     public readonly location!: pulumi.Output<string | undefined>;
     /**
-     * Name of this resource.
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -126,11 +126,11 @@ export class DeploymentStackAtManagementGroup extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.resources.SystemDataResponse>;
     /**
-     * Deployment stack resource tags.
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Type of this resource.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
@@ -247,11 +247,11 @@ export interface DeploymentStackAtManagementGroupArgs {
      */
     description?: pulumi.Input<string>;
     /**
-     * The location of the Deployment stack. It cannot be changed after creation. It must be one of the supported Azure locations.
+     * The geo-location where the resource lives. Required for subscription and management group scoped stacks. The location is inherited from the resource group for resource group scoped stacks.
      */
     location?: pulumi.Input<string>;
     /**
-     * Management Group id.
+     * The name of the management group. The name is case insensitive.
      */
     managementGroupId: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface DeploymentStackAtManagementGroupArgs {
      */
     parametersLink?: pulumi.Input<inputs.resources.DeploymentStacksParametersLinkArgs>;
     /**
-     * Deployment stack resource tags.
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

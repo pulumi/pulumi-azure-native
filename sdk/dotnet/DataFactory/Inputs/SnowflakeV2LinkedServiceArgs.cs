@@ -143,6 +143,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
+        /// Indicates whether to use UTC timezone for timestamp data types. Type: boolean.
+        /// </summary>
+        [Input("useUtcTimestamps")]
+        public Input<object>? UseUtcTimestamps { get; set; }
+
+        /// <summary>
         /// The name of the Snowflake user.
         /// </summary>
         [Input("user")]

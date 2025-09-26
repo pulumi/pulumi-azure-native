@@ -33,7 +33,7 @@ class CapacityReservationGroupArgs:
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['ResourceSharingProfileArgs'] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        :param pulumi.Input['ResourceSharingProfileArgs'] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. The capacity reservation group resource can generally be shared across subscriptions belonging to a single Azure AAD tenant or across AAD tenants if there is a trust relationship established between the tenants.  Block capacity reservation does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
@@ -89,7 +89,7 @@ class CapacityReservationGroupArgs:
     @pulumi.getter(name="sharingProfile")
     def sharing_profile(self) -> Optional[pulumi.Input['ResourceSharingProfileArgs']]:
         """
-        Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. The capacity reservation group resource can generally be shared across subscriptions belonging to a single Azure AAD tenant or across AAD tenants if there is a trust relationship established between the tenants.  Block capacity reservation does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         """
         return pulumi.get(self, "sharing_profile")
 
@@ -140,14 +140,14 @@ class CapacityReservationGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] capacity_reservation_group_name: The name of the capacity reservation group.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        :param pulumi.Input[Union['ResourceSharingProfileArgs', 'ResourceSharingProfileArgsDict']] sharing_profile: Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. The capacity reservation group resource can generally be shared across subscriptions belonging to a single Azure AAD tenant or across AAD tenants if there is a trust relationship established between the tenants.  Block capacity reservation does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] zones: The availability zones.
         """
@@ -162,7 +162,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-08-01, 2022-11-01, 2023-03-01, 2023-07-01, 2023-09-01, 2024-03-01, 2024-07-01, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native compute [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CapacityReservationGroupArgs args: The arguments to use to populate this resource's properties.
@@ -209,7 +209,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["virtual_machines_associated"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:CapacityReservationGroup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:compute/v20210401:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20210701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20211101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20220801:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20221101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20230901:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240301:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20240701:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20241101:CapacityReservationGroup"), pulumi.Alias(type_="azure-native:compute/v20250401:CapacityReservationGroup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CapacityReservationGroup, __self__).__init__(
             'azure-native:compute:CapacityReservationGroup',
@@ -290,7 +290,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
     @pulumi.getter(name="sharingProfile")
     def sharing_profile(self) -> pulumi.Output[Optional['outputs.ResourceSharingProfileResponse']]:
         """
-        Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. Pls. keep in mind the capacity reservation group resource generally can be shared across subscriptions belonging to a single azure AAD tenant or cross AAD tenant if there is a trust relationship established between the AAD tenants. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
+        Specifies the settings to enable sharing across subscriptions for the capacity reservation group resource. The capacity reservation group resource can generally be shared across subscriptions belonging to a single Azure AAD tenant or across AAD tenants if there is a trust relationship established between the tenants.  Block capacity reservation does not support sharing across subscriptions. **Note:** Minimum api-version: 2023-09-01. Please refer to https://aka.ms/computereservationsharing for more details.
         """
         return pulumi.get(self, "sharing_profile")
 

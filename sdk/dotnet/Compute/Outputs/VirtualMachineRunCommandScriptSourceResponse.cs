@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.Compute.Outputs
 {
 
     /// <summary>
-    /// Describes the script sources for run command. Use only one of script, scriptUri, commandId.
+    /// Describes the script sources for run command. Use only one of these script sources: script, scriptUri, commandId, galleryScriptReferenceId.
     /// </summary>
     [OutputType]
     public sealed class VirtualMachineRunCommandScriptSourceResponse
     {
         /// <summary>
-        /// Specifies a commandId of predefined built-in script.
+        /// Specifies a commandId of predefined built-in script. Command IDs available for Linux are listed at https://aka.ms/RunCommandManagedLinux#available-commands, Windows at https://aka.ms/RunCommandManagedWindows#available-commands.
         /// </summary>
         public readonly string? CommandId;
         /// <summary>

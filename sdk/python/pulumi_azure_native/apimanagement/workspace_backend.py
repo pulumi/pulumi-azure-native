@@ -23,10 +23,8 @@ __all__ = ['WorkspaceBackendArgs', 'WorkspaceBackend']
 @pulumi.input_type
 class WorkspaceBackendArgs:
     def __init__(__self__, *,
-                 protocol: pulumi.Input[Union[builtins.str, 'BackendProtocol']],
                  resource_group_name: pulumi.Input[builtins.str],
                  service_name: pulumi.Input[builtins.str],
-                 url: pulumi.Input[builtins.str],
                  workspace_id: pulumi.Input[builtins.str],
                  backend_id: Optional[pulumi.Input[builtins.str]] = None,
                  circuit_breaker: Optional[pulumi.Input['BackendCircuitBreakerArgs']] = None,
@@ -34,33 +32,33 @@ class WorkspaceBackendArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  pool: Optional[pulumi.Input['BackendBaseParametersPoolArgs']] = None,
                  properties: Optional[pulumi.Input['BackendPropertiesArgs']] = None,
+                 protocol: Optional[pulumi.Input[Union[builtins.str, 'BackendProtocol']]] = None,
                  proxy: Optional[pulumi.Input['BackendProxyContractArgs']] = None,
                  resource_id: Optional[pulumi.Input[builtins.str]] = None,
                  title: Optional[pulumi.Input[builtins.str]] = None,
                  tls: Optional[pulumi.Input['BackendTlsPropertiesArgs']] = None,
-                 type: Optional[pulumi.Input[Union[builtins.str, 'BackendType']]] = None):
+                 type: Optional[pulumi.Input[Union[builtins.str, 'BackendType']]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a WorkspaceBackend resource.
-        :param pulumi.Input[Union[builtins.str, 'BackendProtocol']] protocol: Backend communication protocol.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] service_name: The name of the API Management service.
-        :param pulumi.Input[builtins.str] url: Runtime Url of the Backend.
         :param pulumi.Input[builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         :param pulumi.Input[builtins.str] backend_id: Identifier of the Backend entity. Must be unique in the current API Management service instance.
         :param pulumi.Input['BackendCircuitBreakerArgs'] circuit_breaker: Backend Circuit Breaker Configuration
         :param pulumi.Input['BackendCredentialsContractArgs'] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[builtins.str] description: Backend Description.
         :param pulumi.Input['BackendPropertiesArgs'] properties: Backend Properties contract
+        :param pulumi.Input[Union[builtins.str, 'BackendProtocol']] protocol: Backend communication protocol. Required when backend type is 'Single'.
         :param pulumi.Input['BackendProxyContractArgs'] proxy: Backend gateway Contract Properties
         :param pulumi.Input[builtins.str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
         :param pulumi.Input[builtins.str] title: Backend Title.
         :param pulumi.Input['BackendTlsPropertiesArgs'] tls: Backend TLS Properties
         :param pulumi.Input[Union[builtins.str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
+        :param pulumi.Input[builtins.str] url: Runtime Url of the Backend. Required when backend type is 'Single'.
         """
-        pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "service_name", service_name)
-        pulumi.set(__self__, "url", url)
         pulumi.set(__self__, "workspace_id", workspace_id)
         if backend_id is not None:
             pulumi.set(__self__, "backend_id", backend_id)
@@ -74,6 +72,8 @@ class WorkspaceBackendArgs:
             pulumi.set(__self__, "pool", pool)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
         if proxy is not None:
             pulumi.set(__self__, "proxy", proxy)
         if resource_id is not None:
@@ -84,18 +84,8 @@ class WorkspaceBackendArgs:
             pulumi.set(__self__, "tls", tls)
         if type is not None:
             pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter
-    def protocol(self) -> pulumi.Input[Union[builtins.str, 'BackendProtocol']]:
-        """
-        Backend communication protocol.
-        """
-        return pulumi.get(self, "protocol")
-
-    @protocol.setter
-    def protocol(self, value: pulumi.Input[Union[builtins.str, 'BackendProtocol']]):
-        pulumi.set(self, "protocol", value)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -120,18 +110,6 @@ class WorkspaceBackendArgs:
     @service_name.setter
     def service_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "service_name", value)
-
-    @property
-    @pulumi.getter
-    def url(self) -> pulumi.Input[builtins.str]:
-        """
-        Runtime Url of the Backend.
-        """
-        return pulumi.get(self, "url")
-
-    @url.setter
-    def url(self, value: pulumi.Input[builtins.str]):
-        pulumi.set(self, "url", value)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -216,6 +194,18 @@ class WorkspaceBackendArgs:
 
     @property
     @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[builtins.str, 'BackendProtocol']]]:
+        """
+        Backend communication protocol. Required when backend type is 'Single'.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[builtins.str, 'BackendProtocol']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
     def proxy(self) -> Optional[pulumi.Input['BackendProxyContractArgs']]:
         """
         Backend gateway Contract Properties
@@ -274,6 +264,18 @@ class WorkspaceBackendArgs:
     def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'BackendType']]]):
         pulumi.set(self, "type", value)
 
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Runtime Url of the Backend. Required when backend type is 'Single'.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
+
 
 @pulumi.type_token("azure-native:apimanagement:WorkspaceBackend")
 class WorkspaceBackend(pulumi.CustomResource):
@@ -312,7 +314,7 @@ class WorkspaceBackend(pulumi.CustomResource):
         :param pulumi.Input[Union['BackendCredentialsContractArgs', 'BackendCredentialsContractArgsDict']] credentials: Backend Credentials Contract Properties
         :param pulumi.Input[builtins.str] description: Backend Description.
         :param pulumi.Input[Union['BackendPropertiesArgs', 'BackendPropertiesArgsDict']] properties: Backend Properties contract
-        :param pulumi.Input[Union[builtins.str, 'BackendProtocol']] protocol: Backend communication protocol.
+        :param pulumi.Input[Union[builtins.str, 'BackendProtocol']] protocol: Backend communication protocol. Required when backend type is 'Single'.
         :param pulumi.Input[Union['BackendProxyContractArgs', 'BackendProxyContractArgsDict']] proxy: Backend gateway Contract Properties
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] resource_id: Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
@@ -320,7 +322,7 @@ class WorkspaceBackend(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] title: Backend Title.
         :param pulumi.Input[Union['BackendTlsPropertiesArgs', 'BackendTlsPropertiesArgsDict']] tls: Backend TLS Properties
         :param pulumi.Input[Union[builtins.str, 'BackendType']] type: Type of the backend. A backend can be either Single or Pool.
-        :param pulumi.Input[builtins.str] url: Runtime Url of the Backend.
+        :param pulumi.Input[builtins.str] url: Runtime Url of the Backend. Required when backend type is 'Single'.
         :param pulumi.Input[builtins.str] workspace_id: Workspace identifier. Must be unique in the current API Management service instance.
         """
         ...
@@ -382,8 +384,6 @@ class WorkspaceBackend(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["pool"] = pool
             __props__.__dict__["properties"] = properties
-            if protocol is None and not opts.urn:
-                raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
             __props__.__dict__["proxy"] = proxy
             if resource_group_name is None and not opts.urn:
@@ -396,8 +396,6 @@ class WorkspaceBackend(pulumi.CustomResource):
             __props__.__dict__["title"] = title
             __props__.__dict__["tls"] = tls
             __props__.__dict__["type"] = type
-            if url is None and not opts.urn:
-                raise TypeError("Missing required property 'url'")
             __props__.__dict__["url"] = url
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
@@ -499,9 +497,9 @@ class WorkspaceBackend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def protocol(self) -> pulumi.Output[builtins.str]:
+    def protocol(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Backend communication protocol.
+        Backend communication protocol. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "protocol")
 
@@ -547,9 +545,9 @@ class WorkspaceBackend(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def url(self) -> pulumi.Output[builtins.str]:
+    def url(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Runtime Url of the Backend.
+        Runtime Url of the Backend. Required when backend type is 'Single'.
         """
         return pulumi.get(self, "url")
 

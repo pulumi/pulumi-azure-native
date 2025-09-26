@@ -18,6 +18,9 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'ApiEntityReferenceResponse',
+    'ApplicationGatewayBackendAddressPoolResponse',
+    'ApplicationGatewayResponse',
     'AzureFileVolumeResponse',
     'ConfidentialComputePropertiesResponse',
     'ConfigMapResponse',
@@ -25,6 +28,7 @@ __all__ = [
     'ContainerGroupDiagnosticsResponse',
     'ContainerGroupIdentityResponse',
     'ContainerGroupProfileReferenceDefinitionResponse',
+    'ContainerGroupProfileStubResponse',
     'ContainerGroupPropertiesResponseInstanceView',
     'ContainerGroupSubnetIdResponse',
     'ContainerHttpGetResponse',
@@ -35,9 +39,14 @@ __all__ = [
     'ContainerStateResponse',
     'DeploymentExtensionSpecResponse',
     'DnsConfigurationResponse',
+    'ElasticProfileResponse',
+    'ElasticProfileResponseContainerGroupNamingPolicy',
+    'ElasticProfileResponseGuidNamingPolicy',
     'EncryptionPropertiesResponse',
     'EnvironmentVariableResponse',
     'EventResponse',
+    'FileShareResponse',
+    'FileShareResponseProperties',
     'GitRepoVolumeResponse',
     'GpuResourceResponse',
     'HttpHeaderResponse',
@@ -45,7 +54,16 @@ __all__ = [
     'InitContainerDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
     'IpAddressResponse',
+    'LoadBalancerBackendAddressPoolResponse',
+    'LoadBalancerResponse',
     'LogAnalyticsResponse',
+    'NGroupCGPropertyContainerResponse',
+    'NGroupCGPropertyContainerResponseProperties',
+    'NGroupCGPropertyVolumeResponse',
+    'NGroupContainerGroupPropertiesResponse',
+    'NGroupIdentityResponse',
+    'NetworkProfileResponse',
+    'PlacementProfileResponse',
     'PortResponse',
     'ResourceLimitsResponse',
     'ResourceRequestsResponse',
@@ -53,11 +71,112 @@ __all__ = [
     'SecurityContextCapabilitiesDefinitionResponse',
     'SecurityContextDefinitionResponse',
     'StandbyPoolProfileDefinitionResponse',
+    'StorageProfileResponse',
     'SystemDataResponse',
+    'UpdateProfileResponse',
+    'UpdateProfileResponseRollingUpdateProfile',
     'UserAssignedIdentitiesResponse',
     'VolumeMountResponse',
     'VolumeResponse',
 ]
+
+@pulumi.output_type
+class ApiEntityReferenceResponse(dict):
+    """
+    The API entity reference.
+    """
+    def __init__(__self__, *,
+                 id: Optional[builtins.str] = None):
+        """
+        The API entity reference.
+        :param builtins.str id: The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[builtins.str]:
+        """
+        The ARM resource id in the form of /subscriptions/{SubscriptionId}/resourceGroups/{ResourceGroupName}/...
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ApplicationGatewayBackendAddressPoolResponse(dict):
+    """
+    NGroups application gateway backend address pool
+    """
+    def __init__(__self__, *,
+                 resource: Optional[builtins.str] = None):
+        """
+        NGroups application gateway backend address pool
+        :param builtins.str resource: The application gateway backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[builtins.str]:
+        """
+        The application gateway backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class ApplicationGatewayResponse(dict):
+    """
+    Application Gateway the CG profile will use to interact with CGs in a backend pool
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendAddressPools":
+            suggest = "backend_address_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationGatewayResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationGatewayResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_address_pools: Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']] = None,
+                 resource: Optional[builtins.str] = None):
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        :param Sequence['ApplicationGatewayBackendAddressPoolResponse'] backend_address_pools: List of Application Gateway Backend Address Pools.
+        :param builtins.str resource: The Application Gateway ARM resource Id.
+        """
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[Sequence['outputs.ApplicationGatewayBackendAddressPoolResponse']]:
+        """
+        List of Application Gateway Backend Address Pools.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[builtins.str]:
+        """
+        The Application Gateway ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
 
 @pulumi.output_type
 class AzureFileVolumeResponse(dict):
@@ -407,6 +526,98 @@ class ContainerGroupProfileReferenceDefinitionResponse(dict):
         The container group profile reference revision.
         """
         return pulumi.get(self, "revision")
+
+
+@pulumi.output_type
+class ContainerGroupProfileStubResponse(dict):
+    """
+    The object that contains a reference to a Container Group Profile and it's other related properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerGroupProperties":
+            suggest = "container_group_properties"
+        elif key == "networkProfile":
+            suggest = "network_profile"
+        elif key == "storageProfile":
+            suggest = "storage_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ContainerGroupProfileStubResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ContainerGroupProfileStubResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ContainerGroupProfileStubResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_group_properties: Optional['outputs.NGroupContainerGroupPropertiesResponse'] = None,
+                 network_profile: Optional['outputs.NetworkProfileResponse'] = None,
+                 resource: Optional['outputs.ApiEntityReferenceResponse'] = None,
+                 revision: Optional[builtins.int] = None,
+                 storage_profile: Optional['outputs.StorageProfileResponse'] = None):
+        """
+        The object that contains a reference to a Container Group Profile and it's other related properties.
+        :param 'NGroupContainerGroupPropertiesResponse' container_group_properties:  Container Group properties which can be set while creating or updating the NGroups.
+        :param 'NetworkProfileResponse' network_profile: A network profile for network settings of a ContainerGroupProfile.
+        :param 'ApiEntityReferenceResponse' resource: A reference to the container group profile ARM resource hosted in ACI RP.
+        :param builtins.int revision: The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        :param 'StorageProfileResponse' storage_profile: Storage profile for storage related settings of a container group profile.
+        """
+        if container_group_properties is not None:
+            pulumi.set(__self__, "container_group_properties", container_group_properties)
+        if network_profile is not None:
+            pulumi.set(__self__, "network_profile", network_profile)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if revision is not None:
+            pulumi.set(__self__, "revision", revision)
+        if storage_profile is not None:
+            pulumi.set(__self__, "storage_profile", storage_profile)
+
+    @property
+    @pulumi.getter(name="containerGroupProperties")
+    def container_group_properties(self) -> Optional['outputs.NGroupContainerGroupPropertiesResponse']:
+        """
+         Container Group properties which can be set while creating or updating the NGroups.
+        """
+        return pulumi.get(self, "container_group_properties")
+
+    @property
+    @pulumi.getter(name="networkProfile")
+    def network_profile(self) -> Optional['outputs.NetworkProfileResponse']:
+        """
+        A network profile for network settings of a ContainerGroupProfile.
+        """
+        return pulumi.get(self, "network_profile")
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional['outputs.ApiEntityReferenceResponse']:
+        """
+        A reference to the container group profile ARM resource hosted in ACI RP.
+        """
+        return pulumi.get(self, "resource")
+
+    @property
+    @pulumi.getter
+    def revision(self) -> Optional[builtins.int]:
+        """
+        The revision of the CG profile is an optional property. If customer does not to provide a revision then NGroups will pickup the latest revision of CGProfile.
+        """
+        return pulumi.get(self, "revision")
+
+    @property
+    @pulumi.getter(name="storageProfile")
+    def storage_profile(self) -> Optional['outputs.StorageProfileResponse']:
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        return pulumi.get(self, "storage_profile")
 
 
 @pulumi.output_type
@@ -1209,6 +1420,125 @@ class DnsConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class ElasticProfileResponse(dict):
+    """
+    Describes the elastic profile of the NGroup
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "containerGroupNamingPolicy":
+            suggest = "container_group_naming_policy"
+        elif key == "desiredCount":
+            suggest = "desired_count"
+        elif key == "maintainDesiredCount":
+            suggest = "maintain_desired_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 container_group_naming_policy: Optional['outputs.ElasticProfileResponseContainerGroupNamingPolicy'] = None,
+                 desired_count: Optional[builtins.int] = None,
+                 maintain_desired_count: Optional[builtins.bool] = None):
+        """
+        Describes the elastic profile of the NGroup
+        :param 'ElasticProfileResponseContainerGroupNamingPolicy' container_group_naming_policy: Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        :param builtins.bool maintain_desired_count: Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+        """
+        if container_group_naming_policy is not None:
+            pulumi.set(__self__, "container_group_naming_policy", container_group_naming_policy)
+        if desired_count is not None:
+            pulumi.set(__self__, "desired_count", desired_count)
+        if maintain_desired_count is not None:
+            pulumi.set(__self__, "maintain_desired_count", maintain_desired_count)
+
+    @property
+    @pulumi.getter(name="containerGroupNamingPolicy")
+    def container_group_naming_policy(self) -> Optional['outputs.ElasticProfileResponseContainerGroupNamingPolicy']:
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        return pulumi.get(self, "container_group_naming_policy")
+
+    @property
+    @pulumi.getter(name="desiredCount")
+    def desired_count(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "desired_count")
+
+    @property
+    @pulumi.getter(name="maintainDesiredCount")
+    def maintain_desired_count(self) -> Optional[builtins.bool]:
+        """
+        Flag that indicates whether desiredCount should be maintained when customer deletes SPECIFIC container groups (CGs) from the NGroups. In this case, new CGs will be created by NGroup to compensate for the specific deleted ones.
+        """
+        return pulumi.get(self, "maintain_desired_count")
+
+
+@pulumi.output_type
+class ElasticProfileResponseContainerGroupNamingPolicy(dict):
+    """
+    Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "guidNamingPolicy":
+            suggest = "guid_naming_policy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ElasticProfileResponseContainerGroupNamingPolicy. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ElasticProfileResponseContainerGroupNamingPolicy.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ElasticProfileResponseContainerGroupNamingPolicy.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 guid_naming_policy: Optional['outputs.ElasticProfileResponseGuidNamingPolicy'] = None):
+        """
+        Container Groups are named on a generic guid based naming scheme/policy. Customer can modify naming policy to add prefix to CG names during scale out operation.
+        """
+        if guid_naming_policy is not None:
+            pulumi.set(__self__, "guid_naming_policy", guid_naming_policy)
+
+    @property
+    @pulumi.getter(name="guidNamingPolicy")
+    def guid_naming_policy(self) -> Optional['outputs.ElasticProfileResponseGuidNamingPolicy']:
+        return pulumi.get(self, "guid_naming_policy")
+
+
+@pulumi.output_type
+class ElasticProfileResponseGuidNamingPolicy(dict):
+    def __init__(__self__, *,
+                 prefix: Optional[builtins.str] = None):
+        """
+        :param builtins.str prefix: The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        if prefix is not None:
+            pulumi.set(__self__, "prefix", prefix)
+
+    @property
+    @pulumi.getter
+    def prefix(self) -> Optional[builtins.str]:
+        """
+        The prefix can be used when there are tooling limitations (e.g. on the Azure portal where CGs from multiple NGroups exist in the same RG). The prefix with the suffixed resource name must still follow Azure resource naming guidelines.
+        """
+        return pulumi.get(self, "prefix")
+
+
+@pulumi.output_type
 class EncryptionPropertiesResponse(dict):
     """
     The container group encryption properties.
@@ -1456,6 +1786,120 @@ class EventResponse(dict):
         The event type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class FileShareResponse(dict):
+    """
+    File shares that can be mounted on container groups.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceGroupName":
+            suggest = "resource_group_name"
+        elif key == "storageAccountName":
+            suggest = "storage_account_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileShareResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileShareResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileShareResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 properties: Optional['outputs.FileShareResponseProperties'] = None,
+                 resource_group_name: Optional[builtins.str] = None,
+                 storage_account_name: Optional[builtins.str] = None):
+        """
+        File shares that can be mounted on container groups.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if resource_group_name is not None:
+            pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if storage_account_name is not None:
+            pulumi.set(__self__, "storage_account_name", storage_account_name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.FileShareResponseProperties']:
+        return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="resourceGroupName")
+    def resource_group_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "resource_group_name")
+
+    @property
+    @pulumi.getter(name="storageAccountName")
+    def storage_account_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "storage_account_name")
+
+
+@pulumi.output_type
+class FileShareResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "shareAccessTier":
+            suggest = "share_access_tier"
+        elif key == "shareAccessType":
+            suggest = "share_access_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileShareResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileShareResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileShareResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 share_access_tier: Optional[builtins.str] = None,
+                 share_access_type: Optional[builtins.str] = None):
+        """
+        :param builtins.str share_access_tier: Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        :param builtins.str share_access_type:  Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        if share_access_tier is None:
+            share_access_tier = 'TransactionOptimized'
+        if share_access_tier is not None:
+            pulumi.set(__self__, "share_access_tier", share_access_tier)
+        if share_access_type is not None:
+            pulumi.set(__self__, "share_access_type", share_access_type)
+
+    @property
+    @pulumi.getter(name="shareAccessTier")
+    def share_access_tier(self) -> Optional[builtins.str]:
+        """
+        Access tier for specific share. GpV2 account can choose between TransactionOptimized (default), Hot, and Cool. FileStorage account can choose Premium. Learn more at: https://learn.microsoft.com/en-us/rest/api/storagerp/file-shares/create?tabs=HTTP#shareaccesstier
+        """
+        return pulumi.get(self, "share_access_tier")
+
+    @property
+    @pulumi.getter(name="shareAccessType")
+    def share_access_type(self) -> Optional[builtins.str]:
+        """
+         Specifies how Container Groups can access the Azure file share i.e. all CG will share same Azure file share or going to have exclusive file share.
+        """
+        return pulumi.get(self, "share_access_type")
 
 
 @pulumi.output_type
@@ -1967,6 +2411,69 @@ class IpAddressResponse(dict):
 
 
 @pulumi.output_type
+class LoadBalancerBackendAddressPoolResponse(dict):
+    """
+    NGroups load balancer backend address pool
+    """
+    def __init__(__self__, *,
+                 resource: Optional[builtins.str] = None):
+        """
+        NGroups load balancer backend address pool
+        :param builtins.str resource: The Load Balancer backend address pool ARM resource Id.
+        """
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+
+    @property
+    @pulumi.getter
+    def resource(self) -> Optional[builtins.str]:
+        """
+        The Load Balancer backend address pool ARM resource Id.
+        """
+        return pulumi.get(self, "resource")
+
+
+@pulumi.output_type
+class LoadBalancerResponse(dict):
+    """
+    LoadBalancer the CG profile will use to interact with CGs in a backend pool
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendAddressPools":
+            suggest = "backend_address_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_address_pools: Optional[Sequence['outputs.LoadBalancerBackendAddressPoolResponse']] = None):
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        :param Sequence['LoadBalancerBackendAddressPoolResponse'] backend_address_pools: List of Load Balancer Backend Address Pools.
+        """
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+
+    @property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressPoolResponse']]:
+        """
+        List of Load Balancer Backend Address Pools.
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+
+@pulumi.output_type
 class LogAnalyticsResponse(dict):
     """
     Container group log analytics information.
@@ -2056,6 +2563,364 @@ class LogAnalyticsResponse(dict):
         The workspace resource id for log analytics
         """
         return pulumi.get(self, "workspace_resource_id")
+
+
+@pulumi.output_type
+class NGroupCGPropertyContainerResponse(dict):
+    """
+    Container properties that can be provided with NGroups object.
+    """
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 properties: Optional['outputs.NGroupCGPropertyContainerResponseProperties'] = None):
+        """
+        Container properties that can be provided with NGroups object.
+        :param builtins.str name: container name
+        :param 'NGroupCGPropertyContainerResponseProperties' properties: container properties
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        container name
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional['outputs.NGroupCGPropertyContainerResponseProperties']:
+        """
+        container properties
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class NGroupCGPropertyContainerResponseProperties(dict):
+    """
+    container properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "volumeMounts":
+            suggest = "volume_mounts"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NGroupCGPropertyContainerResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NGroupCGPropertyContainerResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NGroupCGPropertyContainerResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 volume_mounts: Optional[Sequence['outputs.VolumeMountResponse']] = None):
+        """
+        container properties
+        """
+        if volume_mounts is not None:
+            pulumi.set(__self__, "volume_mounts", volume_mounts)
+
+    @property
+    @pulumi.getter(name="volumeMounts")
+    def volume_mounts(self) -> Optional[Sequence['outputs.VolumeMountResponse']]:
+        return pulumi.get(self, "volume_mounts")
+
+
+@pulumi.output_type
+class NGroupCGPropertyVolumeResponse(dict):
+    """
+    Contains information about the volumes that can be mounted by Containers in the Container Groups.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureFile":
+            suggest = "azure_file"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NGroupCGPropertyVolumeResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NGroupCGPropertyVolumeResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NGroupCGPropertyVolumeResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 azure_file: Optional['outputs.AzureFileVolumeResponse'] = None):
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        :param builtins.str name: The name of the volume.
+        :param 'AzureFileVolumeResponse' azure_file: The Azure File volume.
+        """
+        pulumi.set(__self__, "name", name)
+        if azure_file is not None:
+            pulumi.set(__self__, "azure_file", azure_file)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the volume.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="azureFile")
+    def azure_file(self) -> Optional['outputs.AzureFileVolumeResponse']:
+        """
+        The Azure File volume.
+        """
+        return pulumi.get(self, "azure_file")
+
+
+@pulumi.output_type
+class NGroupContainerGroupPropertiesResponse(dict):
+    """
+    Container Group properties which can be set while creating or updating the NGroups.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "subnetIds":
+            suggest = "subnet_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NGroupContainerGroupPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NGroupContainerGroupPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NGroupContainerGroupPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 containers: Optional[Sequence['outputs.NGroupCGPropertyContainerResponse']] = None,
+                 subnet_ids: Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']] = None,
+                 volumes: Optional[Sequence['outputs.NGroupCGPropertyVolumeResponse']] = None):
+        """
+        Container Group properties which can be set while creating or updating the NGroups.
+        :param Sequence['NGroupCGPropertyContainerResponse'] containers: Contains information about Container which can be set while creating or updating the NGroups.
+        :param Sequence['ContainerGroupSubnetIdResponse'] subnet_ids: Contains information about Virtual Network Subnet ARM Resource
+        :param Sequence['NGroupCGPropertyVolumeResponse'] volumes: Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+        if containers is not None:
+            pulumi.set(__self__, "containers", containers)
+        if subnet_ids is not None:
+            pulumi.set(__self__, "subnet_ids", subnet_ids)
+        if volumes is not None:
+            pulumi.set(__self__, "volumes", volumes)
+
+    @property
+    @pulumi.getter
+    def containers(self) -> Optional[Sequence['outputs.NGroupCGPropertyContainerResponse']]:
+        """
+        Contains information about Container which can be set while creating or updating the NGroups.
+        """
+        return pulumi.get(self, "containers")
+
+    @property
+    @pulumi.getter(name="subnetIds")
+    def subnet_ids(self) -> Optional[Sequence['outputs.ContainerGroupSubnetIdResponse']]:
+        """
+        Contains information about Virtual Network Subnet ARM Resource
+        """
+        return pulumi.get(self, "subnet_ids")
+
+    @property
+    @pulumi.getter
+    def volumes(self) -> Optional[Sequence['outputs.NGroupCGPropertyVolumeResponse']]:
+        """
+        Contains information about the volumes that can be mounted by Containers in the Container Groups.
+        """
+        return pulumi.get(self, "volumes")
+
+
+@pulumi.output_type
+class NGroupIdentityResponse(dict):
+    """
+    Identity for the NGroup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "principalId":
+            suggest = "principal_id"
+        elif key == "tenantId":
+            suggest = "tenant_id"
+        elif key == "userAssignedIdentities":
+            suggest = "user_assigned_identities"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NGroupIdentityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NGroupIdentityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NGroupIdentityResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 principal_id: builtins.str,
+                 tenant_id: builtins.str,
+                 type: Optional[builtins.str] = None,
+                 user_assigned_identities: Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']] = None):
+        """
+        Identity for the NGroup.
+        :param builtins.str principal_id: The principal id of the NGroup identity. This property will only be provided for a system assigned identity.
+        :param builtins.str tenant_id: The tenant id associated with the NGroup. This property will only be provided for a system assigned identity.
+        :param builtins.str type: The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+        :param Mapping[str, 'UserAssignedIdentitiesResponse'] user_assigned_identities: The list of user identities associated with the NGroup.
+        """
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+        if user_assigned_identities is not None:
+            pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The principal id of the NGroup identity. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> builtins.str:
+        """
+        The tenant id associated with the NGroup. This property will only be provided for a system assigned identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        The type of identity used for the NGroup. The type 'SystemAssigned, UserAssigned' includes both an implicitly created identity and a set of user assigned identities. The type 'None' will remove any identities from the NGroup.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="userAssignedIdentities")
+    def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.UserAssignedIdentitiesResponse']]:
+        """
+        The list of user identities associated with the NGroup.
+        """
+        return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class NetworkProfileResponse(dict):
+    """
+    A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "applicationGateway":
+            suggest = "application_gateway"
+        elif key == "loadBalancer":
+            suggest = "load_balancer"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NetworkProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 application_gateway: Optional['outputs.ApplicationGatewayResponse'] = None,
+                 load_balancer: Optional['outputs.LoadBalancerResponse'] = None):
+        """
+        A network profile for network settings of a ContainerGroupProfile. Used to manage load balancer and application gateway backend pools, specifically updating the IP addresses of CGs within the backend pool.
+        :param 'ApplicationGatewayResponse' application_gateway: Application Gateway the CG profile will use to interact with CGs in a backend pool
+        :param 'LoadBalancerResponse' load_balancer: LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+        if application_gateway is not None:
+            pulumi.set(__self__, "application_gateway", application_gateway)
+        if load_balancer is not None:
+            pulumi.set(__self__, "load_balancer", load_balancer)
+
+    @property
+    @pulumi.getter(name="applicationGateway")
+    def application_gateway(self) -> Optional['outputs.ApplicationGatewayResponse']:
+        """
+        Application Gateway the CG profile will use to interact with CGs in a backend pool
+        """
+        return pulumi.get(self, "application_gateway")
+
+    @property
+    @pulumi.getter(name="loadBalancer")
+    def load_balancer(self) -> Optional['outputs.LoadBalancerResponse']:
+        """
+        LoadBalancer the CG profile will use to interact with CGs in a backend pool
+        """
+        return pulumi.get(self, "load_balancer")
+
+
+@pulumi.output_type
+class PlacementProfileResponse(dict):
+    """
+    Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "faultDomainCount":
+            suggest = "fault_domain_count"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PlacementProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PlacementProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PlacementProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 fault_domain_count: Optional[builtins.int] = None):
+        """
+        Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
+        :param builtins.int fault_domain_count: The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+        """
+        if fault_domain_count is not None:
+            pulumi.set(__self__, "fault_domain_count", fault_domain_count)
+
+    @property
+    @pulumi.getter(name="faultDomainCount")
+    def fault_domain_count(self) -> Optional[builtins.int]:
+        """
+        The number of fault domains to be used to spread CGs in the NGroups resource. This can only be specified during NGroup creation and is immutable after that.
+        """
+        return pulumi.get(self, "fault_domain_count")
 
 
 @pulumi.output_type
@@ -2446,6 +3311,42 @@ class StandbyPoolProfileDefinitionResponse(dict):
 
 
 @pulumi.output_type
+class StorageProfileResponse(dict):
+    """
+    Storage profile for storage related settings of a container group profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fileShares":
+            suggest = "file_shares"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in StorageProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        StorageProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 file_shares: Optional[Sequence['outputs.FileShareResponse']] = None):
+        """
+        Storage profile for storage related settings of a container group profile.
+        """
+        if file_shares is not None:
+            pulumi.set(__self__, "file_shares", file_shares)
+
+    @property
+    @pulumi.getter(name="fileShares")
+    def file_shares(self) -> Optional[Sequence['outputs.FileShareResponse']]:
+        return pulumi.get(self, "file_shares")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -2553,6 +3454,138 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class UpdateProfileResponse(dict):
+    """
+    Used by the customer to specify the way to update the Container Groups in NGroup.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "rollingUpdateProfile":
+            suggest = "rolling_update_profile"
+        elif key == "updateMode":
+            suggest = "update_mode"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 rolling_update_profile: Optional['outputs.UpdateProfileResponseRollingUpdateProfile'] = None,
+                 update_mode: Optional[builtins.str] = None):
+        """
+        Used by the customer to specify the way to update the Container Groups in NGroup.
+        :param 'UpdateProfileResponseRollingUpdateProfile' rolling_update_profile: This profile allows the customers to customize the rolling update.
+        """
+        if rolling_update_profile is not None:
+            pulumi.set(__self__, "rolling_update_profile", rolling_update_profile)
+        if update_mode is not None:
+            pulumi.set(__self__, "update_mode", update_mode)
+
+    @property
+    @pulumi.getter(name="rollingUpdateProfile")
+    def rolling_update_profile(self) -> Optional['outputs.UpdateProfileResponseRollingUpdateProfile']:
+        """
+        This profile allows the customers to customize the rolling update.
+        """
+        return pulumi.get(self, "rolling_update_profile")
+
+    @property
+    @pulumi.getter(name="updateMode")
+    def update_mode(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "update_mode")
+
+
+@pulumi.output_type
+class UpdateProfileResponseRollingUpdateProfile(dict):
+    """
+    This profile allows the customers to customize the rolling update.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "inPlaceUpdate":
+            suggest = "in_place_update"
+        elif key == "maxBatchPercent":
+            suggest = "max_batch_percent"
+        elif key == "maxUnhealthyPercent":
+            suggest = "max_unhealthy_percent"
+        elif key == "pauseTimeBetweenBatches":
+            suggest = "pause_time_between_batches"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in UpdateProfileResponseRollingUpdateProfile. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        UpdateProfileResponseRollingUpdateProfile.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        UpdateProfileResponseRollingUpdateProfile.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 in_place_update: Optional[builtins.bool] = None,
+                 max_batch_percent: Optional[builtins.int] = None,
+                 max_unhealthy_percent: Optional[builtins.int] = None,
+                 pause_time_between_batches: Optional[builtins.str] = None):
+        """
+        This profile allows the customers to customize the rolling update.
+        :param builtins.bool in_place_update: Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+        :param builtins.int max_batch_percent: Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+        :param builtins.int max_unhealthy_percent: Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+        :param builtins.str pause_time_between_batches: The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+        """
+        if in_place_update is not None:
+            pulumi.set(__self__, "in_place_update", in_place_update)
+        if max_batch_percent is not None:
+            pulumi.set(__self__, "max_batch_percent", max_batch_percent)
+        if max_unhealthy_percent is not None:
+            pulumi.set(__self__, "max_unhealthy_percent", max_unhealthy_percent)
+        if pause_time_between_batches is not None:
+            pulumi.set(__self__, "pause_time_between_batches", pause_time_between_batches)
+
+    @property
+    @pulumi.getter(name="inPlaceUpdate")
+    def in_place_update(self) -> Optional[builtins.bool]:
+        """
+        Default is false. If set to true, the CGs will be updated in-place instead of creating new CG and deleting old ones.
+        """
+        return pulumi.get(self, "in_place_update")
+
+    @property
+    @pulumi.getter(name="maxBatchPercent")
+    def max_batch_percent(self) -> Optional[builtins.int]:
+        """
+        Maximum percentage of total Container Groups which can be updated simultaneously by rolling update in one batch.
+        """
+        return pulumi.get(self, "max_batch_percent")
+
+    @property
+    @pulumi.getter(name="maxUnhealthyPercent")
+    def max_unhealthy_percent(self) -> Optional[builtins.int]:
+        """
+        Maximum percentage of the updated Container Groups which can be in unhealthy state after each batch is updated.
+        """
+        return pulumi.get(self, "max_unhealthy_percent")
+
+    @property
+    @pulumi.getter(name="pauseTimeBetweenBatches")
+    def pause_time_between_batches(self) -> Optional[builtins.str]:
+        """
+        The wait time between batches after completing the one batch of the rolling update and starting the next batch. The time duration should be specified in ISO 8601 format for duration.
+        """
+        return pulumi.get(self, "pause_time_between_batches")
 
 
 @pulumi.output_type

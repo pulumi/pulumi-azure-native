@@ -136,6 +136,70 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// Property that determines whether a given availability replica can run in synchronous-commit mode
+    /// </summary>
+    [EnumType]
+    public readonly struct ArcSqlServerAvailabilityMode : IEquatable<ArcSqlServerAvailabilityMode>
+    {
+        private readonly string _value;
+
+        private ArcSqlServerAvailabilityMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArcSqlServerAvailabilityMode SYNCHRONOUS_COMMIT { get; } = new ArcSqlServerAvailabilityMode("SYNCHRONOUS_COMMIT");
+        public static ArcSqlServerAvailabilityMode ASYNCHRONOUS_COMMIT { get; } = new ArcSqlServerAvailabilityMode("ASYNCHRONOUS_COMMIT");
+
+        public static bool operator ==(ArcSqlServerAvailabilityMode left, ArcSqlServerAvailabilityMode right) => left.Equals(right);
+        public static bool operator !=(ArcSqlServerAvailabilityMode left, ArcSqlServerAvailabilityMode right) => !left.Equals(right);
+
+        public static explicit operator string(ArcSqlServerAvailabilityMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArcSqlServerAvailabilityMode other && Equals(other);
+        public bool Equals(ArcSqlServerAvailabilityMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Property to set the failover mode of the availability group replica
+    /// </summary>
+    [EnumType]
+    public readonly struct ArcSqlServerFailoverMode : IEquatable<ArcSqlServerFailoverMode>
+    {
+        private readonly string _value;
+
+        private ArcSqlServerFailoverMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ArcSqlServerFailoverMode AUTOMATIC { get; } = new ArcSqlServerFailoverMode("AUTOMATIC");
+        public static ArcSqlServerFailoverMode MANUAL { get; } = new ArcSqlServerFailoverMode("MANUAL");
+        public static ArcSqlServerFailoverMode EXTERNAL { get; } = new ArcSqlServerFailoverMode("EXTERNAL");
+        public static ArcSqlServerFailoverMode NONE { get; } = new ArcSqlServerFailoverMode("NONE");
+
+        public static bool operator ==(ArcSqlServerFailoverMode left, ArcSqlServerFailoverMode right) => left.Equals(right);
+        public static bool operator !=(ArcSqlServerFailoverMode left, ArcSqlServerFailoverMode right) => !left.Equals(right);
+
+        public static explicit operator string(ArcSqlServerFailoverMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArcSqlServerFailoverMode other && Equals(other);
+        public bool Equals(ArcSqlServerFailoverMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// SQL Server license type.
     /// </summary>
     [EnumType]
@@ -159,6 +223,45 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is BillingPlan other && Equals(other);
         public bool Equals(BillingPlan other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Permitted authentication modes for the mirroring endpoint.
+    /// </summary>
+    [EnumType]
+    public readonly struct ConnectionAuth : IEquatable<ConnectionAuth>
+    {
+        private readonly string _value;
+
+        private ConnectionAuth(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConnectionAuth Windows_NTLM { get; } = new ConnectionAuth("Windows_NTLM");
+        public static ConnectionAuth Windows_Kerberos { get; } = new ConnectionAuth("Windows_Kerberos");
+        public static ConnectionAuth Windows_Negotiate { get; } = new ConnectionAuth("Windows_Negotiate");
+        public static ConnectionAuth Certificate { get; } = new ConnectionAuth("Certificate");
+        public static ConnectionAuth Windows_NTLM_Certificate { get; } = new ConnectionAuth("Windows_NTLM_Certificate");
+        public static ConnectionAuth Windows_Kerberos_Certificate { get; } = new ConnectionAuth("Windows_Kerberos_Certificate");
+        public static ConnectionAuth Windows_Negotiate_Certificate { get; } = new ConnectionAuth("Windows_Negotiate_Certificate");
+        public static ConnectionAuth Certificate_Windows_NTLM { get; } = new ConnectionAuth("Certificate_Windows_NTLM");
+        public static ConnectionAuth Certificate_Windows_Kerberos { get; } = new ConnectionAuth("Certificate_Windows_Kerberos");
+        public static ConnectionAuth Certificate_Windows_Negotiate { get; } = new ConnectionAuth("Certificate_Windows_Negotiate");
+
+        public static bool operator ==(ConnectionAuth left, ConnectionAuth right) => left.Equals(right);
+        public static bool operator !=(ConnectionAuth left, ConnectionAuth right) => !left.Equals(right);
+
+        public static explicit operator string(ConnectionAuth value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConnectionAuth other && Equals(other);
+        public bool Equals(ConnectionAuth other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -375,6 +478,43 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// The method used for Entra authentication
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityType : IEquatable<IdentityType>
+    {
+        private readonly string _value;
+
+        private IdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// System Assigned Managed Identity
+        /// </summary>
+        public static IdentityType SystemAssignedManagedIdentity { get; } = new IdentityType("SystemAssignedManagedIdentity");
+        /// <summary>
+        /// User Assigned Managed Identity
+        /// </summary>
+        public static IdentityType UserAssignedManagedIdentity { get; } = new IdentityType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(IdentityType left, IdentityType right) => left.Equals(right);
+        public static bool operator !=(IdentityType left, IdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityType other && Equals(other);
+        public bool Equals(IdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The infrastructure the data controller is running on.
     /// </summary>
     [EnumType]
@@ -473,6 +613,47 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
+    /// Mode of authentication in SqlServer.
+    /// </summary>
+    [EnumType]
+    public readonly struct Mode : IEquatable<Mode>
+    {
+        private readonly string _value;
+
+        private Mode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Mixed mode authentication for SQL Server which includes windows and SQL Authentication.
+        /// </summary>
+        public static Mode Mixed { get; } = new Mode("Mixed");
+        /// <summary>
+        /// Windows Authentication for SQL Server.
+        /// </summary>
+        public static Mode Windows { get; } = new Mode("Windows");
+        /// <summary>
+        /// Used for scenarios were the mode cannot be determined.
+        /// </summary>
+        public static Mode Undefined { get; } = new Mode("Undefined");
+
+        public static bool operator ==(Mode left, Mode right) => left.Equals(right);
+        public static bool operator !=(Mode left, Mode right) => !left.Equals(right);
+
+        public static explicit operator string(Mode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Mode other && Equals(other);
+        public bool Equals(Mode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier.
     /// </summary>
     [EnumType]
@@ -495,6 +676,37 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PostgresInstanceSkuTier other && Equals(other);
         public bool Equals(PostgresInstanceSkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
+    /// </summary>
+    [EnumType]
+    public readonly struct PrimaryAllowConnections : IEquatable<PrimaryAllowConnections>
+    {
+        private readonly string _value;
+
+        private PrimaryAllowConnections(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrimaryAllowConnections ALL { get; } = new PrimaryAllowConnections("ALL");
+        public static PrimaryAllowConnections READ_WRITE { get; } = new PrimaryAllowConnections("READ_WRITE");
+
+        public static bool operator ==(PrimaryAllowConnections left, PrimaryAllowConnections right) => left.Equals(right);
+        public static bool operator !=(PrimaryAllowConnections left, PrimaryAllowConnections right) => !left.Equals(right);
+
+        public static explicit operator string(PrimaryAllowConnections value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrimaryAllowConnections other && Equals(other);
+        public bool Equals(PrimaryAllowConnections other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -559,6 +771,118 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScopeType other && Equals(other);
         public bool Equals(ScopeType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether the secondary replica should allow all connections, no connections, or only ReadOnly connections.
+    /// </summary>
+    [EnumType]
+    public readonly struct SecondaryAllowConnections : IEquatable<SecondaryAllowConnections>
+    {
+        private readonly string _value;
+
+        private SecondaryAllowConnections(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecondaryAllowConnections NO { get; } = new SecondaryAllowConnections("NO");
+        public static SecondaryAllowConnections ALL { get; } = new SecondaryAllowConnections("ALL");
+        public static SecondaryAllowConnections READ_ONLY { get; } = new SecondaryAllowConnections("READ_ONLY");
+
+        public static bool operator ==(SecondaryAllowConnections left, SecondaryAllowConnections right) => left.Equals(right);
+        public static bool operator !=(SecondaryAllowConnections left, SecondaryAllowConnections right) => !left.Equals(right);
+
+        public static explicit operator string(SecondaryAllowConnections value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecondaryAllowConnections other && Equals(other);
+        public bool Equals(SecondaryAllowConnections other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies how the secondary replica will be initially seeded. AUTOMATIC enables direct seeding. This method will seed the secondary replica over the network. This method does not require you to backup and restore a copy of the primary database on the replica. MANUAL specifies manual seeding (default). This method requires you to create a backup of the database on the primary replica and manually restore that backup on the secondary replica.
+    /// </summary>
+    [EnumType]
+    public readonly struct SeedingMode : IEquatable<SeedingMode>
+    {
+        private readonly string _value;
+
+        private SeedingMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SeedingMode AUTOMATIC { get; } = new SeedingMode("AUTOMATIC");
+        public static SeedingMode MANUAL { get; } = new SeedingMode("MANUAL");
+
+        public static bool operator ==(SeedingMode left, SeedingMode right) => left.Equals(right);
+        public static bool operator !=(SeedingMode left, SeedingMode right) => !left.Equals(right);
+
+        public static explicit operator string(SeedingMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SeedingMode other && Equals(other);
+        public bool Equals(SeedingMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Indicates if the resource represents a SQL Server engine or a SQL Server component service installed on the host.
+    /// </summary>
+    [EnumType]
+    public readonly struct ServiceType : IEquatable<ServiceType>
+    {
+        private readonly string _value;
+
+        private ServiceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// SQL Server Database Services.
+        /// </summary>
+        public static ServiceType Engine { get; } = new ServiceType("Engine");
+        /// <summary>
+        /// SQL Server Reporting Services.
+        /// </summary>
+        public static ServiceType SSRS { get; } = new ServiceType("SSRS");
+        /// <summary>
+        /// SQL Server Analysis Services.
+        /// </summary>
+        public static ServiceType SSAS { get; } = new ServiceType("SSAS");
+        /// <summary>
+        /// SQL Server Integration Services.
+        /// </summary>
+        public static ServiceType SSIS { get; } = new ServiceType("SSIS");
+        /// <summary>
+        /// Power BI Report Server.
+        /// </summary>
+        public static ServiceType PBIRS { get; } = new ServiceType("PBIRS");
+
+        public static bool operator ==(ServiceType left, ServiceType right) => left.Equals(right);
+        public static bool operator !=(ServiceType left, ServiceType right) => !left.Equals(right);
+
+        public static explicit operator string(ServiceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ServiceType other && Equals(other);
+        public bool Equals(ServiceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

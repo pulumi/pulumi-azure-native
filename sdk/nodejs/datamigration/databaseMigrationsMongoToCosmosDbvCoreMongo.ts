@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-07-15-preview. In version 2.x of the Azure Native provider, it used API version 2023-07-15-preview.
  *
- * Other available API versions: 2025-03-15-preview, 2025-06-30. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-03-15-preview, 2025-06-30, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datamigration [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DatabaseMigrationsMongoToCosmosDbvCoreMongo extends pulumi.CustomResource {
     /**
@@ -171,7 +171,7 @@ export class DatabaseMigrationsMongoToCosmosDbvCoreMongo extends pulumi.CustomRe
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20250315preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20250630:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:datamigration/v20230715preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20250315preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20250630:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }, { type: "azure-native:datamigration/v20250901preview:DatabaseMigrationsMongoToCosmosDbvCoreMongo" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DatabaseMigrationsMongoToCosmosDbvCoreMongo.__pulumiType, name, resourceInputs, opts);
     }

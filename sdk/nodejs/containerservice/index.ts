@@ -70,6 +70,11 @@ export const getIdentityBinding: typeof import("./getIdentityBinding").getIdenti
 export const getIdentityBindingOutput: typeof import("./getIdentityBinding").getIdentityBindingOutput = null as any;
 utilities.lazyLoad(exports, ["getIdentityBinding","getIdentityBindingOutput"], () => require("./getIdentityBinding"));
 
+export { GetJWTAuthenticatorArgs, GetJWTAuthenticatorResult, GetJWTAuthenticatorOutputArgs } from "./getJWTAuthenticator";
+export const getJWTAuthenticator: typeof import("./getJWTAuthenticator").getJWTAuthenticator = null as any;
+export const getJWTAuthenticatorOutput: typeof import("./getJWTAuthenticator").getJWTAuthenticatorOutput = null as any;
+utilities.lazyLoad(exports, ["getJWTAuthenticator","getJWTAuthenticatorOutput"], () => require("./getJWTAuthenticator"));
+
 export { GetLoadBalancerArgs, GetLoadBalancerResult, GetLoadBalancerOutputArgs } from "./getLoadBalancer";
 export const getLoadBalancer: typeof import("./getLoadBalancer").getLoadBalancer = null as any;
 export const getLoadBalancerOutput: typeof import("./getLoadBalancer").getLoadBalancerOutput = null as any;
@@ -124,6 +129,11 @@ export { IdentityBindingArgs } from "./identityBinding";
 export type IdentityBinding = import("./identityBinding").IdentityBinding;
 export const IdentityBinding: typeof import("./identityBinding").IdentityBinding = null as any;
 utilities.lazyLoad(exports, ["IdentityBinding"], () => require("./identityBinding"));
+
+export { JWTAuthenticatorArgs } from "./jwtauthenticator";
+export type JWTAuthenticator = import("./jwtauthenticator").JWTAuthenticator;
+export const JWTAuthenticator: typeof import("./jwtauthenticator").JWTAuthenticator = null as any;
+utilities.lazyLoad(exports, ["JWTAuthenticator"], () => require("./jwtauthenticator"));
 
 export { ListFleetCredentialsArgs, ListFleetCredentialsResult, ListFleetCredentialsOutputArgs } from "./listFleetCredentials";
 export const listFleetCredentials: typeof import("./listFleetCredentials").listFleetCredentials = null as any;
@@ -232,6 +242,8 @@ const _module = {
                 return new FleetUpdateStrategy(name, <any>undefined, { urn })
             case "azure-native:containerservice:IdentityBinding":
                 return new IdentityBinding(name, <any>undefined, { urn })
+            case "azure-native:containerservice:JWTAuthenticator":
+                return new JWTAuthenticator(name, <any>undefined, { urn })
             case "azure-native:containerservice:LoadBalancer":
                 return new LoadBalancer(name, <any>undefined, { urn })
             case "azure-native:containerservice:MaintenanceConfiguration":

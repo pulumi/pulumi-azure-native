@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets an existing delivery rule within a rule set.
  *
- * Uses Azure REST API version 2024-09-01.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -26,11 +26,11 @@ export function getRule(args: GetRuleArgs, opts?: pulumi.InvokeOptions): Promise
 
 export interface GetRuleArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: string;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
@@ -38,7 +38,7 @@ export interface GetRuleArgs {
      */
     ruleName: string;
     /**
-     * Name of the rule set under the profile.
+     * Name of the rule set under the profile which is unique globally.
      */
     ruleSetName: string;
 }
@@ -50,7 +50,7 @@ export interface GetRuleResult {
     /**
      * A list of actions that are executed when all the conditions of a rule are satisfied.
      */
-    readonly actions: (outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[];
+    readonly actions?: (outputs.cdn.DeliveryRuleCacheExpirationActionResponse | outputs.cdn.DeliveryRuleCacheKeyQueryStringActionResponse | outputs.cdn.DeliveryRuleRequestHeaderActionResponse | outputs.cdn.DeliveryRuleResponseHeaderActionResponse | outputs.cdn.DeliveryRuleRouteConfigurationOverrideActionResponse | outputs.cdn.OriginGroupOverrideActionResponse | outputs.cdn.UrlRedirectActionResponse | outputs.cdn.UrlRewriteActionResponse | outputs.cdn.UrlSigningActionResponse)[];
     /**
      * The Azure API version of the resource.
      */
@@ -61,7 +61,7 @@ export interface GetRuleResult {
     readonly conditions?: (outputs.cdn.DeliveryRuleClientPortConditionResponse | outputs.cdn.DeliveryRuleCookiesConditionResponse | outputs.cdn.DeliveryRuleHostNameConditionResponse | outputs.cdn.DeliveryRuleHttpVersionConditionResponse | outputs.cdn.DeliveryRuleIsDeviceConditionResponse | outputs.cdn.DeliveryRulePostArgsConditionResponse | outputs.cdn.DeliveryRuleQueryStringConditionResponse | outputs.cdn.DeliveryRuleRemoteAddressConditionResponse | outputs.cdn.DeliveryRuleRequestBodyConditionResponse | outputs.cdn.DeliveryRuleRequestHeaderConditionResponse | outputs.cdn.DeliveryRuleRequestMethodConditionResponse | outputs.cdn.DeliveryRuleRequestSchemeConditionResponse | outputs.cdn.DeliveryRuleRequestUriConditionResponse | outputs.cdn.DeliveryRuleServerPortConditionResponse | outputs.cdn.DeliveryRuleSocketAddrConditionResponse | outputs.cdn.DeliveryRuleSslProtocolConditionResponse | outputs.cdn.DeliveryRuleUrlFileExtensionConditionResponse | outputs.cdn.DeliveryRuleUrlFileNameConditionResponse | outputs.cdn.DeliveryRuleUrlPathConditionResponse)[];
     readonly deploymentStatus: string;
     /**
-     * Resource ID.
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
     /**
@@ -69,13 +69,13 @@ export interface GetRuleResult {
      */
     readonly matchProcessingBehavior?: string;
     /**
-     * Resource name.
+     * The name of the resource
      */
     readonly name: string;
     /**
      * The order in which the rules are applied for the endpoint. Possible values {0,1,2,3,………}. A rule with a lesser order will be applied before a rule with a greater order. Rule with order 0 is a special rule. It does not require any condition and actions listed in it will always be applied.
      */
-    readonly order: number;
+    readonly order?: number;
     /**
      * Provisioning status
      */
@@ -85,20 +85,20 @@ export interface GetRuleResult {
      */
     readonly ruleSetName: string;
     /**
-     * Read only system data
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.cdn.SystemDataResponse;
     /**
-     * Resource type.
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
 /**
  * Gets an existing delivery rule within a rule set.
  *
- * Uses Azure REST API version 2024-09-01.
+ * Uses Azure REST API version 2025-06-01.
  *
- * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2025-01-01-preview, 2025-04-15, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,11 +112,11 @@ export function getRuleOutput(args: GetRuleOutputArgs, opts?: pulumi.InvokeOutpu
 
 export interface GetRuleOutputArgs {
     /**
-     * Name of the Azure Front Door Standard or Azure Front Door Premium profile which is unique within the resource group.
+     * Name of the Azure Front Door Standard or Azure Front Door Premium or CDN profile which is unique within the resource group.
      */
     profileName: pulumi.Input<string>;
     /**
-     * Name of the Resource group within the Azure subscription.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
@@ -124,7 +124,7 @@ export interface GetRuleOutputArgs {
      */
     ruleName: pulumi.Input<string>;
     /**
-     * Name of the rule set under the profile.
+     * Name of the rule set under the profile which is unique globally.
      */
     ruleSetName: pulumi.Input<string>;
 }

@@ -48,6 +48,10 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
         /// the SQL server name.
         /// </summary>
         public readonly string ServerName;
+        /// <summary>
+        /// The unique ID of the hybrid machine that this resource belongs to.
+        /// </summary>
+        public readonly string VmId;
 
         [OutputConstructor]
         private SqlServerAvailabilityGroupResourcePropertiesResponse(
@@ -65,7 +69,9 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
 
             Outputs.SqlServerAvailabilityGroupResourcePropertiesResponseReplicas? replicas,
 
-            string serverName)
+            string serverName,
+
+            string vmId)
         {
             AvailabilityGroupId = availabilityGroupId;
             CollectionTimestamp = collectionTimestamp;
@@ -75,6 +81,7 @@ namespace Pulumi.AzureNative.AzureArcData.Outputs
             ProvisioningState = provisioningState;
             Replicas = replicas;
             ServerName = serverName;
+            VmId = vmId;
         }
     }
 }

@@ -27,7 +27,13 @@ namespace Pulumi.AzureNative.Redis
         public static DayOfWeek Friday { get; } = new DayOfWeek("Friday");
         public static DayOfWeek Saturday { get; } = new DayOfWeek("Saturday");
         public static DayOfWeek Sunday { get; } = new DayOfWeek("Sunday");
+        /// <summary>
+        /// As a convenience, 'Everyday' is also accepted and means the same as specifying all days of the week.
+        /// </summary>
         public static DayOfWeek Everyday { get; } = new DayOfWeek("Everyday");
+        /// <summary>
+        /// As a convenience, 'Weekend' is also accepted and means the same as specifying Saturday and Sunday.
+        /// </summary>
         public static DayOfWeek Weekend { get; } = new DayOfWeek("Weekend");
 
         public static bool operator ==(DayOfWeek left, DayOfWeek right) => left.Equals(right);
@@ -111,7 +117,7 @@ namespace Pulumi.AzureNative.Redis
     }
 
     /// <summary>
-    /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'
+    /// Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -123,7 +129,13 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Public internet access to the cache, via its public IP address, is enabled. Connections may use any network path.
+        /// </summary>
         public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Public internet access to the cache, via its public IP address, is disabled. Connections must use be made via private endpoints.
+        /// </summary>
         public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
@@ -185,7 +197,13 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The SKU family to use - must be 'C' for Basic/Standard SKU redis caches.
+        /// </summary>
         public static SkuFamily C { get; } = new SkuFamily("C");
+        /// <summary>
+        /// The SKU family to use - must be 'P' for Premium SKU redis caches.
+        /// </summary>
         public static SkuFamily P { get; } = new SkuFamily("P");
 
         public static bool operator ==(SkuFamily left, SkuFamily right) => left.Equals(right);
@@ -216,8 +234,17 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The well known 'Basic' SKU for Azure Cache for Redis. Basic SKU does not have an availability SLA.
+        /// </summary>
         public static SkuName Basic { get; } = new SkuName("Basic");
+        /// <summary>
+        /// The well known 'Standard' SKU for Azure Cache for Redis. Standard SKU has an availability SLA.
+        /// </summary>
         public static SkuName Standard { get; } = new SkuName("Standard");
+        /// <summary>
+        /// The well known 'Premium' SKU for Azure Cache for Redis. Premium SKU has an availability SLA, and higher performance tiers and more features compared with Standard SKU.
+        /// </summary>
         public static SkuName Premium { get; } = new SkuName("Premium");
 
         public static bool operator ==(SkuName left, SkuName right) => left.Equals(right);
@@ -248,8 +275,17 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// TLS protocol version 1.0 -- deprecated for security reasons. Do not use this value for new caches.
+        /// </summary>
         public static TlsVersion TlsVersion_1_0 { get; } = new TlsVersion("1.0");
+        /// <summary>
+        /// TLS protocol version 1.1 -- deprecated for security reasons. Do not use this value for new caches.
+        /// </summary>
         public static TlsVersion TlsVersion_1_1 { get; } = new TlsVersion("1.1");
+        /// <summary>
+        /// TLS protocol version 1.2 -- use this value, or higher, for new caches. Or do not specify, so that your cache uses the recommended default value
+        /// </summary>
         public static TlsVersion TlsVersion_1_2 { get; } = new TlsVersion("1.2");
 
         public static bool operator ==(TlsVersion left, TlsVersion right) => left.Equals(right);
@@ -280,7 +316,13 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// Stable channel receives updates, which may include important security and stability updates, later than Preview channel.
+        /// </summary>
         public static UpdateChannel Stable { get; } = new UpdateChannel("Stable");
+        /// <summary>
+        /// Preview channel normally receives updates before Stable channel, and is the recommended channel for non-production workloads.
+        /// </summary>
         public static UpdateChannel Preview { get; } = new UpdateChannel("Preview");
 
         public static bool operator ==(UpdateChannel left, UpdateChannel right) => left.Equals(right);
@@ -311,8 +353,17 @@ namespace Pulumi.AzureNative.Redis
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        /// <summary>
+        /// The zones for the cache will be selected automatically based on availability and capacity.
+        /// </summary>
         public static ZonalAllocationPolicy Automatic { get; } = new ZonalAllocationPolicy("Automatic");
+        /// <summary>
+        /// UserDefined means the zones for the cache are manually configured using the 'zones' property, and can not be automatically selected.
+        /// </summary>
         public static ZonalAllocationPolicy UserDefined { get; } = new ZonalAllocationPolicy("UserDefined");
+        /// <summary>
+        /// The cache will not use multiple availability zones.
+        /// </summary>
         public static ZonalAllocationPolicy NoZones { get; } = new ZonalAllocationPolicy("NoZones");
 
         public static bool operator ==(ZonalAllocationPolicy left, ZonalAllocationPolicy right) => left.Equals(right);

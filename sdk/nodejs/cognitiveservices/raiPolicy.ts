@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RaiPolicy extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class RaiPolicy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20241001:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250601:RaiPolicy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20241001:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250601:RaiPolicy" }, { type: "azure-native:cognitiveservices/v20250701preview:RaiPolicy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiPolicy.__pulumiType, name, resourceInputs, opts);
     }

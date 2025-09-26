@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? PageSize;
         /// <summary>
+        /// Partition option for the SalesforceV2 connector in copy activity, AutoDetect or None. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? PartitionOption;
+        /// <summary>
         /// You can only use Salesforce Object Query Language (SOQL) query with limitations. For SOQL limitations, see this article: https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations. If query is not specified, all the data of the Salesforce object specified in ObjectApiName/reportId in dataset will be retrieved. Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object? Query;
@@ -74,6 +78,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? pageSize,
 
+            object? partitionOption,
+
             object? query,
 
             object? queryTimeout,
@@ -91,6 +97,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             IncludeDeletedObjects = includeDeletedObjects;
             MaxConcurrentConnections = maxConcurrentConnections;
             PageSize = pageSize;
+            PartitionOption = partitionOption;
             Query = query;
             QueryTimeout = queryTimeout;
             SOQLQuery = sOQLQuery;

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
 {
 
     /// <summary>
-    /// Defines the parameters for RequestScheme match conditions 
+    /// Defines the parameters for RequestScheme match conditions
     /// </summary>
     [OutputType]
     public sealed class RequestSchemeMatchConditionParametersResponse

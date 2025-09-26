@@ -29,6 +29,7 @@ __all__ = [
     'AmlFilesystemResponseHsm',
     'AmlFilesystemResponseMaintenanceWindow',
     'AmlFilesystemRootSquashSettingsResponse',
+    'AutoImportJobResponseBlobSyncEvents',
     'BlobNfsTargetResponse',
     'CacheActiveDirectorySettingsResponse',
     'CacheActiveDirectorySettingsResponseCredentials',
@@ -813,6 +814,199 @@ class AmlFilesystemRootSquashSettingsResponse(dict):
         User ID to squash to.
         """
         return pulumi.get(self, "squash_uid")
+
+
+@pulumi.output_type
+class AutoImportJobResponseBlobSyncEvents(dict):
+    """
+    The storage account blob change feed status of the auto import job.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "importedDirectories":
+            suggest = "imported_directories"
+        elif key == "importedFiles":
+            suggest = "imported_files"
+        elif key == "importedSymlinks":
+            suggest = "imported_symlinks"
+        elif key == "lastChangeFeedEventConsumedTime":
+            suggest = "last_change_feed_event_consumed_time"
+        elif key == "lastTimeFullySynchronized":
+            suggest = "last_time_fully_synchronized"
+        elif key == "preexistingDirectories":
+            suggest = "preexisting_directories"
+        elif key == "preexistingFiles":
+            suggest = "preexisting_files"
+        elif key == "preexistingSymlinks":
+            suggest = "preexisting_symlinks"
+        elif key == "rateOfBlobImport":
+            suggest = "rate_of_blob_import"
+        elif key == "totalBlobsImported":
+            suggest = "total_blobs_imported"
+        elif key == "totalConflicts":
+            suggest = "total_conflicts"
+        elif key == "totalErrors":
+            suggest = "total_errors"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AutoImportJobResponseBlobSyncEvents. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AutoImportJobResponseBlobSyncEvents.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AutoImportJobResponseBlobSyncEvents.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletions: builtins.float,
+                 imported_directories: builtins.float,
+                 imported_files: builtins.float,
+                 imported_symlinks: builtins.float,
+                 last_change_feed_event_consumed_time: builtins.str,
+                 last_time_fully_synchronized: builtins.str,
+                 preexisting_directories: builtins.float,
+                 preexisting_files: builtins.float,
+                 preexisting_symlinks: builtins.float,
+                 rate_of_blob_import: builtins.float,
+                 total_blobs_imported: builtins.float,
+                 total_conflicts: builtins.float,
+                 total_errors: builtins.float):
+        """
+        The storage account blob change feed status of the auto import job.
+        :param builtins.float deletions: Number of deletions during auto import.
+        :param builtins.float imported_directories: Number of directories imported during auto import.
+        :param builtins.float imported_files: Number of files imported during auto import.
+        :param builtins.float imported_symlinks: Number of symlinks imported during auto import.
+        :param builtins.str last_change_feed_event_consumed_time: Date and time of the last Change Feed event consumed.
+        :param builtins.str last_time_fully_synchronized: Date and time when last fully synchronized.
+        :param builtins.float preexisting_directories: Number of preexisting directories during auto import.
+        :param builtins.float preexisting_files: Number of preexisting files during auto import.
+        :param builtins.float preexisting_symlinks: Number of preexisting symlinks during auto import.
+        :param builtins.float rate_of_blob_import: Rate of blob import per second during auto import.
+        :param builtins.float total_blobs_imported: Total number of blobs imported during auto import.
+        :param builtins.float total_conflicts: Total conflicts encountered during auto import.
+        :param builtins.float total_errors: Total errors encountered during auto import.
+        """
+        pulumi.set(__self__, "deletions", deletions)
+        pulumi.set(__self__, "imported_directories", imported_directories)
+        pulumi.set(__self__, "imported_files", imported_files)
+        pulumi.set(__self__, "imported_symlinks", imported_symlinks)
+        pulumi.set(__self__, "last_change_feed_event_consumed_time", last_change_feed_event_consumed_time)
+        pulumi.set(__self__, "last_time_fully_synchronized", last_time_fully_synchronized)
+        pulumi.set(__self__, "preexisting_directories", preexisting_directories)
+        pulumi.set(__self__, "preexisting_files", preexisting_files)
+        pulumi.set(__self__, "preexisting_symlinks", preexisting_symlinks)
+        pulumi.set(__self__, "rate_of_blob_import", rate_of_blob_import)
+        pulumi.set(__self__, "total_blobs_imported", total_blobs_imported)
+        pulumi.set(__self__, "total_conflicts", total_conflicts)
+        pulumi.set(__self__, "total_errors", total_errors)
+
+    @property
+    @pulumi.getter
+    def deletions(self) -> builtins.float:
+        """
+        Number of deletions during auto import.
+        """
+        return pulumi.get(self, "deletions")
+
+    @property
+    @pulumi.getter(name="importedDirectories")
+    def imported_directories(self) -> builtins.float:
+        """
+        Number of directories imported during auto import.
+        """
+        return pulumi.get(self, "imported_directories")
+
+    @property
+    @pulumi.getter(name="importedFiles")
+    def imported_files(self) -> builtins.float:
+        """
+        Number of files imported during auto import.
+        """
+        return pulumi.get(self, "imported_files")
+
+    @property
+    @pulumi.getter(name="importedSymlinks")
+    def imported_symlinks(self) -> builtins.float:
+        """
+        Number of symlinks imported during auto import.
+        """
+        return pulumi.get(self, "imported_symlinks")
+
+    @property
+    @pulumi.getter(name="lastChangeFeedEventConsumedTime")
+    def last_change_feed_event_consumed_time(self) -> builtins.str:
+        """
+        Date and time of the last Change Feed event consumed.
+        """
+        return pulumi.get(self, "last_change_feed_event_consumed_time")
+
+    @property
+    @pulumi.getter(name="lastTimeFullySynchronized")
+    def last_time_fully_synchronized(self) -> builtins.str:
+        """
+        Date and time when last fully synchronized.
+        """
+        return pulumi.get(self, "last_time_fully_synchronized")
+
+    @property
+    @pulumi.getter(name="preexistingDirectories")
+    def preexisting_directories(self) -> builtins.float:
+        """
+        Number of preexisting directories during auto import.
+        """
+        return pulumi.get(self, "preexisting_directories")
+
+    @property
+    @pulumi.getter(name="preexistingFiles")
+    def preexisting_files(self) -> builtins.float:
+        """
+        Number of preexisting files during auto import.
+        """
+        return pulumi.get(self, "preexisting_files")
+
+    @property
+    @pulumi.getter(name="preexistingSymlinks")
+    def preexisting_symlinks(self) -> builtins.float:
+        """
+        Number of preexisting symlinks during auto import.
+        """
+        return pulumi.get(self, "preexisting_symlinks")
+
+    @property
+    @pulumi.getter(name="rateOfBlobImport")
+    def rate_of_blob_import(self) -> builtins.float:
+        """
+        Rate of blob import per second during auto import.
+        """
+        return pulumi.get(self, "rate_of_blob_import")
+
+    @property
+    @pulumi.getter(name="totalBlobsImported")
+    def total_blobs_imported(self) -> builtins.float:
+        """
+        Total number of blobs imported during auto import.
+        """
+        return pulumi.get(self, "total_blobs_imported")
+
+    @property
+    @pulumi.getter(name="totalConflicts")
+    def total_conflicts(self) -> builtins.float:
+        """
+        Total conflicts encountered during auto import.
+        """
+        return pulumi.get(self, "total_conflicts")
+
+    @property
+    @pulumi.getter(name="totalErrors")
+    def total_errors(self) -> builtins.float:
+        """
+        Total errors encountered during auto import.
+        """
+        return pulumi.get(self, "total_errors")
 
 
 @pulumi.output_type

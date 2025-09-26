@@ -87,6 +87,9 @@ class GetServerGroupRoleResult:
     @property
     @pulumi.getter(name="objectId")
     def object_id(self) -> builtins.str:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "object_id")
 
     @property
@@ -118,6 +121,9 @@ class GetServerGroupRoleResult:
     @property
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[builtins.str]:
+        """
+        A type definition that refers the id to an Azure Resource Manager resource.
+        """
         return pulumi.get(self, "tenant_id")
 
     @property

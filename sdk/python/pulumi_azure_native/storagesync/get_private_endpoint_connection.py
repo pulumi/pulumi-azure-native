@@ -161,7 +161,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[b
 
     :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str storage_sync_service_name: The name of the storage sync service name within the specified resource group.
+    :param builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -194,7 +194,7 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
 
     :param builtins.str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str storage_sync_service_name: The name of the storage sync service name within the specified resource group.
+    :param builtins.str storage_sync_service_name: Name of Storage Sync Service resource.
     """
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name

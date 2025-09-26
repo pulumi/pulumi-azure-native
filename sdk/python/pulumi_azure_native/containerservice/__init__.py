@@ -20,6 +20,7 @@ from .get_fleet import *
 from .get_fleet_member import *
 from .get_fleet_update_strategy import *
 from .get_identity_binding import *
+from .get_jwt_authenticator import *
 from .get_load_balancer import *
 from .get_maintenance_configuration import *
 from .get_managed_cluster import *
@@ -31,6 +32,7 @@ from .get_snapshot import *
 from .get_trusted_access_role_binding import *
 from .get_update_run import *
 from .identity_binding import *
+from .jwt_authenticator import *
 from .list_fleet_credentials import *
 from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
