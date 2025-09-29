@@ -128,7 +128,7 @@ func metadataStubServer(ctx context.Context) net.Addr {
 		<-ctx.Done()
 		err := server.Shutdown(ctx)
 		if err != nil {
-			log.Fatalf("failed to gracefully shut down ARM Metadata stub server: %v", err)
+			log.Printf("failed to gracefully shut down ARM Metadata stub server: %v", err)
 		}
 	}()
 
