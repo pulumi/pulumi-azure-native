@@ -236,7 +236,7 @@ jobs:
           echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
 
       - name: Run tests
-        if: ${{ ! inputs.short_test }}
+        # if: ${{ ! inputs.short_test }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
@@ -247,7 +247,7 @@ jobs:
           cd examples && go test -cover -timeout 2h -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
 
       - name: Run short tests
-        if: inputs.short_test
+        # if: inputs.short_test
         run: |
           set -euo pipefail
           cd examples && go test -cover -timeout 15m -short -tags=${{ matrix.language }} -skip TestPulumiExamples -parallel 16 . 2>&1 | tee /tmp/gotest.log
@@ -294,7 +294,7 @@ jobs:
           df -h
 
       - name: Run pulumi/examples tests
-        if: ${{ !inputs.short_test }}
+        # if: ${{ !inputs.short_test }}
         env:
           # specifying this id will cause the OIDC test(s) to run against this AD application
           OIDC_ARM_CLIENT_ID: ${{ inputs.oidc_arm_client_id }}
