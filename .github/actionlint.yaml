@@ -1,3 +1,8 @@
 self-hosted-runner:
   labels:
     - pulumi-ubuntu-8core
+
+paths:
+  ".github/workflows/build-test.yml":
+    ignore:
+      - 'property "esc-secrets" is not defined in object type {}'
