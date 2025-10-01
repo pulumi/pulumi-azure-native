@@ -56,9 +56,6 @@
   "FileShares": [
     "2025-06-01-preview"
   ],
-  "HybridData": [
-    "2019-06-01"
-  ],
   "ImportExport": [
     "2021-01-01"
   ],
@@ -100,9 +97,6 @@
   ],
   "SoftwarePlan": [
     "2019-12-01"
-  ],
-  "StorSimple": [
-    "2017-06-01"
   ],
   "StoragePool": [
     "2021-08-01"

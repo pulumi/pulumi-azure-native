@@ -50,7 +50,9 @@
     "2024-06-01-preview",
     "2024-10-01-preview"
   ],
-  "App": [],
+  "App": [
+    "2025-07-01"
+  ],
   "AppComplianceAutomation": [],
   "AppConfiguration": [
     "2024-06-01",
@@ -171,7 +173,9 @@
     "2024-09-01",
     "2025-01-01-preview",
     "2025-04-15",
-    "2025-06-01"
+    "2025-06-01",
+    "2025-07-01-preview",
+    "2025-09-01-preview"
   ],
   "CertificateRegistration": [
     "2024-11-01"
@@ -185,11 +189,14 @@
   "Cloudngfw": [
     "2025-07-07-preview"
   ],
-  "CodeSigning": [],
+  "CodeSigning": [
+    "2025-10-13"
+  ],
   "CognitiveServices": [
     "2025-04-01-preview",
     "2025-06-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-09-01"
   ],
   "Commerce": [],
   "Communication": [
@@ -350,7 +357,10 @@
     "2025-05-02-preview",
     "2025-06-02-preview",
     "2025-07-01",
-    "2025-07-02-preview"
+    "2025-07-02-preview",
+    "2025-08-01",
+    "2025-08-02-preview",
+    "2025-09-02-preview"
   ],
   "ContainerStorage": [],
   "Contoso": [],
@@ -487,7 +497,8 @@
     "2024-08-01",
     "2024-11-01-preview",
     "2025-01-01-preview",
-    "2025-06-01-preview"
+    "2025-06-01-preview",
+    "2025-08-01"
   ],
   "Dashboard": [
     "2024-11-01-preview"
@@ -565,7 +576,8 @@
   "DeviceRegistry": [
     "2024-11-01",
     "2025-07-01-preview",
-    "2025-10-01"
+    "2025-10-01",
+    "2025-11-01-preview"
   ],
   "DeviceUpdate": [],
   "DigitalTwins": [],
@@ -577,7 +589,8 @@
     "2024-11-01"
   ],
   "DurableTask": [
-    "2025-04-01-preview"
+    "2025-04-01-preview",
+    "2025-11-01"
   ],
   "Dynamics365Fraudprotection": [],
   "DynamicsTelemetry": [],
@@ -696,9 +709,9 @@
   "HybridConnectivity": [],
   "HybridContainerService": [
     "2023-11-15-preview",
-    "2024-01-01"
+    "2024-01-01",
+    "2025-02-01-preview"
   ],
-  "HybridData": [],
   "HybridNetwork": [
     "2023-09-01",
     "2024-04-15"
@@ -715,7 +728,8 @@
     "2025-08-02"
   ],
   "IoTHub": [
-    "2023-06-30-preview"
+    "2023-06-30-preview",
+    "2025-08-01-preview"
   ],
   "IoTOperations": [
     "2025-04-01",
@@ -922,6 +936,7 @@
     "2023-12-01",
     "2024-01-01-preview",
     "2024-03-01-preview",
+    "2024-03-11",
     "2024-10-01-preview",
     "2025-01-01-preview",
     "2025-05-03-preview"
@@ -998,7 +1013,8 @@
     "2024-10-01"
   ],
   "NetworkCloud": [
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-09-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
@@ -1084,7 +1100,8 @@
     "2024-11-01-preview",
     "2025-01-01",
     "2025-02-01",
-    "2025-02-28-preview"
+    "2025-02-28-preview",
+    "2025-08-01"
   ],
   "RedHatOpenShift": [
     "2024-08-12-preview"
@@ -1106,7 +1123,9 @@
     "2024-04-01-preview",
     "2024-11-01"
   ],
-  "RedisEnterprise": [],
+  "RedisEnterprise": [
+    "2025-07-01"
+  ],
   "Relationships": [],
   "Relay": [],
   "ResourceConnector": [
@@ -1268,7 +1287,6 @@
     "2024-03-01-preview",
     "2025-03-01"
   ],
-  "StorSimple": [],
   "Storage": [
     "2025-01-01"
   ],

@@ -126,6 +126,20 @@
     "DisambiguatedName": "SharedCommitmentPlan"
   },
   {
+    "FileLocation": "specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-09-01/cognitiveservices.json",
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
+    "FileLocation": "specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2025-09-01/cognitiveservices.json",
+    "OperationID": "CommitmentPlans_GetPlan",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}",
+    "GeneratedName": "CommitmentPlan",
+    "DisambiguatedName": "SharedCommitmentPlan"
+  },
+  {
     "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/DnsResolver/preview/2020-04-01-preview/dnsresolver.json",
     "OperationID": "VirtualNetworkLinks_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
@@ -239,6 +253,20 @@
   },
   {
     "FileLocation": "specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2023-11-15-preview/provisionedClusterInstances.json",
+    "OperationID": "HybridIdentityMetadata_Get",
+    "Path": "/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default",
+    "GeneratedName": "HybridIdentityMetadatum",
+    "DisambiguatedName": "ClusterInstanceHybridIdentityMetadatum"
+  },
+  {
+    "FileLocation": "specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json",
+    "OperationID": "AgentPool_Get",
+    "Path": "/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}",
+    "GeneratedName": "AgentPool",
+    "DisambiguatedName": "ClusterInstanceAgentPool"
+  },
+  {
+    "FileLocation": "specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json",
     "OperationID": "HybridIdentityMetadata_Get",
     "Path": "/{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/hybridIdentityMetadata/default",
     "GeneratedName": "HybridIdentityMetadatum",

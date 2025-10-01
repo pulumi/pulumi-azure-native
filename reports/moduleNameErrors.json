@@ -160,7 +160,7 @@
     "Error": "resolved module name mismatch: file: KeyVault, uri: Resources"
   },
   {
-    "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2025-05-01/keyvault.json",
+    "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2025-05-01/openapi.json",
     "Path": "/subscriptions/{subscriptionId}/resources",
     "Error": "resolved module name mismatch: file: KeyVault, uri: Resources"
   },
@@ -2930,7 +2930,7 @@
     "Error": "resolved module name mismatch: file: NotificationHubs, uri: "
   },
   {
-    "FilePath": "specification/powerbiembedded/resource-manager/Microsoft.PowerBI/stable/2016-01-29/powerbiembedded.json",
+    "FilePath": "specification/powerbiembedded/resource-manager/Microsoft.PowerBI/PowerbiEmbedded/stable/2016-01-29/powerbiembedded.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: PowerBI, uri: Resources"
   },
@@ -3425,12 +3425,12 @@
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/saas/resource-manager/Microsoft.SaaS/preview/2018-03-01-beta/saas.json",
+    "FilePath": "specification/saas/resource-manager/Microsoft.SaaS/Saas/preview/2018-03-01-beta/saas.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: SaaS, uri: Resources"
   },
   {
-    "FilePath": "specification/saas/resource-manager/Microsoft.SaaS/preview/2018-03-01-beta/saas.json",
+    "FilePath": "specification/saas/resource-manager/Microsoft.SaaS/Saas/preview/2018-03-01-beta/saas.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: SaaS, uri: Resources"
   },
@@ -3490,317 +3490,297 @@
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/subscription/resource-manager/Microsoft.Subscription/stable/2016-06-01/subscriptions.json",
-    "Path": "/subscriptions",
-    "Error": "resolved module name mismatch: file: Subscription, uri: "
-  },
-  {
-    "FilePath": "specification/subscription/resource-manager/Microsoft.Subscription/stable/2016-06-01/subscriptions.json",
-    "Path": "/subscriptions/{subscriptionId}",
-    "Error": "resolved module name mismatch: file: Subscription, uri: Resources"
-  },
-  {
-    "FilePath": "specification/subscription/resource-manager/Microsoft.Subscription/stable/2016-06-01/subscriptions.json",
-    "Path": "/subscriptions/{subscriptionId}/locations",
-    "Error": "resolved module name mismatch: file: Subscription, uri: Resources"
-  },
-  {
-    "FilePath": "specification/subscription/resource-manager/Microsoft.Subscription/stable/2016-06-01/subscriptions.json",
-    "Path": "/tenants",
-    "Error": "resolved module name mismatch: file: Subscription, uri: "
-  },
-  {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.CertificateRegistration/certificateOrders",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.CertificateRegistration/validateCertificateRegistrationInformation",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/checkDomainAvailability",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/domains",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/generateSsoRequest",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/listDomainRecommendations",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/topLevelDomains",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/topLevelDomains/{name}",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/topLevelDomains/{name}/listAgreements",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.DomainRegistration/validateDomainRegistrationInformation",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{certificateOrderName}/certificates/{name}",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/reissue",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/renew",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/resendEmail",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/retrieveCertificateActions",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/retrieveEmailHistory",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CertificateRegistration/certificateOrders/{name}/verifyDomainOwnership",
     "Error": "resolved module name mismatch: file: Web, uri: CertificateRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/operationresults/{operationId}",
     "Error": "resolved module name mismatch: file: Web, uri: DomainRegistration"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2015-08-01/service.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2015-08-01/service.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web.Admin/environments/{environmentName}/usage",
     "Error": "resolved module name mismatch: file: Web, uri: Web.Admin"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2016-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2016-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2016-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2018-02-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2018-02-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2018-02-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2018-02-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2019-08-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2019-08-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2019-08-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2019-08-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-06-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-06-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-06-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-06-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-09-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-09-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-09-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-09-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-10-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-10-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-10-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-10-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-12-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-12-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2020-12-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2020-12-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-01-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-01-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-01-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-01-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-01-15/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-01-15/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-01-15/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-01-15/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-02-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-02-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-02-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-02-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2021-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2021-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2022-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2022-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2022-03-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2022-03-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2022-09-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2022-09-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2022-09-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2022-09-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2023-01-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2023-01-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2023-01-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2023-01-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2023-12-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2023-12-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2023-12-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2023-12-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-04-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-04-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-04-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-04-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-11-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   },
   {
-    "FilePath": "specification/web/resource-manager/Microsoft.Web/stable/2024-11-01/ResourceProvider.json",
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/ResourceProvider.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   }
