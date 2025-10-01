@@ -1514,6 +1514,7 @@ _utilities.register(
    "azure-native:cdn:AFDOriginGroup": "AFDOriginGroup",
    "azure-native:cdn:AFDTargetGroup": "AFDTargetGroup",
    "azure-native:cdn:CustomDomain": "CustomDomain",
+   "azure-native:cdn:CustomDomainHttps": "CustomDomainHttps",
    "azure-native:cdn:Endpoint": "Endpoint",
    "azure-native:cdn:KeyGroup": "KeyGroup",
    "azure-native:cdn:Origin": "Origin",

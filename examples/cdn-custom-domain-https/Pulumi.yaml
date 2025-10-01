@@ -1,0 +1,3 @@
+name: cdn-custom-domain-https
+runtime: nodejs
+description: A Pulumi example demonstrating how to enable HTTPS on a CDN custom domain

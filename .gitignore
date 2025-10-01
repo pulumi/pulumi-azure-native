@@ -48,3 +48,5 @@ p-examples/
 .mono
 go.work*
 *.sln
+
+**/.claude/settings.local.json
