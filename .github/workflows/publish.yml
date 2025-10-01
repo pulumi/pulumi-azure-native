@@ -41,6 +41,13 @@ jobs:
           submodules: true
           ref: ${{ inputs.ref }}
 
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@54081f138730dfa15788a46383842cd2f914a1be # v1.3.1
+        with:
+          tool-cache: false
+          swap-storage: false
+          dotnet: false
+
       - env:
           ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
           ESC_ACTION_OIDC_AUTH: "true"
