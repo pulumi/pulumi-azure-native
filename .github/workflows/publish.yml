@@ -93,6 +93,8 @@ jobs:
             schema-tools compare --provider="azure-native" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json"
             echo 'EOF'
           } >> "$GITHUB_OUTPUT"
+        env:
+          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
 
       - name: Configure AWS Credentials
         # https://github.com/aws-actions/configure-aws-credentials#notice-node12-deprecation-warning
