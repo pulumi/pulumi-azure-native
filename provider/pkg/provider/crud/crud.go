@@ -24,6 +24,7 @@ import (
 // It operates in the context of a specific kind of Azure resource of type resources.AzureAPIResource.
 type AzureRESTConverter interface {
 	// PrepareAzureRESTIdAndQuery prepares the ID and query parameters for an Azure REST API request.
+	// Unknowns are represented as plugin.UnknownStringValue in the returned values.
 	PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error)
 
 	// PrepareAzureRESTBody prepares the body of an Azure REST API request.
@@ -128,10 +129,18 @@ func (r *resourceCrudClient) ApiVersionIsUserInput() bool {
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTIdAndQuery(inputs resource.PropertyMap) (string, map[string]any, error) {
-	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.Mappable(), map[string]any{
+	return PrepareAzureRESTIdAndQuery(r.res.Path, r.res.PutParameters, inputs.MapRepl(nil, mapReplStripComputed), map[string]any{
 		"subscriptionId": r.subscriptionID,
 		"api-version":    r.res.APIVersion,
 	})
+}
+
+func mapReplStripComputed(v resource.PropertyValue) (any, bool) {
+	if v.IsComputed() {
+		return plugin.UnknownStringValue, true
+	}
+
+	return nil, false
 }
 
 func (r *resourceCrudClient) PrepareAzureRESTBody(id string, inputs resource.PropertyMap) (map[string]any, error) {
