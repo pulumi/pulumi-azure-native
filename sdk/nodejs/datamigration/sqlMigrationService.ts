@@ -44,20 +44,20 @@ export class SqlMigrationService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Current state of the Integration runtime.
      */
-    public /*out*/ readonly integrationRuntimeState!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly integrationRuntimeState: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state to track the async operation status.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SqlMigrationService resource with the given unique name, arguments, and options.
@@ -70,13 +70,13 @@ export class SqlMigrationService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlMigrationServiceName"] = args ? args.sqlMigrationServiceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlMigrationServiceName"] = args?.sqlMigrationServiceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["integrationRuntimeState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

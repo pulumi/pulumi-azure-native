@@ -42,47 +42,47 @@ export class ChangeDataCapture extends pulumi.CustomResource {
     /**
      * A boolean to determine if the vnet configuration needs to be overwritten.
      */
-    public readonly allowVNetOverride!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVNetOverride: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of the change data capture.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Etag identifies change in the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The folder that this CDC is in. If not specified, CDC will appear at the root level.
      */
-    public readonly folder!: pulumi.Output<outputs.datafactory.ChangeDataCaptureResponseFolder | undefined>;
+    declare public readonly folder: pulumi.Output<outputs.datafactory.ChangeDataCaptureResponseFolder | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * CDC policy
      */
-    public readonly policy!: pulumi.Output<outputs.datafactory.MapperPolicyResponse>;
+    declare public readonly policy: pulumi.Output<outputs.datafactory.MapperPolicyResponse>;
     /**
      * List of sources connections that can be used as sources in the CDC.
      */
-    public readonly sourceConnectionsInfo!: pulumi.Output<outputs.datafactory.MapperSourceConnectionsInfoResponse[]>;
+    declare public readonly sourceConnectionsInfo: pulumi.Output<outputs.datafactory.MapperSourceConnectionsInfoResponse[]>;
     /**
      * Status of the CDC as to if it is running or stopped.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * List of target connections that can be used as sources in the CDC.
      */
-    public readonly targetConnectionsInfo!: pulumi.Output<outputs.datafactory.MapperTargetConnectionsInfoResponse[]>;
+    declare public readonly targetConnectionsInfo: pulumi.Output<outputs.datafactory.MapperTargetConnectionsInfoResponse[]>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ChangeDataCapture resource with the given unique name, arguments, and options.
@@ -95,31 +95,31 @@ export class ChangeDataCapture extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.factoryName === undefined) && !opts.urn) {
+            if (args?.factoryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'factoryName'");
             }
-            if ((!args || args.policy === undefined) && !opts.urn) {
+            if (args?.policy === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policy'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceConnectionsInfo === undefined) && !opts.urn) {
+            if (args?.sourceConnectionsInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceConnectionsInfo'");
             }
-            if ((!args || args.targetConnectionsInfo === undefined) && !opts.urn) {
+            if (args?.targetConnectionsInfo === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetConnectionsInfo'");
             }
-            resourceInputs["allowVNetOverride"] = args ? args.allowVNetOverride : undefined;
-            resourceInputs["changeDataCaptureName"] = args ? args.changeDataCaptureName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["factoryName"] = args ? args.factoryName : undefined;
-            resourceInputs["folder"] = args ? args.folder : undefined;
-            resourceInputs["policy"] = args ? args.policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceConnectionsInfo"] = args ? args.sourceConnectionsInfo : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["targetConnectionsInfo"] = args ? args.targetConnectionsInfo : undefined;
+            resourceInputs["allowVNetOverride"] = args?.allowVNetOverride;
+            resourceInputs["changeDataCaptureName"] = args?.changeDataCaptureName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["factoryName"] = args?.factoryName;
+            resourceInputs["folder"] = args?.folder;
+            resourceInputs["policy"] = args?.policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceConnectionsInfo"] = args?.sourceConnectionsInfo;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["targetConnectionsInfo"] = args?.targetConnectionsInfo;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

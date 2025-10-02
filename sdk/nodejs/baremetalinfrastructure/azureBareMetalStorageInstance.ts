@@ -44,39 +44,39 @@ export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the AzureBareMetaStorageInstance unique ID.
      */
-    public readonly azureBareMetalStorageInstanceUniqueIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly azureBareMetalStorageInstanceUniqueIdentifier: pulumi.Output<string | undefined>;
     /**
      * The identity of Azure Bare Metal Storage Instance, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.baremetalinfrastructure.AzureBareMetalStorageInstanceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.baremetalinfrastructure.AzureBareMetalStorageInstanceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the storage properties for the AzureBareMetalStorage instance.
      */
-    public readonly storageProperties!: pulumi.Output<outputs.baremetalinfrastructure.StoragePropertiesResponse | undefined>;
+    declare public readonly storageProperties: pulumi.Output<outputs.baremetalinfrastructure.StoragePropertiesResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.baremetalinfrastructure.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.baremetalinfrastructure.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureBareMetalStorageInstance resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class AzureBareMetalStorageInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureBareMetalStorageInstanceName"] = args ? args.azureBareMetalStorageInstanceName : undefined;
-            resourceInputs["azureBareMetalStorageInstanceUniqueIdentifier"] = args ? args.azureBareMetalStorageInstanceUniqueIdentifier : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProperties"] = args ? args.storageProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureBareMetalStorageInstanceName"] = args?.azureBareMetalStorageInstanceName;
+            resourceInputs["azureBareMetalStorageInstanceUniqueIdentifier"] = args?.azureBareMetalStorageInstanceUniqueIdentifier;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProperties"] = args?.storageProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

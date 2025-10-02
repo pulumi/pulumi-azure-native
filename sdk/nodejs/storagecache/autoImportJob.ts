@@ -42,131 +42,131 @@ export class AutoImportJob extends pulumi.CustomResource {
     /**
      * The administrative status of the auto import job. Possible values: 'Enable', 'Disable'. Passing in a value of 'Disable' will disable the current active auto import job. By default it is set to 'Enable'.
      */
-    public readonly adminStatus!: pulumi.Output<string | undefined>;
+    declare public readonly adminStatus: pulumi.Output<string | undefined>;
     /**
      * An array of blob paths/prefixes that get auto imported to the cluster namespace. It has '/' as the default value. Number of maximum allowed paths is 100.
      */
-    public readonly autoImportPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly autoImportPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The storage account blob change feed status of the auto import job.
      */
-    public /*out*/ readonly blobSyncEvents!: pulumi.Output<outputs.storagecache.AutoImportJobResponseBlobSyncEvents>;
+    declare public /*out*/ readonly blobSyncEvents: pulumi.Output<outputs.storagecache.AutoImportJobResponseBlobSyncEvents>;
     /**
      * How the auto import job will handle conflicts. For example, if the auto import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the auto import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the auto import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or is currently released. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/blob-integration#conflict-resolution-mode for a thorough explanation of these resolution modes.
      */
-    public readonly conflictResolutionMode!: pulumi.Output<string | undefined>;
+    declare public readonly conflictResolutionMode: pulumi.Output<string | undefined>;
     /**
      * Whether or not to enable deletions during auto import. This only affects overwrite-dirty.
      */
-    public readonly enableDeletions!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDeletions: pulumi.Output<boolean | undefined>;
     /**
      * Number of directories imported during full scan.
      */
-    public /*out*/ readonly importedDirectories!: pulumi.Output<number>;
+    declare public /*out*/ readonly importedDirectories: pulumi.Output<number>;
     /**
      * Number of files imported during full scan.
      */
-    public /*out*/ readonly importedFiles!: pulumi.Output<number>;
+    declare public /*out*/ readonly importedFiles: pulumi.Output<number>;
     /**
      * Number of symlinks imported during full scan.
      */
-    public /*out*/ readonly importedSymlinks!: pulumi.Output<number>;
+    declare public /*out*/ readonly importedSymlinks: pulumi.Output<number>;
     /**
      * The time (in UTC) of the last completed auto import job.
      */
-    public /*out*/ readonly lastCompletionTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastCompletionTimeUTC: pulumi.Output<string>;
     /**
      * The time (in UTC) the latest auto import job started.
      */
-    public /*out*/ readonly lastStartedTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastStartedTimeUTC: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Total non-conflict-oriented errors (e.g., OS errors) Import will tolerate before exiting with failure. -1 means infinite. 0 means exit immediately on any error.
      */
-    public readonly maximumErrors!: pulumi.Output<number | undefined>;
+    declare public readonly maximumErrors: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Number of preexisting directories during full scan.
      */
-    public /*out*/ readonly preexistingDirectories!: pulumi.Output<number>;
+    declare public /*out*/ readonly preexistingDirectories: pulumi.Output<number>;
     /**
      * Number of preexisting files during full scan.
      */
-    public /*out*/ readonly preexistingFiles!: pulumi.Output<number>;
+    declare public /*out*/ readonly preexistingFiles: pulumi.Output<number>;
     /**
      * Number of preexisting symlinks during full scan.
      */
-    public /*out*/ readonly preexistingSymlinks!: pulumi.Output<number>;
+    declare public /*out*/ readonly preexistingSymlinks: pulumi.Output<number>;
     /**
      * ARM provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Rate of blob import during full scan.
      */
-    public /*out*/ readonly rateOfBlobImport!: pulumi.Output<number>;
+    declare public /*out*/ readonly rateOfBlobImport: pulumi.Output<number>;
     /**
      * Rate of blobs walked during full scan.
      */
-    public /*out*/ readonly rateOfBlobWalk!: pulumi.Output<number>;
+    declare public /*out*/ readonly rateOfBlobWalk: pulumi.Output<number>;
     /**
      * Date and time of when the full scan ended.
      */
-    public /*out*/ readonly scanEndTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly scanEndTime: pulumi.Output<string>;
     /**
      * Date and time of when the currently running full scan began.
      */
-    public /*out*/ readonly scanStartTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly scanStartTime: pulumi.Output<string>;
     /**
      * The state of the auto import operation.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Server-defined status code for auto import job.
      */
-    public /*out*/ readonly statusCode!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusCode: pulumi.Output<string>;
     /**
      * Server-defined status message for auto import job.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total number of blobs imported during full scan.
      */
-    public /*out*/ readonly totalBlobsImported!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalBlobsImported: pulumi.Output<number>;
     /**
      * Total number of blobs walked during full scan.
      */
-    public /*out*/ readonly totalBlobsWalked!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalBlobsWalked: pulumi.Output<number>;
     /**
      * Total conflicts encountered during full scan.
      */
-    public /*out*/ readonly totalConflicts!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalConflicts: pulumi.Output<number>;
     /**
      * Total errors encountered during full scan.
      */
-    public /*out*/ readonly totalErrors!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalErrors: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutoImportJob resource with the given unique name, arguments, and options.
@@ -179,22 +179,22 @@ export class AutoImportJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amlFilesystemName === undefined) && !opts.urn) {
+            if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adminStatus"] = (args ? args.adminStatus : undefined) ?? "Enable";
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["autoImportJobName"] = args ? args.autoImportJobName : undefined;
-            resourceInputs["autoImportPrefixes"] = args ? args.autoImportPrefixes : undefined;
-            resourceInputs["conflictResolutionMode"] = (args ? args.conflictResolutionMode : undefined) ?? "Skip";
-            resourceInputs["enableDeletions"] = (args ? args.enableDeletions : undefined) ?? false;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumErrors"] = args ? args.maximumErrors : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adminStatus"] = (args?.adminStatus) ?? "Enable";
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["autoImportJobName"] = args?.autoImportJobName;
+            resourceInputs["autoImportPrefixes"] = args?.autoImportPrefixes;
+            resourceInputs["conflictResolutionMode"] = (args?.conflictResolutionMode) ?? "Skip";
+            resourceInputs["enableDeletions"] = (args?.enableDeletions) ?? false;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumErrors"] = args?.maximumErrors;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobSyncEvents"] = undefined /*out*/;
             resourceInputs["importedDirectories"] = undefined /*out*/;

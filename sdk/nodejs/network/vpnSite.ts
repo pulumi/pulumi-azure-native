@@ -44,67 +44,67 @@ export class VpnSite extends pulumi.CustomResource {
     /**
      * The AddressSpace that contains an array of IP address ranges.
      */
-    public readonly addressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly addressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The set of bgp properties.
      */
-    public readonly bgpProperties!: pulumi.Output<outputs.network.BgpSettingsResponse | undefined>;
+    declare public readonly bgpProperties: pulumi.Output<outputs.network.BgpSettingsResponse | undefined>;
     /**
      * The device properties.
      */
-    public readonly deviceProperties!: pulumi.Output<outputs.network.DevicePropertiesResponse | undefined>;
+    declare public readonly deviceProperties: pulumi.Output<outputs.network.DevicePropertiesResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The ip-address for the vpn-site.
      */
-    public readonly ipAddress!: pulumi.Output<string | undefined>;
+    declare public readonly ipAddress: pulumi.Output<string | undefined>;
     /**
      * IsSecuritySite flag.
      */
-    public readonly isSecuritySite!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSecuritySite: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Office365 Policy.
      */
-    public readonly o365Policy!: pulumi.Output<outputs.network.O365PolicyPropertiesResponse | undefined>;
+    declare public readonly o365Policy: pulumi.Output<outputs.network.O365PolicyPropertiesResponse | undefined>;
     /**
      * The provisioning state of the VPN site resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The key for vpn-site that can be used for connections.
      */
-    public readonly siteKey!: pulumi.Output<string | undefined>;
+    declare public readonly siteKey: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The VirtualWAN to which the vpnSite belongs.
      */
-    public readonly virtualWan!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualWan: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * List of all vpn site links.
      */
-    public readonly vpnSiteLinks!: pulumi.Output<outputs.network.VpnSiteLinkResponse[] | undefined>;
+    declare public readonly vpnSiteLinks: pulumi.Output<outputs.network.VpnSiteLinkResponse[] | undefined>;
 
     /**
      * Create a VpnSite resource with the given unique name, arguments, and options.
@@ -117,23 +117,23 @@ export class VpnSite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
-            resourceInputs["bgpProperties"] = args ? args.bgpProperties : undefined;
-            resourceInputs["deviceProperties"] = args ? args.deviceProperties : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAddress"] = args ? args.ipAddress : undefined;
-            resourceInputs["isSecuritySite"] = args ? args.isSecuritySite : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["o365Policy"] = args ? args.o365Policy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteKey"] = args ? args.siteKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualWan"] = args ? args.virtualWan : undefined;
-            resourceInputs["vpnSiteLinks"] = args ? args.vpnSiteLinks : undefined;
-            resourceInputs["vpnSiteName"] = args ? args.vpnSiteName : undefined;
+            resourceInputs["addressSpace"] = args?.addressSpace;
+            resourceInputs["bgpProperties"] = args?.bgpProperties;
+            resourceInputs["deviceProperties"] = args?.deviceProperties;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAddress"] = args?.ipAddress;
+            resourceInputs["isSecuritySite"] = args?.isSecuritySite;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["o365Policy"] = args?.o365Policy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteKey"] = args?.siteKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualWan"] = args?.virtualWan;
+            resourceInputs["vpnSiteLinks"] = args?.vpnSiteLinks;
+            resourceInputs["vpnSiteName"] = args?.vpnSiteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

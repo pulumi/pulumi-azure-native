@@ -42,43 +42,43 @@ export class ActivityLogAlert extends pulumi.CustomResource {
     /**
      * The actions that will activate when the condition is met.
      */
-    public readonly actions!: pulumi.Output<outputs.monitor.ActionListResponse>;
+    declare public readonly actions: pulumi.Output<outputs.monitor.ActionListResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The condition that will cause this alert to activate.
      */
-    public readonly condition!: pulumi.Output<outputs.monitor.AlertRuleAllOfConditionResponse>;
+    declare public readonly condition: pulumi.Output<outputs.monitor.AlertRuleAllOfConditionResponse>;
     /**
      * A description of this Activity Log Alert rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The location of the resource. Azure Activity Log Alert rules are supported on Global, West Europe and North Europe regions.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item.
      */
-    public readonly scopes!: pulumi.Output<string[]>;
+    declare public readonly scopes: pulumi.Output<string[]>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ActivityLogAlert resource with the given unique name, arguments, and options.
@@ -91,27 +91,27 @@ export class ActivityLogAlert extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.condition === undefined) && !opts.urn) {
+            if (args?.condition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'condition'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scopes === undefined) && !opts.urn) {
+            if (args?.scopes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scopes'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["activityLogAlertName"] = args ? args.activityLogAlertName : undefined;
-            resourceInputs["condition"] = args ? args.condition : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["location"] = (args ? args.location : undefined) ?? "global";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["activityLogAlertName"] = args?.activityLogAlertName;
+            resourceInputs["condition"] = args?.condition;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["location"] = (args?.location) ?? "global";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

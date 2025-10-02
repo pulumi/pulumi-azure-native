@@ -44,43 +44,43 @@ export class EncryptionSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Devbox disk encryption enable or disable status. Indicates if Devbox disks encryption using DevCenter CMK is enabled or not.
      */
-    public readonly devboxDisksEncryptionEnableStatus!: pulumi.Output<string | undefined>;
+    declare public readonly devboxDisksEncryptionEnableStatus: pulumi.Output<string | undefined>;
     /**
      * Managed identity properties
      */
-    public readonly identity!: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
     /**
      * Key encryption key Url, versioned or non-versioned. Ex: https://contosovault.vault.azure.net/keys/contosokek/562a4bb76b524a1493a6afe8e536ee78 or https://contosovault.vault.azure.net/keys/contosokek.
      */
-    public readonly keyEncryptionKeyUrl!: pulumi.Output<string | undefined>;
+    declare public readonly keyEncryptionKeyUrl: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EncryptionSet resource with the given unique name, arguments, and options.
@@ -93,20 +93,20 @@ export class EncryptionSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["devboxDisksEncryptionEnableStatus"] = args ? args.devboxDisksEncryptionEnableStatus : undefined;
-            resourceInputs["encryptionSetName"] = args ? args.encryptionSetName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyEncryptionKeyUrl"] = args ? args.keyEncryptionKeyUrl : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["devboxDisksEncryptionEnableStatus"] = args?.devboxDisksEncryptionEnableStatus;
+            resourceInputs["encryptionSetName"] = args?.encryptionSetName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyEncryptionKeyUrl"] = args?.keyEncryptionKeyUrl;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

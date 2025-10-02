@@ -44,55 +44,55 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
     /**
      * A list of references to all availability sets in the proximity placement group.
      */
-    public /*out*/ readonly availabilitySets!: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
+    declare public /*out*/ readonly availabilitySets: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes colocation status of the Proximity Placement Group.
      */
-    public readonly colocationStatus!: pulumi.Output<outputs.compute.InstanceViewStatusResponse | undefined>;
+    declare public readonly colocationStatus: pulumi.Output<outputs.compute.InstanceViewStatusResponse | undefined>;
     /**
      * Specifies the user intent of the proximity placement group.
      */
-    public readonly intent!: pulumi.Output<outputs.compute.ProximityPlacementGroupPropertiesIntentResponse | undefined>;
+    declare public readonly intent: pulumi.Output<outputs.compute.ProximityPlacementGroupPropertiesIntentResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the type of the proximity placement group. Possible values are: **Standard** : Co-locate resources within an Azure region or Availability Zone. **Ultra** : For future use.
      */
-    public readonly proximityPlacementGroupType!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of references to all virtual machine scale sets in the proximity placement group.
      */
-    public /*out*/ readonly virtualMachineScaleSets!: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
+    declare public /*out*/ readonly virtualMachineScaleSets: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
     /**
      * A list of references to all virtual machines in the proximity placement group.
      */
-    public /*out*/ readonly virtualMachines!: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
+    declare public /*out*/ readonly virtualMachines: pulumi.Output<outputs.compute.SubResourceWithColocationStatusResponse[]>;
     /**
      * The availability zones.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a ProximityPlacementGroup resource with the given unique name, arguments, and options.
@@ -105,17 +105,17 @@ export class ProximityPlacementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["colocationStatus"] = args ? args.colocationStatus : undefined;
-            resourceInputs["intent"] = args ? args.intent : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["proximityPlacementGroupName"] = args ? args.proximityPlacementGroupName : undefined;
-            resourceInputs["proximityPlacementGroupType"] = args ? args.proximityPlacementGroupType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["colocationStatus"] = args?.colocationStatus;
+            resourceInputs["intent"] = args?.intent;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["proximityPlacementGroupName"] = args?.proximityPlacementGroupName;
+            resourceInputs["proximityPlacementGroupType"] = args?.proximityPlacementGroupType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["availabilitySets"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

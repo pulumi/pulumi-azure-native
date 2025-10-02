@@ -45,47 +45,47 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The count of agent machine
      */
-    public readonly count!: pulumi.Output<number | undefined>;
+    declare public readonly count: pulumi.Output<number | undefined>;
     /**
      * The location of the resource. This cannot be changed after the resource is created.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The OS of agent machine
      */
-    public readonly os!: pulumi.Output<string | undefined>;
+    declare public readonly os: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of this agent pool
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Tier of agent machine
      */
-    public readonly tier!: pulumi.Output<string | undefined>;
+    declare public readonly tier: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Virtual Network Subnet Resource Id of the agent machine
      */
-    public readonly virtualNetworkSubnetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkSubnetResourceId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -98,21 +98,21 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["os"] = args ? args.os : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tier"] = args ? args.tier : undefined;
-            resourceInputs["virtualNetworkSubnetResourceId"] = args ? args.virtualNetworkSubnetResourceId : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["os"] = args?.os;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tier"] = args?.tier;
+            resourceInputs["virtualNetworkSubnetResourceId"] = args?.virtualNetworkSubnetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

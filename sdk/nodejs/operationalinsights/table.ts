@@ -44,67 +44,67 @@ export class Table extends pulumi.CustomResource {
     /**
      * The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)
      */
-    public /*out*/ readonly archiveRetentionInDays!: pulumi.Output<number>;
+    declare public /*out*/ readonly archiveRetentionInDays: pulumi.Output<number>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The timestamp that table plan was last modified (UTC).
      */
-    public /*out*/ readonly lastPlanModifiedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastPlanModifiedDate: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Instruct the system how to handle and charge the logs ingested to this table.
      */
-    public readonly plan!: pulumi.Output<string | undefined>;
+    declare public readonly plan: pulumi.Output<string | undefined>;
     /**
      * Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Parameters of the restore operation that initiated this table.
      */
-    public readonly restoredLogs!: pulumi.Output<outputs.operationalinsights.RestoredLogsResponse | undefined>;
+    declare public readonly restoredLogs: pulumi.Output<outputs.operationalinsights.RestoredLogsResponse | undefined>;
     /**
      * Search job execution statistics.
      */
-    public /*out*/ readonly resultStatistics!: pulumi.Output<outputs.operationalinsights.ResultStatisticsResponse>;
+    declare public /*out*/ readonly resultStatistics: pulumi.Output<outputs.operationalinsights.ResultStatisticsResponse>;
     /**
      * The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * True - Value originates from workspace retention in days, False - Customer specific.
      */
-    public /*out*/ readonly retentionInDaysAsDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly retentionInDaysAsDefault: pulumi.Output<boolean>;
     /**
      * Table schema.
      */
-    public readonly schema!: pulumi.Output<outputs.operationalinsights.SchemaResponse | undefined>;
+    declare public readonly schema: pulumi.Output<outputs.operationalinsights.SchemaResponse | undefined>;
     /**
      * Parameters of the search job that initiated this table.
      */
-    public readonly searchResults!: pulumi.Output<outputs.operationalinsights.SearchResultsResponse | undefined>;
+    declare public readonly searchResults: pulumi.Output<outputs.operationalinsights.SearchResultsResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
      * The table total retention in days, between 4 and 4383. Setting this property to -1 will default to table retention.
      */
-    public readonly totalRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly totalRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * True - Value originates from retention in days, False - Customer specific.
      */
-    public /*out*/ readonly totalRetentionInDaysAsDefault!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly totalRetentionInDaysAsDefault: pulumi.Output<boolean>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Table resource with the given unique name, arguments, and options.
@@ -117,21 +117,21 @@ export class Table extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restoredLogs"] = args ? args.restoredLogs : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["searchResults"] = args ? args.searchResults : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
-            resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restoredLogs"] = args?.restoredLogs;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["searchResults"] = args?.searchResults;
+            resourceInputs["tableName"] = args?.tableName;
+            resourceInputs["totalRetentionInDays"] = args?.totalRetentionInDays;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["archiveRetentionInDays"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastPlanModifiedDate"] = undefined /*out*/;

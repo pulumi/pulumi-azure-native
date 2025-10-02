@@ -44,67 +44,67 @@ export class OperatorApiConnection extends pulumi.CustomResource {
     /**
      * Type of the account the user has with the Operator's Network API infrastructure. AzureManaged | UserManaged.
      */
-    public readonly accountType!: pulumi.Output<string>;
+    declare public readonly accountType: pulumi.Output<string>;
     /**
      * Application ID of the App Developer that is registered with the Operator in a specific country/region.
      */
-    public readonly appId!: pulumi.Output<string | undefined>;
+    declare public readonly appId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Network API for the current operator in the country/region provided in the linked Operator API Plan.
      */
-    public /*out*/ readonly camaraApiName!: pulumi.Output<string>;
+    declare public /*out*/ readonly camaraApiName: pulumi.Output<string>;
     /**
      * Details about the Application that would use the Operator's Network APIs.
      */
-    public readonly configuredApplication!: pulumi.Output<outputs.programmableconnectivity.ApplicationPropertiesResponse | undefined>;
+    declare public readonly configuredApplication: pulumi.Output<outputs.programmableconnectivity.ApplicationPropertiesResponse | undefined>;
     /**
      * Reference to the APC Gateway resource ID.
      */
-    public readonly gatewayId!: pulumi.Output<string>;
+    declare public readonly gatewayId: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Reference to the Operator API Plan Resource ID.
      */
-    public readonly operatorApiPlanId!: pulumi.Output<string>;
+    declare public readonly operatorApiPlanId: pulumi.Output<string>;
     /**
      * Name of the Operator in the linked Operator API Plan belongs to.
      */
-    public /*out*/ readonly operatorName!: pulumi.Output<string>;
+    declare public /*out*/ readonly operatorName: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Details about the SaaS offer purchased from the marketplace.
      */
-    public readonly saasProperties!: pulumi.Output<outputs.programmableconnectivity.SaasPropertiesResponse | undefined>;
+    declare public readonly saasProperties: pulumi.Output<outputs.programmableconnectivity.SaasPropertiesResponse | undefined>;
     /**
      * The status of the OperatorApiConnection resource.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.programmableconnectivity.StatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.programmableconnectivity.StatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.programmableconnectivity.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.programmableconnectivity.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OperatorApiConnection resource with the given unique name, arguments, and options.
@@ -117,29 +117,29 @@ export class OperatorApiConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountType === undefined) && !opts.urn) {
+            if (args?.accountType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountType'");
             }
-            if ((!args || args.gatewayId === undefined) && !opts.urn) {
+            if (args?.gatewayId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayId'");
             }
-            if ((!args || args.operatorApiPlanId === undefined) && !opts.urn) {
+            if (args?.operatorApiPlanId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'operatorApiPlanId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountType"] = args ? args.accountType : undefined;
-            resourceInputs["appId"] = args ? args.appId : undefined;
-            resourceInputs["appSecret"] = args ? args.appSecret : undefined;
-            resourceInputs["configuredApplication"] = args ? args.configuredApplication : undefined;
-            resourceInputs["gatewayId"] = args ? args.gatewayId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["operatorApiConnectionName"] = args ? args.operatorApiConnectionName : undefined;
-            resourceInputs["operatorApiPlanId"] = args ? args.operatorApiPlanId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["saasProperties"] = args ? args.saasProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountType"] = args?.accountType;
+            resourceInputs["appId"] = args?.appId;
+            resourceInputs["appSecret"] = args?.appSecret;
+            resourceInputs["configuredApplication"] = args?.configuredApplication;
+            resourceInputs["gatewayId"] = args?.gatewayId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["operatorApiConnectionName"] = args?.operatorApiConnectionName;
+            resourceInputs["operatorApiPlanId"] = args?.operatorApiPlanId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["saasProperties"] = args?.saasProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["camaraApiName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

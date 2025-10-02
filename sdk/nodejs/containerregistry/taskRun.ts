@@ -45,43 +45,43 @@ export class TaskRun extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * How the run should be forced to rerun even if the run request configuration has not changed
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerregistry.IdentityPropertiesResponse | undefined>;
     /**
      * The location of the resource
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of this task run
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The request (parameters) for the run
      */
-    public readonly runRequest!: pulumi.Output<outputs.containerregistry.DockerBuildRequestResponse | outputs.containerregistry.EncodedTaskRunRequestResponse | outputs.containerregistry.FileTaskRunRequestResponse | outputs.containerregistry.TaskRunRequestResponse | undefined>;
+    declare public readonly runRequest: pulumi.Output<outputs.containerregistry.DockerBuildRequestResponse | outputs.containerregistry.EncodedTaskRunRequestResponse | outputs.containerregistry.FileTaskRunRequestResponse | outputs.containerregistry.TaskRunRequestResponse | undefined>;
     /**
      * The result of this task run
      */
-    public /*out*/ readonly runResult!: pulumi.Output<outputs.containerregistry.RunResponse>;
+    declare public /*out*/ readonly runResult: pulumi.Output<outputs.containerregistry.RunResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a TaskRun resource with the given unique name, arguments, and options.
@@ -94,19 +94,19 @@ export class TaskRun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runRequest"] = args ? args.runRequest : undefined;
-            resourceInputs["taskRunName"] = args ? args.taskRunName : undefined;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runRequest"] = args?.runRequest;
+            resourceInputs["taskRunName"] = args?.taskRunName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

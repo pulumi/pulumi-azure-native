@@ -44,87 +44,87 @@ export class AzureFirewall extends pulumi.CustomResource {
     /**
      * The additional properties used to further config this azure firewall.
      */
-    public readonly additionalProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Collection of application rule collections used by Azure Firewall.
      */
-    public readonly applicationRuleCollections!: pulumi.Output<outputs.network.AzureFirewallApplicationRuleCollectionResponse[] | undefined>;
+    declare public readonly applicationRuleCollections: pulumi.Output<outputs.network.AzureFirewallApplicationRuleCollectionResponse[] | undefined>;
     /**
      * Properties to provide a custom autoscale configuration to this azure firewall.
      */
-    public readonly autoscaleConfiguration!: pulumi.Output<outputs.network.AzureFirewallAutoscaleConfigurationResponse | undefined>;
+    declare public readonly autoscaleConfiguration: pulumi.Output<outputs.network.AzureFirewallAutoscaleConfigurationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The firewallPolicy associated with this azure firewall.
      */
-    public readonly firewallPolicy!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly firewallPolicy: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * IP addresses associated with AzureFirewall.
      */
-    public readonly hubIPAddresses!: pulumi.Output<outputs.network.HubIPAddressesResponse | undefined>;
+    declare public readonly hubIPAddresses: pulumi.Output<outputs.network.HubIPAddressesResponse | undefined>;
     /**
      * IP configuration of the Azure Firewall resource.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.AzureFirewallIPConfigurationResponse[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.AzureFirewallIPConfigurationResponse[] | undefined>;
     /**
      * IpGroups associated with AzureFirewall.
      */
-    public /*out*/ readonly ipGroups!: pulumi.Output<outputs.network.AzureFirewallIpGroupsResponse[]>;
+    declare public /*out*/ readonly ipGroups: pulumi.Output<outputs.network.AzureFirewallIpGroupsResponse[]>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * IP configuration of the Azure Firewall used for management traffic.
      */
-    public readonly managementIpConfiguration!: pulumi.Output<outputs.network.AzureFirewallIPConfigurationResponse | undefined>;
+    declare public readonly managementIpConfiguration: pulumi.Output<outputs.network.AzureFirewallIPConfigurationResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Collection of NAT rule collections used by Azure Firewall.
      */
-    public readonly natRuleCollections!: pulumi.Output<outputs.network.AzureFirewallNatRuleCollectionResponse[] | undefined>;
+    declare public readonly natRuleCollections: pulumi.Output<outputs.network.AzureFirewallNatRuleCollectionResponse[] | undefined>;
     /**
      * Collection of network rule collections used by Azure Firewall.
      */
-    public readonly networkRuleCollections!: pulumi.Output<outputs.network.AzureFirewallNetworkRuleCollectionResponse[] | undefined>;
+    declare public readonly networkRuleCollections: pulumi.Output<outputs.network.AzureFirewallNetworkRuleCollectionResponse[] | undefined>;
     /**
      * The provisioning state of the Azure firewall resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Azure Firewall Resource SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.AzureFirewallSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.AzureFirewallSkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    declare public readonly threatIntelMode: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The virtualHub to which the firewall belongs.
      */
-    public readonly virtualHub!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualHub: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a AzureFirewall resource with the given unique name, arguments, and options.
@@ -137,27 +137,27 @@ export class AzureFirewall extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalProperties"] = args ? args.additionalProperties : undefined;
-            resourceInputs["applicationRuleCollections"] = args ? args.applicationRuleCollections : undefined;
-            resourceInputs["autoscaleConfiguration"] = args ? args.autoscaleConfiguration : undefined;
-            resourceInputs["azureFirewallName"] = args ? args.azureFirewallName : undefined;
-            resourceInputs["firewallPolicy"] = args ? args.firewallPolicy : undefined;
-            resourceInputs["hubIPAddresses"] = args ? args.hubIPAddresses : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementIpConfiguration"] = args ? args.managementIpConfiguration : undefined;
-            resourceInputs["natRuleCollections"] = args ? args.natRuleCollections : undefined;
-            resourceInputs["networkRuleCollections"] = args ? args.networkRuleCollections : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalProperties"] = args?.additionalProperties;
+            resourceInputs["applicationRuleCollections"] = args?.applicationRuleCollections;
+            resourceInputs["autoscaleConfiguration"] = args?.autoscaleConfiguration;
+            resourceInputs["azureFirewallName"] = args?.azureFirewallName;
+            resourceInputs["firewallPolicy"] = args?.firewallPolicy;
+            resourceInputs["hubIPAddresses"] = args?.hubIPAddresses;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementIpConfiguration"] = args?.managementIpConfiguration;
+            resourceInputs["natRuleCollections"] = args?.natRuleCollections;
+            resourceInputs["networkRuleCollections"] = args?.networkRuleCollections;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelMode"] = args?.threatIntelMode;
+            resourceInputs["virtualHub"] = args?.virtualHub;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipGroups"] = undefined /*out*/;

@@ -42,52 +42,52 @@ export class ScheduledTrigger extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time at which the trigger was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Kind of synchronization on trigger.
      * Expected value is 'ScheduleBased'.
      */
-    public readonly kind!: pulumi.Output<"ScheduleBased">;
+    declare public readonly kind: pulumi.Output<"ScheduleBased">;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Recurrence Interval
      */
-    public readonly recurrenceInterval!: pulumi.Output<string>;
+    declare public readonly recurrenceInterval: pulumi.Output<string>;
     /**
      * Synchronization mode
      */
-    public readonly synchronizationMode!: pulumi.Output<string | undefined>;
+    declare public readonly synchronizationMode: pulumi.Output<string | undefined>;
     /**
      * Synchronization time
      */
-    public readonly synchronizationTime!: pulumi.Output<string>;
+    declare public readonly synchronizationTime: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * Gets the trigger state
      */
-    public /*out*/ readonly triggerStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly triggerStatus: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Name of the user who created the trigger.
      */
-    public /*out*/ readonly userName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userName: pulumi.Output<string>;
 
     /**
      * Create a ScheduledTrigger resource with the given unique name, arguments, and options.
@@ -100,32 +100,32 @@ export class ScheduledTrigger extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.recurrenceInterval === undefined) && !opts.urn) {
+            if (args?.recurrenceInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recurrenceInterval'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.shareSubscriptionName === undefined) && !opts.urn) {
+            if (args?.shareSubscriptionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareSubscriptionName'");
             }
-            if ((!args || args.synchronizationTime === undefined) && !opts.urn) {
+            if (args?.synchronizationTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'synchronizationTime'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
             resourceInputs["kind"] = "ScheduleBased";
-            resourceInputs["recurrenceInterval"] = args ? args.recurrenceInterval : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shareSubscriptionName"] = args ? args.shareSubscriptionName : undefined;
-            resourceInputs["synchronizationMode"] = args ? args.synchronizationMode : undefined;
-            resourceInputs["synchronizationTime"] = args ? args.synchronizationTime : undefined;
-            resourceInputs["triggerName"] = args ? args.triggerName : undefined;
+            resourceInputs["recurrenceInterval"] = args?.recurrenceInterval;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shareSubscriptionName"] = args?.shareSubscriptionName;
+            resourceInputs["synchronizationMode"] = args?.synchronizationMode;
+            resourceInputs["synchronizationTime"] = args?.synchronizationTime;
+            resourceInputs["triggerName"] = args?.triggerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

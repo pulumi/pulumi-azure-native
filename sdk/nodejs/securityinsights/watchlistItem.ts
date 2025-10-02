@@ -44,63 +44,63 @@ export class WatchlistItem extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the watchlist item was created
      */
-    public readonly created!: pulumi.Output<string | undefined>;
+    declare public readonly created: pulumi.Output<string | undefined>;
     /**
      * Describes a user that created the watchlist item
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
+    declare public readonly createdBy: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
     /**
      * key-value pairs for a watchlist item entity mapping
      */
-    public readonly entityMapping!: pulumi.Output<any | undefined>;
+    declare public readonly entityMapping: pulumi.Output<any | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * A flag that indicates if the watchlist item is deleted or not
      */
-    public readonly isDeleted!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDeleted: pulumi.Output<boolean | undefined>;
     /**
      * key-value pairs for a watchlist item
      */
-    public readonly itemsKeyValue!: pulumi.Output<any>;
+    declare public readonly itemsKeyValue: pulumi.Output<any>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenantId to which the watchlist item belongs to
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The last time the watchlist item was updated
      */
-    public readonly updated!: pulumi.Output<string | undefined>;
+    declare public readonly updated: pulumi.Output<string | undefined>;
     /**
      * Describes a user that updated the watchlist item
      */
-    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
+    declare public readonly updatedBy: pulumi.Output<outputs.securityinsights.WatchlistUserInfoResponse | undefined>;
     /**
      * The id (a Guid) of the watchlist item
      */
-    public readonly watchlistItemId!: pulumi.Output<string | undefined>;
+    declare public readonly watchlistItemId: pulumi.Output<string | undefined>;
     /**
      * The type of the watchlist item
      */
-    public readonly watchlistItemType!: pulumi.Output<string | undefined>;
+    declare public readonly watchlistItemType: pulumi.Output<string | undefined>;
 
     /**
      * Create a WatchlistItem resource with the given unique name, arguments, and options.
@@ -113,31 +113,31 @@ export class WatchlistItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.itemsKeyValue === undefined) && !opts.urn) {
+            if (args?.itemsKeyValue === undefined && !opts.urn) {
                 throw new Error("Missing required property 'itemsKeyValue'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.watchlistAlias === undefined) && !opts.urn) {
+            if (args?.watchlistAlias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watchlistAlias'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["entityMapping"] = args ? args.entityMapping : undefined;
-            resourceInputs["isDeleted"] = args ? args.isDeleted : undefined;
-            resourceInputs["itemsKeyValue"] = args ? args.itemsKeyValue : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["updated"] = args ? args.updated : undefined;
-            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
-            resourceInputs["watchlistAlias"] = args ? args.watchlistAlias : undefined;
-            resourceInputs["watchlistItemId"] = args ? args.watchlistItemId : undefined;
-            resourceInputs["watchlistItemType"] = args ? args.watchlistItemType : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["entityMapping"] = args?.entityMapping;
+            resourceInputs["isDeleted"] = args?.isDeleted;
+            resourceInputs["itemsKeyValue"] = args?.itemsKeyValue;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["updated"] = args?.updated;
+            resourceInputs["updatedBy"] = args?.updatedBy;
+            resourceInputs["watchlistAlias"] = args?.watchlistAlias;
+            resourceInputs["watchlistItemId"] = args?.watchlistItemId;
+            resourceInputs["watchlistItemType"] = args?.watchlistItemType;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

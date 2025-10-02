@@ -44,35 +44,35 @@ export class ConnectorDryrun extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * the preview of the operations for creation
      */
-    public /*out*/ readonly operationPreviews!: pulumi.Output<outputs.servicelinker.DryrunOperationPreviewResponse[]>;
+    declare public /*out*/ readonly operationPreviews: pulumi.Output<outputs.servicelinker.DryrunOperationPreviewResponse[]>;
     /**
      * The parameters of the dryrun
      */
-    public readonly parameters!: pulumi.Output<outputs.servicelinker.CreateOrUpdateDryrunParametersResponse | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.servicelinker.CreateOrUpdateDryrunParametersResponse | undefined>;
     /**
      * the result of the dryrun
      */
-    public /*out*/ readonly prerequisiteResults!: pulumi.Output<(outputs.servicelinker.BasicErrorDryrunPrerequisiteResultResponse | outputs.servicelinker.PermissionsMissingDryrunPrerequisiteResultResponse)[]>;
+    declare public /*out*/ readonly prerequisiteResults: pulumi.Output<(outputs.servicelinker.BasicErrorDryrunPrerequisiteResultResponse | outputs.servicelinker.PermissionsMissingDryrunPrerequisiteResultResponse)[]>;
     /**
      * The provisioning state. 
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectorDryrun resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class ConnectorDryrun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dryrunName"] = args ? args.dryrunName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["dryrunName"] = args?.dryrunName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationPreviews"] = undefined /*out*/;

@@ -42,11 +42,11 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Cloud shell console properties.
      */
-    public /*out*/ readonly properties!: pulumi.Output<outputs.portal.ConsolePropertiesResponse>;
+    declare public /*out*/ readonly properties: pulumi.Output<outputs.portal.ConsolePropertiesResponse>;
 
     /**
      * Create a ConsoleWithLocation resource with the given unique name, arguments, and options.
@@ -59,11 +59,11 @@ export class ConsoleWithLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            resourceInputs["consoleName"] = args ? args.consoleName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["consoleName"] = args?.consoleName;
+            resourceInputs["location"] = args?.location;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
         } else {

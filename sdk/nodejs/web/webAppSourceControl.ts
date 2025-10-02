@@ -44,47 +44,47 @@ export class WebAppSourceControl extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Name of branch to use for deployment.
      */
-    public readonly branch!: pulumi.Output<string | undefined>;
+    declare public readonly branch: pulumi.Output<string | undefined>;
     /**
      * <code>true</code> to enable deployment rollback; otherwise, <code>false</code>.
      */
-    public readonly deploymentRollbackEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly deploymentRollbackEnabled: pulumi.Output<boolean | undefined>;
     /**
      * If GitHub Action is selected, than the associated configuration.
      */
-    public readonly gitHubActionConfiguration!: pulumi.Output<outputs.web.GitHubActionConfigurationResponse | undefined>;
+    declare public readonly gitHubActionConfiguration: pulumi.Output<outputs.web.GitHubActionConfigurationResponse | undefined>;
     /**
      * <code>true</code> if this is deployed via GitHub action.
      */
-    public readonly isGitHubAction!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGitHubAction: pulumi.Output<boolean | undefined>;
     /**
      * <code>true</code> to limit to manual integration; <code>false</code> to enable continuous integration (which configures webhooks into online repos like GitHub).
      */
-    public readonly isManualIntegration!: pulumi.Output<boolean | undefined>;
+    declare public readonly isManualIntegration: pulumi.Output<boolean | undefined>;
     /**
      * <code>true</code> for a Mercurial repository; <code>false</code> for a Git repository.
      */
-    public readonly isMercurial!: pulumi.Output<boolean | undefined>;
+    declare public readonly isMercurial: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Repository or source control URL.
      */
-    public readonly repoUrl!: pulumi.Output<string | undefined>;
+    declare public readonly repoUrl: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppSourceControl resource with the given unique name, arguments, and options.
@@ -97,22 +97,22 @@ export class WebAppSourceControl extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["branch"] = args ? args.branch : undefined;
-            resourceInputs["deploymentRollbackEnabled"] = args ? args.deploymentRollbackEnabled : undefined;
-            resourceInputs["gitHubActionConfiguration"] = args ? args.gitHubActionConfiguration : undefined;
-            resourceInputs["isGitHubAction"] = args ? args.isGitHubAction : undefined;
-            resourceInputs["isManualIntegration"] = args ? args.isManualIntegration : undefined;
-            resourceInputs["isMercurial"] = args ? args.isMercurial : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["branch"] = args?.branch;
+            resourceInputs["deploymentRollbackEnabled"] = args?.deploymentRollbackEnabled;
+            resourceInputs["gitHubActionConfiguration"] = args?.gitHubActionConfiguration;
+            resourceInputs["isGitHubAction"] = args?.isGitHubAction;
+            resourceInputs["isManualIntegration"] = args?.isManualIntegration;
+            resourceInputs["isMercurial"] = args?.isMercurial;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["repoUrl"] = args?.repoUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

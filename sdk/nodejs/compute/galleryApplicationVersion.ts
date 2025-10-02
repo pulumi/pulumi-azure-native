@@ -44,43 +44,43 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The publishing profile of a gallery image version.
      */
-    public readonly publishingProfile!: pulumi.Output<outputs.compute.GalleryApplicationVersionPublishingProfileResponse>;
+    declare public readonly publishingProfile: pulumi.Output<outputs.compute.GalleryApplicationVersionPublishingProfileResponse>;
     /**
      * This is the replication status of the gallery image version.
      */
-    public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
+    declare public /*out*/ readonly replicationStatus: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
     /**
      * The safety profile of the Gallery Application Version.
      */
-    public readonly safetyProfile!: pulumi.Output<outputs.compute.GalleryApplicationVersionSafetyProfileResponse | undefined>;
+    declare public readonly safetyProfile: pulumi.Output<outputs.compute.GalleryApplicationVersionSafetyProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GalleryApplicationVersion resource with the given unique name, arguments, and options.
@@ -93,26 +93,26 @@ export class GalleryApplicationVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryApplicationName === undefined) && !opts.urn) {
+            if (args?.galleryApplicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryApplicationName'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.publishingProfile === undefined) && !opts.urn) {
+            if (args?.publishingProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'publishingProfile'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            resourceInputs["galleryApplicationVersionName"] = args ? args.galleryApplicationVersionName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["galleryApplicationName"] = args?.galleryApplicationName;
+            resourceInputs["galleryApplicationVersionName"] = args?.galleryApplicationVersionName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publishingProfile"] = args?.publishingProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["safetyProfile"] = args?.safetyProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

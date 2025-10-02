@@ -44,63 +44,63 @@ export class SqlPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Collation mode
      */
-    public readonly collation!: pulumi.Output<string | undefined>;
+    declare public readonly collation: pulumi.Output<string | undefined>;
     /**
      * Date the SQL pool was created
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maximum size in bytes
      */
-    public readonly maxSizeBytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxSizeBytes: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource state
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Backup database to restore from
      */
-    public readonly recoverableDatabaseId!: pulumi.Output<string | undefined>;
+    declare public readonly recoverableDatabaseId: pulumi.Output<string | undefined>;
     /**
      * Snapshot time to restore
      */
-    public readonly restorePointInTime!: pulumi.Output<string | undefined>;
+    declare public readonly restorePointInTime: pulumi.Output<string | undefined>;
     /**
      * SQL pool SKU
      */
-    public readonly sku!: pulumi.Output<outputs.synapse.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.synapse.SkuResponse | undefined>;
     /**
      * Specifies the time that the sql pool was deleted
      */
-    public readonly sourceDatabaseDeletionDate!: pulumi.Output<string | undefined>;
+    declare public readonly sourceDatabaseDeletionDate: pulumi.Output<string | undefined>;
     /**
      * Resource status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The storage account type used to store backups for this sql pool.
      */
-    public readonly storageAccountType!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountType: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SqlPool resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class SqlPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["collation"] = (args ? args.collation : undefined) ?? "";
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["sourceDatabaseDeletionDate"] = args ? args.sourceDatabaseDeletionDate : undefined;
-            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            resourceInputs["sqlPoolName"] = args ? args.sqlPoolName : undefined;
-            resourceInputs["storageAccountType"] = (args ? args.storageAccountType : undefined) ?? "GRS";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["collation"] = (args?.collation) ?? "";
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxSizeBytes"] = args?.maxSizeBytes;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["recoverableDatabaseId"] = args?.recoverableDatabaseId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["sourceDatabaseDeletionDate"] = args?.sourceDatabaseDeletionDate;
+            resourceInputs["sourceDatabaseId"] = args?.sourceDatabaseId;
+            resourceInputs["sqlPoolName"] = args?.sqlPoolName;
+            resourceInputs["storageAccountType"] = (args?.storageAccountType) ?? "GRS";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class WorkspaceApiVersionSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of API Version Set.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Name of API Version Set
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Name of HTTP header parameter that indicates the API Version if versioningScheme is set to `header`.
      */
-    public readonly versionHeaderName!: pulumi.Output<string | undefined>;
+    declare public readonly versionHeaderName: pulumi.Output<string | undefined>;
     /**
      * Name of query parameter that indicates the API Version if versioningScheme is set to `query`.
      */
-    public readonly versionQueryName!: pulumi.Output<string | undefined>;
+    declare public readonly versionQueryName: pulumi.Output<string | undefined>;
     /**
      * An value that determines where the API Version identifier will be located in a HTTP request.
      */
-    public readonly versioningScheme!: pulumi.Output<string>;
+    declare public readonly versioningScheme: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceApiVersionSet resource with the given unique name, arguments, and options.
@@ -85,30 +85,30 @@ export class WorkspaceApiVersionSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.versioningScheme === undefined) && !opts.urn) {
+            if (args?.versioningScheme === undefined && !opts.urn) {
                 throw new Error("Missing required property 'versioningScheme'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["versionHeaderName"] = args ? args.versionHeaderName : undefined;
-            resourceInputs["versionQueryName"] = args ? args.versionQueryName : undefined;
-            resourceInputs["versionSetId"] = args ? args.versionSetId : undefined;
-            resourceInputs["versioningScheme"] = args ? args.versioningScheme : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["versionHeaderName"] = args?.versionHeaderName;
+            resourceInputs["versionQueryName"] = args?.versionQueryName;
+            resourceInputs["versionSetId"] = args?.versionSetId;
+            resourceInputs["versioningScheme"] = args?.versioningScheme;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

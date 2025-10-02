@@ -44,75 +44,75 @@ export class Origin extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Origin is enabled for load balancing or not
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    public readonly httpPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpPort: pulumi.Output<number | undefined>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    public readonly httpsPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpsPort: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure CDN origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    declare public readonly originHostHeader: pulumi.Output<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The approval status for the connection to the Private Link
      */
-    public /*out*/ readonly privateEndpointStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateEndpointStatus: pulumi.Output<string>;
     /**
      * The Alias of the Private Link resource. Populating this optional field indicates that this origin is 'Private'
      */
-    public readonly privateLinkAlias!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkAlias: pulumi.Output<string | undefined>;
     /**
      * A custom message to be included in the approval request to connect to the Private Link.
      */
-    public readonly privateLinkApprovalMessage!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkApprovalMessage: pulumi.Output<string | undefined>;
     /**
      * The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated
      */
-    public readonly privateLinkLocation!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkLocation: pulumi.Output<string | undefined>;
     /**
      * The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string | undefined>;
     /**
      * Provisioning status of the origin.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource status of the origin.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a Origin resource with the given unique name, arguments, and options.
@@ -125,33 +125,33 @@ export class Origin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointName === undefined) && !opts.urn) {
+            if (args?.endpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointName'");
             }
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["httpPort"] = args ? args.httpPort : undefined;
-            resourceInputs["httpsPort"] = args ? args.httpsPort : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["originName"] = args ? args.originName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["privateLinkAlias"] = args ? args.privateLinkAlias : undefined;
-            resourceInputs["privateLinkApprovalMessage"] = args ? args.privateLinkApprovalMessage : undefined;
-            resourceInputs["privateLinkLocation"] = args ? args.privateLinkLocation : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["httpPort"] = args?.httpPort;
+            resourceInputs["httpsPort"] = args?.httpsPort;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["originName"] = args?.originName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["privateLinkAlias"] = args?.privateLinkAlias;
+            resourceInputs["privateLinkApprovalMessage"] = args?.privateLinkApprovalMessage;
+            resourceInputs["privateLinkLocation"] = args?.privateLinkLocation;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointStatus"] = undefined /*out*/;

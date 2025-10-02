@@ -42,47 +42,47 @@ export class SapDiscoverySite extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates any errors on the SAP Migration discovery site resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
     /**
      * The extended location definition.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.workloads.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.workloads.ExtendedLocationResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The master site ID from Azure Migrate.
      */
-    public readonly masterSiteId!: pulumi.Output<string | undefined>;
+    declare public readonly masterSiteId: pulumi.Output<string | undefined>;
     /**
      * The migrate project ID from Azure Migrate.
      */
-    public readonly migrateProjectId!: pulumi.Output<string | undefined>;
+    declare public readonly migrateProjectId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SapDiscoverySite resource with the given unique name, arguments, and options.
@@ -95,16 +95,16 @@ export class SapDiscoverySite extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["masterSiteId"] = args ? args.masterSiteId : undefined;
-            resourceInputs["migrateProjectId"] = args ? args.migrateProjectId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["masterSiteId"] = args?.masterSiteId;
+            resourceInputs["migrateProjectId"] = args?.migrateProjectId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

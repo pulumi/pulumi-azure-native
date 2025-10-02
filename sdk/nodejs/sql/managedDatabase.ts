@@ -44,55 +44,55 @@ export class ManagedDatabase extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Collation of the metadata catalog.
      */
-    public readonly catalogCollation!: pulumi.Output<string | undefined>;
+    declare public readonly catalogCollation: pulumi.Output<string | undefined>;
     /**
      * Collation of the managed database.
      */
-    public readonly collation!: pulumi.Output<string | undefined>;
+    declare public readonly collation: pulumi.Output<string | undefined>;
     /**
      * Creation date of the database.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Geo paired region.
      */
-    public /*out*/ readonly defaultSecondaryLocation!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultSecondaryLocation: pulumi.Output<string>;
     /**
      * Earliest restore point in time for point in time restore.
      */
-    public /*out*/ readonly earliestRestorePoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly earliestRestorePoint: pulumi.Output<string>;
     /**
      * Instance Failover Group resource identifier that this managed database belongs to.
      */
-    public /*out*/ readonly failoverGroupId!: pulumi.Output<string>;
+    declare public /*out*/ readonly failoverGroupId: pulumi.Output<string>;
     /**
      * Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created.
      */
-    public readonly isLedgerOn!: pulumi.Output<boolean | undefined>;
+    declare public readonly isLedgerOn: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Status of the database.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedDatabase resource with the given unique name, arguments, and options.
@@ -105,34 +105,34 @@ export class ManagedDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoCompleteRestore"] = args ? args.autoCompleteRestore : undefined;
-            resourceInputs["catalogCollation"] = args ? args.catalogCollation : undefined;
-            resourceInputs["collation"] = args ? args.collation : undefined;
-            resourceInputs["createMode"] = args ? args.createMode : undefined;
-            resourceInputs["crossSubscriptionRestorableDroppedDatabaseId"] = args ? args.crossSubscriptionRestorableDroppedDatabaseId : undefined;
-            resourceInputs["crossSubscriptionSourceDatabaseId"] = args ? args.crossSubscriptionSourceDatabaseId : undefined;
-            resourceInputs["crossSubscriptionTargetManagedInstanceId"] = args ? args.crossSubscriptionTargetManagedInstanceId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["isLedgerOn"] = args ? args.isLedgerOn : undefined;
-            resourceInputs["lastBackupName"] = args ? args.lastBackupName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["longTermRetentionBackupResourceId"] = args ? args.longTermRetentionBackupResourceId : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restorableDroppedDatabaseId"] = args ? args.restorableDroppedDatabaseId : undefined;
-            resourceInputs["restorePointInTime"] = args ? args.restorePointInTime : undefined;
-            resourceInputs["sourceDatabaseId"] = args ? args.sourceDatabaseId : undefined;
-            resourceInputs["storageContainerIdentity"] = args ? args.storageContainerIdentity : undefined;
-            resourceInputs["storageContainerSasToken"] = args ? args.storageContainerSasToken : undefined;
-            resourceInputs["storageContainerUri"] = args ? args.storageContainerUri : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoCompleteRestore"] = args?.autoCompleteRestore;
+            resourceInputs["catalogCollation"] = args?.catalogCollation;
+            resourceInputs["collation"] = args?.collation;
+            resourceInputs["createMode"] = args?.createMode;
+            resourceInputs["crossSubscriptionRestorableDroppedDatabaseId"] = args?.crossSubscriptionRestorableDroppedDatabaseId;
+            resourceInputs["crossSubscriptionSourceDatabaseId"] = args?.crossSubscriptionSourceDatabaseId;
+            resourceInputs["crossSubscriptionTargetManagedInstanceId"] = args?.crossSubscriptionTargetManagedInstanceId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["isLedgerOn"] = args?.isLedgerOn;
+            resourceInputs["lastBackupName"] = args?.lastBackupName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["longTermRetentionBackupResourceId"] = args?.longTermRetentionBackupResourceId;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["recoverableDatabaseId"] = args?.recoverableDatabaseId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restorableDroppedDatabaseId"] = args?.restorableDroppedDatabaseId;
+            resourceInputs["restorePointInTime"] = args?.restorePointInTime;
+            resourceInputs["sourceDatabaseId"] = args?.sourceDatabaseId;
+            resourceInputs["storageContainerIdentity"] = args?.storageContainerIdentity;
+            resourceInputs["storageContainerSasToken"] = args?.storageContainerSasToken;
+            resourceInputs["storageContainerUri"] = args?.storageContainerUri;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;
             resourceInputs["defaultSecondaryLocation"] = undefined /*out*/;

@@ -44,59 +44,59 @@ export class CustomLocation extends pulumi.CustomResource {
     /**
      * This is optional input that contains the authentication that should be used to generate the namespace.
      */
-    public readonly authentication!: pulumi.Output<outputs.extendedlocation.CustomLocationPropertiesResponseAuthentication | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.extendedlocation.CustomLocationPropertiesResponseAuthentication | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Contains the reference to the add-on that contains charts to deploy CRDs and operators.
      */
-    public readonly clusterExtensionIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly clusterExtensionIds: pulumi.Output<string[] | undefined>;
     /**
      * Display name for the Custom Locations location.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions.
      */
-    public readonly hostResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly hostResourceId: pulumi.Output<string | undefined>;
     /**
      * Type of host the Custom Locations is referencing (Kubernetes, etc...).
      */
-    public readonly hostType!: pulumi.Output<string | undefined>;
+    declare public readonly hostType: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.extendedlocation.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.extendedlocation.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Kubernetes namespace that will be created on the specified cluster.
      */
-    public readonly namespace!: pulumi.Output<string | undefined>;
+    declare public readonly namespace: pulumi.Output<string | undefined>;
     /**
      * Provisioning State for the Custom Location.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.extendedlocation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.extendedlocation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomLocation resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class CustomLocation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authentication"] = args ? args.authentication : undefined;
-            resourceInputs["clusterExtensionIds"] = args ? args.clusterExtensionIds : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hostResourceId"] = args ? args.hostResourceId : undefined;
-            resourceInputs["hostType"] = args ? args.hostType : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authentication"] = args?.authentication;
+            resourceInputs["clusterExtensionIds"] = args?.clusterExtensionIds;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hostResourceId"] = args?.hostResourceId;
+            resourceInputs["hostType"] = args?.hostType;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

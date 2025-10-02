@@ -44,51 +44,51 @@ export class Approval extends pulumi.CustomResource {
     /**
      * List of approvers for the approval request
      */
-    public readonly approvers!: pulumi.Output<outputs.mission.ApproverResponse[] | undefined>;
+    declare public readonly approvers: pulumi.Output<outputs.mission.ApproverResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Approval request creation time
      */
-    public readonly createdAt!: pulumi.Output<string | undefined>;
+    declare public readonly createdAt: pulumi.Output<string | undefined>;
     /**
      * Parameter for optimizing query results
      */
-    public readonly grandparentResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly grandparentResourceId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Parameter for optimizing query results
      */
-    public readonly parentResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly parentResourceId: pulumi.Output<string | undefined>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Request metadata for the approval request.
      */
-    public readonly requestMetadata!: pulumi.Output<outputs.mission.RequestMetadataResponse>;
+    declare public readonly requestMetadata: pulumi.Output<outputs.mission.RequestMetadataResponse>;
     /**
      * Approval request state change time, time at which approval request state changed from pending to approved or rejected.
      */
-    public readonly stateChangedAt!: pulumi.Output<string | undefined>;
+    declare public readonly stateChangedAt: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Ticket ID for the approval request
      */
-    public readonly ticketId!: pulumi.Output<string | undefined>;
+    declare public readonly ticketId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Approval resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class Approval extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.requestMetadata === undefined) && !opts.urn) {
+            if (args?.requestMetadata === undefined && !opts.urn) {
                 throw new Error("Missing required property 'requestMetadata'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["approvalName"] = args ? args.approvalName : undefined;
-            resourceInputs["approvers"] = args ? args.approvers : undefined;
-            resourceInputs["createdAt"] = args ? args.createdAt : undefined;
-            resourceInputs["grandparentResourceId"] = args ? args.grandparentResourceId : undefined;
-            resourceInputs["parentResourceId"] = args ? args.parentResourceId : undefined;
+            resourceInputs["approvalName"] = args?.approvalName;
+            resourceInputs["approvers"] = args?.approvers;
+            resourceInputs["createdAt"] = args?.createdAt;
+            resourceInputs["grandparentResourceId"] = args?.grandparentResourceId;
+            resourceInputs["parentResourceId"] = args?.parentResourceId;
             resourceInputs["requestMetadata"] = args ? (args.requestMetadata ? pulumi.output(args.requestMetadata).apply(inputs.mission.requestMetadataArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["stateChangedAt"] = args ? args.stateChangedAt : undefined;
-            resourceInputs["ticketId"] = args ? args.ticketId : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["stateChangedAt"] = args?.stateChangedAt;
+            resourceInputs["ticketId"] = args?.ticketId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

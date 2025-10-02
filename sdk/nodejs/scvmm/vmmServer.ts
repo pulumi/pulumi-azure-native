@@ -44,63 +44,63 @@ export class VmmServer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the connection status to the vmmServer.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * Credentials to connect to VMMServer.
      */
-    public readonly credentials!: pulumi.Output<outputs.scvmm.VMMServerPropertiesResponseCredentials | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.scvmm.VMMServerPropertiesResponseCredentials | undefined>;
     /**
      * Gets or sets any error message if connection to vmmServer is having any issue.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
     /**
      * Fqdn is the hostname/ip of the vmmServer.
      */
-    public readonly fqdn!: pulumi.Output<string>;
+    declare public readonly fqdn: pulumi.Output<string>;
     /**
      * Gets or sets the location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Port is the port on which the vmmServer is listening.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * Gets or sets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The system data.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.scvmm.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.scvmm.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique ID of vmmServer.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * Version is the version of the vmmSever.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a VmmServer resource with the given unique name, arguments, and options.
@@ -113,23 +113,23 @@ export class VmmServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.fqdn === undefined) && !opts.urn) {
+            if (args?.fqdn === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fqdn'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmmServerName"] = args ? args.vmmServerName : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmmServerName"] = args?.vmmServerName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;

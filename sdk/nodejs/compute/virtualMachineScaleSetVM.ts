@@ -44,131 +44,131 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
     /**
      * Specifies additional capabilities enabled or disabled on the virtual machine in the scale set. For instance: whether the virtual machine has the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
      * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Availability sets overview](https://docs.microsoft.com/azure/virtual-machines/availability-set-overview). For more information on Azure planned maintenance, see [Maintenance and updates for Virtual Machines in Azure](https://docs.microsoft.com/azure/virtual-machines/maintenance-and-updates). Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
      */
-    public readonly availabilitySet!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
+    declare public readonly availabilitySet: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the boot diagnostic settings state. Minimum api-version: 2015-06-15.
      */
-    public readonly diagnosticsProfile!: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
+    declare public readonly diagnosticsProfile: pulumi.Output<outputs.compute.DiagnosticsProfileResponse | undefined>;
     /**
      * Etag is property returned in Update/Get response of the VMSS VM, so that customer can supply it in the header to ensure optimistic updates.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Specifies the hardware settings for the virtual machine.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.compute.HardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.compute.HardwareProfileResponse | undefined>;
     /**
      * The identity of the virtual machine, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.VirtualMachineIdentityResponse | undefined>;
     /**
      * The virtual machine instance ID.
      */
-    public readonly instanceId!: pulumi.Output<string>;
+    declare public readonly instanceId: pulumi.Output<string>;
     /**
      * The virtual machine instance view.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMInstanceViewResponse>;
     /**
      * Specifies whether the latest model has been applied to the virtual machine.
      */
-    public /*out*/ readonly latestModelApplied!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly latestModelApplied: pulumi.Output<boolean>;
     /**
      * Specifies that the image or disk that is being used was licensed on-premises. <br><br> Possible values for Windows Server operating system are: <br><br> Windows_Client <br><br> Windows_Server <br><br> Possible values for Linux Server operating system are: <br><br> RHEL_BYOS (for RHEL) <br><br> SLES_BYOS (for SUSE) <br><br> For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) <br><br> [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) <br><br> Minimum api-version: 2015-06-15
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies whether the model applied to the virtual machine is the model of the virtual machine scale set or the customized model for the virtual machine.
      */
-    public /*out*/ readonly modelDefinitionApplied!: pulumi.Output<string>;
+    declare public /*out*/ readonly modelDefinitionApplied: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the network interfaces of the virtual machine.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.compute.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.compute.NetworkProfileResponse | undefined>;
     /**
      * Specifies the network profile configuration of the virtual machine.
      */
-    public readonly networkProfileConfiguration!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMNetworkProfileConfigurationResponse | undefined>;
+    declare public readonly networkProfileConfiguration: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMNetworkProfileConfigurationResponse | undefined>;
     /**
      * Specifies the operating system settings for the virtual machine.
      */
-    public readonly osProfile!: pulumi.Output<outputs.compute.OSProfileResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.compute.OSProfileResponse | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.PlanResponse | undefined>;
     /**
      * Specifies the protection policy of the virtual machine.
      */
-    public readonly protectionPolicy!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProtectionPolicyResponse | undefined>;
+    declare public readonly protectionPolicy: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProtectionPolicyResponse | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies the resilient VM deletion status for the virtual machine.
      */
-    public readonly resilientVMDeletionStatus!: pulumi.Output<string | undefined>;
+    declare public readonly resilientVMDeletionStatus: pulumi.Output<string | undefined>;
     /**
      * The virtual machine child extension resources.
      */
-    public /*out*/ readonly resources!: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
+    declare public /*out*/ readonly resources: pulumi.Output<outputs.compute.VirtualMachineExtensionResponse[]>;
     /**
      * Specifies the Security related profile settings for the virtual machine.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.compute.SecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.compute.SecurityProfileResponse | undefined>;
     /**
      * The virtual machine SKU.
      */
-    public /*out*/ readonly sku!: pulumi.Output<outputs.compute.SkuResponse>;
+    declare public /*out*/ readonly sku: pulumi.Output<outputs.compute.SkuResponse>;
     /**
      * Specifies the storage settings for the virtual machine disks.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.compute.StorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.compute.StorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the time at which the Virtual Machine resource was created. Minimum api-version: 2021-11-01.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. Minimum api-version: 2021-03-01
      */
-    public readonly userData!: pulumi.Output<string | undefined>;
+    declare public readonly userData: pulumi.Output<string | undefined>;
     /**
      * Azure VM unique ID.
      */
-    public /*out*/ readonly vmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmId: pulumi.Output<string>;
     /**
      * The virtual machine zones.
      */
-    public /*out*/ readonly zones!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly zones: pulumi.Output<string[]>;
 
     /**
      * Create a VirtualMachineScaleSetVM resource with the given unique name, arguments, and options.
@@ -181,32 +181,32 @@ export class VirtualMachineScaleSetVM extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmScaleSetName === undefined) && !opts.urn) {
+            if (args?.vmScaleSetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmScaleSetName'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["availabilitySet"] = args ? args.availabilitySet : undefined;
-            resourceInputs["diagnosticsProfile"] = args ? args.diagnosticsProfile : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["instanceId"] = args ? args.instanceId : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["networkProfileConfiguration"] = args ? args.networkProfileConfiguration : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["protectionPolicy"] = args ? args.protectionPolicy : undefined;
-            resourceInputs["resilientVMDeletionStatus"] = args ? args.resilientVMDeletionStatus : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userData"] = args ? args.userData : undefined;
-            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["availabilitySet"] = args?.availabilitySet;
+            resourceInputs["diagnosticsProfile"] = args?.diagnosticsProfile;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["instanceId"] = args?.instanceId;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["networkProfileConfiguration"] = args?.networkProfileConfiguration;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["protectionPolicy"] = args?.protectionPolicy;
+            resourceInputs["resilientVMDeletionStatus"] = args?.resilientVMDeletionStatus;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userData"] = args?.userData;
+            resourceInputs["vmScaleSetName"] = args?.vmScaleSetName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

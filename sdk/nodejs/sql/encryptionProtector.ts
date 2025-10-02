@@ -44,47 +44,47 @@ export class EncryptionProtector extends pulumi.CustomResource {
     /**
      * Key auto rotation opt-in flag. Either true or false.
      */
-    public readonly autoRotationEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoRotationEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Kind of encryption protector. This is metadata used for the Azure portal experience.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name of the server key.
      */
-    public readonly serverKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly serverKeyName: pulumi.Output<string | undefined>;
     /**
      * The encryption protector type like 'ServiceManaged', 'AzureKeyVault'.
      */
-    public readonly serverKeyType!: pulumi.Output<string>;
+    declare public readonly serverKeyType: pulumi.Output<string>;
     /**
      * Subregion of the encryption protector.
      */
-    public /*out*/ readonly subregion!: pulumi.Output<string>;
+    declare public /*out*/ readonly subregion: pulumi.Output<string>;
     /**
      * Thumbprint of the server key.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The URI of the server key.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
 
     /**
      * Create a EncryptionProtector resource with the given unique name, arguments, and options.
@@ -97,21 +97,21 @@ export class EncryptionProtector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverKeyType === undefined) && !opts.urn) {
+            if (args?.serverKeyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["autoRotationEnabled"] = args ? args.autoRotationEnabled : undefined;
-            resourceInputs["encryptionProtectorName"] = args ? args.encryptionProtectorName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverKeyName"] = args ? args.serverKeyName : undefined;
-            resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["autoRotationEnabled"] = args?.autoRotationEnabled;
+            resourceInputs["encryptionProtectorName"] = args?.encryptionProtectorName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverKeyName"] = args?.serverKeyName;
+            resourceInputs["serverKeyType"] = args?.serverKeyType;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

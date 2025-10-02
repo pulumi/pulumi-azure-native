@@ -39,39 +39,39 @@ export class DedicatedCloudService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * gateway Subnet for the account. It will collect the subnet address and always treat it as /28
      */
-    public readonly gatewaySubnet!: pulumi.Output<string>;
+    declare public readonly gatewaySubnet: pulumi.Output<string>;
     /**
      * indicates whether account onboarded or not in a given region
      */
-    public /*out*/ readonly isAccountOnboarded!: pulumi.Output<string>;
+    declare public /*out*/ readonly isAccountOnboarded: pulumi.Output<string>;
     /**
      * Azure region
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * {dedicatedCloudServiceName}
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * total nodes purchased
      */
-    public /*out*/ readonly nodes!: pulumi.Output<number>;
+    declare public /*out*/ readonly nodes: pulumi.Output<number>;
     /**
      * link to a service management web portal
      */
-    public /*out*/ readonly serviceURL!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceURL: pulumi.Output<string>;
     /**
      * The list of tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * {resourceProviderNamespace}/{resourceType}
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DedicatedCloudService resource with the given unique name, arguments, and options.
@@ -84,17 +84,17 @@ export class DedicatedCloudService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewaySubnet === undefined) && !opts.urn) {
+            if (args?.gatewaySubnet === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewaySubnet'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dedicatedCloudServiceName"] = args ? args.dedicatedCloudServiceName : undefined;
-            resourceInputs["gatewaySubnet"] = args ? args.gatewaySubnet : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dedicatedCloudServiceName"] = args?.dedicatedCloudServiceName;
+            resourceInputs["gatewaySubnet"] = args?.gatewaySubnet;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isAccountOnboarded"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

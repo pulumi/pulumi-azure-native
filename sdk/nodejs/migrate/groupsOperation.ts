@@ -44,55 +44,55 @@ export class GroupsOperation extends pulumi.CustomResource {
     /**
      * If the assessments are in running state.
      */
-    public /*out*/ readonly areAssessmentsRunning!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly areAssessmentsRunning: pulumi.Output<boolean>;
     /**
      * List of References to Assessments created on this group.
      */
-    public /*out*/ readonly assessments!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly assessments: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time when this group was created. Date-Time represented in ISO-8601 format.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Whether the group has been created and is valid.
      */
-    public /*out*/ readonly groupStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupStatus: pulumi.Output<string>;
     /**
      * The type of group.
      */
-    public readonly groupType!: pulumi.Output<string | undefined>;
+    declare public readonly groupType: pulumi.Output<string | undefined>;
     /**
      * Number of machines part of this group.
      */
-    public /*out*/ readonly machineCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly machineCount: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * List of assessment types supported on this group.
      */
-    public readonly supportedAssessmentTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportedAssessmentTypes: pulumi.Output<string[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Time when this group was last updated. Date-Time represented in ISO-8601 format.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a GroupsOperation resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class GroupsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["groupType"] = args ? args.groupType : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportedAssessmentTypes"] = args ? args.supportedAssessmentTypes : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["groupType"] = args?.groupType;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportedAssessmentTypes"] = args?.supportedAssessmentTypes;
             resourceInputs["areAssessmentsRunning"] = undefined /*out*/;
             resourceInputs["assessments"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

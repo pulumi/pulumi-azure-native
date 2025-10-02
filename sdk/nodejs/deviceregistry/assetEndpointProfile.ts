@@ -44,63 +44,63 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
     /**
      * Stringified JSON that contains connectivity type specific further configuration (e.g. OPC UA, Modbus, ONVIF).
      */
-    public readonly additionalConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly additionalConfiguration: pulumi.Output<string | undefined>;
     /**
      * Defines the client authentication mechanism to the server.
      */
-    public readonly authentication!: pulumi.Output<outputs.deviceregistry.AuthenticationResponse | undefined>;
+    declare public readonly authentication: pulumi.Output<outputs.deviceregistry.AuthenticationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Reference to a discovered asset endpoint profile. Populated only if the asset endpoint profile has been created from discovery flow. Discovered asset endpoint profile name must be provided.
      */
-    public readonly discoveredAssetEndpointProfileRef!: pulumi.Output<string | undefined>;
+    declare public readonly discoveredAssetEndpointProfileRef: pulumi.Output<string | undefined>;
     /**
      * Defines the configuration for the connector type that is being used with the endpoint profile.
      */
-    public readonly endpointProfileType!: pulumi.Output<string>;
+    declare public readonly endpointProfileType: pulumi.Output<string>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.deviceregistry.AssetEndpointProfileStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.deviceregistry.AssetEndpointProfileStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The local valid URI specifying the network address/DNS name of a southbound device. The scheme part of the targetAddress URI specifies the type of the device. The additionalConfiguration field holds further connector type specific configuration.
      */
-    public readonly targetAddress!: pulumi.Output<string>;
+    declare public readonly targetAddress: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Globally unique, immutable, non-reusable id.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a AssetEndpointProfile resource with the given unique name, arguments, and options.
@@ -113,28 +113,28 @@ export class AssetEndpointProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointProfileType === undefined) && !opts.urn) {
+            if (args?.endpointProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointProfileType'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetAddress === undefined) && !opts.urn) {
+            if (args?.targetAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetAddress'");
             }
-            resourceInputs["additionalConfiguration"] = args ? args.additionalConfiguration : undefined;
-            resourceInputs["assetEndpointProfileName"] = args ? args.assetEndpointProfileName : undefined;
+            resourceInputs["additionalConfiguration"] = args?.additionalConfiguration;
+            resourceInputs["assetEndpointProfileName"] = args?.assetEndpointProfileName;
             resourceInputs["authentication"] = args ? (args.authentication ? pulumi.output(args.authentication).apply(inputs.deviceregistry.authenticationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["discoveredAssetEndpointProfileRef"] = args ? args.discoveredAssetEndpointProfileRef : undefined;
-            resourceInputs["endpointProfileType"] = args ? args.endpointProfileType : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetAddress"] = args ? args.targetAddress : undefined;
+            resourceInputs["discoveredAssetEndpointProfileRef"] = args?.discoveredAssetEndpointProfileRef;
+            resourceInputs["endpointProfileType"] = args?.endpointProfileType;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetAddress"] = args?.targetAddress;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

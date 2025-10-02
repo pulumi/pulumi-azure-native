@@ -44,143 +44,143 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
     /**
      * Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type.
      */
-    public readonly additionalCapabilities!: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
+    declare public readonly additionalCapabilities: pulumi.Output<outputs.compute.AdditionalCapabilitiesResponse | undefined>;
     /**
      * Policy for automatic repairs.
      */
-    public readonly automaticRepairsPolicy!: pulumi.Output<outputs.compute.AutomaticRepairsPolicyResponse | undefined>;
+    declare public readonly automaticRepairsPolicy: pulumi.Output<outputs.compute.AutomaticRepairsPolicyResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Optional property which must either be set to True or omitted.
      */
-    public readonly constrainedMaximumCapacity!: pulumi.Output<boolean | undefined>;
+    declare public readonly constrainedMaximumCapacity: pulumi.Output<boolean | undefined>;
     /**
      * When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs.
      */
-    public readonly doNotRunExtensionsOnOverprovisionedVMs!: pulumi.Output<boolean | undefined>;
+    declare public readonly doNotRunExtensionsOnOverprovisionedVMs: pulumi.Output<boolean | undefined>;
     /**
      * Etag is property returned in Create/Update/Get response of the VMSS, so that customer can supply it in the header to ensure optimistic updates
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the Virtual Machine Scale Set.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.compute.ExtendedLocationResponse | undefined>;
     /**
      * Specifies information about the dedicated host group that the virtual machine scale set resides in. Minimum api-version: 2020-06-01.
      */
-    public readonly hostGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
+    declare public readonly hostGroup: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
      * The identity of the virtual machine scale set, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.compute.VirtualMachineScaleSetIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.compute.VirtualMachineScaleSetIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the orchestration mode for the virtual machine scale set.
      */
-    public readonly orchestrationMode!: pulumi.Output<string | undefined>;
+    declare public readonly orchestrationMode: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the Virtual Machine Scale Set should be overprovisioned.
      */
-    public readonly overprovision!: pulumi.Output<boolean | undefined>;
+    declare public readonly overprovision: pulumi.Output<boolean | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use.  In the Azure portal, find the marketplace image that you want to use and then click **Want to deploy programmatically, Get Started ->**. Enter any required information and then click **Save**.
      */
-    public readonly plan!: pulumi.Output<outputs.compute.PlanResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.compute.PlanResponse | undefined>;
     /**
      * Fault Domain count for each placement group.
      */
-    public readonly platformFaultDomainCount!: pulumi.Output<number | undefined>;
+    declare public readonly platformFaultDomainCount: pulumi.Output<number | undefined>;
     /**
      * Specifies the desired targets for mixing Spot and Regular priority VMs within the same VMSS Flex instance.
      */
-    public readonly priorityMixPolicy!: pulumi.Output<outputs.compute.PriorityMixPolicyResponse | undefined>;
+    declare public readonly priorityMixPolicy: pulumi.Output<outputs.compute.PriorityMixPolicyResponse | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. Minimum api-version: 2018-04-01.
      */
-    public readonly proximityPlacementGroup!: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
+    declare public readonly proximityPlacementGroup: pulumi.Output<outputs.compute.SubResourceResponse | undefined>;
     /**
      * Policy for Resiliency
      */
-    public readonly resiliencyPolicy!: pulumi.Output<outputs.compute.ResiliencyPolicyResponse | undefined>;
+    declare public readonly resiliencyPolicy: pulumi.Output<outputs.compute.ResiliencyPolicyResponse | undefined>;
     /**
      * Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set.
      */
-    public readonly scaleInPolicy!: pulumi.Output<outputs.compute.ScaleInPolicyResponse | undefined>;
+    declare public readonly scaleInPolicy: pulumi.Output<outputs.compute.ScaleInPolicyResponse | undefined>;
     /**
      * The ScheduledEventsPolicy.
      */
-    public readonly scheduledEventsPolicy!: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
+    declare public readonly scheduledEventsPolicy: pulumi.Output<outputs.compute.ScheduledEventsPolicyResponse | undefined>;
     /**
      * When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true.
      */
-    public readonly singlePlacementGroup!: pulumi.Output<boolean | undefined>;
+    declare public readonly singlePlacementGroup: pulumi.Output<boolean | undefined>;
     /**
      * The virtual machine scale set sku.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.compute.SkuResponse | undefined>;
     /**
      * Specifies the sku profile for the virtual machine scale set.
      */
-    public readonly skuProfile!: pulumi.Output<outputs.compute.SkuProfileResponse | undefined>;
+    declare public readonly skuProfile: pulumi.Output<outputs.compute.SkuProfileResponse | undefined>;
     /**
      * Specifies the Spot Restore properties for the virtual machine scale set.
      */
-    public readonly spotRestorePolicy!: pulumi.Output<outputs.compute.SpotRestorePolicyResponse | undefined>;
+    declare public readonly spotRestorePolicy: pulumi.Output<outputs.compute.SpotRestorePolicyResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the time at which the Virtual Machine Scale Set resource was created. Minimum api-version: 2021-11-01.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies the ID which uniquely identifies a Virtual Machine Scale Set.
      */
-    public /*out*/ readonly uniqueId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueId: pulumi.Output<string>;
     /**
      * The upgrade policy.
      */
-    public readonly upgradePolicy!: pulumi.Output<outputs.compute.UpgradePolicyResponse | undefined>;
+    declare public readonly upgradePolicy: pulumi.Output<outputs.compute.UpgradePolicyResponse | undefined>;
     /**
      * The virtual machine profile.
      */
-    public readonly virtualMachineProfile!: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProfileResponse | undefined>;
+    declare public readonly virtualMachineProfile: pulumi.Output<outputs.compute.VirtualMachineScaleSetVMProfileResponse | undefined>;
     /**
      * Specifies the align mode between Virtual Machine Scale Set compute and storage Fault Domain count.
      */
-    public readonly zonalPlatformFaultDomainAlignMode!: pulumi.Output<string | undefined>;
+    declare public readonly zonalPlatformFaultDomainAlignMode: pulumi.Output<string | undefined>;
     /**
      * Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set.
      */
-    public readonly zoneBalance!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneBalance: pulumi.Output<boolean | undefined>;
     /**
      * The availability zones.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a VirtualMachineScaleSet resource with the given unique name, arguments, and options.
@@ -193,38 +193,38 @@ export class VirtualMachineScaleSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalCapabilities"] = args ? args.additionalCapabilities : undefined;
-            resourceInputs["automaticRepairsPolicy"] = args ? args.automaticRepairsPolicy : undefined;
-            resourceInputs["constrainedMaximumCapacity"] = args ? args.constrainedMaximumCapacity : undefined;
-            resourceInputs["doNotRunExtensionsOnOverprovisionedVMs"] = args ? args.doNotRunExtensionsOnOverprovisionedVMs : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hostGroup"] = args ? args.hostGroup : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["orchestrationMode"] = args ? args.orchestrationMode : undefined;
-            resourceInputs["overprovision"] = args ? args.overprovision : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["platformFaultDomainCount"] = args ? args.platformFaultDomainCount : undefined;
-            resourceInputs["priorityMixPolicy"] = args ? args.priorityMixPolicy : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resiliencyPolicy"] = args ? args.resiliencyPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleInPolicy"] = args ? args.scaleInPolicy : undefined;
-            resourceInputs["scheduledEventsPolicy"] = args ? args.scheduledEventsPolicy : undefined;
-            resourceInputs["singlePlacementGroup"] = args ? args.singlePlacementGroup : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["skuProfile"] = args ? args.skuProfile : undefined;
-            resourceInputs["spotRestorePolicy"] = args ? args.spotRestorePolicy : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradePolicy"] = args ? args.upgradePolicy : undefined;
-            resourceInputs["virtualMachineProfile"] = args ? args.virtualMachineProfile : undefined;
-            resourceInputs["vmScaleSetName"] = args ? args.vmScaleSetName : undefined;
-            resourceInputs["zonalPlatformFaultDomainAlignMode"] = args ? args.zonalPlatformFaultDomainAlignMode : undefined;
-            resourceInputs["zoneBalance"] = args ? args.zoneBalance : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalCapabilities"] = args?.additionalCapabilities;
+            resourceInputs["automaticRepairsPolicy"] = args?.automaticRepairsPolicy;
+            resourceInputs["constrainedMaximumCapacity"] = args?.constrainedMaximumCapacity;
+            resourceInputs["doNotRunExtensionsOnOverprovisionedVMs"] = args?.doNotRunExtensionsOnOverprovisionedVMs;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hostGroup"] = args?.hostGroup;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["orchestrationMode"] = args?.orchestrationMode;
+            resourceInputs["overprovision"] = args?.overprovision;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["platformFaultDomainCount"] = args?.platformFaultDomainCount;
+            resourceInputs["priorityMixPolicy"] = args?.priorityMixPolicy;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resiliencyPolicy"] = args?.resiliencyPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleInPolicy"] = args?.scaleInPolicy;
+            resourceInputs["scheduledEventsPolicy"] = args?.scheduledEventsPolicy;
+            resourceInputs["singlePlacementGroup"] = args?.singlePlacementGroup;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["skuProfile"] = args?.skuProfile;
+            resourceInputs["spotRestorePolicy"] = args?.spotRestorePolicy;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradePolicy"] = args?.upgradePolicy;
+            resourceInputs["virtualMachineProfile"] = args?.virtualMachineProfile;
+            resourceInputs["vmScaleSetName"] = args?.vmScaleSetName;
+            resourceInputs["zonalPlatformFaultDomainAlignMode"] = args?.zonalPlatformFaultDomainAlignMode;
+            resourceInputs["zoneBalance"] = args?.zoneBalance;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

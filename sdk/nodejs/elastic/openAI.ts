@@ -44,19 +44,19 @@ export class OpenAI extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Name of the integration.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Open AI Integration details.
      */
-    public readonly properties!: pulumi.Output<outputs.elastic.OpenAIIntegrationPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.elastic.OpenAIIntegrationPropertiesResponse>;
     /**
      * The type of the integration.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OpenAI resource with the given unique name, arguments, and options.
@@ -69,16 +69,16 @@ export class OpenAI extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.monitorName === undefined) && !opts.urn) {
+            if (args?.monitorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'monitorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["integrationName"] = args ? args.integrationName : undefined;
-            resourceInputs["monitorName"] = args ? args.monitorName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["integrationName"] = args?.integrationName;
+            resourceInputs["monitorName"] = args?.monitorName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

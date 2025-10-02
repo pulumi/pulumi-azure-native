@@ -44,51 +44,51 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Default DNS zone of the DNS Service.
      */
-    public readonly defaultDnsZone!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDnsZone: pulumi.Output<string | undefined>;
     /**
      * Display name of the DNS Service.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * DNS service IP of the DNS Service.
      */
-    public readonly dnsServiceIp!: pulumi.Output<string | undefined>;
+    declare public readonly dnsServiceIp: pulumi.Output<string | undefined>;
     /**
      * FQDN zones of the DNS Service.
      */
-    public readonly fqdnZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly fqdnZones: pulumi.Output<string[] | undefined>;
     /**
      * DNS Service log level.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * NSX revision number.
      */
-    public readonly revision!: pulumi.Output<number | undefined>;
+    declare public readonly revision: pulumi.Output<number | undefined>;
     /**
      * DNS Service status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkloadNetworkDnsService resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class WorkloadNetworkDnsService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultDnsZone"] = args ? args.defaultDnsZone : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["dnsServiceId"] = args ? args.dnsServiceId : undefined;
-            resourceInputs["dnsServiceIp"] = args ? args.dnsServiceIp : undefined;
-            resourceInputs["fqdnZones"] = args ? args.fqdnZones : undefined;
-            resourceInputs["logLevel"] = args ? args.logLevel : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["revision"] = args ? args.revision : undefined;
+            resourceInputs["defaultDnsZone"] = args?.defaultDnsZone;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["dnsServiceId"] = args?.dnsServiceId;
+            resourceInputs["dnsServiceIp"] = args?.dnsServiceIp;
+            resourceInputs["fqdnZones"] = args?.fqdnZones;
+            resourceInputs["logLevel"] = args?.logLevel;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["revision"] = args?.revision;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

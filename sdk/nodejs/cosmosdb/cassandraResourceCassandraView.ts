@@ -44,29 +44,29 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.cosmosdb.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cosmosdb.ManagedServiceIdentityResponse | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the ARM resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly options!: pulumi.Output<outputs.cosmosdb.CassandraViewGetPropertiesResponseOptions | undefined>;
-    public readonly resource!: pulumi.Output<outputs.cosmosdb.CassandraViewGetPropertiesResponseResource | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly options: pulumi.Output<outputs.cosmosdb.CassandraViewGetPropertiesResponseOptions | undefined>;
+    declare public readonly resource: pulumi.Output<outputs.cosmosdb.CassandraViewGetPropertiesResponseResource | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of Azure resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CassandraResourceCassandraView resource with the given unique name, arguments, and options.
@@ -79,27 +79,27 @@ export class CassandraResourceCassandraView extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.keyspaceName === undefined) && !opts.urn) {
+            if (args?.keyspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyspaceName'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["keyspaceName"] = args ? args.keyspaceName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
-            resourceInputs["resource"] = args ? args.resource : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["viewName"] = args ? args.viewName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["keyspaceName"] = args?.keyspaceName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["options"] = args?.options;
+            resourceInputs["resource"] = args?.resource;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["viewName"] = args?.viewName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

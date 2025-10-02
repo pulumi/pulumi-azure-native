@@ -44,44 +44,44 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The type of the event channel which represents the direction flow of events.
      */
-    public readonly channelType!: pulumi.Output<string | undefined>;
+    declare public readonly channelType: pulumi.Output<string | undefined>;
     /**
      * Expiration time of the channel. If this timer expires while the corresponding partner topic is never activated,
      * the channel and corresponding partner topic are deleted.
      */
-    public readonly expirationTimeIfNotActivatedUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationTimeIfNotActivatedUtc: pulumi.Output<string | undefined>;
     /**
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
-    public readonly messageForActivation!: pulumi.Output<string | undefined>;
+    declare public readonly messageForActivation: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This property should be populated when channelType is PartnerTopic and represents information about the partner topic resource corresponding to the channel.
      */
-    public readonly partnerTopicInfo!: pulumi.Output<outputs.eventgrid.PartnerTopicInfoResponse | undefined>;
+    declare public readonly partnerTopicInfo: pulumi.Output<outputs.eventgrid.PartnerTopicInfoResponse | undefined>;
     /**
      * Provisioning state of the channel.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * The readiness state of the corresponding partner topic.
      */
-    public readonly readinessState!: pulumi.Output<string | undefined>;
+    declare public readonly readinessState: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -94,21 +94,21 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.partnerNamespaceName === undefined) && !opts.urn) {
+            if (args?.partnerNamespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'partnerNamespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelType"] = args ? args.channelType : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerNamespaceName"] = args ? args.partnerNamespaceName : undefined;
-            resourceInputs["partnerTopicInfo"] = args ? args.partnerTopicInfo : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["readinessState"] = args ? args.readinessState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelType"] = args?.channelType;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerNamespaceName"] = args?.partnerNamespaceName;
+            resourceInputs["partnerTopicInfo"] = args?.partnerTopicInfo;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["readinessState"] = args?.readinessState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

@@ -44,75 +44,75 @@ export class UpdateRun extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * More detailed description of the step.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Duration of the update run.
      */
-    public readonly duration!: pulumi.Output<string | undefined>;
+    declare public readonly duration: pulumi.Output<string | undefined>;
     /**
      * When the step reached a terminal state.
      */
-    public readonly endTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly endTimeUtc: pulumi.Output<string | undefined>;
     /**
      * Error message, specified if the step is in a failed state.
      */
-    public readonly errorMessage!: pulumi.Output<string | undefined>;
+    declare public readonly errorMessage: pulumi.Output<string | undefined>;
     /**
      * Expected execution time of a given step. This is optionally authored in the update action plan and can be empty.
      */
-    public readonly expectedExecutionTime!: pulumi.Output<string | undefined>;
+    declare public readonly expectedExecutionTime: pulumi.Output<string | undefined>;
     /**
      * Timestamp of the most recently completed step in the update run.
      */
-    public readonly lastUpdatedTime!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdatedTime: pulumi.Output<string | undefined>;
     /**
      * Completion time of this step or the last completed sub-step.
      */
-    public readonly lastUpdatedTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly lastUpdatedTimeUtc: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the UpdateRuns proxy resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * When the step started, or empty if it has not started executing.
      */
-    public readonly startTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly startTimeUtc: pulumi.Output<string | undefined>;
     /**
      * State of the update run.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * Status of the step, bubbled up from the ECE action plan for installation attempts. Values are: 'Success', 'Error', 'InProgress', and 'Unknown status'.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Recursive model for child steps of this step.
      */
-    public readonly steps!: pulumi.Output<outputs.azurestackhci.StepResponse[] | undefined>;
+    declare public readonly steps: pulumi.Output<outputs.azurestackhci.StepResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Timestamp of the update run was started.
      */
-    public readonly timeStarted!: pulumi.Output<string | undefined>;
+    declare public readonly timeStarted: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a UpdateRun resource with the given unique name, arguments, and options.
@@ -125,33 +125,33 @@ export class UpdateRun extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.updateName === undefined) && !opts.urn) {
+            if (args?.updateName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'updateName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["duration"] = args ? args.duration : undefined;
-            resourceInputs["endTimeUtc"] = args ? args.endTimeUtc : undefined;
-            resourceInputs["errorMessage"] = args ? args.errorMessage : undefined;
-            resourceInputs["expectedExecutionTime"] = args ? args.expectedExecutionTime : undefined;
-            resourceInputs["lastUpdatedTime"] = args ? args.lastUpdatedTime : undefined;
-            resourceInputs["lastUpdatedTimeUtc"] = args ? args.lastUpdatedTimeUtc : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["startTimeUtc"] = args ? args.startTimeUtc : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["steps"] = args ? args.steps : undefined;
-            resourceInputs["timeStarted"] = args ? args.timeStarted : undefined;
-            resourceInputs["updateName"] = args ? args.updateName : undefined;
-            resourceInputs["updateRunName"] = args ? args.updateRunName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["duration"] = args?.duration;
+            resourceInputs["endTimeUtc"] = args?.endTimeUtc;
+            resourceInputs["errorMessage"] = args?.errorMessage;
+            resourceInputs["expectedExecutionTime"] = args?.expectedExecutionTime;
+            resourceInputs["lastUpdatedTime"] = args?.lastUpdatedTime;
+            resourceInputs["lastUpdatedTimeUtc"] = args?.lastUpdatedTimeUtc;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["startTimeUtc"] = args?.startTimeUtc;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["steps"] = args?.steps;
+            resourceInputs["timeStarted"] = args?.timeStarted;
+            resourceInputs["updateName"] = args?.updateName;
+            resourceInputs["updateRunName"] = args?.updateRunName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

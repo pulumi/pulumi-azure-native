@@ -44,59 +44,59 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets a string that describes the claim type
      */
-    public /*out*/ readonly claimType!: pulumi.Output<string>;
+    declare public /*out*/ readonly claimType: pulumi.Output<string>;
     /**
      * Gets a string that describes the claim value
      */
-    public /*out*/ readonly claimValue!: pulumi.Output<string>;
+    declare public /*out*/ readonly claimValue: pulumi.Output<string>;
     /**
      * Gets the created time for this rule
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * Gets a string that describes the authorization rule.
      */
-    public /*out*/ readonly keyName!: pulumi.Output<string>;
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly keyName: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Gets the last modified time for this rule
      */
-    public /*out*/ readonly modifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets a base64-encoded 256-bit primary key for signing and
      * validating the SAS token.
      */
-    public readonly primaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly primaryKey: pulumi.Output<string | undefined>;
     /**
      * Gets the revision number for the rule
      */
-    public /*out*/ readonly revision!: pulumi.Output<number>;
+    declare public /*out*/ readonly revision: pulumi.Output<number>;
     /**
      * Gets or sets the rights associated with the rule.
      */
-    public readonly rights!: pulumi.Output<string[]>;
+    declare public readonly rights: pulumi.Output<string[]>;
     /**
      * Gets a base64-encoded 256-bit primary key for signing and
      * validating the SAS token.
      */
-    public readonly secondaryKey!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryKey: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NotificationHubAuthorizationRule resource with the given unique name, arguments, and options.
@@ -109,27 +109,27 @@ export class NotificationHubAuthorizationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.notificationHubName === undefined) && !opts.urn) {
+            if (args?.notificationHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notificationHubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.rights === undefined) && !opts.urn) {
+            if (args?.rights === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rights'");
             }
-            resourceInputs["authorizationRuleName"] = args ? args.authorizationRuleName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["notificationHubName"] = args ? args.notificationHubName : undefined;
-            resourceInputs["primaryKey"] = args ? args.primaryKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rights"] = args ? args.rights : undefined;
-            resourceInputs["secondaryKey"] = args ? args.secondaryKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["authorizationRuleName"] = args?.authorizationRuleName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["notificationHubName"] = args?.notificationHubName;
+            resourceInputs["primaryKey"] = args?.primaryKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rights"] = args?.rights;
+            resourceInputs["secondaryKey"] = args?.secondaryKey;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["claimType"] = undefined /*out*/;
             resourceInputs["claimValue"] = undefined /*out*/;

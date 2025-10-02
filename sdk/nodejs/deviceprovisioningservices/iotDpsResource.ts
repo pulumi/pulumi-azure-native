@@ -44,51 +44,51 @@ export class IotDpsResource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal ETag convention.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The managed identities for a provisioning service.
      */
-    public readonly identity!: pulumi.Output<outputs.deviceprovisioningservices.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.deviceprovisioningservices.ManagedServiceIdentityResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Service specific properties for a provisioning service
      */
-    public readonly properties!: pulumi.Output<outputs.deviceprovisioningservices.IotDpsPropertiesDescriptionResponse>;
+    declare public readonly properties: pulumi.Output<outputs.deviceprovisioningservices.IotDpsPropertiesDescriptionResponse>;
     /**
      * The resource group of the resource.
      */
-    public readonly resourcegroup!: pulumi.Output<string | undefined>;
+    declare public readonly resourcegroup: pulumi.Output<string | undefined>;
     /**
      * Sku info for a provisioning Service.
      */
-    public readonly sku!: pulumi.Output<outputs.deviceprovisioningservices.IotDpsSkuInfoResponse>;
+    declare public readonly sku: pulumi.Output<outputs.deviceprovisioningservices.IotDpsSkuInfoResponse>;
     /**
      * The subscription id of the resource.
      */
-    public readonly subscriptionid!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionid: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceprovisioningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceprovisioningservices.SystemDataResponse>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IotDpsResource resource with the given unique name, arguments, and options.
@@ -101,24 +101,24 @@ export class IotDpsResource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourcegroup"] = args ? args.resourcegroup : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subscriptionid"] = args ? args.subscriptionid : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["provisioningServiceName"] = args?.provisioningServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourcegroup"] = args?.resourcegroup;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subscriptionid"] = args?.subscriptionid;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

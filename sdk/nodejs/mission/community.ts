@@ -44,79 +44,79 @@ export class Community extends pulumi.CustomResource {
     /**
      * Address Space.
      */
-    public readonly addressSpace!: pulumi.Output<string | undefined>;
+    declare public readonly addressSpace: pulumi.Output<string | undefined>;
     /**
      * Approval requirements for various actions on the community's resources.
      */
-    public readonly approvalSettings!: pulumi.Output<outputs.mission.ApprovalSettingsResponse | undefined>;
+    declare public readonly approvalSettings: pulumi.Output<outputs.mission.ApprovalSettingsResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Community role assignments
      */
-    public readonly communityRoleAssignments!: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
+    declare public readonly communityRoleAssignments: pulumi.Output<outputs.mission.RoleAssignmentItemResponse[] | undefined>;
     /**
      * DNS Servers.
      */
-    public readonly dnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string[] | undefined>;
     /**
      * SKU of the community's Azure Firewall (Basic, Standard, Premium). Standard is the default
      */
-    public readonly firewallSku!: pulumi.Output<string | undefined>;
+    declare public readonly firewallSku: pulumi.Output<string | undefined>;
     /**
      * List of services governed by a community.
      */
-    public readonly governedServiceList!: pulumi.Output<outputs.mission.GovernedServiceItemResponse[] | undefined>;
+    declare public readonly governedServiceList: pulumi.Output<outputs.mission.GovernedServiceItemResponse[] | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.mission.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mission.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maintenance Mode configuration.
      */
-    public readonly maintenanceModeConfiguration!: pulumi.Output<outputs.mission.MaintenanceModeConfigurationModelResponse | undefined>;
+    declare public readonly maintenanceModeConfiguration: pulumi.Output<outputs.mission.MaintenanceModeConfigurationModelResponse | undefined>;
     /**
      * Managed On Behalf Of Configuration.
      */
-    public /*out*/ readonly managedOnBehalfOfConfiguration!: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
+    declare public /*out*/ readonly managedOnBehalfOfConfiguration: pulumi.Output<outputs.mission.ManagedOnBehalfOfConfigurationResponse>;
     /**
      * Managed resource group name.
      */
-    public /*out*/ readonly managedResourceGroupName!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedResourceGroupName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Policy override setting for the community. Specifies whether to apply enclave-specific policies or disable policy enforcement.
      */
-    public readonly policyOverride!: pulumi.Output<string | undefined>;
+    declare public readonly policyOverride: pulumi.Output<string | undefined>;
     /**
      * Provisioning State.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of resource ids created by communities.
      */
-    public /*out*/ readonly resourceCollection!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly resourceCollection: pulumi.Output<string[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mission.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mission.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Community resource with the given unique name, arguments, and options.
@@ -129,22 +129,22 @@ export class Community extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
-            resourceInputs["approvalSettings"] = args ? args.approvalSettings : undefined;
-            resourceInputs["communityName"] = args ? args.communityName : undefined;
-            resourceInputs["communityRoleAssignments"] = args ? args.communityRoleAssignments : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["firewallSku"] = (args ? args.firewallSku : undefined) ?? "Standard";
-            resourceInputs["governedServiceList"] = args ? args.governedServiceList : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["addressSpace"] = args?.addressSpace;
+            resourceInputs["approvalSettings"] = args?.approvalSettings;
+            resourceInputs["communityName"] = args?.communityName;
+            resourceInputs["communityRoleAssignments"] = args?.communityRoleAssignments;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["firewallSku"] = (args?.firewallSku) ?? "Standard";
+            resourceInputs["governedServiceList"] = args?.governedServiceList;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["maintenanceModeConfiguration"] = args ? (args.maintenanceModeConfiguration ? pulumi.output(args.maintenanceModeConfiguration).apply(inputs.mission.maintenanceModeConfigurationModelArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["policyOverride"] = args ? args.policyOverride : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["policyOverride"] = args?.policyOverride;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedOnBehalfOfConfiguration"] = undefined /*out*/;
             resourceInputs["managedResourceGroupName"] = undefined /*out*/;

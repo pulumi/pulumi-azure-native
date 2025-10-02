@@ -44,127 +44,127 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * Object id of cluster AAD identity.
      */
-    public readonly aadApplicationObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly aadApplicationObjectId: pulumi.Output<string | undefined>;
     /**
      * App id of cluster AAD identity.
      */
-    public readonly aadClientId!: pulumi.Output<string | undefined>;
+    declare public readonly aadClientId: pulumi.Output<string | undefined>;
     /**
      * Id of cluster identity service principal.
      */
-    public readonly aadServicePrincipalObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly aadServicePrincipalObjectId: pulumi.Output<string | undefined>;
     /**
      * Tenant id of cluster AAD identity.
      */
-    public readonly aadTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly aadTenantId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of billing applied to the resource.
      */
-    public /*out*/ readonly billingModel!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingModel: pulumi.Output<string>;
     /**
      * Unique, immutable resource id.
      */
-    public /*out*/ readonly cloudId!: pulumi.Output<string>;
+    declare public /*out*/ readonly cloudId: pulumi.Output<string>;
     /**
      * Endpoint configured for management from the Azure portal.
      */
-    public readonly cloudManagementEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly cloudManagementEndpoint: pulumi.Output<string | undefined>;
     /**
      * Overall connectivity status for the cluster resource.
      */
-    public /*out*/ readonly connectivityStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectivityStatus: pulumi.Output<string>;
     /**
      * Desired properties of the cluster.
      */
-    public readonly desiredProperties!: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
+    declare public readonly desiredProperties: pulumi.Output<outputs.azurestackhci.ClusterDesiredPropertiesResponse | undefined>;
     /**
      * Attestation configurations for isolated VM (e.g. TVM, CVM) of the cluster.
      */
-    public /*out*/ readonly isolatedVmAttestationConfiguration!: pulumi.Output<outputs.azurestackhci.IsolatedVmAttestationConfigurationResponse>;
+    declare public /*out*/ readonly isolatedVmAttestationConfiguration: pulumi.Output<outputs.azurestackhci.IsolatedVmAttestationConfigurationResponse>;
     /**
      * Most recent billing meter timestamp.
      */
-    public /*out*/ readonly lastBillingTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastBillingTimestamp: pulumi.Output<string>;
     /**
      * Most recent cluster sync timestamp.
      */
-    public /*out*/ readonly lastSyncTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncTimestamp: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Log Collection properties of the cluster.
      */
-    public /*out*/ readonly logCollectionProperties!: pulumi.Output<outputs.azurestackhci.LogCollectionPropertiesResponse | undefined>;
+    declare public /*out*/ readonly logCollectionProperties: pulumi.Output<outputs.azurestackhci.LogCollectionPropertiesResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The service principal ID of the system assigned identity. This property will only be provided for a system assigned identity.
      */
-    public /*out*/ readonly principalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalId: pulumi.Output<string>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * First cluster sync timestamp.
      */
-    public /*out*/ readonly registrationTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly registrationTimestamp: pulumi.Output<string>;
     /**
      * RemoteSupport properties of the cluster.
      */
-    public /*out*/ readonly remoteSupportProperties!: pulumi.Output<outputs.azurestackhci.RemoteSupportPropertiesResponse | undefined>;
+    declare public /*out*/ readonly remoteSupportProperties: pulumi.Output<outputs.azurestackhci.RemoteSupportPropertiesResponse | undefined>;
     /**
      * Properties reported by cluster agent.
      */
-    public /*out*/ readonly reportedProperties!: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse>;
+    declare public /*out*/ readonly reportedProperties: pulumi.Output<outputs.azurestackhci.ClusterReportedPropertiesResponse>;
     /**
      * Object id of RP Service Principal
      */
-    public /*out*/ readonly resourceProviderObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceProviderObjectId: pulumi.Output<string>;
     /**
      * Region specific DataPath Endpoint of the cluster.
      */
-    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceEndpoint: pulumi.Output<string>;
     /**
      * Software Assurance properties of the cluster.
      */
-    public readonly softwareAssuranceProperties!: pulumi.Output<outputs.azurestackhci.SoftwareAssurancePropertiesResponse | undefined>;
+    declare public readonly softwareAssuranceProperties: pulumi.Output<outputs.azurestackhci.SoftwareAssurancePropertiesResponse | undefined>;
     /**
      * Status of the cluster agent.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The tenant ID of the system assigned identity. This property will only be provided for a system assigned identity.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Number of days remaining in the trial period.
      */
-    public /*out*/ readonly trialDaysRemaining!: pulumi.Output<number>;
+    declare public /*out*/ readonly trialDaysRemaining: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
      */
-    public readonly userAssignedIdentities!: pulumi.Output<{[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse} | undefined>;
+    declare public readonly userAssignedIdentities: pulumi.Output<{[key: string]: outputs.azurestackhci.UserAssignedIdentityResponse} | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -177,25 +177,25 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.type === undefined) && !opts.urn) {
+            if (args?.type === undefined && !opts.urn) {
                 throw new Error("Missing required property 'type'");
             }
-            resourceInputs["aadApplicationObjectId"] = args ? args.aadApplicationObjectId : undefined;
-            resourceInputs["aadClientId"] = args ? args.aadClientId : undefined;
-            resourceInputs["aadServicePrincipalObjectId"] = args ? args.aadServicePrincipalObjectId : undefined;
-            resourceInputs["aadTenantId"] = args ? args.aadTenantId : undefined;
-            resourceInputs["cloudManagementEndpoint"] = args ? args.cloudManagementEndpoint : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["desiredProperties"] = args ? args.desiredProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softwareAssuranceProperties"] = args ? args.softwareAssuranceProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["userAssignedIdentities"] = args ? args.userAssignedIdentities : undefined;
+            resourceInputs["aadApplicationObjectId"] = args?.aadApplicationObjectId;
+            resourceInputs["aadClientId"] = args?.aadClientId;
+            resourceInputs["aadServicePrincipalObjectId"] = args?.aadServicePrincipalObjectId;
+            resourceInputs["aadTenantId"] = args?.aadTenantId;
+            resourceInputs["cloudManagementEndpoint"] = args?.cloudManagementEndpoint;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["desiredProperties"] = args?.desiredProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softwareAssuranceProperties"] = args?.softwareAssuranceProperties;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["userAssignedIdentities"] = args?.userAssignedIdentities;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingModel"] = undefined /*out*/;
             resourceInputs["cloudId"] = undefined /*out*/;
