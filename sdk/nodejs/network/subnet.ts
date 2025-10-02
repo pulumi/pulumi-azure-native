@@ -44,107 +44,107 @@ export class Subnet extends pulumi.CustomResource {
     /**
      * The address prefix for the subnet.
      */
-    public readonly addressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly addressPrefix: pulumi.Output<string | undefined>;
     /**
      * List of address prefixes for the subnet.
      */
-    public readonly addressPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly addressPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * Application gateway IP configurations of virtual network resource.
      */
-    public readonly applicationGatewayIPConfigurations!: pulumi.Output<outputs.network.ApplicationGatewayIPConfigurationResponse[] | undefined>;
+    declare public readonly applicationGatewayIPConfigurations: pulumi.Output<outputs.network.ApplicationGatewayIPConfigurationResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Set this property to false to disable default outbound connectivity for all VMs in the subnet. This property can only be set at the time of subnet creation and cannot be updated for an existing subnet.
      */
-    public readonly defaultOutboundAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultOutboundAccess: pulumi.Output<boolean | undefined>;
     /**
      * An array of references to the delegations on the subnet.
      */
-    public readonly delegations!: pulumi.Output<outputs.network.DelegationResponse[] | undefined>;
+    declare public readonly delegations: pulumi.Output<outputs.network.DelegationResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Array of IpAllocation which reference this subnet.
      */
-    public readonly ipAllocations!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    declare public readonly ipAllocations: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
      * Array of IP configuration profiles which reference this subnet.
      */
-    public /*out*/ readonly ipConfigurationProfiles!: pulumi.Output<outputs.network.IPConfigurationProfileResponse[]>;
+    declare public /*out*/ readonly ipConfigurationProfiles: pulumi.Output<outputs.network.IPConfigurationProfileResponse[]>;
     /**
      * An array of references to the network interface IP configurations using subnet.
      */
-    public /*out*/ readonly ipConfigurations!: pulumi.Output<outputs.network.IPConfigurationResponse[]>;
+    declare public /*out*/ readonly ipConfigurations: pulumi.Output<outputs.network.IPConfigurationResponse[]>;
     /**
      * A list of IPAM Pools for allocating IP address prefixes.
      */
-    public readonly ipamPoolPrefixAllocations!: pulumi.Output<outputs.network.IpamPoolPrefixAllocationResponse[] | undefined>;
+    declare public readonly ipamPoolPrefixAllocations: pulumi.Output<outputs.network.IpamPoolPrefixAllocationResponse[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Nat gateway associated with this subnet.
      */
-    public readonly natGateway!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly natGateway: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.NetworkSecurityGroupResponse | undefined>;
+    declare public readonly networkSecurityGroup: pulumi.Output<outputs.network.NetworkSecurityGroupResponse | undefined>;
     /**
      * Enable or Disable apply network policies on private end point in the subnet.
      */
-    public readonly privateEndpointNetworkPolicies!: pulumi.Output<string | undefined>;
+    declare public readonly privateEndpointNetworkPolicies: pulumi.Output<string | undefined>;
     /**
      * An array of references to private endpoints.
      */
-    public /*out*/ readonly privateEndpoints!: pulumi.Output<outputs.network.PrivateEndpointResponse[]>;
+    declare public /*out*/ readonly privateEndpoints: pulumi.Output<outputs.network.PrivateEndpointResponse[]>;
     /**
      * Enable or Disable apply network policies on private link service in the subnet.
      */
-    public readonly privateLinkServiceNetworkPolicies!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkServiceNetworkPolicies: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the subnet resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties.
      */
-    public /*out*/ readonly purpose!: pulumi.Output<string>;
+    declare public /*out*/ readonly purpose: pulumi.Output<string>;
     /**
      * An array of references to the external resources using subnet.
      */
-    public /*out*/ readonly resourceNavigationLinks!: pulumi.Output<outputs.network.ResourceNavigationLinkResponse[]>;
+    declare public /*out*/ readonly resourceNavigationLinks: pulumi.Output<outputs.network.ResourceNavigationLinkResponse[]>;
     /**
      * The reference to the RouteTable resource.
      */
-    public readonly routeTable!: pulumi.Output<outputs.network.RouteTableResponse | undefined>;
+    declare public readonly routeTable: pulumi.Output<outputs.network.RouteTableResponse | undefined>;
     /**
      * An array of references to services injecting into this subnet.
      */
-    public /*out*/ readonly serviceAssociationLinks!: pulumi.Output<outputs.network.ServiceAssociationLinkResponse[]>;
+    declare public /*out*/ readonly serviceAssociationLinks: pulumi.Output<outputs.network.ServiceAssociationLinkResponse[]>;
     /**
      * An array of service endpoint policies.
      */
-    public readonly serviceEndpointPolicies!: pulumi.Output<outputs.network.ServiceEndpointPolicyResponse[] | undefined>;
+    declare public readonly serviceEndpointPolicies: pulumi.Output<outputs.network.ServiceEndpointPolicyResponse[] | undefined>;
     /**
      * An array of service endpoints.
      */
-    public readonly serviceEndpoints!: pulumi.Output<outputs.network.ServiceEndpointPropertiesFormatResponse[] | undefined>;
+    declare public readonly serviceEndpoints: pulumi.Output<outputs.network.ServiceEndpointPropertiesFormatResponse[] | undefined>;
     /**
      * Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
      */
-    public readonly sharingScope!: pulumi.Output<string | undefined>;
+    declare public readonly sharingScope: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
 
     /**
      * Create a Subnet resource with the given unique name, arguments, and options.
@@ -157,33 +157,33 @@ export class Subnet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkName'");
             }
-            resourceInputs["addressPrefix"] = args ? args.addressPrefix : undefined;
-            resourceInputs["addressPrefixes"] = args ? args.addressPrefixes : undefined;
-            resourceInputs["applicationGatewayIPConfigurations"] = args ? args.applicationGatewayIPConfigurations : undefined;
-            resourceInputs["defaultOutboundAccess"] = args ? args.defaultOutboundAccess : undefined;
-            resourceInputs["delegations"] = args ? args.delegations : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
-            resourceInputs["ipamPoolPrefixAllocations"] = args ? args.ipamPoolPrefixAllocations : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natGateway"] = args ? args.natGateway : undefined;
-            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            resourceInputs["privateEndpointNetworkPolicies"] = (args ? args.privateEndpointNetworkPolicies : undefined) ?? "Disabled";
-            resourceInputs["privateLinkServiceNetworkPolicies"] = (args ? args.privateLinkServiceNetworkPolicies : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeTable"] = args ? args.routeTable : undefined;
-            resourceInputs["serviceEndpointPolicies"] = args ? args.serviceEndpointPolicies : undefined;
-            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            resourceInputs["sharingScope"] = args ? args.sharingScope : undefined;
-            resourceInputs["subnetName"] = args ? args.subnetName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
+            resourceInputs["addressPrefix"] = args?.addressPrefix;
+            resourceInputs["addressPrefixes"] = args?.addressPrefixes;
+            resourceInputs["applicationGatewayIPConfigurations"] = args?.applicationGatewayIPConfigurations;
+            resourceInputs["defaultOutboundAccess"] = args?.defaultOutboundAccess;
+            resourceInputs["delegations"] = args?.delegations;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAllocations"] = args?.ipAllocations;
+            resourceInputs["ipamPoolPrefixAllocations"] = args?.ipamPoolPrefixAllocations;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natGateway"] = args?.natGateway;
+            resourceInputs["networkSecurityGroup"] = args?.networkSecurityGroup;
+            resourceInputs["privateEndpointNetworkPolicies"] = (args?.privateEndpointNetworkPolicies) ?? "Disabled";
+            resourceInputs["privateLinkServiceNetworkPolicies"] = (args?.privateLinkServiceNetworkPolicies) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeTable"] = args?.routeTable;
+            resourceInputs["serviceEndpointPolicies"] = args?.serviceEndpointPolicies;
+            resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["sharingScope"] = args?.sharingScope;
+            resourceInputs["subnetName"] = args?.subnetName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["ipConfigurationProfiles"] = undefined /*out*/;

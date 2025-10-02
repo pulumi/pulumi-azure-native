@@ -44,71 +44,71 @@ export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Date time when history definition was created
      */
-    public /*out*/ readonly createdDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDateTime: pulumi.Output<string>;
     /**
      * Collection of review decisions which the history data should be filtered on. For example if Approve and Deny are supplied the data will only contain review results in which the decision maker approved or denied a review request.
      */
-    public readonly decisions!: pulumi.Output<string[] | undefined>;
+    declare public readonly decisions: pulumi.Output<string[] | undefined>;
     /**
      * The display name for the history definition.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Set of access review history instances for this history definition.
      */
-    public readonly instances!: pulumi.Output<outputs.authorization.AccessReviewHistoryInstanceResponse[] | undefined>;
+    declare public readonly instances: pulumi.Output<outputs.authorization.AccessReviewHistoryInstanceResponse[] | undefined>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
-    public readonly interval!: pulumi.Output<number | undefined>;
+    declare public readonly interval: pulumi.Output<number | undefined>;
     /**
      * The access review history definition unique id.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The identity id
      */
-    public /*out*/ readonly principalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalId: pulumi.Output<string>;
     /**
      * The identity display name
      */
-    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalName: pulumi.Output<string>;
     /**
      * The identity type : user/servicePrincipal
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalType: pulumi.Output<string>;
     /**
      * Access Review History Definition recurrence settings.
      */
-    public readonly range!: pulumi.Output<outputs.authorization.AccessReviewRecurrenceRangeResponse | undefined>;
+    declare public readonly range: pulumi.Output<outputs.authorization.AccessReviewRecurrenceRangeResponse | undefined>;
     /**
      * Date time used when selecting review data, all reviews included in data end on or before this date. For use only with one-time/non-recurring reports.
      */
-    public /*out*/ readonly reviewHistoryPeriodEndDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly reviewHistoryPeriodEndDateTime: pulumi.Output<string>;
     /**
      * Date time used when selecting review data, all reviews included in data start on or after this date. For use only with one-time/non-recurring reports.
      */
-    public /*out*/ readonly reviewHistoryPeriodStartDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly reviewHistoryPeriodStartDateTime: pulumi.Output<string>;
     /**
      * A collection of scopes used when selecting review history data
      */
-    public readonly scopes!: pulumi.Output<outputs.authorization.AccessReviewScopeResponse[] | undefined>;
+    declare public readonly scopes: pulumi.Output<outputs.authorization.AccessReviewScopeResponse[] | undefined>;
     /**
      * This read-only field specifies the of the requested review history data. This is either requested, in-progress, done or error.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The user principal name(if valid)
      */
-    public /*out*/ readonly userPrincipalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userPrincipalName: pulumi.Output<string>;
 
     /**
      * Create a AccessReviewHistoryDefinitionById resource with the given unique name, arguments, and options.
@@ -121,14 +121,14 @@ export class AccessReviewHistoryDefinitionById extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["decisions"] = args ? args.decisions : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["historyDefinitionId"] = args ? args.historyDefinitionId : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["range"] = args ? args.range : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["decisions"] = args?.decisions;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["historyDefinitionId"] = args?.historyDefinitionId;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["range"] = args?.range;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDateTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

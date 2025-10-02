@@ -44,39 +44,39 @@ export class WorkspaceManagerAssignment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource Etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * List of resources included in this workspace manager assignment
      */
-    public readonly items!: pulumi.Output<outputs.securityinsights.AssignmentItemResponse[]>;
+    declare public readonly items: pulumi.Output<outputs.securityinsights.AssignmentItemResponse[]>;
     /**
      * The time the last job associated to this assignment ended at
      */
-    public /*out*/ readonly lastJobEndTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastJobEndTime: pulumi.Output<string>;
     /**
      * State of the last job associated to this assignment
      */
-    public /*out*/ readonly lastJobProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastJobProvisioningState: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The resource name of the workspace manager group targeted by the workspace manager assignment
      */
-    public readonly targetResourceName!: pulumi.Output<string>;
+    declare public readonly targetResourceName: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceManagerAssignment resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class WorkspaceManagerAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.items === undefined) && !opts.urn) {
+            if (args?.items === undefined && !opts.urn) {
                 throw new Error("Missing required property 'items'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetResourceName === undefined) && !opts.urn) {
+            if (args?.targetResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["items"] = args ? args.items : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetResourceName"] = args ? args.targetResourceName : undefined;
-            resourceInputs["workspaceManagerAssignmentName"] = args ? args.workspaceManagerAssignmentName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["items"] = args?.items;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetResourceName"] = args?.targetResourceName;
+            resourceInputs["workspaceManagerAssignmentName"] = args?.workspaceManagerAssignmentName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastJobEndTime"] = undefined /*out*/;

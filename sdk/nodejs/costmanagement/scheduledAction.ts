@@ -44,59 +44,59 @@ export class ScheduledAction extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Scheduled action name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Resource Etag. For update calls, eTag is optional and can be specified to achieve optimistic concurrency. Fetch the resource's eTag by doing a 'GET' call first and then including the latest eTag as part of the request body or 'If-Match' header while performing the update. For create calls, eTag is not required.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Destination format of the view data. This is optional.
      */
-    public readonly fileDestination!: pulumi.Output<outputs.costmanagement.FileDestinationResponse | undefined>;
+    declare public readonly fileDestination: pulumi.Output<outputs.costmanagement.FileDestinationResponse | undefined>;
     /**
      * Kind of the scheduled action.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Notification properties based on scheduled action kind.
      */
-    public readonly notification!: pulumi.Output<outputs.costmanagement.NotificationPropertiesResponse>;
+    declare public readonly notification: pulumi.Output<outputs.costmanagement.NotificationPropertiesResponse>;
     /**
      * Email address of the point of contact that should get the unsubscribe requests and notification emails.
      */
-    public readonly notificationEmail!: pulumi.Output<string | undefined>;
+    declare public readonly notificationEmail: pulumi.Output<string | undefined>;
     /**
      * Schedule of the scheduled action.
      */
-    public readonly schedule!: pulumi.Output<outputs.costmanagement.SchedulePropertiesResponse>;
+    declare public readonly schedule: pulumi.Output<outputs.costmanagement.SchedulePropertiesResponse>;
     /**
      * For private scheduled action(Create or Update), scope will be empty.<br /> For shared scheduled action(Create or Update By Scope), Cost Management scope can be 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Status of the scheduled action.
      */
-    public readonly status!: pulumi.Output<string>;
+    declare public readonly status: pulumi.Output<string>;
     /**
      * Kind of the scheduled action.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.costmanagement.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.costmanagement.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'
      */
-    public readonly viewId!: pulumi.Output<string>;
+    declare public readonly viewId: pulumi.Output<string>;
 
     /**
      * Create a ScheduledAction resource with the given unique name, arguments, and options.
@@ -109,31 +109,31 @@ export class ScheduledAction extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.notification === undefined) && !opts.urn) {
+            if (args?.notification === undefined && !opts.urn) {
                 throw new Error("Missing required property 'notification'");
             }
-            if ((!args || args.schedule === undefined) && !opts.urn) {
+            if (args?.schedule === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schedule'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            if ((!args || args.viewId === undefined) && !opts.urn) {
+            if (args?.viewId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'viewId'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["fileDestination"] = args ? args.fileDestination : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notification"] = args ? args.notification : undefined;
-            resourceInputs["notificationEmail"] = args ? args.notificationEmail : undefined;
-            resourceInputs["schedule"] = args ? args.schedule : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["viewId"] = args ? args.viewId : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["fileDestination"] = args?.fileDestination;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notification"] = args?.notification;
+            resourceInputs["notificationEmail"] = args?.notificationEmail;
+            resourceInputs["schedule"] = args?.schedule;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["viewId"] = args?.viewId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

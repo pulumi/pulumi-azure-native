@@ -42,67 +42,67 @@ export class DiagnosticService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The frequency at which the data will be exported.
      */
-    public readonly dataExportFrequencySeconds!: pulumi.Output<number | undefined>;
+    declare public readonly dataExportFrequencySeconds: pulumi.Output<number | undefined>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The details of Diagnostic Service Docker Image.
      */
-    public readonly image!: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
+    declare public readonly image: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The format for the logs generated.
      */
-    public readonly logFormat!: pulumi.Output<string | undefined>;
+    declare public readonly logFormat: pulumi.Output<string | undefined>;
     /**
      * The format for the logs generated.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The maximum data stored in MiB.
      */
-    public readonly maxDataStorageSize!: pulumi.Output<number | undefined>;
+    declare public readonly maxDataStorageSize: pulumi.Output<number | undefined>;
     /**
      * The port at which metrics is exposed.
      */
-    public readonly metricsPort!: pulumi.Output<number | undefined>;
+    declare public readonly metricsPort: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The destination to collect traces. Diagnostic service will push traces to this endpoint
      */
-    public readonly openTelemetryTracesCollectorAddr!: pulumi.Output<string | undefined>;
+    declare public readonly openTelemetryTracesCollectorAddr: pulumi.Output<string | undefined>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metric inactivity timeout.
      */
-    public readonly staleDataTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly staleDataTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DiagnosticService resource with the given unique name, arguments, and options.
@@ -115,32 +115,32 @@ export class DiagnosticService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.image === undefined) && !opts.urn) {
+            if (args?.image === undefined && !opts.urn) {
                 throw new Error("Missing required property 'image'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataExportFrequencySeconds"] = (args ? args.dataExportFrequencySeconds : undefined) ?? 10;
-            resourceInputs["diagnosticServiceName"] = args ? args.diagnosticServiceName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logFormat"] = (args ? args.logFormat : undefined) ?? "json";
-            resourceInputs["logLevel"] = (args ? args.logLevel : undefined) ?? "info";
-            resourceInputs["maxDataStorageSize"] = (args ? args.maxDataStorageSize : undefined) ?? 16;
-            resourceInputs["metricsPort"] = (args ? args.metricsPort : undefined) ?? 9600;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["openTelemetryTracesCollectorAddr"] = args ? args.openTelemetryTracesCollectorAddr : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["staleDataTimeoutSeconds"] = (args ? args.staleDataTimeoutSeconds : undefined) ?? 600;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataExportFrequencySeconds"] = (args?.dataExportFrequencySeconds) ?? 10;
+            resourceInputs["diagnosticServiceName"] = args?.diagnosticServiceName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logFormat"] = (args?.logFormat) ?? "json";
+            resourceInputs["logLevel"] = (args?.logLevel) ?? "info";
+            resourceInputs["maxDataStorageSize"] = (args?.maxDataStorageSize) ?? 16;
+            resourceInputs["metricsPort"] = (args?.metricsPort) ?? 9600;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["openTelemetryTracesCollectorAddr"] = args?.openTelemetryTracesCollectorAddr;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["staleDataTimeoutSeconds"] = (args?.staleDataTimeoutSeconds) ?? 600;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

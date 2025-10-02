@@ -42,160 +42,160 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The rack definition that is intended to reflect only a single rack in a single rack cluster, or an aggregator rack in a multi-rack cluster.
      */
-    public readonly aggregatorOrSingleRackDefinition!: pulumi.Output<outputs.networkcloud.RackDefinitionResponse>;
+    declare public readonly aggregatorOrSingleRackDefinition: pulumi.Output<outputs.networkcloud.RackDefinitionResponse>;
     /**
      * The settings for the log analytics workspace used for output of logs from this cluster.
      */
-    public readonly analyticsOutputSettings!: pulumi.Output<outputs.networkcloud.AnalyticsOutputSettingsResponse | undefined>;
+    declare public readonly analyticsOutputSettings: pulumi.Output<outputs.networkcloud.AnalyticsOutputSettingsResponse | undefined>;
     /**
      * Field Deprecated. The resource ID of the Log Analytics Workspace that will be used for storing relevant logs.
      */
-    public readonly analyticsWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly analyticsWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * The list of cluster runtime version upgrades available for this cluster.
      */
-    public /*out*/ readonly availableUpgradeVersions!: pulumi.Output<outputs.networkcloud.ClusterAvailableUpgradeVersionResponse[]>;
+    declare public /*out*/ readonly availableUpgradeVersions: pulumi.Output<outputs.networkcloud.ClusterAvailableUpgradeVersionResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The capacity supported by this cluster.
      */
-    public /*out*/ readonly clusterCapacity!: pulumi.Output<outputs.networkcloud.ClusterCapacityResponse>;
+    declare public /*out*/ readonly clusterCapacity: pulumi.Output<outputs.networkcloud.ClusterCapacityResponse>;
     /**
      * The latest heartbeat status between the cluster manager and the cluster.
      */
-    public /*out*/ readonly clusterConnectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterConnectionStatus: pulumi.Output<string>;
     /**
      * The extended location (custom location) that represents the cluster's control plane location. This extended location is used to route the requests of child objects of the cluster that are handled by the platform operator.
      */
-    public /*out*/ readonly clusterExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public /*out*/ readonly clusterExtendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The customer-provided location information to identify where the cluster resides.
      */
-    public readonly clusterLocation!: pulumi.Output<string | undefined>;
+    declare public readonly clusterLocation: pulumi.Output<string | undefined>;
     /**
      * The latest connectivity status between cluster manager and the cluster.
      */
-    public /*out*/ readonly clusterManagerConnectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterManagerConnectionStatus: pulumi.Output<string>;
     /**
      * The resource ID of the cluster manager that manages this cluster. This is set by the Cluster Manager when the cluster is created.
      */
-    public /*out*/ readonly clusterManagerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterManagerId: pulumi.Output<string>;
     /**
      * The service principal to be used by the cluster during Arc Appliance installation.
      */
-    public readonly clusterServicePrincipal!: pulumi.Output<outputs.networkcloud.ServicePrincipalInformationResponse | undefined>;
+    declare public readonly clusterServicePrincipal: pulumi.Output<outputs.networkcloud.ServicePrincipalInformationResponse | undefined>;
     /**
      * The type of rack configuration for the cluster.
      */
-    public readonly clusterType!: pulumi.Output<string>;
+    declare public readonly clusterType: pulumi.Output<string>;
     /**
      * The current runtime version of the cluster.
      */
-    public readonly clusterVersion!: pulumi.Output<string>;
+    declare public readonly clusterVersion: pulumi.Output<string>;
     /**
      * The settings for commands run in this cluster, such as bare metal machine run read only commands and data extracts.
      */
-    public readonly commandOutputSettings!: pulumi.Output<outputs.networkcloud.CommandOutputSettingsResponse | undefined>;
+    declare public readonly commandOutputSettings: pulumi.Output<outputs.networkcloud.CommandOutputSettingsResponse | undefined>;
     /**
      * The validation threshold indicating the allowable failures of compute machines during environment validation and deployment.
      */
-    public readonly computeDeploymentThreshold!: pulumi.Output<outputs.networkcloud.ValidationThresholdResponse | undefined>;
+    declare public readonly computeDeploymentThreshold: pulumi.Output<outputs.networkcloud.ValidationThresholdResponse | undefined>;
     /**
      * The list of rack definitions for the compute racks in a multi-rack
      * cluster, or an empty list in a single-rack cluster.
      */
-    public readonly computeRackDefinitions!: pulumi.Output<outputs.networkcloud.RackDefinitionResponse[] | undefined>;
+    declare public readonly computeRackDefinitions: pulumi.Output<outputs.networkcloud.RackDefinitionResponse[] | undefined>;
     /**
      * The current detailed status of the cluster.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster manager associated with the cluster.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * Field Deprecated. This field will not be populated in an upcoming version. The extended location (custom location) that represents the Hybrid AKS control plane location. This extended location is used when creating provisioned clusters (Hybrid AKS clusters).
      */
-    public /*out*/ readonly hybridAksExtendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public /*out*/ readonly hybridAksExtendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.networkcloud.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.networkcloud.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The configuration of the managed resource group associated with the resource.
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.networkcloud.ManagedResourceGroupConfigurationResponse | undefined>;
+    declare public readonly managedResourceGroupConfiguration: pulumi.Output<outputs.networkcloud.ManagedResourceGroupConfigurationResponse | undefined>;
     /**
      * The count of Manual Action Taken (MAT) events that have not been validated.
      */
-    public /*out*/ readonly manualActionCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly manualActionCount: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource ID of the Network Fabric associated with the cluster.
      */
-    public readonly networkFabricId!: pulumi.Output<string>;
+    declare public readonly networkFabricId: pulumi.Output<string>;
     /**
      * The provisioning state of the cluster.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The settings for cluster runtime protection.
      */
-    public readonly runtimeProtectionConfiguration!: pulumi.Output<outputs.networkcloud.RuntimeProtectionConfigurationResponse | undefined>;
+    declare public readonly runtimeProtectionConfiguration: pulumi.Output<outputs.networkcloud.RuntimeProtectionConfigurationResponse | undefined>;
     /**
      * The configuration for use of a key vault to store secrets for later retrieval by the operator.
      */
-    public readonly secretArchive!: pulumi.Output<outputs.networkcloud.ClusterSecretArchiveResponse | undefined>;
+    declare public readonly secretArchive: pulumi.Output<outputs.networkcloud.ClusterSecretArchiveResponse | undefined>;
     /**
      * The settings for the secret archive used to hold credentials for the cluster.
      */
-    public readonly secretArchiveSettings!: pulumi.Output<outputs.networkcloud.SecretArchiveSettingsResponse | undefined>;
+    declare public readonly secretArchiveSettings: pulumi.Output<outputs.networkcloud.SecretArchiveSettingsResponse | undefined>;
     /**
      * The support end date of the runtime version of the cluster.
      */
-    public /*out*/ readonly supportExpiryDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly supportExpiryDate: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The strategy for updating the cluster.
      */
-    public readonly updateStrategy!: pulumi.Output<outputs.networkcloud.ClusterUpdateStrategyResponse | undefined>;
+    declare public readonly updateStrategy: pulumi.Output<outputs.networkcloud.ClusterUpdateStrategyResponse | undefined>;
     /**
      * The settings for how security vulnerability scanning is applied to the cluster.
      */
-    public readonly vulnerabilityScanningSettings!: pulumi.Output<outputs.networkcloud.VulnerabilityScanningSettingsResponse | undefined>;
+    declare public readonly vulnerabilityScanningSettings: pulumi.Output<outputs.networkcloud.VulnerabilityScanningSettingsResponse | undefined>;
     /**
      * The list of workload resource IDs that are hosted within this cluster.
      */
-    public /*out*/ readonly workloadResourceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly workloadResourceIds: pulumi.Output<string[]>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -208,45 +208,45 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.aggregatorOrSingleRackDefinition === undefined) && !opts.urn) {
+            if (args?.aggregatorOrSingleRackDefinition === undefined && !opts.urn) {
                 throw new Error("Missing required property 'aggregatorOrSingleRackDefinition'");
             }
-            if ((!args || args.clusterType === undefined) && !opts.urn) {
+            if (args?.clusterType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterType'");
             }
-            if ((!args || args.clusterVersion === undefined) && !opts.urn) {
+            if (args?.clusterVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterVersion'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.networkFabricId === undefined) && !opts.urn) {
+            if (args?.networkFabricId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkFabricId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["aggregatorOrSingleRackDefinition"] = args ? args.aggregatorOrSingleRackDefinition : undefined;
-            resourceInputs["analyticsOutputSettings"] = args ? args.analyticsOutputSettings : undefined;
-            resourceInputs["analyticsWorkspaceId"] = args ? args.analyticsWorkspaceId : undefined;
-            resourceInputs["clusterLocation"] = args ? args.clusterLocation : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterServicePrincipal"] = args ? args.clusterServicePrincipal : undefined;
-            resourceInputs["clusterType"] = args ? args.clusterType : undefined;
-            resourceInputs["clusterVersion"] = args ? args.clusterVersion : undefined;
-            resourceInputs["commandOutputSettings"] = args ? args.commandOutputSettings : undefined;
-            resourceInputs["computeDeploymentThreshold"] = args ? args.computeDeploymentThreshold : undefined;
-            resourceInputs["computeRackDefinitions"] = args ? args.computeRackDefinitions : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["networkFabricId"] = args ? args.networkFabricId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["aggregatorOrSingleRackDefinition"] = args?.aggregatorOrSingleRackDefinition;
+            resourceInputs["analyticsOutputSettings"] = args?.analyticsOutputSettings;
+            resourceInputs["analyticsWorkspaceId"] = args?.analyticsWorkspaceId;
+            resourceInputs["clusterLocation"] = args?.clusterLocation;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterServicePrincipal"] = args?.clusterServicePrincipal;
+            resourceInputs["clusterType"] = args?.clusterType;
+            resourceInputs["clusterVersion"] = args?.clusterVersion;
+            resourceInputs["commandOutputSettings"] = args?.commandOutputSettings;
+            resourceInputs["computeDeploymentThreshold"] = args?.computeDeploymentThreshold;
+            resourceInputs["computeRackDefinitions"] = args?.computeRackDefinitions;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["networkFabricId"] = args?.networkFabricId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["runtimeProtectionConfiguration"] = args ? (args.runtimeProtectionConfiguration ? pulumi.output(args.runtimeProtectionConfiguration).apply(inputs.networkcloud.runtimeProtectionConfigurationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["secretArchive"] = args ? (args.secretArchive ? pulumi.output(args.secretArchive).apply(inputs.networkcloud.clusterSecretArchiveArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["secretArchiveSettings"] = args ? args.secretArchiveSettings : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["secretArchiveSettings"] = args?.secretArchiveSettings;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["updateStrategy"] = args ? (args.updateStrategy ? pulumi.output(args.updateStrategy).apply(inputs.networkcloud.clusterUpdateStrategyArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["vulnerabilityScanningSettings"] = args ? (args.vulnerabilityScanningSettings ? pulumi.output(args.vulnerabilityScanningSettings).apply(inputs.networkcloud.vulnerabilityScanningSettingsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["availableUpgradeVersions"] = undefined /*out*/;

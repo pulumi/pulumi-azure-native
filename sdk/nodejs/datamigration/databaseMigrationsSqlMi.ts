@@ -44,17 +44,17 @@ export class DatabaseMigrationsSqlMi extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Database Migration Resource properties for SQL Managed Instance.
      */
-    public readonly properties!: pulumi.Output<outputs.datamigration.DatabaseMigrationPropertiesSqlMiResponse>;
+    declare public readonly properties: pulumi.Output<outputs.datamigration.DatabaseMigrationPropertiesSqlMiResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DatabaseMigrationsSqlMi resource with the given unique name, arguments, and options.
@@ -67,16 +67,16 @@ export class DatabaseMigrationsSqlMi extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetDbName"] = args ? args.targetDbName : undefined;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetDbName"] = args?.targetDbName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

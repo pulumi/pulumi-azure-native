@@ -42,43 +42,43 @@ export class SolutionConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The last time resources were inventoried
      */
-    public /*out*/ readonly lastSyncTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Solution settings
      */
-    public readonly solutionSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly solutionSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the solution
      */
-    public readonly solutionType!: pulumi.Output<string>;
+    declare public readonly solutionType: pulumi.Output<string>;
     /**
      * The status of solution configurations
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The detailed message of status details
      */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDetails: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridconnectivity.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridconnectivity.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SolutionConfiguration resource with the given unique name, arguments, and options.
@@ -91,16 +91,16 @@ export class SolutionConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.solutionType === undefined) && !opts.urn) {
+            if (args?.solutionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'solutionType'");
             }
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["solutionConfiguration"] = args ? args.solutionConfiguration : undefined;
-            resourceInputs["solutionSettings"] = args ? args.solutionSettings : undefined;
-            resourceInputs["solutionType"] = args ? args.solutionType : undefined;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["solutionConfiguration"] = args?.solutionConfiguration;
+            resourceInputs["solutionSettings"] = args?.solutionSettings;
+            resourceInputs["solutionType"] = args?.solutionType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

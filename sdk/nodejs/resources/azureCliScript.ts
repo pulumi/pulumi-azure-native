@@ -42,96 +42,96 @@ export class AzureCliScript extends pulumi.CustomResource {
     /**
      * Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' 
      */
-    public readonly arguments!: pulumi.Output<string | undefined>;
+    declare public readonly arguments: pulumi.Output<string | undefined>;
     /**
      * Azure CLI module version to be used.
      */
-    public readonly azCliVersion!: pulumi.Output<string>;
+    declare public readonly azCliVersion: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'.
      */
-    public readonly cleanupPreference!: pulumi.Output<string | undefined>;
+    declare public readonly cleanupPreference: pulumi.Output<string | undefined>;
     /**
      * Container settings.
      */
-    public readonly containerSettings!: pulumi.Output<outputs.resources.ContainerConfigurationResponse | undefined>;
+    declare public readonly containerSettings: pulumi.Output<outputs.resources.ContainerConfigurationResponse | undefined>;
     /**
      * The environment variables to pass over to the script.
      */
-    public readonly environmentVariables!: pulumi.Output<outputs.resources.EnvironmentVariableResponse[] | undefined>;
+    declare public readonly environmentVariables: pulumi.Output<outputs.resources.EnvironmentVariableResponse[] | undefined>;
     /**
      * Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID.
      */
-    public readonly forceUpdateTag!: pulumi.Output<string | undefined>;
+    declare public readonly forceUpdateTag: pulumi.Output<string | undefined>;
     /**
      * Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported.
      */
-    public readonly identity!: pulumi.Output<outputs.resources.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.resources.ManagedServiceIdentityResponse | undefined>;
     /**
      * Type of the script.
      * Expected value is 'AzureCLI'.
      */
-    public readonly kind!: pulumi.Output<"AzureCLI">;
+    declare public readonly kind: pulumi.Output<"AzureCLI">;
     /**
      * The location of the ACI and the storage account for the deployment script.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of this resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of script outputs.
      */
-    public /*out*/ readonly outputs!: pulumi.Output<{[key: string]: any}>;
+    declare public /*out*/ readonly outputs: pulumi.Output<{[key: string]: any}>;
     /**
      * Uri for the script. This is the entry point for the external script.
      */
-    public readonly primaryScriptUri!: pulumi.Output<string | undefined>;
+    declare public readonly primaryScriptUri: pulumi.Output<string | undefined>;
     /**
      * State of the script execution. This only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day).
      */
-    public readonly retentionInterval!: pulumi.Output<string>;
+    declare public readonly retentionInterval: pulumi.Output<string>;
     /**
      * Script body.
      */
-    public readonly scriptContent!: pulumi.Output<string | undefined>;
+    declare public readonly scriptContent: pulumi.Output<string | undefined>;
     /**
      * Contains the results of script execution.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.resources.ScriptStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.resources.ScriptStatusResponse>;
     /**
      * Storage Account settings.
      */
-    public readonly storageAccountSettings!: pulumi.Output<outputs.resources.StorageAccountConfigurationResponse | undefined>;
+    declare public readonly storageAccountSettings: pulumi.Output<outputs.resources.StorageAccountConfigurationResponse | undefined>;
     /**
      * Supporting files for the external script.
      */
-    public readonly supportingScriptUris!: pulumi.Output<string[] | undefined>;
+    declare public readonly supportingScriptUris: pulumi.Output<string[] | undefined>;
     /**
      * The system metadata related to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.resources.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resources.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D
      */
-    public readonly timeout!: pulumi.Output<string | undefined>;
+    declare public readonly timeout: pulumi.Output<string | undefined>;
     /**
      * Type of this resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureCliScript resource with the given unique name, arguments, and options.
@@ -144,36 +144,36 @@ export class AzureCliScript extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azCliVersion === undefined) && !opts.urn) {
+            if (args?.azCliVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azCliVersion'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.retentionInterval === undefined) && !opts.urn) {
+            if (args?.retentionInterval === undefined && !opts.urn) {
                 throw new Error("Missing required property 'retentionInterval'");
             }
-            resourceInputs["arguments"] = args ? args.arguments : undefined;
-            resourceInputs["azCliVersion"] = args ? args.azCliVersion : undefined;
-            resourceInputs["cleanupPreference"] = (args ? args.cleanupPreference : undefined) ?? "Always";
-            resourceInputs["containerSettings"] = args ? args.containerSettings : undefined;
-            resourceInputs["environmentVariables"] = args ? args.environmentVariables : undefined;
-            resourceInputs["forceUpdateTag"] = args ? args.forceUpdateTag : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
+            resourceInputs["arguments"] = args?.arguments;
+            resourceInputs["azCliVersion"] = args?.azCliVersion;
+            resourceInputs["cleanupPreference"] = (args?.cleanupPreference) ?? "Always";
+            resourceInputs["containerSettings"] = args?.containerSettings;
+            resourceInputs["environmentVariables"] = args?.environmentVariables;
+            resourceInputs["forceUpdateTag"] = args?.forceUpdateTag;
+            resourceInputs["identity"] = args?.identity;
             resourceInputs["kind"] = "AzureCLI";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["primaryScriptUri"] = args ? args.primaryScriptUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInterval"] = args ? args.retentionInterval : undefined;
-            resourceInputs["scriptContent"] = args ? args.scriptContent : undefined;
-            resourceInputs["scriptName"] = args ? args.scriptName : undefined;
-            resourceInputs["storageAccountSettings"] = args ? args.storageAccountSettings : undefined;
-            resourceInputs["supportingScriptUris"] = args ? args.supportingScriptUris : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeout"] = (args ? args.timeout : undefined) ?? "P1D";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["primaryScriptUri"] = args?.primaryScriptUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInterval"] = args?.retentionInterval;
+            resourceInputs["scriptContent"] = args?.scriptContent;
+            resourceInputs["scriptName"] = args?.scriptName;
+            resourceInputs["storageAccountSettings"] = args?.storageAccountSettings;
+            resourceInputs["supportingScriptUris"] = args?.supportingScriptUris;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeout"] = (args?.timeout) ?? "P1D";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outputs"] = undefined /*out*/;

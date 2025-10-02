@@ -50,7 +50,7 @@ export class Domain extends pulumi.CustomResource {
      * flexibility to perform less operations and manage fewer resources by the user. Also, note that in auto-managed creation mode, user is allowed to create the
      * domain topic on demand if needed.
      */
-    public readonly autoCreateTopicWithFirstSubscription!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoCreateTopicWithFirstSubscription: pulumi.Output<boolean | undefined>;
     /**
      * This Boolean is used to specify the deletion mechanism for 'all' the Event Grid Domain Topics associated with this Event Grid Domain resource.
      * In this context, deletion of domain topic can be auto-managed (when true) or self-managed (when false). The default value for this property is true.
@@ -60,85 +60,85 @@ export class Domain extends pulumi.CustomResource {
      * control of when the domain topic needs to be deleted, while auto-managed mode provides the flexibility to perform less operations and manage fewer
      * resources by the user.
      */
-    public readonly autoDeleteTopicWithLastSubscription!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoDeleteTopicWithLastSubscription: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Data Residency Boundary of the resource.
      */
-    public readonly dataResidencyBoundary!: pulumi.Output<string | undefined>;
+    declare public readonly dataResidencyBoundary: pulumi.Output<string | undefined>;
     /**
      * This boolean is used to enable or disable local auth. Default value is false. When the property is set to true, only AAD token will be used to authenticate if user is allowed to publish to the domain.
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * Endpoint for the Event Grid Domain Resource which is used for publishing the events.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * Event Type Information for the domain. This information is provided by the publisher and can be used by the 
      * subscriber to view different types of events that are published.
      */
-    public readonly eventTypeInfo!: pulumi.Output<outputs.eventgrid.EventTypeInfoResponse | undefined>;
+    declare public readonly eventTypeInfo: pulumi.Output<outputs.eventgrid.EventTypeInfoResponse | undefined>;
     /**
      * Identity information for the Event Grid Domain resource.
      */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
     /**
      * This can be used to restrict traffic from specific IPs instead of all IPs. Note: These are considered only if PublicNetworkAccess is enabled.
      */
-    public readonly inboundIpRules!: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
+    declare public readonly inboundIpRules: pulumi.Output<outputs.eventgrid.InboundIpRuleResponse[] | undefined>;
     /**
      * This determines the format that Event Grid should expect for incoming events published to the Event Grid Domain Resource.
      */
-    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    declare public readonly inputSchema: pulumi.Output<string | undefined>;
     /**
      * Information about the InputSchemaMapping which specified the info about mapping event payload.
      */
-    public readonly inputSchemaMapping!: pulumi.Output<outputs.eventgrid.JsonInputSchemaMappingResponse | undefined>;
+    declare public readonly inputSchemaMapping: pulumi.Output<outputs.eventgrid.JsonInputSchemaMappingResponse | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Metric resource id for the Event Grid Domain Resource.
      */
-    public /*out*/ readonly metricResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricResourceId: pulumi.Output<string>;
     /**
      * Minimum TLS version of the publisher allowed to publish to this domain
      */
-    public readonly minimumTlsVersionAllowed!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersionAllowed: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.eventgrid.PrivateEndpointConnectionResponse[]>;
     /**
      * Provisioning state of the Event Grid Domain Resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      * You can further restrict to specific IPs by configuring <seealso cref="P:Microsoft.Azure.Events.ResourceProvider.Common.Contracts.DomainProperties.InboundIpRules" />
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Domain resource with the given unique name, arguments, and options.
@@ -151,24 +151,24 @@ export class Domain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoCreateTopicWithFirstSubscription"] = (args ? args.autoCreateTopicWithFirstSubscription : undefined) ?? true;
-            resourceInputs["autoDeleteTopicWithLastSubscription"] = (args ? args.autoDeleteTopicWithLastSubscription : undefined) ?? true;
-            resourceInputs["dataResidencyBoundary"] = args ? args.dataResidencyBoundary : undefined;
-            resourceInputs["disableLocalAuth"] = (args ? args.disableLocalAuth : undefined) ?? false;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["eventTypeInfo"] = args ? args.eventTypeInfo : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inboundIpRules"] = args ? args.inboundIpRules : undefined;
-            resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "EventGridSchema";
-            resourceInputs["inputSchemaMapping"] = args ? args.inputSchemaMapping : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumTlsVersionAllowed"] = args ? args.minimumTlsVersionAllowed : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["autoCreateTopicWithFirstSubscription"] = (args?.autoCreateTopicWithFirstSubscription) ?? true;
+            resourceInputs["autoDeleteTopicWithLastSubscription"] = (args?.autoDeleteTopicWithLastSubscription) ?? true;
+            resourceInputs["dataResidencyBoundary"] = args?.dataResidencyBoundary;
+            resourceInputs["disableLocalAuth"] = (args?.disableLocalAuth) ?? false;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["eventTypeInfo"] = args?.eventTypeInfo;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inboundIpRules"] = args?.inboundIpRules;
+            resourceInputs["inputSchema"] = (args?.inputSchema) ?? "EventGridSchema";
+            resourceInputs["inputSchemaMapping"] = args?.inputSchemaMapping;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumTlsVersionAllowed"] = args?.minimumTlsVersionAllowed;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["metricResourceId"] = undefined /*out*/;

@@ -44,135 +44,135 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
     /**
      * The authorizationKey.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connection mode for this connection.
      */
-    public readonly connectionMode!: pulumi.Output<string | undefined>;
+    declare public readonly connectionMode: pulumi.Output<string | undefined>;
     /**
      * Connection protocol used for this connection.
      */
-    public readonly connectionProtocol!: pulumi.Output<string | undefined>;
+    declare public readonly connectionProtocol: pulumi.Output<string | undefined>;
     /**
      * Virtual Network Gateway connection status.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * Gateway connection type.
      */
-    public readonly connectionType!: pulumi.Output<string>;
+    declare public readonly connectionType: pulumi.Output<string>;
     /**
      * The dead peer detection timeout of this connection in seconds.
      */
-    public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly dpdTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * The egress bytes transferred in this connection.
      */
-    public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
+    declare public /*out*/ readonly egressBytesTransferred: pulumi.Output<number>;
     /**
      * List of egress NatRules.
      */
-    public readonly egressNatRules!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    declare public readonly egressNatRules: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
      * EnableBgp flag.
      */
-    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBgp: pulumi.Output<boolean | undefined>;
     /**
      * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
      */
-    public readonly enablePrivateLinkFastPath!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePrivateLinkFastPath: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Bypass ExpressRoute Gateway for data forwarding.
      */
-    public readonly expressRouteGatewayBypass!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressRouteGatewayBypass: pulumi.Output<boolean | undefined>;
     /**
      * GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection.
      */
-    public readonly gatewayCustomBgpIpAddresses!: pulumi.Output<outputs.network.GatewayCustomBgpIpAddressIpConfigurationResponse[] | undefined>;
+    declare public readonly gatewayCustomBgpIpAddresses: pulumi.Output<outputs.network.GatewayCustomBgpIpAddressIpConfigurationResponse[] | undefined>;
     /**
      * The ingress bytes transferred in this connection.
      */
-    public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    declare public /*out*/ readonly ingressBytesTransferred: pulumi.Output<number>;
     /**
      * List of ingress NatRules.
      */
-    public readonly ingressNatRules!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    declare public readonly ingressNatRules: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    public readonly ipsecPolicies!: pulumi.Output<outputs.network.IpsecPolicyResponse[] | undefined>;
+    declare public readonly ipsecPolicies: pulumi.Output<outputs.network.IpsecPolicyResponse[] | undefined>;
     /**
      * The reference to local network gateway resource.
      */
-    public readonly localNetworkGateway2!: pulumi.Output<outputs.network.LocalNetworkGatewayResponse | undefined>;
+    declare public readonly localNetworkGateway2: pulumi.Output<outputs.network.LocalNetworkGatewayResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The reference to peerings resource.
      */
-    public readonly peer!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly peer: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The provisioning state of the virtual network gateway connection resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the virtual network gateway connection resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The routing weight.
      */
-    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    declare public readonly routingWeight: pulumi.Output<number | undefined>;
     /**
      * The IPSec shared key.
      */
-    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly sharedKey: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    public readonly trafficSelectorPolicies!: pulumi.Output<outputs.network.TrafficSelectorPolicyResponse[] | undefined>;
+    declare public readonly trafficSelectorPolicies: pulumi.Output<outputs.network.TrafficSelectorPolicyResponse[] | undefined>;
     /**
      * Collection of all tunnels' connection health status.
      */
-    public /*out*/ readonly tunnelConnectionStatus!: pulumi.Output<outputs.network.TunnelConnectionHealthResponse[]>;
+    declare public /*out*/ readonly tunnelConnectionStatus: pulumi.Output<outputs.network.TunnelConnectionHealthResponse[]>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Use private local Azure IP for the connection.
      */
-    public readonly useLocalAzureIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly useLocalAzureIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Enable policy-based traffic selectors.
      */
-    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean | undefined>;
+    declare public readonly usePolicyBasedTrafficSelectors: pulumi.Output<boolean | undefined>;
     /**
      * The reference to virtual network gateway resource.
      */
-    public readonly virtualNetworkGateway1!: pulumi.Output<outputs.network.VirtualNetworkGatewayResponse>;
+    declare public readonly virtualNetworkGateway1: pulumi.Output<outputs.network.VirtualNetworkGatewayResponse>;
     /**
      * The reference to virtual network gateway resource.
      */
-    public readonly virtualNetworkGateway2!: pulumi.Output<outputs.network.VirtualNetworkGatewayResponse | undefined>;
+    declare public readonly virtualNetworkGateway2: pulumi.Output<outputs.network.VirtualNetworkGatewayResponse | undefined>;
 
     /**
      * Create a VirtualNetworkGatewayConnection resource with the given unique name, arguments, and options.
@@ -185,41 +185,41 @@ export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionType === undefined) && !opts.urn) {
+            if (args?.connectionType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGateway1 === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGateway1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGateway1'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["connectionMode"] = args ? args.connectionMode : undefined;
-            resourceInputs["connectionProtocol"] = args ? args.connectionProtocol : undefined;
-            resourceInputs["connectionType"] = args ? args.connectionType : undefined;
-            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            resourceInputs["egressNatRules"] = args ? args.egressNatRules : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            resourceInputs["gatewayCustomBgpIpAddresses"] = args ? args.gatewayCustomBgpIpAddresses : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ingressNatRules"] = args ? args.ingressNatRules : undefined;
-            resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
-            resourceInputs["localNetworkGateway2"] = args ? args.localNetworkGateway2 : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["peer"] = args ? args.peer : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            resourceInputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
-            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            resourceInputs["virtualNetworkGateway1"] = args ? args.virtualNetworkGateway1 : undefined;
-            resourceInputs["virtualNetworkGateway2"] = args ? args.virtualNetworkGateway2 : undefined;
-            resourceInputs["virtualNetworkGatewayConnectionName"] = args ? args.virtualNetworkGatewayConnectionName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["connectionMode"] = args?.connectionMode;
+            resourceInputs["connectionProtocol"] = args?.connectionProtocol;
+            resourceInputs["connectionType"] = args?.connectionType;
+            resourceInputs["dpdTimeoutSeconds"] = args?.dpdTimeoutSeconds;
+            resourceInputs["egressNatRules"] = args?.egressNatRules;
+            resourceInputs["enableBgp"] = args?.enableBgp;
+            resourceInputs["enablePrivateLinkFastPath"] = args?.enablePrivateLinkFastPath;
+            resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
+            resourceInputs["gatewayCustomBgpIpAddresses"] = args?.gatewayCustomBgpIpAddresses;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ingressNatRules"] = args?.ingressNatRules;
+            resourceInputs["ipsecPolicies"] = args?.ipsecPolicies;
+            resourceInputs["localNetworkGateway2"] = args?.localNetworkGateway2;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["peer"] = args?.peer;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingWeight"] = args?.routingWeight;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["trafficSelectorPolicies"] = args?.trafficSelectorPolicies;
+            resourceInputs["useLocalAzureIpAddress"] = args?.useLocalAzureIpAddress;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args?.usePolicyBasedTrafficSelectors;
+            resourceInputs["virtualNetworkGateway1"] = args?.virtualNetworkGateway1;
+            resourceInputs["virtualNetworkGateway2"] = args?.virtualNetworkGateway2;
+            resourceInputs["virtualNetworkGatewayConnectionName"] = args?.virtualNetworkGatewayConnectionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;

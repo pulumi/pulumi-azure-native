@@ -42,47 +42,47 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
     /**
      * The list of databases from the clusterResourceId which are currently attached to the kusto pool.
      */
-    public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly attachedDatabaseNames: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * The default principals modification kind
      */
-    public readonly defaultPrincipalsModificationKind!: pulumi.Output<string>;
+    declare public readonly defaultPrincipalsModificationKind: pulumi.Output<string>;
     /**
      * The resource id of the kusto pool where the databases you would like to attach reside.
      */
-    public readonly kustoPoolResourceId!: pulumi.Output<string>;
+    declare public readonly kustoPoolResourceId: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.synapse.SystemDataResponse>;
     /**
      * Table level sharing specifications
      */
-    public readonly tableLevelSharingProperties!: pulumi.Output<outputs.synapse.TableLevelSharingPropertiesResponse | undefined>;
+    declare public readonly tableLevelSharingProperties: pulumi.Output<outputs.synapse.TableLevelSharingPropertiesResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KustoPoolAttachedDatabaseConfiguration resource with the given unique name, arguments, and options.
@@ -95,33 +95,33 @@ export class KustoPoolAttachedDatabaseConfiguration extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !opts.urn) {
+            if (args?.defaultPrincipalsModificationKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if ((!args || args.kustoPoolName === undefined) && !opts.urn) {
+            if (args?.kustoPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolName'");
             }
-            if ((!args || args.kustoPoolResourceId === undefined) && !opts.urn) {
+            if (args?.kustoPoolResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kustoPoolResourceId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["kustoPoolResourceId"] = args ? args.kustoPoolResourceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["attachedDatabaseConfigurationName"] = args?.attachedDatabaseConfigurationName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["defaultPrincipalsModificationKind"] = args?.defaultPrincipalsModificationKind;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["kustoPoolResourceId"] = args?.kustoPoolResourceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableLevelSharingProperties"] = args?.tableLevelSharingProperties;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,79 +44,79 @@ export class Workflow extends pulumi.CustomResource {
     /**
      * The access control configuration.
      */
-    public readonly accessControl!: pulumi.Output<outputs.logic.FlowAccessControlConfigurationResponse | undefined>;
+    declare public readonly accessControl: pulumi.Output<outputs.logic.FlowAccessControlConfigurationResponse | undefined>;
     /**
      * Gets the access endpoint.
      */
-    public /*out*/ readonly accessEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessEndpoint: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the changed time.
      */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly changedTime: pulumi.Output<string>;
     /**
      * Gets the created time.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The definition.
      */
-    public readonly definition!: pulumi.Output<any | undefined>;
+    declare public readonly definition: pulumi.Output<any | undefined>;
     /**
      * The endpoints configuration.
      */
-    public readonly endpointsConfiguration!: pulumi.Output<outputs.logic.FlowEndpointsConfigurationResponse | undefined>;
+    declare public readonly endpointsConfiguration: pulumi.Output<outputs.logic.FlowEndpointsConfigurationResponse | undefined>;
     /**
      * Managed service identity properties.
      */
-    public readonly identity!: pulumi.Output<outputs.logic.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.logic.ManagedServiceIdentityResponse | undefined>;
     /**
      * The integration account.
      */
-    public readonly integrationAccount!: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
+    declare public readonly integrationAccount: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
     /**
      * The integration service environment.
      */
-    public readonly integrationServiceEnvironment!: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
+    declare public readonly integrationServiceEnvironment: pulumi.Output<outputs.logic.ResourceReferenceResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Gets the resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The parameters.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.logic.WorkflowParameterResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.logic.WorkflowParameterResponse} | undefined>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The sku.
      */
-    public /*out*/ readonly sku!: pulumi.Output<outputs.logic.SkuResponse>;
+    declare public /*out*/ readonly sku: pulumi.Output<outputs.logic.SkuResponse>;
     /**
      * The state.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets the version.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a Workflow resource with the given unique name, arguments, and options.
@@ -129,21 +129,21 @@ export class Workflow extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessControl"] = args ? args.accessControl : undefined;
-            resourceInputs["definition"] = args ? args.definition : undefined;
-            resourceInputs["endpointsConfiguration"] = args ? args.endpointsConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["integrationAccount"] = args ? args.integrationAccount : undefined;
-            resourceInputs["integrationServiceEnvironment"] = args ? args.integrationServiceEnvironment : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workflowName"] = args ? args.workflowName : undefined;
+            resourceInputs["accessControl"] = args?.accessControl;
+            resourceInputs["definition"] = args?.definition;
+            resourceInputs["endpointsConfiguration"] = args?.endpointsConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["integrationAccount"] = args?.integrationAccount;
+            resourceInputs["integrationServiceEnvironment"] = args?.integrationServiceEnvironment;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workflowName"] = args?.workflowName;
             resourceInputs["accessEndpoint"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;

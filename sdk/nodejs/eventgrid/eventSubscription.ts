@@ -44,67 +44,67 @@ export class EventSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly deadLetterDestination!: pulumi.Output<outputs.eventgrid.StorageBlobDeadLetterDestinationResponse | undefined>;
+    declare public readonly deadLetterDestination: pulumi.Output<outputs.eventgrid.StorageBlobDeadLetterDestinationResponse | undefined>;
     /**
      * The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly deadLetterWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeadLetterWithResourceIdentityResponse | undefined>;
+    declare public readonly deadLetterWithResourceIdentity: pulumi.Output<outputs.eventgrid.DeadLetterWithResourceIdentityResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly deliveryWithResourceIdentity!: pulumi.Output<outputs.eventgrid.DeliveryWithResourceIdentityResponse | undefined>;
+    declare public readonly deliveryWithResourceIdentity: pulumi.Output<outputs.eventgrid.DeliveryWithResourceIdentityResponse | undefined>;
     /**
      * Information about the destination where events have to be delivered for the event subscription.
      * Uses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering.
      */
-    public readonly destination!: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.MonitorAlertEventSubscriptionDestinationResponse | outputs.eventgrid.NamespaceTopicEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
+    declare public readonly destination: pulumi.Output<outputs.eventgrid.AzureFunctionEventSubscriptionDestinationResponse | outputs.eventgrid.EventHubEventSubscriptionDestinationResponse | outputs.eventgrid.HybridConnectionEventSubscriptionDestinationResponse | outputs.eventgrid.MonitorAlertEventSubscriptionDestinationResponse | outputs.eventgrid.NamespaceTopicEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusQueueEventSubscriptionDestinationResponse | outputs.eventgrid.ServiceBusTopicEventSubscriptionDestinationResponse | outputs.eventgrid.StorageQueueEventSubscriptionDestinationResponse | outputs.eventgrid.WebHookEventSubscriptionDestinationResponse | undefined>;
     /**
      * The event delivery schema for the event subscription.
      */
-    public readonly eventDeliverySchema!: pulumi.Output<string | undefined>;
+    declare public readonly eventDeliverySchema: pulumi.Output<string | undefined>;
     /**
      * Expiration time of the event subscription.
      */
-    public readonly expirationTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationTimeUtc: pulumi.Output<string | undefined>;
     /**
      * Information about the filter for the event subscription.
      */
-    public readonly filter!: pulumi.Output<outputs.eventgrid.EventSubscriptionFilterResponse | undefined>;
+    declare public readonly filter: pulumi.Output<outputs.eventgrid.EventSubscriptionFilterResponse | undefined>;
     /**
      * List of user defined labels.
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the event subscription.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events.
      */
-    public readonly retryPolicy!: pulumi.Output<outputs.eventgrid.RetryPolicyResponse | undefined>;
+    declare public readonly retryPolicy: pulumi.Output<outputs.eventgrid.RetryPolicyResponse | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Name of the topic of the event subscription.
      */
-    public /*out*/ readonly topic!: pulumi.Output<string>;
+    declare public /*out*/ readonly topic: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a EventSubscription resource with the given unique name, arguments, and options.
@@ -117,20 +117,20 @@ export class EventSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["deadLetterDestination"] = args ? args.deadLetterDestination : undefined;
-            resourceInputs["deadLetterWithResourceIdentity"] = args ? args.deadLetterWithResourceIdentity : undefined;
-            resourceInputs["deliveryWithResourceIdentity"] = args ? args.deliveryWithResourceIdentity : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["eventDeliverySchema"] = (args ? args.eventDeliverySchema : undefined) ?? "EventGridSchema";
-            resourceInputs["eventSubscriptionName"] = args ? args.eventSubscriptionName : undefined;
-            resourceInputs["expirationTimeUtc"] = args ? args.expirationTimeUtc : undefined;
+            resourceInputs["deadLetterDestination"] = args?.deadLetterDestination;
+            resourceInputs["deadLetterWithResourceIdentity"] = args?.deadLetterWithResourceIdentity;
+            resourceInputs["deliveryWithResourceIdentity"] = args?.deliveryWithResourceIdentity;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["eventDeliverySchema"] = (args?.eventDeliverySchema) ?? "EventGridSchema";
+            resourceInputs["eventSubscriptionName"] = args?.eventSubscriptionName;
+            resourceInputs["expirationTimeUtc"] = args?.expirationTimeUtc;
             resourceInputs["filter"] = args ? (args.filter ? pulumi.output(args.filter).apply(inputs.eventgrid.eventSubscriptionFilterArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
+            resourceInputs["labels"] = args?.labels;
             resourceInputs["retryPolicy"] = args ? (args.retryPolicy ? pulumi.output(args.retryPolicy).apply(inputs.eventgrid.retryPolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,103 +44,103 @@ export class ServerEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Cloud Tiering.
      */
-    public readonly cloudTiering!: pulumi.Output<string | undefined>;
+    declare public readonly cloudTiering: pulumi.Output<string | undefined>;
     /**
      * Cloud tiering status. Only populated if cloud tiering is enabled.
      */
-    public /*out*/ readonly cloudTieringStatus!: pulumi.Output<outputs.storagesync.ServerEndpointCloudTieringStatusResponse>;
+    declare public /*out*/ readonly cloudTieringStatus: pulumi.Output<outputs.storagesync.ServerEndpointCloudTieringStatusResponse>;
     /**
      * Friendly Name
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * Policy for how namespace and files are recalled during FastDr.
      */
-    public readonly initialDownloadPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly initialDownloadPolicy: pulumi.Output<string | undefined>;
     /**
      * Policy for how the initial upload sync session is performed.
      */
-    public readonly initialUploadPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly initialUploadPolicy: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastOperationName: pulumi.Output<string>;
     /**
      * ServerEndpoint lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastWorkflowId: pulumi.Output<string>;
     /**
      * Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access.
      */
-    public readonly localCacheMode!: pulumi.Output<string | undefined>;
+    declare public readonly localCacheMode: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Offline data transfer
      */
-    public readonly offlineDataTransfer!: pulumi.Output<string | undefined>;
+    declare public readonly offlineDataTransfer: pulumi.Output<string | undefined>;
     /**
      * Offline data transfer share name
      */
-    public readonly offlineDataTransferShareName!: pulumi.Output<string | undefined>;
+    declare public readonly offlineDataTransferShareName: pulumi.Output<string | undefined>;
     /**
      * Offline data transfer storage account resource ID
      */
-    public /*out*/ readonly offlineDataTransferStorageAccountResourceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly offlineDataTransferStorageAccountResourceId: pulumi.Output<string>;
     /**
      * Offline data transfer storage account tenant ID
      */
-    public /*out*/ readonly offlineDataTransferStorageAccountTenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly offlineDataTransferStorageAccountTenantId: pulumi.Output<string>;
     /**
      * ServerEndpoint Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Recall status. Only populated if cloud tiering is enabled.
      */
-    public /*out*/ readonly recallStatus!: pulumi.Output<outputs.storagesync.ServerEndpointRecallStatusResponse>;
+    declare public /*out*/ readonly recallStatus: pulumi.Output<outputs.storagesync.ServerEndpointRecallStatusResponse>;
     /**
      * Server Endpoint provisioning status
      */
-    public /*out*/ readonly serverEndpointProvisioningStatus!: pulumi.Output<outputs.storagesync.ServerEndpointProvisioningStatusResponse | undefined>;
+    declare public /*out*/ readonly serverEndpointProvisioningStatus: pulumi.Output<outputs.storagesync.ServerEndpointProvisioningStatusResponse | undefined>;
     /**
      * Server Local path.
      */
-    public readonly serverLocalPath!: pulumi.Output<string | undefined>;
+    declare public readonly serverLocalPath: pulumi.Output<string | undefined>;
     /**
      * Server name
      */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverName: pulumi.Output<string>;
     /**
      * Server Resource Id.
      */
-    public readonly serverResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly serverResourceId: pulumi.Output<string | undefined>;
     /**
      * Server Endpoint sync status
      */
-    public /*out*/ readonly syncStatus!: pulumi.Output<outputs.storagesync.ServerEndpointSyncStatusResponse>;
+    declare public /*out*/ readonly syncStatus: pulumi.Output<outputs.storagesync.ServerEndpointSyncStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagesync.SystemDataResponse>;
     /**
      * Tier files older than days.
      */
-    public readonly tierFilesOlderThanDays!: pulumi.Output<number | undefined>;
+    declare public readonly tierFilesOlderThanDays: pulumi.Output<number | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Level of free space to be maintained by Cloud Tiering if it is enabled.
      */
-    public readonly volumeFreeSpacePercent!: pulumi.Output<number | undefined>;
+    declare public readonly volumeFreeSpacePercent: pulumi.Output<number | undefined>;
 
     /**
      * Create a ServerEndpoint resource with the given unique name, arguments, and options.
@@ -153,30 +153,30 @@ export class ServerEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageSyncServiceName === undefined) && !opts.urn) {
+            if (args?.storageSyncServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageSyncServiceName'");
             }
-            if ((!args || args.syncGroupName === undefined) && !opts.urn) {
+            if (args?.syncGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'syncGroupName'");
             }
-            resourceInputs["cloudTiering"] = args ? args.cloudTiering : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["initialDownloadPolicy"] = (args ? args.initialDownloadPolicy : undefined) ?? "NamespaceThenModifiedFiles";
-            resourceInputs["initialUploadPolicy"] = (args ? args.initialUploadPolicy : undefined) ?? "Merge";
-            resourceInputs["localCacheMode"] = (args ? args.localCacheMode : undefined) ?? "UpdateLocallyCachedFiles";
-            resourceInputs["offlineDataTransfer"] = args ? args.offlineDataTransfer : undefined;
-            resourceInputs["offlineDataTransferShareName"] = args ? args.offlineDataTransferShareName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverEndpointName"] = args ? args.serverEndpointName : undefined;
-            resourceInputs["serverLocalPath"] = args ? args.serverLocalPath : undefined;
-            resourceInputs["serverResourceId"] = args ? args.serverResourceId : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["tierFilesOlderThanDays"] = (args ? args.tierFilesOlderThanDays : undefined) ?? 0;
-            resourceInputs["volumeFreeSpacePercent"] = (args ? args.volumeFreeSpacePercent : undefined) ?? 20;
+            resourceInputs["cloudTiering"] = args?.cloudTiering;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["initialDownloadPolicy"] = (args?.initialDownloadPolicy) ?? "NamespaceThenModifiedFiles";
+            resourceInputs["initialUploadPolicy"] = (args?.initialUploadPolicy) ?? "Merge";
+            resourceInputs["localCacheMode"] = (args?.localCacheMode) ?? "UpdateLocallyCachedFiles";
+            resourceInputs["offlineDataTransfer"] = args?.offlineDataTransfer;
+            resourceInputs["offlineDataTransferShareName"] = args?.offlineDataTransferShareName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverEndpointName"] = args?.serverEndpointName;
+            resourceInputs["serverLocalPath"] = args?.serverLocalPath;
+            resourceInputs["serverResourceId"] = args?.serverResourceId;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["tierFilesOlderThanDays"] = (args?.tierFilesOlderThanDays) ?? 0;
+            resourceInputs["volumeFreeSpacePercent"] = (args?.volumeFreeSpacePercent) ?? 20;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudTieringStatus"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;

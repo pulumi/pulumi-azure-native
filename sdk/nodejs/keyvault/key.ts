@@ -44,56 +44,56 @@ export class Key extends pulumi.CustomResource {
     /**
      * The attributes of the key.
      */
-    public /*out*/ readonly attributes!: pulumi.Output<outputs.keyvault.KeyAttributesResponse | undefined>;
+    declare public /*out*/ readonly attributes: pulumi.Output<outputs.keyvault.KeyAttributesResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The elliptic curve name. For valid values, see JsonWebKeyCurveName. Default for EC and EC-HSM keys is P-256
      */
-    public /*out*/ readonly curveName!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly keyOps!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly curveName: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly keyOps: pulumi.Output<string[] | undefined>;
     /**
      * The key size in bits. For example: 2048, 3072, or 4096 for RSA. Default for RSA and RSA-HSM keys is 2048. Exception made for bring your own key (BYOK), key exchange keys default to 4096.
      */
-    public /*out*/ readonly keySize!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly keySize: pulumi.Output<number | undefined>;
     /**
      * The URI to retrieve the current version of the key.
      */
-    public /*out*/ readonly keyUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyUri: pulumi.Output<string>;
     /**
      * The URI to retrieve the specific version of the key.
      */
-    public /*out*/ readonly keyUriWithVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyUriWithVersion: pulumi.Output<string>;
     /**
      * The type of the key. For valid values, see JsonWebKeyType.
      */
-    public /*out*/ readonly kty!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly kty: pulumi.Output<string | undefined>;
     /**
      * Azure location of the key vault resource.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Name of the key vault resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Key release policy in response. It will be used for both output and input. Omitted if empty
      */
-    public /*out*/ readonly releasePolicy!: pulumi.Output<outputs.keyvault.KeyReleasePolicyResponse | undefined>;
+    declare public /*out*/ readonly releasePolicy: pulumi.Output<outputs.keyvault.KeyReleasePolicyResponse | undefined>;
     /**
      * Key rotation policy in response. It will be used for both output and input. Omitted if empty
      */
-    public /*out*/ readonly rotationPolicy!: pulumi.Output<outputs.keyvault.RotationPolicyResponse | undefined>;
+    declare public /*out*/ readonly rotationPolicy: pulumi.Output<outputs.keyvault.RotationPolicyResponse | undefined>;
     /**
      * Tags assigned to the key vault resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string}>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string}>;
     /**
      * Resource type of the key vault resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Key resource with the given unique name, arguments, and options.
@@ -106,20 +106,20 @@ export class Key extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !opts.urn) {
+            if (args?.vaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
+            resourceInputs["keyName"] = args?.keyName;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.keyvault.keyPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vaultName"] = args?.vaultName;
             resourceInputs["attributes"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["curveName"] = undefined /*out*/;

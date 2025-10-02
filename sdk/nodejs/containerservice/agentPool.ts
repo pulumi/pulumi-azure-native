@@ -44,199 +44,199 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
      */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * AKS will associate the specified agent pool with the Capacity Reservation Group.
      */
-    public readonly capacityReservationGroupID!: pulumi.Output<string | undefined>;
+    declare public readonly capacityReservationGroupID: pulumi.Output<string | undefined>;
     /**
      * Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
      */
-    public readonly count!: pulumi.Output<number | undefined>;
+    declare public readonly count: pulumi.Output<number | undefined>;
     /**
      * CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
      */
-    public readonly creationData!: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
+    declare public readonly creationData: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
     /**
      * If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
      */
-    public /*out*/ readonly currentOrchestratorVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly currentOrchestratorVersion: pulumi.Output<string>;
     /**
      * Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Whether to enable auto-scaler
      */
-    public readonly enableAutoScaling!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutoScaling: pulumi.Output<boolean | undefined>;
     /**
      * This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
      */
-    public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableEncryptionAtHost: pulumi.Output<boolean | undefined>;
     /**
      * See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
      */
-    public readonly enableFIPS!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFIPS: pulumi.Output<boolean | undefined>;
     /**
      * Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
      */
-    public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNodePublicIP: pulumi.Output<boolean | undefined>;
     /**
      * Whether to enable UltraSSD
      */
-    public readonly enableUltraSSD!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableUltraSSD: pulumi.Output<boolean | undefined>;
     /**
      * GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
      */
-    public readonly gpuInstanceProfile!: pulumi.Output<string | undefined>;
+    declare public readonly gpuInstanceProfile: pulumi.Output<string | undefined>;
     /**
      * This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
      */
-    public readonly hostGroupID!: pulumi.Output<string | undefined>;
+    declare public readonly hostGroupID: pulumi.Output<string | undefined>;
     /**
      * The Kubelet configuration on the agent pool nodes.
      */
-    public readonly kubeletConfig!: pulumi.Output<outputs.containerservice.KubeletConfigResponse | undefined>;
+    declare public readonly kubeletConfig: pulumi.Output<outputs.containerservice.KubeletConfigResponse | undefined>;
     /**
      * Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
      */
-    public readonly kubeletDiskType!: pulumi.Output<string | undefined>;
+    declare public readonly kubeletDiskType: pulumi.Output<string | undefined>;
     /**
      * The OS configuration of Linux agent nodes.
      */
-    public readonly linuxOSConfig!: pulumi.Output<outputs.containerservice.LinuxOSConfigResponse | undefined>;
+    declare public readonly linuxOSConfig: pulumi.Output<outputs.containerservice.LinuxOSConfigResponse | undefined>;
     /**
      * The maximum number of nodes for auto-scaling
      */
-    public readonly maxCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxCount: pulumi.Output<number | undefined>;
     /**
      * The maximum number of pods that can run on a node.
      */
-    public readonly maxPods!: pulumi.Output<number | undefined>;
+    declare public readonly maxPods: pulumi.Output<number | undefined>;
     /**
      * A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
      */
-    public readonly messageOfTheDay!: pulumi.Output<string | undefined>;
+    declare public readonly messageOfTheDay: pulumi.Output<string | undefined>;
     /**
      * The minimum number of nodes for auto-scaling
      */
-    public readonly minCount!: pulumi.Output<number | undefined>;
+    declare public readonly minCount: pulumi.Output<number | undefined>;
     /**
      * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network-related settings of an agent pool.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.containerservice.AgentPoolNetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.containerservice.AgentPoolNetworkProfileResponse | undefined>;
     /**
      * The version of node image
      */
-    public /*out*/ readonly nodeImageVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeImageVersion: pulumi.Output<string>;
     /**
      * The node labels to be persisted across all nodes in agent pool.
      */
-    public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly nodeLabels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
      */
-    public readonly nodePublicIPPrefixID!: pulumi.Output<string | undefined>;
+    declare public readonly nodePublicIPPrefixID: pulumi.Output<string | undefined>;
     /**
      * The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
+    declare public readonly nodeTaints: pulumi.Output<string[] | undefined>;
     /**
      * Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
      */
-    public readonly orchestratorVersion!: pulumi.Output<string | undefined>;
+    declare public readonly orchestratorVersion: pulumi.Output<string | undefined>;
     /**
      * OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
      */
-    public readonly osDiskSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly osDiskSizeGB: pulumi.Output<number | undefined>;
     /**
      * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
      */
-    public readonly osDiskType!: pulumi.Output<string | undefined>;
+    declare public readonly osDiskType: pulumi.Output<string | undefined>;
     /**
      * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
      */
-    public readonly osSKU!: pulumi.Output<string | undefined>;
+    declare public readonly osSKU: pulumi.Output<string | undefined>;
     /**
      * The operating system type. The default is Linux.
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
     /**
      * If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
-    public readonly podSubnetID!: pulumi.Output<string | undefined>;
+    declare public readonly podSubnetID: pulumi.Output<string | undefined>;
     /**
      * When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
      */
-    public readonly powerState!: pulumi.Output<outputs.containerservice.PowerStateResponse | undefined>;
+    declare public readonly powerState: pulumi.Output<outputs.containerservice.PowerStateResponse | undefined>;
     /**
      * The current deployment or provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The ID for Proximity Placement Group.
      */
-    public readonly proximityPlacementGroupID!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroupID: pulumi.Output<string | undefined>;
     /**
      * This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
      */
-    public readonly scaleDownMode!: pulumi.Output<string | undefined>;
+    declare public readonly scaleDownMode: pulumi.Output<string | undefined>;
     /**
      * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
      */
-    public readonly scaleSetEvictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly scaleSetEvictionPolicy: pulumi.Output<string | undefined>;
     /**
      * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
      */
-    public readonly scaleSetPriority!: pulumi.Output<string | undefined>;
+    declare public readonly scaleSetPriority: pulumi.Output<string | undefined>;
     /**
      * The security settings of an agent pool.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.containerservice.AgentPoolSecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.containerservice.AgentPoolSecurityProfileResponse | undefined>;
     /**
      * Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
      */
-    public readonly spotMaxPrice!: pulumi.Output<number | undefined>;
+    declare public readonly spotMaxPrice: pulumi.Output<number | undefined>;
     /**
      * The tags to be persisted on the agent pool virtual machine scale set.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Settings for upgrading the agentpool
      */
-    public readonly upgradeSettings!: pulumi.Output<outputs.containerservice.AgentPoolUpgradeSettingsResponse | undefined>;
+    declare public readonly upgradeSettings: pulumi.Output<outputs.containerservice.AgentPoolUpgradeSettingsResponse | undefined>;
     /**
      * VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
      */
-    public readonly vmSize!: pulumi.Output<string | undefined>;
+    declare public readonly vmSize: pulumi.Output<string | undefined>;
     /**
      * If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
      */
-    public readonly vnetSubnetID!: pulumi.Output<string | undefined>;
+    declare public readonly vnetSubnetID: pulumi.Output<string | undefined>;
     /**
      * The Windows agent pool's specific profile.
      */
-    public readonly windowsProfile!: pulumi.Output<outputs.containerservice.AgentPoolWindowsProfileResponse | undefined>;
+    declare public readonly windowsProfile: pulumi.Output<outputs.containerservice.AgentPoolWindowsProfileResponse | undefined>;
     /**
      * Determines the type of workload a node can run.
      */
-    public readonly workloadRuntime!: pulumi.Output<string | undefined>;
+    declare public readonly workloadRuntime: pulumi.Output<string | undefined>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -249,58 +249,58 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["capacityReservationGroupID"] = args ? args.capacityReservationGroupID : undefined;
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["enableAutoScaling"] = args ? args.enableAutoScaling : undefined;
-            resourceInputs["enableEncryptionAtHost"] = args ? args.enableEncryptionAtHost : undefined;
-            resourceInputs["enableFIPS"] = args ? args.enableFIPS : undefined;
-            resourceInputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
-            resourceInputs["enableUltraSSD"] = args ? args.enableUltraSSD : undefined;
-            resourceInputs["gpuInstanceProfile"] = args ? args.gpuInstanceProfile : undefined;
-            resourceInputs["hostGroupID"] = args ? args.hostGroupID : undefined;
-            resourceInputs["kubeletConfig"] = args ? args.kubeletConfig : undefined;
-            resourceInputs["kubeletDiskType"] = args ? args.kubeletDiskType : undefined;
-            resourceInputs["linuxOSConfig"] = args ? args.linuxOSConfig : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
-            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
-            resourceInputs["messageOfTheDay"] = args ? args.messageOfTheDay : undefined;
-            resourceInputs["minCount"] = args ? args.minCount : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
-            resourceInputs["nodePublicIPPrefixID"] = args ? args.nodePublicIPPrefixID : undefined;
-            resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            resourceInputs["orchestratorVersion"] = args ? args.orchestratorVersion : undefined;
-            resourceInputs["osDiskSizeGB"] = args ? args.osDiskSizeGB : undefined;
-            resourceInputs["osDiskType"] = args ? args.osDiskType : undefined;
-            resourceInputs["osSKU"] = args ? args.osSKU : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["podSubnetID"] = args ? args.podSubnetID : undefined;
-            resourceInputs["powerState"] = args ? args.powerState : undefined;
-            resourceInputs["proximityPlacementGroupID"] = args ? args.proximityPlacementGroupID : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["scaleDownMode"] = args ? args.scaleDownMode : undefined;
-            resourceInputs["scaleSetEvictionPolicy"] = args ? args.scaleSetEvictionPolicy : undefined;
-            resourceInputs["scaleSetPriority"] = args ? args.scaleSetPriority : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["spotMaxPrice"] = args ? args.spotMaxPrice : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["vnetSubnetID"] = args ? args.vnetSubnetID : undefined;
-            resourceInputs["windowsProfile"] = args ? args.windowsProfile : undefined;
-            resourceInputs["workloadRuntime"] = args ? args.workloadRuntime : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["capacityReservationGroupID"] = args?.capacityReservationGroupID;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["enableAutoScaling"] = args?.enableAutoScaling;
+            resourceInputs["enableEncryptionAtHost"] = args?.enableEncryptionAtHost;
+            resourceInputs["enableFIPS"] = args?.enableFIPS;
+            resourceInputs["enableNodePublicIP"] = args?.enableNodePublicIP;
+            resourceInputs["enableUltraSSD"] = args?.enableUltraSSD;
+            resourceInputs["gpuInstanceProfile"] = args?.gpuInstanceProfile;
+            resourceInputs["hostGroupID"] = args?.hostGroupID;
+            resourceInputs["kubeletConfig"] = args?.kubeletConfig;
+            resourceInputs["kubeletDiskType"] = args?.kubeletDiskType;
+            resourceInputs["linuxOSConfig"] = args?.linuxOSConfig;
+            resourceInputs["maxCount"] = args?.maxCount;
+            resourceInputs["maxPods"] = args?.maxPods;
+            resourceInputs["messageOfTheDay"] = args?.messageOfTheDay;
+            resourceInputs["minCount"] = args?.minCount;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["nodeLabels"] = args?.nodeLabels;
+            resourceInputs["nodePublicIPPrefixID"] = args?.nodePublicIPPrefixID;
+            resourceInputs["nodeTaints"] = args?.nodeTaints;
+            resourceInputs["orchestratorVersion"] = args?.orchestratorVersion;
+            resourceInputs["osDiskSizeGB"] = args?.osDiskSizeGB;
+            resourceInputs["osDiskType"] = args?.osDiskType;
+            resourceInputs["osSKU"] = args?.osSKU;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["podSubnetID"] = args?.podSubnetID;
+            resourceInputs["powerState"] = args?.powerState;
+            resourceInputs["proximityPlacementGroupID"] = args?.proximityPlacementGroupID;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["scaleDownMode"] = args?.scaleDownMode;
+            resourceInputs["scaleSetEvictionPolicy"] = args?.scaleSetEvictionPolicy;
+            resourceInputs["scaleSetPriority"] = args?.scaleSetPriority;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["spotMaxPrice"] = args?.spotMaxPrice;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["vnetSubnetID"] = args?.vnetSubnetID;
+            resourceInputs["windowsProfile"] = args?.windowsProfile;
+            resourceInputs["workloadRuntime"] = args?.workloadRuntime;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["currentOrchestratorVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

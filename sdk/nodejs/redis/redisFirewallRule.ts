@@ -39,23 +39,23 @@ export class RedisFirewallRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * highest IP address included in the range
      */
-    public readonly endIP!: pulumi.Output<string>;
+    declare public readonly endIP: pulumi.Output<string>;
     /**
      * name of the firewall rule
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * lowest IP address included in the range
      */
-    public readonly startIP!: pulumi.Output<string>;
+    declare public readonly startIP: pulumi.Output<string>;
     /**
      * type (of the firewall rule resource = 'Microsoft.Cache/redis/firewallRule')
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RedisFirewallRule resource with the given unique name, arguments, and options.
@@ -68,23 +68,23 @@ export class RedisFirewallRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cacheName === undefined) && !opts.urn) {
+            if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.endIP === undefined) && !opts.urn) {
+            if (args?.endIP === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endIP'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.startIP === undefined) && !opts.urn) {
+            if (args?.startIP === undefined && !opts.urn) {
                 throw new Error("Missing required property 'startIP'");
             }
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["endIP"] = args ? args.endIP : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
-            resourceInputs["startIP"] = args ? args.startIP : undefined;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["endIP"] = args?.endIP;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleName"] = args?.ruleName;
+            resourceInputs["startIP"] = args?.startIP;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

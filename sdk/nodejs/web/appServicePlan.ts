@@ -44,129 +44,129 @@ export class AppServicePlan extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku
      */
-    public readonly elasticScaleEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly elasticScaleEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Extended Location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.web.ExtendedLocationResponse | undefined>;
     /**
      * The time when the server farm free offer expires.
      */
-    public readonly freeOfferExpirationTime!: pulumi.Output<string | undefined>;
+    declare public readonly freeOfferExpirationTime: pulumi.Output<string | undefined>;
     /**
      * Geographical location for the App Service plan.
      */
-    public /*out*/ readonly geoRegion!: pulumi.Output<string>;
+    declare public /*out*/ readonly geoRegion: pulumi.Output<string>;
     /**
      * Specification for the App Service Environment to use for the App Service plan.
      */
-    public readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.HostingEnvironmentProfileResponse | undefined>;
+    declare public readonly hostingEnvironmentProfile: pulumi.Output<outputs.web.HostingEnvironmentProfileResponse | undefined>;
     /**
      * If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    public readonly hyperV!: pulumi.Output<boolean | undefined>;
+    declare public readonly hyperV: pulumi.Output<boolean | undefined>;
     /**
      * If <code>true</code>, this App Service Plan owns spot instances.
      */
-    public readonly isSpot!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSpot: pulumi.Output<boolean | undefined>;
     /**
      * Obsolete: If Hyper-V container app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    public readonly isXenon!: pulumi.Output<boolean | undefined>;
+    declare public readonly isXenon: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Specification for the Kubernetes Environment to use for the App Service plan.
      */
-    public readonly kubeEnvironmentProfile!: pulumi.Output<outputs.web.KubeEnvironmentProfileResponse | undefined>;
+    declare public readonly kubeEnvironmentProfile: pulumi.Output<outputs.web.KubeEnvironmentProfileResponse | undefined>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan
      */
-    public readonly maximumElasticWorkerCount!: pulumi.Output<number | undefined>;
+    declare public readonly maximumElasticWorkerCount: pulumi.Output<number | undefined>;
     /**
      * Maximum number of instances that can be assigned to this App Service plan.
      */
-    public /*out*/ readonly maximumNumberOfWorkers!: pulumi.Output<number>;
+    declare public /*out*/ readonly maximumNumberOfWorkers: pulumi.Output<number>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Number of apps assigned to this App Service plan.
      */
-    public /*out*/ readonly numberOfSites!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfSites: pulumi.Output<number>;
     /**
      * The number of instances that are assigned to this App Service plan.
      */
-    public /*out*/ readonly numberOfWorkers!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfWorkers: pulumi.Output<number>;
     /**
      * If <code>true</code>, apps assigned to this App Service plan can be scaled independently.
      * If <code>false</code>, apps assigned to this App Service plan will scale to all instances of the plan.
      */
-    public readonly perSiteScaling!: pulumi.Output<boolean | undefined>;
+    declare public readonly perSiteScaling: pulumi.Output<boolean | undefined>;
     /**
      * Provisioning state of the App Service Plan.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * If Linux app service plan <code>true</code>, <code>false</code> otherwise.
      */
-    public readonly reserved!: pulumi.Output<boolean | undefined>;
+    declare public readonly reserved: pulumi.Output<boolean | undefined>;
     /**
      * Resource group of the App Service plan.
      */
-    public /*out*/ readonly resourceGroup!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGroup: pulumi.Output<string>;
     /**
      * Description of a SKU for a scalable resource.
      */
-    public readonly sku!: pulumi.Output<outputs.web.SkuDescriptionResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.web.SkuDescriptionResponse | undefined>;
     /**
      * The time when the server farm expires. Valid only if it is a spot server farm.
      */
-    public readonly spotExpirationTime!: pulumi.Output<string | undefined>;
+    declare public readonly spotExpirationTime: pulumi.Output<string | undefined>;
     /**
      * App Service plan status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * App Service plan subscription.
      */
-    public /*out*/ readonly subscription!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscription: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Scaling worker count.
      */
-    public readonly targetWorkerCount!: pulumi.Output<number | undefined>;
+    declare public readonly targetWorkerCount: pulumi.Output<number | undefined>;
     /**
      * Scaling worker size ID.
      */
-    public readonly targetWorkerSizeId!: pulumi.Output<number | undefined>;
+    declare public readonly targetWorkerSizeId: pulumi.Output<number | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Target worker tier assigned to the App Service plan.
      */
-    public readonly workerTierName!: pulumi.Output<string | undefined>;
+    declare public readonly workerTierName: pulumi.Output<string | undefined>;
     /**
      * If <code>true</code>, this App Service Plan will perform availability zone balancing.
      * If <code>false</code>, this App Service Plan will not perform availability zone balancing.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a AppServicePlan resource with the given unique name, arguments, and options.
@@ -179,31 +179,31 @@ export class AppServicePlan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["elasticScaleEnabled"] = args ? args.elasticScaleEnabled : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["freeOfferExpirationTime"] = args ? args.freeOfferExpirationTime : undefined;
-            resourceInputs["hostingEnvironmentProfile"] = args ? args.hostingEnvironmentProfile : undefined;
-            resourceInputs["hyperV"] = (args ? args.hyperV : undefined) ?? false;
-            resourceInputs["isSpot"] = args ? args.isSpot : undefined;
-            resourceInputs["isXenon"] = (args ? args.isXenon : undefined) ?? false;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["kubeEnvironmentProfile"] = args ? args.kubeEnvironmentProfile : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumElasticWorkerCount"] = args ? args.maximumElasticWorkerCount : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["perSiteScaling"] = (args ? args.perSiteScaling : undefined) ?? false;
-            resourceInputs["reserved"] = (args ? args.reserved : undefined) ?? false;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["spotExpirationTime"] = args ? args.spotExpirationTime : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetWorkerCount"] = args ? args.targetWorkerCount : undefined;
-            resourceInputs["targetWorkerSizeId"] = args ? args.targetWorkerSizeId : undefined;
-            resourceInputs["workerTierName"] = args ? args.workerTierName : undefined;
-            resourceInputs["zoneRedundant"] = (args ? args.zoneRedundant : undefined) ?? false;
+            resourceInputs["elasticScaleEnabled"] = args?.elasticScaleEnabled;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["freeOfferExpirationTime"] = args?.freeOfferExpirationTime;
+            resourceInputs["hostingEnvironmentProfile"] = args?.hostingEnvironmentProfile;
+            resourceInputs["hyperV"] = (args?.hyperV) ?? false;
+            resourceInputs["isSpot"] = args?.isSpot;
+            resourceInputs["isXenon"] = (args?.isXenon) ?? false;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["kubeEnvironmentProfile"] = args?.kubeEnvironmentProfile;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumElasticWorkerCount"] = args?.maximumElasticWorkerCount;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["perSiteScaling"] = (args?.perSiteScaling) ?? false;
+            resourceInputs["reserved"] = (args?.reserved) ?? false;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["spotExpirationTime"] = args?.spotExpirationTime;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetWorkerCount"] = args?.targetWorkerCount;
+            resourceInputs["targetWorkerSizeId"] = args?.targetWorkerSizeId;
+            resourceInputs["workerTierName"] = args?.workerTierName;
+            resourceInputs["zoneRedundant"] = (args?.zoneRedundant) ?? false;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["geoRegion"] = undefined /*out*/;
             resourceInputs["maximumNumberOfWorkers"] = undefined /*out*/;

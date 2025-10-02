@@ -42,35 +42,35 @@ export class HybridUseBenefit extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Created date
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Indicates the revision of the hybrid use benefit
      */
-    public /*out*/ readonly etag!: pulumi.Output<number>;
+    declare public /*out*/ readonly etag: pulumi.Output<number>;
     /**
      * Last updated date
      */
-    public /*out*/ readonly lastUpdatedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastUpdatedDate: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Hybrid use benefit SKU
      */
-    public readonly sku!: pulumi.Output<outputs.softwareplan.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.softwareplan.SkuResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HybridUseBenefit resource with the given unique name, arguments, and options.
@@ -83,15 +83,15 @@ export class HybridUseBenefit extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["planId"] = args ? args.planId : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["planId"] = args?.planId;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["sku"] = args?.sku;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

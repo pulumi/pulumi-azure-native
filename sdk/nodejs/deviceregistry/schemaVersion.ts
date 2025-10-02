@@ -44,39 +44,39 @@ export class SchemaVersion extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Human-readable description of the schema.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Hash of the schema content.
      */
-    public /*out*/ readonly hash!: pulumi.Output<string>;
+    declare public /*out*/ readonly hash: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Schema content.
      */
-    public readonly schemaContent!: pulumi.Output<string>;
+    declare public readonly schemaContent: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Globally unique, immutable, non-reusable id.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a SchemaVersion resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class SchemaVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaContent === undefined) && !opts.urn) {
+            if (args?.schemaContent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaContent'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.schemaRegistryName === undefined) && !opts.urn) {
+            if (args?.schemaRegistryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaRegistryName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaContent"] = args ? args.schemaContent : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["schemaRegistryName"] = args ? args.schemaRegistryName : undefined;
-            resourceInputs["schemaVersionName"] = args ? args.schemaVersionName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaContent"] = args?.schemaContent;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["schemaRegistryName"] = args?.schemaRegistryName;
+            resourceInputs["schemaVersionName"] = args?.schemaVersionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["hash"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

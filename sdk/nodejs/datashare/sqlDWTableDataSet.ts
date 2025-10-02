@@ -42,44 +42,44 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Unique id for identifying a data set resource
      */
-    public /*out*/ readonly dataSetId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataSetId: pulumi.Output<string>;
     /**
      * DataWarehouse name of the source data set
      */
-    public readonly dataWarehouseName!: pulumi.Output<string>;
+    declare public readonly dataWarehouseName: pulumi.Output<string>;
     /**
      * Kind of data set.
      * Expected value is 'SqlDWTable'.
      */
-    public readonly kind!: pulumi.Output<"SqlDWTable">;
+    declare public readonly kind: pulumi.Output<"SqlDWTable">;
     /**
      * Name of the azure resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Schema of the table. Default value is dbo.
      */
-    public readonly schemaName!: pulumi.Output<string>;
+    declare public readonly schemaName: pulumi.Output<string>;
     /**
      * Resource id of SQL server
      */
-    public readonly sqlServerResourceId!: pulumi.Output<string>;
+    declare public readonly sqlServerResourceId: pulumi.Output<string>;
     /**
      * System Data of the Azure resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datashare.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datashare.SystemDataResponse>;
     /**
      * SQL DW table name.
      */
-    public readonly tableName!: pulumi.Output<string>;
+    declare public readonly tableName: pulumi.Output<string>;
     /**
      * Type of the azure resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SqlDWTableDataSet resource with the given unique name, arguments, and options.
@@ -92,39 +92,39 @@ export class SqlDWTableDataSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.dataWarehouseName === undefined) && !opts.urn) {
+            if (args?.dataWarehouseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataWarehouseName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.schemaName === undefined) && !opts.urn) {
+            if (args?.schemaName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'schemaName'");
             }
-            if ((!args || args.shareName === undefined) && !opts.urn) {
+            if (args?.shareName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'shareName'");
             }
-            if ((!args || args.sqlServerResourceId === undefined) && !opts.urn) {
+            if (args?.sqlServerResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerResourceId'");
             }
-            if ((!args || args.tableName === undefined) && !opts.urn) {
+            if (args?.tableName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["dataSetName"] = args ? args.dataSetName : undefined;
-            resourceInputs["dataWarehouseName"] = args ? args.dataWarehouseName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["dataSetName"] = args?.dataSetName;
+            resourceInputs["dataWarehouseName"] = args?.dataWarehouseName;
             resourceInputs["kind"] = "SqlDWTable";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaName"] = args ? args.schemaName : undefined;
-            resourceInputs["shareName"] = args ? args.shareName : undefined;
-            resourceInputs["sqlServerResourceId"] = args ? args.sqlServerResourceId : undefined;
-            resourceInputs["tableName"] = args ? args.tableName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaName"] = args?.schemaName;
+            resourceInputs["shareName"] = args?.shareName;
+            resourceInputs["sqlServerResourceId"] = args?.sqlServerResourceId;
+            resourceInputs["tableName"] = args?.tableName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataSetId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

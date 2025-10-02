@@ -42,91 +42,91 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * The administrator credentials to be used for the nodes in this agent pool.
      */
-    public readonly administratorConfiguration!: pulumi.Output<outputs.networkcloud.AdministratorConfigurationResponse | undefined>;
+    declare public readonly administratorConfiguration: pulumi.Output<outputs.networkcloud.AdministratorConfigurationResponse | undefined>;
     /**
      * The configurations that will be applied to each agent in this agent pool.
      */
-    public readonly agentOptions!: pulumi.Output<outputs.networkcloud.AgentOptionsResponse | undefined>;
+    declare public readonly agentOptions: pulumi.Output<outputs.networkcloud.AgentOptionsResponse | undefined>;
     /**
      * The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster.
      */
-    public readonly attachedNetworkConfiguration!: pulumi.Output<outputs.networkcloud.AttachedNetworkConfigurationResponse | undefined>;
+    declare public readonly attachedNetworkConfiguration: pulumi.Output<outputs.networkcloud.AttachedNetworkConfigurationResponse | undefined>;
     /**
      * The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used.
      */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The number of virtual machines that use this configuration.
      */
-    public readonly count!: pulumi.Output<number>;
+    declare public readonly count: pulumi.Output<number>;
     /**
      * The current status of the agent pool.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the current detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse | undefined>;
     /**
      * The Kubernetes version running in this agent pool.
      */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * The labels applied to the nodes in this agent pool.
      */
-    public readonly labels!: pulumi.Output<outputs.networkcloud.KubernetesLabelResponse[] | undefined>;
+    declare public readonly labels: pulumi.Output<outputs.networkcloud.KubernetesLabelResponse[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the agent pool.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The taints applied to the nodes in this agent pool.
      */
-    public readonly taints!: pulumi.Output<outputs.networkcloud.KubernetesLabelResponse[] | undefined>;
+    declare public readonly taints: pulumi.Output<outputs.networkcloud.KubernetesLabelResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The configuration of the agent pool.
      */
-    public readonly upgradeSettings!: pulumi.Output<outputs.networkcloud.AgentPoolUpgradeSettingsResponse | undefined>;
+    declare public readonly upgradeSettings: pulumi.Output<outputs.networkcloud.AgentPoolUpgradeSettingsResponse | undefined>;
     /**
      * The name of the VM SKU that determines the size of resources allocated for node VMs.
      */
-    public readonly vmSkuName!: pulumi.Output<string>;
+    declare public readonly vmSkuName: pulumi.Output<string>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -139,37 +139,37 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.count === undefined) && !opts.urn) {
+            if (args?.count === undefined && !opts.urn) {
                 throw new Error("Missing required property 'count'");
             }
-            if ((!args || args.kubernetesClusterName === undefined) && !opts.urn) {
+            if (args?.kubernetesClusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kubernetesClusterName'");
             }
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmSkuName === undefined) && !opts.urn) {
+            if (args?.vmSkuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmSkuName'");
             }
-            resourceInputs["administratorConfiguration"] = args ? args.administratorConfiguration : undefined;
+            resourceInputs["administratorConfiguration"] = args?.administratorConfiguration;
             resourceInputs["agentOptions"] = args ? (args.agentOptions ? pulumi.output(args.agentOptions).apply(inputs.networkcloud.agentOptionsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["attachedNetworkConfiguration"] = args ? args.attachedNetworkConfiguration : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["count"] = args ? args.count : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["kubernetesClusterName"] = args ? args.kubernetesClusterName : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["taints"] = args ? args.taints : undefined;
-            resourceInputs["upgradeSettings"] = args ? args.upgradeSettings : undefined;
-            resourceInputs["vmSkuName"] = args ? args.vmSkuName : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["attachedNetworkConfiguration"] = args?.attachedNetworkConfiguration;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["count"] = args?.count;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["kubernetesClusterName"] = args?.kubernetesClusterName;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["taints"] = args?.taints;
+            resourceInputs["upgradeSettings"] = args?.upgradeSettings;
+            resourceInputs["vmSkuName"] = args?.vmSkuName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["detailedStatus"] = undefined /*out*/;
             resourceInputs["detailedStatusMessage"] = undefined /*out*/;

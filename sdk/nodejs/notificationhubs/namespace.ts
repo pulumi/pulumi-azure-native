@@ -44,109 +44,109 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time when the namespace was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Gets or sets whether or not the namespace is set as Critical.
      */
-    public /*out*/ readonly critical!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly critical: pulumi.Output<boolean>;
     /**
      * Deprecated.
      */
-    public readonly dataCenter!: pulumi.Output<string | undefined>;
+    declare public readonly dataCenter: pulumi.Output<string | undefined>;
     /**
      * Gets or sets whether or not the namespace is currently enabled.
      */
-    public /*out*/ readonly enabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly enabled: pulumi.Output<boolean>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Azure Insights Metrics id.
      */
-    public /*out*/ readonly metricId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines values for NamespaceType.
      */
-    public readonly namespaceType!: pulumi.Output<string | undefined>;
+    declare public readonly namespaceType: pulumi.Output<string | undefined>;
     /**
      * A collection of network authorization rules.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.notificationhubs.NetworkAclsResponse | undefined>;
+    declare public readonly networkAcls: pulumi.Output<outputs.notificationhubs.NetworkAclsResponse | undefined>;
     /**
      * Collection of Notification Hub or Notification Hub Namespace PNS credentials.
      */
-    public readonly pnsCredentials!: pulumi.Output<outputs.notificationhubs.PnsCredentialsResponse | undefined>;
+    declare public readonly pnsCredentials: pulumi.Output<outputs.notificationhubs.PnsCredentialsResponse | undefined>;
     /**
      * Private Endpoint Connections for namespace
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.notificationhubs.PrivateEndpointConnectionResourceResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.notificationhubs.PrivateEndpointConnectionResourceResponse[]>;
     /**
      * Defines values for OperationProvisioningState.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Type of public network access.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Region. The value is always set to the same value as Namespace.Location, so we are deprecating
      * this property.
      */
-    public /*out*/ readonly region!: pulumi.Output<string>;
+    declare public /*out*/ readonly region: pulumi.Output<string>;
     /**
      * Allowed replication region
      */
-    public readonly replicationRegion!: pulumi.Output<string | undefined>;
+    declare public readonly replicationRegion: pulumi.Output<string | undefined>;
     /**
      * Gets or sets scaleUnit where the namespace gets created
      */
-    public readonly scaleUnit!: pulumi.Output<string | undefined>;
+    declare public readonly scaleUnit: pulumi.Output<string | undefined>;
     /**
      * Gets or sets endpoint you can use to perform NotificationHub
      * operations.
      */
-    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceBusEndpoint: pulumi.Output<string>;
     /**
      * The Sku description for a namespace
      */
-    public readonly sku!: pulumi.Output<outputs.notificationhubs.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.notificationhubs.SkuResponse>;
     /**
      * Namespace status.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Namespace subscription id.
      */
-    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
+    declare public /*out*/ readonly subscriptionId: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.notificationhubs.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Time when the namespace was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Namespace SKU name.
      */
-    public readonly zoneRedundancy!: pulumi.Output<string | undefined>;
+    declare public readonly zoneRedundancy: pulumi.Output<string | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -159,27 +159,27 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["dataCenter"] = args ? args.dataCenter : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["namespaceType"] = args ? args.namespaceType : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["pnsCredentials"] = args ? args.pnsCredentials : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["replicationRegion"] = args ? args.replicationRegion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnit"] = args ? args.scaleUnit : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancy"] = (args ? args.zoneRedundancy : undefined) ?? "Disabled";
+            resourceInputs["dataCenter"] = args?.dataCenter;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["namespaceType"] = args?.namespaceType;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["pnsCredentials"] = args?.pnsCredentials;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["replicationRegion"] = args?.replicationRegion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleUnit"] = args?.scaleUnit;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancy"] = (args?.zoneRedundancy) ?? "Disabled";
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["critical"] = undefined /*out*/;

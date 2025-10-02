@@ -44,31 +44,31 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
     /**
      * Key auto rotation opt-in flag. Either true or false.
      */
-    public /*out*/ readonly autoRotationEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly autoRotationEnabled: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The key creation date.
      */
-    public /*out*/ readonly creationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationDate: pulumi.Output<string>;
     /**
      * Kind of encryption protector. This is metadata used for the Azure portal experience.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Thumbprint of the key.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedInstanceKey resource with the given unique name, arguments, and options.
@@ -81,20 +81,20 @@ export class ManagedInstanceKey extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverKeyType === undefined) && !opts.urn) {
+            if (args?.serverKeyType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverKeyType'");
             }
-            resourceInputs["keyName"] = args ? args.keyName : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverKeyType"] = args ? args.serverKeyType : undefined;
-            resourceInputs["uri"] = args ? args.uri : undefined;
+            resourceInputs["keyName"] = args?.keyName;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverKeyType"] = args?.serverKeyType;
+            resourceInputs["uri"] = args?.uri;
             resourceInputs["autoRotationEnabled"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationDate"] = undefined /*out*/;

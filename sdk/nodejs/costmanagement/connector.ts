@@ -42,59 +42,59 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Collection information
      */
-    public /*out*/ readonly collection!: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponse>;
+    declare public /*out*/ readonly collection: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponse>;
     /**
      * Connector definition creation datetime
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */
-    public readonly credentialsKey!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsKey: pulumi.Output<string | undefined>;
     /**
      * Connector DisplayName (defaults to Name)
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Connector kind (eg aws)
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Connector location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Connector last modified datetime
      */
-    public /*out*/ readonly modifiedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedOn: pulumi.Output<string>;
     /**
      * Connector name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Connector providerAccountId (determined from credentials)
      */
-    public /*out*/ readonly providerAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerAccountId: pulumi.Output<string>;
     /**
      * Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
      */
-    public readonly reportId!: pulumi.Output<string | undefined>;
+    declare public readonly reportId: pulumi.Output<string | undefined>;
     /**
      * Connector status
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Connector type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -107,19 +107,19 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["credentialsKey"] = args ? args.credentialsKey : undefined;
-            resourceInputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["reportId"] = args ? args.reportId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["credentialsKey"] = args?.credentialsKey;
+            resourceInputs["credentialsSecret"] = args?.credentialsSecret;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["reportId"] = args?.reportId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collection"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

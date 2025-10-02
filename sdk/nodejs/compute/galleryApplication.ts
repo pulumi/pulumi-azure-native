@@ -44,55 +44,55 @@ export class GalleryApplication extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A list of custom actions that can be performed with all of the Gallery Application Versions within this Gallery Application.
      */
-    public readonly customActions!: pulumi.Output<outputs.compute.GalleryApplicationCustomActionResponse[] | undefined>;
+    declare public readonly customActions: pulumi.Output<outputs.compute.GalleryApplicationCustomActionResponse[] | undefined>;
     /**
      * The description of this gallery Application Definition resource. This property is updatable.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The end of life date of the gallery Application Definition. This property can be used for decommissioning purposes. This property is updatable.
      */
-    public readonly endOfLifeDate!: pulumi.Output<string | undefined>;
+    declare public readonly endOfLifeDate: pulumi.Output<string | undefined>;
     /**
      * The Eula agreement for the gallery Application Definition.
      */
-    public readonly eula!: pulumi.Output<string | undefined>;
+    declare public readonly eula: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The privacy statement uri.
      */
-    public readonly privacyStatementUri!: pulumi.Output<string | undefined>;
+    declare public readonly privacyStatementUri: pulumi.Output<string | undefined>;
     /**
      * The release note uri.
      */
-    public readonly releaseNoteUri!: pulumi.Output<string | undefined>;
+    declare public readonly releaseNoteUri: pulumi.Output<string | undefined>;
     /**
      * This property allows you to specify the supported type of the OS that application is built for. Possible values are: **Windows,** **Linux.**
      */
-    public readonly supportedOSType!: pulumi.Output<string>;
+    declare public readonly supportedOSType: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GalleryApplication resource with the given unique name, arguments, and options.
@@ -105,27 +105,27 @@ export class GalleryApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.supportedOSType === undefined) && !opts.urn) {
+            if (args?.supportedOSType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'supportedOSType'");
             }
-            resourceInputs["customActions"] = args ? args.customActions : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["endOfLifeDate"] = args ? args.endOfLifeDate : undefined;
-            resourceInputs["eula"] = args ? args.eula : undefined;
-            resourceInputs["galleryApplicationName"] = args ? args.galleryApplicationName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privacyStatementUri"] = args ? args.privacyStatementUri : undefined;
-            resourceInputs["releaseNoteUri"] = args ? args.releaseNoteUri : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["supportedOSType"] = args ? args.supportedOSType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customActions"] = args?.customActions;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["endOfLifeDate"] = args?.endOfLifeDate;
+            resourceInputs["eula"] = args?.eula;
+            resourceInputs["galleryApplicationName"] = args?.galleryApplicationName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privacyStatementUri"] = args?.privacyStatementUri;
+            resourceInputs["releaseNoteUri"] = args?.releaseNoteUri;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["supportedOSType"] = args?.supportedOSType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

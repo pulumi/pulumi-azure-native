@@ -44,55 +44,55 @@ export class WCFRelay extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the WCF relay was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Returns true if the relay is dynamic; otherwise, false.
      */
-    public /*out*/ readonly isDynamic!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDynamic: pulumi.Output<boolean>;
     /**
      * The number of listeners for this relay. Note that min :1 and max:25 are supported.
      */
-    public /*out*/ readonly listenerCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly listenerCount: pulumi.Output<number>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * WCF relay type.
      */
-    public readonly relayType!: pulumi.Output<string | undefined>;
+    declare public readonly relayType: pulumi.Output<string | undefined>;
     /**
      * Returns true if client authorization is needed for this relay; otherwise, false.
      */
-    public readonly requiresClientAuthorization!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresClientAuthorization: pulumi.Output<boolean | undefined>;
     /**
      * Returns true if transport security is needed for this relay; otherwise, false.
      */
-    public readonly requiresTransportSecurity!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresTransportSecurity: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.relay.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.relay.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The time the namespace was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * The usermetadata is a placeholder to store user-defined string data for the WCF Relay endpoint. For example, it can be used to store descriptive data, such as list of teams and their contact information. Also, user-defined configuration settings can be stored.
      */
-    public readonly userMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
      * Create a WCFRelay resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class WCFRelay extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["relayType"] = args ? args.relayType : undefined;
-            resourceInputs["requiresClientAuthorization"] = args ? args.requiresClientAuthorization : undefined;
-            resourceInputs["requiresTransportSecurity"] = args ? args.requiresTransportSecurity : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["relayType"] = args?.relayType;
+            resourceInputs["requiresClientAuthorization"] = args?.requiresClientAuthorization;
+            resourceInputs["requiresTransportSecurity"] = args?.requiresTransportSecurity;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["userMetadata"] = args?.userMetadata;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["isDynamic"] = undefined /*out*/;

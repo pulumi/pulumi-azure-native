@@ -44,35 +44,35 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
     /**
      * The authorization key.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The authorization use status.
      */
-    public readonly authorizationUseStatus!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationUseStatus: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The reference to the ExpressRoute connection resource using the authorization.
      */
-    public /*out*/ readonly connectionResourceUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionResourceUri: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the authorization resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExpressRouteCircuitAuthorization resource with the given unique name, arguments, and options.
@@ -85,19 +85,19 @@ export class ExpressRouteCircuitAuthorization extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.circuitName === undefined) && !opts.urn) {
+            if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["authorizationName"] = args ? args.authorizationName : undefined;
-            resourceInputs["authorizationUseStatus"] = args ? args.authorizationUseStatus : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["authorizationName"] = args?.authorizationName;
+            resourceInputs["authorizationUseStatus"] = args?.authorizationUseStatus;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionResourceUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

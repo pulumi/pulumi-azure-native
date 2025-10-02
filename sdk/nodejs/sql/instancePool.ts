@@ -44,47 +44,47 @@ export class InstancePool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Dns Zone that the managed instance pool is in.
      */
-    public /*out*/ readonly dnsZone!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsZone: pulumi.Output<string>;
     /**
      * The license type. Possible values are 'LicenseIncluded' (price for SQL license is included) and 'BasePrice' (without SQL license price).
      */
-    public readonly licenseType!: pulumi.Output<string>;
+    declare public readonly licenseType: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Specifies maintenance configuration id to apply to this managed instance.
      */
-    public readonly maintenanceConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly maintenanceConfigurationId: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name and tier of the SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
      * Resource ID of the subnet to place this instance pool in.
      */
-    public readonly subnetId!: pulumi.Output<string>;
+    declare public readonly subnetId: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Count of vCores belonging to this instance pool.
      */
-    public readonly vCores!: pulumi.Output<number>;
+    declare public readonly vCores: pulumi.Output<number>;
 
     /**
      * Create a InstancePool resource with the given unique name, arguments, and options.
@@ -97,27 +97,27 @@ export class InstancePool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.licenseType === undefined) && !opts.urn) {
+            if (args?.licenseType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'licenseType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.subnetId === undefined) && !opts.urn) {
+            if (args?.subnetId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'subnetId'");
             }
-            if ((!args || args.vCores === undefined) && !opts.urn) {
+            if (args?.vCores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vCores'");
             }
-            resourceInputs["instancePoolName"] = args ? args.instancePoolName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vCores"] = args ? args.vCores : undefined;
+            resourceInputs["instancePoolName"] = args?.instancePoolName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maintenanceConfigurationId"] = args?.maintenanceConfigurationId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vCores"] = args?.vCores;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dnsZone"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
