@@ -6888,11 +6888,6 @@ HybridContainerService:
         SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/provisionedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}/agentPools/{agentPoolName}
         RpNamespace: Microsoft.HybridContainerService
-    ClusterInstanceAgentPool:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json
-        ResourceUri: /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default/agentPools/{agentPoolName}
-        RpNamespace: Microsoft.HybridContainerService
     ClusterInstanceHybridIdentityMetadatum:
         ApiVersion: "2024-01-01"
         SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/stable/2024-01-01/provisionedClusterInstances.json
@@ -6912,11 +6907,6 @@ HybridContainerService:
         ApiVersion: 2022-09-01-preview
         SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2022-09-01-preview/provisionedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HybridContainerService/provisionedClusters/{resourceName}
-        RpNamespace: Microsoft.HybridContainerService
-    ProvisionedClusterInstance:
-        ApiVersion: 2025-02-01-preview
-        SpecFilePath: specification/hybridaks/resource-manager/Microsoft.HybridContainerService/preview/2025-02-01-preview/provisionedClusterInstances.json
-        ResourceUri: /{connectedClusterResourceUri}/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default
         RpNamespace: Microsoft.HybridContainerService
     StorageSpaceRetrieve:
         ApiVersion: 2022-09-01-preview

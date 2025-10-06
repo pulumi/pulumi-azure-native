@@ -861,22 +861,14 @@ HybridConnectivity:
 HybridContainerService:
     tracking: 2022-09-01-preview
     additions:
-        ClusterInstanceAgentPool: 2025-02-01-preview
         ClusterInstanceHybridIdentityMetadatum: "2024-01-01"
         KubernetesVersions: 2025-02-01-preview
-        ProvisionedClusterInstance: 2025-02-01-preview
         VMSkus: 2025-02-01-preview
         listProvisionedClusterInstanceAdminKubeconfig: "2024-01-01"
         listProvisionedClusterInstanceUserKubeconfig: "2024-01-01"
     exclusionErrors:
         - modulename: HybridContainerService
-          resourcename: ClusterInstanceAgentPool
-          detail: version 2025-02-01-preview is greater than 2024-01-01
-        - modulename: HybridContainerService
           resourcename: KubernetesVersions
-          detail: version 2025-02-01-preview is greater than 2024-01-01
-        - modulename: HybridContainerService
-          resourcename: ProvisionedClusterInstance
           detail: version 2025-02-01-preview is greater than 2024-01-01
         - modulename: HybridContainerService
           resourcename: VMSkus
