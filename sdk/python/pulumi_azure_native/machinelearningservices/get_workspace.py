@@ -28,7 +28,7 @@ class GetWorkspaceResult:
     """
     An object that represents a machine learning workspace.
     """
-    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, associated_workspaces=None, azure_api_version=None, container_registry=None, description=None, discovery_url=None, enable_data_isolation=None, encryption=None, feature_store_settings=None, friendly_name=None, hbi_workspace=None, hub_resource_id=None, id=None, identity=None, image_build_compute=None, key_vault=None, kind=None, location=None, managed_network=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provisioning_state=None, public_network_access=None, serverless_compute_settings=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, storage_hns_enabled=None, system_data=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_hub_config=None, workspace_id=None):
+    def __init__(__self__, allow_public_access_when_behind_vnet=None, application_insights=None, associated_workspaces=None, azure_api_version=None, container_registry=None, description=None, discovery_url=None, enable_data_isolation=None, enable_service_side_cmk_encryption=None, encryption=None, feature_store_settings=None, friendly_name=None, hbi_workspace=None, hub_resource_id=None, id=None, identity=None, image_build_compute=None, key_vault=None, kind=None, location=None, managed_network=None, ml_flow_tracking_uri=None, name=None, notebook_info=None, primary_user_assigned_identity=None, private_endpoint_connections=None, private_link_count=None, provision_network_now=None, provisioning_state=None, public_network_access=None, serverless_compute_settings=None, service_managed_resources_settings=None, service_provisioned_resource_group=None, shared_private_link_resources=None, sku=None, storage_account=None, storage_hns_enabled=None, system_data=None, system_datastores_auth_mode=None, tags=None, tenant_id=None, type=None, v1_legacy_mode=None, workspace_hub_config=None, workspace_id=None):
         if allow_public_access_when_behind_vnet and not isinstance(allow_public_access_when_behind_vnet, bool):
             raise TypeError("Expected argument 'allow_public_access_when_behind_vnet' to be a bool")
         pulumi.set(__self__, "allow_public_access_when_behind_vnet", allow_public_access_when_behind_vnet)
@@ -53,6 +53,9 @@ class GetWorkspaceResult:
         if enable_data_isolation and not isinstance(enable_data_isolation, bool):
             raise TypeError("Expected argument 'enable_data_isolation' to be a bool")
         pulumi.set(__self__, "enable_data_isolation", enable_data_isolation)
+        if enable_service_side_cmk_encryption and not isinstance(enable_service_side_cmk_encryption, bool):
+            raise TypeError("Expected argument 'enable_service_side_cmk_encryption' to be a bool")
+        pulumi.set(__self__, "enable_service_side_cmk_encryption", enable_service_side_cmk_encryption)
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -107,6 +110,9 @@ class GetWorkspaceResult:
         if private_link_count and not isinstance(private_link_count, int):
             raise TypeError("Expected argument 'private_link_count' to be a int")
         pulumi.set(__self__, "private_link_count", private_link_count)
+        if provision_network_now and not isinstance(provision_network_now, bool):
+            raise TypeError("Expected argument 'provision_network_now' to be a bool")
+        pulumi.set(__self__, "provision_network_now", provision_network_now)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -137,6 +143,9 @@ class GetWorkspaceResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if system_datastores_auth_mode and not isinstance(system_datastores_auth_mode, str):
+            raise TypeError("Expected argument 'system_datastores_auth_mode' to be a str")
+        pulumi.set(__self__, "system_datastores_auth_mode", system_datastores_auth_mode)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -213,6 +222,11 @@ class GetWorkspaceResult:
     @pulumi.getter(name="enableDataIsolation")
     def enable_data_isolation(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "enable_data_isolation")
+
+    @property
+    @pulumi.getter(name="enableServiceSideCMKEncryption")
+    def enable_service_side_cmk_encryption(self) -> Optional[builtins.bool]:
+        return pulumi.get(self, "enable_service_side_cmk_encryption")
 
     @property
     @pulumi.getter
@@ -353,6 +367,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "private_link_count")
 
     @property
+    @pulumi.getter(name="provisionNetworkNow")
+    def provision_network_now(self) -> Optional[builtins.bool]:
+        """
+        Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        """
+        return pulumi.get(self, "provision_network_now")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> builtins.str:
         """
@@ -433,6 +455,14 @@ class GetWorkspaceResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="systemDatastoresAuthMode")
+    def system_datastores_auth_mode(self) -> Optional[builtins.str]:
+        """
+        The auth mode used for accessing the system datastores of the workspace.
+        """
+        return pulumi.get(self, "system_datastores_auth_mode")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, builtins.str]]:
         """
@@ -495,6 +525,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             description=self.description,
             discovery_url=self.discovery_url,
             enable_data_isolation=self.enable_data_isolation,
+            enable_service_side_cmk_encryption=self.enable_service_side_cmk_encryption,
             encryption=self.encryption,
             feature_store_settings=self.feature_store_settings,
             friendly_name=self.friendly_name,
@@ -513,6 +544,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             primary_user_assigned_identity=self.primary_user_assigned_identity,
             private_endpoint_connections=self.private_endpoint_connections,
             private_link_count=self.private_link_count,
+            provision_network_now=self.provision_network_now,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
             serverless_compute_settings=self.serverless_compute_settings,
@@ -523,6 +555,7 @@ class AwaitableGetWorkspaceResult(GetWorkspaceResult):
             storage_account=self.storage_account,
             storage_hns_enabled=self.storage_hns_enabled,
             system_data=self.system_data,
+            system_datastores_auth_mode=self.system_datastores_auth_mode,
             tags=self.tags,
             tenant_id=self.tenant_id,
             type=self.type,
@@ -537,9 +570,9 @@ def get_workspace(resource_group_name: Optional[builtins.str] = None,
     """
     Gets the properties of the specified machine learning workspace.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -560,6 +593,7 @@ def get_workspace(resource_group_name: Optional[builtins.str] = None,
         description=pulumi.get(__ret__, 'description'),
         discovery_url=pulumi.get(__ret__, 'discovery_url'),
         enable_data_isolation=pulumi.get(__ret__, 'enable_data_isolation'),
+        enable_service_side_cmk_encryption=pulumi.get(__ret__, 'enable_service_side_cmk_encryption'),
         encryption=pulumi.get(__ret__, 'encryption'),
         feature_store_settings=pulumi.get(__ret__, 'feature_store_settings'),
         friendly_name=pulumi.get(__ret__, 'friendly_name'),
@@ -578,6 +612,7 @@ def get_workspace(resource_group_name: Optional[builtins.str] = None,
         primary_user_assigned_identity=pulumi.get(__ret__, 'primary_user_assigned_identity'),
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         private_link_count=pulumi.get(__ret__, 'private_link_count'),
+        provision_network_now=pulumi.get(__ret__, 'provision_network_now'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
         serverless_compute_settings=pulumi.get(__ret__, 'serverless_compute_settings'),
@@ -588,6 +623,7 @@ def get_workspace(resource_group_name: Optional[builtins.str] = None,
         storage_account=pulumi.get(__ret__, 'storage_account'),
         storage_hns_enabled=pulumi.get(__ret__, 'storage_hns_enabled'),
         system_data=pulumi.get(__ret__, 'system_data'),
+        system_datastores_auth_mode=pulumi.get(__ret__, 'system_datastores_auth_mode'),
         tags=pulumi.get(__ret__, 'tags'),
         tenant_id=pulumi.get(__ret__, 'tenant_id'),
         type=pulumi.get(__ret__, 'type'),
@@ -600,9 +636,9 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str
     """
     Gets the properties of the specified machine learning workspace.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-09-01.
 
-    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -622,6 +658,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str
         description=pulumi.get(__response__, 'description'),
         discovery_url=pulumi.get(__response__, 'discovery_url'),
         enable_data_isolation=pulumi.get(__response__, 'enable_data_isolation'),
+        enable_service_side_cmk_encryption=pulumi.get(__response__, 'enable_service_side_cmk_encryption'),
         encryption=pulumi.get(__response__, 'encryption'),
         feature_store_settings=pulumi.get(__response__, 'feature_store_settings'),
         friendly_name=pulumi.get(__response__, 'friendly_name'),
@@ -640,6 +677,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str
         primary_user_assigned_identity=pulumi.get(__response__, 'primary_user_assigned_identity'),
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         private_link_count=pulumi.get(__response__, 'private_link_count'),
+        provision_network_now=pulumi.get(__response__, 'provision_network_now'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
         serverless_compute_settings=pulumi.get(__response__, 'serverless_compute_settings'),
@@ -650,6 +688,7 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[builtins.str
         storage_account=pulumi.get(__response__, 'storage_account'),
         storage_hns_enabled=pulumi.get(__response__, 'storage_hns_enabled'),
         system_data=pulumi.get(__response__, 'system_data'),
+        system_datastores_auth_mode=pulumi.get(__response__, 'system_datastores_auth_mode'),
         tags=pulumi.get(__response__, 'tags'),
         tenant_id=pulumi.get(__response__, 'tenant_id'),
         type=pulumi.get(__response__, 'type'),

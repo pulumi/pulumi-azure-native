@@ -24101,6 +24101,18 @@ if not MYPY:
         """
         Managed Network settings for a machine learning workspace.
         """
+        enable_firewall_log: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        A flag to indicate if monitoring needs to be enabled for the managed network firewall.
+        """
+        enable_network_monitor: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        A flag to indicate if monitoring needs to be enabled for the managed network.
+        """
+        firewall_public_ip_address: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Public IP address assigned to the Azure Firewall.
+        """
         firewall_sku: NotRequired[pulumi.Input[Union[builtins.str, 'FirewallSku']]]
         """
         Firewall Sku used for FQDN Rules
@@ -24108,6 +24120,10 @@ if not MYPY:
         isolation_mode: NotRequired[pulumi.Input[Union[builtins.str, 'IsolationMode']]]
         """
         Isolation mode for the managed network of a machine learning workspace.
+        """
+        managed_network_kind: NotRequired[pulumi.Input[Union[builtins.str, 'ManagedNetworkKind']]]
+        """
+        The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
         """
         outbound_rules: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgsDict', 'PrivateEndpointOutboundRuleArgsDict', 'ServiceTagOutboundRuleArgsDict']]]]]
         status: NotRequired[pulumi.Input['ManagedNetworkProvisionStatusArgsDict']]
@@ -24120,24 +24136,80 @@ elif False:
 @pulumi.input_type
 class ManagedNetworkSettingsArgs:
     def __init__(__self__, *,
+                 enable_firewall_log: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_network_monitor: Optional[pulumi.Input[builtins.bool]] = None,
+                 firewall_public_ip_address: Optional[pulumi.Input[builtins.str]] = None,
                  firewall_sku: Optional[pulumi.Input[Union[builtins.str, 'FirewallSku']]] = None,
                  isolation_mode: Optional[pulumi.Input[Union[builtins.str, 'IsolationMode']]] = None,
+                 managed_network_kind: Optional[pulumi.Input[Union[builtins.str, 'ManagedNetworkKind']]] = None,
                  outbound_rules: Optional[pulumi.Input[Mapping[str, pulumi.Input[Union['FqdnOutboundRuleArgs', 'PrivateEndpointOutboundRuleArgs', 'ServiceTagOutboundRuleArgs']]]]] = None,
                  status: Optional[pulumi.Input['ManagedNetworkProvisionStatusArgs']] = None):
         """
         Managed Network settings for a machine learning workspace.
+        :param pulumi.Input[builtins.bool] enable_firewall_log: A flag to indicate if monitoring needs to be enabled for the managed network firewall.
+        :param pulumi.Input[builtins.bool] enable_network_monitor: A flag to indicate if monitoring needs to be enabled for the managed network.
+        :param pulumi.Input[builtins.str] firewall_public_ip_address: Public IP address assigned to the Azure Firewall.
         :param pulumi.Input[Union[builtins.str, 'FirewallSku']] firewall_sku: Firewall Sku used for FQDN Rules
         :param pulumi.Input[Union[builtins.str, 'IsolationMode']] isolation_mode: Isolation mode for the managed network of a machine learning workspace.
+        :param pulumi.Input[Union[builtins.str, 'ManagedNetworkKind']] managed_network_kind: The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
         :param pulumi.Input['ManagedNetworkProvisionStatusArgs'] status: Status of the Provisioning for the managed network of a machine learning workspace.
         """
+        if enable_firewall_log is None:
+            enable_firewall_log = False
+        if enable_firewall_log is not None:
+            pulumi.set(__self__, "enable_firewall_log", enable_firewall_log)
+        if enable_network_monitor is None:
+            enable_network_monitor = False
+        if enable_network_monitor is not None:
+            pulumi.set(__self__, "enable_network_monitor", enable_network_monitor)
+        if firewall_public_ip_address is not None:
+            pulumi.set(__self__, "firewall_public_ip_address", firewall_public_ip_address)
         if firewall_sku is not None:
             pulumi.set(__self__, "firewall_sku", firewall_sku)
         if isolation_mode is not None:
             pulumi.set(__self__, "isolation_mode", isolation_mode)
+        if managed_network_kind is not None:
+            pulumi.set(__self__, "managed_network_kind", managed_network_kind)
         if outbound_rules is not None:
             pulumi.set(__self__, "outbound_rules", outbound_rules)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="enableFirewallLog")
+    def enable_firewall_log(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A flag to indicate if monitoring needs to be enabled for the managed network firewall.
+        """
+        return pulumi.get(self, "enable_firewall_log")
+
+    @enable_firewall_log.setter
+    def enable_firewall_log(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_firewall_log", value)
+
+    @property
+    @pulumi.getter(name="enableNetworkMonitor")
+    def enable_network_monitor(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        A flag to indicate if monitoring needs to be enabled for the managed network.
+        """
+        return pulumi.get(self, "enable_network_monitor")
+
+    @enable_network_monitor.setter
+    def enable_network_monitor(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_network_monitor", value)
+
+    @property
+    @pulumi.getter(name="firewallPublicIpAddress")
+    def firewall_public_ip_address(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Public IP address assigned to the Azure Firewall.
+        """
+        return pulumi.get(self, "firewall_public_ip_address")
+
+    @firewall_public_ip_address.setter
+    def firewall_public_ip_address(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "firewall_public_ip_address", value)
 
     @property
     @pulumi.getter(name="firewallSku")
@@ -24162,6 +24234,18 @@ class ManagedNetworkSettingsArgs:
     @isolation_mode.setter
     def isolation_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'IsolationMode']]]):
         pulumi.set(self, "isolation_mode", value)
+
+    @property
+    @pulumi.getter(name="managedNetworkKind")
+    def managed_network_kind(self) -> Optional[pulumi.Input[Union[builtins.str, 'ManagedNetworkKind']]]:
+        """
+        The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        """
+        return pulumi.get(self, "managed_network_kind")
+
+    @managed_network_kind.setter
+    def managed_network_kind(self, value: Optional[pulumi.Input[Union[builtins.str, 'ManagedNetworkKind']]]):
+        pulumi.set(self, "managed_network_kind", value)
 
     @property
     @pulumi.getter(name="outboundRules")
@@ -29685,10 +29769,6 @@ if not MYPY:
         """
         Details of each region the registry is in
         """
-        registry_id: NotRequired[pulumi.Input[builtins.str]]
-        """
-        RegistryId Guid for this registry
-        """
         registry_private_endpoint_connections: NotRequired[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgsDict']]]]
         """
         Private endpoint connections info used for pending connections in private link portal
@@ -29705,7 +29785,6 @@ class RegistryArgs:
                  ml_flow_registry_uri: Optional[pulumi.Input[builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[builtins.str]] = None,
                  region_details: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]] = None,
-                 registry_id: Optional[pulumi.Input[builtins.str]] = None,
                  registry_private_endpoint_connections: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]]] = None):
         """
         Details of the Registry
@@ -29716,7 +29795,6 @@ class RegistryArgs:
         :param pulumi.Input[builtins.str] public_network_access: Is the Registry accessible from the internet?
                Possible values: "Enabled" or "Disabled"
         :param pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]] region_details: Details of each region the registry is in
-        :param pulumi.Input[builtins.str] registry_id: RegistryId Guid for this registry
         :param pulumi.Input[Sequence[pulumi.Input['RegistryPrivateEndpointConnectionArgs']]] registry_private_endpoint_connections: Private endpoint connections info used for pending connections in private link portal
         """
         if discovery_url is not None:
@@ -29731,8 +29809,6 @@ class RegistryArgs:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if region_details is not None:
             pulumi.set(__self__, "region_details", region_details)
-        if registry_id is not None:
-            pulumi.set(__self__, "registry_id", registry_id)
         if registry_private_endpoint_connections is not None:
             pulumi.set(__self__, "registry_private_endpoint_connections", registry_private_endpoint_connections)
 
@@ -29808,18 +29884,6 @@ class RegistryArgs:
     @region_details.setter
     def region_details(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RegistryRegionArmDetailsArgs']]]]):
         pulumi.set(self, "region_details", value)
-
-    @property
-    @pulumi.getter(name="registryId")
-    def registry_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        RegistryId Guid for this registry
-        """
-        return pulumi.get(self, "registry_id")
-
-    @registry_id.setter
-    def registry_id(self, value: Optional[pulumi.Input[builtins.str]]):
-        pulumi.set(self, "registry_id", value)
 
     @property
     @pulumi.getter(name="registryPrivateEndpointConnections")
