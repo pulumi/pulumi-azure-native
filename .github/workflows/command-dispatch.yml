@@ -11,8 +11,12 @@ env:
 
 jobs:
   command-dispatch-for-testing:
+    permissions:
+      contents: read
+      id-token: write # For ESC secrets.
     runs-on: ubuntu-latest
     name: command-dispatch-for-testing
+    if: ${{ github.event.issue.pull_request }}
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -34,4 +38,3 @@ jobs:
           permission: write
           issue-type: pull-request
           repository: pulumi/pulumi-azure-native
-    if: ${{ github.event.issue.pull_request }}
