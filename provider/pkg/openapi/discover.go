@@ -522,9 +522,9 @@ var excludeRegexes = []*regexp.Regexp{
 	// This preview version is invalid OpenAPI JSON, reading it fails with encoding/json.UnmarshalTypeError in field "definitions".
 	regexp.MustCompile(".*network/resource-manager/Microsoft.Network/preview/2023-03-01-preview.*"),
 	// This version defines two "CustomRule" types so we ignore it.
-	regexp.MustCompile(".*/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-05-01-preview.*"),
+	regexp.MustCompile(".*cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-05-01-preview.*"),
 	// Includes a type with an invalid reference.
-	regexp.MustCompile(".*/azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
+	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
 }
 
 func exclude(filePath string) bool {
