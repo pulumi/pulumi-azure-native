@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified custom topic associated with the Azure OpenAI account.
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRaiTopicResult> InvokeAsync(GetRaiTopicArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRaiTopicResult>("azure-native:cognitiveservices:getRaiTopic", args ?? new GetRaiTopicArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified custom topic associated with the Azure OpenAI account.
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRaiTopicResult> Invoke(GetRaiTopicInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiTopicResult>("azure-native:cognitiveservices:getRaiTopic", args ?? new GetRaiTopicInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// Gets the specified custom topic associated with the Azure OpenAI account.
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRaiTopicResult> Invoke(GetRaiTopicInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRaiTopicResult>("azure-native:cognitiveservices:getRaiTopic", args ?? new GetRaiTopicInvokeArgs(), options.WithDefaults());

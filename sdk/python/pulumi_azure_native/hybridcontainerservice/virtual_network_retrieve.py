@@ -136,7 +136,7 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview.
 
-        Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -157,7 +157,7 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
 
         Uses Azure REST API version 2022-09-01-preview.
 
-        Other available API versions: 2023-11-15-preview, 2024-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-11-15-preview, 2024-01-01, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param VirtualNetworkRetrieveArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +201,7 @@ class VirtualNetworkRetrieve(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220501preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20220901preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20231115preview:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20240101:VirtualNetworkRetrieve"), pulumi.Alias(type_="azure-native:hybridcontainerservice/v20250201preview:VirtualNetworkRetrieve")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualNetworkRetrieve, __self__).__init__(
             'azure-native:hybridcontainerservice:VirtualNetworkRetrieve',

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Retention Policy
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetRetentionPolicyResult> InvokeAsync(GetRetentionPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRetentionPolicyResult>("azure-native:durabletask:getRetentionPolicy", args ?? new GetRetentionPolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Retention Policy
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRetentionPolicyResult> Invoke(GetRetentionPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRetentionPolicyResult>("azure-native:durabletask:getRetentionPolicy", args ?? new GetRetentionPolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.DurableTask
         /// Get a Retention Policy
         /// 
         /// Uses Azure REST API version 2025-04-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetRetentionPolicyResult> Invoke(GetRetentionPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetRetentionPolicyResult>("azure-native:durabletask:getRetentionPolicy", args ?? new GetRetentionPolicyInvokeArgs(), options.WithDefaults());

@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Search
         public Output<string?> Endpoint { get; private set; } = null!;
 
         /// <summary>
-        /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         /// </summary>
         [Output("hostingMode")]
         public Output<string?> HostingMode { get; private set; } = null!;
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.Search
         public Output<string> ProvisioningState { get; private set; } = null!;
 
         /// <summary>
-        /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        /// This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.AzureNative.Search
         public Input<string>? Endpoint { get; set; }
 
         /// <summary>
-        /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         /// </summary>
         [Input("hostingMode")]
         public Input<Pulumi.AzureNative.Search.HostingMode>? HostingMode { get; set; }
@@ -321,7 +321,7 @@ namespace Pulumi.AzureNative.Search
         public Input<int>? PartitionCount { get; set; }
 
         /// <summary>
-        /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        /// This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.Search.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
@@ -378,7 +378,7 @@ namespace Pulumi.AzureNative.Search
         {
             HostingMode = Pulumi.AzureNative.Search.HostingMode.Default;
             PartitionCount = 1;
-            PublicNetworkAccess = "enabled";
+            PublicNetworkAccess = "Enabled";
             ReplicaCount = 1;
         }
         public static new ServiceArgs Empty => new ServiceArgs();

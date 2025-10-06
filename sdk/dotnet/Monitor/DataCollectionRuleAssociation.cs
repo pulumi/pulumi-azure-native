@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Monitor
     /// Definition of generic ARM proxy resource.
     /// 
     /// Uses Azure REST API version 2022-06-01.
+    /// 
+    /// Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:DataCollectionRuleAssociation")]
     public partial class DataCollectionRuleAssociation : global::Pulumi.CustomResource
@@ -110,6 +112,7 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20210901preview:DataCollectionRuleAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20220601:DataCollectionRuleAssociation" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20230311:DataCollectionRuleAssociation" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20240311:DataCollectionRuleAssociation" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -264,8 +264,6 @@ if typing.TYPE_CHECKING:
     hybridconnectivity = __hybridconnectivity
     import pulumi_azure_native.hybridcontainerservice as __hybridcontainerservice
     hybridcontainerservice = __hybridcontainerservice
-    import pulumi_azure_native.hybriddata as __hybriddata
-    hybriddata = __hybriddata
     import pulumi_azure_native.hybridnetwork as __hybridnetwork
     hybridnetwork = __hybridnetwork
     import pulumi_azure_native.impact as __impact
@@ -478,8 +476,6 @@ if typing.TYPE_CHECKING:
     storagepool = __storagepool
     import pulumi_azure_native.storagesync as __storagesync
     storagesync = __storagesync
-    import pulumi_azure_native.storsimple as __storsimple
-    storsimple = __storsimple
     import pulumi_azure_native.streamanalytics as __streamanalytics
     streamanalytics = __streamanalytics
     import pulumi_azure_native.subscription as __subscription
@@ -648,7 +644,6 @@ else:
     hybridcompute = _utilities.lazy_import('pulumi_azure_native.hybridcompute')
     hybridconnectivity = _utilities.lazy_import('pulumi_azure_native.hybridconnectivity')
     hybridcontainerservice = _utilities.lazy_import('pulumi_azure_native.hybridcontainerservice')
-    hybriddata = _utilities.lazy_import('pulumi_azure_native.hybriddata')
     hybridnetwork = _utilities.lazy_import('pulumi_azure_native.hybridnetwork')
     impact = _utilities.lazy_import('pulumi_azure_native.impact')
     importexport = _utilities.lazy_import('pulumi_azure_native.importexport')
@@ -755,7 +750,6 @@ else:
     storagemover = _utilities.lazy_import('pulumi_azure_native.storagemover')
     storagepool = _utilities.lazy_import('pulumi_azure_native.storagepool')
     storagesync = _utilities.lazy_import('pulumi_azure_native.storagesync')
-    storsimple = _utilities.lazy_import('pulumi_azure_native.storsimple')
     streamanalytics = _utilities.lazy_import('pulumi_azure_native.streamanalytics')
     subscription = _utilities.lazy_import('pulumi_azure_native.subscription')
     synapse = _utilities.lazy_import('pulumi_azure_native.synapse')
@@ -2751,19 +2745,11 @@ _utilities.register(
    "azure-native:hybridcontainerservice:AgentPool": "AgentPool",
    "azure-native:hybridcontainerservice:ClusterInstanceHybridIdentityMetadatum": "ClusterInstanceHybridIdentityMetadatum",
    "azure-native:hybridcontainerservice:HybridIdentityMetadatum": "HybridIdentityMetadatum",
+   "azure-native:hybridcontainerservice:KubernetesVersions": "KubernetesVersions",
    "azure-native:hybridcontainerservice:ProvisionedCluster": "ProvisionedCluster",
    "azure-native:hybridcontainerservice:StorageSpaceRetrieve": "StorageSpaceRetrieve",
+   "azure-native:hybridcontainerservice:VMSkus": "VMSkus",
    "azure-native:hybridcontainerservice:VirtualNetworkRetrieve": "VirtualNetworkRetrieve"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "hybriddata",
-  "fqn": "pulumi_azure_native.hybriddata",
-  "classes": {
-   "azure-native:hybriddata:DataManager": "DataManager",
-   "azure-native:hybriddata:DataStore": "DataStore",
-   "azure-native:hybriddata:JobDefinition": "JobDefinition"
   }
  },
  {
@@ -4424,22 +4410,6 @@ _utilities.register(
    "azure-native:storagesync:ServerEndpoint": "ServerEndpoint",
    "azure-native:storagesync:StorageSyncService": "StorageSyncService",
    "azure-native:storagesync:SyncGroup": "SyncGroup"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "storsimple",
-  "fqn": "pulumi_azure_native.storsimple",
-  "classes": {
-   "azure-native:storsimple:AccessControlRecord": "AccessControlRecord",
-   "azure-native:storsimple:BackupPolicy": "BackupPolicy",
-   "azure-native:storsimple:BackupSchedule": "BackupSchedule",
-   "azure-native:storsimple:BandwidthSetting": "BandwidthSetting",
-   "azure-native:storsimple:Manager": "Manager",
-   "azure-native:storsimple:ManagerExtendedInfo": "ManagerExtendedInfo",
-   "azure-native:storsimple:StorageAccountCredential": "StorageAccountCredential",
-   "azure-native:storsimple:Volume": "Volume",
-   "azure-native:storsimple:VolumeContainer": "VolumeContainer"
   }
  },
  {

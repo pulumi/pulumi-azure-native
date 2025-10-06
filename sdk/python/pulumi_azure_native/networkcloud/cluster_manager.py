@@ -206,7 +206,7 @@ class ClusterManager(pulumi.CustomResource):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -230,7 +230,7 @@ class ClusterManager(pulumi.CustomResource):
         """
         Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
 
-        Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ClusterManagerArgs args: The arguments to use to populate this resource's properties.
@@ -290,7 +290,7 @@ class ClusterManager(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20250701preview:ClusterManager")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:networkcloud/v20230701:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20231001preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20240601preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20240701:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20241001preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20250201:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20250701preview:ClusterManager"), pulumi.Alias(type_="azure-native:networkcloud/v20250901:ClusterManager")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ClusterManager, __self__).__init__(
             'azure-native:networkcloud:ClusterManager',

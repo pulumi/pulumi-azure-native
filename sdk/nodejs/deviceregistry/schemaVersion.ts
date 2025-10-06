@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-09-01-preview. In version 2.x of the Azure Native provider, it used API version 2024-09-01-preview.
  *
- * Other available API versions: 2025-07-01-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-07-01-preview, 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class SchemaVersion extends pulumi.CustomResource {
     /**
@@ -126,7 +126,7 @@ export class SchemaVersion extends pulumi.CustomResource {
             resourceInputs["uuid"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaVersion" }, { type: "azure-native:deviceregistry/v20250701preview:SchemaVersion" }, { type: "azure-native:deviceregistry/v20251001:SchemaVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceregistry/v20240901preview:SchemaVersion" }, { type: "azure-native:deviceregistry/v20250701preview:SchemaVersion" }, { type: "azure-native:deviceregistry/v20251001:SchemaVersion" }, { type: "azure-native:deviceregistry/v20251101preview:SchemaVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaVersion.__pulumiType, name, resourceInputs, opts);
     }

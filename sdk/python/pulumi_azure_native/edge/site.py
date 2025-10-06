@@ -29,7 +29,7 @@ class SiteArgs:
         The set of arguments for constructing a Site resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['SitePropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[builtins.str] site_name: Name of Site resource
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if properties is not None:
@@ -65,7 +65,7 @@ class SiteArgs:
     @pulumi.getter(name="siteName")
     def site_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of Site resource
+        The name of the Site
         """
         return pulumi.get(self, "site_name")
 
@@ -95,7 +95,7 @@ class Site(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[builtins.str] site_name: Name of Site resource
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         ...
     @overload

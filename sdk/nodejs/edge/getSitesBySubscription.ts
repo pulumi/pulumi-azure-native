@@ -23,7 +23,7 @@ export function getSitesBySubscription(args: GetSitesBySubscriptionArgs, opts?: 
 
 export interface GetSitesBySubscriptionArgs {
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName: string;
 }
@@ -73,7 +73,7 @@ export function getSitesBySubscriptionOutput(args: GetSitesBySubscriptionOutputA
 
 export interface GetSitesBySubscriptionOutputArgs {
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName: pulumi.Input<string>;
 }

@@ -112,7 +112,7 @@ namespace Pulumi.AzureNative.Edge
         public Input<string> ServicegroupName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the site
+        /// The name of the Site
         /// </summary>
         [Input("siteName")]
         public Input<string>? SiteName { get; set; }

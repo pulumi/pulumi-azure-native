@@ -22,11 +22,11 @@ export const ComputeType = {
     /**
      * Create the service with the Default Compute.
      */
-    Default: "default",
+    Default: "Default",
     /**
      * Create the service with Azure Confidential Compute.
      */
-    Confidential: "confidential",
+    Confidential: "Confidential",
 } as const;
 
 /**
@@ -38,15 +38,15 @@ export const HostingMode = {
     /**
      * The limit on number of indexes is determined by the default limits for the SKU.
      */
-    Default: "default",
+    Default: "Default",
     /**
      * Only application for standard3 SKU, where the search service can have up to 1000 indexes.
      */
-    HighDensity: "highDensity",
+    HighDensity: "HighDensity",
 } as const;
 
 /**
- * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+ * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
  */
 export type HostingMode = (typeof HostingMode)[keyof typeof HostingMode];
 
@@ -134,19 +134,19 @@ export const PublicNetworkAccess = {
     /**
      * The search service is accessible from traffic originating from the public internet.
      */
-    Enabled: "enabled",
+    Enabled: "Enabled",
     /**
      * The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
      */
-    Disabled: "disabled",
+    Disabled: "Disabled",
     /**
      * The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
      */
-    SecuredByPerimeter: "securedByPerimeter",
+    SecuredByPerimeter: "SecuredByPerimeter",
 } as const;
 
 /**
- * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+ * This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 

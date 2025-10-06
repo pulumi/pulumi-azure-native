@@ -74,7 +74,7 @@ export class Service extends pulumi.CustomResource {
      */
     public readonly endpoint!: pulumi.Output<string | undefined>;
     /**
-     * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+     * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
      */
     public readonly hostingMode!: pulumi.Output<string | undefined>;
     /**
@@ -106,7 +106,7 @@ export class Service extends pulumi.CustomResource {
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**
-     * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+     * This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
@@ -174,12 +174,12 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
             resourceInputs["encryptionWithCmk"] = args ? args.encryptionWithCmk : undefined;
             resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "default";
+            resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "Default";
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
             resourceInputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "enabled";
+            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
             resourceInputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
@@ -264,7 +264,7 @@ export interface ServiceArgs {
      */
     endpoint?: pulumi.Input<string>;
     /**
-     * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+     * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
      */
     hostingMode?: pulumi.Input<enums.search.HostingMode>;
     /**
@@ -284,7 +284,7 @@ export interface ServiceArgs {
      */
     partitionCount?: pulumi.Input<number>;
     /**
-     * This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+     * This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.search.PublicNetworkAccess>;
     /**

@@ -53,16 +53,25 @@ export interface GetDatabaseMigrationsSqlMiResult {
      * The Azure API version of the resource.
      */
     readonly azureApiVersion: string;
+    /**
+     * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
+     */
     readonly id: string;
+    /**
+     * The name of the resource
+     */
     readonly name: string;
     /**
      * Database Migration Resource properties for SQL Managed Instance.
      */
     readonly properties: outputs.datamigration.DatabaseMigrationPropertiesSqlMiResponse;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     readonly systemData: outputs.datamigration.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
     readonly type: string;
 }
 /**

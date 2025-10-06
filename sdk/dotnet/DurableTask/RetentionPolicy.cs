@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.DurableTask
     /// A retention policy resource belonging to the scheduler
     /// 
     /// Uses Azure REST API version 2025-04-01-preview.
+    /// 
+    /// Other available API versions: 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native durabletask [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:durabletask:RetentionPolicy")]
     public partial class RetentionPolicy : global::Pulumi.CustomResource
@@ -73,6 +75,7 @@ namespace Pulumi.AzureNative.DurableTask
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:durabletask/v20250401preview:RetentionPolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:durabletask/v20251101:RetentionPolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

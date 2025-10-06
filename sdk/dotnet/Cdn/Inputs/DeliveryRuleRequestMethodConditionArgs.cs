@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Cdn.Inputs
     public sealed class DeliveryRuleRequestMethodConditionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the condition for the delivery rule.
+        /// Request variable to compare with.
         /// Expected value is 'RequestMethod'.
         /// </summary>
         [Input("name", required: true)]

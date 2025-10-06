@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Definition of ARM tracked top level resource.
  *
  * Uses Azure REST API version 2022-06-01.
+ *
+ * Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DataCollectionRule extends pulumi.CustomResource {
     /**
@@ -168,7 +170,7 @@ export class DataCollectionRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20220601:DataCollectionRule" }, { type: "azure-native:insights/v20230311:DataCollectionRule" }, { type: "azure-native:insights:DataCollectionRule" }, { type: "azure-native:monitor/v20191101preview:DataCollectionRule" }, { type: "azure-native:monitor/v20210401:DataCollectionRule" }, { type: "azure-native:monitor/v20210901preview:DataCollectionRule" }, { type: "azure-native:monitor/v20220601:DataCollectionRule" }, { type: "azure-native:monitor/v20230311:DataCollectionRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20220601:DataCollectionRule" }, { type: "azure-native:insights/v20230311:DataCollectionRule" }, { type: "azure-native:insights:DataCollectionRule" }, { type: "azure-native:monitor/v20191101preview:DataCollectionRule" }, { type: "azure-native:monitor/v20210401:DataCollectionRule" }, { type: "azure-native:monitor/v20210901preview:DataCollectionRule" }, { type: "azure-native:monitor/v20220601:DataCollectionRule" }, { type: "azure-native:monitor/v20230311:DataCollectionRule" }, { type: "azure-native:monitor/v20240311:DataCollectionRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionRule.__pulumiType, name, resourceInputs, opts);
     }

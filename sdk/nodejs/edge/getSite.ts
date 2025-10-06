@@ -28,7 +28,7 @@ export interface GetSiteArgs {
      */
     resourceGroupName: string;
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName: string;
 }
@@ -83,7 +83,7 @@ export interface GetSiteOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName: pulumi.Input<string>;
 }

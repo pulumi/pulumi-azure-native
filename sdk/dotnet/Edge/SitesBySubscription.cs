@@ -107,7 +107,7 @@ namespace Pulumi.AzureNative.Edge
         public Input<Inputs.SitePropertiesArgs>? Properties { get; set; }
 
         /// <summary>
-        /// Name of Site resource
+        /// The name of the Site
         /// </summary>
         [Input("siteName")]
         public Input<string>? SiteName { get; set; }

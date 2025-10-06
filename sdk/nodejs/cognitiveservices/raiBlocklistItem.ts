@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-10-01-preview, 2024-04-01-preview, 2024-06-01-preview, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RaiBlocklistItem extends pulumi.CustomResource {
     /**
@@ -111,7 +111,7 @@ export class RaiBlocklistItem extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250601:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250701preview:RaiBlocklistItem" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20231001preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20240601preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20241001:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250401preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250601:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250701preview:RaiBlocklistItem" }, { type: "azure-native:cognitiveservices/v20250901:RaiBlocklistItem" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiBlocklistItem.__pulumiType, name, resourceInputs, opts);
     }

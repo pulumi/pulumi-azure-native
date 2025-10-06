@@ -102,7 +102,7 @@ export interface SitesBySubscriptionArgs {
      */
     properties?: pulumi.Input<inputs.edge.SitePropertiesArgs>;
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName?: pulumi.Input<string>;
 }

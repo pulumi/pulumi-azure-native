@@ -136,7 +136,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -158,7 +158,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
-        Other available API versions: 2024-09-01-preview, 2025-04-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2024-09-01-preview, 2025-04-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native redisenterprise [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param AccessPolicyAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -210,7 +210,7 @@ class AccessPolicyAssignment(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20240901preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20240901preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20250401:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20250501preview:AccessPolicyAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cache/v20240901preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20240901preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20250401:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20250501preview:AccessPolicyAssignment"), pulumi.Alias(type_="azure-native:redisenterprise/v20250701:AccessPolicyAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(AccessPolicyAssignment, __self__).__init__(
             'azure-native:redisenterprise:AccessPolicyAssignment',

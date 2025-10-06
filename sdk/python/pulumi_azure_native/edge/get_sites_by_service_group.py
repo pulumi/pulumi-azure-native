@@ -123,7 +123,7 @@ def get_sites_by_service_group(servicegroup_name: Optional[builtins.str] = None,
 
 
     :param builtins.str servicegroup_name: The name of the service group
-    :param builtins.str site_name: The name of the site
+    :param builtins.str site_name: The name of the Site
     """
     __args__ = dict()
     __args__['servicegroupName'] = servicegroup_name
@@ -150,7 +150,7 @@ def get_sites_by_service_group_output(servicegroup_name: Optional[pulumi.Input[b
 
 
     :param builtins.str servicegroup_name: The name of the service group
-    :param builtins.str site_name: The name of the site
+    :param builtins.str site_name: The name of the Site
     """
     __args__ = dict()
     __args__['servicegroupName'] = servicegroup_name

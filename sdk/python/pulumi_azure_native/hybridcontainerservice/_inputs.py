@@ -41,6 +41,8 @@ __all__ = [
     'ControlPlaneEndpointProfileControlPlaneEndpointArgsDict',
     'ControlPlaneProfileArgs',
     'ControlPlaneProfileArgsDict',
+    'ExtendedLocationArgs',
+    'ExtendedLocationArgsDict',
     'HttpProxyConfigArgs',
     'HttpProxyConfigArgsDict',
     'LinuxProfilePropertiesPublicKeysArgs',
@@ -1130,6 +1132,62 @@ class ControlPlaneProfileArgs:
     @vm_size.setter
     def vm_size(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "vm_size", value)
+
+
+if not MYPY:
+    class ExtendedLocationArgsDict(TypedDict):
+        """
+        Extended location pointing to the underlying infrastructure
+        """
+        name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        ARM Id of the extended location.
+        """
+        type: NotRequired[pulumi.Input[Union[builtins.str, 'ExtendedLocationTypes']]]
+        """
+        The extended location type. Allowed value: 'CustomLocation'
+        """
+elif False:
+    ExtendedLocationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ExtendedLocationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[builtins.str]] = None,
+                 type: Optional[pulumi.Input[Union[builtins.str, 'ExtendedLocationTypes']]] = None):
+        """
+        Extended location pointing to the underlying infrastructure
+        :param pulumi.Input[builtins.str] name: ARM Id of the extended location.
+        :param pulumi.Input[Union[builtins.str, 'ExtendedLocationTypes']] type: The extended location type. Allowed value: 'CustomLocation'
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        ARM Id of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[pulumi.Input[Union[builtins.str, 'ExtendedLocationTypes']]]:
+        """
+        The extended location type. Allowed value: 'CustomLocation'
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: Optional[pulumi.Input[Union[builtins.str, 'ExtendedLocationTypes']]]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

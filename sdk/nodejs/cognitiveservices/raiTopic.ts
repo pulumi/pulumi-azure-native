@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Cognitive Services Rai Topic.
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RaiTopic extends pulumi.CustomResource {
     /**
@@ -105,7 +107,7 @@ export class RaiTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250701preview:RaiTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cognitiveservices/v20250701preview:RaiTopic" }, { type: "azure-native:cognitiveservices/v20250901:RaiTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RaiTopic.__pulumiType, name, resourceInputs, opts);
     }

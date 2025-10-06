@@ -139,7 +139,6 @@ import * as hybridcloud from "./hybridcloud";
 import * as hybridcompute from "./hybridcompute";
 import * as hybridconnectivity from "./hybridconnectivity";
 import * as hybridcontainerservice from "./hybridcontainerservice";
-import * as hybriddata from "./hybriddata";
 import * as hybridnetwork from "./hybridnetwork";
 import * as impact from "./impact";
 import * as importexport from "./importexport";
@@ -246,7 +245,6 @@ import * as storagediscovery from "./storagediscovery";
 import * as storagemover from "./storagemover";
 import * as storagepool from "./storagepool";
 import * as storagesync from "./storagesync";
-import * as storsimple from "./storsimple";
 import * as streamanalytics from "./streamanalytics";
 import * as subscription from "./subscription";
 import * as synapse from "./synapse";
@@ -397,7 +395,6 @@ export {
     hybridcompute,
     hybridconnectivity,
     hybridcontainerservice,
-    hybriddata,
     hybridnetwork,
     impact,
     importexport,
@@ -504,7 +501,6 @@ export {
     storagemover,
     storagepool,
     storagesync,
-    storsimple,
     streamanalytics,
     subscription,
     synapse,

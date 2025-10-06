@@ -179,6 +179,8 @@ def get_data_collection_rule_association(association_name: Optional[builtins.str
 
     Uses Azure REST API version 2022-06-01.
 
+    Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str association_name: The name of the association. The name is case insensitive.
     :param builtins.str resource_uri: The identifier of the resource.
@@ -208,6 +210,8 @@ def get_data_collection_rule_association_output(association_name: Optional[pulum
     Definition of generic ARM proxy resource.
 
     Uses Azure REST API version 2022-06-01.
+
+    Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str association_name: The name of the association. The name is case insensitive.

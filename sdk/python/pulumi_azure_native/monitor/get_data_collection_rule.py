@@ -276,6 +276,8 @@ def get_data_collection_rule(data_collection_rule_name: Optional[builtins.str] =
 
     Uses Azure REST API version 2022-06-01.
 
+    Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -313,6 +315,8 @@ def get_data_collection_rule_output(data_collection_rule_name: Optional[pulumi.I
     Definition of ARM tracked top level resource.
 
     Uses Azure REST API version 2022-06-01.
+
+    Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str data_collection_rule_name: The name of the data collection rule. The name is case insensitive.

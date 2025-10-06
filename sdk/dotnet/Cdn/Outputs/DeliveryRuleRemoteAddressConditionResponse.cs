@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     public sealed class DeliveryRuleRemoteAddressConditionResponse
     {
         /// <summary>
-        /// The name of the condition for the delivery rule.
+        /// Request variable to compare with.
         /// Expected value is 'RemoteAddress'.
         /// </summary>
         public readonly string Name;
