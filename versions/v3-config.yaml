@@ -392,9 +392,9 @@ HybridContainerService:
   exclusions:
     # Between type conflicts and partial version releases, we're fairly stuck on the version combinations that work.
     # Excluding some new resources from the default version and pinning to and older version as a workaround.
-    ClusterInstanceAgentPool: "2024-01-01"
+    ClusterInstanceAgentPool: "2025-02-01-preview"
     KubernetesVersions: "2024-01-01"
-    ProvisionedClusterInstance: "2024-01-01"
+    ProvisionedClusterInstance: "2025-02-01-preview"
     VMSkus: "2024-01-01"
     listprovisionedClusterInstanceAdminKubeconfig: "2024-01-01"
     listprovisionedClusterInstanceUserKubeconfig: "2024-01-01"
