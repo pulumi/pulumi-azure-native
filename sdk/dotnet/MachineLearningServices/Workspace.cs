@@ -12,9 +12,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// An object that represents a machine learning workspace.
     /// 
-    /// Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+    /// Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
     /// 
-    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:Workspace")]
     public partial class Workspace : global::Pulumi.CustomResource
@@ -60,6 +60,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         [Output("enableDataIsolation")]
         public Output<bool?> EnableDataIsolation { get; private set; } = null!;
+
+        [Output("enableServiceSideCMKEncryption")]
+        public Output<bool?> EnableServiceSideCMKEncryption { get; private set; } = null!;
 
         /// <summary>
         /// The encryption settings of Azure ML workspace.
@@ -158,6 +161,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Output<int> PrivateLinkCount { get; private set; } = null!;
 
         /// <summary>
+        /// Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        /// </summary>
+        [Output("provisionNetworkNow")]
+        public Output<bool?> ProvisionNetworkNow { get; private set; } = null!;
+
+        /// <summary>
         /// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
         [Output("provisioningState")]
@@ -216,6 +225,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
+        /// The auth mode used for accessing the system datastores of the workspace.
+        /// </summary>
+        [Output("systemDatastoresAuthMode")]
+        public Output<string?> SystemDatastoresAuthMode { get; private set; } = null!;
 
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
@@ -385,6 +400,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [Input("enableDataIsolation")]
         public Input<bool>? EnableDataIsolation { get; set; }
 
+        [Input("enableServiceSideCMKEncryption")]
+        public Input<bool>? EnableServiceSideCMKEncryption { get; set; }
+
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
@@ -452,6 +470,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public Input<string>? PrimaryUserAssignedIdentity { get; set; }
 
         /// <summary>
+        /// Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        /// </summary>
+        [Input("provisionNetworkNow")]
+        public Input<bool>? ProvisionNetworkNow { get; set; }
+
+        /// <summary>
         /// Whether requests from Public Network are allowed.
         /// </summary>
         [Input("publicNetworkAccess")]
@@ -498,6 +522,12 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         [Input("storageAccount")]
         public Input<string>? StorageAccount { get; set; }
+
+        /// <summary>
+        /// The auth mode used for accessing the system datastores of the workspace.
+        /// </summary>
+        [Input("systemDatastoresAuthMode")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.SystemDatastoresAuthMode>? SystemDatastoresAuthMode { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

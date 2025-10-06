@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
         /// 
-        /// Uses Azure REST API version 2024-10-01.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetWorkspaceResult> InvokeAsync(GetWorkspaceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
         /// 
-        /// Uses Azure REST API version 2024-10-01.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// <summary>
         /// Gets the properties of the specified machine learning workspace.
         /// 
-        /// Uses Azure REST API version 2024-10-01.
+        /// Uses Azure REST API version 2025-09-01.
         /// 
-        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetWorkspaceResult> Invoke(GetWorkspaceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkspaceResult>("azure-native:machinelearningservices:getWorkspace", args ?? new GetWorkspaceInvokeArgs(), options.WithDefaults());
@@ -113,6 +113,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly string? DiscoveryUrl;
         public readonly bool? EnableDataIsolation;
+        public readonly bool? EnableServiceSideCMKEncryption;
         /// <summary>
         /// The encryption settings of Azure ML workspace.
         /// </summary>
@@ -180,6 +181,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// </summary>
         public readonly int PrivateLinkCount;
         /// <summary>
+        /// Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        /// </summary>
+        public readonly bool? ProvisionNetworkNow;
+        /// <summary>
         /// The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning.
         /// </summary>
         public readonly string ProvisioningState;
@@ -219,6 +224,10 @@ namespace Pulumi.AzureNative.MachineLearningServices
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The auth mode used for accessing the system datastores of the workspace.
+        /// </summary>
+        public readonly string? SystemDatastoresAuthMode;
         /// <summary>
         /// Contains resource tags defined as key/value pairs.
         /// </summary>
@@ -262,6 +271,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             bool? enableDataIsolation,
 
+            bool? enableServiceSideCMKEncryption,
+
             Outputs.EncryptionPropertyResponse? encryption,
 
             Outputs.FeatureStoreSettingsResponse? featureStoreSettings,
@@ -298,6 +309,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
             int privateLinkCount,
 
+            bool? provisionNetworkNow,
+
             string provisioningState,
 
             string? publicNetworkAccess,
@@ -317,6 +330,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
             bool storageHnsEnabled,
 
             Outputs.SystemDataResponse systemData,
+
+            string? systemDatastoresAuthMode,
 
             ImmutableDictionary<string, string>? tags,
 
@@ -338,6 +353,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             Description = description;
             DiscoveryUrl = discoveryUrl;
             EnableDataIsolation = enableDataIsolation;
+            EnableServiceSideCMKEncryption = enableServiceSideCMKEncryption;
             Encryption = encryption;
             FeatureStoreSettings = featureStoreSettings;
             FriendlyName = friendlyName;
@@ -356,6 +372,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             PrimaryUserAssignedIdentity = primaryUserAssignedIdentity;
             PrivateEndpointConnections = privateEndpointConnections;
             PrivateLinkCount = privateLinkCount;
+            ProvisionNetworkNow = provisionNetworkNow;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
             ServerlessComputeSettings = serverlessComputeSettings;
@@ -366,6 +383,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
             StorageAccount = storageAccount;
             StorageHnsEnabled = storageHnsEnabled;
             SystemData = systemData;
+            SystemDatastoresAuthMode = systemDatastoresAuthMode;
             Tags = tags;
             TenantId = tenantId;
             Type = type;

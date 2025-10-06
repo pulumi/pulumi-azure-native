@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly Outputs.ArmResourceIdResponse? ManagedResourceGroup;
         /// <summary>
+        /// Managed resource group specific settings
+        /// </summary>
+        public readonly Outputs.ManagedResourceGroupSettingsResponse? ManagedResourceGroupSettings;
+        /// <summary>
         /// MLFlow Registry URI for the Registry
         /// </summary>
         public readonly string? MlFlowRegistryUri;
@@ -42,10 +46,6 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> RegionDetails;
         /// <summary>
-        /// RegistryId Guid for this registry
-        /// </summary>
-        public readonly string? RegistryId;
-        /// <summary>
         /// Private endpoint connections info used for pending connections in private link portal
         /// </summary>
         public readonly ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> RegistryPrivateEndpointConnections;
@@ -58,23 +58,23 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ArmResourceIdResponse? managedResourceGroup,
 
+            Outputs.ManagedResourceGroupSettingsResponse? managedResourceGroupSettings,
+
             string? mlFlowRegistryUri,
 
             string? publicNetworkAccess,
 
             ImmutableArray<Outputs.RegistryRegionArmDetailsResponse> regionDetails,
 
-            string? registryId,
-
             ImmutableArray<Outputs.RegistryPrivateEndpointConnectionResponse> registryPrivateEndpointConnections)
         {
             DiscoveryUrl = discoveryUrl;
             IntellectualPropertyPublisher = intellectualPropertyPublisher;
             ManagedResourceGroup = managedResourceGroup;
+            ManagedResourceGroupSettings = managedResourceGroupSettings;
             MlFlowRegistryUri = mlFlowRegistryUri;
             PublicNetworkAccess = publicNetworkAccess;
             RegionDetails = regionDetails;
-            RegistryId = registryId;
             RegistryPrivateEndpointConnections = registryPrivateEndpointConnections;
         }
     }

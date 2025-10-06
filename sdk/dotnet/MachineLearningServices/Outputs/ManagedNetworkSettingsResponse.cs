@@ -17,6 +17,18 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
     public sealed class ManagedNetworkSettingsResponse
     {
         /// <summary>
+        /// A flag to indicate if monitoring needs to be enabled for the managed network firewall.
+        /// </summary>
+        public readonly bool? EnableFirewallLog;
+        /// <summary>
+        /// A flag to indicate if monitoring needs to be enabled for the managed network.
+        /// </summary>
+        public readonly bool? EnableNetworkMonitor;
+        /// <summary>
+        /// Public IP address assigned to the Azure Firewall.
+        /// </summary>
+        public readonly string? FirewallPublicIpAddress;
+        /// <summary>
         /// Firewall Sku used for FQDN Rules
         /// </summary>
         public readonly string? FirewallSku;
@@ -24,6 +36,10 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
         /// Isolation mode for the managed network of a machine learning workspace.
         /// </summary>
         public readonly string? IsolationMode;
+        /// <summary>
+        /// The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        /// </summary>
+        public readonly string? ManagedNetworkKind;
         public readonly string NetworkId;
         public readonly ImmutableDictionary<string, object>? OutboundRules;
         /// <summary>
@@ -33,9 +49,17 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
         [OutputConstructor]
         private ManagedNetworkSettingsResponse(
+            bool? enableFirewallLog,
+
+            bool? enableNetworkMonitor,
+
+            string? firewallPublicIpAddress,
+
             string? firewallSku,
 
             string? isolationMode,
+
+            string? managedNetworkKind,
 
             string networkId,
 
@@ -43,8 +67,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Outputs
 
             Outputs.ManagedNetworkProvisionStatusResponse? status)
         {
+            EnableFirewallLog = enableFirewallLog;
+            EnableNetworkMonitor = enableNetworkMonitor;
+            FirewallPublicIpAddress = firewallPublicIpAddress;
             FirewallSku = firewallSku;
             IsolationMode = isolationMode;
+            ManagedNetworkKind = managedNetworkKind;
             NetworkId = networkId;
             OutboundRules = outboundRules;
             Status = status;

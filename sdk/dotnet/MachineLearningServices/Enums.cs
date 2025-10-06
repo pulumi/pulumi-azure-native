@@ -2765,6 +2765,37 @@ namespace Pulumi.AzureNative.MachineLearningServices
     }
 
     /// <summary>
+    /// The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct ManagedNetworkKind : IEquatable<ManagedNetworkKind>
+    {
+        private readonly string _value;
+
+        private ManagedNetworkKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ManagedNetworkKind V1 { get; } = new ManagedNetworkKind("V1");
+        public static ManagedNetworkKind V2 { get; } = new ManagedNetworkKind("V2");
+
+        public static bool operator ==(ManagedNetworkKind left, ManagedNetworkKind right) => left.Equals(right);
+        public static bool operator !=(ManagedNetworkKind left, ManagedNetworkKind right) => !left.Equals(right);
+
+        public static explicit operator string(ManagedNetworkKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ManagedNetworkKind other && Equals(other);
+        public bool Equals(ManagedNetworkKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Status for the managed network of a machine learning workspace.
     /// </summary>
     [EnumType]
@@ -4264,6 +4295,9 @@ namespace Pulumi.AzureNative.MachineLearningServices
 
         public static RuleStatus Inactive { get; } = new RuleStatus("Inactive");
         public static RuleStatus Active { get; } = new RuleStatus("Active");
+        public static RuleStatus Provisioning { get; } = new RuleStatus("Provisioning");
+        public static RuleStatus Deleting { get; } = new RuleStatus("Deleting");
+        public static RuleStatus Failed { get; } = new RuleStatus("Failed");
 
         public static bool operator ==(RuleStatus left, RuleStatus right) => left.Equals(right);
         public static bool operator !=(RuleStatus left, RuleStatus right) => !left.Equals(right);
@@ -4902,6 +4936,38 @@ namespace Pulumi.AzureNative.MachineLearningServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is StochasticOptimizer other && Equals(other);
         public bool Equals(StochasticOptimizer other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The auth mode used for accessing the system datastores of the workspace.
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemDatastoresAuthMode : IEquatable<SystemDatastoresAuthMode>
+    {
+        private readonly string _value;
+
+        private SystemDatastoresAuthMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemDatastoresAuthMode AccessKey { get; } = new SystemDatastoresAuthMode("AccessKey");
+        public static SystemDatastoresAuthMode Identity { get; } = new SystemDatastoresAuthMode("Identity");
+        public static SystemDatastoresAuthMode UserDelegationSAS { get; } = new SystemDatastoresAuthMode("UserDelegationSAS");
+
+        public static bool operator ==(SystemDatastoresAuthMode left, SystemDatastoresAuthMode right) => left.Equals(right);
+        public static bool operator !=(SystemDatastoresAuthMode left, SystemDatastoresAuthMode right) => !left.Equals(right);
+
+        public static explicit operator string(SystemDatastoresAuthMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemDatastoresAuthMode other && Equals(other);
+        public bool Equals(SystemDatastoresAuthMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

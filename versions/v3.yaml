@@ -7777,18 +7777,18 @@ MachineLearning:
         RpNamespace: Microsoft.MachineLearning
 MachineLearningServices:
     BatchDeployment:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/batchEndpoints/{endpointName}/deployments/{deploymentName}
         RpNamespace: Microsoft.MachineLearningServices
     BatchEndpoint:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/batchEndpoints/{endpointName}
         RpNamespace: Microsoft.MachineLearningServices
     CapabilityHost:
-        ApiVersion: 2025-01-01-preview
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/preview/2025-01-01-preview/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/capabilityHosts/{name}
         RpNamespace: Microsoft.MachineLearningServices
     CapacityReservationGroup:
@@ -7797,28 +7797,28 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/capacityReserverationGroups/{groupId}
         RpNamespace: Microsoft.MachineLearningServices
     CodeContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/codes/{name}
         RpNamespace: Microsoft.MachineLearningServices
     CodeVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/codes/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     ComponentContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/components/{name}
         RpNamespace: Microsoft.MachineLearningServices
     ComponentVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/components/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     Compute:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/machineLearningServices.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/machineLearningServices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}
         RpNamespace: Microsoft.MachineLearningServices
     ConnectionDeployment:
@@ -7842,18 +7842,18 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/raiPolicies/{raiPolicyName}
         RpNamespace: Microsoft.MachineLearningServices
     DataContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/data/{name}
         RpNamespace: Microsoft.MachineLearningServices
     DataVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/data/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     Datastore:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{name}
         RpNamespace: Microsoft.MachineLearningServices
     EndpointDeployment:
@@ -7862,8 +7862,8 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/deployments/{deploymentName}
         RpNamespace: Microsoft.MachineLearningServices
     EnvironmentContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}
         RpNamespace: Microsoft.MachineLearningServices
     EnvironmentSpecificationVersion:
@@ -7872,28 +7872,28 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     EnvironmentVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/environments/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     FeaturesetContainerEntity:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/featuresets/{name}
         RpNamespace: Microsoft.MachineLearningServices
     FeaturesetVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/featuresets/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     FeaturestoreEntityContainerEntity:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/featurestoreEntities/{name}
         RpNamespace: Microsoft.MachineLearningServices
     FeaturestoreEntityVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/featurestoreEntities/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     InferenceEndpoint:
@@ -7912,8 +7912,8 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/inferencePools/{inferencePoolName}
         RpNamespace: Microsoft.MachineLearningServices
     Job:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/jobs/{id}
         RpNamespace: Microsoft.MachineLearningServices
     LabelingJob:
@@ -7942,33 +7942,33 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{datastoreName}
         RpNamespace: Microsoft.MachineLearningServices
     ManagedNetworkSettingsRule:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/outboundRules/{ruleName}
         RpNamespace: Microsoft.MachineLearningServices
     MarketplaceSubscription:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/marketplaceSubscriptions/{name}
         RpNamespace: Microsoft.MachineLearningServices
     ModelContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/models/{name}
         RpNamespace: Microsoft.MachineLearningServices
     ModelVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/models/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     OnlineDeployment:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}/deployments/{deploymentName}
         RpNamespace: Microsoft.MachineLearningServices
     OnlineEndpoint:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}
         RpNamespace: Microsoft.MachineLearningServices
     OutboundRule:
@@ -7977,8 +7977,8 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName}
         RpNamespace: Microsoft.MachineLearningServices
     PrivateEndpointConnection:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.MachineLearningServices
     RaiPolicy:
@@ -7987,78 +7987,78 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/endpoints/{endpointName}/raiPolicies/{raiPolicyName}
         RpNamespace: Microsoft.MachineLearningServices
     Registry:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/registries.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/registries.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryCodeContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/codes/{codeName}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryCodeVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/codes/{codeName}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryComponentContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/components/{componentName}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryComponentVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/components/{componentName}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryDataContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/data/{name}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryDataVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/data/{name}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryEnvironmentContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/environments/{environmentName}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryEnvironmentVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/environments/{environmentName}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryModelContainer:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/models/{modelName}
         RpNamespace: Microsoft.MachineLearningServices
     RegistryModelVersion:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/registries/{registryName}/models/{modelName}/versions/{version}
         RpNamespace: Microsoft.MachineLearningServices
     Schedule:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/schedules/{name}
         RpNamespace: Microsoft.MachineLearningServices
     ServerlessEndpoint:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/serverlessEndpoints/{name}
         RpNamespace: Microsoft.MachineLearningServices
     Workspace:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}
         RpNamespace: Microsoft.MachineLearningServices
     WorkspaceConnection:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}
         RpNamespace: Microsoft.MachineLearningServices
     getComputeAllowedResizeSizes:
@@ -8087,13 +8087,13 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/inferencePools/{inferencePoolName}/getStatus
         RpNamespace: Microsoft.MachineLearningServices
     getOnlineDeploymentLogs:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}/deployments/{deploymentName}/getLogs
         RpNamespace: Microsoft.MachineLearningServices
     getOnlineEndpointToken:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}/token
         RpNamespace: Microsoft.MachineLearningServices
     getServerlessEndpointStatus:
@@ -8102,18 +8102,18 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/serverlessEndpoints/{name}/getStatus
         RpNamespace: Microsoft.MachineLearningServices
     listBatchEndpointKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/batchEndpoints/{endpointName}/listkeys
         RpNamespace: Microsoft.MachineLearningServices
     listComputeKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/machineLearningServices.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/machineLearningServices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}/listKeys
         RpNamespace: Microsoft.MachineLearningServices
     listComputeNodes:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/machineLearningServices.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/machineLearningServices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/computes/{computeName}/listNodes
         RpNamespace: Microsoft.MachineLearningServices
     listConnectionAllModels:
@@ -8127,8 +8127,8 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listConnectionModels
         RpNamespace: Microsoft.MachineLearningServices
     listDatastoreSecrets:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/datastores/{name}/listSecrets
         RpNamespace: Microsoft.MachineLearningServices
     listEndpointKeys:
@@ -8152,38 +8152,38 @@ MachineLearningServices:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/inferencePools/{poolName}/groups/{groupName}/deltaModels/list
         RpNamespace: Microsoft.MachineLearningServices
     listOnlineEndpointKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/onlineEndpoints/{endpointName}/listKeys
         RpNamespace: Microsoft.MachineLearningServices
     listServerlessEndpointKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/mfe.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/mfe.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/serverlessEndpoints/{name}/listKeys
         RpNamespace: Microsoft.MachineLearningServices
     listWorkspaceConnectionSecrets:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/connections/{connectionName}/listsecrets
         RpNamespace: Microsoft.MachineLearningServices
     listWorkspaceKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listKeys
         RpNamespace: Microsoft.MachineLearningServices
     listWorkspaceNotebookAccessToken:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listNotebookAccessToken
         RpNamespace: Microsoft.MachineLearningServices
     listWorkspaceNotebookKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listNotebookKeys
         RpNamespace: Microsoft.MachineLearningServices
     listWorkspaceStorageAccountKeys:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2024-10-01/workspaceRP.json
+        ApiVersion: "2025-09-01"
+        SpecFilePath: specification/machinelearningservices/resource-manager/Microsoft.MachineLearningServices/stable/2025-09-01/workspaceRP.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/listStorageAccountKeys
         RpNamespace: Microsoft.MachineLearningServices
 Maintenance:
