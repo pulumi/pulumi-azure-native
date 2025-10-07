@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Monitor
     /// Definition of ARM tracked top level resource.
     /// 
     /// Uses Azure REST API version 2022-06-01.
+    /// 
+    /// Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:monitor:DataCollectionEndpoint")]
     public partial class DataCollectionEndpoint : global::Pulumi.CustomResource
@@ -163,6 +165,7 @@ namespace Pulumi.AzureNative.Monitor
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20210901preview:DataCollectionEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20220601:DataCollectionEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:monitor/v20230311:DataCollectionEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:monitor/v20240311:DataCollectionEndpoint" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AutoUpgradeOptions',
+    'ExtendedLocationTypes',
     'LicenseType',
     'LoadBalancerSku',
     'Mode',
@@ -24,6 +25,14 @@ class AutoUpgradeOptions(builtins.str, Enum):
     """
     ENABLED = "Enabled"
     DISABLED = "Disabled"
+
+
+@pulumi.type_token("azure-native:hybridcontainerservice:ExtendedLocationTypes")
+class ExtendedLocationTypes(builtins.str, Enum):
+    """
+    The extended location type. Allowed value: 'CustomLocation'
+    """
+    CUSTOM_LOCATION = "CustomLocation"
 
 
 @pulumi.type_token("azure-native:hybridcontainerservice:LicenseType")

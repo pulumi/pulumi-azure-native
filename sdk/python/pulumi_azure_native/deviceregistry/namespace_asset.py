@@ -597,7 +597,7 @@ class NamespaceAsset(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01-preview.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -646,7 +646,7 @@ class NamespaceAsset(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-07-01-preview.
 
-        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NamespaceAssetArgs args: The arguments to use to populate this resource's properties.
@@ -755,7 +755,7 @@ class NamespaceAsset(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["uuid"] = None
             __props__.__dict__["version"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20250701preview:NamespaceAsset"), pulumi.Alias(type_="azure-native:deviceregistry/v20251001:NamespaceAsset")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceregistry/v20250701preview:NamespaceAsset"), pulumi.Alias(type_="azure-native:deviceregistry/v20251001:NamespaceAsset"), pulumi.Alias(type_="azure-native:deviceregistry/v20251101preview:NamespaceAsset")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NamespaceAsset, __self__).__init__(
             'azure-native:deviceregistry:NamespaceAsset',

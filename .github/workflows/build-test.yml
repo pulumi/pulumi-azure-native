@@ -266,6 +266,8 @@ jobs:
           - dotnet
           - go
           - java
+    permissions:
+      id-token: write # For ESC secrets.
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4

@@ -45,15 +45,21 @@ export class DatabaseMigrationsSqlMi extends pulumi.CustomResource {
      * The Azure API version of the resource.
      */
     public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    /**
+     * The name of the resource
+     */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Database Migration Resource properties for SQL Managed Instance.
      */
     public readonly properties!: pulumi.Output<outputs.datamigration.DatabaseMigrationPropertiesSqlMiResponse>;
     /**
-     * Metadata pertaining to creation and last modification of the resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
     public /*out*/ readonly type!: pulumi.Output<string>;
 
     /**

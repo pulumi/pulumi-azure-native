@@ -123,7 +123,7 @@ def get_site(resource_group_name: Optional[builtins.str] = None,
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str site_name: Name of Site resource
+    :param builtins.str site_name: The name of the Site
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -150,7 +150,7 @@ def get_site_output(resource_group_name: Optional[pulumi.Input[builtins.str]] = 
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param builtins.str site_name: Name of Site resource
+    :param builtins.str site_name: The name of the Site
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name

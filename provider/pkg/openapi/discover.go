@@ -516,15 +516,15 @@ var excludeRegexes = []*regexp.Regexp{
 	// It's old, preview, and not important - so exclude the files of this version.
 	regexp.MustCompile(".*frontdoor/resource-manager/Microsoft.Network/preview/2018-08-01-preview.*"),
 	// This version conflicts with the managed folder version:
-	// servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview
+	// servicefabricmanagedclusters/resource-manager/Microsoft.ServiceFabric/ServiceFabric/preview/2023-11-01-preview
 	// This causes a conflict in the version-specific folder, not the default version folder, so we have to completely exclude it.
-	regexp.MustCompile(".*servicefabric/resource-manager/Microsoft.ServiceFabric/preview/2023-11-01-preview.*"),
+	regexp.MustCompile(".*servicefabric/resource-manager/Microsoft.ServiceFabric/ServiceFabric/preview/2023-11-01-preview.*"),
 	// This preview version is invalid OpenAPI JSON, reading it fails with encoding/json.UnmarshalTypeError in field "definitions".
 	regexp.MustCompile(".*network/resource-manager/Microsoft.Network/preview/2023-03-01-preview.*"),
 	// This version defines two "CustomRule" types so we ignore it.
-	regexp.MustCompile(".*/cdn/resource-manager/Microsoft.Cdn/preview/2025-05-01-preview.*"),
+	regexp.MustCompile(".*cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-05-01-preview.*"),
 	// Includes a type with an invalid reference.
-	regexp.MustCompile(".*/azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
+	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
 }
 
 func exclude(filePath string) bool {

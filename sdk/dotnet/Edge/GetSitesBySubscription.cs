@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Edge
     public sealed class GetSitesBySubscriptionArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Site resource
+        /// The name of the Site
         /// </summary>
         [Input("siteName", required: true)]
         public string SiteName { get; set; } = null!;
@@ -60,7 +60,7 @@ namespace Pulumi.AzureNative.Edge
     public sealed class GetSitesBySubscriptionInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of Site resource
+        /// The name of the Site
         /// </summary>
         [Input("siteName", required: true)]
         public Input<string> SiteName { get; set; } = null!;

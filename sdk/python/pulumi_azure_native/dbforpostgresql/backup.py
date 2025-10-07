@@ -149,7 +149,7 @@ class Backup(pulumi.CustomResource):
             __props__.__dict__["source"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:Backup")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20240301preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20240801:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20241101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250101preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250601preview:Backup"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20250801:Backup")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Backup, __self__).__init__(
             'azure-native:dbforpostgresql:Backup',

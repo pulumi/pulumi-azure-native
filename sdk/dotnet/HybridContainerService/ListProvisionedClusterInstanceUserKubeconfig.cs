@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// 
         /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListProvisionedClusterInstanceUserKubeconfigResult> InvokeAsync(ListProvisionedClusterInstanceUserKubeconfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// 
         /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListProvisionedClusterInstanceUserKubeconfigResult> Invoke(ListProvisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.HybridContainerService
         /// 
         /// Uses Azure REST API version 2024-01-01.
         /// 
-        /// Other available API versions: 2023-11-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-11-15-preview, 2025-02-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native hybridcontainerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListProvisionedClusterInstanceUserKubeconfigResult> Invoke(ListProvisionedClusterInstanceUserKubeconfigInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListProvisionedClusterInstanceUserKubeconfigResult>("azure-native:hybridcontainerservice:listProvisionedClusterInstanceUserKubeconfig", args ?? new ListProvisionedClusterInstanceUserKubeconfigInvokeArgs(), options.WithDefaults());

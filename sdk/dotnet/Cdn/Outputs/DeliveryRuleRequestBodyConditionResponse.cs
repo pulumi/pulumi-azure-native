@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.Cdn.Outputs
     public sealed class DeliveryRuleRequestBodyConditionResponse
     {
         /// <summary>
-        /// The name of the condition for the delivery rule.
+        /// Request variable to compare with.
         /// Expected value is 'RequestBody'.
         /// </summary>
         public readonly string Name;

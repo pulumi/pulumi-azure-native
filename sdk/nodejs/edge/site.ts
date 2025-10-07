@@ -110,7 +110,7 @@ export interface SiteArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Name of Site resource
+     * The name of the Site
      */
     siteName?: pulumi.Input<string>;
 }

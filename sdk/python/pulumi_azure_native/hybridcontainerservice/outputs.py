@@ -33,7 +33,12 @@ __all__ = [
     'ControlPlaneEndpointProfileResponseControlPlaneEndpoint',
     'ControlPlaneProfileResponse',
     'CredentialResultResponse',
+    'ExtendedLocationResponse',
     'HttpProxyConfigResponseResponse',
+    'KubernetesPatchVersionsResponse',
+    'KubernetesVersionProfileResponseProperties',
+    'KubernetesVersionPropertiesResponse',
+    'KubernetesVersionReadinessResponse',
     'LinuxProfilePropertiesResponse',
     'LinuxProfilePropertiesResponsePublicKeys',
     'LinuxProfilePropertiesResponseSsh',
@@ -69,6 +74,9 @@ __all__ = [
     'VirtualNetworksPropertiesResponseVmipPool',
     'VirtualNetworksPropertiesResponseVmware',
     'VirtualNetworksResponseExtendedLocation',
+    'VmSkuCapabilitiesResponse',
+    'VmSkuProfileResponseProperties',
+    'VmSkuPropertiesResponse',
     'WindowsProfileResponseResponse',
 ]
 
@@ -1105,6 +1113,41 @@ class CredentialResultResponse(dict):
 
 
 @pulumi.output_type
+class ExtendedLocationResponse(dict):
+    """
+    Extended location pointing to the underlying infrastructure
+    """
+    def __init__(__self__, *,
+                 name: Optional[builtins.str] = None,
+                 type: Optional[builtins.str] = None):
+        """
+        Extended location pointing to the underlying infrastructure
+        :param builtins.str name: ARM Id of the extended location.
+        :param builtins.str type: The extended location type. Allowed value: 'CustomLocation'
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if type is not None:
+            pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[builtins.str]:
+        """
+        ARM Id of the extended location.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> Optional[builtins.str]:
+        """
+        The extended location type. Allowed value: 'CustomLocation'
+        """
+        return pulumi.get(self, "type")
+
+
+@pulumi.output_type
 class HttpProxyConfigResponseResponse(dict):
     """
     Configurations for provisioning the cluster with HTTP proxy servers.
@@ -1196,6 +1239,230 @@ class HttpProxyConfigResponseResponse(dict):
         Username to use for connecting to proxy server
         """
         return pulumi.get(self, "username")
+
+
+@pulumi.output_type
+class KubernetesPatchVersionsResponse(dict):
+    """
+    Kubernetes Patch Version profile
+    """
+    def __init__(__self__, *,
+                 readiness: Optional[Sequence['outputs.KubernetesVersionReadinessResponse']] = None,
+                 upgrades: Optional[Sequence[builtins.str]] = None):
+        """
+        Kubernetes Patch Version profile
+        :param Sequence['KubernetesVersionReadinessResponse'] readiness: Indicates whether the kubernetes version image is ready or not
+        :param Sequence[builtins.str] upgrades: Possible upgrade paths for given patch version
+        """
+        if readiness is not None:
+            pulumi.set(__self__, "readiness", readiness)
+        if upgrades is not None:
+            pulumi.set(__self__, "upgrades", upgrades)
+
+    @property
+    @pulumi.getter
+    def readiness(self) -> Optional[Sequence['outputs.KubernetesVersionReadinessResponse']]:
+        """
+        Indicates whether the kubernetes version image is ready or not
+        """
+        return pulumi.get(self, "readiness")
+
+    @property
+    @pulumi.getter
+    def upgrades(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Possible upgrade paths for given patch version
+        """
+        return pulumi.get(self, "upgrades")
+
+
+@pulumi.output_type
+class KubernetesVersionProfileResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesVersionProfileResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesVersionProfileResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 values: Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']] = None):
+        """
+        :param builtins.str provisioning_state: Provisioning state of the resource
+        :param Sequence['KubernetesVersionPropertiesResponse'] values: List of supported Kubernetes versions
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.KubernetesVersionPropertiesResponse']]:
+        """
+        List of supported Kubernetes versions
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class KubernetesVersionPropertiesResponse(dict):
+    """
+    Kubernetes version profile for given major.minor release
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "isPreview":
+            suggest = "is_preview"
+        elif key == "patchVersions":
+            suggest = "patch_versions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesVersionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesVersionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 is_preview: builtins.bool,
+                 patch_versions: Mapping[str, 'outputs.KubernetesPatchVersionsResponse'],
+                 version: builtins.str):
+        """
+        Kubernetes version profile for given major.minor release
+        :param builtins.bool is_preview: Whether this version is in preview mode.
+        :param Mapping[str, 'KubernetesPatchVersionsResponse'] patch_versions: Patch versions of a Kubernetes release
+        :param builtins.str version: major.minor version of Kubernetes release
+        """
+        pulumi.set(__self__, "is_preview", is_preview)
+        pulumi.set(__self__, "patch_versions", patch_versions)
+        pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="isPreview")
+    def is_preview(self) -> builtins.bool:
+        """
+        Whether this version is in preview mode.
+        """
+        return pulumi.get(self, "is_preview")
+
+    @property
+    @pulumi.getter(name="patchVersions")
+    def patch_versions(self) -> Mapping[str, 'outputs.KubernetesPatchVersionsResponse']:
+        """
+        Patch versions of a Kubernetes release
+        """
+        return pulumi.get(self, "patch_versions")
+
+    @property
+    @pulumi.getter
+    def version(self) -> builtins.str:
+        """
+        major.minor version of Kubernetes release
+        """
+        return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class KubernetesVersionReadinessResponse(dict):
+    """
+    Indicates whether the kubernetes version image is ready or not
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorMessage":
+            suggest = "error_message"
+        elif key == "osType":
+            suggest = "os_type"
+        elif key == "osSku":
+            suggest = "os_sku"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesVersionReadinessResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesVersionReadinessResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesVersionReadinessResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_message: builtins.str,
+                 os_type: Optional[builtins.str] = None,
+                 ready: builtins.bool,
+                 os_sku: Optional[builtins.str] = None):
+        """
+        Indicates whether the kubernetes version image is ready or not
+        :param builtins.str error_message: The error message for version not being ready
+        :param builtins.str os_type: The particular KubernetesVersion Image OS Type (Linux, Windows)
+        :param builtins.bool ready: Whether the kubernetes version image is ready or not
+        :param builtins.str os_sku: Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
+        """
+        pulumi.set(__self__, "error_message", error_message)
+        if os_type is None:
+            os_type = 'Linux'
+        pulumi.set(__self__, "os_type", os_type)
+        pulumi.set(__self__, "ready", ready)
+        if os_sku is not None:
+            pulumi.set(__self__, "os_sku", os_sku)
+
+    @property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> builtins.str:
+        """
+        The error message for version not being ready
+        """
+        return pulumi.get(self, "error_message")
+
+    @property
+    @pulumi.getter(name="osType")
+    def os_type(self) -> builtins.str:
+        """
+        The particular KubernetesVersion Image OS Type (Linux, Windows)
+        """
+        return pulumi.get(self, "os_type")
+
+    @property
+    @pulumi.getter
+    def ready(self) -> builtins.bool:
+        """
+        Whether the kubernetes version image is ready or not
+        """
+        return pulumi.get(self, "ready")
+
+    @property
+    @pulumi.getter(name="osSku")
+    def os_sku(self) -> Optional[builtins.str]:
+        """
+        Specifies the OS SKU used by the agent pool. The default is CBLMariner if OSType is Linux. The default is Windows2019 when OSType is Windows.
+        """
+        return pulumi.get(self, "os_sku")
 
 
 @pulumi.output_type
@@ -3577,6 +3844,169 @@ class VirtualNetworksResponseExtendedLocation(dict):
         The extended location type.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class VmSkuCapabilitiesResponse(dict):
+    """
+    Describes the VM SKU capabilities like MemoryGB, vCPUs, etc.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 value: builtins.str):
+        """
+        Describes the VM SKU capabilities like MemoryGB, vCPUs, etc.
+        :param builtins.str name: Name of the VM SKU capability
+        :param builtins.str value: Value of the VM SKU capability
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        Name of the VM SKU capability
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def value(self) -> builtins.str:
+        """
+        Value of the VM SKU capability
+        """
+        return pulumi.get(self, "value")
+
+
+@pulumi.output_type
+class VmSkuProfileResponseProperties(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmSkuProfileResponseProperties. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmSkuProfileResponseProperties.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmSkuProfileResponseProperties.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 values: Optional[Sequence['outputs.VmSkuPropertiesResponse']] = None):
+        """
+        :param builtins.str provisioning_state: Provisioning state of the resource
+        :param Sequence['VmSkuPropertiesResponse'] values: List of supported VM SKUs.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning state of the resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def values(self) -> Optional[Sequence['outputs.VmSkuPropertiesResponse']]:
+        """
+        List of supported VM SKUs.
+        """
+        return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class VmSkuPropertiesResponse(dict):
+    """
+    The profile for supported VM SKUs
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceType":
+            suggest = "resource_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VmSkuPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VmSkuPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VmSkuPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 capabilities: Sequence['outputs.VmSkuCapabilitiesResponse'],
+                 name: builtins.str,
+                 resource_type: builtins.str,
+                 size: builtins.str,
+                 tier: builtins.str):
+        """
+        The profile for supported VM SKUs
+        :param Sequence['VmSkuCapabilitiesResponse'] capabilities: The list of name-value pairs to describe VM SKU capabilities like MemoryGB, vCPUs, etc.
+        :param builtins.str name: The name of the VM SKU
+        :param builtins.str resource_type: The type of resource the SKU applies to.
+        :param builtins.str size: The size of the VM SKU
+        :param builtins.str tier: The tier of the VM SKU
+        """
+        pulumi.set(__self__, "capabilities", capabilities)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "resource_type", resource_type)
+        pulumi.set(__self__, "size", size)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def capabilities(self) -> Sequence['outputs.VmSkuCapabilitiesResponse']:
+        """
+        The list of name-value pairs to describe VM SKU capabilities like MemoryGB, vCPUs, etc.
+        """
+        return pulumi.get(self, "capabilities")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the VM SKU
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="resourceType")
+    def resource_type(self) -> builtins.str:
+        """
+        The type of resource the SKU applies to.
+        """
+        return pulumi.get(self, "resource_type")
+
+    @property
+    @pulumi.getter
+    def size(self) -> builtins.str:
+        """
+        The size of the VM SKU
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> builtins.str:
+        """
+        The tier of the VM SKU
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

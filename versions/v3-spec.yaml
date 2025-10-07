@@ -635,6 +635,21 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
+          detail: version 2025-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2025-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2025-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-08-01 is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2025-08-01 is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
     additions:
@@ -847,10 +862,17 @@ HybridContainerService:
     tracking: 2022-09-01-preview
     additions:
         ClusterInstanceHybridIdentityMetadatum: "2024-01-01"
+        KubernetesVersions: 2025-02-01-preview
+        VMSkus: 2025-02-01-preview
         listProvisionedClusterInstanceAdminKubeconfig: "2024-01-01"
         listProvisionedClusterInstanceUserKubeconfig: "2024-01-01"
-HybridData:
-    tracking: "2019-06-01"
+    exclusionErrors:
+        - modulename: HybridContainerService
+          resourcename: KubernetesVersions
+          detail: version 2025-02-01-preview is greater than 2024-01-01
+        - modulename: HybridContainerService
+          resourcename: VMSkus
+          detail: version 2025-02-01-preview is greater than 2024-01-01
 HybridNetwork:
     tracking: "2024-04-15"
     additions:
@@ -1610,8 +1632,6 @@ SqlVirtualMachine:
     tracking: "2023-10-01"
 StandbyPool:
     tracking: "2024-03-01"
-StorSimple:
-    tracking: "2017-06-01"
 Storage:
     tracking: "2024-01-01"
 StorageActions:

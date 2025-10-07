@@ -1846,7 +1846,7 @@ class DeliveryRuleClientPortConditionResponse(dict):
                  parameters: 'outputs.ClientPortMatchConditionParametersResponse'):
         """
         Defines the ClientPort condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'ClientPort'.
         :param 'ClientPortMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -1857,7 +1857,7 @@ class DeliveryRuleClientPortConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ClientPort'.
         """
         return pulumi.get(self, "name")
@@ -1881,7 +1881,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
                  parameters: 'outputs.CookiesMatchConditionParametersResponse'):
         """
         Defines the Cookies condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'Cookies'.
         :param 'CookiesMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -1892,7 +1892,7 @@ class DeliveryRuleCookiesConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'Cookies'.
         """
         return pulumi.get(self, "name")
@@ -1916,7 +1916,7 @@ class DeliveryRuleHostNameConditionResponse(dict):
                  parameters: 'outputs.HostNameMatchConditionParametersResponse'):
         """
         Defines the HostName condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'HostName'.
         :param 'HostNameMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -1927,7 +1927,7 @@ class DeliveryRuleHostNameConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HostName'.
         """
         return pulumi.get(self, "name")
@@ -1951,7 +1951,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
                  parameters: 'outputs.HttpVersionMatchConditionParametersResponse'):
         """
         Defines the HttpVersion condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'HttpVersion'.
         :param 'HttpVersionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -1962,7 +1962,7 @@ class DeliveryRuleHttpVersionConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HttpVersion'.
         """
         return pulumi.get(self, "name")
@@ -1986,7 +1986,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
                  parameters: 'outputs.IsDeviceMatchConditionParametersResponse'):
         """
         Defines the IsDevice condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'IsDevice'.
         :param 'IsDeviceMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -1997,7 +1997,7 @@ class DeliveryRuleIsDeviceConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'IsDevice'.
         """
         return pulumi.get(self, "name")
@@ -2021,7 +2021,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
                  parameters: 'outputs.PostArgsMatchConditionParametersResponse'):
         """
         Defines the PostArgs condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'PostArgs'.
         :param 'PostArgsMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2032,7 +2032,7 @@ class DeliveryRulePostArgsConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'PostArgs'.
         """
         return pulumi.get(self, "name")
@@ -2056,7 +2056,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
                  parameters: 'outputs.QueryStringMatchConditionParametersResponse'):
         """
         Defines the QueryString condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'QueryString'.
         :param 'QueryStringMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2067,7 +2067,7 @@ class DeliveryRuleQueryStringConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'QueryString'.
         """
         return pulumi.get(self, "name")
@@ -2091,7 +2091,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
                  parameters: 'outputs.RemoteAddressMatchConditionParametersResponse'):
         """
         Defines the RemoteAddress condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RemoteAddress'.
         :param 'RemoteAddressMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2102,7 +2102,7 @@ class DeliveryRuleRemoteAddressConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RemoteAddress'.
         """
         return pulumi.get(self, "name")
@@ -2126,7 +2126,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
                  parameters: 'outputs.RequestBodyMatchConditionParametersResponse'):
         """
         Defines the RequestBody condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RequestBody'.
         :param 'RequestBodyMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2137,7 +2137,7 @@ class DeliveryRuleRequestBodyConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestBody'.
         """
         return pulumi.get(self, "name")
@@ -2196,7 +2196,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
                  parameters: 'outputs.RequestHeaderMatchConditionParametersResponse'):
         """
         Defines the RequestHeader condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RequestHeader'.
         :param 'RequestHeaderMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2207,7 +2207,7 @@ class DeliveryRuleRequestHeaderConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestHeader'.
         """
         return pulumi.get(self, "name")
@@ -2231,7 +2231,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
                  parameters: 'outputs.RequestMethodMatchConditionParametersResponse'):
         """
         Defines the RequestMethod condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RequestMethod'.
         :param 'RequestMethodMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2242,7 +2242,7 @@ class DeliveryRuleRequestMethodConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestMethod'.
         """
         return pulumi.get(self, "name")
@@ -2266,7 +2266,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
                  parameters: 'outputs.RequestSchemeMatchConditionParametersResponse'):
         """
         Defines the RequestScheme condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RequestScheme'.
         :param 'RequestSchemeMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2277,7 +2277,7 @@ class DeliveryRuleRequestSchemeConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestScheme'.
         """
         return pulumi.get(self, "name")
@@ -2301,7 +2301,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
                  parameters: 'outputs.RequestUriMatchConditionParametersResponse'):
         """
         Defines the RequestUri condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'RequestUri'.
         :param 'RequestUriMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2312,7 +2312,7 @@ class DeliveryRuleRequestUriConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestUri'.
         """
         return pulumi.get(self, "name")
@@ -2463,7 +2463,7 @@ class DeliveryRuleServerPortConditionResponse(dict):
                  parameters: 'outputs.ServerPortMatchConditionParametersResponse'):
         """
         Defines the ServerPort condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'ServerPort'.
         :param 'ServerPortMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2474,7 +2474,7 @@ class DeliveryRuleServerPortConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ServerPort'.
         """
         return pulumi.get(self, "name")
@@ -2498,7 +2498,7 @@ class DeliveryRuleSocketAddrConditionResponse(dict):
                  parameters: 'outputs.SocketAddrMatchConditionParametersResponse'):
         """
         Defines the SocketAddress condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'SocketAddr'.
         :param 'SocketAddrMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2509,7 +2509,7 @@ class DeliveryRuleSocketAddrConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SocketAddr'.
         """
         return pulumi.get(self, "name")
@@ -2533,7 +2533,7 @@ class DeliveryRuleSslProtocolConditionResponse(dict):
                  parameters: 'outputs.SslProtocolMatchConditionParametersResponse'):
         """
         Defines the SslProtocol condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'SslProtocol'.
         :param 'SslProtocolMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2544,7 +2544,7 @@ class DeliveryRuleSslProtocolConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SslProtocol'.
         """
         return pulumi.get(self, "name")
@@ -2568,7 +2568,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
                  parameters: 'outputs.UrlFileExtensionMatchConditionParametersResponse'):
         """
         Defines the UrlFileExtension condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'UrlFileExtension'.
         :param 'UrlFileExtensionMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2579,7 +2579,7 @@ class DeliveryRuleUrlFileExtensionConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileExtension'.
         """
         return pulumi.get(self, "name")
@@ -2603,7 +2603,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
                  parameters: 'outputs.UrlFileNameMatchConditionParametersResponse'):
         """
         Defines the UrlFileName condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'UrlFileName'.
         :param 'UrlFileNameMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2614,7 +2614,7 @@ class DeliveryRuleUrlFileNameConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileName'.
         """
         return pulumi.get(self, "name")
@@ -2638,7 +2638,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
                  parameters: 'outputs.UrlPathMatchConditionParametersResponse'):
         """
         Defines the UrlPath condition for the delivery rule.
-        :param builtins.str name: The name of the condition for the delivery rule.
+        :param builtins.str name: Request variable to compare with.
                Expected value is 'UrlPath'.
         :param 'UrlPathMatchConditionParametersResponse' parameters: Defines the parameters for the condition.
         """
@@ -2649,7 +2649,7 @@ class DeliveryRuleUrlPathConditionResponse(dict):
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlPath'.
         """
         return pulumi.get(self, "name")

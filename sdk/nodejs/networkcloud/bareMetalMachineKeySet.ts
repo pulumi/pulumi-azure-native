@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class BareMetalMachineKeySet extends pulumi.CustomResource {
     /**
@@ -195,7 +195,7 @@ export class BareMetalMachineKeySet extends pulumi.CustomResource {
             resourceInputs["userListStatus"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20231001preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20240601preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20240701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20241001preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20250201:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20250701preview:BareMetalMachineKeySet" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20231001preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20240601preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20240701:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20241001preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20250201:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20250701preview:BareMetalMachineKeySet" }, { type: "azure-native:networkcloud/v20250901:BareMetalMachineKeySet" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BareMetalMachineKeySet.__pulumiType, name, resourceInputs, opts);
     }

@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CognitiveServices
     /// Cognitive Services Rai Topic.
     /// 
     /// Uses Azure REST API version 2025-07-01-preview.
+    /// 
+    /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:RaiTopic")]
     public partial class RaiTopic : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250701preview:RaiTopic" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250901:RaiTopic" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

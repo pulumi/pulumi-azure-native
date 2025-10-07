@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-02-01. In version 2.x of the Azure Native provider, it used API version 2023-10-01-preview.
  *
- * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-07-01, 2024-10-01-preview, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native networkcloud [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Rack extends pulumi.CustomResource {
     /**
@@ -170,7 +170,7 @@ export class Rack extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }, { type: "azure-native:networkcloud/v20250201:Rack" }, { type: "azure-native:networkcloud/v20250701preview:Rack" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:networkcloud/v20230701:Rack" }, { type: "azure-native:networkcloud/v20231001preview:Rack" }, { type: "azure-native:networkcloud/v20240601preview:Rack" }, { type: "azure-native:networkcloud/v20240701:Rack" }, { type: "azure-native:networkcloud/v20241001preview:Rack" }, { type: "azure-native:networkcloud/v20250201:Rack" }, { type: "azure-native:networkcloud/v20250701preview:Rack" }, { type: "azure-native:networkcloud/v20250901:Rack" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rack.__pulumiType, name, resourceInputs, opts);
     }

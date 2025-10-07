@@ -140,7 +140,7 @@ class Certificate(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -162,7 +162,7 @@ class Certificate(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-02-preview. In version 2.x of the Azure Native provider, it used API version 2022-10-01.
 
-        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-10-01, 2022-11-01-preview, 2023-04-01-preview, 2023-05-01, 2023-05-02-preview, 2023-08-01-preview, 2023-11-02-preview, 2024-02-02-preview, 2024-03-01, 2024-08-02-preview, 2024-10-02-preview, 2025-01-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native app [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CertificateArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +208,7 @@ class Certificate(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20220301:Certificate"), pulumi.Alias(type_="azure-native:app/v20220601preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20221001:Certificate"), pulumi.Alias(type_="azure-native:app/v20221101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230501:Certificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20240301:Certificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20250101:Certificate"), pulumi.Alias(type_="azure-native:app/v20250202preview:Certificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20220301:Certificate"), pulumi.Alias(type_="azure-native:app/v20220601preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20221001:Certificate"), pulumi.Alias(type_="azure-native:app/v20221101preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230401preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230501:Certificate"), pulumi.Alias(type_="azure-native:app/v20230502preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20230801preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20231102preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20240202preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20240301:Certificate"), pulumi.Alias(type_="azure-native:app/v20240802preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20241002preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20250101:Certificate"), pulumi.Alias(type_="azure-native:app/v20250202preview:Certificate"), pulumi.Alias(type_="azure-native:app/v20250701:Certificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Certificate, __self__).__init__(
             'azure-native:app:Certificate',

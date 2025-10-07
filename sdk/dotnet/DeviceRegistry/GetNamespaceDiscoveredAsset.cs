@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
         /// 
-        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNamespaceDiscoveredAssetResult> InvokeAsync(GetNamespaceDiscoveredAssetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNamespaceDiscoveredAssetResult>("azure-native:deviceregistry:getNamespaceDiscoveredAsset", args ?? new GetNamespaceDiscoveredAssetArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
         /// 
-        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceDiscoveredAssetResult> Invoke(GetNamespaceDiscoveredAssetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDiscoveredAssetResult>("azure-native:deviceregistry:getNamespaceDiscoveredAsset", args ?? new GetNamespaceDiscoveredAssetInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.DeviceRegistry
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
         /// 
-        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-10-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native deviceregistry [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNamespaceDiscoveredAssetResult> Invoke(GetNamespaceDiscoveredAssetInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNamespaceDiscoveredAssetResult>("azure-native:deviceregistry:getNamespaceDiscoveredAsset", args ?? new GetNamespaceDiscoveredAssetInvokeArgs(), options.WithDefaults());

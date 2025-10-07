@@ -51,12 +51,12 @@ class ServiceArgs:
         :param pulumi.Input[builtins.bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         :param pulumi.Input['EncryptionWithCmkArgs'] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input[builtins.str] endpoint: The endpoint of the Azure AI Search service.
-        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         :param pulumi.Input['IdentityArgs'] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input['NetworkRuleSetArgs'] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
         :param pulumi.Input[builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
         :param pulumi.Input[Union[builtins.str, 'SearchSemanticSearch']] semantic_search: Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
@@ -78,7 +78,7 @@ class ServiceArgs:
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if hosting_mode is None:
-            hosting_mode = 'default'
+            hosting_mode = 'Default'
         if hosting_mode is not None:
             pulumi.set(__self__, "hosting_mode", hosting_mode)
         if identity is not None:
@@ -92,7 +92,7 @@ class ServiceArgs:
         if partition_count is not None:
             pulumi.set(__self__, "partition_count", partition_count)
         if public_network_access is None:
-            public_network_access = 'enabled'
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if replica_count is None:
@@ -198,7 +198,7 @@ class ServiceArgs:
     @pulumi.getter(name="hostingMode")
     def hosting_mode(self) -> Optional[pulumi.Input['HostingMode']]:
         """
-        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         """
         return pulumi.get(self, "hosting_mode")
 
@@ -258,7 +258,7 @@ class ServiceArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]:
         """
-        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -380,12 +380,12 @@ class Service(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] disable_local_auth: When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
         :param pulumi.Input[Union['EncryptionWithCmkArgs', 'EncryptionWithCmkArgsDict']] encryption_with_cmk: Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
         :param pulumi.Input[builtins.str] endpoint: The endpoint of the Azure AI Search service.
-        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        :param pulumi.Input['HostingMode'] hosting_mode: Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         :param pulumi.Input[Union['IdentityArgs', 'IdentityArgsDict']] identity: The identity of the resource.
         :param pulumi.Input[builtins.str] location: The geo-location where the resource lives
         :param pulumi.Input[Union['NetworkRuleSetArgs', 'NetworkRuleSetArgsDict']] network_rule_set: Network specific rules that determine how the Azure AI Search service may be reached.
         :param pulumi.Input[builtins.int] partition_count: The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
-        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         :param pulumi.Input[builtins.int] replica_count: The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
         :param pulumi.Input[builtins.str] search_service_name: The name of the Azure AI Search service to create or update. Search service names must only contain lowercase letters, digits or dashes, cannot use dash as the first two or last one characters, cannot contain consecutive dashes, and must be between 2 and 60 characters in length. Search service names must be unique since they are part of the service URI (https://<name>.search.windows.net). You cannot change the service name after the service is created.
@@ -457,7 +457,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["encryption_with_cmk"] = encryption_with_cmk
             __props__.__dict__["endpoint"] = endpoint
             if hosting_mode is None:
-                hosting_mode = 'default'
+                hosting_mode = 'Default'
             __props__.__dict__["hosting_mode"] = hosting_mode
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -466,7 +466,7 @@ class Service(pulumi.CustomResource):
                 partition_count = 1
             __props__.__dict__["partition_count"] = partition_count
             if public_network_access is None:
-                public_network_access = 'enabled'
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             if replica_count is None:
                 replica_count = 1
@@ -612,7 +612,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="hostingMode")
     def hosting_mode(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+        Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
         """
         return pulumi.get(self, "hosting_mode")
 
@@ -676,7 +676,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[builtins.str]]:
         """
-        This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+        This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
         """
         return pulumi.get(self, "public_network_access")
 

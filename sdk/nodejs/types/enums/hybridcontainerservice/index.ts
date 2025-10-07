@@ -12,6 +12,15 @@ export const AutoUpgradeOptions = {
  */
 export type AutoUpgradeOptions = (typeof AutoUpgradeOptions)[keyof typeof AutoUpgradeOptions];
 
+export const ExtendedLocationTypes = {
+    CustomLocation: "CustomLocation",
+} as const;
+
+/**
+ * The extended location type. Allowed value: 'CustomLocation'
+ */
+export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
 export const LicenseType = {
     Windows_Server: "Windows_Server",
     None: "None",

@@ -1897,7 +1897,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ClientPort'.
         """
         parameters: pulumi.Input['ClientPortMatchConditionParametersArgsDict']
@@ -1914,7 +1914,7 @@ class DeliveryRuleClientPortConditionArgs:
                  parameters: pulumi.Input['ClientPortMatchConditionParametersArgs']):
         """
         Defines the ClientPort condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'ClientPort'.
         :param pulumi.Input['ClientPortMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -1925,7 +1925,7 @@ class DeliveryRuleClientPortConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ClientPort'.
         """
         return pulumi.get(self, "name")
@@ -1954,7 +1954,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'Cookies'.
         """
         parameters: pulumi.Input['CookiesMatchConditionParametersArgsDict']
@@ -1971,7 +1971,7 @@ class DeliveryRuleCookiesConditionArgs:
                  parameters: pulumi.Input['CookiesMatchConditionParametersArgs']):
         """
         Defines the Cookies condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'Cookies'.
         :param pulumi.Input['CookiesMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -1982,7 +1982,7 @@ class DeliveryRuleCookiesConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'Cookies'.
         """
         return pulumi.get(self, "name")
@@ -2011,7 +2011,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HostName'.
         """
         parameters: pulumi.Input['HostNameMatchConditionParametersArgsDict']
@@ -2028,7 +2028,7 @@ class DeliveryRuleHostNameConditionArgs:
                  parameters: pulumi.Input['HostNameMatchConditionParametersArgs']):
         """
         Defines the HostName condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'HostName'.
         :param pulumi.Input['HostNameMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2039,7 +2039,7 @@ class DeliveryRuleHostNameConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HostName'.
         """
         return pulumi.get(self, "name")
@@ -2068,7 +2068,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HttpVersion'.
         """
         parameters: pulumi.Input['HttpVersionMatchConditionParametersArgsDict']
@@ -2085,7 +2085,7 @@ class DeliveryRuleHttpVersionConditionArgs:
                  parameters: pulumi.Input['HttpVersionMatchConditionParametersArgs']):
         """
         Defines the HttpVersion condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'HttpVersion'.
         :param pulumi.Input['HttpVersionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2096,7 +2096,7 @@ class DeliveryRuleHttpVersionConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'HttpVersion'.
         """
         return pulumi.get(self, "name")
@@ -2125,7 +2125,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'IsDevice'.
         """
         parameters: pulumi.Input['IsDeviceMatchConditionParametersArgsDict']
@@ -2142,7 +2142,7 @@ class DeliveryRuleIsDeviceConditionArgs:
                  parameters: pulumi.Input['IsDeviceMatchConditionParametersArgs']):
         """
         Defines the IsDevice condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'IsDevice'.
         :param pulumi.Input['IsDeviceMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2153,7 +2153,7 @@ class DeliveryRuleIsDeviceConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'IsDevice'.
         """
         return pulumi.get(self, "name")
@@ -2182,7 +2182,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'PostArgs'.
         """
         parameters: pulumi.Input['PostArgsMatchConditionParametersArgsDict']
@@ -2199,7 +2199,7 @@ class DeliveryRulePostArgsConditionArgs:
                  parameters: pulumi.Input['PostArgsMatchConditionParametersArgs']):
         """
         Defines the PostArgs condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'PostArgs'.
         :param pulumi.Input['PostArgsMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2210,7 +2210,7 @@ class DeliveryRulePostArgsConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'PostArgs'.
         """
         return pulumi.get(self, "name")
@@ -2239,7 +2239,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'QueryString'.
         """
         parameters: pulumi.Input['QueryStringMatchConditionParametersArgsDict']
@@ -2256,7 +2256,7 @@ class DeliveryRuleQueryStringConditionArgs:
                  parameters: pulumi.Input['QueryStringMatchConditionParametersArgs']):
         """
         Defines the QueryString condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'QueryString'.
         :param pulumi.Input['QueryStringMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2267,7 +2267,7 @@ class DeliveryRuleQueryStringConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'QueryString'.
         """
         return pulumi.get(self, "name")
@@ -2296,7 +2296,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RemoteAddress'.
         """
         parameters: pulumi.Input['RemoteAddressMatchConditionParametersArgsDict']
@@ -2313,7 +2313,7 @@ class DeliveryRuleRemoteAddressConditionArgs:
                  parameters: pulumi.Input['RemoteAddressMatchConditionParametersArgs']):
         """
         Defines the RemoteAddress condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RemoteAddress'.
         :param pulumi.Input['RemoteAddressMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2324,7 +2324,7 @@ class DeliveryRuleRemoteAddressConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RemoteAddress'.
         """
         return pulumi.get(self, "name")
@@ -2353,7 +2353,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestBody'.
         """
         parameters: pulumi.Input['RequestBodyMatchConditionParametersArgsDict']
@@ -2370,7 +2370,7 @@ class DeliveryRuleRequestBodyConditionArgs:
                  parameters: pulumi.Input['RequestBodyMatchConditionParametersArgs']):
         """
         Defines the RequestBody condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RequestBody'.
         :param pulumi.Input['RequestBodyMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2381,7 +2381,7 @@ class DeliveryRuleRequestBodyConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestBody'.
         """
         return pulumi.get(self, "name")
@@ -2467,7 +2467,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestHeader'.
         """
         parameters: pulumi.Input['RequestHeaderMatchConditionParametersArgsDict']
@@ -2484,7 +2484,7 @@ class DeliveryRuleRequestHeaderConditionArgs:
                  parameters: pulumi.Input['RequestHeaderMatchConditionParametersArgs']):
         """
         Defines the RequestHeader condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RequestHeader'.
         :param pulumi.Input['RequestHeaderMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2495,7 +2495,7 @@ class DeliveryRuleRequestHeaderConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestHeader'.
         """
         return pulumi.get(self, "name")
@@ -2524,7 +2524,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestMethod'.
         """
         parameters: pulumi.Input['RequestMethodMatchConditionParametersArgsDict']
@@ -2541,7 +2541,7 @@ class DeliveryRuleRequestMethodConditionArgs:
                  parameters: pulumi.Input['RequestMethodMatchConditionParametersArgs']):
         """
         Defines the RequestMethod condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RequestMethod'.
         :param pulumi.Input['RequestMethodMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2552,7 +2552,7 @@ class DeliveryRuleRequestMethodConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestMethod'.
         """
         return pulumi.get(self, "name")
@@ -2581,7 +2581,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestScheme'.
         """
         parameters: pulumi.Input['RequestSchemeMatchConditionParametersArgsDict']
@@ -2598,7 +2598,7 @@ class DeliveryRuleRequestSchemeConditionArgs:
                  parameters: pulumi.Input['RequestSchemeMatchConditionParametersArgs']):
         """
         Defines the RequestScheme condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RequestScheme'.
         :param pulumi.Input['RequestSchemeMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2609,7 +2609,7 @@ class DeliveryRuleRequestSchemeConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestScheme'.
         """
         return pulumi.get(self, "name")
@@ -2638,7 +2638,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestUri'.
         """
         parameters: pulumi.Input['RequestUriMatchConditionParametersArgsDict']
@@ -2655,7 +2655,7 @@ class DeliveryRuleRequestUriConditionArgs:
                  parameters: pulumi.Input['RequestUriMatchConditionParametersArgs']):
         """
         Defines the RequestUri condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'RequestUri'.
         :param pulumi.Input['RequestUriMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2666,7 +2666,7 @@ class DeliveryRuleRequestUriConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'RequestUri'.
         """
         return pulumi.get(self, "name")
@@ -2809,7 +2809,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ServerPort'.
         """
         parameters: pulumi.Input['ServerPortMatchConditionParametersArgsDict']
@@ -2826,7 +2826,7 @@ class DeliveryRuleServerPortConditionArgs:
                  parameters: pulumi.Input['ServerPortMatchConditionParametersArgs']):
         """
         Defines the ServerPort condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'ServerPort'.
         :param pulumi.Input['ServerPortMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2837,7 +2837,7 @@ class DeliveryRuleServerPortConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'ServerPort'.
         """
         return pulumi.get(self, "name")
@@ -2866,7 +2866,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SocketAddr'.
         """
         parameters: pulumi.Input['SocketAddrMatchConditionParametersArgsDict']
@@ -2883,7 +2883,7 @@ class DeliveryRuleSocketAddrConditionArgs:
                  parameters: pulumi.Input['SocketAddrMatchConditionParametersArgs']):
         """
         Defines the SocketAddress condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'SocketAddr'.
         :param pulumi.Input['SocketAddrMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2894,7 +2894,7 @@ class DeliveryRuleSocketAddrConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SocketAddr'.
         """
         return pulumi.get(self, "name")
@@ -2923,7 +2923,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SslProtocol'.
         """
         parameters: pulumi.Input['SslProtocolMatchConditionParametersArgsDict']
@@ -2940,7 +2940,7 @@ class DeliveryRuleSslProtocolConditionArgs:
                  parameters: pulumi.Input['SslProtocolMatchConditionParametersArgs']):
         """
         Defines the SslProtocol condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'SslProtocol'.
         :param pulumi.Input['SslProtocolMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -2951,7 +2951,7 @@ class DeliveryRuleSslProtocolConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'SslProtocol'.
         """
         return pulumi.get(self, "name")
@@ -2980,7 +2980,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileExtension'.
         """
         parameters: pulumi.Input['UrlFileExtensionMatchConditionParametersArgsDict']
@@ -2997,7 +2997,7 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
                  parameters: pulumi.Input['UrlFileExtensionMatchConditionParametersArgs']):
         """
         Defines the UrlFileExtension condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'UrlFileExtension'.
         :param pulumi.Input['UrlFileExtensionMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -3008,7 +3008,7 @@ class DeliveryRuleUrlFileExtensionConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileExtension'.
         """
         return pulumi.get(self, "name")
@@ -3037,7 +3037,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileName'.
         """
         parameters: pulumi.Input['UrlFileNameMatchConditionParametersArgsDict']
@@ -3054,7 +3054,7 @@ class DeliveryRuleUrlFileNameConditionArgs:
                  parameters: pulumi.Input['UrlFileNameMatchConditionParametersArgs']):
         """
         Defines the UrlFileName condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'UrlFileName'.
         :param pulumi.Input['UrlFileNameMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -3065,7 +3065,7 @@ class DeliveryRuleUrlFileNameConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlFileName'.
         """
         return pulumi.get(self, "name")
@@ -3094,7 +3094,7 @@ if not MYPY:
         """
         name: pulumi.Input[builtins.str]
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlPath'.
         """
         parameters: pulumi.Input['UrlPathMatchConditionParametersArgsDict']
@@ -3111,7 +3111,7 @@ class DeliveryRuleUrlPathConditionArgs:
                  parameters: pulumi.Input['UrlPathMatchConditionParametersArgs']):
         """
         Defines the UrlPath condition for the delivery rule.
-        :param pulumi.Input[builtins.str] name: The name of the condition for the delivery rule.
+        :param pulumi.Input[builtins.str] name: Request variable to compare with.
                Expected value is 'UrlPath'.
         :param pulumi.Input['UrlPathMatchConditionParametersArgs'] parameters: Defines the parameters for the condition.
         """
@@ -3122,7 +3122,7 @@ class DeliveryRuleUrlPathConditionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the condition for the delivery rule.
+        Request variable to compare with.
         Expected value is 'UrlPath'.
         """
         return pulumi.get(self, "name")

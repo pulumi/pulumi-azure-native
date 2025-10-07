@@ -175,7 +175,7 @@ class Rule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -199,7 +199,7 @@ class Rule(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-06-01. In version 2.x of the Azure Native provider, it used API version 2023-05-01.
 
-        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-05-01, 2023-07-01-preview, 2024-02-01, 2024-05-01-preview, 2024-06-01-preview, 2024-09-01, 2025-01-01-preview, 2025-04-15, 2025-07-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cdn [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RuleArgs args: The arguments to use to populate this resource's properties.
@@ -255,7 +255,7 @@ class Rule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20200901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20210601:Rule"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230501:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240201:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250415:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250601:Rule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cdn/v20200901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20210601:Rule"), pulumi.Alias(type_="azure-native:cdn/v20220501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20221101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230501:Rule"), pulumi.Alias(type_="azure-native:cdn/v20230701preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240201:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240501preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240601preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20240901:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250101preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250415:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250601:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250701preview:Rule"), pulumi.Alias(type_="azure-native:cdn/v20250901preview:Rule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Rule, __self__).__init__(
             'azure-native:cdn:Rule',

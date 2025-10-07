@@ -29,7 +29,7 @@ class SitesByServiceGroupArgs:
         The set of arguments for constructing a SitesByServiceGroup resource.
         :param pulumi.Input[builtins.str] servicegroup_name: The name of the service group
         :param pulumi.Input['SitePropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[builtins.str] site_name: The name of the site
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         pulumi.set(__self__, "servicegroup_name", servicegroup_name)
         if properties is not None:
@@ -65,7 +65,7 @@ class SitesByServiceGroupArgs:
     @pulumi.getter(name="siteName")
     def site_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        The name of the site
+        The name of the Site
         """
         return pulumi.get(self, "site_name")
 
@@ -95,7 +95,7 @@ class SitesByServiceGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[builtins.str] servicegroup_name: The name of the service group
-        :param pulumi.Input[builtins.str] site_name: The name of the site
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         ...
     @overload

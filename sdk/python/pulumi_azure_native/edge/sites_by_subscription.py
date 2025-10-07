@@ -27,7 +27,7 @@ class SitesBySubscriptionArgs:
         """
         The set of arguments for constructing a SitesBySubscription resource.
         :param pulumi.Input['SitePropertiesArgs'] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[builtins.str] site_name: Name of Site resource
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
@@ -50,7 +50,7 @@ class SitesBySubscriptionArgs:
     @pulumi.getter(name="siteName")
     def site_name(self) -> Optional[pulumi.Input[builtins.str]]:
         """
-        Name of Site resource
+        The name of the Site
         """
         return pulumi.get(self, "site_name")
 
@@ -78,7 +78,7 @@ class SitesBySubscription(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['SitePropertiesArgs', 'SitePropertiesArgsDict']] properties: The resource-specific properties for this resource.
-        :param pulumi.Input[builtins.str] site_name: Name of Site resource
+        :param pulumi.Input[builtins.str] site_name: The name of the Site
         """
         ...
     @overload

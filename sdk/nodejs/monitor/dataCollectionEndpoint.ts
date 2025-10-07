@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Definition of ARM tracked top level resource.
  *
  * Uses Azure REST API version 2022-06-01.
+ *
+ * Other available API versions: 2024-03-11. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native monitor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
@@ -173,7 +175,7 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20220601:DataCollectionEndpoint" }, { type: "azure-native:insights/v20230311:DataCollectionEndpoint" }, { type: "azure-native:insights:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20210401:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20210901preview:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20220601:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20230311:DataCollectionEndpoint" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights/v20220601:DataCollectionEndpoint" }, { type: "azure-native:insights/v20230311:DataCollectionEndpoint" }, { type: "azure-native:insights:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20210401:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20210901preview:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20220601:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20230311:DataCollectionEndpoint" }, { type: "azure-native:monitor/v20240311:DataCollectionEndpoint" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DataCollectionEndpoint.__pulumiType, name, resourceInputs, opts);
     }

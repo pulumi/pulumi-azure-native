@@ -60,11 +60,11 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// Create the service with the Default Compute.
         /// </summary>
-        public static ComputeType Default { get; } = new ComputeType("default");
+        public static ComputeType Default { get; } = new ComputeType("Default");
         /// <summary>
         /// Create the service with Azure Confidential Compute.
         /// </summary>
-        public static ComputeType Confidential { get; } = new ComputeType("confidential");
+        public static ComputeType Confidential { get; } = new ComputeType("Confidential");
 
         public static bool operator ==(ComputeType left, ComputeType right) => left.Equals(right);
         public static bool operator !=(ComputeType left, ComputeType right) => !left.Equals(right);
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'default' or 'highDensity'. For all other SKUs, this value must be 'default'.
+    /// Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
     /// </summary>
     [EnumType]
     public readonly struct HostingMode : IEquatable<HostingMode>
@@ -97,11 +97,11 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The limit on number of indexes is determined by the default limits for the SKU.
         /// </summary>
-        public static HostingMode Default { get; } = new HostingMode("default");
+        public static HostingMode Default { get; } = new HostingMode("Default");
         /// <summary>
         /// Only application for standard3 SKU, where the search service can have up to 1000 indexes.
         /// </summary>
-        public static HostingMode HighDensity { get; } = new HostingMode("highDensity");
+        public static HostingMode HighDensity { get; } = new HostingMode("HighDensity");
 
         public static bool operator ==(HostingMode left, HostingMode right) => left.Equals(right);
         public static bool operator !=(HostingMode left, HostingMode right) => !left.Equals(right);
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.Search
     }
 
     /// <summary>
-    /// This value can be set to 'enabled' to avoid breaking changes on existing customer resources and templates. If set to 'disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
+    /// This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -277,15 +277,15 @@ namespace Pulumi.AzureNative.Search
         /// <summary>
         /// The search service is accessible from traffic originating from the public internet.
         /// </summary>
-        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("enabled");
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
         /// <summary>
         /// The search service is not accessible from traffic originating from the public internet. Access is only permitted over approved private endpoint connections.
         /// </summary>
-        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("disabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
         /// <summary>
         /// The network security perimeter configuration rules allow or disallow public network access to the resource. Requires an associated network security perimeter.
         /// </summary>
-        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("securedByPerimeter");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
 
         public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
         public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);

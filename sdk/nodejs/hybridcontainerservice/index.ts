@@ -30,6 +30,11 @@ export const getHybridIdentityMetadatum: typeof import("./getHybridIdentityMetad
 export const getHybridIdentityMetadatumOutput: typeof import("./getHybridIdentityMetadatum").getHybridIdentityMetadatumOutput = null as any;
 utilities.lazyLoad(exports, ["getHybridIdentityMetadatum","getHybridIdentityMetadatumOutput"], () => require("./getHybridIdentityMetadatum"));
 
+export { GetKubernetesVersionsArgs, GetKubernetesVersionsResult, GetKubernetesVersionsOutputArgs } from "./getKubernetesVersions";
+export const getKubernetesVersions: typeof import("./getKubernetesVersions").getKubernetesVersions = null as any;
+export const getKubernetesVersionsOutput: typeof import("./getKubernetesVersions").getKubernetesVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getKubernetesVersions","getKubernetesVersionsOutput"], () => require("./getKubernetesVersions"));
+
 export { GetProvisionedClusterArgs, GetProvisionedClusterResult, GetProvisionedClusterOutputArgs } from "./getProvisionedCluster";
 export const getProvisionedCluster: typeof import("./getProvisionedCluster").getProvisionedCluster = null as any;
 export const getProvisionedClusterOutput: typeof import("./getProvisionedCluster").getProvisionedClusterOutput = null as any;
@@ -40,6 +45,11 @@ export const getStorageSpaceRetrieve: typeof import("./getStorageSpaceRetrieve")
 export const getStorageSpaceRetrieveOutput: typeof import("./getStorageSpaceRetrieve").getStorageSpaceRetrieveOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageSpaceRetrieve","getStorageSpaceRetrieveOutput"], () => require("./getStorageSpaceRetrieve"));
 
+export { GetVMSkusArgs, GetVMSkusResult, GetVMSkusOutputArgs } from "./getVMSkus";
+export const getVMSkus: typeof import("./getVMSkus").getVMSkus = null as any;
+export const getVMSkusOutput: typeof import("./getVMSkus").getVMSkusOutput = null as any;
+utilities.lazyLoad(exports, ["getVMSkus","getVMSkusOutput"], () => require("./getVMSkus"));
+
 export { GetVirtualNetworkRetrieveArgs, GetVirtualNetworkRetrieveResult, GetVirtualNetworkRetrieveOutputArgs } from "./getVirtualNetworkRetrieve";
 export const getVirtualNetworkRetrieve: typeof import("./getVirtualNetworkRetrieve").getVirtualNetworkRetrieve = null as any;
 export const getVirtualNetworkRetrieveOutput: typeof import("./getVirtualNetworkRetrieve").getVirtualNetworkRetrieveOutput = null as any;
@@ -49,6 +59,11 @@ export { HybridIdentityMetadatumArgs } from "./hybridIdentityMetadatum";
 export type HybridIdentityMetadatum = import("./hybridIdentityMetadatum").HybridIdentityMetadatum;
 export const HybridIdentityMetadatum: typeof import("./hybridIdentityMetadatum").HybridIdentityMetadatum = null as any;
 utilities.lazyLoad(exports, ["HybridIdentityMetadatum"], () => require("./hybridIdentityMetadatum"));
+
+export { KubernetesVersionsArgs } from "./kubernetesVersions";
+export type KubernetesVersions = import("./kubernetesVersions").KubernetesVersions;
+export const KubernetesVersions: typeof import("./kubernetesVersions").KubernetesVersions = null as any;
+utilities.lazyLoad(exports, ["KubernetesVersions"], () => require("./kubernetesVersions"));
 
 export { ListProvisionedClusterInstanceAdminKubeconfigArgs, ListProvisionedClusterInstanceAdminKubeconfigResult, ListProvisionedClusterInstanceAdminKubeconfigOutputArgs } from "./listProvisionedClusterInstanceAdminKubeconfig";
 export const listProvisionedClusterInstanceAdminKubeconfig: typeof import("./listProvisionedClusterInstanceAdminKubeconfig").listProvisionedClusterInstanceAdminKubeconfig = null as any;
@@ -75,6 +90,11 @@ export type VirtualNetworkRetrieve = import("./virtualNetworkRetrieve").VirtualN
 export const VirtualNetworkRetrieve: typeof import("./virtualNetworkRetrieve").VirtualNetworkRetrieve = null as any;
 utilities.lazyLoad(exports, ["VirtualNetworkRetrieve"], () => require("./virtualNetworkRetrieve"));
 
+export { VMSkusArgs } from "./vmskus";
+export type VMSkus = import("./vmskus").VMSkus;
+export const VMSkus: typeof import("./vmskus").VMSkus = null as any;
+utilities.lazyLoad(exports, ["VMSkus"], () => require("./vmskus"));
+
 
 // Export enums:
 export * from "../types/enums/hybridcontainerservice";
@@ -89,10 +109,14 @@ const _module = {
                 return new ClusterInstanceHybridIdentityMetadatum(name, <any>undefined, { urn })
             case "azure-native:hybridcontainerservice:HybridIdentityMetadatum":
                 return new HybridIdentityMetadatum(name, <any>undefined, { urn })
+            case "azure-native:hybridcontainerservice:KubernetesVersions":
+                return new KubernetesVersions(name, <any>undefined, { urn })
             case "azure-native:hybridcontainerservice:ProvisionedCluster":
                 return new ProvisionedCluster(name, <any>undefined, { urn })
             case "azure-native:hybridcontainerservice:StorageSpaceRetrieve":
                 return new StorageSpaceRetrieve(name, <any>undefined, { urn })
+            case "azure-native:hybridcontainerservice:VMSkus":
+                return new VMSkus(name, <any>undefined, { urn })
             case "azure-native:hybridcontainerservice:VirtualNetworkRetrieve":
                 return new VirtualNetworkRetrieve(name, <any>undefined, { urn })
             default:

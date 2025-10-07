@@ -52,6 +52,8 @@ def get_private_dns_zone_suffix(opts: Optional[pulumi.InvokeOptions] = None) -> 
     Gets the private DNS zone suffix.
 
     Uses Azure REST API version 2025-06-01-preview.
+
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -64,6 +66,8 @@ def get_private_dns_zone_suffix_output(opts: Optional[Union[pulumi.InvokeOptions
     Gets the private DNS zone suffix.
 
     Uses Azure REST API version 2025-06-01-preview.
+
+    Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     """
     __args__ = dict()
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
