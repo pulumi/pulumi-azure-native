@@ -168,6 +168,20 @@
     "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
   },
   {
+    "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/DnsResolver/preview/2025-10-01-preview/openapi.json",
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
+    "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/DnsResolver/preview/2025-10-01-preview/openapi.json",
+    "OperationID": "VirtualNetworkLinks_Get",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",
+    "GeneratedName": "VirtualNetworkLink",
+    "DisambiguatedName": "PrivateResolverVirtualNetworkLink"
+  },
+  {
     "FileLocation": "specification/dnsresolver/resource-manager/Microsoft.Network/DnsResolver/stable/2022-07-01/dnsresolver.json",
     "OperationID": "VirtualNetworkLinks_Get",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsForwardingRulesets/{dnsForwardingRulesetName}/virtualNetworkLinks/{virtualNetworkLinkName}",

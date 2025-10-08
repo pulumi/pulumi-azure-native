@@ -2562,6 +2562,20 @@
     "Property": "jobType"
   },
   {
+    "VersionedModule": "azurestackhci/v20251001",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
+    "VersionedModule": "azurestackhci/v20251001",
+    "Module": "AzureStackHCI",
+    "ResourceName": "HciEdgeDeviceJob",
+    "ReferenceName": "HciEdgeDeviceJobType",
+    "Property": "jobType"
+  },
+  {
     "VersionedModule": "botservice",
     "Module": "BotService",
     "ResourceName": "Bot",
@@ -3253,6 +3267,13 @@
     "ResourceName": "IdentityBinding",
     "ReferenceName": "IdentityBindingManagedIdentityProfile",
     "Property": "managedIdentity"
+  },
+  {
+    "VersionedModule": "containerservice",
+    "Module": "ContainerService",
+    "ResourceName": "NodeCustomization",
+    "ReferenceName": "NodeCustomizationScript",
+    "Property": "name"
   },
   {
     "VersionedModule": "containerservice",
@@ -8779,6 +8800,55 @@
   },
   {
     "VersionedModule": "iotoperations/v20250701preview",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "VolumeClaimSpec",
+    "Property": "persistentVolumeClaimSpec"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "AdvancedSettings",
+    "Property": "advanced"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "Cardinality",
+    "Property": "cardinality"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "DiskBackedMessageBuffer",
+    "Property": "diskBackedMessageBuffer"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "GenerateResourceLimits",
+    "Property": "generateResourceLimits"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerProperties",
+    "Property": "memoryProfile"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
+    "Module": "IoTOperations",
+    "ResourceName": "Broker",
+    "ReferenceName": "BrokerPersistence",
+    "Property": "maxSize"
+  },
+  {
+    "VersionedModule": "iotoperations/v20251001",
     "Module": "IoTOperations",
     "ResourceName": "Broker",
     "ReferenceName": "VolumeClaimSpec",
@@ -98166,6 +98236,34 @@
     "ResourceName": "MongoCluster",
     "ReferenceName": "MongoClusterRestoreParameters",
     "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "monitor",
+    "Module": "Monitor",
+    "ResourceName": "Relationship",
+    "ReferenceName": "stringResourceName",
+    "Property": "childEntityName"
+  },
+  {
+    "VersionedModule": "monitor",
+    "Module": "Monitor",
+    "ResourceName": "Relationship",
+    "ReferenceName": "stringResourceName",
+    "Property": "parentEntityName"
+  },
+  {
+    "VersionedModule": "monitor/v20250503preview",
+    "Module": "Monitor",
+    "ResourceName": "Relationship",
+    "ReferenceName": "stringResourceName",
+    "Property": "childEntityName"
+  },
+  {
+    "VersionedModule": "monitor/v20250503preview",
+    "Module": "Monitor",
+    "ResourceName": "Relationship",
+    "ReferenceName": "stringResourceName",
+    "Property": "parentEntityName"
   },
   {
     "VersionedModule": "netapp",

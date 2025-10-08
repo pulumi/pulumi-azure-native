@@ -4613,7 +4613,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "Cluster": [
       "2020-03-01-preview",
@@ -4640,7 +4641,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "DeploymentSetting": [
       "2023-08-01-preview",
@@ -4651,7 +4653,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "EdgeDevice": [
       "2023-08-01-preview",
@@ -4662,13 +4665,15 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "EdgeDeviceJob": [
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "Extension": [
       "2021-01-01-preview",
@@ -4693,7 +4698,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "GalleryImage": [
       "2022-12-15-preview",
@@ -4811,7 +4817,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "StorageContainer": [
       "2022-12-15-preview",
@@ -4845,7 +4852,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "UpdateRun": [
       "2022-12-01",
@@ -4862,7 +4870,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "UpdateSummary": [
       "2022-12-01",
@@ -4879,7 +4888,8 @@
       "2024-09-01-preview",
       "2024-12-01-preview",
       "2025-02-01-preview",
-      "2025-09-15-preview"
+      "2025-09-15-preview",
+      "2025-10-01"
     ],
     "VirtualHardDisk": [
       "2022-12-15-preview",
@@ -11066,7 +11076,8 @@
       "2024-04-01",
       "2025-01-01",
       "2025-02-01",
-      "2025-07-01"
+      "2025-07-01",
+      "2025-09-01"
     ],
     "BackupPolicy": [
       "2021-01-01",
@@ -11097,7 +11108,8 @@
       "2024-04-01",
       "2025-01-01",
       "2025-02-01",
-      "2025-07-01"
+      "2025-07-01",
+      "2025-09-01"
     ],
     "BackupVault": [
       "2021-01-01",
@@ -11128,7 +11140,8 @@
       "2024-04-01",
       "2025-01-01",
       "2025-02-01",
-      "2025-07-01"
+      "2025-07-01",
+      "2025-09-01"
     ],
     "DppResourceGuardProxy": [
       "2022-09-01-preview",
@@ -11146,7 +11159,8 @@
       "2024-04-01",
       "2025-01-01",
       "2025-02-01",
-      "2025-07-01"
+      "2025-07-01",
+      "2025-09-01"
     ],
     "ResourceGuard": [
       "2021-07-01",
@@ -11174,7 +11188,8 @@
       "2024-04-01",
       "2025-01-01",
       "2025-02-01",
-      "2025-07-01"
+      "2025-07-01",
+      "2025-09-01"
     ]
   },
   "DataReplication": {
@@ -12532,69 +12547,82 @@
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "DnsResolver": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "DnsResolverDomainList": [
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "DnsResolverPolicy": [
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "DnsResolverPolicyVirtualNetworkLink": [
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "DnsSecurityRule": [
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "ForwardingRule": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "InboundEndpoint": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "OutboundEndpoint": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "PrivateResolverVirtualNetworkLink": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "listDnsForwardingRulesetByVirtualNetwork": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "listDnsResolverByVirtualNetwork": [
       "2020-04-01-preview",
       "2022-07-01",
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ],
     "listDnsResolverPolicyByVirtualNetwork": [
       "2023-07-01-preview",
-      "2025-05-01"
+      "2025-05-01",
+      "2025-10-01-preview"
     ]
   },
   "DomainRegistration": {
@@ -12756,6 +12784,10 @@
       "2025-08-01"
     ],
     "Schema": [
+      "2025-06-01",
+      "2025-08-01"
+    ],
+    "SchemaReference": [
       "2025-06-01",
       "2025-08-01"
     ],
@@ -14948,10 +14980,12 @@
   },
   "IoTOperations": {
     "AkriConnector": [
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "AkriConnectorTemplate": [
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "Broker": [
       "2024-07-01-preview",
@@ -14959,7 +14993,8 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "BrokerAuthentication": [
       "2024-07-01-preview",
@@ -14967,7 +15002,8 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "BrokerAuthorization": [
       "2024-07-01-preview",
@@ -14975,7 +15011,8 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "BrokerListener": [
       "2024-07-01-preview",
@@ -14983,7 +15020,8 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "DataFlow": [
       "2024-07-01-preview"
@@ -14999,24 +15037,28 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "DataflowEndpoint": [
       "2024-08-15-preview",
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "DataflowGraph": [
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "DataflowProfile": [
       "2024-08-15-preview",
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "Instance": [
       "2024-07-01-preview",
@@ -15024,10 +15066,12 @@
       "2024-09-15-preview",
       "2024-11-01",
       "2025-04-01",
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ],
     "RegistryEndpoint": [
-      "2025-07-01-preview"
+      "2025-07-01-preview",
+      "2025-10-01"
     ]
   },
   "IoTOperationsDataProcessor": {
@@ -18247,6 +18291,9 @@
       "2020-10-01",
       "2023-01-01-preview"
     ],
+    "AuthenticationSetting": [
+      "2025-05-03-preview"
+    ],
     "AutoscaleSetting": [
       "2014-04-01",
       "2015-04-01",
@@ -18286,11 +18333,20 @@
       "2017-05-01-preview",
       "2021-05-01-preview"
     ],
+    "DiscoveryRule": [
+      "2025-05-03-preview"
+    ],
+    "Entity": [
+      "2025-05-03-preview"
+    ],
     "GuestDiagnosticsSetting": [
       "2018-06-01-preview"
     ],
     "GuestDiagnosticsSettingsAssociation": [
       "2018-06-01-preview"
+    ],
+    "HealthModel": [
+      "2025-05-03-preview"
     ],
     "Issue": [
       "2025-05-03-preview"
@@ -18328,6 +18384,9 @@
       "2021-09-01",
       "2023-06-01-preview"
     ],
+    "Relationship": [
+      "2025-05-03-preview"
+    ],
     "ScheduledQueryRule": [
       "2018-04-16",
       "2020-05-01-preview",
@@ -18339,6 +18398,9 @@
       "2023-12-01",
       "2024-01-01-preview",
       "2025-01-01-preview"
+    ],
+    "SignalDefinition": [
+      "2025-05-03-preview"
     ],
     "SubscriptionDiagnosticSetting": [
       "2017-05-01-preview",
