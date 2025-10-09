@@ -157,7 +157,8 @@
     "2025-02-01-preview",
     "2025-04-01-preview",
     "2025-06-01-preview",
-    "2025-09-15-preview"
+    "2025-09-15-preview",
+    "2025-10-01"
   ],
   "AzureTerraform": [],
   "BareMetalInfrastructure": [],
@@ -501,7 +502,8 @@
     "2025-08-01"
   ],
   "Dashboard": [
-    "2024-11-01-preview"
+    "2024-11-01-preview",
+    "2025-08-01"
   ],
   "DataBox": [
     "2025-02-01",
@@ -521,7 +523,8 @@
   ],
   "DataProtection": [
     "2025-02-01",
-    "2025-07-01"
+    "2025-07-01",
+    "2025-09-01"
   ],
   "DataReplication": [
     "2024-09-01"
@@ -583,7 +586,8 @@
   "DigitalTwins": [],
   "Dns": [],
   "DnsResolver": [
-    "2025-05-01"
+    "2025-05-01",
+    "2025-10-01-preview"
   ],
   "DomainRegistration": [
     "2024-11-01"
@@ -733,7 +737,8 @@
   ],
   "IoTOperations": [
     "2025-04-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-10-01"
   ],
   "IoTOperationsDataProcessor": [],
   "IoTOperationsMQ": [],

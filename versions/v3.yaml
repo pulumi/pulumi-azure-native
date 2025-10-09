@@ -2857,6 +2857,11 @@ Cdn:
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-06-01-preview/afdx.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/keyGroups/{keyGroupName}
         RpNamespace: Microsoft.Cdn
+    KnowledgeSource:
+        ApiVersion: 2025-09-01-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-09-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}/knowledgeSources/{knowledgeSourceName}
+        RpNamespace: Microsoft.Cdn
     Origin:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
@@ -2876,6 +2881,11 @@ Cdn:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}
+        RpNamespace: Microsoft.Cdn
+    ProfileAgent:
+        ApiVersion: 2025-09-01-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-09-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/agents/{agentName}
         RpNamespace: Microsoft.Cdn
     Route:
         ApiVersion: "2025-06-01"
@@ -2906,6 +2916,11 @@ Cdn:
         ApiVersion: 2024-06-01-preview
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-06-01-preview/afdx.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/tunnelPolicies/{tunnelPolicyName}
+        RpNamespace: Microsoft.Cdn
+    WebAgent:
+        ApiVersion: 2025-09-01-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-09-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}
         RpNamespace: Microsoft.Cdn
     getProfileSupportedOptimizationTypes:
         ApiVersion: "2025-06-01"
@@ -3931,6 +3946,11 @@ ContainerService:
         ApiVersion: 2025-02-02-preview
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/namespaces/{namespaceName}
+        RpNamespace: Microsoft.ContainerService
+    NodeCustomization:
+        ApiVersion: 2025-08-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/node_customization/preview/2025-08-02-preview/nodecustomization.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/nodeCustomizations/{nodeCustomizationName}
         RpNamespace: Microsoft.ContainerService
     PrivateEndpointConnection:
         ApiVersion: "2024-10-01"
@@ -6002,6 +6022,11 @@ Edge:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-06-01/configurationmanager.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Edge/schemas/{schemaName}
+        RpNamespace: Microsoft.Edge
+    SchemaReference:
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/edge/resource-manager/Microsoft.Edge/configurationmanager/stable/2025-08-01/configurationmanager.json
+        ResourceUri: /{resourceUri}/providers/Microsoft.Edge/schemaReferences/{schemaReferenceName}
         RpNamespace: Microsoft.Edge
     SchemaVersion:
         ApiVersion: "2025-06-01"
@@ -8879,6 +8904,11 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/stable/2020-10-01/activityLogAlerts_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/activityLogAlerts/{activityLogAlertName}
         RpNamespace: Microsoft.Insights
+    AuthenticationSetting:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/authenticationsettings/{authenticationSettingName}
+        RpNamespace: Microsoft.Monitor
     AutoscaleSetting:
         ApiVersion: 2021-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/autoscale_API.json
@@ -8909,9 +8939,24 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/diagnosticsSettings_API.json
         ResourceUri: /{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{name}
         RpNamespace: Microsoft.Insights
+    DiscoveryRule:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/discoveryrules/{discoveryRuleName}
+        RpNamespace: Microsoft.Monitor
+    Entity:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/entities/{entityName}
+        RpNamespace: Microsoft.Monitor
+    HealthModel:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}
+        RpNamespace: Microsoft.Monitor
     Issue:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Issues/preview/2025-05-03-preview/issues.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}
         RpNamespace: Microsoft.Monitor
     ManagementGroupDiagnosticSetting:
@@ -8944,11 +8989,21 @@ Monitor:
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/PrivateLinkScopes/preview/2023-06-01-preview/privateLinkScopes_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/privateLinkScopes/{scopeName}/scopedResources/{name}
         RpNamespace: Microsoft.Insights
+    Relationship:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/relationships/{relationshipName}
+        RpNamespace: Microsoft.Monitor
     ScheduledQueryRule:
         ApiVersion: 2025-01-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2025-01-01-preview/scheduledQueryRule_API.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/scheduledQueryRules/{ruleName}
         RpNamespace: Microsoft.Insights
+    SignalDefinition:
+        ApiVersion: 2025-05-03-preview
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/healthmodels/{healthModelName}/signaldefinitions/{signalDefinitionName}
+        RpNamespace: Microsoft.Monitor
     SubscriptionDiagnosticSetting:
         ApiVersion: 2021-05-01-preview
         SpecFilePath: specification/monitor/resource-manager/Microsoft.Insights/preview/2021-05-01-preview/subscriptionDiagnosticsSettings_API.json
@@ -8966,12 +9021,12 @@ Monitor:
         RpNamespace: Microsoft.Insights
     listIssueAlerts:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Issues/preview/2025-05-03-preview/issues.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/listAlerts
         RpNamespace: Microsoft.Monitor
     listIssueResources:
         ApiVersion: 2025-05-03-preview
-        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Issues/preview/2025-05-03-preview/issues.json
+        SpecFilePath: specification/monitor/resource-manager/Microsoft.Monitor/Accounts/preview/2025-05-03-preview/azuremonitorworkspace.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Monitor/accounts/{azureMonitorWorkspaceName}/issues/{issueName}/listResources
         RpNamespace: Microsoft.Monitor
 MySQLDiscovery:
