@@ -42,51 +42,51 @@ export class SapInstance extends pulumi.CustomResource {
     /**
      * Enter a business function/department identifier to group multiple SIDs.
      */
-    public /*out*/ readonly application!: pulumi.Output<string>;
+    declare public /*out*/ readonly application: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Environment; PRD, QA, DEV, etc to which SAP system belongs to. Select from the list of available dropdown values.
      */
-    public /*out*/ readonly environment!: pulumi.Output<string>;
+    declare public /*out*/ readonly environment: pulumi.Output<string>;
     /**
      * Defines the errors related to SAP Instance resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
     /**
      * This is the SID of the production system in a landscape.  An SAP system could itself be a production SID or a part of a landscape with a different Production SID. This field can be used to relate non-prod SIDs, other components, SID (WEBDISP) to the prod SID. Enter the value of Production SID.
      */
-    public /*out*/ readonly landscapeSid!: pulumi.Output<string>;
+    declare public /*out*/ readonly landscapeSid: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * This is the SID of SAP System. Keeping this not equal to ID as different landscapes can have repeated System SID IDs.
      */
-    public /*out*/ readonly systemSid!: pulumi.Output<string>;
+    declare public /*out*/ readonly systemSid: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SapInstance resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class SapInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapDiscoverySiteName === undefined) && !opts.urn) {
+            if (args?.sapDiscoverySiteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapDiscoverySiteName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
-            resourceInputs["sapInstanceName"] = args ? args.sapInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
+            resourceInputs["sapInstanceName"] = args?.sapInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["application"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environment"] = undefined /*out*/;

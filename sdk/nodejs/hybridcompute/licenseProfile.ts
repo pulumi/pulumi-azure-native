@@ -44,91 +44,91 @@ export class LicenseProfile extends pulumi.CustomResource {
     /**
      * The resource id of the license.
      */
-    public readonly assignedLicense!: pulumi.Output<string | undefined>;
+    declare public readonly assignedLicense: pulumi.Output<string | undefined>;
     /**
      * The guid id of the license.
      */
-    public /*out*/ readonly assignedLicenseImmutableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly assignedLicenseImmutableId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The timestamp in UTC when the billing ends.
      */
-    public /*out*/ readonly billingEndDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingEndDate: pulumi.Output<string>;
     /**
      * The timestamp in UTC when the billing starts.
      */
-    public /*out*/ readonly billingStartDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly billingStartDate: pulumi.Output<string>;
     /**
      * The timestamp in UTC when the user disenrolled the feature.
      */
-    public /*out*/ readonly disenrollmentDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly disenrollmentDate: pulumi.Output<string>;
     /**
      * The timestamp in UTC when the user enrolls the feature.
      */
-    public /*out*/ readonly enrollmentDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly enrollmentDate: pulumi.Output<string>;
     /**
      * The errors that were encountered during the feature enrollment or disenrollment.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.hybridcompute.ErrorDetailResponse>;
     /**
      * Indicates the eligibility state of Esu.
      */
-    public /*out*/ readonly esuEligibility!: pulumi.Output<string>;
+    declare public /*out*/ readonly esuEligibility: pulumi.Output<string>;
     /**
      * Indicates whether there is an ESU Key currently active for the machine.
      */
-    public /*out*/ readonly esuKeyState!: pulumi.Output<string>;
+    declare public /*out*/ readonly esuKeyState: pulumi.Output<string>;
     /**
      * The list of ESU keys.
      */
-    public /*out*/ readonly esuKeys!: pulumi.Output<outputs.hybridcompute.EsuKeyResponse[]>;
+    declare public /*out*/ readonly esuKeys: pulumi.Output<outputs.hybridcompute.EsuKeyResponse[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of product features.
      */
-    public readonly productFeatures!: pulumi.Output<outputs.hybridcompute.ProductFeatureResponse[] | undefined>;
+    declare public readonly productFeatures: pulumi.Output<outputs.hybridcompute.ProductFeatureResponse[] | undefined>;
     /**
      * Indicates the product type of the license.
      */
-    public readonly productType!: pulumi.Output<string | undefined>;
+    declare public readonly productType: pulumi.Output<string | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The type of the Esu servers.
      */
-    public /*out*/ readonly serverType!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverType: pulumi.Output<string>;
     /**
      * Specifies if this machine is licensed as part of a Software Assurance agreement.
      */
-    public readonly softwareAssuranceCustomer!: pulumi.Output<boolean | undefined>;
+    declare public readonly softwareAssuranceCustomer: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the subscription status of the product.
      */
-    public readonly subscriptionStatus!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionStatus: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LicenseProfile resource with the given unique name, arguments, and options.
@@ -141,22 +141,22 @@ export class LicenseProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.machineName === undefined) && !opts.urn) {
+            if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assignedLicense"] = args ? args.assignedLicense : undefined;
-            resourceInputs["licenseProfileName"] = args ? args.licenseProfileName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["productFeatures"] = args ? args.productFeatures : undefined;
-            resourceInputs["productType"] = args ? args.productType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softwareAssuranceCustomer"] = args ? args.softwareAssuranceCustomer : undefined;
-            resourceInputs["subscriptionStatus"] = args ? args.subscriptionStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assignedLicense"] = args?.assignedLicense;
+            resourceInputs["licenseProfileName"] = args?.licenseProfileName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["productFeatures"] = args?.productFeatures;
+            resourceInputs["productType"] = args?.productType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softwareAssuranceCustomer"] = args?.softwareAssuranceCustomer;
+            resourceInputs["subscriptionStatus"] = args?.subscriptionStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["assignedLicenseImmutableId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["billingEndDate"] = undefined /*out*/;

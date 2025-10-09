@@ -44,91 +44,91 @@ export class PolicyAssignment extends pulumi.CustomResource {
     /**
      * The type of policy assignment. Possible values are NotSpecified, System, SystemHidden, and Custom. Immutable.
      */
-    public readonly assignmentType!: pulumi.Output<string | undefined>;
+    declare public readonly assignmentType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The version of the policy definition to use.
      */
-    public readonly definitionVersion!: pulumi.Output<string | undefined>;
+    declare public readonly definitionVersion: pulumi.Output<string | undefined>;
     /**
      * This message will be part of response in case of policy violation.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy assignment.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The effective version of the policy definition in use. This is only present if requested via the $expand query parameter.
      */
-    public /*out*/ readonly effectiveDefinitionVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly effectiveDefinitionVersion: pulumi.Output<string>;
     /**
      * The policy assignment enforcement mode. Possible values are Default, DoNotEnforce, and Enroll
      */
-    public readonly enforcementMode!: pulumi.Output<string | undefined>;
+    declare public readonly enforcementMode: pulumi.Output<string | undefined>;
     /**
      * The managed identity associated with the policy assignment.
      */
-    public readonly identity!: pulumi.Output<outputs.authorization.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.authorization.IdentityResponse | undefined>;
     /**
      * The instance ID of the policy assignment. This ID only and always changes when the assignment is deleted and recreated.
      */
-    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceId: pulumi.Output<string>;
     /**
      * The latest version of the policy definition available. This is only present if requested via the $expand query parameter.
      */
-    public /*out*/ readonly latestDefinitionVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestDefinitionVersion: pulumi.Output<string>;
     /**
      * The location of the policy assignment. Only required when utilizing managed identity.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * The name of the policy assignment.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The messages that describe why a resource is non-compliant with the policy.
      */
-    public readonly nonComplianceMessages!: pulumi.Output<outputs.authorization.NonComplianceMessageResponse[] | undefined>;
+    declare public readonly nonComplianceMessages: pulumi.Output<outputs.authorization.NonComplianceMessageResponse[] | undefined>;
     /**
      * The policy's excluded scopes.
      */
-    public readonly notScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly notScopes: pulumi.Output<string[] | undefined>;
     /**
      * The policy property value override.
      */
-    public readonly overrides!: pulumi.Output<outputs.authorization.OverrideResponse[] | undefined>;
+    declare public readonly overrides: pulumi.Output<outputs.authorization.OverrideResponse[] | undefined>;
     /**
      * The parameter values for the assigned policy rule. The keys are the parameter names.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.authorization.ParameterValuesValueResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.authorization.ParameterValuesValueResponse} | undefined>;
     /**
      * The ID of the policy definition or policy set definition being assigned.
      */
-    public readonly policyDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly policyDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The resource selector list to filter policies by resource properties.
      */
-    public readonly resourceSelectors!: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
+    declare public readonly resourceSelectors: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
     /**
      * The scope for the policy assignment.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * The system metadata relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the policy assignment.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PolicyAssignment resource with the given unique name, arguments, and options.
@@ -141,25 +141,25 @@ export class PolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignmentType"] = args ? args.assignmentType : undefined;
-            resourceInputs["definitionVersion"] = args ? args.definitionVersion : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enforcementMode"] = (args ? args.enforcementMode : undefined) ?? "Default";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["nonComplianceMessages"] = args ? args.nonComplianceMessages : undefined;
-            resourceInputs["notScopes"] = args ? args.notScopes : undefined;
-            resourceInputs["overrides"] = args ? args.overrides : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyAssignmentName"] = args ? args.policyAssignmentName : undefined;
-            resourceInputs["policyDefinitionId"] = args ? args.policyDefinitionId : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentType"] = args?.assignmentType;
+            resourceInputs["definitionVersion"] = args?.definitionVersion;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enforcementMode"] = (args?.enforcementMode) ?? "Default";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["nonComplianceMessages"] = args?.nonComplianceMessages;
+            resourceInputs["notScopes"] = args?.notScopes;
+            resourceInputs["overrides"] = args?.overrides;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyAssignmentName"] = args?.policyAssignmentName;
+            resourceInputs["policyDefinitionId"] = args?.policyDefinitionId;
+            resourceInputs["resourceSelectors"] = args?.resourceSelectors;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveDefinitionVersion"] = undefined /*out*/;
             resourceInputs["instanceId"] = undefined /*out*/;

@@ -44,79 +44,79 @@ export class ConnectionMonitor extends pulumi.CustomResource {
     /**
      * Determines if the connection monitor will start automatically once created.
      */
-    public readonly autoStart!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoStart: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of connection monitor.
      */
-    public /*out*/ readonly connectionMonitorType!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionMonitorType: pulumi.Output<string>;
     /**
      * Describes the destination of connection monitor.
      */
-    public readonly destination!: pulumi.Output<outputs.network.ConnectionMonitorDestinationResponse | undefined>;
+    declare public readonly destination: pulumi.Output<outputs.network.ConnectionMonitorDestinationResponse | undefined>;
     /**
      * List of connection monitor endpoints.
      */
-    public readonly endpoints!: pulumi.Output<outputs.network.ConnectionMonitorEndpointResponse[] | undefined>;
+    declare public readonly endpoints: pulumi.Output<outputs.network.ConnectionMonitorEndpointResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Connection monitor location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Monitoring interval in seconds.
      */
-    public readonly monitoringIntervalInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly monitoringIntervalInSeconds: pulumi.Output<number | undefined>;
     /**
      * The monitoring status of the connection monitor.
      */
-    public /*out*/ readonly monitoringStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly monitoringStatus: pulumi.Output<string>;
     /**
      * Name of the connection monitor.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optional notes to be associated with the connection monitor.
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * List of connection monitor outputs.
      */
-    public readonly outputs!: pulumi.Output<outputs.network.ConnectionMonitorOutputResponse[] | undefined>;
+    declare public readonly outputs: pulumi.Output<outputs.network.ConnectionMonitorOutputResponse[] | undefined>;
     /**
      * The provisioning state of the connection monitor.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Describes the source of connection monitor.
      */
-    public readonly source!: pulumi.Output<outputs.network.ConnectionMonitorSourceResponse | undefined>;
+    declare public readonly source: pulumi.Output<outputs.network.ConnectionMonitorSourceResponse | undefined>;
     /**
      * The date and time when the connection monitor was started.
      */
-    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly startTime: pulumi.Output<string>;
     /**
      * Connection monitor tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * List of connection monitor test configurations.
      */
-    public readonly testConfigurations!: pulumi.Output<outputs.network.ConnectionMonitorTestConfigurationResponse[] | undefined>;
+    declare public readonly testConfigurations: pulumi.Output<outputs.network.ConnectionMonitorTestConfigurationResponse[] | undefined>;
     /**
      * List of connection monitor test groups.
      */
-    public readonly testGroups!: pulumi.Output<outputs.network.ConnectionMonitorTestGroupResponse[] | undefined>;
+    declare public readonly testGroups: pulumi.Output<outputs.network.ConnectionMonitorTestGroupResponse[] | undefined>;
     /**
      * Connection monitor type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectionMonitor resource with the given unique name, arguments, and options.
@@ -129,27 +129,27 @@ export class ConnectionMonitor extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.networkWatcherName === undefined) && !opts.urn) {
+            if (args?.networkWatcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkWatcherName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoStart"] = (args ? args.autoStart : undefined) ?? true;
-            resourceInputs["connectionMonitorName"] = args ? args.connectionMonitorName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrate"] = args ? args.migrate : undefined;
-            resourceInputs["monitoringIntervalInSeconds"] = (args ? args.monitoringIntervalInSeconds : undefined) ?? 60;
-            resourceInputs["networkWatcherName"] = args ? args.networkWatcherName : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["testConfigurations"] = args ? args.testConfigurations : undefined;
-            resourceInputs["testGroups"] = args ? args.testGroups : undefined;
+            resourceInputs["autoStart"] = (args?.autoStart) ?? true;
+            resourceInputs["connectionMonitorName"] = args?.connectionMonitorName;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrate"] = args?.migrate;
+            resourceInputs["monitoringIntervalInSeconds"] = (args?.monitoringIntervalInSeconds) ?? 60;
+            resourceInputs["networkWatcherName"] = args?.networkWatcherName;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["testConfigurations"] = args?.testConfigurations;
+            resourceInputs["testGroups"] = args?.testGroups;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionMonitorType"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

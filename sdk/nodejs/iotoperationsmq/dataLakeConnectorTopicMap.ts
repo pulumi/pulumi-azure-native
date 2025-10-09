@@ -42,43 +42,43 @@ export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * DataLake Connector CRD to use.
      */
-    public readonly dataLakeConnectorRef!: pulumi.Output<string>;
+    declare public readonly dataLakeConnectorRef: pulumi.Output<string>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * TopicMap for DataLake connector.
      */
-    public readonly mapping!: pulumi.Output<outputs.iotoperationsmq.DataLakeConnectorMapResponse>;
+    declare public readonly mapping: pulumi.Output<outputs.iotoperationsmq.DataLakeConnectorMapResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataLakeConnectorTopicMap resource with the given unique name, arguments, and options.
@@ -91,33 +91,33 @@ export class DataLakeConnectorTopicMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataLakeConnectorName === undefined) && !opts.urn) {
+            if (args?.dataLakeConnectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeConnectorName'");
             }
-            if ((!args || args.dataLakeConnectorRef === undefined) && !opts.urn) {
+            if (args?.dataLakeConnectorRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataLakeConnectorRef'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.mapping === undefined) && !opts.urn) {
+            if (args?.mapping === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapping'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataLakeConnectorName"] = args ? args.dataLakeConnectorName : undefined;
-            resourceInputs["dataLakeConnectorRef"] = args ? args.dataLakeConnectorRef : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["dataLakeConnectorName"] = args?.dataLakeConnectorName;
+            resourceInputs["dataLakeConnectorRef"] = args?.dataLakeConnectorRef;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
             resourceInputs["mapping"] = args ? (args.mapping ? pulumi.output(args.mapping).apply(inputs.iotoperationsmq.dataLakeConnectorMapArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topicMapName"] = args ? args.topicMapName : undefined;
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topicMapName"] = args?.topicMapName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

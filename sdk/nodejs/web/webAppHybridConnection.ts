@@ -41,52 +41,52 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The hostname of the endpoint.
      */
-    public readonly hostname!: pulumi.Output<string | undefined>;
+    declare public readonly hostname: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The port of the endpoint.
      */
-    public readonly port!: pulumi.Output<number | undefined>;
+    declare public readonly port: pulumi.Output<number | undefined>;
     /**
      * The ARM URI to the Service Bus relay.
      */
-    public readonly relayArmUri!: pulumi.Output<string | undefined>;
+    declare public readonly relayArmUri: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Bus relay.
      */
-    public readonly relayName!: pulumi.Output<string | undefined>;
+    declare public readonly relayName: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Bus key which has Send permissions. This is used to authenticate to Service Bus.
      */
-    public readonly sendKeyName!: pulumi.Output<string | undefined>;
+    declare public readonly sendKeyName: pulumi.Output<string | undefined>;
     /**
      * The value of the Service Bus key. This is used to authenticate to Service Bus. In ARM this key will not be returned
      * normally, use the POST /listKeys API instead.
      */
-    public readonly sendKeyValue!: pulumi.Output<string | undefined>;
+    declare public readonly sendKeyValue: pulumi.Output<string | undefined>;
     /**
      * The name of the Service Bus namespace.
      */
-    public readonly serviceBusNamespace!: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusNamespace: pulumi.Output<string | undefined>;
     /**
      * The suffix for the service bus endpoint. By default this is .servicebus.windows.net
      */
-    public readonly serviceBusSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusSuffix: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppHybridConnection resource with the given unique name, arguments, and options.
@@ -99,27 +99,27 @@ export class WebAppHybridConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["hostname"] = args ? args.hostname : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["port"] = args ? args.port : undefined;
-            resourceInputs["relayArmUri"] = args ? args.relayArmUri : undefined;
-            resourceInputs["relayName"] = args ? args.relayName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sendKeyName"] = args ? args.sendKeyName : undefined;
-            resourceInputs["sendKeyValue"] = args ? args.sendKeyValue : undefined;
-            resourceInputs["serviceBusNamespace"] = args ? args.serviceBusNamespace : undefined;
-            resourceInputs["serviceBusSuffix"] = args ? args.serviceBusSuffix : undefined;
+            resourceInputs["hostname"] = args?.hostname;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["port"] = args?.port;
+            resourceInputs["relayArmUri"] = args?.relayArmUri;
+            resourceInputs["relayName"] = args?.relayName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sendKeyName"] = args?.sendKeyName;
+            resourceInputs["sendKeyValue"] = args?.sendKeyValue;
+            resourceInputs["serviceBusNamespace"] = args?.serviceBusNamespace;
+            resourceInputs["serviceBusSuffix"] = args?.serviceBusSuffix;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

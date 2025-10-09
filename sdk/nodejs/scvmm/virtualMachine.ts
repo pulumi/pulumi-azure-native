@@ -44,107 +44,107 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * Availability Sets in vm.
      */
-    public readonly availabilitySets!: pulumi.Output<outputs.scvmm.VirtualMachinePropertiesResponseAvailabilitySets[] | undefined>;
+    declare public readonly availabilitySets: pulumi.Output<outputs.scvmm.VirtualMachinePropertiesResponseAvailabilitySets[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of checkpoint supported for the vm.
      */
-    public readonly checkpointType!: pulumi.Output<string | undefined>;
+    declare public readonly checkpointType: pulumi.Output<string | undefined>;
     /**
      * Checkpoints in the vm.
      */
-    public readonly checkpoints!: pulumi.Output<outputs.scvmm.CheckpointResponse[] | undefined>;
+    declare public readonly checkpoints: pulumi.Output<outputs.scvmm.CheckpointResponse[] | undefined>;
     /**
      * ARM Id of the cloud resource to use for deploying the vm.
      */
-    public readonly cloudId!: pulumi.Output<string | undefined>;
+    declare public readonly cloudId: pulumi.Output<string | undefined>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.scvmm.ExtendedLocationResponse>;
     /**
      * Gets or sets the generation for the vm.
      */
-    public readonly generation!: pulumi.Output<number | undefined>;
+    declare public readonly generation: pulumi.Output<number | undefined>;
     /**
      * Guest agent status properties.
      */
-    public readonly guestAgentProfile!: pulumi.Output<outputs.scvmm.GuestAgentProfileResponse | undefined>;
+    declare public readonly guestAgentProfile: pulumi.Output<outputs.scvmm.GuestAgentProfileResponse | undefined>;
     /**
      * Hardware properties.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.scvmm.HardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.scvmm.HardwareProfileResponse | undefined>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.scvmm.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.scvmm.IdentityResponse | undefined>;
     /**
      * Gets or sets the inventory Item ID for the resource.
      */
-    public readonly inventoryItemId!: pulumi.Output<string | undefined>;
+    declare public readonly inventoryItemId: pulumi.Output<string | undefined>;
     /**
      * Last restored checkpoint in the vm.
      */
-    public /*out*/ readonly lastRestoredVMCheckpoint!: pulumi.Output<outputs.scvmm.CheckpointResponse>;
+    declare public /*out*/ readonly lastRestoredVMCheckpoint: pulumi.Output<outputs.scvmm.CheckpointResponse>;
     /**
      * Gets or sets the location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network properties.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.scvmm.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.scvmm.NetworkProfileResponse | undefined>;
     /**
      * OS properties.
      */
-    public readonly osProfile!: pulumi.Output<outputs.scvmm.OsProfileResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.scvmm.OsProfileResponse | undefined>;
     /**
      * Gets the power state of the virtual machine.
      */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
+    declare public /*out*/ readonly powerState: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Storage properties.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.scvmm.StorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.scvmm.StorageProfileResponse | undefined>;
     /**
      * The system data.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.scvmm.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.scvmm.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * ARM Id of the template resource to use for deploying the vm.
      */
-    public readonly templateId!: pulumi.Output<string | undefined>;
+    declare public readonly templateId: pulumi.Output<string | undefined>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique ID of the virtual machine.
      */
-    public readonly uuid!: pulumi.Output<string | undefined>;
+    declare public readonly uuid: pulumi.Output<string | undefined>;
     /**
      * VMName is the name of VM on the SCVMM server.
      */
-    public readonly vmName!: pulumi.Output<string | undefined>;
+    declare public readonly vmName: pulumi.Output<string | undefined>;
     /**
      * ARM Id of the vmmServer resource in which this resource resides.
      */
-    public readonly vmmServerId!: pulumi.Output<string | undefined>;
+    declare public readonly vmmServerId: pulumi.Output<string | undefined>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -157,33 +157,33 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["availabilitySets"] = args ? args.availabilitySets : undefined;
-            resourceInputs["checkpointType"] = args ? args.checkpointType : undefined;
-            resourceInputs["checkpoints"] = args ? args.checkpoints : undefined;
-            resourceInputs["cloudId"] = args ? args.cloudId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["generation"] = args ? args.generation : undefined;
-            resourceInputs["guestAgentProfile"] = args ? args.guestAgentProfile : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inventoryItemId"] = args ? args.inventoryItemId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["uuid"] = args ? args.uuid : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
-            resourceInputs["vmName"] = args ? args.vmName : undefined;
-            resourceInputs["vmmServerId"] = args ? args.vmmServerId : undefined;
+            resourceInputs["availabilitySets"] = args?.availabilitySets;
+            resourceInputs["checkpointType"] = args?.checkpointType;
+            resourceInputs["checkpoints"] = args?.checkpoints;
+            resourceInputs["cloudId"] = args?.cloudId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["generation"] = args?.generation;
+            resourceInputs["guestAgentProfile"] = args?.guestAgentProfile;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inventoryItemId"] = args?.inventoryItemId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["uuid"] = args?.uuid;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
+            resourceInputs["vmName"] = args?.vmName;
+            resourceInputs["vmmServerId"] = args?.vmmServerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastRestoredVMCheckpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

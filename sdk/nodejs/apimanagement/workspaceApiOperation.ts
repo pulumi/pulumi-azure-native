@@ -44,47 +44,47 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the operation. May include HTML formatting tags.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Operation Name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * A Valid HTTP Operation Method. Typical Http Methods like GET, PUT, POST but not limited by only them.
      */
-    public readonly method!: pulumi.Output<string>;
+    declare public readonly method: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Operation Policies
      */
-    public readonly policies!: pulumi.Output<string | undefined>;
+    declare public readonly policies: pulumi.Output<string | undefined>;
     /**
      * An entity containing request details.
      */
-    public readonly request!: pulumi.Output<outputs.apimanagement.RequestContractResponse | undefined>;
+    declare public readonly request: pulumi.Output<outputs.apimanagement.RequestContractResponse | undefined>;
     /**
      * Array of Operation responses.
      */
-    public readonly responses!: pulumi.Output<outputs.apimanagement.ResponseContractResponse[] | undefined>;
+    declare public readonly responses: pulumi.Output<outputs.apimanagement.ResponseContractResponse[] | undefined>;
     /**
      * Collection of URL template parameters.
      */
-    public readonly templateParameters!: pulumi.Output<outputs.apimanagement.ParameterContractResponse[] | undefined>;
+    declare public readonly templateParameters: pulumi.Output<outputs.apimanagement.ParameterContractResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Relative URL template identifying the target resource for this operation. May include parameters. Example: /customers/{cid}/orders/{oid}/?date={date}
      */
-    public readonly urlTemplate!: pulumi.Output<string>;
+    declare public readonly urlTemplate: pulumi.Output<string>;
 
     /**
      * Create a WorkspaceApiOperation resource with the given unique name, arguments, and options.
@@ -97,40 +97,40 @@ export class WorkspaceApiOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiId === undefined) && !opts.urn) {
+            if (args?.apiId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.method === undefined) && !opts.urn) {
+            if (args?.method === undefined && !opts.urn) {
                 throw new Error("Missing required property 'method'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.urlTemplate === undefined) && !opts.urn) {
+            if (args?.urlTemplate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'urlTemplate'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["method"] = args ? args.method : undefined;
-            resourceInputs["operationId"] = args ? args.operationId : undefined;
-            resourceInputs["policies"] = args ? args.policies : undefined;
-            resourceInputs["request"] = args ? args.request : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["responses"] = args ? args.responses : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["templateParameters"] = args ? args.templateParameters : undefined;
-            resourceInputs["urlTemplate"] = args ? args.urlTemplate : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["method"] = args?.method;
+            resourceInputs["operationId"] = args?.operationId;
+            resourceInputs["policies"] = args?.policies;
+            resourceInputs["request"] = args?.request;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["responses"] = args?.responses;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["templateParameters"] = args?.templateParameters;
+            resourceInputs["urlTemplate"] = args?.urlTemplate;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

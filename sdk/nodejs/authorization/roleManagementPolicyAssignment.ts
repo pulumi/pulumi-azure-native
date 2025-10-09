@@ -44,35 +44,35 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The readonly computed rule applied to the policy.
      */
-    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
+    declare public /*out*/ readonly effectiveRules: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
     /**
      * The role management policy name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Additional properties of scope, role definition and policy
      */
-    public /*out*/ readonly policyAssignmentProperties!: pulumi.Output<outputs.authorization.PolicyAssignmentPropertiesResponse>;
+    declare public /*out*/ readonly policyAssignmentProperties: pulumi.Output<outputs.authorization.PolicyAssignmentPropertiesResponse>;
     /**
      * The policy id role management policy assignment.
      */
-    public readonly policyId!: pulumi.Output<string | undefined>;
+    declare public readonly policyId: pulumi.Output<string | undefined>;
     /**
      * The role definition of management policy assignment.
      */
-    public readonly roleDefinitionId!: pulumi.Output<string | undefined>;
+    declare public readonly roleDefinitionId: pulumi.Output<string | undefined>;
     /**
      * The role management policy scope.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * The role management policy type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RoleManagementPolicyAssignment resource with the given unique name, arguments, and options.
@@ -85,13 +85,13 @@ export class RoleManagementPolicyAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["policyId"] = args ? args.policyId : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["roleManagementPolicyAssignmentName"] = args ? args.roleManagementPolicyAssignmentName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["policyId"] = args?.policyId;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["roleManagementPolicyAssignmentName"] = args?.roleManagementPolicyAssignmentName;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

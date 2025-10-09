@@ -42,39 +42,39 @@ export class LoadBalancer extends pulumi.CustomResource {
     /**
      * IP Range
      */
-    public readonly addresses!: pulumi.Output<string[]>;
+    declare public readonly addresses: pulumi.Output<string[]>;
     /**
      * Advertise Mode
      */
-    public readonly advertiseMode!: pulumi.Output<string>;
+    declare public readonly advertiseMode: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of BGP peers it should advertise to. Null or empty means to advertise to all peers.
      */
-    public readonly bgpPeers!: pulumi.Output<string[] | undefined>;
+    declare public readonly bgpPeers: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource provision state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A dynamic label mapping to select related services. For instance, if you want to create a load balancer only for services with label "a=b", then please specify {"a": "b"} in the field.
      */
-    public readonly serviceSelector!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly serviceSelector: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LoadBalancer resource with the given unique name, arguments, and options.
@@ -87,21 +87,21 @@ export class LoadBalancer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.addresses === undefined) && !opts.urn) {
+            if (args?.addresses === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addresses'");
             }
-            if ((!args || args.advertiseMode === undefined) && !opts.urn) {
+            if (args?.advertiseMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'advertiseMode'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["addresses"] = args ? args.addresses : undefined;
-            resourceInputs["advertiseMode"] = args ? args.advertiseMode : undefined;
-            resourceInputs["bgpPeers"] = args ? args.bgpPeers : undefined;
-            resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["serviceSelector"] = args ? args.serviceSelector : undefined;
+            resourceInputs["addresses"] = args?.addresses;
+            resourceInputs["advertiseMode"] = args?.advertiseMode;
+            resourceInputs["bgpPeers"] = args?.bgpPeers;
+            resourceInputs["loadBalancerName"] = args?.loadBalancerName;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["serviceSelector"] = args?.serviceSelector;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,35 +44,35 @@ export class ConnectionType extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * Gets or sets the description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * Gets the field definitions of the connection type.
      */
-    public readonly fieldDefinitions!: pulumi.Output<{[key: string]: outputs.automation.FieldDefinitionResponse}>;
+    declare public readonly fieldDefinitions: pulumi.Output<{[key: string]: outputs.automation.FieldDefinitionResponse}>;
     /**
      * Gets or sets a Boolean value to indicate if the connection type is global.
      */
-    public readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGlobal: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * Gets the name of the connection type.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectionType resource with the given unique name, arguments, and options.
@@ -85,24 +85,24 @@ export class ConnectionType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.fieldDefinitions === undefined) && !opts.urn) {
+            if (args?.fieldDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fieldDefinitions'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["connectionTypeName"] = args ? args.connectionTypeName : undefined;
-            resourceInputs["fieldDefinitions"] = args ? args.fieldDefinitions : undefined;
-            resourceInputs["isGlobal"] = args ? args.isGlobal : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["connectionTypeName"] = args?.connectionTypeName;
+            resourceInputs["fieldDefinitions"] = args?.fieldDefinitions;
+            resourceInputs["isGlobal"] = args?.isGlobal;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

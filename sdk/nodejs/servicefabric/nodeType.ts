@@ -44,223 +44,223 @@ export class NodeType extends pulumi.CustomResource {
     /**
      * Additional managed data disks.
      */
-    public readonly additionalDataDisks!: pulumi.Output<outputs.servicefabric.VmssDataDiskResponse[] | undefined>;
+    declare public readonly additionalDataDisks: pulumi.Output<outputs.servicefabric.VmssDataDiskResponse[] | undefined>;
     /**
      * Specifies the settings for any additional secondary network interfaces to attach to the node type.
      */
-    public readonly additionalNetworkInterfaceConfigurations!: pulumi.Output<outputs.servicefabric.AdditionalNetworkInterfaceConfigurationResponse[] | undefined>;
+    declare public readonly additionalNetworkInterfaceConfigurations: pulumi.Output<outputs.servicefabric.AdditionalNetworkInterfaceConfigurationResponse[] | undefined>;
     /**
      * The range of ports from which cluster assigned port to Service Fabric applications.
      */
-    public readonly applicationPorts!: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
+    declare public readonly applicationPorts: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has.
      */
-    public readonly capacities!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly capacities: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the computer name prefix. Limited to 9 characters. If specified, allows for a longer name to be specified for the node type name.
      */
-    public readonly computerNamePrefix!: pulumi.Output<string | undefined>;
+    declare public readonly computerNamePrefix: pulumi.Output<string | undefined>;
     /**
      * Managed data disk letter. It can not use the reserved letter C or D and it can not change after created.
      */
-    public readonly dataDiskLetter!: pulumi.Output<string | undefined>;
+    declare public readonly dataDiskLetter: pulumi.Output<string | undefined>;
     /**
      * Disk size for the managed disk attached to the vms on the node type in GBs.
      */
-    public readonly dataDiskSizeGB!: pulumi.Output<number | undefined>;
+    declare public readonly dataDiskSizeGB: pulumi.Output<number | undefined>;
     /**
      * Managed data disk type. Specifies the storage account type for the managed disk
      */
-    public readonly dataDiskType!: pulumi.Output<string | undefined>;
+    declare public readonly dataDiskType: pulumi.Output<string | undefined>;
     /**
      * Specifies the resource id of the DSCP configuration to apply to the node type network interface.
      */
-    public readonly dscpConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly dscpConfigurationId: pulumi.Output<string | undefined>;
     /**
      * Specifies whether the network interface is accelerated networking-enabled.
      */
-    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAcceleratedNetworking: pulumi.Output<boolean | undefined>;
     /**
      * Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource.
      */
-    public readonly enableEncryptionAtHost!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableEncryptionAtHost: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether each node is allocated its own public IPv4 address. This is only supported on secondary node types with custom Load Balancers.
      */
-    public readonly enableNodePublicIP!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNodePublicIP: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether each node is allocated its own public IPv6 address. This is only supported on secondary node types with custom Load Balancers.
      */
-    public readonly enableNodePublicIPv6!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableNodePublicIPv6: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types.
      */
-    public readonly enableOverProvisioning!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableOverProvisioning: pulumi.Output<boolean | undefined>;
     /**
      * The range of ephemeral ports that nodes in this node type should be configured with.
      */
-    public readonly ephemeralPorts!: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
+    declare public readonly ephemeralPorts: pulumi.Output<outputs.servicefabric.EndpointRangeDescriptionResponse | undefined>;
     /**
      * Specifies the eviction policy for virtual machines in a SPOT node type. Default is Delete.
      */
-    public readonly evictionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly evictionPolicy: pulumi.Output<string | undefined>;
     /**
      * Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created.
      */
-    public readonly frontendConfigurations!: pulumi.Output<outputs.servicefabric.FrontendConfigurationResponse[] | undefined>;
+    declare public readonly frontendConfigurations: pulumi.Output<outputs.servicefabric.FrontendConfigurationResponse[] | undefined>;
     /**
      * Specifies the full host group resource Id. This property is used for deploying on azure dedicated hosts.
      */
-    public readonly hostGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly hostGroupId: pulumi.Output<string | undefined>;
     /**
      * Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created.
      */
-    public readonly isPrimary!: pulumi.Output<boolean>;
+    declare public readonly isPrimary: pulumi.Output<boolean>;
     /**
      * Indicates whether the node type will be Spot Virtual Machines. Azure will allocate the VMs if there is capacity available and the VMs can be evicted at any time.
      */
-    public readonly isSpotVM!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSpotVM: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if the node type can only host Stateless workloads.
      */
-    public readonly isStateless!: pulumi.Output<boolean | undefined>;
+    declare public readonly isStateless: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if scale set associated with the node type can be composed of multiple placement groups.
      */
-    public readonly multiplePlacementGroups!: pulumi.Output<boolean | undefined>;
+    declare public readonly multiplePlacementGroups: pulumi.Output<boolean | undefined>;
     /**
      * Azure resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the NAT configuration on default public Load Balancer for the node type. This is only supported for node types use the default public Load Balancer.
      */
-    public readonly natConfigurations!: pulumi.Output<outputs.servicefabric.NodeTypeNatConfigResponse[] | undefined>;
+    declare public readonly natConfigurations: pulumi.Output<outputs.servicefabric.NodeTypeNatConfigResponse[] | undefined>;
     /**
      * Specifies the resource id of a NAT Gateway to attach to the subnet of this node type. Node type must use custom load balancer.
      */
-    public readonly natGatewayId!: pulumi.Output<string | undefined>;
+    declare public readonly natGatewayId: pulumi.Output<string | undefined>;
     /**
      * The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations.
      */
-    public readonly networkSecurityRules!: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
+    declare public readonly networkSecurityRules: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
     /**
      * The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run.
      */
-    public readonly placementProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly placementProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The provisioning state of the node type resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies whether secure boot should be enabled on the nodeType. Can only be used with TrustedLaunch SecurityType
      */
-    public readonly secureBootEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly secureBootEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies the security type of the nodeType. Only Standard and TrustedLaunch are currently supported
      */
-    public readonly securityType!: pulumi.Output<string | undefined>;
+    declare public readonly securityType: pulumi.Output<string | undefined>;
     /**
      * Specifies the service artifact reference id used to set same image version for all virtual machines in the scale set when using 'latest' image version.
      */
-    public readonly serviceArtifactReferenceId!: pulumi.Output<string | undefined>;
+    declare public readonly serviceArtifactReferenceId: pulumi.Output<string | undefined>;
     /**
      * The node type sku.
      */
-    public readonly sku!: pulumi.Output<outputs.servicefabric.NodeTypeSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.servicefabric.NodeTypeSkuResponse | undefined>;
     /**
      * Indicates the time duration after which the platform will not try to restore the VMSS SPOT instances specified as ISO 8601.
      */
-    public readonly spotRestoreTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly spotRestoreTimeout: pulumi.Output<string | undefined>;
     /**
      * Indicates the resource id of the subnet for the node type.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity.
      */
-    public readonly useDefaultPublicLoadBalancer!: pulumi.Output<boolean | undefined>;
+    declare public readonly useDefaultPublicLoadBalancer: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether to use ephemeral os disk. The sku selected on the vmSize property needs to support this feature.
      */
-    public readonly useEphemeralOSDisk!: pulumi.Output<boolean | undefined>;
+    declare public readonly useEphemeralOSDisk: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types.
      */
-    public readonly useTempDataDisk!: pulumi.Output<boolean | undefined>;
+    declare public readonly useTempDataDisk: pulumi.Output<boolean | undefined>;
     /**
      * Set of extensions that should be installed onto the virtual machines.
      */
-    public readonly vmExtensions!: pulumi.Output<outputs.servicefabric.VMSSExtensionResponse[] | undefined>;
+    declare public readonly vmExtensions: pulumi.Output<outputs.servicefabric.VMSSExtensionResponse[] | undefined>;
     /**
      * The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer.
      */
-    public readonly vmImageOffer!: pulumi.Output<string | undefined>;
+    declare public readonly vmImageOffer: pulumi.Output<string | undefined>;
     /**
      * Specifies information about the marketplace image used to create the virtual machine. This element is only used for marketplace images. Before you can use a marketplace image from an API, you must enable the image for programmatic use. In the Azure portal, find the marketplace image that you want to use and then click Want to deploy programmatically, Get Started ->. Enter any required information and then click Save.
      */
-    public readonly vmImagePlan!: pulumi.Output<outputs.servicefabric.VmImagePlanResponse | undefined>;
+    declare public readonly vmImagePlan: pulumi.Output<outputs.servicefabric.VmImagePlanResponse | undefined>;
     /**
      * The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer.
      */
-    public readonly vmImagePublisher!: pulumi.Output<string | undefined>;
+    declare public readonly vmImagePublisher: pulumi.Output<string | undefined>;
     /**
      * Indicates the resource id of the vm image. This parameter is used for custom vm image.
      */
-    public readonly vmImageResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly vmImageResourceId: pulumi.Output<string | undefined>;
     /**
      * The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter.
      */
-    public readonly vmImageSku!: pulumi.Output<string | undefined>;
+    declare public readonly vmImageSku: pulumi.Output<string | undefined>;
     /**
      * The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'.
      */
-    public readonly vmImageVersion!: pulumi.Output<string | undefined>;
+    declare public readonly vmImageVersion: pulumi.Output<string | undefined>;
     /**
      * The number of nodes in the node type. <br /><br />**Values:** <br />-1 - Use when auto scale rules are configured or sku.capacity is defined <br /> 0 - Not supported <br /> >0 - Use for manual scale.
      */
-    public readonly vmInstanceCount!: pulumi.Output<number>;
+    declare public readonly vmInstanceCount: pulumi.Output<number>;
     /**
      * Identities to assign to the virtual machine scale set under the node type.
      */
-    public readonly vmManagedIdentity!: pulumi.Output<outputs.servicefabric.VmManagedIdentityResponse | undefined>;
+    declare public readonly vmManagedIdentity: pulumi.Output<outputs.servicefabric.VmManagedIdentityResponse | undefined>;
     /**
      * The secrets to install in the virtual machines.
      */
-    public readonly vmSecrets!: pulumi.Output<outputs.servicefabric.VaultSecretGroupResponse[] | undefined>;
+    declare public readonly vmSecrets: pulumi.Output<outputs.servicefabric.VaultSecretGroupResponse[] | undefined>;
     /**
      * Specifies the actions to be performed on the vms before bootstrapping the service fabric runtime.
      */
-    public readonly vmSetupActions!: pulumi.Output<string[] | undefined>;
+    declare public readonly vmSetupActions: pulumi.Output<string[] | undefined>;
     /**
      * Indicates the resource id of the vm shared galleries image. This parameter is used for custom vm image.
      */
-    public readonly vmSharedGalleryImageId!: pulumi.Output<string | undefined>;
+    declare public readonly vmSharedGalleryImageId: pulumi.Output<string | undefined>;
     /**
      * The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3.
      */
-    public readonly vmSize!: pulumi.Output<string | undefined>;
+    declare public readonly vmSize: pulumi.Output<string | undefined>;
     /**
      * Specifies the availability zones where the node type would span across. If the cluster is not spanning across availability zones, initiates az migration for the cluster.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NodeType resource with the given unique name, arguments, and options.
@@ -273,71 +273,71 @@ export class NodeType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.isPrimary === undefined) && !opts.urn) {
+            if (args?.isPrimary === undefined && !opts.urn) {
                 throw new Error("Missing required property 'isPrimary'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmInstanceCount === undefined) && !opts.urn) {
+            if (args?.vmInstanceCount === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmInstanceCount'");
             }
-            resourceInputs["additionalDataDisks"] = args ? args.additionalDataDisks : undefined;
-            resourceInputs["additionalNetworkInterfaceConfigurations"] = args ? args.additionalNetworkInterfaceConfigurations : undefined;
-            resourceInputs["applicationPorts"] = args ? args.applicationPorts : undefined;
-            resourceInputs["capacities"] = args ? args.capacities : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["computerNamePrefix"] = args ? args.computerNamePrefix : undefined;
-            resourceInputs["dataDiskLetter"] = args ? args.dataDiskLetter : undefined;
-            resourceInputs["dataDiskSizeGB"] = args ? args.dataDiskSizeGB : undefined;
-            resourceInputs["dataDiskType"] = args ? args.dataDiskType : undefined;
-            resourceInputs["dscpConfigurationId"] = args ? args.dscpConfigurationId : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableEncryptionAtHost"] = (args ? args.enableEncryptionAtHost : undefined) ?? false;
-            resourceInputs["enableNodePublicIP"] = args ? args.enableNodePublicIP : undefined;
-            resourceInputs["enableNodePublicIPv6"] = args ? args.enableNodePublicIPv6 : undefined;
-            resourceInputs["enableOverProvisioning"] = args ? args.enableOverProvisioning : undefined;
-            resourceInputs["ephemeralPorts"] = args ? args.ephemeralPorts : undefined;
-            resourceInputs["evictionPolicy"] = args ? args.evictionPolicy : undefined;
-            resourceInputs["frontendConfigurations"] = args ? args.frontendConfigurations : undefined;
-            resourceInputs["hostGroupId"] = args ? args.hostGroupId : undefined;
-            resourceInputs["isPrimary"] = args ? args.isPrimary : undefined;
-            resourceInputs["isSpotVM"] = args ? args.isSpotVM : undefined;
-            resourceInputs["isStateless"] = (args ? args.isStateless : undefined) ?? false;
-            resourceInputs["multiplePlacementGroups"] = (args ? args.multiplePlacementGroups : undefined) ?? false;
-            resourceInputs["natConfigurations"] = args ? args.natConfigurations : undefined;
-            resourceInputs["natGatewayId"] = args ? args.natGatewayId : undefined;
-            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
-            resourceInputs["nodeTypeName"] = args ? args.nodeTypeName : undefined;
-            resourceInputs["placementProperties"] = args ? args.placementProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["secureBootEnabled"] = args ? args.secureBootEnabled : undefined;
-            resourceInputs["securityType"] = args ? args.securityType : undefined;
-            resourceInputs["serviceArtifactReferenceId"] = args ? args.serviceArtifactReferenceId : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["spotRestoreTimeout"] = args ? args.spotRestoreTimeout : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useDefaultPublicLoadBalancer"] = args ? args.useDefaultPublicLoadBalancer : undefined;
-            resourceInputs["useEphemeralOSDisk"] = args ? args.useEphemeralOSDisk : undefined;
-            resourceInputs["useTempDataDisk"] = args ? args.useTempDataDisk : undefined;
-            resourceInputs["vmExtensions"] = args ? args.vmExtensions : undefined;
-            resourceInputs["vmImageOffer"] = args ? args.vmImageOffer : undefined;
-            resourceInputs["vmImagePlan"] = args ? args.vmImagePlan : undefined;
-            resourceInputs["vmImagePublisher"] = args ? args.vmImagePublisher : undefined;
-            resourceInputs["vmImageResourceId"] = args ? args.vmImageResourceId : undefined;
-            resourceInputs["vmImageSku"] = args ? args.vmImageSku : undefined;
-            resourceInputs["vmImageVersion"] = args ? args.vmImageVersion : undefined;
-            resourceInputs["vmInstanceCount"] = args ? args.vmInstanceCount : undefined;
-            resourceInputs["vmManagedIdentity"] = args ? args.vmManagedIdentity : undefined;
-            resourceInputs["vmSecrets"] = args ? args.vmSecrets : undefined;
-            resourceInputs["vmSetupActions"] = args ? args.vmSetupActions : undefined;
-            resourceInputs["vmSharedGalleryImageId"] = args ? args.vmSharedGalleryImageId : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["additionalDataDisks"] = args?.additionalDataDisks;
+            resourceInputs["additionalNetworkInterfaceConfigurations"] = args?.additionalNetworkInterfaceConfigurations;
+            resourceInputs["applicationPorts"] = args?.applicationPorts;
+            resourceInputs["capacities"] = args?.capacities;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["computerNamePrefix"] = args?.computerNamePrefix;
+            resourceInputs["dataDiskLetter"] = args?.dataDiskLetter;
+            resourceInputs["dataDiskSizeGB"] = args?.dataDiskSizeGB;
+            resourceInputs["dataDiskType"] = args?.dataDiskType;
+            resourceInputs["dscpConfigurationId"] = args?.dscpConfigurationId;
+            resourceInputs["enableAcceleratedNetworking"] = args?.enableAcceleratedNetworking;
+            resourceInputs["enableEncryptionAtHost"] = (args?.enableEncryptionAtHost) ?? false;
+            resourceInputs["enableNodePublicIP"] = args?.enableNodePublicIP;
+            resourceInputs["enableNodePublicIPv6"] = args?.enableNodePublicIPv6;
+            resourceInputs["enableOverProvisioning"] = args?.enableOverProvisioning;
+            resourceInputs["ephemeralPorts"] = args?.ephemeralPorts;
+            resourceInputs["evictionPolicy"] = args?.evictionPolicy;
+            resourceInputs["frontendConfigurations"] = args?.frontendConfigurations;
+            resourceInputs["hostGroupId"] = args?.hostGroupId;
+            resourceInputs["isPrimary"] = args?.isPrimary;
+            resourceInputs["isSpotVM"] = args?.isSpotVM;
+            resourceInputs["isStateless"] = (args?.isStateless) ?? false;
+            resourceInputs["multiplePlacementGroups"] = (args?.multiplePlacementGroups) ?? false;
+            resourceInputs["natConfigurations"] = args?.natConfigurations;
+            resourceInputs["natGatewayId"] = args?.natGatewayId;
+            resourceInputs["networkSecurityRules"] = args?.networkSecurityRules;
+            resourceInputs["nodeTypeName"] = args?.nodeTypeName;
+            resourceInputs["placementProperties"] = args?.placementProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["secureBootEnabled"] = args?.secureBootEnabled;
+            resourceInputs["securityType"] = args?.securityType;
+            resourceInputs["serviceArtifactReferenceId"] = args?.serviceArtifactReferenceId;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["spotRestoreTimeout"] = args?.spotRestoreTimeout;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useDefaultPublicLoadBalancer"] = args?.useDefaultPublicLoadBalancer;
+            resourceInputs["useEphemeralOSDisk"] = args?.useEphemeralOSDisk;
+            resourceInputs["useTempDataDisk"] = args?.useTempDataDisk;
+            resourceInputs["vmExtensions"] = args?.vmExtensions;
+            resourceInputs["vmImageOffer"] = args?.vmImageOffer;
+            resourceInputs["vmImagePlan"] = args?.vmImagePlan;
+            resourceInputs["vmImagePublisher"] = args?.vmImagePublisher;
+            resourceInputs["vmImageResourceId"] = args?.vmImageResourceId;
+            resourceInputs["vmImageSku"] = args?.vmImageSku;
+            resourceInputs["vmImageVersion"] = args?.vmImageVersion;
+            resourceInputs["vmInstanceCount"] = args?.vmInstanceCount;
+            resourceInputs["vmManagedIdentity"] = args?.vmManagedIdentity;
+            resourceInputs["vmSecrets"] = args?.vmSecrets;
+            resourceInputs["vmSetupActions"] = args?.vmSetupActions;
+            resourceInputs["vmSharedGalleryImageId"] = args?.vmSharedGalleryImageId;
+            resourceInputs["vmSize"] = args?.vmSize;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

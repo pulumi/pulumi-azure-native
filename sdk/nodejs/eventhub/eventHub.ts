@@ -44,59 +44,59 @@ export class EventHub extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties of capture description
      */
-    public readonly captureDescription!: pulumi.Output<outputs.eventhub.CaptureDescriptionResponse | undefined>;
+    declare public readonly captureDescription: pulumi.Output<outputs.eventhub.CaptureDescriptionResponse | undefined>;
     /**
      * Exact time the Event Hub was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Number of days to retain the events for this Event Hub, value should be 1 to 7 days
      */
-    public readonly messageRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly messageRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions.
      */
-    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    declare public readonly partitionCount: pulumi.Output<number | undefined>;
     /**
      * Current number of shards on the Event Hub.
      */
-    public /*out*/ readonly partitionIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly partitionIds: pulumi.Output<string[]>;
     /**
      * Event Hub retention settings
      */
-    public readonly retentionDescription!: pulumi.Output<outputs.eventhub.RetentionDescriptionResponse | undefined>;
+    declare public readonly retentionDescription: pulumi.Output<outputs.eventhub.RetentionDescriptionResponse | undefined>;
     /**
      * Enumerates the possible values for the status of the Event Hub.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventhub.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The exact time the message was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Gets and Sets Metadata of User.
      */
-    public readonly userMetadata!: pulumi.Output<string | undefined>;
+    declare public readonly userMetadata: pulumi.Output<string | undefined>;
 
     /**
      * Create a EventHub resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class EventHub extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["captureDescription"] = args ? args.captureDescription : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["messageRetentionInDays"] = args ? args.messageRetentionInDays : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["partitionCount"] = args ? args.partitionCount : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDescription"] = args ? args.retentionDescription : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["userMetadata"] = args ? args.userMetadata : undefined;
+            resourceInputs["captureDescription"] = args?.captureDescription;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["messageRetentionInDays"] = args?.messageRetentionInDays;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["partitionCount"] = args?.partitionCount;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDescription"] = args?.retentionDescription;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["userMetadata"] = args?.userMetadata;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

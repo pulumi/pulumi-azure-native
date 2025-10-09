@@ -40,19 +40,19 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The pla name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The private link association properties.
      */
-    public readonly properties!: pulumi.Output<outputs.authorization.PrivateLinkAssociationPropertiesExpandedResponse>;
+    declare public readonly properties: pulumi.Output<outputs.authorization.PrivateLinkAssociationPropertiesExpandedResponse>;
     /**
      * The operation type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateLinkAssociation resource with the given unique name, arguments, and options.
@@ -65,12 +65,12 @@ export class PrivateLinkAssociation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["plaId"] = args ? args.plaId : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["plaId"] = args?.plaId;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

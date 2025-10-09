@@ -41,71 +41,71 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Config information.
      */
-    public readonly config!: pulumi.Output<any | undefined>;
+    declare public readonly config: pulumi.Output<any | undefined>;
     /**
      * Config URI.
      */
-    public readonly configHref!: pulumi.Output<string | undefined>;
+    declare public readonly configHref: pulumi.Output<string | undefined>;
     /**
      * File list.
      */
-    public readonly files!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly files: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Function App ID.
      */
-    public readonly functionAppId!: pulumi.Output<string | undefined>;
+    declare public readonly functionAppId: pulumi.Output<string | undefined>;
     /**
      * Function URI.
      */
-    public readonly href!: pulumi.Output<string | undefined>;
+    declare public readonly href: pulumi.Output<string | undefined>;
     /**
      * The invocation URL
      */
-    public readonly invokeUrlTemplate!: pulumi.Output<string | undefined>;
+    declare public readonly invokeUrlTemplate: pulumi.Output<string | undefined>;
     /**
      * Gets or sets a value indicating whether the function is disabled
      */
-    public readonly isDisabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDisabled: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The function language
      */
-    public readonly language!: pulumi.Output<string | undefined>;
+    declare public readonly language: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Script URI.
      */
-    public readonly scriptHref!: pulumi.Output<string | undefined>;
+    declare public readonly scriptHref: pulumi.Output<string | undefined>;
     /**
      * Script root path URI.
      */
-    public readonly scriptRootPathHref!: pulumi.Output<string | undefined>;
+    declare public readonly scriptRootPathHref: pulumi.Output<string | undefined>;
     /**
      * Secrets file URI.
      */
-    public readonly secretsFileHref!: pulumi.Output<string | undefined>;
+    declare public readonly secretsFileHref: pulumi.Output<string | undefined>;
     /**
      * Test data used when testing via the Azure Portal.
      */
-    public readonly testData!: pulumi.Output<string | undefined>;
+    declare public readonly testData: pulumi.Output<string | undefined>;
     /**
      * Test data URI.
      */
-    public readonly testDataHref!: pulumi.Output<string | undefined>;
+    declare public readonly testDataHref: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppInstanceFunctionSlot resource with the given unique name, arguments, and options.
@@ -118,33 +118,33 @@ export class WebAppInstanceFunctionSlot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.slot === undefined) && !opts.urn) {
+            if (args?.slot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'slot'");
             }
-            resourceInputs["config"] = args ? args.config : undefined;
-            resourceInputs["configHref"] = args ? args.configHref : undefined;
-            resourceInputs["files"] = args ? args.files : undefined;
-            resourceInputs["functionAppId"] = args ? args.functionAppId : undefined;
-            resourceInputs["functionName"] = args ? args.functionName : undefined;
-            resourceInputs["href"] = args ? args.href : undefined;
-            resourceInputs["invokeUrlTemplate"] = args ? args.invokeUrlTemplate : undefined;
-            resourceInputs["isDisabled"] = args ? args.isDisabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scriptHref"] = args ? args.scriptHref : undefined;
-            resourceInputs["scriptRootPathHref"] = args ? args.scriptRootPathHref : undefined;
-            resourceInputs["secretsFileHref"] = args ? args.secretsFileHref : undefined;
-            resourceInputs["slot"] = args ? args.slot : undefined;
-            resourceInputs["testData"] = args ? args.testData : undefined;
-            resourceInputs["testDataHref"] = args ? args.testDataHref : undefined;
+            resourceInputs["config"] = args?.config;
+            resourceInputs["configHref"] = args?.configHref;
+            resourceInputs["files"] = args?.files;
+            resourceInputs["functionAppId"] = args?.functionAppId;
+            resourceInputs["functionName"] = args?.functionName;
+            resourceInputs["href"] = args?.href;
+            resourceInputs["invokeUrlTemplate"] = args?.invokeUrlTemplate;
+            resourceInputs["isDisabled"] = args?.isDisabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scriptHref"] = args?.scriptHref;
+            resourceInputs["scriptRootPathHref"] = args?.scriptRootPathHref;
+            resourceInputs["secretsFileHref"] = args?.secretsFileHref;
+            resourceInputs["slot"] = args?.slot;
+            resourceInputs["testData"] = args?.testData;
+            resourceInputs["testDataHref"] = args?.testDataHref;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

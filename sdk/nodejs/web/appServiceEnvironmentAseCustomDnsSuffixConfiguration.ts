@@ -41,33 +41,33 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The URL referencing the Azure Key Vault certificate secret that should be used as the default SSL/TLS certificate for sites with the custom domain suffix.
      */
-    public readonly certificateUrl!: pulumi.Output<string | undefined>;
+    declare public readonly certificateUrl: pulumi.Output<string | undefined>;
     /**
      * The default custom domain suffix to use for all sites deployed on the ASE.
      */
-    public readonly dnsSuffix!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSuffix: pulumi.Output<string | undefined>;
     /**
      * The user-assigned identity to use for resolving the key vault certificate reference. If not specified, the system-assigned ASE identity will be used if available.
      */
-    public readonly keyVaultReferenceIdentity!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultReferenceIdentity: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningDetails!: pulumi.Output<string>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningDetails: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AppServiceEnvironmentAseCustomDnsSuffixConfiguration resource with the given unique name, arguments, and options.
@@ -80,18 +80,18 @@ export class AppServiceEnvironmentAseCustomDnsSuffixConfiguration extends pulumi
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateUrl"] = args ? args.certificateUrl : undefined;
-            resourceInputs["dnsSuffix"] = args ? args.dnsSuffix : undefined;
-            resourceInputs["keyVaultReferenceIdentity"] = args ? args.keyVaultReferenceIdentity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateUrl"] = args?.certificateUrl;
+            resourceInputs["dnsSuffix"] = args?.dnsSuffix;
+            resourceInputs["keyVaultReferenceIdentity"] = args?.keyVaultReferenceIdentity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningDetails"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

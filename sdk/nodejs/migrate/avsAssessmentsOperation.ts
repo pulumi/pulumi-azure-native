@@ -46,227 +46,227 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
      *             This is the number of machines
      * affected by each type of error in this assessment.
      */
-    public /*out*/ readonly assessmentErrorSummary!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly assessmentErrorSummary: pulumi.Output<{[key: string]: number}>;
     /**
      * Assessment type of the assessment.
      */
-    public /*out*/ readonly assessmentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly assessmentType: pulumi.Output<string>;
     /**
      * AVS Assessment Scenario.
      */
-    public readonly avsAssessmentScenario!: pulumi.Output<string | undefined>;
+    declare public readonly avsAssessmentScenario: pulumi.Output<string | undefined>;
     /**
      * Estimated External Storage for Assessment.
      */
-    public /*out*/ readonly avsEstimatedExternalStorages!: pulumi.Output<outputs.migrate.AvsEstimatedExternalStorageResponse[]>;
+    declare public /*out*/ readonly avsEstimatedExternalStorages: pulumi.Output<outputs.migrate.AvsEstimatedExternalStorageResponse[]>;
     /**
      * Estimated External Storage for Assessment.
      */
-    public /*out*/ readonly avsEstimatedNetworks!: pulumi.Output<outputs.migrate.AvsEstimatedNetworkResponse[]>;
+    declare public /*out*/ readonly avsEstimatedNetworks: pulumi.Output<outputs.migrate.AvsEstimatedNetworkResponse[]>;
     /**
      * Estimated AVS SKU for Assessment.
      */
-    public /*out*/ readonly avsEstimatedNodes!: pulumi.Output<outputs.migrate.AvsEstimatedNodeResponse[]>;
+    declare public /*out*/ readonly avsEstimatedNodes: pulumi.Output<outputs.migrate.AvsEstimatedNodeResponse[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure Location or Azure region where to which the machines will be migrated.
      */
-    public readonly azureLocation!: pulumi.Output<string | undefined>;
+    declare public readonly azureLocation: pulumi.Output<string | undefined>;
     /**
      * Azure Offer code according to which cost estimation is done.
      */
-    public readonly azureOfferCode!: pulumi.Output<string | undefined>;
+    declare public readonly azureOfferCode: pulumi.Output<string | undefined>;
     /**
      * Confidence Rating in Percentage.
      */
-    public /*out*/ readonly confidenceRatingInPercentage!: pulumi.Output<number>;
+    declare public /*out*/ readonly confidenceRatingInPercentage: pulumi.Output<number>;
     /**
      * collection of cost components.
      */
-    public /*out*/ readonly costComponents!: pulumi.Output<outputs.migrate.CostComponentResponse[]>;
+    declare public /*out*/ readonly costComponents: pulumi.Output<outputs.migrate.CostComponentResponse[]>;
     /**
      * Percentage of CPU capacity reserved for processing additional workloads.
      */
-    public readonly cpuHeadroom!: pulumi.Output<number | undefined>;
+    declare public readonly cpuHeadroom: pulumi.Output<number | undefined>;
     /**
      * Predicted CPU utilization.
      */
-    public /*out*/ readonly cpuUtilization!: pulumi.Output<number>;
+    declare public /*out*/ readonly cpuUtilization: pulumi.Output<number>;
     /**
      * Date and Time when assessment was created.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * Currency in which prices should be reported.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    declare public readonly currency: pulumi.Output<string | undefined>;
     /**
      * De-duplication compression.
      */
-    public readonly dedupeCompression!: pulumi.Output<number | undefined>;
+    declare public readonly dedupeCompression: pulumi.Output<number | undefined>;
     /**
      * Custom discount percentage.
      */
-    public readonly discountPercentage!: pulumi.Output<number | undefined>;
+    declare public readonly discountPercentage: pulumi.Output<number | undefined>;
     /**
      * List of AVS external storage types.
      */
-    public readonly externalStorageTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly externalStorageTypes: pulumi.Output<string[] | undefined>;
     /**
      * Failures to tolerate and RAID level in a common property.
      */
-    public readonly failuresToTolerateAndRaidLevel!: pulumi.Output<string | undefined>;
+    declare public readonly failuresToTolerateAndRaidLevel: pulumi.Output<string | undefined>;
     /**
      * List of Failures to tolerate and RAID levels in a common property.
      */
-    public readonly failuresToTolerateAndRaidLevelList!: pulumi.Output<string[] | undefined>;
+    declare public readonly failuresToTolerateAndRaidLevelList: pulumi.Output<string[] | undefined>;
     /**
      * Gets the group type for the assessment.
      */
-    public /*out*/ readonly groupType!: pulumi.Output<string>;
+    declare public /*out*/ readonly groupType: pulumi.Output<string>;
     /**
      * Is Stretch Cluster Enabled.
      */
-    public readonly isStretchClusterEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isStretchClusterEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Is VCF license applied
      */
-    public readonly isVcfByolEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isVcfByolEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Limiting factor.
      */
-    public /*out*/ readonly limitingFactor!: pulumi.Output<string>;
+    declare public /*out*/ readonly limitingFactor: pulumi.Output<string>;
     /**
      * Memory overcommit.
      */
-    public readonly memOvercommit!: pulumi.Output<number | undefined>;
+    declare public readonly memOvercommit: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * AVS node type.
      */
-    public readonly nodeType!: pulumi.Output<string | undefined>;
+    declare public readonly nodeType: pulumi.Output<string | undefined>;
     /**
      * AVS node types.
      */
-    public readonly nodeTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly nodeTypes: pulumi.Output<string[] | undefined>;
     /**
      * Number of machines part of the assessment.
      */
-    public /*out*/ readonly numberOfMachines!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfMachines: pulumi.Output<number>;
     /**
      * Recommended number of nodes.
      */
-    public /*out*/ readonly numberOfNodes!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfNodes: pulumi.Output<number>;
     /**
      * Percentile of the utilization data values to be considered while assessing
      * machines.
      */
-    public readonly percentile!: pulumi.Output<string | undefined>;
+    declare public readonly percentile: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the end time to consider performance data for assessment.
      */
-    public readonly perfDataEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataEndTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the start time to consider performance data for assessment.
      */
-    public readonly perfDataStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly perfDataStartTime: pulumi.Output<string | undefined>;
     /**
      * Time when the Azure Prices were queried. Date-Time represented in ISO-8601
      * format.
      */
-    public /*out*/ readonly pricesTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly pricesTimestamp: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Predicted RAM utilization.
      */
-    public /*out*/ readonly ramUtilization!: pulumi.Output<number>;
+    declare public /*out*/ readonly ramUtilization: pulumi.Output<number>;
     /**
      * Reserved instance.
      */
-    public readonly reservedInstance!: pulumi.Output<string | undefined>;
+    declare public readonly reservedInstance: pulumi.Output<string | undefined>;
     /**
      * Percentage of buffer that user wants on performance metrics when recommending
      * Azure sizes.
      */
-    public readonly scalingFactor!: pulumi.Output<number | undefined>;
+    declare public readonly scalingFactor: pulumi.Output<number | undefined>;
     /**
      * Schema version.
      */
-    public /*out*/ readonly schemaVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly schemaVersion: pulumi.Output<string>;
     /**
      * Assessment sizing criterion.
      */
-    public readonly sizingCriterion!: pulumi.Output<string | undefined>;
+    declare public readonly sizingCriterion: pulumi.Output<string | undefined>;
     /**
      * User configurable setting to display the Stage of Assessment.
      */
-    public /*out*/ readonly stage!: pulumi.Output<string>;
+    declare public /*out*/ readonly stage: pulumi.Output<string>;
     /**
      * Whether assessment is in valid state and all machines have been assessed.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Predicted storage utilization.
      */
-    public /*out*/ readonly storageUtilization!: pulumi.Output<number>;
+    declare public /*out*/ readonly storageUtilization: pulumi.Output<number>;
     /**
      * Gets or sets the Assessment cloud suitability.
      */
-    public /*out*/ readonly suitability!: pulumi.Output<string>;
+    declare public /*out*/ readonly suitability: pulumi.Output<string>;
     /**
      * Gets or sets the Assessment suitability explanation.
      */
-    public /*out*/ readonly suitabilityExplanation!: pulumi.Output<string>;
+    declare public /*out*/ readonly suitabilityExplanation: pulumi.Output<string>;
     /**
      * Cloud suitability summary for all the machines in the assessment.
      */
-    public /*out*/ readonly suitabilitySummary!: pulumi.Output<{[key: string]: number}>;
+    declare public /*out*/ readonly suitabilitySummary: pulumi.Output<{[key: string]: number}>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * Time Range for which the historic utilization data should be considered for
      * assessment.
      */
-    public readonly timeRange!: pulumi.Output<string | undefined>;
+    declare public readonly timeRange: pulumi.Output<string | undefined>;
     /**
      * Predicted total CPU cores used.
      */
-    public /*out*/ readonly totalCpuCores!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalCpuCores: pulumi.Output<number>;
     /**
      * Total monthly cost.
      */
-    public /*out*/ readonly totalMonthlyCost!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalMonthlyCost: pulumi.Output<number>;
     /**
      * Predicted total RAM used in GB.
      */
-    public /*out*/ readonly totalRamInGB!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalRamInGB: pulumi.Output<number>;
     /**
      * Predicted total Storage used in GB.
      */
-    public /*out*/ readonly totalStorageInGB!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalStorageInGB: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Date and Time when assessment was last updated.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
     /**
      * VCPU over subscription.
      */
-    public readonly vcpuOversubscription!: pulumi.Output<number | undefined>;
+    declare public readonly vcpuOversubscription: pulumi.Output<number | undefined>;
 
     /**
      * Create a AvsAssessmentsOperation resource with the given unique name, arguments, and options.
@@ -279,43 +279,43 @@ export class AvsAssessmentsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["avsAssessmentScenario"] = args ? args.avsAssessmentScenario : undefined;
-            resourceInputs["azureLocation"] = args ? args.azureLocation : undefined;
-            resourceInputs["azureOfferCode"] = args ? args.azureOfferCode : undefined;
-            resourceInputs["cpuHeadroom"] = args ? args.cpuHeadroom : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["dedupeCompression"] = args ? args.dedupeCompression : undefined;
-            resourceInputs["discountPercentage"] = args ? args.discountPercentage : undefined;
-            resourceInputs["externalStorageTypes"] = args ? args.externalStorageTypes : undefined;
-            resourceInputs["failuresToTolerateAndRaidLevel"] = args ? args.failuresToTolerateAndRaidLevel : undefined;
-            resourceInputs["failuresToTolerateAndRaidLevelList"] = args ? args.failuresToTolerateAndRaidLevelList : undefined;
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["isStretchClusterEnabled"] = args ? args.isStretchClusterEnabled : undefined;
-            resourceInputs["isVcfByolEnabled"] = args ? args.isVcfByolEnabled : undefined;
-            resourceInputs["memOvercommit"] = args ? args.memOvercommit : undefined;
-            resourceInputs["nodeType"] = args ? args.nodeType : undefined;
-            resourceInputs["nodeTypes"] = args ? args.nodeTypes : undefined;
-            resourceInputs["percentile"] = args ? args.percentile : undefined;
-            resourceInputs["perfDataEndTime"] = args ? args.perfDataEndTime : undefined;
-            resourceInputs["perfDataStartTime"] = args ? args.perfDataStartTime : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["reservedInstance"] = args ? args.reservedInstance : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalingFactor"] = args ? args.scalingFactor : undefined;
-            resourceInputs["sizingCriterion"] = args ? args.sizingCriterion : undefined;
-            resourceInputs["timeRange"] = args ? args.timeRange : undefined;
-            resourceInputs["vcpuOversubscription"] = args ? args.vcpuOversubscription : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["avsAssessmentScenario"] = args?.avsAssessmentScenario;
+            resourceInputs["azureLocation"] = args?.azureLocation;
+            resourceInputs["azureOfferCode"] = args?.azureOfferCode;
+            resourceInputs["cpuHeadroom"] = args?.cpuHeadroom;
+            resourceInputs["currency"] = args?.currency;
+            resourceInputs["dedupeCompression"] = args?.dedupeCompression;
+            resourceInputs["discountPercentage"] = args?.discountPercentage;
+            resourceInputs["externalStorageTypes"] = args?.externalStorageTypes;
+            resourceInputs["failuresToTolerateAndRaidLevel"] = args?.failuresToTolerateAndRaidLevel;
+            resourceInputs["failuresToTolerateAndRaidLevelList"] = args?.failuresToTolerateAndRaidLevelList;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["isStretchClusterEnabled"] = args?.isStretchClusterEnabled;
+            resourceInputs["isVcfByolEnabled"] = args?.isVcfByolEnabled;
+            resourceInputs["memOvercommit"] = args?.memOvercommit;
+            resourceInputs["nodeType"] = args?.nodeType;
+            resourceInputs["nodeTypes"] = args?.nodeTypes;
+            resourceInputs["percentile"] = args?.percentile;
+            resourceInputs["perfDataEndTime"] = args?.perfDataEndTime;
+            resourceInputs["perfDataStartTime"] = args?.perfDataStartTime;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["reservedInstance"] = args?.reservedInstance;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalingFactor"] = args?.scalingFactor;
+            resourceInputs["sizingCriterion"] = args?.sizingCriterion;
+            resourceInputs["timeRange"] = args?.timeRange;
+            resourceInputs["vcpuOversubscription"] = args?.vcpuOversubscription;
             resourceInputs["assessmentErrorSummary"] = undefined /*out*/;
             resourceInputs["assessmentType"] = undefined /*out*/;
             resourceInputs["avsEstimatedExternalStorages"] = undefined /*out*/;

@@ -41,43 +41,43 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Connection Monitor test destination
      */
-    public readonly destination!: pulumi.Output<string | undefined>;
+    declare public readonly destination: pulumi.Output<string | undefined>;
     /**
      * The Connection Monitor test destination port
      */
-    public readonly destinationPort!: pulumi.Output<number | undefined>;
+    declare public readonly destinationPort: pulumi.Output<number | undefined>;
     /**
      * The flag that indicates if the Connection Monitor test is successful or not.
      */
-    public /*out*/ readonly isTestSuccessful!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isTestSuccessful: pulumi.Output<boolean>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The path representing the Connection Monitor test.
      */
-    public /*out*/ readonly path!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly path: pulumi.Output<string[]>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Connection Monitor test source agent
      */
-    public readonly sourceAgent!: pulumi.Output<string | undefined>;
+    declare public readonly sourceAgent: pulumi.Output<string | undefined>;
     /**
      * The Connection Monitor test frequency in seconds
      */
-    public readonly testFrequencyInSec!: pulumi.Output<number | undefined>;
+    declare public readonly testFrequencyInSec: pulumi.Output<number | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectionMonitorTest resource with the given unique name, arguments, and options.
@@ -90,19 +90,19 @@ export class ConnectionMonitorTest extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.peeringServiceName === undefined) && !opts.urn) {
+            if (args?.peeringServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'peeringServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectionMonitorTestName"] = args ? args.connectionMonitorTestName : undefined;
-            resourceInputs["destination"] = args ? args.destination : undefined;
-            resourceInputs["destinationPort"] = args ? args.destinationPort : undefined;
-            resourceInputs["peeringServiceName"] = args ? args.peeringServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceAgent"] = args ? args.sourceAgent : undefined;
-            resourceInputs["testFrequencyInSec"] = args ? args.testFrequencyInSec : undefined;
+            resourceInputs["connectionMonitorTestName"] = args?.connectionMonitorTestName;
+            resourceInputs["destination"] = args?.destination;
+            resourceInputs["destinationPort"] = args?.destinationPort;
+            resourceInputs["peeringServiceName"] = args?.peeringServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceAgent"] = args?.sourceAgent;
+            resourceInputs["testFrequencyInSec"] = args?.testFrequencyInSec;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isTestSuccessful"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

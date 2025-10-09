@@ -42,71 +42,71 @@ export class SapVirtualInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Defines if the SAP system is being created using Azure Center for SAP solutions (ACSS) or if an existing SAP system is being registered with ACSS
      */
-    public readonly configuration!: pulumi.Output<outputs.workloads.DeploymentConfigurationResponse | outputs.workloads.DeploymentWithOSConfigurationResponse | outputs.workloads.DiscoveryConfigurationResponse>;
+    declare public readonly configuration: pulumi.Output<outputs.workloads.DeploymentConfigurationResponse | outputs.workloads.DeploymentWithOSConfigurationResponse | outputs.workloads.DiscoveryConfigurationResponse>;
     /**
      * Defines the environment type - Production/Non Production.
      */
-    public readonly environment!: pulumi.Output<string>;
+    declare public readonly environment: pulumi.Output<string>;
     /**
      * Indicates any errors on the Virtual Instance for SAP solutions resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPVirtualInstanceErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPVirtualInstanceErrorResponse>;
     /**
      * Defines the health of SAP Instances.
      */
-    public /*out*/ readonly health!: pulumi.Output<string>;
+    declare public /*out*/ readonly health: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.workloads.SAPVirtualInstanceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.workloads.SAPVirtualInstanceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Managed resource group configuration
      */
-    public readonly managedResourceGroupConfiguration!: pulumi.Output<outputs.workloads.ManagedRGConfigurationResponse | undefined>;
+    declare public readonly managedResourceGroupConfiguration: pulumi.Output<outputs.workloads.ManagedRGConfigurationResponse | undefined>;
     /**
      * Specifies the network access configuration for the resources that will be deployed in the Managed Resource Group. The options to choose from are Public and Private. If 'Private' is chosen, the Storage Account service tag should be enabled on the subnets in which the SAP VMs exist. This is required for establishing connectivity between VM extensions and the managed resource group storage account. This setting is currently applicable only to Storage Account. Learn more here https://go.microsoft.com/fwlink/?linkid=2247228
      */
-    public readonly managedResourcesNetworkAccessType!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourcesNetworkAccessType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Defines the SAP Product type.
      */
-    public readonly sapProduct!: pulumi.Output<string>;
+    declare public readonly sapProduct: pulumi.Output<string>;
     /**
      * Defines the Virtual Instance for SAP state.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Defines the SAP Instance status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SapVirtualInstance resource with the given unique name, arguments, and options.
@@ -119,28 +119,28 @@ export class SapVirtualInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configuration === undefined) && !opts.urn) {
+            if (args?.configuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configuration'");
             }
-            if ((!args || args.environment === undefined) && !opts.urn) {
+            if (args?.environment === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environment'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapProduct === undefined) && !opts.urn) {
+            if (args?.sapProduct === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapProduct'");
             }
-            resourceInputs["configuration"] = args ? args.configuration : undefined;
-            resourceInputs["environment"] = args ? args.environment : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceGroupConfiguration"] = args ? args.managedResourceGroupConfiguration : undefined;
-            resourceInputs["managedResourcesNetworkAccessType"] = args ? args.managedResourcesNetworkAccessType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapProduct"] = args ? args.sapProduct : undefined;
-            resourceInputs["sapVirtualInstanceName"] = args ? args.sapVirtualInstanceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["configuration"] = args?.configuration;
+            resourceInputs["environment"] = args?.environment;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceGroupConfiguration"] = args?.managedResourceGroupConfiguration;
+            resourceInputs["managedResourcesNetworkAccessType"] = args?.managedResourcesNetworkAccessType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapProduct"] = args?.sapProduct;
+            resourceInputs["sapVirtualInstanceName"] = args?.sapVirtualInstanceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["health"] = undefined /*out*/;

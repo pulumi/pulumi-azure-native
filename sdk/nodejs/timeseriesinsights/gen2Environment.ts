@@ -42,64 +42,64 @@ export class Gen2Environment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the resource was created.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
      * The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
      */
-    public /*out*/ readonly dataAccessFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessFqdn: pulumi.Output<string>;
     /**
      * An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment.
      */
-    public /*out*/ readonly dataAccessId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataAccessId: pulumi.Output<string>;
     /**
      * The kind of the environment.
      * Expected value is 'Gen2'.
      */
-    public readonly kind!: pulumi.Output<"Gen2">;
+    declare public readonly kind: pulumi.Output<"Gen2">;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate.
      */
-    public readonly sku!: pulumi.Output<outputs.timeseriesinsights.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.timeseriesinsights.SkuResponse>;
     /**
      * An object that represents the status of the environment, and its internal state in the Time Series Insights service.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.timeseriesinsights.EnvironmentStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.timeseriesinsights.EnvironmentStatusResponse>;
     /**
      * The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data.
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.timeseriesinsights.Gen2StorageConfigurationOutputResponse>;
+    declare public readonly storageConfiguration: pulumi.Output<outputs.timeseriesinsights.Gen2StorageConfigurationOutputResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The list of event properties which will be used to define the environment's time series id.
      */
-    public readonly timeSeriesIdProperties!: pulumi.Output<outputs.timeseriesinsights.TimeSeriesIdPropertyResponse[]>;
+    declare public readonly timeSeriesIdProperties: pulumi.Output<outputs.timeseriesinsights.TimeSeriesIdPropertyResponse[]>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query.
      */
-    public readonly warmStoreConfiguration!: pulumi.Output<outputs.timeseriesinsights.WarmStoreConfigurationPropertiesResponse | undefined>;
+    declare public readonly warmStoreConfiguration: pulumi.Output<outputs.timeseriesinsights.WarmStoreConfigurationPropertiesResponse | undefined>;
 
     /**
      * Create a Gen2Environment resource with the given unique name, arguments, and options.
@@ -112,30 +112,30 @@ export class Gen2Environment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.storageConfiguration === undefined) && !opts.urn) {
+            if (args?.storageConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageConfiguration'");
             }
-            if ((!args || args.timeSeriesIdProperties === undefined) && !opts.urn) {
+            if (args?.timeSeriesIdProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeSeriesIdProperties'");
             }
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
+            resourceInputs["environmentName"] = args?.environmentName;
             resourceInputs["kind"] = "Gen2";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeSeriesIdProperties"] = args ? args.timeSeriesIdProperties : undefined;
-            resourceInputs["warmStoreConfiguration"] = args ? args.warmStoreConfiguration : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeSeriesIdProperties"] = args?.timeSeriesIdProperties;
+            resourceInputs["warmStoreConfiguration"] = args?.warmStoreConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;
             resourceInputs["dataAccessFqdn"] = undefined /*out*/;

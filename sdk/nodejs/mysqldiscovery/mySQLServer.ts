@@ -42,71 +42,71 @@ export class MySQLServer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * mysql server edition.
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    declare public readonly edition: pulumi.Output<string | undefined>;
     /**
      * The list of errors.
      */
-    public readonly errors!: pulumi.Output<outputs.mysqldiscovery.ErrorResponse[] | undefined>;
+    declare public readonly errors: pulumi.Output<outputs.mysqldiscovery.ErrorResponse[] | undefined>;
     /**
      * The Server IP/host name.
      */
-    public readonly hostIp!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostIp: pulumi.Output<string[] | undefined>;
     /**
      * The Server IP/host name.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * Resource labels.
      */
-    public readonly labels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly labels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * discovery Machine Id
      */
-    public readonly machineId!: pulumi.Output<string | undefined>;
+    declare public readonly machineId: pulumi.Output<string | undefined>;
     /**
      * The mysql server version.
      */
-    public readonly mysqlVersion!: pulumi.Output<string | undefined>;
+    declare public readonly mysqlVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of database.
      */
-    public readonly numberOfDatabase!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfDatabase: pulumi.Output<number | undefined>;
     /**
      * MySQL Server port number
      */
-    public readonly portNumber!: pulumi.Output<string>;
+    declare public readonly portNumber: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Time when mysql version support end.
      */
-    public readonly supportEndIn!: pulumi.Output<string | undefined>;
+    declare public readonly supportEndIn: pulumi.Output<string | undefined>;
     /**
      * mysql version support status.
      */
-    public readonly supportStatus!: pulumi.Output<string | undefined>;
+    declare public readonly supportStatus: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mysqldiscovery.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mysqldiscovery.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MySQLServer resource with the given unique name, arguments, and options.
@@ -119,34 +119,34 @@ export class MySQLServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.portNumber === undefined) && !opts.urn) {
+            if (args?.portNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portNumber'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["errors"] = args ? args.errors : undefined;
-            resourceInputs["hostIp"] = args ? args.hostIp : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["machineId"] = args ? args.machineId : undefined;
-            resourceInputs["mysqlVersion"] = args ? args.mysqlVersion : undefined;
-            resourceInputs["numberOfDatabase"] = args ? args.numberOfDatabase : undefined;
-            resourceInputs["portNumber"] = args ? args.portNumber : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["supportEndIn"] = args ? args.supportEndIn : undefined;
-            resourceInputs["supportStatus"] = args ? args.supportStatus : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["errors"] = args?.errors;
+            resourceInputs["hostIp"] = args?.hostIp;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["machineId"] = args?.machineId;
+            resourceInputs["mysqlVersion"] = args?.mysqlVersion;
+            resourceInputs["numberOfDatabase"] = args?.numberOfDatabase;
+            resourceInputs["portNumber"] = args?.portNumber;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["supportEndIn"] = args?.supportEndIn;
+            resourceInputs["supportStatus"] = args?.supportStatus;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

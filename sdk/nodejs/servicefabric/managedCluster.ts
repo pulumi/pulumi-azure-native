@@ -44,191 +44,191 @@ export class ManagedCluster extends pulumi.CustomResource {
     /**
      * List of add-on features to enable on the cluster.
      */
-    public readonly addonFeatures!: pulumi.Output<string[] | undefined>;
+    declare public readonly addonFeatures: pulumi.Output<string[] | undefined>;
     /**
      * VM admin user password.
      */
-    public readonly adminPassword!: pulumi.Output<string | undefined>;
+    declare public readonly adminPassword: pulumi.Output<string | undefined>;
     /**
      * VM admin user name.
      */
-    public readonly adminUserName!: pulumi.Output<string>;
+    declare public readonly adminUserName: pulumi.Output<string>;
     /**
      * Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to Internet which can be overridden with custom Network Security Rules. The default value for this setting is false.
      */
-    public readonly allowRdpAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowRdpAccess: pulumi.Output<boolean | undefined>;
     /**
      * The policy used to clean up unused versions.
      */
-    public readonly applicationTypeVersionsCleanupPolicy!: pulumi.Output<outputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse | undefined>;
+    declare public readonly applicationTypeVersionsCleanupPolicy: pulumi.Output<outputs.servicefabric.ApplicationTypeVersionsCleanupPolicyResponse | undefined>;
     /**
      * Auxiliary subnets for the cluster.
      */
-    public readonly auxiliarySubnets!: pulumi.Output<outputs.servicefabric.SubnetResponse[] | undefined>;
+    declare public readonly auxiliarySubnets: pulumi.Output<outputs.servicefabric.SubnetResponse[] | undefined>;
     /**
      * The AAD authentication settings of the cluster.
      */
-    public readonly azureActiveDirectory!: pulumi.Output<outputs.servicefabric.AzureActiveDirectoryResponse | undefined>;
+    declare public readonly azureActiveDirectory: pulumi.Output<outputs.servicefabric.AzureActiveDirectoryResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The port used for client connections to the cluster.
      */
-    public readonly clientConnectionPort!: pulumi.Output<number | undefined>;
+    declare public readonly clientConnectionPort: pulumi.Output<number | undefined>;
     /**
      * Client certificates that are allowed to manage the cluster.
      */
-    public readonly clients!: pulumi.Output<outputs.servicefabric.ClientCertificateResponse[] | undefined>;
+    declare public readonly clients: pulumi.Output<outputs.servicefabric.ClientCertificateResponse[] | undefined>;
     /**
      * List of thumbprints of the cluster certificates.
      */
-    public /*out*/ readonly clusterCertificateThumbprints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly clusterCertificateThumbprints: pulumi.Output<string[]>;
     /**
      * The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**.
      */
-    public readonly clusterCodeVersion!: pulumi.Output<string | undefined>;
+    declare public readonly clusterCodeVersion: pulumi.Output<string | undefined>;
     /**
      * A service generated unique identifier for the cluster resource.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The current state of the cluster.
      */
-    public /*out*/ readonly clusterState!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterState: pulumi.Output<string>;
     /**
      * Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'.
      */
-    public readonly clusterUpgradeCadence!: pulumi.Output<string | undefined>;
+    declare public readonly clusterUpgradeCadence: pulumi.Output<string | undefined>;
     /**
      * The upgrade mode of the cluster when new Service Fabric runtime version is available.
      */
-    public readonly clusterUpgradeMode!: pulumi.Output<string | undefined>;
+    declare public readonly clusterUpgradeMode: pulumi.Output<string | undefined>;
     /**
      * Specify the resource id of a DDoS network protection plan that will be associated with the virtual network of the cluster.
      */
-    public readonly ddosProtectionPlanId!: pulumi.Output<string | undefined>;
+    declare public readonly ddosProtectionPlanId: pulumi.Output<string | undefined>;
     /**
      * The cluster dns name.
      */
-    public readonly dnsName!: pulumi.Output<string>;
+    declare public readonly dnsName: pulumi.Output<string>;
     /**
      * Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false.
      */
-    public readonly enableAutoOSUpgrade!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAutoOSUpgrade: pulumi.Output<boolean | undefined>;
     /**
      * If true, token-based authentication is not allowed on the HttpGatewayEndpoint. This is required to support TLS versions 1.3 and above. If token-based authentication is used, HttpGatewayTokenAuthConnectionPort must be defined.
      */
-    public readonly enableHttpGatewayExclusiveAuthMode!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHttpGatewayExclusiveAuthMode: pulumi.Output<boolean | undefined>;
     /**
      * Setting this to true creates IPv6 address space for the default VNet used by the cluster. This setting cannot be changed once the cluster is created. The default value for this setting is false.
      */
-    public readonly enableIpv6!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIpv6: pulumi.Output<boolean | undefined>;
     /**
      * Setting this to true will link the IPv4 address as the ServicePublicIP of the IPv6 address. It can only be set to True if IPv6 is enabled on the cluster.
      */
-    public readonly enableServicePublicIP!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableServicePublicIP: pulumi.Output<boolean | undefined>;
     /**
      * Azure resource etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The list of custom fabric settings to configure the cluster.
      */
-    public readonly fabricSettings!: pulumi.Output<outputs.servicefabric.SettingsSectionDescriptionResponse[] | undefined>;
+    declare public readonly fabricSettings: pulumi.Output<outputs.servicefabric.SettingsSectionDescriptionResponse[] | undefined>;
     /**
      * The fully qualified domain name associated with the public load balancer of the cluster.
      */
-    public /*out*/ readonly fqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly fqdn: pulumi.Output<string>;
     /**
      * The port used for HTTP connections to the cluster.
      */
-    public readonly httpGatewayConnectionPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpGatewayConnectionPort: pulumi.Output<number | undefined>;
     /**
      * The port used for token-auth based HTTPS connections to the cluster. Cannot be set to the same port as HttpGatewayEndpoint.
      */
-    public readonly httpGatewayTokenAuthConnectionPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpGatewayTokenAuthConnectionPort: pulumi.Output<number | undefined>;
     /**
      * The list of IP tags associated with the default public IP address of the cluster.
      */
-    public readonly ipTags!: pulumi.Output<outputs.servicefabric.IpTagResponse[] | undefined>;
+    declare public readonly ipTags: pulumi.Output<outputs.servicefabric.IpTagResponse[] | undefined>;
     /**
      * The IPv4 address associated with the public load balancer of the cluster.
      */
-    public /*out*/ readonly ipv4Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv4Address: pulumi.Output<string>;
     /**
      * IPv6 address for the cluster if IPv6 is enabled.
      */
-    public /*out*/ readonly ipv6Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly ipv6Address: pulumi.Output<string>;
     /**
      * Load balancing rules that are applied to the public load balancer of the cluster.
      */
-    public readonly loadBalancingRules!: pulumi.Output<outputs.servicefabric.LoadBalancingRuleResponse[] | undefined>;
+    declare public readonly loadBalancingRules: pulumi.Output<outputs.servicefabric.LoadBalancingRuleResponse[] | undefined>;
     /**
      * Azure resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Azure resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Custom Network Security Rules that are applied to the Virtual Network of the cluster.
      */
-    public readonly networkSecurityRules!: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
+    declare public readonly networkSecurityRules: pulumi.Output<outputs.servicefabric.NetworkSecurityRuleResponse[] | undefined>;
     /**
      * The provisioning state of the managed cluster resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specify the resource id of a public IPv4 prefix that the load balancer will allocate a public IPv4 address from. This setting cannot be changed once the cluster is created.
      */
-    public readonly publicIPPrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly publicIPPrefixId: pulumi.Output<string | undefined>;
     /**
      * Specify the resource id of a public IPv6 prefix that the load balancer will allocate a public IPv6 address from. This setting cannot be changed once the cluster is created.
      */
-    public readonly publicIPv6PrefixId!: pulumi.Output<string | undefined>;
+    declare public readonly publicIPv6PrefixId: pulumi.Output<string | undefined>;
     /**
      * Service endpoints for subnets in the cluster.
      */
-    public readonly serviceEndpoints!: pulumi.Output<outputs.servicefabric.ServiceEndpointResponse[] | undefined>;
+    declare public readonly serviceEndpoints: pulumi.Output<outputs.servicefabric.ServiceEndpointResponse[] | undefined>;
     /**
      * The sku of the managed cluster
      */
-    public readonly sku!: pulumi.Output<outputs.servicefabric.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.servicefabric.SkuResponse>;
     /**
      * If specified, the node types for the cluster are created in this subnet instead of the default VNet. The **networkSecurityRules** specified for the cluster are also applied to this subnet. This setting cannot be changed once the cluster is created.
      */
-    public readonly subnetId!: pulumi.Output<string | undefined>;
+    declare public readonly subnetId: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicefabric.SystemDataResponse>;
     /**
      * Azure resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The policy to use when upgrading the cluster.
      */
-    public readonly upgradeDescription!: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicyResponse | undefined>;
+    declare public readonly upgradeDescription: pulumi.Output<outputs.servicefabric.ClusterUpgradePolicyResponse | undefined>;
     /**
      * For new clusters, this parameter indicates that it uses Bring your own VNet, but the subnet is specified at node type level; and for such clusters, the subnetId property is required for node types.
      */
-    public readonly useCustomVnet!: pulumi.Output<boolean | undefined>;
+    declare public readonly useCustomVnet: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if the cluster has zone resiliency.
      */
-    public readonly zonalResiliency!: pulumi.Output<boolean | undefined>;
+    declare public readonly zonalResiliency: pulumi.Output<boolean | undefined>;
     /**
      * Indicates the update mode for Cross Az clusters.
      */
-    public readonly zonalUpdateMode!: pulumi.Output<string | undefined>;
+    declare public readonly zonalUpdateMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a ManagedCluster resource with the given unique name, arguments, and options.
@@ -241,55 +241,55 @@ export class ManagedCluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.adminUserName === undefined) && !opts.urn) {
+            if (args?.adminUserName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'adminUserName'");
             }
-            if ((!args || args.dnsName === undefined) && !opts.urn) {
+            if (args?.dnsName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["addonFeatures"] = args ? args.addonFeatures : undefined;
-            resourceInputs["adminPassword"] = args ? args.adminPassword : undefined;
-            resourceInputs["adminUserName"] = args ? args.adminUserName : undefined;
-            resourceInputs["allowRdpAccess"] = args ? args.allowRdpAccess : undefined;
-            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args ? args.applicationTypeVersionsCleanupPolicy : undefined;
-            resourceInputs["auxiliarySubnets"] = args ? args.auxiliarySubnets : undefined;
-            resourceInputs["azureActiveDirectory"] = args ? args.azureActiveDirectory : undefined;
-            resourceInputs["clientConnectionPort"] = (args ? args.clientConnectionPort : undefined) ?? 19000;
-            resourceInputs["clients"] = args ? args.clients : undefined;
-            resourceInputs["clusterCodeVersion"] = args ? args.clusterCodeVersion : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterUpgradeCadence"] = args ? args.clusterUpgradeCadence : undefined;
-            resourceInputs["clusterUpgradeMode"] = args ? args.clusterUpgradeMode : undefined;
-            resourceInputs["ddosProtectionPlanId"] = args ? args.ddosProtectionPlanId : undefined;
-            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
-            resourceInputs["enableAutoOSUpgrade"] = args ? args.enableAutoOSUpgrade : undefined;
-            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = args ? args.enableHttpGatewayExclusiveAuthMode : undefined;
-            resourceInputs["enableIpv6"] = args ? args.enableIpv6 : undefined;
-            resourceInputs["enableServicePublicIP"] = args ? args.enableServicePublicIP : undefined;
-            resourceInputs["fabricSettings"] = args ? args.fabricSettings : undefined;
-            resourceInputs["httpGatewayConnectionPort"] = (args ? args.httpGatewayConnectionPort : undefined) ?? 19080;
-            resourceInputs["httpGatewayTokenAuthConnectionPort"] = args ? args.httpGatewayTokenAuthConnectionPort : undefined;
-            resourceInputs["ipTags"] = args ? args.ipTags : undefined;
-            resourceInputs["loadBalancingRules"] = args ? args.loadBalancingRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkSecurityRules"] = args ? args.networkSecurityRules : undefined;
-            resourceInputs["publicIPPrefixId"] = args ? args.publicIPPrefixId : undefined;
-            resourceInputs["publicIPv6PrefixId"] = args ? args.publicIPv6PrefixId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceEndpoints"] = args ? args.serviceEndpoints : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addonFeatures"] = args?.addonFeatures;
+            resourceInputs["adminPassword"] = args?.adminPassword;
+            resourceInputs["adminUserName"] = args?.adminUserName;
+            resourceInputs["allowRdpAccess"] = args?.allowRdpAccess;
+            resourceInputs["applicationTypeVersionsCleanupPolicy"] = args?.applicationTypeVersionsCleanupPolicy;
+            resourceInputs["auxiliarySubnets"] = args?.auxiliarySubnets;
+            resourceInputs["azureActiveDirectory"] = args?.azureActiveDirectory;
+            resourceInputs["clientConnectionPort"] = (args?.clientConnectionPort) ?? 19000;
+            resourceInputs["clients"] = args?.clients;
+            resourceInputs["clusterCodeVersion"] = args?.clusterCodeVersion;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterUpgradeCadence"] = args?.clusterUpgradeCadence;
+            resourceInputs["clusterUpgradeMode"] = args?.clusterUpgradeMode;
+            resourceInputs["ddosProtectionPlanId"] = args?.ddosProtectionPlanId;
+            resourceInputs["dnsName"] = args?.dnsName;
+            resourceInputs["enableAutoOSUpgrade"] = args?.enableAutoOSUpgrade;
+            resourceInputs["enableHttpGatewayExclusiveAuthMode"] = args?.enableHttpGatewayExclusiveAuthMode;
+            resourceInputs["enableIpv6"] = args?.enableIpv6;
+            resourceInputs["enableServicePublicIP"] = args?.enableServicePublicIP;
+            resourceInputs["fabricSettings"] = args?.fabricSettings;
+            resourceInputs["httpGatewayConnectionPort"] = (args?.httpGatewayConnectionPort) ?? 19080;
+            resourceInputs["httpGatewayTokenAuthConnectionPort"] = args?.httpGatewayTokenAuthConnectionPort;
+            resourceInputs["ipTags"] = args?.ipTags;
+            resourceInputs["loadBalancingRules"] = args?.loadBalancingRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkSecurityRules"] = args?.networkSecurityRules;
+            resourceInputs["publicIPPrefixId"] = args?.publicIPPrefixId;
+            resourceInputs["publicIPv6PrefixId"] = args?.publicIPv6PrefixId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceEndpoints"] = args?.serviceEndpoints;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["subnetId"] = args?.subnetId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["upgradeDescription"] = args ? (args.upgradeDescription ? pulumi.output(args.upgradeDescription).apply(inputs.servicefabric.clusterUpgradePolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["useCustomVnet"] = args ? args.useCustomVnet : undefined;
-            resourceInputs["zonalResiliency"] = (args ? args.zonalResiliency : undefined) ?? false;
-            resourceInputs["zonalUpdateMode"] = args ? args.zonalUpdateMode : undefined;
+            resourceInputs["useCustomVnet"] = args?.useCustomVnet;
+            resourceInputs["zonalResiliency"] = (args?.zonalResiliency) ?? false;
+            resourceInputs["zonalUpdateMode"] = args?.zonalUpdateMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterCertificateThumbprints"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

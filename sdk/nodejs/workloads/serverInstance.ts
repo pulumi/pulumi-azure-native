@@ -42,59 +42,59 @@ export class ServerInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configuration data for this server instance.
      */
-    public /*out*/ readonly configurationData!: pulumi.Output<outputs.workloads.ConfigurationDataResponse>;
+    declare public /*out*/ readonly configurationData: pulumi.Output<outputs.workloads.ConfigurationDataResponse>;
     /**
      * Defines the errors related to SAP Instance resource.
      */
-    public /*out*/ readonly errors!: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
+    declare public /*out*/ readonly errors: pulumi.Output<outputs.workloads.SAPMigrateErrorResponse>;
     /**
      * This is the Instance SID for ASCS/AP/DB instance.  An SAP system with HANA database for example could have a different SID for database Instance than that of ASCS instance.
      */
-    public /*out*/ readonly instanceSid!: pulumi.Output<string>;
+    declare public /*out*/ readonly instanceSid: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This is Operating System on which the host server is running.
      */
-    public /*out*/ readonly operatingSystem!: pulumi.Output<string>;
+    declare public /*out*/ readonly operatingSystem: pulumi.Output<string>;
     /**
      * Configuration data for this server instance.
      */
-    public /*out*/ readonly performanceData!: pulumi.Output<outputs.workloads.ExcelPerformanceDataResponse | outputs.workloads.NativePerformanceDataResponse>;
+    declare public /*out*/ readonly performanceData: pulumi.Output<outputs.workloads.ExcelPerformanceDataResponse | outputs.workloads.NativePerformanceDataResponse>;
     /**
      * Defines the provisioning states.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Defines the type SAP instance on this server instance.
      */
-    public /*out*/ readonly sapInstanceType!: pulumi.Output<string>;
+    declare public /*out*/ readonly sapInstanceType: pulumi.Output<string>;
     /**
      * This is the SAP Application Component; e.g. SAP S/4HANA 2022, SAP ERP ENHANCE PACKAGE.
      */
-    public /*out*/ readonly sapProduct!: pulumi.Output<string>;
+    declare public /*out*/ readonly sapProduct: pulumi.Output<string>;
     /**
      * Provide the product version of the SAP product.
      */
-    public /*out*/ readonly sapProductVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly sapProductVersion: pulumi.Output<string>;
     /**
      * This is the Virtual Machine Name of the SAP system. Add all the virtual machines attached to an SAP system which you wish to migrate to Azure. Keeping this not equal to ID as for single tier all InstanceTypes would be on same server, leading to multiple resources with same servername.
      */
-    public /*out*/ readonly serverName!: pulumi.Output<string>;
+    declare public /*out*/ readonly serverName: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.workloads.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.workloads.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerInstance resource with the given unique name, arguments, and options.
@@ -107,19 +107,19 @@ export class ServerInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sapDiscoverySiteName === undefined) && !opts.urn) {
+            if (args?.sapDiscoverySiteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapDiscoverySiteName'");
             }
-            if ((!args || args.sapInstanceName === undefined) && !opts.urn) {
+            if (args?.sapInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sapInstanceName'");
             }
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sapDiscoverySiteName"] = args ? args.sapDiscoverySiteName : undefined;
-            resourceInputs["sapInstanceName"] = args ? args.sapInstanceName : undefined;
-            resourceInputs["serverInstanceName"] = args ? args.serverInstanceName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sapDiscoverySiteName"] = args?.sapDiscoverySiteName;
+            resourceInputs["sapInstanceName"] = args?.sapInstanceName;
+            resourceInputs["serverInstanceName"] = args?.serverInstanceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationData"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
