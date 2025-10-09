@@ -9,12 +9,21 @@ from enum import Enum
 __all__ = [
     'AccessMode',
     'AggregationTypeEnum',
+    'AlertSeverity',
+    'AuthenticationKind',
     'ComparisonOperationType',
     'ConditionOperator',
     'CriterionType',
+    'DependenciesAggregationType',
     'DimensionOperator',
+    'DiscoveryRuleKind',
+    'DiscoveryRuleRecommendedSignalsBehavior',
+    'DiscoveryRuleRelationshipDiscoveryBehavior',
+    'DynamicThresholdDirection',
+    'DynamicThresholdModel',
     'DynamicThresholdOperator',
     'DynamicThresholdSensitivity',
+    'EntityImpact',
     'ExporterType',
     'ExtendedLocationType',
     'ExternalNetworkingMode',
@@ -37,6 +46,7 @@ __all__ = [
     'KnownSyslogDataSourceStreams',
     'KnownWindowsEventLogDataSourceStreams',
     'ManagedServiceIdentityType',
+    'MetricAggregationType',
     'MetricStatisticType',
     'Odatatype',
     'OperationType',
@@ -48,10 +58,13 @@ __all__ = [
     'PublicNetworkAccess',
     'ReceiverType',
     'RecurrenceFrequency',
+    'RefreshInterval',
     'ScaleDirection',
     'ScaleRuleMetricDimensionOperationType',
     'ScaleType',
     'ScopedResourceKind',
+    'SignalKind',
+    'SignalOperator',
     'Status',
     'StreamEncodingType',
     'SyslogProtocol',
@@ -79,6 +92,41 @@ class AggregationTypeEnum(builtins.str, Enum):
     MINIMUM = "Minimum"
     MAXIMUM = "Maximum"
     TOTAL = "Total"
+
+
+@pulumi.type_token("azure-native:monitor:AlertSeverity")
+class AlertSeverity(builtins.str, Enum):
+    """
+    The severity of triggered alert.
+    """
+    SEV0 = "Sev0"
+    """
+    Critical
+    """
+    SEV1 = "Sev1"
+    """
+    Error
+    """
+    SEV2 = "Sev2"
+    """
+    Warning
+    """
+    SEV3 = "Sev3"
+    """
+    Informational
+    """
+    SEV4 = "Sev4"
+    """
+    Verbose
+    """
+
+
+@pulumi.type_token("azure-native:monitor:AuthenticationKind")
+class AuthenticationKind(builtins.str, Enum):
+    """
+    Kind of the authentication setting
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
 
 
 @pulumi.type_token("azure-native:monitor:ComparisonOperationType")
@@ -116,6 +164,21 @@ class CriterionType(builtins.str, Enum):
     DYNAMIC_THRESHOLD_CRITERION = "DynamicThresholdCriterion"
 
 
+@pulumi.type_token("azure-native:monitor:DependenciesAggregationType")
+class DependenciesAggregationType(builtins.str, Enum):
+    """
+    Aggregation type for child dependencies.
+    """
+    WORST_OF = "WorstOf"
+    """
+    Default behavior: Worst child health state is propagated.
+    """
+    THRESHOLDS = "Thresholds"
+    """
+    Based on configurable thresholds.
+    """
+
+
 @pulumi.type_token("azure-native:monitor:DimensionOperator")
 class DimensionOperator(builtins.str, Enum):
     """
@@ -123,6 +186,75 @@ class DimensionOperator(builtins.str, Enum):
     """
     INCLUDE = "Include"
     EXCLUDE = "Exclude"
+
+
+@pulumi.type_token("azure-native:monitor:DiscoveryRuleKind")
+class DiscoveryRuleKind(builtins.str, Enum):
+    """
+    Kind of the discovery rule
+    """
+    RESOURCE_GRAPH_QUERY = "ResourceGraphQuery"
+    APPLICATION_INSIGHTS_TOPOLOGY = "ApplicationInsightsTopology"
+
+
+@pulumi.type_token("azure-native:monitor:DiscoveryRuleRecommendedSignalsBehavior")
+class DiscoveryRuleRecommendedSignalsBehavior(builtins.str, Enum):
+    """
+    Whether to add all recommended signals to the discovered entities.
+    """
+    ENABLED = "Enabled"
+    """
+    Automatically add recommended signals
+    """
+    DISABLED = "Disabled"
+    """
+    Do not automatically add recommended signals
+    """
+
+
+@pulumi.type_token("azure-native:monitor:DiscoveryRuleRelationshipDiscoveryBehavior")
+class DiscoveryRuleRelationshipDiscoveryBehavior(builtins.str, Enum):
+    """
+    Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+    """
+    ENABLED = "Enabled"
+    """
+    Automatically attempt to discover relationships
+    """
+    DISABLED = "Disabled"
+    """
+    Do not automatically attempt to discover relationships
+    """
+
+
+@pulumi.type_token("azure-native:monitor:DynamicThresholdDirection")
+class DynamicThresholdDirection(builtins.str, Enum):
+    """
+    Threshold direction
+    """
+    LOWER_THAN = "LowerThan"
+    """
+    Lower than
+    """
+    GREATER_THAN = "GreaterThan"
+    """
+    Greater than
+    """
+    GREATER_OR_LOWER_THAN = "GreaterOrLowerThan"
+    """
+    Greater or Lower Than
+    """
+
+
+@pulumi.type_token("azure-native:monitor:DynamicThresholdModel")
+class DynamicThresholdModel(builtins.str, Enum):
+    """
+    ML model to use for dynamic thresholds
+    """
+    ANOMALY_DETECTION = "AnomalyDetection"
+    """
+    Anomaly detection model
+    """
 
 
 @pulumi.type_token("azure-native:monitor:DynamicThresholdOperator")
@@ -143,6 +275,25 @@ class DynamicThresholdSensitivity(builtins.str, Enum):
     LOW = "Low"
     MEDIUM = "Medium"
     HIGH = "High"
+
+
+@pulumi.type_token("azure-native:monitor:EntityImpact")
+class EntityImpact(builtins.str, Enum):
+    """
+    Impact of the entity in health state propagation
+    """
+    STANDARD = "Standard"
+    """
+    Standard impact
+    """
+    LIMITED = "Limited"
+    """
+    Limited impact
+    """
+    SUPPRESSED = "Suppressed"
+    """
+    Suppressed impact
+    """
 
 
 @pulumi.type_token("azure-native:monitor:ExporterType")
@@ -390,6 +541,19 @@ class ManagedServiceIdentityType(builtins.str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+@pulumi.type_token("azure-native:monitor:MetricAggregationType")
+class MetricAggregationType(builtins.str, Enum):
+    """
+    Type of aggregation to apply to the metric
+    """
+    NONE = "None"
+    AVERAGE = "Average"
+    COUNT = "Count"
+    MINIMUM = "Minimum"
+    MAXIMUM = "Maximum"
+    TOTAL = "Total"
+
+
 @pulumi.type_token("azure-native:monitor:MetricStatisticType")
 class MetricStatisticType(builtins.str, Enum):
     """
@@ -525,6 +689,37 @@ class RecurrenceFrequency(builtins.str, Enum):
     YEAR = "Year"
 
 
+@pulumi.type_token("azure-native:monitor:RefreshInterval")
+class RefreshInterval(builtins.str, Enum):
+    """
+    Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    """
+    PT1_M = "PT1M"
+    """
+    One Minute
+    """
+    PT5_M = "PT5M"
+    """
+    Five Minutes
+    """
+    PT10_M = "PT10M"
+    """
+    Ten Minutes
+    """
+    PT30_M = "PT30M"
+    """
+    Thirty Minutes
+    """
+    PT1_H = "PT1H"
+    """
+    One Hour
+    """
+    PT2_H = "PT2H"
+    """
+    Two Hours
+    """
+
+
 @pulumi.type_token("azure-native:monitor:ScaleDirection")
 class ScaleDirection(builtins.str, Enum):
     """
@@ -562,6 +757,43 @@ class ScopedResourceKind(builtins.str, Enum):
     """
     RESOURCE = "Resource"
     METRICS = "Metrics"
+
+
+@pulumi.type_token("azure-native:monitor:SignalKind")
+class SignalKind(builtins.str, Enum):
+    """
+    Kind of the signal definition
+    """
+    AZURE_RESOURCE_METRIC = "AzureResourceMetric"
+    LOG_ANALYTICS_QUERY = "LogAnalyticsQuery"
+    PROMETHEUS_METRICS_QUERY = "PrometheusMetricsQuery"
+
+
+@pulumi.type_token("azure-native:monitor:SignalOperator")
+class SignalOperator(builtins.str, Enum):
+    """
+    Operator how to compare the signal value with the threshold
+    """
+    LESS_THAN = "LessThan"
+    """
+    Less than
+    """
+    LESS_THAN_OR_EQUAL = "LessThanOrEqual"
+    """
+    Less than or equal to
+    """
+    GREATER_THAN = "GreaterThan"
+    """
+    Greater than
+    """
+    GREATER_THAN_OR_EQUAL = "GreaterThanOrEqual"
+    """
+    Greater than or equal to
+    """
+    EQUAL = "Equal"
+    """
+    Equal to
+    """
 
 
 @pulumi.type_token("azure-native:monitor:Status")

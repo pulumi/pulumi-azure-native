@@ -106,7 +106,7 @@ export class Issue extends pulumi.CustomResource {
  */
 export interface IssueArgs {
     /**
-     * The name of the AzureMonitorWorkspaceResource
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: pulumi.Input<string>;
     /**

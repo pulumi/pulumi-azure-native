@@ -24,7 +24,7 @@ export function listIssueAlerts(args: ListIssueAlertsArgs, opts?: pulumi.InvokeO
 
 export interface ListIssueAlertsArgs {
     /**
-     * The name of the AzureMonitorWorkspaceResource
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: string;
     /**
@@ -71,7 +71,7 @@ export function listIssueAlertsOutput(args: ListIssueAlertsOutputArgs, opts?: pu
 
 export interface ListIssueAlertsOutputArgs {
     /**
-     * The name of the AzureMonitorWorkspaceResource
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: pulumi.Input<string>;
     /**

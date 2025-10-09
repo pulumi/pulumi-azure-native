@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * AkriConnectorTemplate resource.
  *
  * Uses Azure REST API version 2025-07-01-preview.
+ *
+ * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class AkriConnectorTemplate extends pulumi.CustomResource {
     /**
@@ -99,7 +101,7 @@ export class AkriConnectorTemplate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20250701preview:AkriConnectorTemplate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:iotoperations/v20250701preview:AkriConnectorTemplate" }, { type: "azure-native:iotoperations/v20251001:AkriConnectorTemplate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AkriConnectorTemplate.__pulumiType, name, resourceInputs, opts);
     }

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// Get the properties of a specific dashboard for grafana resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDashboardResult> InvokeAsync(GetDashboardArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDashboardResult>("azure-native:dashboard:getDashboard", args ?? new GetDashboardArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// Get the properties of a specific dashboard for grafana resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Dashboard
         /// Get the properties of a specific dashboard for grafana resource.
         /// 
         /// Uses Azure REST API version 2024-11-01-preview.
+        /// 
+        /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDashboardResult> Invoke(GetDashboardInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDashboardResult>("azure-native:dashboard:getDashboard", args ?? new GetDashboardInvokeArgs(), options.WithDefaults());

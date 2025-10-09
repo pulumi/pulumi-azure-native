@@ -106,7 +106,7 @@ export class HciEdgeDeviceJob extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240901preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20241201preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20250915preview:HciEdgeDeviceJob" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:azurestackhci/v20240901preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20241201preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20250201preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20250915preview:HciEdgeDeviceJob" }, { type: "azure-native:azurestackhci/v20251001:HciEdgeDeviceJob" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(HciEdgeDeviceJob.__pulumiType, name, resourceInputs, opts);
     }

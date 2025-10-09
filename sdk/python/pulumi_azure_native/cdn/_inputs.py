@@ -25,6 +25,8 @@ __all__ = [
     'ActivatedResourceReferenceArgsDict',
     'AfdRouteCacheConfigurationArgs',
     'AfdRouteCacheConfigurationArgsDict',
+    'AgentPathArgs',
+    'AgentPathArgsDict',
     'AzureFirstPartyManagedCertificateParametersArgs',
     'AzureFirstPartyManagedCertificateParametersArgsDict',
     'CacheConfigurationArgs',
@@ -500,6 +502,60 @@ class AfdRouteCacheConfigurationArgs:
     @query_string_caching_behavior.setter
     def query_string_caching_behavior(self, value: Optional[pulumi.Input[Union[builtins.str, 'AfdQueryStringCachingBehavior']]]):
         pulumi.set(self, "query_string_caching_behavior", value)
+
+
+if not MYPY:
+    class AgentPathArgsDict(TypedDict):
+        """
+        Defines a path configuration for a web agent.
+        """
+        path: pulumi.Input[builtins.str]
+        """
+        The actual path value.
+        """
+        type: pulumi.Input[Union[builtins.str, 'AgentPathType']]
+        """
+        The type of the path.
+        """
+elif False:
+    AgentPathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentPathArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[builtins.str],
+                 type: pulumi.Input[Union[builtins.str, 'AgentPathType']]):
+        """
+        Defines a path configuration for a web agent.
+        :param pulumi.Input[builtins.str] path: The actual path value.
+        :param pulumi.Input[Union[builtins.str, 'AgentPathType']] type: The type of the path.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[builtins.str]:
+        """
+        The actual path value.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[builtins.str, 'AgentPathType']]:
+        """
+        The type of the path.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[builtins.str, 'AgentPathType']]):
+        pulumi.set(self, "type", value)
 
 
 if not MYPY:

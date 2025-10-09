@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.DnsResolver
     /// 
     /// Uses Azure REST API version 2023-07-01-preview.
     /// 
-    /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dnsresolver:OutboundEndpoint")]
     public partial class OutboundEndpoint : global::Pulumi.CustomResource
@@ -108,6 +108,7 @@ namespace Pulumi.AzureNative.DnsResolver
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20220701:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20230701preview:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20250501:OutboundEndpoint" },
+                    new global::Pulumi.Alias { Type = "azure-native:dnsresolver/v20251001preview:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20200401preview:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20220701:OutboundEndpoint" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20230701preview:OutboundEndpoint" },

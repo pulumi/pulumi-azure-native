@@ -132,6 +132,8 @@ def get_akri_connector_template(akri_connector_template_name: Optional[builtins.
 
     Uses Azure REST API version 2025-07-01-preview.
 
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str akri_connector_template_name: Name of AkriConnectorTemplate resource.
     :param builtins.str instance_name: Name of instance.
@@ -160,6 +162,8 @@ def get_akri_connector_template_output(akri_connector_template_name: Optional[pu
     Get a AkriConnectorTemplateResource
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str akri_connector_template_name: Name of AkriConnectorTemplate resource.

@@ -31,7 +31,7 @@ class IssueArgs:
                  start_investigation: Optional[pulumi.Input[builtins.bool]] = None):
         """
         The set of arguments for constructing a Issue resource.
-        :param pulumi.Input[builtins.str] azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+        :param pulumi.Input[builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[builtins.str] issue_name: The name of the IssueResource
         :param pulumi.Input['IssuePropertiesArgs'] properties: The resource-specific properties for this resource.
@@ -53,7 +53,7 @@ class IssueArgs:
     @pulumi.getter(name="azureMonitorWorkspaceName")
     def azure_monitor_workspace_name(self) -> pulumi.Input[builtins.str]:
         """
-        The name of the AzureMonitorWorkspaceResource
+        The name of the Azure Monitor Workspace. The name is case insensitive
         """
         return pulumi.get(self, "azure_monitor_workspace_name")
 
@@ -142,7 +142,7 @@ class Issue(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+        :param pulumi.Input[builtins.str] azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
         :param pulumi.Input[builtins.str] issue_name: The name of the IssueResource
         :param pulumi.Input[Union['IssuePropertiesArgs', 'IssuePropertiesArgsDict']] properties: The resource-specific properties for this resource.
         :param pulumi.Input[builtins.str] related: Related resource or alert that is to be added to the issue (default: empty - the issue will be created without any related resources or alerts)

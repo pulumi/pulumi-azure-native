@@ -395,7 +395,7 @@ class Update(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -432,7 +432,7 @@ class Update(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01.
 
-        Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-15-preview, 2023-02-01, 2023-03-01, 2023-06-01, 2023-08-01, 2023-08-01-preview, 2023-11-01-preview, 2024-01-01, 2024-02-15-preview, 2024-09-01-preview, 2024-12-01-preview, 2025-02-01-preview, 2025-09-15-preview, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param UpdateArgs args: The arguments to use to populate this resource's properties.
@@ -509,7 +509,7 @@ class Update(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240901preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20241201preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20250915preview:Update")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20221201:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230201:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230301:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230601:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20230801preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20231101preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240215preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240401:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20240901preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20241201preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20250915preview:Update"), pulumi.Alias(type_="azure-native:azurestackhci/v20251001:Update")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Update, __self__).__init__(
             'azure-native:azurestackhci:Update',

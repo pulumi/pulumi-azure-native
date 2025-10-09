@@ -29,6 +29,7 @@ from .get_dynamic_schema_version import *
 from .get_execution import *
 from .get_instance import *
 from .get_schema import *
+from .get_schema_reference import *
 from .get_schema_version import *
 from .get_site import *
 from .get_site_reference import *
@@ -42,6 +43,7 @@ from .get_workflow import *
 from .get_workflow_version import *
 from .instance import *
 from .schema import *
+from .schema_reference import *
 from .schema_version import *
 from .site import *
 from .site_reference import *

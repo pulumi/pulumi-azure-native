@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriConnectorTemplateResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetAkriConnectorTemplateResult> InvokeAsync(GetAkriConnectorTemplateArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAkriConnectorTemplateResult>("azure-native:iotoperations:getAkriConnectorTemplate", args ?? new GetAkriConnectorTemplateArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriConnectorTemplateResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAkriConnectorTemplateResult> Invoke(GetAkriConnectorTemplateInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAkriConnectorTemplateResult>("azure-native:iotoperations:getAkriConnectorTemplate", args ?? new GetAkriConnectorTemplateInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a AkriConnectorTemplateResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetAkriConnectorTemplateResult> Invoke(GetAkriConnectorTemplateInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetAkriConnectorTemplateResult>("azure-native:iotoperations:getAkriConnectorTemplate", args ?? new GetAkriConnectorTemplateInvokeArgs(), options.WithDefaults());

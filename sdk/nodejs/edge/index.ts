@@ -115,6 +115,11 @@ export const getSchema: typeof import("./getSchema").getSchema = null as any;
 export const getSchemaOutput: typeof import("./getSchema").getSchemaOutput = null as any;
 utilities.lazyLoad(exports, ["getSchema","getSchemaOutput"], () => require("./getSchema"));
 
+export { GetSchemaReferenceArgs, GetSchemaReferenceResult, GetSchemaReferenceOutputArgs } from "./getSchemaReference";
+export const getSchemaReference: typeof import("./getSchemaReference").getSchemaReference = null as any;
+export const getSchemaReferenceOutput: typeof import("./getSchemaReference").getSchemaReferenceOutput = null as any;
+utilities.lazyLoad(exports, ["getSchemaReference","getSchemaReferenceOutput"], () => require("./getSchemaReference"));
+
 export { GetSchemaVersionArgs, GetSchemaVersionResult, GetSchemaVersionOutputArgs } from "./getSchemaVersion";
 export const getSchemaVersion: typeof import("./getSchemaVersion").getSchemaVersion = null as any;
 export const getSchemaVersionOutput: typeof import("./getSchemaVersion").getSchemaVersionOutput = null as any;
@@ -179,6 +184,11 @@ export { SchemaArgs } from "./schema";
 export type Schema = import("./schema").Schema;
 export const Schema: typeof import("./schema").Schema = null as any;
 utilities.lazyLoad(exports, ["Schema"], () => require("./schema"));
+
+export { SchemaReferenceArgs } from "./schemaReference";
+export type SchemaReference = import("./schemaReference").SchemaReference;
+export const SchemaReference: typeof import("./schemaReference").SchemaReference = null as any;
+utilities.lazyLoad(exports, ["SchemaReference"], () => require("./schemaReference"));
 
 export { SchemaVersionArgs } from "./schemaVersion";
 export type SchemaVersion = import("./schemaVersion").SchemaVersion;
@@ -267,6 +277,8 @@ const _module = {
                 return new Instance(name, <any>undefined, { urn })
             case "azure-native:edge:Schema":
                 return new Schema(name, <any>undefined, { urn })
+            case "azure-native:edge:SchemaReference":
+                return new SchemaReference(name, <any>undefined, { urn })
             case "azure-native:edge:SchemaVersion":
                 return new SchemaVersion(name, <any>undefined, { urn })
             case "azure-native:edge:Site":

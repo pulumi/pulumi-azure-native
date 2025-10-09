@@ -97,7 +97,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class IssueArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the AzureMonitorWorkspaceResource
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;

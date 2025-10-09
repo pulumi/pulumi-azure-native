@@ -25,6 +25,43 @@ export const AggregationTypeEnum = {
  */
 export type AggregationTypeEnum = (typeof AggregationTypeEnum)[keyof typeof AggregationTypeEnum];
 
+export const AlertSeverity = {
+    /**
+     * Critical
+     */
+    Sev0: "Sev0",
+    /**
+     * Error
+     */
+    Sev1: "Sev1",
+    /**
+     * Warning
+     */
+    Sev2: "Sev2",
+    /**
+     * Informational
+     */
+    Sev3: "Sev3",
+    /**
+     * Verbose
+     */
+    Sev4: "Sev4",
+} as const;
+
+/**
+ * The severity of triggered alert.
+ */
+export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
+
+export const AuthenticationKind = {
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+/**
+ * Kind of the authentication setting
+ */
+export type AuthenticationKind = (typeof AuthenticationKind)[keyof typeof AuthenticationKind];
+
 export const ComparisonOperationType = {
     Equals: "Equals",
     NotEquals: "NotEquals",
@@ -63,6 +100,22 @@ export const CriterionType = {
  */
 export type CriterionType = (typeof CriterionType)[keyof typeof CriterionType];
 
+export const DependenciesAggregationType = {
+    /**
+     * Default behavior: Worst child health state is propagated.
+     */
+    WorstOf: "WorstOf",
+    /**
+     * Based on configurable thresholds.
+     */
+    Thresholds: "Thresholds",
+} as const;
+
+/**
+ * Aggregation type for child dependencies.
+ */
+export type DependenciesAggregationType = (typeof DependenciesAggregationType)[keyof typeof DependenciesAggregationType];
+
 export const DimensionOperator = {
     Include: "Include",
     Exclude: "Exclude",
@@ -72,6 +125,80 @@ export const DimensionOperator = {
  * Operator for dimension values
  */
 export type DimensionOperator = (typeof DimensionOperator)[keyof typeof DimensionOperator];
+
+export const DiscoveryRuleKind = {
+    ResourceGraphQuery: "ResourceGraphQuery",
+    ApplicationInsightsTopology: "ApplicationInsightsTopology",
+} as const;
+
+/**
+ * Kind of the discovery rule
+ */
+export type DiscoveryRuleKind = (typeof DiscoveryRuleKind)[keyof typeof DiscoveryRuleKind];
+
+export const DiscoveryRuleRecommendedSignalsBehavior = {
+    /**
+     * Automatically add recommended signals
+     */
+    Enabled: "Enabled",
+    /**
+     * Do not automatically add recommended signals
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether to add all recommended signals to the discovered entities.
+ */
+export type DiscoveryRuleRecommendedSignalsBehavior = (typeof DiscoveryRuleRecommendedSignalsBehavior)[keyof typeof DiscoveryRuleRecommendedSignalsBehavior];
+
+export const DiscoveryRuleRelationshipDiscoveryBehavior = {
+    /**
+     * Automatically attempt to discover relationships
+     */
+    Enabled: "Enabled",
+    /**
+     * Do not automatically attempt to discover relationships
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+ */
+export type DiscoveryRuleRelationshipDiscoveryBehavior = (typeof DiscoveryRuleRelationshipDiscoveryBehavior)[keyof typeof DiscoveryRuleRelationshipDiscoveryBehavior];
+
+export const DynamicThresholdDirection = {
+    /**
+     * Lower than
+     */
+    LowerThan: "LowerThan",
+    /**
+     * Greater than
+     */
+    GreaterThan: "GreaterThan",
+    /**
+     * Greater or Lower Than
+     */
+    GreaterOrLowerThan: "GreaterOrLowerThan",
+} as const;
+
+/**
+ * Threshold direction
+ */
+export type DynamicThresholdDirection = (typeof DynamicThresholdDirection)[keyof typeof DynamicThresholdDirection];
+
+export const DynamicThresholdModel = {
+    /**
+     * Anomaly detection model
+     */
+    AnomalyDetection: "AnomalyDetection",
+} as const;
+
+/**
+ * ML model to use for dynamic thresholds
+ */
+export type DynamicThresholdModel = (typeof DynamicThresholdModel)[keyof typeof DynamicThresholdModel];
 
 export const DynamicThresholdOperator = {
     GreaterThan: "GreaterThan",
@@ -94,6 +221,26 @@ export const DynamicThresholdSensitivity = {
  * The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern.
  */
 export type DynamicThresholdSensitivity = (typeof DynamicThresholdSensitivity)[keyof typeof DynamicThresholdSensitivity];
+
+export const EntityImpact = {
+    /**
+     * Standard impact
+     */
+    Standard: "Standard",
+    /**
+     * Limited impact
+     */
+    Limited: "Limited",
+    /**
+     * Suppressed impact
+     */
+    Suppressed: "Suppressed",
+} as const;
+
+/**
+ * Impact of the entity in health state propagation
+ */
+export type EntityImpact = (typeof EntityImpact)[keyof typeof EntityImpact];
 
 export const ExporterType = {
     /**
@@ -362,6 +509,20 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const MetricAggregationType = {
+    None: "None",
+    Average: "Average",
+    Count: "Count",
+    Minimum: "Minimum",
+    Maximum: "Maximum",
+    Total: "Total",
+} as const;
+
+/**
+ * Type of aggregation to apply to the metric
+ */
+export type MetricAggregationType = (typeof MetricAggregationType)[keyof typeof MetricAggregationType];
+
 export const MetricStatisticType = {
     Average: "Average",
     Min: "Min",
@@ -508,6 +669,38 @@ export const RecurrenceFrequency = {
  */
 export type RecurrenceFrequency = (typeof RecurrenceFrequency)[keyof typeof RecurrenceFrequency];
 
+export const RefreshInterval = {
+    /**
+     * One Minute
+     */
+    PT1M: "PT1M",
+    /**
+     * Five Minutes
+     */
+    PT5M: "PT5M",
+    /**
+     * Ten Minutes
+     */
+    PT10M: "PT10M",
+    /**
+     * Thirty Minutes
+     */
+    PT30M: "PT30M",
+    /**
+     * One Hour
+     */
+    PT1H: "PT1H",
+    /**
+     * Two Hours
+     */
+    PT2H: "PT2H",
+} as const;
+
+/**
+ * Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+ */
+export type RefreshInterval = (typeof RefreshInterval)[keyof typeof RefreshInterval];
+
 export const ScaleDirection = {
     None: "None",
     Increase: "Increase",
@@ -550,6 +743,45 @@ export const ScopedResourceKind = {
  * The kind of scoped Azure monitor resource.
  */
 export type ScopedResourceKind = (typeof ScopedResourceKind)[keyof typeof ScopedResourceKind];
+
+export const SignalKind = {
+    AzureResourceMetric: "AzureResourceMetric",
+    LogAnalyticsQuery: "LogAnalyticsQuery",
+    PrometheusMetricsQuery: "PrometheusMetricsQuery",
+} as const;
+
+/**
+ * Kind of the signal definition
+ */
+export type SignalKind = (typeof SignalKind)[keyof typeof SignalKind];
+
+export const SignalOperator = {
+    /**
+     * Less than
+     */
+    LessThan: "LessThan",
+    /**
+     * Less than or equal to
+     */
+    LessThanOrEqual: "LessThanOrEqual",
+    /**
+     * Greater than
+     */
+    GreaterThan: "GreaterThan",
+    /**
+     * Greater than or equal to
+     */
+    GreaterThanOrEqual: "GreaterThanOrEqual",
+    /**
+     * Equal to
+     */
+    Equal: "Equal",
+} as const;
+
+/**
+ * Operator how to compare the signal value with the threshold
+ */
+export type SignalOperator = (typeof SignalOperator)[keyof typeof SignalOperator];
 
 export const Status = {
     /**

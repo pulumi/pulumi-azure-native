@@ -15,6 +15,11 @@ export type ActivityLogAlert = import("./activityLogAlert").ActivityLogAlert;
 export const ActivityLogAlert: typeof import("./activityLogAlert").ActivityLogAlert = null as any;
 utilities.lazyLoad(exports, ["ActivityLogAlert"], () => require("./activityLogAlert"));
 
+export { AuthenticationSettingArgs } from "./authenticationSetting";
+export type AuthenticationSetting = import("./authenticationSetting").AuthenticationSetting;
+export const AuthenticationSetting: typeof import("./authenticationSetting").AuthenticationSetting = null as any;
+utilities.lazyLoad(exports, ["AuthenticationSetting"], () => require("./authenticationSetting"));
+
 export { AutoscaleSettingArgs } from "./autoscaleSetting";
 export type AutoscaleSetting = import("./autoscaleSetting").AutoscaleSetting;
 export const AutoscaleSetting: typeof import("./autoscaleSetting").AutoscaleSetting = null as any;
@@ -45,6 +50,16 @@ export type DiagnosticSetting = import("./diagnosticSetting").DiagnosticSetting;
 export const DiagnosticSetting: typeof import("./diagnosticSetting").DiagnosticSetting = null as any;
 utilities.lazyLoad(exports, ["DiagnosticSetting"], () => require("./diagnosticSetting"));
 
+export { DiscoveryRuleArgs } from "./discoveryRule";
+export type DiscoveryRule = import("./discoveryRule").DiscoveryRule;
+export const DiscoveryRule: typeof import("./discoveryRule").DiscoveryRule = null as any;
+utilities.lazyLoad(exports, ["DiscoveryRule"], () => require("./discoveryRule"));
+
+export { EntityArgs } from "./entity";
+export type Entity = import("./entity").Entity;
+export const Entity: typeof import("./entity").Entity = null as any;
+utilities.lazyLoad(exports, ["Entity"], () => require("./entity"));
+
 export { GetActionGroupArgs, GetActionGroupResult, GetActionGroupOutputArgs } from "./getActionGroup";
 export const getActionGroup: typeof import("./getActionGroup").getActionGroup = null as any;
 export const getActionGroupOutput: typeof import("./getActionGroup").getActionGroupOutput = null as any;
@@ -54,6 +69,11 @@ export { GetActivityLogAlertArgs, GetActivityLogAlertResult, GetActivityLogAlert
 export const getActivityLogAlert: typeof import("./getActivityLogAlert").getActivityLogAlert = null as any;
 export const getActivityLogAlertOutput: typeof import("./getActivityLogAlert").getActivityLogAlertOutput = null as any;
 utilities.lazyLoad(exports, ["getActivityLogAlert","getActivityLogAlertOutput"], () => require("./getActivityLogAlert"));
+
+export { GetAuthenticationSettingArgs, GetAuthenticationSettingResult, GetAuthenticationSettingOutputArgs } from "./getAuthenticationSetting";
+export const getAuthenticationSetting: typeof import("./getAuthenticationSetting").getAuthenticationSetting = null as any;
+export const getAuthenticationSettingOutput: typeof import("./getAuthenticationSetting").getAuthenticationSettingOutput = null as any;
+utilities.lazyLoad(exports, ["getAuthenticationSetting","getAuthenticationSettingOutput"], () => require("./getAuthenticationSetting"));
 
 export { GetAutoscaleSettingArgs, GetAutoscaleSettingResult, GetAutoscaleSettingOutputArgs } from "./getAutoscaleSetting";
 export const getAutoscaleSetting: typeof import("./getAutoscaleSetting").getAutoscaleSetting = null as any;
@@ -84,6 +104,21 @@ export { GetDiagnosticSettingArgs, GetDiagnosticSettingResult, GetDiagnosticSett
 export const getDiagnosticSetting: typeof import("./getDiagnosticSetting").getDiagnosticSetting = null as any;
 export const getDiagnosticSettingOutput: typeof import("./getDiagnosticSetting").getDiagnosticSettingOutput = null as any;
 utilities.lazyLoad(exports, ["getDiagnosticSetting","getDiagnosticSettingOutput"], () => require("./getDiagnosticSetting"));
+
+export { GetDiscoveryRuleArgs, GetDiscoveryRuleResult, GetDiscoveryRuleOutputArgs } from "./getDiscoveryRule";
+export const getDiscoveryRule: typeof import("./getDiscoveryRule").getDiscoveryRule = null as any;
+export const getDiscoveryRuleOutput: typeof import("./getDiscoveryRule").getDiscoveryRuleOutput = null as any;
+utilities.lazyLoad(exports, ["getDiscoveryRule","getDiscoveryRuleOutput"], () => require("./getDiscoveryRule"));
+
+export { GetEntityArgs, GetEntityResult, GetEntityOutputArgs } from "./getEntity";
+export const getEntity: typeof import("./getEntity").getEntity = null as any;
+export const getEntityOutput: typeof import("./getEntity").getEntityOutput = null as any;
+utilities.lazyLoad(exports, ["getEntity","getEntityOutput"], () => require("./getEntity"));
+
+export { GetHealthModelArgs, GetHealthModelResult, GetHealthModelOutputArgs } from "./getHealthModel";
+export const getHealthModel: typeof import("./getHealthModel").getHealthModel = null as any;
+export const getHealthModelOutput: typeof import("./getHealthModel").getHealthModelOutput = null as any;
+utilities.lazyLoad(exports, ["getHealthModel","getHealthModelOutput"], () => require("./getHealthModel"));
 
 export { GetIssueArgs, GetIssueResult, GetIssueOutputArgs } from "./getIssue";
 export const getIssue: typeof import("./getIssue").getIssue = null as any;
@@ -120,10 +155,20 @@ export const getPrivateLinkScopedResource: typeof import("./getPrivateLinkScoped
 export const getPrivateLinkScopedResourceOutput: typeof import("./getPrivateLinkScopedResource").getPrivateLinkScopedResourceOutput = null as any;
 utilities.lazyLoad(exports, ["getPrivateLinkScopedResource","getPrivateLinkScopedResourceOutput"], () => require("./getPrivateLinkScopedResource"));
 
+export { GetRelationshipArgs, GetRelationshipResult, GetRelationshipOutputArgs } from "./getRelationship";
+export const getRelationship: typeof import("./getRelationship").getRelationship = null as any;
+export const getRelationshipOutput: typeof import("./getRelationship").getRelationshipOutput = null as any;
+utilities.lazyLoad(exports, ["getRelationship","getRelationshipOutput"], () => require("./getRelationship"));
+
 export { GetScheduledQueryRuleArgs, GetScheduledQueryRuleResult, GetScheduledQueryRuleOutputArgs } from "./getScheduledQueryRule";
 export const getScheduledQueryRule: typeof import("./getScheduledQueryRule").getScheduledQueryRule = null as any;
 export const getScheduledQueryRuleOutput: typeof import("./getScheduledQueryRule").getScheduledQueryRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getScheduledQueryRule","getScheduledQueryRuleOutput"], () => require("./getScheduledQueryRule"));
+
+export { GetSignalDefinitionArgs, GetSignalDefinitionResult, GetSignalDefinitionOutputArgs } from "./getSignalDefinition";
+export const getSignalDefinition: typeof import("./getSignalDefinition").getSignalDefinition = null as any;
+export const getSignalDefinitionOutput: typeof import("./getSignalDefinition").getSignalDefinitionOutput = null as any;
+utilities.lazyLoad(exports, ["getSignalDefinition","getSignalDefinitionOutput"], () => require("./getSignalDefinition"));
 
 export { GetSubscriptionDiagnosticSettingArgs, GetSubscriptionDiagnosticSettingResult, GetSubscriptionDiagnosticSettingOutputArgs } from "./getSubscriptionDiagnosticSetting";
 export const getSubscriptionDiagnosticSetting: typeof import("./getSubscriptionDiagnosticSetting").getSubscriptionDiagnosticSetting = null as any;
@@ -134,6 +179,11 @@ export { GetTenantActionGroupArgs, GetTenantActionGroupResult, GetTenantActionGr
 export const getTenantActionGroup: typeof import("./getTenantActionGroup").getTenantActionGroup = null as any;
 export const getTenantActionGroupOutput: typeof import("./getTenantActionGroup").getTenantActionGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getTenantActionGroup","getTenantActionGroupOutput"], () => require("./getTenantActionGroup"));
+
+export { HealthModelArgs } from "./healthModel";
+export type HealthModel = import("./healthModel").HealthModel;
+export const HealthModel: typeof import("./healthModel").HealthModel = null as any;
+utilities.lazyLoad(exports, ["HealthModel"], () => require("./healthModel"));
 
 export { IssueArgs } from "./issue";
 export type Issue = import("./issue").Issue;
@@ -185,10 +235,20 @@ export type PrivateLinkScopedResource = import("./privateLinkScopedResource").Pr
 export const PrivateLinkScopedResource: typeof import("./privateLinkScopedResource").PrivateLinkScopedResource = null as any;
 utilities.lazyLoad(exports, ["PrivateLinkScopedResource"], () => require("./privateLinkScopedResource"));
 
+export { RelationshipArgs } from "./relationship";
+export type Relationship = import("./relationship").Relationship;
+export const Relationship: typeof import("./relationship").Relationship = null as any;
+utilities.lazyLoad(exports, ["Relationship"], () => require("./relationship"));
+
 export { ScheduledQueryRuleArgs } from "./scheduledQueryRule";
 export type ScheduledQueryRule = import("./scheduledQueryRule").ScheduledQueryRule;
 export const ScheduledQueryRule: typeof import("./scheduledQueryRule").ScheduledQueryRule = null as any;
 utilities.lazyLoad(exports, ["ScheduledQueryRule"], () => require("./scheduledQueryRule"));
+
+export { SignalDefinitionArgs } from "./signalDefinition";
+export type SignalDefinition = import("./signalDefinition").SignalDefinition;
+export const SignalDefinition: typeof import("./signalDefinition").SignalDefinition = null as any;
+utilities.lazyLoad(exports, ["SignalDefinition"], () => require("./signalDefinition"));
 
 export { SubscriptionDiagnosticSettingArgs } from "./subscriptionDiagnosticSetting";
 export type SubscriptionDiagnosticSetting = import("./subscriptionDiagnosticSetting").SubscriptionDiagnosticSetting;
@@ -212,6 +272,8 @@ const _module = {
                 return new ActionGroup(name, <any>undefined, { urn })
             case "azure-native:monitor:ActivityLogAlert":
                 return new ActivityLogAlert(name, <any>undefined, { urn })
+            case "azure-native:monitor:AuthenticationSetting":
+                return new AuthenticationSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:AutoscaleSetting":
                 return new AutoscaleSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:AzureMonitorWorkspace":
@@ -224,6 +286,12 @@ const _module = {
                 return new DataCollectionRuleAssociation(name, <any>undefined, { urn })
             case "azure-native:monitor:DiagnosticSetting":
                 return new DiagnosticSetting(name, <any>undefined, { urn })
+            case "azure-native:monitor:DiscoveryRule":
+                return new DiscoveryRule(name, <any>undefined, { urn })
+            case "azure-native:monitor:Entity":
+                return new Entity(name, <any>undefined, { urn })
+            case "azure-native:monitor:HealthModel":
+                return new HealthModel(name, <any>undefined, { urn })
             case "azure-native:monitor:Issue":
                 return new Issue(name, <any>undefined, { urn })
             case "azure-native:monitor:ManagementGroupDiagnosticSetting":
@@ -238,8 +306,12 @@ const _module = {
                 return new PrivateLinkScope(name, <any>undefined, { urn })
             case "azure-native:monitor:PrivateLinkScopedResource":
                 return new PrivateLinkScopedResource(name, <any>undefined, { urn })
+            case "azure-native:monitor:Relationship":
+                return new Relationship(name, <any>undefined, { urn })
             case "azure-native:monitor:ScheduledQueryRule":
                 return new ScheduledQueryRule(name, <any>undefined, { urn })
+            case "azure-native:monitor:SignalDefinition":
+                return new SignalDefinition(name, <any>undefined, { urn })
             case "azure-native:monitor:SubscriptionDiagnosticSetting":
                 return new SubscriptionDiagnosticSetting(name, <any>undefined, { urn })
             case "azure-native:monitor:TenantActionGroup":

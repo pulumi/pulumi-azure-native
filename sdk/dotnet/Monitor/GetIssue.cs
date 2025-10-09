@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetIssueArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the AzureMonitorWorkspaceResource
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public string AzureMonitorWorkspaceName { get; set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.AzureNative.Monitor
     public sealed class GetIssueInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the AzureMonitorWorkspaceResource
+        /// The name of the Azure Monitor Workspace. The name is case insensitive
         /// </summary>
         [Input("azureMonitorWorkspaceName", required: true)]
         public Input<string> AzureMonitorWorkspaceName { get; set; } = null!;

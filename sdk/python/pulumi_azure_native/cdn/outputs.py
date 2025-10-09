@@ -22,6 +22,7 @@ __all__ = [
     'AFDDomainHttpsParametersResponse',
     'ActivatedResourceReferenceResponse',
     'AfdRouteCacheConfigurationResponse',
+    'AgentPathResponse',
     'AzureFirstPartyManagedCertificateParametersResponse',
     'CacheConfigurationResponse',
     'CacheExpirationActionParametersResponse',
@@ -392,6 +393,39 @@ class AfdRouteCacheConfigurationResponse(dict):
         Defines how Frontdoor caches requests that include query strings. You can ignore any query strings when caching, ignore specific query strings, cache every request with a unique URL, or cache specific query strings.
         """
         return pulumi.get(self, "query_string_caching_behavior")
+
+
+@pulumi.output_type
+class AgentPathResponse(dict):
+    """
+    Defines a path configuration for a web agent.
+    """
+    def __init__(__self__, *,
+                 path: builtins.str,
+                 type: builtins.str):
+        """
+        Defines a path configuration for a web agent.
+        :param builtins.str path: The actual path value.
+        :param builtins.str type: The type of the path.
+        """
+        pulumi.set(__self__, "path", path)
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def path(self) -> builtins.str:
+        """
+        The actual path value.
+        """
+        return pulumi.get(self, "path")
+
+    @property
+    @pulumi.getter
+    def type(self) -> builtins.str:
+        """
+        The type of the path.
+        """
+        return pulumi.get(self, "type")
 
 
 @pulumi.output_type
@@ -6134,7 +6168,7 @@ class SslProtocolMatchConditionParametersResponse(dict):
 @pulumi.output_type
 class SystemDataResponse(dict):
     """
-    Read only system data
+    Metadata pertaining to creation and last modification of the resource.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -6171,13 +6205,13 @@ class SystemDataResponse(dict):
                  last_modified_by: Optional[builtins.str] = None,
                  last_modified_by_type: Optional[builtins.str] = None):
         """
-        Read only system data
-        :param builtins.str created_at: The timestamp of resource creation (UTC)
-        :param builtins.str created_by: An identifier for the identity that created the resource
-        :param builtins.str created_by_type: The type of identity that created the resource
+        Metadata pertaining to creation and last modification of the resource.
+        :param builtins.str created_at: The timestamp of resource creation (UTC).
+        :param builtins.str created_by: The identity that created the resource.
+        :param builtins.str created_by_type: The type of identity that created the resource.
         :param builtins.str last_modified_at: The timestamp of resource last modification (UTC)
-        :param builtins.str last_modified_by: An identifier for the identity that last modified the resource
-        :param builtins.str last_modified_by_type: The type of identity that last modified the resource
+        :param builtins.str last_modified_by: The identity that last modified the resource.
+        :param builtins.str last_modified_by_type: The type of identity that last modified the resource.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -6196,7 +6230,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[builtins.str]:
         """
-        The timestamp of resource creation (UTC)
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
@@ -6204,7 +6238,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdBy")
     def created_by(self) -> Optional[builtins.str]:
         """
-        An identifier for the identity that created the resource
+        The identity that created the resource.
         """
         return pulumi.get(self, "created_by")
 
@@ -6212,7 +6246,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdByType")
     def created_by_type(self) -> Optional[builtins.str]:
         """
-        The type of identity that created the resource
+        The type of identity that created the resource.
         """
         return pulumi.get(self, "created_by_type")
 
@@ -6228,7 +6262,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedBy")
     def last_modified_by(self) -> Optional[builtins.str]:
         """
-        An identifier for the identity that last modified the resource
+        The identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by")
 
@@ -6236,7 +6270,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedByType")
     def last_modified_by_type(self) -> Optional[builtins.str]:
         """
-        The type of identity that last modified the resource
+        The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
 

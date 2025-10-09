@@ -23,7 +23,7 @@ export function getIssue(args: GetIssueArgs, opts?: pulumi.InvokeOptions): Promi
 
 export interface GetIssueArgs {
     /**
-     * The name of the AzureMonitorWorkspaceResource
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: string;
     /**
@@ -81,7 +81,7 @@ export function getIssueOutput(args: GetIssueOutputArgs, opts?: pulumi.InvokeOut
 
 export interface GetIssueOutputArgs {
     /**
-     * The name of the AzureMonitorWorkspaceResource
+     * The name of the Azure Monitor Workspace. The name is case insensitive
      */
     azureMonitorWorkspaceName: pulumi.Input<string>;
     /**

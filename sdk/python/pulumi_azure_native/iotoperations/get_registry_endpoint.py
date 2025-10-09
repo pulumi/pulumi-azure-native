@@ -132,6 +132,8 @@ def get_registry_endpoint(instance_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01-preview.
 
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str instance_name: Name of instance.
     :param builtins.str registry_endpoint_name: Name of RegistryEndpoint resource
@@ -160,6 +162,8 @@ def get_registry_endpoint_output(instance_name: Optional[pulumi.Input[builtins.s
     Get a RegistryEndpointResource
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str instance_name: Name of instance.

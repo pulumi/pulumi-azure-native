@@ -80,6 +80,11 @@ export const getKeyGroup: typeof import("./getKeyGroup").getKeyGroup = null as a
 export const getKeyGroupOutput: typeof import("./getKeyGroup").getKeyGroupOutput = null as any;
 utilities.lazyLoad(exports, ["getKeyGroup","getKeyGroupOutput"], () => require("./getKeyGroup"));
 
+export { GetKnowledgeSourceArgs, GetKnowledgeSourceResult, GetKnowledgeSourceOutputArgs } from "./getKnowledgeSource";
+export const getKnowledgeSource: typeof import("./getKnowledgeSource").getKnowledgeSource = null as any;
+export const getKnowledgeSourceOutput: typeof import("./getKnowledgeSource").getKnowledgeSourceOutput = null as any;
+utilities.lazyLoad(exports, ["getKnowledgeSource","getKnowledgeSourceOutput"], () => require("./getKnowledgeSource"));
+
 export { GetOriginArgs, GetOriginResult, GetOriginOutputArgs } from "./getOrigin";
 export const getOrigin: typeof import("./getOrigin").getOrigin = null as any;
 export const getOriginOutput: typeof import("./getOrigin").getOriginOutput = null as any;
@@ -99,6 +104,11 @@ export { GetProfileArgs, GetProfileResult, GetProfileOutputArgs } from "./getPro
 export const getProfile: typeof import("./getProfile").getProfile = null as any;
 export const getProfileOutput: typeof import("./getProfile").getProfileOutput = null as any;
 utilities.lazyLoad(exports, ["getProfile","getProfileOutput"], () => require("./getProfile"));
+
+export { GetProfileAgentArgs, GetProfileAgentResult, GetProfileAgentOutputArgs } from "./getProfileAgent";
+export const getProfileAgent: typeof import("./getProfileAgent").getProfileAgent = null as any;
+export const getProfileAgentOutput: typeof import("./getProfileAgent").getProfileAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getProfileAgent","getProfileAgentOutput"], () => require("./getProfileAgent"));
 
 export { GetProfileSupportedOptimizationTypesArgs, GetProfileSupportedOptimizationTypesResult, GetProfileSupportedOptimizationTypesOutputArgs } from "./getProfileSupportedOptimizationTypes";
 export const getProfileSupportedOptimizationTypes: typeof import("./getProfileSupportedOptimizationTypes").getProfileSupportedOptimizationTypes = null as any;
@@ -135,10 +145,20 @@ export const getTunnelPolicy: typeof import("./getTunnelPolicy").getTunnelPolicy
 export const getTunnelPolicyOutput: typeof import("./getTunnelPolicy").getTunnelPolicyOutput = null as any;
 utilities.lazyLoad(exports, ["getTunnelPolicy","getTunnelPolicyOutput"], () => require("./getTunnelPolicy"));
 
+export { GetWebAgentArgs, GetWebAgentResult, GetWebAgentOutputArgs } from "./getWebAgent";
+export const getWebAgent: typeof import("./getWebAgent").getWebAgent = null as any;
+export const getWebAgentOutput: typeof import("./getWebAgent").getWebAgentOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAgent","getWebAgentOutput"], () => require("./getWebAgent"));
+
 export { KeyGroupArgs } from "./keyGroup";
 export type KeyGroup = import("./keyGroup").KeyGroup;
 export const KeyGroup: typeof import("./keyGroup").KeyGroup = null as any;
 utilities.lazyLoad(exports, ["KeyGroup"], () => require("./keyGroup"));
+
+export { KnowledgeSourceArgs } from "./knowledgeSource";
+export type KnowledgeSource = import("./knowledgeSource").KnowledgeSource;
+export const KnowledgeSource: typeof import("./knowledgeSource").KnowledgeSource = null as any;
+utilities.lazyLoad(exports, ["KnowledgeSource"], () => require("./knowledgeSource"));
 
 export { OriginArgs } from "./origin";
 export type Origin = import("./origin").Origin;
@@ -159,6 +179,11 @@ export { ProfileArgs } from "./profile";
 export type Profile = import("./profile").Profile;
 export const Profile: typeof import("./profile").Profile = null as any;
 utilities.lazyLoad(exports, ["Profile"], () => require("./profile"));
+
+export { ProfileAgentArgs } from "./profileAgent";
+export type ProfileAgent = import("./profileAgent").ProfileAgent;
+export const ProfileAgent: typeof import("./profileAgent").ProfileAgent = null as any;
+utilities.lazyLoad(exports, ["ProfileAgent"], () => require("./profileAgent"));
 
 export { RouteArgs } from "./route";
 export type Route = import("./route").Route;
@@ -190,6 +215,11 @@ export type TunnelPolicy = import("./tunnelPolicy").TunnelPolicy;
 export const TunnelPolicy: typeof import("./tunnelPolicy").TunnelPolicy = null as any;
 utilities.lazyLoad(exports, ["TunnelPolicy"], () => require("./tunnelPolicy"));
 
+export { WebAgentArgs } from "./webAgent";
+export type WebAgent = import("./webAgent").WebAgent;
+export const WebAgent: typeof import("./webAgent").WebAgent = null as any;
+utilities.lazyLoad(exports, ["WebAgent"], () => require("./webAgent"));
+
 
 // Export enums:
 export * from "../types/enums/cdn";
@@ -214,6 +244,8 @@ const _module = {
                 return new Endpoint(name, <any>undefined, { urn })
             case "azure-native:cdn:KeyGroup":
                 return new KeyGroup(name, <any>undefined, { urn })
+            case "azure-native:cdn:KnowledgeSource":
+                return new KnowledgeSource(name, <any>undefined, { urn })
             case "azure-native:cdn:Origin":
                 return new Origin(name, <any>undefined, { urn })
             case "azure-native:cdn:OriginGroup":
@@ -222,6 +254,8 @@ const _module = {
                 return new Policy(name, <any>undefined, { urn })
             case "azure-native:cdn:Profile":
                 return new Profile(name, <any>undefined, { urn })
+            case "azure-native:cdn:ProfileAgent":
+                return new ProfileAgent(name, <any>undefined, { urn })
             case "azure-native:cdn:Route":
                 return new Route(name, <any>undefined, { urn })
             case "azure-native:cdn:Rule":
@@ -234,6 +268,8 @@ const _module = {
                 return new SecurityPolicy(name, <any>undefined, { urn })
             case "azure-native:cdn:TunnelPolicy":
                 return new TunnelPolicy(name, <any>undefined, { urn })
+            case "azure-native:cdn:WebAgent":
+                return new WebAgent(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

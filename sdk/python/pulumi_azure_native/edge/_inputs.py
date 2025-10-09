@@ -41,6 +41,8 @@ __all__ = [
     'InstancePropertiesArgsDict',
     'ReconciliationPolicyPropertiesArgs',
     'ReconciliationPolicyPropertiesArgsDict',
+    'SchemaReferencePropertiesArgs',
+    'SchemaReferencePropertiesArgsDict',
     'SchemaVersionPropertiesArgs',
     'SchemaVersionPropertiesArgsDict',
     'SiteAddressPropertiesArgs',
@@ -723,6 +725,41 @@ class ReconciliationPolicyPropertiesArgs:
     @state.setter
     def state(self, value: pulumi.Input[Union[builtins.str, 'ReconciliationState']]):
         pulumi.set(self, "state", value)
+
+
+if not MYPY:
+    class SchemaReferencePropertiesArgsDict(TypedDict):
+        """
+        Schema Reference Properties
+        """
+        schema_id: pulumi.Input[builtins.str]
+        """
+        Schema Id of schema reference
+        """
+elif False:
+    SchemaReferencePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SchemaReferencePropertiesArgs:
+    def __init__(__self__, *,
+                 schema_id: pulumi.Input[builtins.str]):
+        """
+        Schema Reference Properties
+        :param pulumi.Input[builtins.str] schema_id: Schema Id of schema reference
+        """
+        pulumi.set(__self__, "schema_id", schema_id)
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> pulumi.Input[builtins.str]:
+        """
+        Schema Id of schema reference
+        """
+        return pulumi.get(self, "schema_id")
+
+    @schema_id.setter
+    def schema_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "schema_id", value)
 
 
 if not MYPY:

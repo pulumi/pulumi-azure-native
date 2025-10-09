@@ -262,6 +262,37 @@ namespace Pulumi.AzureNative.Cdn
     }
 
     /// <summary>
+    /// The type of the path.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentPathType : IEquatable<AgentPathType>
+    {
+        private readonly string _value;
+
+        private AgentPathType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AgentPathType Chat { get; } = new AgentPathType("Chat");
+        public static AgentPathType McpServer { get; } = new AgentPathType("McpServer");
+
+        public static bool operator ==(AgentPathType left, AgentPathType right) => left.Equals(right);
+        public static bool operator !=(AgentPathType left, AgentPathType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentPathType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentPathType other && Equals(other);
+        public bool Equals(AgentPathType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Algorithm to use for URL signing
     /// </summary>
     [EnumType]
@@ -980,6 +1011,71 @@ namespace Pulumi.AzureNative.Cdn
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is KeyVaultSigningKeyParametersType other && Equals(other);
         public bool Equals(KeyVaultSigningKeyParametersType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Format or origin of the knowledge source.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeSourceType : IEquatable<KnowledgeSourceType>
+    {
+        private readonly string _value;
+
+        private KnowledgeSourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeSourceType SchemaOrgMarkup { get; } = new KnowledgeSourceType("SchemaOrgMarkup");
+        public static KnowledgeSourceType RssFeeds { get; } = new KnowledgeSourceType("RssFeeds");
+        public static KnowledgeSourceType Sitemap { get; } = new KnowledgeSourceType("Sitemap");
+
+        public static bool operator ==(KnowledgeSourceType left, KnowledgeSourceType right) => left.Equals(right);
+        public static bool operator !=(KnowledgeSourceType left, KnowledgeSourceType right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeSourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeSourceType other && Equals(other);
+        public bool Equals(KnowledgeSourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the units of time for scheduling update intervals for the knowledge source.
+    /// </summary>
+    [EnumType]
+    public readonly struct KnowledgeSourceUpdateFrequency : IEquatable<KnowledgeSourceUpdateFrequency>
+    {
+        private readonly string _value;
+
+        private KnowledgeSourceUpdateFrequency(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static KnowledgeSourceUpdateFrequency EverySixHours { get; } = new KnowledgeSourceUpdateFrequency("EverySixHours");
+        public static KnowledgeSourceUpdateFrequency Daily { get; } = new KnowledgeSourceUpdateFrequency("Daily");
+        public static KnowledgeSourceUpdateFrequency Weekly { get; } = new KnowledgeSourceUpdateFrequency("Weekly");
+        public static KnowledgeSourceUpdateFrequency Monthly { get; } = new KnowledgeSourceUpdateFrequency("Monthly");
+
+        public static bool operator ==(KnowledgeSourceUpdateFrequency left, KnowledgeSourceUpdateFrequency right) => left.Equals(right);
+        public static bool operator !=(KnowledgeSourceUpdateFrequency left, KnowledgeSourceUpdateFrequency right) => !left.Equals(right);
+
+        public static explicit operator string(KnowledgeSourceUpdateFrequency value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is KnowledgeSourceUpdateFrequency other && Equals(other);
+        public bool Equals(KnowledgeSourceUpdateFrequency other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -197,6 +197,10 @@ __all__ = [
     'NamespacePropertiesArgsDict',
     'NetworkPoliciesArgs',
     'NetworkPoliciesArgsDict',
+    'NodeCustomizationPropertiesArgs',
+    'NodeCustomizationPropertiesArgsDict',
+    'NodeCustomizationScriptArgs',
+    'NodeCustomizationScriptArgsDict',
     'NodeImageSelectionArgs',
     'NodeImageSelectionArgsDict',
     'PortRangeArgs',
@@ -7470,6 +7474,184 @@ class NetworkPoliciesArgs:
     @ingress.setter
     def ingress(self, value: Optional[pulumi.Input[Union[builtins.str, 'PolicyRule']]]):
         pulumi.set(self, "ingress", value)
+
+
+if not MYPY:
+    class NodeCustomizationPropertiesArgsDict(TypedDict):
+        """
+        The properties of the Node Customization resource.
+        """
+        container_images: NotRequired[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]
+        """
+        The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
+        """
+        customization_scripts: NotRequired[pulumi.Input[Sequence[pulumi.Input['NodeCustomizationScriptArgsDict']]]]
+        """
+        The scripts to customize the node before or after image capture.
+        """
+elif False:
+    NodeCustomizationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NodeCustomizationPropertiesArgs:
+    def __init__(__self__, *,
+                 container_images: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 customization_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['NodeCustomizationScriptArgs']]]] = None):
+        """
+        The properties of the Node Customization resource.
+        :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] container_images: The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
+        :param pulumi.Input[Sequence[pulumi.Input['NodeCustomizationScriptArgs']]] customization_scripts: The scripts to customize the node before or after image capture.
+        """
+        if container_images is not None:
+            pulumi.set(__self__, "container_images", container_images)
+        if customization_scripts is not None:
+            pulumi.set(__self__, "customization_scripts", customization_scripts)
+
+    @property
+    @pulumi.getter(name="containerImages")
+    def container_images(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        """
+        The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
+        """
+        return pulumi.get(self, "container_images")
+
+    @container_images.setter
+    def container_images(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "container_images", value)
+
+    @property
+    @pulumi.getter(name="customizationScripts")
+    def customization_scripts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['NodeCustomizationScriptArgs']]]]:
+        """
+        The scripts to customize the node before or after image capture.
+        """
+        return pulumi.get(self, "customization_scripts")
+
+    @customization_scripts.setter
+    def customization_scripts(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['NodeCustomizationScriptArgs']]]]):
+        pulumi.set(self, "customization_scripts", value)
+
+
+if not MYPY:
+    class NodeCustomizationScriptArgsDict(TypedDict):
+        """
+        Node customization script
+        """
+        execution_point: pulumi.Input[Union[builtins.str, 'ExecutionPoint']]
+        """
+        The stage at which the script is executed.
+        Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name for the customization script. 
+        Must be unique within the node customization resource.
+        Can only contain lowercase alphanumeric,'-' or '.' characters.
+        """
+        script_type: pulumi.Input[Union[builtins.str, 'ScriptType']]
+        """
+        The runtime environment for the script (e.g. Bash).
+        """
+        reboot_after: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        Whether the node should reboot after successful script execution.
+        """
+        script: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The script content to be executed in plain text. Do not include secrets.
+        """
+elif False:
+    NodeCustomizationScriptArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NodeCustomizationScriptArgs:
+    def __init__(__self__, *,
+                 execution_point: pulumi.Input[Union[builtins.str, 'ExecutionPoint']],
+                 name: pulumi.Input[builtins.str],
+                 script_type: pulumi.Input[Union[builtins.str, 'ScriptType']],
+                 reboot_after: Optional[pulumi.Input[builtins.bool]] = None,
+                 script: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Node customization script
+        :param pulumi.Input[Union[builtins.str, 'ExecutionPoint']] execution_point: The stage at which the script is executed.
+               Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+        :param pulumi.Input[builtins.str] name: The name for the customization script. 
+               Must be unique within the node customization resource.
+               Can only contain lowercase alphanumeric,'-' or '.' characters.
+        :param pulumi.Input[Union[builtins.str, 'ScriptType']] script_type: The runtime environment for the script (e.g. Bash).
+        :param pulumi.Input[builtins.bool] reboot_after: Whether the node should reboot after successful script execution.
+        :param pulumi.Input[builtins.str] script: The script content to be executed in plain text. Do not include secrets.
+        """
+        pulumi.set(__self__, "execution_point", execution_point)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_type", script_type)
+        if reboot_after is not None:
+            pulumi.set(__self__, "reboot_after", reboot_after)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter(name="executionPoint")
+    def execution_point(self) -> pulumi.Input[Union[builtins.str, 'ExecutionPoint']]:
+        """
+        The stage at which the script is executed.
+        Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+        """
+        return pulumi.get(self, "execution_point")
+
+    @execution_point.setter
+    def execution_point(self, value: pulumi.Input[Union[builtins.str, 'ExecutionPoint']]):
+        pulumi.set(self, "execution_point", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name for the customization script. 
+        Must be unique within the node customization resource.
+        Can only contain lowercase alphanumeric,'-' or '.' characters.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="scriptType")
+    def script_type(self) -> pulumi.Input[Union[builtins.str, 'ScriptType']]:
+        """
+        The runtime environment for the script (e.g. Bash).
+        """
+        return pulumi.get(self, "script_type")
+
+    @script_type.setter
+    def script_type(self, value: pulumi.Input[Union[builtins.str, 'ScriptType']]):
+        pulumi.set(self, "script_type", value)
+
+    @property
+    @pulumi.getter(name="rebootAfter")
+    def reboot_after(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether the node should reboot after successful script execution.
+        """
+        return pulumi.get(self, "reboot_after")
+
+    @reboot_after.setter
+    def reboot_after(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "reboot_after", value)
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The script content to be executed in plain text. Do not include secrets.
+        """
+        return pulumi.get(self, "script")
+
+    @script.setter
+    def script(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "script", value)
 
 
 if not MYPY:

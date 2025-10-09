@@ -188,7 +188,7 @@ class DnsSecurityRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
-        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -213,7 +213,7 @@ class DnsSecurityRule(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-07-01-preview.
 
-        Other available API versions: 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param DnsSecurityRuleArgs args: The arguments to use to populate this resource's properties.
@@ -273,7 +273,7 @@ class DnsSecurityRule(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsSecurityRule"), pulumi.Alias(type_="azure-native:dnsresolver/v20250501:DnsSecurityRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsSecurityRule"), pulumi.Alias(type_="azure-native:network:DnsSecurityRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dnsresolver/v20230701preview:DnsSecurityRule"), pulumi.Alias(type_="azure-native:dnsresolver/v20250501:DnsSecurityRule"), pulumi.Alias(type_="azure-native:dnsresolver/v20251001preview:DnsSecurityRule"), pulumi.Alias(type_="azure-native:network/v20230701preview:DnsSecurityRule"), pulumi.Alias(type_="azure-native:network:DnsSecurityRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DnsSecurityRule, __self__).__init__(
             'azure-native:dnsresolver:DnsSecurityRule',

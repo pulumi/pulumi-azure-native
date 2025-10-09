@@ -121,7 +121,7 @@ def get_issue(azure_monitor_workspace_name: Optional[builtins.str] = None,
     Uses Azure REST API version 2025-05-03-preview.
 
 
-    :param builtins.str azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+    :param builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param builtins.str issue_name: The name of the IssueResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
@@ -149,7 +149,7 @@ def get_issue_output(azure_monitor_workspace_name: Optional[pulumi.Input[builtin
     Uses Azure REST API version 2025-05-03-preview.
 
 
-    :param builtins.str azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+    :param builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param builtins.str issue_name: The name of the IssueResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """

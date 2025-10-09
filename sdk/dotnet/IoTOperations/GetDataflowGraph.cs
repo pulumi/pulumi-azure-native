@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a DataflowGraphResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetDataflowGraphResult> InvokeAsync(GetDataflowGraphArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataflowGraphResult>("azure-native:iotoperations:getDataflowGraph", args ?? new GetDataflowGraphArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a DataflowGraphResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataflowGraphResult> Invoke(GetDataflowGraphInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataflowGraphResult>("azure-native:iotoperations:getDataflowGraph", args ?? new GetDataflowGraphInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.IoTOperations
         /// Get a DataflowGraphResource
         /// 
         /// Uses Azure REST API version 2025-07-01-preview.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetDataflowGraphResult> Invoke(GetDataflowGraphInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataflowGraphResult>("azure-native:iotoperations:getDataflowGraph", args ?? new GetDataflowGraphInvokeArgs(), options.WithDefaults());

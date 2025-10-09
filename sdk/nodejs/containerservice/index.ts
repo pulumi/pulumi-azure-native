@@ -105,6 +105,11 @@ export const getNamespace: typeof import("./getNamespace").getNamespace = null a
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getNamespace","getNamespaceOutput"], () => require("./getNamespace"));
 
+export { GetNodeCustomizationArgs, GetNodeCustomizationResult, GetNodeCustomizationOutputArgs } from "./getNodeCustomization";
+export const getNodeCustomization: typeof import("./getNodeCustomization").getNodeCustomization = null as any;
+export const getNodeCustomizationOutput: typeof import("./getNodeCustomization").getNodeCustomizationOutput = null as any;
+utilities.lazyLoad(exports, ["getNodeCustomization","getNodeCustomizationOutput"], () => require("./getNodeCustomization"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -200,6 +205,11 @@ export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
 utilities.lazyLoad(exports, ["Namespace"], () => require("./namespace"));
 
+export { NodeCustomizationArgs } from "./nodeCustomization";
+export type NodeCustomization = import("./nodeCustomization").NodeCustomization;
+export const NodeCustomization: typeof import("./nodeCustomization").NodeCustomization = null as any;
+utilities.lazyLoad(exports, ["NodeCustomization"], () => require("./nodeCustomization"));
+
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
 export const PrivateEndpointConnection: typeof import("./privateEndpointConnection").PrivateEndpointConnection = null as any;
@@ -256,6 +266,8 @@ const _module = {
                 return new ManagedNamespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
+            case "azure-native:containerservice:NodeCustomization":
+                return new NodeCustomization(name, <any>undefined, { urn })
             case "azure-native:containerservice:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":

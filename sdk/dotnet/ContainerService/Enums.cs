@@ -341,6 +341,44 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// The stage at which the script is executed.
+    /// Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+    /// </summary>
+    [EnumType]
+    public readonly struct ExecutionPoint : IEquatable<ExecutionPoint>
+    {
+        private readonly string _value;
+
+        private ExecutionPoint(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Execute during node image build time.
+        /// </summary>
+        public static ExecutionPoint NodeImageBuildTime { get; } = new ExecutionPoint("NodeImageBuildTime");
+        /// <summary>
+        /// Execute during node provisioning time.
+        /// </summary>
+        public static ExecutionPoint NodeProvisionTime { get; } = new ExecutionPoint("NodeProvisionTime");
+
+        public static bool operator ==(ExecutionPoint left, ExecutionPoint right) => left.Equals(right);
+        public static bool operator !=(ExecutionPoint left, ExecutionPoint right) => !left.Equals(right);
+
+        public static explicit operator string(ExecutionPoint value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ExecutionPoint other && Equals(other);
+        public bool Equals(ExecutionPoint other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
     /// </summary>
     [EnumType]
@@ -1627,6 +1665,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScaleSetPriority other && Equals(other);
         public bool Equals(ScaleSetPriority other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The runtime environment for the script (e.g. Bash).
+    /// </summary>
+    [EnumType]
+    public readonly struct ScriptType : IEquatable<ScriptType>
+    {
+        private readonly string _value;
+
+        private ScriptType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Bash script.
+        /// </summary>
+        public static ScriptType Bash { get; } = new ScriptType("Bash");
+        /// <summary>
+        /// PowerShell script.
+        /// </summary>
+        public static ScriptType PowerShell { get; } = new ScriptType("PowerShell");
+
+        public static bool operator ==(ScriptType left, ScriptType right) => left.Equals(right);
+        public static bool operator !=(ScriptType left, ScriptType right) => !left.Equals(right);
+
+        public static explicit operator string(ScriptType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ScriptType other && Equals(other);
+        public bool Equals(ScriptType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

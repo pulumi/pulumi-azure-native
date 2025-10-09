@@ -74,7 +74,7 @@ def list_issue_resources(azure_monitor_workspace_name: Optional[builtins.str] = 
     Uses Azure REST API version 2025-05-03-preview.
 
 
-    :param builtins.str azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+    :param builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'". Note: this property is currently a placeholder and is not in use.
     :param builtins.str issue_name: The name of the IssueResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -101,7 +101,7 @@ def list_issue_resources_output(azure_monitor_workspace_name: Optional[pulumi.In
     Uses Azure REST API version 2025-05-03-preview.
 
 
-    :param builtins.str azure_monitor_workspace_name: The name of the AzureMonitorWorkspaceResource
+    :param builtins.str azure_monitor_workspace_name: The name of the Azure Monitor Workspace. The name is case insensitive
     :param builtins.str filter: The filter to apply on the operation. For example, to filter by relevance, use "$filter=relevance eq 'Relevant'". Note: this property is currently a placeholder and is not in use.
     :param builtins.str issue_name: The name of the IssueResource
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

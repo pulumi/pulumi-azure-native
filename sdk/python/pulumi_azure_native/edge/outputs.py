@@ -40,6 +40,7 @@ __all__ = [
     'InstancePropertiesResponse',
     'ReconciliationPolicyPropertiesResponse',
     'SchemaPropertiesResponse',
+    'SchemaReferencePropertiesResponse',
     'SchemaVersionPropertiesResponse',
     'SiteAddressPropertiesResponse',
     'SitePropertiesResponse',
@@ -1402,6 +1403,58 @@ class SchemaPropertiesResponse(dict):
         Provisioning state of resource
         """
         return pulumi.get(self, "provisioning_state")
+
+
+@pulumi.output_type
+class SchemaReferencePropertiesResponse(dict):
+    """
+    Schema Reference Properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "schemaId":
+            suggest = "schema_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SchemaReferencePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SchemaReferencePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SchemaReferencePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 schema_id: builtins.str):
+        """
+        Schema Reference Properties
+        :param builtins.str provisioning_state: Provisioning state of resource
+        :param builtins.str schema_id: Schema Id of schema reference
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "schema_id", schema_id)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        Provisioning state of resource
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="schemaId")
+    def schema_id(self) -> builtins.str:
+        """
+        Schema Id of schema reference
+        """
+        return pulumi.get(self, "schema_id")
 
 
 @pulumi.output_type

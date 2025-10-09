@@ -23,9 +23,11 @@ __all__ = [
     'ActionGroupResponse',
     'ActionListResponse',
     'ActionsResponse',
+    'AlertConfigurationResponse',
     'AlertRuleAllOfConditionResponse',
     'AlertRuleAnyOfOrLeafConditionResponse',
     'AlertRuleLeafConditionResponse',
+    'ApplicationInsightsTopologyDiscoveryRulePropertiesResponse',
     'ArmRoleReceiverResponse',
     'AutomationRunbookReceiverResponse',
     'AutoscaleNotificationResponse',
@@ -37,7 +39,9 @@ __all__ = [
     'AzureMonitorWorkspaceLogsExporterResponse',
     'AzureMonitorWorkspaceResponseDefaultIngestionSettings',
     'AzureMonitorWorkspaceResponseMetrics',
+    'AzureMonitorWorkspaceSignalGroupResponse',
     'AzureResourceManagerCommonTypesExtendedLocationResponse',
+    'AzureResourceSignalGroupResponse',
     'BatchProcessorResponse',
     'CacheConfigurationResponse',
     'ColumnDefinitionResponse',
@@ -62,18 +66,27 @@ __all__ = [
     'DataFlowResponse',
     'DataImportSourcesResponseEventHub',
     'DataSourcesSpecResponseDataImports',
+    'DependenciesSignalGroupResponse',
     'DestinationsSpecResponseAzureMonitorMetrics',
     'DiagnosticSettingsCategoryResourceResponse',
     'DimensionResponse',
+    'DiscoveryErrorResponse',
+    'DynamicDetectionRuleResponse',
     'DynamicMetricCriteriaResponse',
     'DynamicThresholdFailingPeriodsResponse',
     'EmailNotificationResponse',
     'EmailReceiverResponse',
+    'EntityAlertsResponse',
+    'EntityCoordinatesResponse',
+    'EntityPropertiesResponse',
+    'EvaluationRuleResponse',
     'EventHubDestinationResponse',
     'EventHubDirectDestinationResponse',
     'EventHubReceiverResponse',
     'ExporterResponse',
     'ExtensionDataSourceResponse',
+    'HealthModelPropertiesResponse',
+    'IconDefinitionResponse',
     'IdentityResponse',
     'IisLogsDataSourceResponse',
     'IncidentReceiverResponse',
@@ -88,11 +101,14 @@ __all__ = [
     'JsonMapperSourceFieldResponse',
     'LocationSpecResponse',
     'LogAnalyticsDestinationResponse',
+    'LogAnalyticsQuerySignalDefinitionPropertiesResponse',
+    'LogAnalyticsSignalGroupResponse',
     'LogFileSettingsResponseText',
     'LogFilesDataSourceResponse',
     'LogFilesDataSourceResponseSettings',
     'LogSettingsResponse',
     'LogicAppReceiverResponse',
+    'ManagedIdentityAuthenticationSettingPropertiesResponse',
     'ManagedServiceIdentityResponse',
     'ManagementGroupLogSettingsResponse',
     'MetricAlertActionResponse',
@@ -102,6 +118,7 @@ __all__ = [
     'MetricDimensionResponse',
     'MetricSettingsResponse',
     'MetricTriggerResponse',
+    'ModelDiscoverySettingsResponse',
     'MonitoringAccountDestinationResponse',
     'NetworkingConfigurationResponse',
     'NetworkingRouteResponse',
@@ -119,13 +136,17 @@ __all__ = [
     'PrivateLinkServiceConnectionStateResponse',
     'ProcessorResponse',
     'PrometheusForwarderDataSourceResponse',
+    'PrometheusMetricsSignalDefinitionPropertiesResponse',
     'ReceiverResponse',
     'RecordMapResponse',
     'RecurrenceResponse',
     'RecurrentScheduleResponse',
     'RelatedAlertResponse',
     'RelatedResourceResponse',
+    'RelationshipPropertiesResponse',
+    'ResourceGraphQueryDiscoveryRulePropertiesResponse',
     'ResourceMapResponse',
+    'ResourceMetricSignalDefinitionPropertiesResponse',
     'RetentionPolicyResponse',
     'RuleResolveConfigurationResponse',
     'RunParametersResponse',
@@ -137,6 +158,8 @@ __all__ = [
     'SchemaMapResponse',
     'ScopeMapResponse',
     'ServiceResponse',
+    'SignalAssignmentResponse',
+    'SignalGroupResponse',
     'SmsReceiverResponse',
     'StorageBlobDestinationResponse',
     'StorageTableDestinationResponse',
@@ -146,6 +169,7 @@ __all__ = [
     'SyslogReceiverResponse',
     'SystemDataResponse',
     'TcpExporterResponse',
+    'ThresholdRuleResponse',
     'TimeWindowResponse',
     'UdpReceiverResponse',
     'UserAssignedIdentityResponse',
@@ -452,6 +476,69 @@ class ActionsResponse(dict):
 
 
 @pulumi.output_type
+class AlertConfigurationResponse(dict):
+    """
+    Alert configuration details
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "actionGroupIds":
+            suggest = "action_group_ids"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AlertConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AlertConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AlertConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 severity: builtins.str,
+                 action_group_ids: Optional[Sequence[builtins.str]] = None,
+                 description: Optional[builtins.str] = None):
+        """
+        Alert configuration details
+        :param builtins.str severity: The severity of triggered alert.
+        :param Sequence[builtins.str] action_group_ids: Optional list of action group resource IDs to be notified when the alert is triggered.
+        :param builtins.str description: The alert rule description.
+        """
+        pulumi.set(__self__, "severity", severity)
+        if action_group_ids is not None:
+            pulumi.set(__self__, "action_group_ids", action_group_ids)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+
+    @property
+    @pulumi.getter
+    def severity(self) -> builtins.str:
+        """
+        The severity of triggered alert.
+        """
+        return pulumi.get(self, "severity")
+
+    @property
+    @pulumi.getter(name="actionGroupIds")
+    def action_group_ids(self) -> Optional[Sequence[builtins.str]]:
+        """
+        Optional list of action group resource IDs to be notified when the alert is triggered.
+        """
+        return pulumi.get(self, "action_group_ids")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        """
+        The alert rule description.
+        """
+        return pulumi.get(self, "description")
+
+
+@pulumi.output_type
 class AlertRuleAllOfConditionResponse(dict):
     """
     An Activity Log Alert rule condition that is met when all its member conditions are met.
@@ -649,6 +736,163 @@ class AlertRuleLeafConditionResponse(dict):
         The possible values for this field are (case-insensitive): 'resourceId', 'category', 'caller', 'level', 'operationName', 'resourceGroup', 'resourceProvider', 'status', 'subStatus', 'resourceType', or anything beginning with 'properties'.
         """
         return pulumi.get(self, "field")
+
+
+@pulumi.output_type
+class ApplicationInsightsTopologyDiscoveryRulePropertiesResponse(dict):
+    """
+    Discovery rule properties for an Application Insights topology query
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addRecommendedSignals":
+            suggest = "add_recommended_signals"
+        elif key == "applicationInsightsResourceId":
+            suggest = "application_insights_resource_id"
+        elif key == "authenticationSetting":
+            suggest = "authentication_setting"
+        elif key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "discoverRelationships":
+            suggest = "discover_relationships"
+        elif key == "discoveryRuleKind":
+            suggest = "discovery_rule_kind"
+        elif key == "entityName":
+            suggest = "entity_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ApplicationInsightsTopologyDiscoveryRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ApplicationInsightsTopologyDiscoveryRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ApplicationInsightsTopologyDiscoveryRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_recommended_signals: builtins.str,
+                 application_insights_resource_id: builtins.str,
+                 authentication_setting: builtins.str,
+                 deletion_date: builtins.str,
+                 discover_relationships: builtins.str,
+                 discovery_rule_kind: builtins.str,
+                 entity_name: builtins.str,
+                 error: 'outputs.DiscoveryErrorResponse',
+                 provisioning_state: builtins.str,
+                 display_name: Optional[builtins.str] = None):
+        """
+        Discovery rule properties for an Application Insights topology query
+        :param builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
+        :param builtins.str application_insights_resource_id: Application Insights resource ID
+        :param builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+        :param builtins.str deletion_date: Date when the discovery rule was (soft-)deleted.
+        :param builtins.str discover_relationships: Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+        :param builtins.str discovery_rule_kind: Discovery rule relationship discovery behavior
+               Expected value is 'ApplicationInsightsTopology'.
+        :param builtins.str entity_name: Name of the entity which represents the discovery rule. Note: It might take a few minutes after creating the discovery rule until the entity is created.
+        :param 'DiscoveryErrorResponse' error: Error details if the last discovery operation failed.
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str display_name: Display name
+        """
+        pulumi.set(__self__, "add_recommended_signals", add_recommended_signals)
+        pulumi.set(__self__, "application_insights_resource_id", application_insights_resource_id)
+        pulumi.set(__self__, "authentication_setting", authentication_setting)
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "discover_relationships", discover_relationships)
+        pulumi.set(__self__, "discovery_rule_kind", 'ApplicationInsightsTopology')
+        pulumi.set(__self__, "entity_name", entity_name)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter(name="addRecommendedSignals")
+    def add_recommended_signals(self) -> builtins.str:
+        """
+        Whether to add all recommended signals to the discovered entities.
+        """
+        return pulumi.get(self, "add_recommended_signals")
+
+    @property
+    @pulumi.getter(name="applicationInsightsResourceId")
+    def application_insights_resource_id(self) -> builtins.str:
+        """
+        Application Insights resource ID
+        """
+        return pulumi.get(self, "application_insights_resource_id")
+
+    @property
+    @pulumi.getter(name="authenticationSetting")
+    def authentication_setting(self) -> builtins.str:
+        """
+        Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+        """
+        return pulumi.get(self, "authentication_setting")
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the discovery rule was (soft-)deleted.
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="discoverRelationships")
+    def discover_relationships(self) -> builtins.str:
+        """
+        Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+        """
+        return pulumi.get(self, "discover_relationships")
+
+    @property
+    @pulumi.getter(name="discoveryRuleKind")
+    def discovery_rule_kind(self) -> builtins.str:
+        """
+        Discovery rule relationship discovery behavior
+        Expected value is 'ApplicationInsightsTopology'.
+        """
+        return pulumi.get(self, "discovery_rule_kind")
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> builtins.str:
+        """
+        Name of the entity which represents the discovery rule. Note: It might take a few minutes after creating the discovery rule until the entity is created.
+        """
+        return pulumi.get(self, "entity_name")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.DiscoveryErrorResponse':
+        """
+        Error details if the last discovery operation failed.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
 
 
 @pulumi.output_type
@@ -1480,6 +1724,72 @@ class AzureMonitorWorkspaceResponseMetrics(dict):
 
 
 @pulumi.output_type
+class AzureMonitorWorkspaceSignalGroupResponse(dict):
+    """
+    A grouping of signal assignments for a Azure Monitor Workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationSetting":
+            suggest = "authentication_setting"
+        elif key == "azureMonitorWorkspaceResourceId":
+            suggest = "azure_monitor_workspace_resource_id"
+        elif key == "signalAssignments":
+            suggest = "signal_assignments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorWorkspaceSignalGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorWorkspaceSignalGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorWorkspaceSignalGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_setting: builtins.str,
+                 azure_monitor_workspace_resource_id: builtins.str,
+                 signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
+        """
+        A grouping of signal assignments for a Azure Monitor Workspace
+        :param builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
+        :param builtins.str azure_monitor_workspace_resource_id: Azure Monitor workspace resource ID
+        :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        pulumi.set(__self__, "authentication_setting", authentication_setting)
+        pulumi.set(__self__, "azure_monitor_workspace_resource_id", azure_monitor_workspace_resource_id)
+        if signal_assignments is not None:
+            pulumi.set(__self__, "signal_assignments", signal_assignments)
+
+    @property
+    @pulumi.getter(name="authenticationSetting")
+    def authentication_setting(self) -> builtins.str:
+        """
+        Reference to the name of the authentication setting which is used for querying the data source
+        """
+        return pulumi.get(self, "authentication_setting")
+
+    @property
+    @pulumi.getter(name="azureMonitorWorkspaceResourceId")
+    def azure_monitor_workspace_resource_id(self) -> builtins.str:
+        """
+        Azure Monitor workspace resource ID
+        """
+        return pulumi.get(self, "azure_monitor_workspace_resource_id")
+
+    @property
+    @pulumi.getter(name="signalAssignments")
+    def signal_assignments(self) -> Optional[Sequence['outputs.SignalAssignmentResponse']]:
+        """
+        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        return pulumi.get(self, "signal_assignments")
+
+
+@pulumi.output_type
 class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
     """
     The complex type of the extended location.
@@ -1510,6 +1820,72 @@ class AzureResourceManagerCommonTypesExtendedLocationResponse(dict):
         The type of the extended location.
         """
         return pulumi.get(self, "type")
+
+
+@pulumi.output_type
+class AzureResourceSignalGroupResponse(dict):
+    """
+    A grouping of signal assignments for an Azure resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationSetting":
+            suggest = "authentication_setting"
+        elif key == "azureResourceId":
+            suggest = "azure_resource_id"
+        elif key == "signalAssignments":
+            suggest = "signal_assignments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureResourceSignalGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureResourceSignalGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureResourceSignalGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_setting: builtins.str,
+                 azure_resource_id: builtins.str,
+                 signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
+        """
+        A grouping of signal assignments for an Azure resource
+        :param builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
+        :param builtins.str azure_resource_id: Azure resource ID
+        :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        pulumi.set(__self__, "authentication_setting", authentication_setting)
+        pulumi.set(__self__, "azure_resource_id", azure_resource_id)
+        if signal_assignments is not None:
+            pulumi.set(__self__, "signal_assignments", signal_assignments)
+
+    @property
+    @pulumi.getter(name="authenticationSetting")
+    def authentication_setting(self) -> builtins.str:
+        """
+        Reference to the name of the authentication setting which is used for querying the data source
+        """
+        return pulumi.get(self, "authentication_setting")
+
+    @property
+    @pulumi.getter(name="azureResourceId")
+    def azure_resource_id(self) -> builtins.str:
+        """
+        Azure resource ID
+        """
+        return pulumi.get(self, "azure_resource_id")
+
+    @property
+    @pulumi.getter(name="signalAssignments")
+    def signal_assignments(self) -> Optional[Sequence['outputs.SignalAssignmentResponse']]:
+        """
+        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        return pulumi.get(self, "signal_assignments")
 
 
 @pulumi.output_type
@@ -3272,6 +3648,75 @@ class DataSourcesSpecResponseDataImports(dict):
 
 
 @pulumi.output_type
+class DependenciesSignalGroupResponse(dict):
+    """
+    Properties for dependent entities, i.e. child entities
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationType":
+            suggest = "aggregation_type"
+        elif key == "degradedThreshold":
+            suggest = "degraded_threshold"
+        elif key == "unhealthyThreshold":
+            suggest = "unhealthy_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DependenciesSignalGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DependenciesSignalGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DependenciesSignalGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation_type: Optional[builtins.str] = None,
+                 degraded_threshold: Optional[builtins.str] = None,
+                 unhealthy_threshold: Optional[builtins.str] = None):
+        """
+        Properties for dependent entities, i.e. child entities
+        :param builtins.str aggregation_type: Aggregation type for child dependencies.
+        :param builtins.str degraded_threshold: Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+        :param builtins.str unhealthy_threshold: Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+        """
+        if aggregation_type is None:
+            aggregation_type = 'WorstOf'
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        if degraded_threshold is not None:
+            pulumi.set(__self__, "degraded_threshold", degraded_threshold)
+        if unhealthy_threshold is not None:
+            pulumi.set(__self__, "unhealthy_threshold", unhealthy_threshold)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> builtins.str:
+        """
+        Aggregation type for child dependencies.
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @property
+    @pulumi.getter(name="degradedThreshold")
+    def degraded_threshold(self) -> Optional[builtins.str]:
+        """
+        Degraded threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered degraded when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+        """
+        return pulumi.get(self, "degraded_threshold")
+
+    @property
+    @pulumi.getter(name="unhealthyThreshold")
+    def unhealthy_threshold(self) -> Optional[builtins.str]:
+        """
+        Unhealthy threshold for aggregating the propagated health state of child dependencies. Can be either an absolute number that is greater than 0, or a percentage between 1-100%. The entity will be considered unhealthy when the number of not healthy child dependents (unhealthy, degraded, unknown) is equal to or above the threshold value. Must only be set when AggregationType is 'Thresholds'.
+        """
+        return pulumi.get(self, "unhealthy_threshold")
+
+
+@pulumi.output_type
 class DestinationsSpecResponseAzureMonitorMetrics(dict):
     """
     Azure Monitor Metrics destination.
@@ -3417,6 +3862,118 @@ class DimensionResponse(dict):
         List of dimension values
         """
         return pulumi.get(self, "values")
+
+
+@pulumi.output_type
+class DiscoveryErrorResponse(dict):
+    """
+    Error details for a failed discovery operation
+    """
+    def __init__(__self__, *,
+                 context: Sequence[builtins.str],
+                 message: builtins.str):
+        """
+        Error details for a failed discovery operation
+        :param Sequence[builtins.str] context: Additional context information, like resource IDs or query details
+        :param builtins.str message: Error message
+        """
+        pulumi.set(__self__, "context", context)
+        pulumi.set(__self__, "message", message)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Sequence[builtins.str]:
+        """
+        Additional context information, like resource IDs or query details
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter
+    def message(self) -> builtins.str:
+        """
+        Error message
+        """
+        return pulumi.get(self, "message")
+
+
+@pulumi.output_type
+class DynamicDetectionRuleResponse(dict):
+    """
+    ML-based evaluation rule for a signal definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "dynamicThresholdDirection":
+            suggest = "dynamic_threshold_direction"
+        elif key == "dynamicThresholdModel":
+            suggest = "dynamic_threshold_model"
+        elif key == "modelSensitivity":
+            suggest = "model_sensitivity"
+        elif key == "trainingStartTime":
+            suggest = "training_start_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DynamicDetectionRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DynamicDetectionRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DynamicDetectionRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 dynamic_threshold_direction: builtins.str,
+                 dynamic_threshold_model: builtins.str,
+                 model_sensitivity: builtins.float,
+                 training_start_time: Optional[builtins.str] = None):
+        """
+        ML-based evaluation rule for a signal definition
+        :param builtins.str dynamic_threshold_direction: Threshold direction
+        :param builtins.str dynamic_threshold_model: ML model to use for dynamic thresholds
+        :param builtins.float model_sensitivity: ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
+        :param builtins.str training_start_time: Start time of the training in UTC.
+        """
+        pulumi.set(__self__, "dynamic_threshold_direction", dynamic_threshold_direction)
+        pulumi.set(__self__, "dynamic_threshold_model", dynamic_threshold_model)
+        pulumi.set(__self__, "model_sensitivity", model_sensitivity)
+        if training_start_time is not None:
+            pulumi.set(__self__, "training_start_time", training_start_time)
+
+    @property
+    @pulumi.getter(name="dynamicThresholdDirection")
+    def dynamic_threshold_direction(self) -> builtins.str:
+        """
+        Threshold direction
+        """
+        return pulumi.get(self, "dynamic_threshold_direction")
+
+    @property
+    @pulumi.getter(name="dynamicThresholdModel")
+    def dynamic_threshold_model(self) -> builtins.str:
+        """
+        ML model to use for dynamic thresholds
+        """
+        return pulumi.get(self, "dynamic_threshold_model")
+
+    @property
+    @pulumi.getter(name="modelSensitivity")
+    def model_sensitivity(self) -> builtins.float:
+        """
+        ML model sensitivity. Lowest value = high sensitivity. Supported step size = 0.5
+        """
+        return pulumi.get(self, "model_sensitivity")
+
+    @property
+    @pulumi.getter(name="trainingStartTime")
+    def training_start_time(self) -> Optional[builtins.str]:
+        """
+        Start time of the training in UTC.
+        """
+        return pulumi.get(self, "training_start_time")
 
 
 @pulumi.output_type
@@ -3787,6 +4344,338 @@ class EmailReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class EntityAlertsResponse(dict):
+    """
+    Alert configuration for an entity
+    """
+    def __init__(__self__, *,
+                 degraded: Optional['outputs.AlertConfigurationResponse'] = None,
+                 unhealthy: Optional['outputs.AlertConfigurationResponse'] = None):
+        """
+        Alert configuration for an entity
+        :param 'AlertConfigurationResponse' degraded: Alert to be triggered on state change to degraded
+        :param 'AlertConfigurationResponse' unhealthy: Alert to be triggered on state change to unhealthy
+        """
+        if degraded is not None:
+            pulumi.set(__self__, "degraded", degraded)
+        if unhealthy is not None:
+            pulumi.set(__self__, "unhealthy", unhealthy)
+
+    @property
+    @pulumi.getter
+    def degraded(self) -> Optional['outputs.AlertConfigurationResponse']:
+        """
+        Alert to be triggered on state change to degraded
+        """
+        return pulumi.get(self, "degraded")
+
+    @property
+    @pulumi.getter
+    def unhealthy(self) -> Optional['outputs.AlertConfigurationResponse']:
+        """
+        Alert to be triggered on state change to unhealthy
+        """
+        return pulumi.get(self, "unhealthy")
+
+
+@pulumi.output_type
+class EntityCoordinatesResponse(dict):
+    """
+    Visual position of the entity
+    """
+    def __init__(__self__, *,
+                 x: builtins.float,
+                 y: builtins.float):
+        """
+        Visual position of the entity
+        :param builtins.float x: X Coordinate
+        :param builtins.float y: Y Coordinate
+        """
+        pulumi.set(__self__, "x", x)
+        pulumi.set(__self__, "y", y)
+
+    @property
+    @pulumi.getter
+    def x(self) -> builtins.float:
+        """
+        X Coordinate
+        """
+        return pulumi.get(self, "x")
+
+    @property
+    @pulumi.getter
+    def y(self) -> builtins.float:
+        """
+        Y Coordinate
+        """
+        return pulumi.get(self, "y")
+
+
+@pulumi.output_type
+class EntityPropertiesResponse(dict):
+    """
+    Properties which are common across all kinds of entities
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "discoveredBy":
+            suggest = "discovered_by"
+        elif key == "healthState":
+            suggest = "health_state"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "canvasPosition":
+            suggest = "canvas_position"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "healthObjective":
+            suggest = "health_objective"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EntityPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EntityPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EntityPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_date: builtins.str,
+                 discovered_by: builtins.str,
+                 health_state: builtins.str,
+                 provisioning_state: builtins.str,
+                 alerts: Optional['outputs.EntityAlertsResponse'] = None,
+                 canvas_position: Optional['outputs.EntityCoordinatesResponse'] = None,
+                 display_name: Optional[builtins.str] = None,
+                 health_objective: Optional[builtins.float] = None,
+                 icon: Optional['outputs.IconDefinitionResponse'] = None,
+                 impact: Optional[builtins.str] = None,
+                 kind: Optional[builtins.str] = None,
+                 signals: Optional['outputs.SignalGroupResponse'] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        Properties which are common across all kinds of entities
+        :param builtins.str deletion_date: Date when the entity was (soft-)deleted
+        :param builtins.str discovered_by: Discovered by which discovery rule. If set, the entity cannot be deleted manually.
+        :param builtins.str health_state: Health state of this entity
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param 'EntityAlertsResponse' alerts: Alert configuration for this entity
+        :param 'EntityCoordinatesResponse' canvas_position: Positioning of the entity on the model canvas
+        :param builtins.str display_name: Display name
+        :param builtins.float health_objective: Health objective as a percentage of time the entity should be healthy.
+        :param 'IconDefinitionResponse' icon: Visual icon definition. If not set, a default icon is used.
+        :param builtins.str impact: Impact of the entity in health state propagation
+        :param builtins.str kind: Entity kind
+        :param 'SignalGroupResponse' signals: Signal groups which are assigned to this entity
+        :param Mapping[str, builtins.str] tags: Optional set of labels (key-value pairs)
+        """
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "discovered_by", discovered_by)
+        pulumi.set(__self__, "health_state", health_state)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if alerts is not None:
+            pulumi.set(__self__, "alerts", alerts)
+        if canvas_position is not None:
+            pulumi.set(__self__, "canvas_position", canvas_position)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if health_objective is not None:
+            pulumi.set(__self__, "health_objective", health_objective)
+        if icon is not None:
+            pulumi.set(__self__, "icon", icon)
+        if impact is None:
+            impact = 'Standard'
+        if impact is not None:
+            pulumi.set(__self__, "impact", impact)
+        if kind is None:
+            kind = 'Default'
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
+        if signals is not None:
+            pulumi.set(__self__, "signals", signals)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the entity was (soft-)deleted
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="discoveredBy")
+    def discovered_by(self) -> builtins.str:
+        """
+        Discovered by which discovery rule. If set, the entity cannot be deleted manually.
+        """
+        return pulumi.get(self, "discovered_by")
+
+    @property
+    @pulumi.getter(name="healthState")
+    def health_state(self) -> builtins.str:
+        """
+        Health state of this entity
+        """
+        return pulumi.get(self, "health_state")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def alerts(self) -> Optional['outputs.EntityAlertsResponse']:
+        """
+        Alert configuration for this entity
+        """
+        return pulumi.get(self, "alerts")
+
+    @property
+    @pulumi.getter(name="canvasPosition")
+    def canvas_position(self) -> Optional['outputs.EntityCoordinatesResponse']:
+        """
+        Positioning of the entity on the model canvas
+        """
+        return pulumi.get(self, "canvas_position")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="healthObjective")
+    def health_objective(self) -> Optional[builtins.float]:
+        """
+        Health objective as a percentage of time the entity should be healthy.
+        """
+        return pulumi.get(self, "health_objective")
+
+    @property
+    @pulumi.getter
+    def icon(self) -> Optional['outputs.IconDefinitionResponse']:
+        """
+        Visual icon definition. If not set, a default icon is used.
+        """
+        return pulumi.get(self, "icon")
+
+    @property
+    @pulumi.getter
+    def impact(self) -> Optional[builtins.str]:
+        """
+        Impact of the entity in health state propagation
+        """
+        return pulumi.get(self, "impact")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[builtins.str]:
+        """
+        Entity kind
+        """
+        return pulumi.get(self, "kind")
+
+    @property
+    @pulumi.getter
+    def signals(self) -> Optional['outputs.SignalGroupResponse']:
+        """
+        Signal groups which are assigned to this entity
+        """
+        return pulumi.get(self, "signals")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional set of labels (key-value pairs)
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class EvaluationRuleResponse(dict):
+    """
+    Evaluation rule for a signal definition
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "degradedRule":
+            suggest = "degraded_rule"
+        elif key == "dynamicDetectionRule":
+            suggest = "dynamic_detection_rule"
+        elif key == "unhealthyRule":
+            suggest = "unhealthy_rule"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EvaluationRuleResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EvaluationRuleResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EvaluationRuleResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 degraded_rule: Optional['outputs.ThresholdRuleResponse'] = None,
+                 dynamic_detection_rule: Optional['outputs.DynamicDetectionRuleResponse'] = None,
+                 unhealthy_rule: Optional['outputs.ThresholdRuleResponse'] = None):
+        """
+        Evaluation rule for a signal definition
+        :param 'ThresholdRuleResponse' degraded_rule: Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        :param 'DynamicDetectionRuleResponse' dynamic_detection_rule: Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
+        :param 'ThresholdRuleResponse' unhealthy_rule: Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        """
+        if degraded_rule is not None:
+            pulumi.set(__self__, "degraded_rule", degraded_rule)
+        if dynamic_detection_rule is not None:
+            pulumi.set(__self__, "dynamic_detection_rule", dynamic_detection_rule)
+        if unhealthy_rule is not None:
+            pulumi.set(__self__, "unhealthy_rule", unhealthy_rule)
+
+    @property
+    @pulumi.getter(name="degradedRule")
+    def degraded_rule(self) -> Optional['outputs.ThresholdRuleResponse']:
+        """
+        Degraded rule with static threshold. When used, dynamicDetectionRule must not be set.
+        """
+        return pulumi.get(self, "degraded_rule")
+
+    @property
+    @pulumi.getter(name="dynamicDetectionRule")
+    def dynamic_detection_rule(self) -> Optional['outputs.DynamicDetectionRuleResponse']:
+        """
+        Configure to use ML-based dynamic thresholds. When used, degradedRule and unhealthyRule must not be set.
+        """
+        return pulumi.get(self, "dynamic_detection_rule")
+
+    @property
+    @pulumi.getter(name="unhealthyRule")
+    def unhealthy_rule(self) -> Optional['outputs.ThresholdRuleResponse']:
+        """
+        Unhealthy rule with static threshold. When used, dynamicDetectionRule must not be set.
+        """
+        return pulumi.get(self, "unhealthy_rule")
 
 
 @pulumi.output_type
@@ -4178,6 +5067,123 @@ class ExtensionDataSourceResponse(dict):
         A stream indicates what schema will be used for this data and usually what table in Log Analytics the data will be sent to.
         """
         return pulumi.get(self, "streams")
+
+
+@pulumi.output_type
+class HealthModelPropertiesResponse(dict):
+    """
+    HealthModel properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "queryEndpoint":
+            suggest = "query_endpoint"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HealthModelPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HealthModelPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HealthModelPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 query_endpoint: builtins.str,
+                 discovery: Optional['outputs.ModelDiscoverySettingsResponse'] = None):
+        """
+        HealthModel properties
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str query_endpoint: The data plane endpoint for querying health data
+        :param 'ModelDiscoverySettingsResponse' discovery: Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "query_endpoint", query_endpoint)
+        if discovery is not None:
+            pulumi.set(__self__, "discovery", discovery)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryEndpoint")
+    def query_endpoint(self) -> builtins.str:
+        """
+        The data plane endpoint for querying health data
+        """
+        return pulumi.get(self, "query_endpoint")
+
+    @property
+    @pulumi.getter
+    def discovery(self) -> Optional['outputs.ModelDiscoverySettingsResponse']:
+        """
+        Configure to automatically discover entities from a given scope, such as a Service Group. The discovered entities will be linked to the root entity of the health model.
+        """
+        return pulumi.get(self, "discovery")
+
+
+@pulumi.output_type
+class IconDefinitionResponse(dict):
+    """
+    Visual icon definition of an entity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "iconName":
+            suggest = "icon_name"
+        elif key == "customData":
+            suggest = "custom_data"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IconDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IconDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IconDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 icon_name: builtins.str,
+                 custom_data: Optional[builtins.str] = None):
+        """
+        Visual icon definition of an entity
+        :param builtins.str icon_name: Name of the built-in icon, or 'Custom' to use customData
+        :param builtins.str custom_data: Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
+        """
+        pulumi.set(__self__, "icon_name", icon_name)
+        if custom_data is not None:
+            pulumi.set(__self__, "custom_data", custom_data)
+
+    @property
+    @pulumi.getter(name="iconName")
+    def icon_name(self) -> builtins.str:
+        """
+        Name of the built-in icon, or 'Custom' to use customData
+        """
+        return pulumi.get(self, "icon_name")
+
+    @property
+    @pulumi.getter(name="customData")
+    def custom_data(self) -> Optional[builtins.str]:
+        """
+        Custom data. Base64-encoded SVG data. If set, this overrides the built-in icon.
+        """
+        return pulumi.get(self, "custom_data")
 
 
 @pulumi.output_type
@@ -5070,6 +6076,249 @@ class LogAnalyticsDestinationResponse(dict):
 
 
 @pulumi.output_type
+class LogAnalyticsQuerySignalDefinitionPropertiesResponse(dict):
+    """
+    Log Analytics Query Signal Definition properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "evaluationRules":
+            suggest = "evaluation_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "queryText":
+            suggest = "query_text"
+        elif key == "signalKind":
+            suggest = "signal_kind"
+        elif key == "dataUnit":
+            suggest = "data_unit"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "refreshInterval":
+            suggest = "refresh_interval"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+        elif key == "valueColumnName":
+            suggest = "value_column_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAnalyticsQuerySignalDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAnalyticsQuerySignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAnalyticsQuerySignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_date: builtins.str,
+                 evaluation_rules: 'outputs.EvaluationRuleResponse',
+                 provisioning_state: builtins.str,
+                 query_text: builtins.str,
+                 signal_kind: builtins.str,
+                 data_unit: Optional[builtins.str] = None,
+                 display_name: Optional[builtins.str] = None,
+                 refresh_interval: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None,
+                 time_grain: Optional[builtins.str] = None,
+                 value_column_name: Optional[builtins.str] = None):
+        """
+        Log Analytics Query Signal Definition properties
+        :param builtins.str deletion_date: Date when the signal definition was (soft-)deleted
+        :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str query_text: Query text in KQL syntax
+        :param builtins.str signal_kind: Supported signal kinds as discriminator
+               Expected value is 'LogAnalyticsQuery'.
+        :param builtins.str data_unit: Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        :param builtins.str display_name: Display name
+        :param builtins.str refresh_interval: Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        :param Mapping[str, builtins.str] tags: Optional set of labels (key-value pairs)
+        :param builtins.str time_grain: Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
+        :param builtins.str value_column_name: Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
+        """
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "evaluation_rules", evaluation_rules)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "query_text", query_text)
+        pulumi.set(__self__, "signal_kind", 'LogAnalyticsQuery')
+        if data_unit is not None:
+            pulumi.set(__self__, "data_unit", data_unit)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if refresh_interval is None:
+            refresh_interval = 'PT1M'
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+        if value_column_name is not None:
+            pulumi.set(__self__, "value_column_name", value_column_name)
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the signal definition was (soft-)deleted
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="evaluationRules")
+    def evaluation_rules(self) -> 'outputs.EvaluationRuleResponse':
+        """
+        Evaluation rules for the signal definition
+        """
+        return pulumi.get(self, "evaluation_rules")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryText")
+    def query_text(self) -> builtins.str:
+        """
+        Query text in KQL syntax
+        """
+        return pulumi.get(self, "query_text")
+
+    @property
+    @pulumi.getter(name="signalKind")
+    def signal_kind(self) -> builtins.str:
+        """
+        Supported signal kinds as discriminator
+        Expected value is 'LogAnalyticsQuery'.
+        """
+        return pulumi.get(self, "signal_kind")
+
+    @property
+    @pulumi.getter(name="dataUnit")
+    def data_unit(self) -> Optional[builtins.str]:
+        """
+        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        """
+        return pulumi.get(self, "data_unit")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[builtins.str]:
+        """
+        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional set of labels (key-value pairs)
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[builtins.str]:
+        """
+        Time range of signal. ISO duration format like PT10M. If not specified, the KQL query must define a time range.
+        """
+        return pulumi.get(self, "time_grain")
+
+    @property
+    @pulumi.getter(name="valueColumnName")
+    def value_column_name(self) -> Optional[builtins.str]:
+        """
+        Name of the column in the result set to evaluate against the thresholds. Defaults to the first column in the result set if not specified. The column must be numeric.
+        """
+        return pulumi.get(self, "value_column_name")
+
+
+@pulumi.output_type
+class LogAnalyticsSignalGroupResponse(dict):
+    """
+    A grouping of signal assignments for a Log Analytics Workspace
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationSetting":
+            suggest = "authentication_setting"
+        elif key == "logAnalyticsWorkspaceResourceId":
+            suggest = "log_analytics_workspace_resource_id"
+        elif key == "signalAssignments":
+            suggest = "signal_assignments"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LogAnalyticsSignalGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LogAnalyticsSignalGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LogAnalyticsSignalGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_setting: builtins.str,
+                 log_analytics_workspace_resource_id: builtins.str,
+                 signal_assignments: Optional[Sequence['outputs.SignalAssignmentResponse']] = None):
+        """
+        A grouping of signal assignments for a Log Analytics Workspace
+        :param builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying the data source
+        :param builtins.str log_analytics_workspace_resource_id: Log Analytics Workspace resource ID
+        :param Sequence['SignalAssignmentResponse'] signal_assignments: Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        pulumi.set(__self__, "authentication_setting", authentication_setting)
+        pulumi.set(__self__, "log_analytics_workspace_resource_id", log_analytics_workspace_resource_id)
+        if signal_assignments is not None:
+            pulumi.set(__self__, "signal_assignments", signal_assignments)
+
+    @property
+    @pulumi.getter(name="authenticationSetting")
+    def authentication_setting(self) -> builtins.str:
+        """
+        Reference to the name of the authentication setting which is used for querying the data source
+        """
+        return pulumi.get(self, "authentication_setting")
+
+    @property
+    @pulumi.getter(name="logAnalyticsWorkspaceResourceId")
+    def log_analytics_workspace_resource_id(self) -> builtins.str:
+        """
+        Log Analytics Workspace resource ID
+        """
+        return pulumi.get(self, "log_analytics_workspace_resource_id")
+
+    @property
+    @pulumi.getter(name="signalAssignments")
+    def signal_assignments(self) -> Optional[Sequence['outputs.SignalAssignmentResponse']]:
+        """
+        Signal definitions which are assigned to this signal group. All assignments are combined with an OR operator.
+        """
+        return pulumi.get(self, "signal_assignments")
+
+
+@pulumi.output_type
 class LogFileSettingsResponseText(dict):
     """
     Text settings
@@ -5388,6 +6637,87 @@ class LogicAppReceiverResponse(dict):
         Indicates whether to use common alert schema.
         """
         return pulumi.get(self, "use_common_alert_schema")
+
+
+@pulumi.output_type
+class ManagedIdentityAuthenticationSettingPropertiesResponse(dict):
+    """
+    Authentication setting properties for Azure Managed Identity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "authenticationKind":
+            suggest = "authentication_kind"
+        elif key == "managedIdentityName":
+            suggest = "managed_identity_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedIdentityAuthenticationSettingPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedIdentityAuthenticationSettingPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedIdentityAuthenticationSettingPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 authentication_kind: builtins.str,
+                 managed_identity_name: builtins.str,
+                 provisioning_state: builtins.str,
+                 display_name: Optional[builtins.str] = None):
+        """
+        Authentication setting properties for Azure Managed Identity
+        :param builtins.str authentication_kind: Supported kinds of authentication settings as discriminator
+               Expected value is 'ManagedIdentity'.
+        :param builtins.str managed_identity_name: Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str display_name: Display name
+        """
+        pulumi.set(__self__, "authentication_kind", 'ManagedIdentity')
+        pulumi.set(__self__, "managed_identity_name", managed_identity_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter(name="authenticationKind")
+    def authentication_kind(self) -> builtins.str:
+        """
+        Supported kinds of authentication settings as discriminator
+        Expected value is 'ManagedIdentity'.
+        """
+        return pulumi.get(self, "authentication_kind")
+
+    @property
+    @pulumi.getter(name="managedIdentityName")
+    def managed_identity_name(self) -> builtins.str:
+        """
+        Name of the managed identity to use. Either 'SystemAssigned' or the resourceId of a user-assigned identity.
+        """
+        return pulumi.get(self, "managed_identity_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
 
 
 @pulumi.output_type
@@ -6131,6 +7461,68 @@ class MetricTriggerResponse(dict):
         the location of the resource the rule monitors.
         """
         return pulumi.get(self, "metric_resource_location")
+
+
+@pulumi.output_type
+class ModelDiscoverySettingsResponse(dict):
+    """
+    Settings for automatically discovering entities for the health model.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addRecommendedSignals":
+            suggest = "add_recommended_signals"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ModelDiscoverySettingsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ModelDiscoverySettingsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ModelDiscoverySettingsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_recommended_signals: builtins.str,
+                 scope: builtins.str,
+                 identity: Optional[builtins.str] = None):
+        """
+        Settings for automatically discovering entities for the health model.
+        :param builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
+        :param builtins.str scope: The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
+        :param builtins.str identity: Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
+        """
+        pulumi.set(__self__, "add_recommended_signals", add_recommended_signals)
+        pulumi.set(__self__, "scope", scope)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
+
+    @property
+    @pulumi.getter(name="addRecommendedSignals")
+    def add_recommended_signals(self) -> builtins.str:
+        """
+        Whether to add all recommended signals to the discovered entities.
+        """
+        return pulumi.get(self, "add_recommended_signals")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> builtins.str:
+        """
+        The scope from which entities should be automatically discovered. For example, the resource id of a Service Group.
+        """
+        return pulumi.get(self, "scope")
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[builtins.str]:
+        """
+        Which Managed Identity of the health model to use for discovery. Defaults to SystemAssigned, if not set. Can be set to 'SystemAssigned' or to the resource id of a user-assigned managed identity which is linked to the health model.
+        """
+        return pulumi.get(self, "identity")
 
 
 @pulumi.output_type
@@ -7165,6 +8557,169 @@ class PrometheusForwarderDataSourceResponse(dict):
 
 
 @pulumi.output_type
+class PrometheusMetricsSignalDefinitionPropertiesResponse(dict):
+    """
+    Prometheus Metrics Signal Definition properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "evaluationRules":
+            suggest = "evaluation_rules"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "queryText":
+            suggest = "query_text"
+        elif key == "signalKind":
+            suggest = "signal_kind"
+        elif key == "dataUnit":
+            suggest = "data_unit"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "refreshInterval":
+            suggest = "refresh_interval"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PrometheusMetricsSignalDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PrometheusMetricsSignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PrometheusMetricsSignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 deletion_date: builtins.str,
+                 evaluation_rules: 'outputs.EvaluationRuleResponse',
+                 provisioning_state: builtins.str,
+                 query_text: builtins.str,
+                 signal_kind: builtins.str,
+                 data_unit: Optional[builtins.str] = None,
+                 display_name: Optional[builtins.str] = None,
+                 refresh_interval: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None,
+                 time_grain: Optional[builtins.str] = None):
+        """
+        Prometheus Metrics Signal Definition properties
+        :param builtins.str deletion_date: Date when the signal definition was (soft-)deleted
+        :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str query_text: Query text in PromQL syntax
+        :param builtins.str signal_kind: Supported signal kinds as discriminator
+               Expected value is 'PrometheusMetricsQuery'.
+        :param builtins.str data_unit: Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        :param builtins.str display_name: Display name
+        :param builtins.str refresh_interval: Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        :param Mapping[str, builtins.str] tags: Optional set of labels (key-value pairs)
+        :param builtins.str time_grain: Time range of signal. ISO duration format like PT10M.
+        """
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "evaluation_rules", evaluation_rules)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "query_text", query_text)
+        pulumi.set(__self__, "signal_kind", 'PrometheusMetricsQuery')
+        if data_unit is not None:
+            pulumi.set(__self__, "data_unit", data_unit)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if refresh_interval is None:
+            refresh_interval = 'PT1M'
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if time_grain is not None:
+            pulumi.set(__self__, "time_grain", time_grain)
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the signal definition was (soft-)deleted
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="evaluationRules")
+    def evaluation_rules(self) -> 'outputs.EvaluationRuleResponse':
+        """
+        Evaluation rules for the signal definition
+        """
+        return pulumi.get(self, "evaluation_rules")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="queryText")
+    def query_text(self) -> builtins.str:
+        """
+        Query text in PromQL syntax
+        """
+        return pulumi.get(self, "query_text")
+
+    @property
+    @pulumi.getter(name="signalKind")
+    def signal_kind(self) -> builtins.str:
+        """
+        Supported signal kinds as discriminator
+        Expected value is 'PrometheusMetricsQuery'.
+        """
+        return pulumi.get(self, "signal_kind")
+
+    @property
+    @pulumi.getter(name="dataUnit")
+    def data_unit(self) -> Optional[builtins.str]:
+        """
+        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        """
+        return pulumi.get(self, "data_unit")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[builtins.str]:
+        """
+        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional set of labels (key-value pairs)
+        """
+        return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> Optional[builtins.str]:
+        """
+        Time range of signal. ISO duration format like PT10M.
+        """
+        return pulumi.get(self, "time_grain")
+
+
+@pulumi.output_type
 class ReceiverResponse(dict):
     """
     Receiver Info.
@@ -7521,6 +9076,280 @@ class RelatedResourceResponse(dict):
 
 
 @pulumi.output_type
+class RelationshipPropertiesResponse(dict):
+    """
+    Relationship properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "childEntityName":
+            suggest = "child_entity_name"
+        elif key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "discoveredBy":
+            suggest = "discovered_by"
+        elif key == "parentEntityName":
+            suggest = "parent_entity_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RelationshipPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RelationshipPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RelationshipPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 child_entity_name: builtins.str,
+                 deletion_date: builtins.str,
+                 discovered_by: builtins.str,
+                 parent_entity_name: builtins.str,
+                 provisioning_state: builtins.str,
+                 display_name: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        Relationship properties
+        :param builtins.str child_entity_name: Resource name of the child entity
+        :param builtins.str deletion_date: Date when the relationship was (soft-)deleted
+        :param builtins.str discovered_by: Discovered by which discovery rule. If set, the relationship cannot be deleted manually.
+        :param builtins.str parent_entity_name: Resource name of the parent entity
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str display_name: Display name
+        :param Mapping[str, builtins.str] tags: Optional set of labels (key-value pairs)
+        """
+        pulumi.set(__self__, "child_entity_name", child_entity_name)
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "discovered_by", discovered_by)
+        pulumi.set(__self__, "parent_entity_name", parent_entity_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="childEntityName")
+    def child_entity_name(self) -> builtins.str:
+        """
+        Resource name of the child entity
+        """
+        return pulumi.get(self, "child_entity_name")
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the relationship was (soft-)deleted
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="discoveredBy")
+    def discovered_by(self) -> builtins.str:
+        """
+        Discovered by which discovery rule. If set, the relationship cannot be deleted manually.
+        """
+        return pulumi.get(self, "discovered_by")
+
+    @property
+    @pulumi.getter(name="parentEntityName")
+    def parent_entity_name(self) -> builtins.str:
+        """
+        Resource name of the parent entity
+        """
+        return pulumi.get(self, "parent_entity_name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional set of labels (key-value pairs)
+        """
+        return pulumi.get(self, "tags")
+
+
+@pulumi.output_type
+class ResourceGraphQueryDiscoveryRulePropertiesResponse(dict):
+    """
+    Discovery rule properties for an Azure Resource Graph query
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addRecommendedSignals":
+            suggest = "add_recommended_signals"
+        elif key == "authenticationSetting":
+            suggest = "authentication_setting"
+        elif key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "discoverRelationships":
+            suggest = "discover_relationships"
+        elif key == "discoveryRuleKind":
+            suggest = "discovery_rule_kind"
+        elif key == "entityName":
+            suggest = "entity_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGraphQuery":
+            suggest = "resource_graph_query"
+        elif key == "displayName":
+            suggest = "display_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceGraphQueryDiscoveryRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceGraphQueryDiscoveryRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceGraphQueryDiscoveryRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 add_recommended_signals: builtins.str,
+                 authentication_setting: builtins.str,
+                 deletion_date: builtins.str,
+                 discover_relationships: builtins.str,
+                 discovery_rule_kind: builtins.str,
+                 entity_name: builtins.str,
+                 error: 'outputs.DiscoveryErrorResponse',
+                 provisioning_state: builtins.str,
+                 resource_graph_query: builtins.str,
+                 display_name: Optional[builtins.str] = None):
+        """
+        Discovery rule properties for an Azure Resource Graph query
+        :param builtins.str add_recommended_signals: Whether to add all recommended signals to the discovered entities.
+        :param builtins.str authentication_setting: Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+        :param builtins.str deletion_date: Date when the discovery rule was (soft-)deleted.
+        :param builtins.str discover_relationships: Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+        :param builtins.str discovery_rule_kind: Discovery rule relationship discovery behavior
+               Expected value is 'ResourceGraphQuery'.
+        :param builtins.str entity_name: Name of the entity which represents the discovery rule. Note: It might take a few minutes after creating the discovery rule until the entity is created.
+        :param 'DiscoveryErrorResponse' error: Error details if the last discovery operation failed.
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str resource_graph_query: Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
+        :param builtins.str display_name: Display name
+        """
+        pulumi.set(__self__, "add_recommended_signals", add_recommended_signals)
+        pulumi.set(__self__, "authentication_setting", authentication_setting)
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "discover_relationships", discover_relationships)
+        pulumi.set(__self__, "discovery_rule_kind", 'ResourceGraphQuery')
+        pulumi.set(__self__, "entity_name", entity_name)
+        pulumi.set(__self__, "error", error)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_graph_query", resource_graph_query)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+
+    @property
+    @pulumi.getter(name="addRecommendedSignals")
+    def add_recommended_signals(self) -> builtins.str:
+        """
+        Whether to add all recommended signals to the discovered entities.
+        """
+        return pulumi.get(self, "add_recommended_signals")
+
+    @property
+    @pulumi.getter(name="authenticationSetting")
+    def authentication_setting(self) -> builtins.str:
+        """
+        Reference to the name of the authentication setting which is used for querying Azure Resource Graph. The same authentication setting will also be assigned to any discovered entities.
+        """
+        return pulumi.get(self, "authentication_setting")
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the discovery rule was (soft-)deleted.
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="discoverRelationships")
+    def discover_relationships(self) -> builtins.str:
+        """
+        Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+        """
+        return pulumi.get(self, "discover_relationships")
+
+    @property
+    @pulumi.getter(name="discoveryRuleKind")
+    def discovery_rule_kind(self) -> builtins.str:
+        """
+        Discovery rule relationship discovery behavior
+        Expected value is 'ResourceGraphQuery'.
+        """
+        return pulumi.get(self, "discovery_rule_kind")
+
+    @property
+    @pulumi.getter(name="entityName")
+    def entity_name(self) -> builtins.str:
+        """
+        Name of the entity which represents the discovery rule. Note: It might take a few minutes after creating the discovery rule until the entity is created.
+        """
+        return pulumi.get(self, "entity_name")
+
+    @property
+    @pulumi.getter
+    def error(self) -> 'outputs.DiscoveryErrorResponse':
+        """
+        Error details if the last discovery operation failed.
+        """
+        return pulumi.get(self, "error")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="resourceGraphQuery")
+    def resource_graph_query(self) -> builtins.str:
+        """
+        Azure Resource Graph query text in KQL syntax. The query must return at least a column named 'id' which contains the resource ID of the discovered resources.
+        """
+        return pulumi.get(self, "resource_graph_query")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+
+@pulumi.output_type
 class ResourceMapResponse(dict):
     """
     Resource map for schema in azure monitor.
@@ -7568,6 +9397,220 @@ class ResourceMapResponse(dict):
         Resource Map Value.
         """
         return pulumi.get(self, "to")
+
+
+@pulumi.output_type
+class ResourceMetricSignalDefinitionPropertiesResponse(dict):
+    """
+    Azure Resource Metric Signal Definition properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "aggregationType":
+            suggest = "aggregation_type"
+        elif key == "deletionDate":
+            suggest = "deletion_date"
+        elif key == "evaluationRules":
+            suggest = "evaluation_rules"
+        elif key == "metricName":
+            suggest = "metric_name"
+        elif key == "metricNamespace":
+            suggest = "metric_namespace"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "signalKind":
+            suggest = "signal_kind"
+        elif key == "timeGrain":
+            suggest = "time_grain"
+        elif key == "dataUnit":
+            suggest = "data_unit"
+        elif key == "dimensionFilter":
+            suggest = "dimension_filter"
+        elif key == "displayName":
+            suggest = "display_name"
+        elif key == "refreshInterval":
+            suggest = "refresh_interval"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ResourceMetricSignalDefinitionPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ResourceMetricSignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ResourceMetricSignalDefinitionPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 aggregation_type: builtins.str,
+                 deletion_date: builtins.str,
+                 evaluation_rules: 'outputs.EvaluationRuleResponse',
+                 metric_name: builtins.str,
+                 metric_namespace: builtins.str,
+                 provisioning_state: builtins.str,
+                 signal_kind: builtins.str,
+                 time_grain: builtins.str,
+                 data_unit: Optional[builtins.str] = None,
+                 dimension: Optional[builtins.str] = None,
+                 dimension_filter: Optional[builtins.str] = None,
+                 display_name: Optional[builtins.str] = None,
+                 refresh_interval: Optional[builtins.str] = None,
+                 tags: Optional[Mapping[str, builtins.str]] = None):
+        """
+        Azure Resource Metric Signal Definition properties
+        :param builtins.str aggregation_type: Type of aggregation to apply to the metric
+        :param builtins.str deletion_date: Date when the signal definition was (soft-)deleted
+        :param 'EvaluationRuleResponse' evaluation_rules: Evaluation rules for the signal definition
+        :param builtins.str metric_name: Name of the metric
+        :param builtins.str metric_namespace: Metric namespace
+        :param builtins.str provisioning_state: The status of the last operation.
+        :param builtins.str signal_kind: Supported signal kinds as discriminator
+               Expected value is 'AzureResourceMetric'.
+        :param builtins.str time_grain: Time range of signal. ISO duration format like PT10M.
+        :param builtins.str data_unit: Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        :param builtins.str dimension: Optional: Dimension to split by
+        :param builtins.str dimension_filter: Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
+        :param builtins.str display_name: Display name
+        :param builtins.str refresh_interval: Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        :param Mapping[str, builtins.str] tags: Optional set of labels (key-value pairs)
+        """
+        pulumi.set(__self__, "aggregation_type", aggregation_type)
+        pulumi.set(__self__, "deletion_date", deletion_date)
+        pulumi.set(__self__, "evaluation_rules", evaluation_rules)
+        pulumi.set(__self__, "metric_name", metric_name)
+        pulumi.set(__self__, "metric_namespace", metric_namespace)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "signal_kind", 'AzureResourceMetric')
+        pulumi.set(__self__, "time_grain", time_grain)
+        if data_unit is not None:
+            pulumi.set(__self__, "data_unit", data_unit)
+        if dimension is not None:
+            pulumi.set(__self__, "dimension", dimension)
+        if dimension_filter is not None:
+            pulumi.set(__self__, "dimension_filter", dimension_filter)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if refresh_interval is None:
+            refresh_interval = 'PT1M'
+        if refresh_interval is not None:
+            pulumi.set(__self__, "refresh_interval", refresh_interval)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="aggregationType")
+    def aggregation_type(self) -> builtins.str:
+        """
+        Type of aggregation to apply to the metric
+        """
+        return pulumi.get(self, "aggregation_type")
+
+    @property
+    @pulumi.getter(name="deletionDate")
+    def deletion_date(self) -> builtins.str:
+        """
+        Date when the signal definition was (soft-)deleted
+        """
+        return pulumi.get(self, "deletion_date")
+
+    @property
+    @pulumi.getter(name="evaluationRules")
+    def evaluation_rules(self) -> 'outputs.EvaluationRuleResponse':
+        """
+        Evaluation rules for the signal definition
+        """
+        return pulumi.get(self, "evaluation_rules")
+
+    @property
+    @pulumi.getter(name="metricName")
+    def metric_name(self) -> builtins.str:
+        """
+        Name of the metric
+        """
+        return pulumi.get(self, "metric_name")
+
+    @property
+    @pulumi.getter(name="metricNamespace")
+    def metric_namespace(self) -> builtins.str:
+        """
+        Metric namespace
+        """
+        return pulumi.get(self, "metric_namespace")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The status of the last operation.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter(name="signalKind")
+    def signal_kind(self) -> builtins.str:
+        """
+        Supported signal kinds as discriminator
+        Expected value is 'AzureResourceMetric'.
+        """
+        return pulumi.get(self, "signal_kind")
+
+    @property
+    @pulumi.getter(name="timeGrain")
+    def time_grain(self) -> builtins.str:
+        """
+        Time range of signal. ISO duration format like PT10M.
+        """
+        return pulumi.get(self, "time_grain")
+
+    @property
+    @pulumi.getter(name="dataUnit")
+    def data_unit(self) -> Optional[builtins.str]:
+        """
+        Unit of the signal result (e.g. Bytes, MilliSeconds, Percent, Count))
+        """
+        return pulumi.get(self, "data_unit")
+
+    @property
+    @pulumi.getter
+    def dimension(self) -> Optional[builtins.str]:
+        """
+        Optional: Dimension to split by
+        """
+        return pulumi.get(self, "dimension")
+
+    @property
+    @pulumi.getter(name="dimensionFilter")
+    def dimension_filter(self) -> Optional[builtins.str]:
+        """
+        Optional: Dimension filter to apply to the dimension. Must only be set if also Dimension is set.
+        """
+        return pulumi.get(self, "dimension_filter")
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[builtins.str]:
+        """
+        Display name
+        """
+        return pulumi.get(self, "display_name")
+
+    @property
+    @pulumi.getter(name="refreshInterval")
+    def refresh_interval(self) -> Optional[builtins.str]:
+        """
+        Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+        """
+        return pulumi.get(self, "refresh_interval")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, builtins.str]]:
+        """
+        Optional set of labels (key-value pairs)
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -8125,6 +10168,125 @@ class ServiceResponse(dict):
 
 
 @pulumi.output_type
+class SignalAssignmentResponse(dict):
+    """
+    Group of signal definition assignments
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "signalDefinitions":
+            suggest = "signal_definitions"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalAssignmentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalAssignmentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalAssignmentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 signal_definitions: Sequence[builtins.str]):
+        """
+        Group of signal definition assignments
+        :param Sequence[builtins.str] signal_definitions: Signal definitions referenced by their names. All definitions are combined with an AND operator.
+        """
+        pulumi.set(__self__, "signal_definitions", signal_definitions)
+
+    @property
+    @pulumi.getter(name="signalDefinitions")
+    def signal_definitions(self) -> Sequence[builtins.str]:
+        """
+        Signal definitions referenced by their names. All definitions are combined with an AND operator.
+        """
+        return pulumi.get(self, "signal_definitions")
+
+
+@pulumi.output_type
+class SignalGroupResponse(dict):
+    """
+    Contains various signal groups that can be assigned to an entity
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "azureLogAnalytics":
+            suggest = "azure_log_analytics"
+        elif key == "azureMonitorWorkspace":
+            suggest = "azure_monitor_workspace"
+        elif key == "azureResource":
+            suggest = "azure_resource"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SignalGroupResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SignalGroupResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SignalGroupResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 azure_log_analytics: Optional['outputs.LogAnalyticsSignalGroupResponse'] = None,
+                 azure_monitor_workspace: Optional['outputs.AzureMonitorWorkspaceSignalGroupResponse'] = None,
+                 azure_resource: Optional['outputs.AzureResourceSignalGroupResponse'] = None,
+                 dependencies: Optional['outputs.DependenciesSignalGroupResponse'] = None):
+        """
+        Contains various signal groups that can be assigned to an entity
+        :param 'LogAnalyticsSignalGroupResponse' azure_log_analytics: Log Analytics Signal Group
+        :param 'AzureMonitorWorkspaceSignalGroupResponse' azure_monitor_workspace: Azure Monitor Workspace Signal Group
+        :param 'AzureResourceSignalGroupResponse' azure_resource: Azure Resource Signal Group
+        :param 'DependenciesSignalGroupResponse' dependencies: Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
+        """
+        if azure_log_analytics is not None:
+            pulumi.set(__self__, "azure_log_analytics", azure_log_analytics)
+        if azure_monitor_workspace is not None:
+            pulumi.set(__self__, "azure_monitor_workspace", azure_monitor_workspace)
+        if azure_resource is not None:
+            pulumi.set(__self__, "azure_resource", azure_resource)
+        if dependencies is not None:
+            pulumi.set(__self__, "dependencies", dependencies)
+
+    @property
+    @pulumi.getter(name="azureLogAnalytics")
+    def azure_log_analytics(self) -> Optional['outputs.LogAnalyticsSignalGroupResponse']:
+        """
+        Log Analytics Signal Group
+        """
+        return pulumi.get(self, "azure_log_analytics")
+
+    @property
+    @pulumi.getter(name="azureMonitorWorkspace")
+    def azure_monitor_workspace(self) -> Optional['outputs.AzureMonitorWorkspaceSignalGroupResponse']:
+        """
+        Azure Monitor Workspace Signal Group
+        """
+        return pulumi.get(self, "azure_monitor_workspace")
+
+    @property
+    @pulumi.getter(name="azureResource")
+    def azure_resource(self) -> Optional['outputs.AzureResourceSignalGroupResponse']:
+        """
+        Azure Resource Signal Group
+        """
+        return pulumi.get(self, "azure_resource")
+
+    @property
+    @pulumi.getter
+    def dependencies(self) -> Optional['outputs.DependenciesSignalGroupResponse']:
+        """
+        Settings for dependency signals to control how the health state of child entities influences the health state of the parent entity.
+        """
+        return pulumi.get(self, "dependencies")
+
+
+@pulumi.output_type
 class SmsReceiverResponse(dict):
     """
     An SMS receiver.
@@ -8662,6 +10824,39 @@ class TcpExporterResponse(dict):
         TCP url to export.
         """
         return pulumi.get(self, "url")
+
+
+@pulumi.output_type
+class ThresholdRuleResponse(dict):
+    """
+    Threshold-based evaluation rule for a signal definition
+    """
+    def __init__(__self__, *,
+                 operator: builtins.str,
+                 threshold: builtins.str):
+        """
+        Threshold-based evaluation rule for a signal definition
+        :param builtins.str operator: Operator how to compare the signal value with the threshold
+        :param builtins.str threshold: Threshold value
+        """
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "threshold", threshold)
+
+    @property
+    @pulumi.getter
+    def operator(self) -> builtins.str:
+        """
+        Operator how to compare the signal value with the threshold
+        """
+        return pulumi.get(self, "operator")
+
+    @property
+    @pulumi.getter
+    def threshold(self) -> builtins.str:
+        """
+        Threshold value
+        """
+        return pulumi.get(self, "threshold")
 
 
 @pulumi.output_type

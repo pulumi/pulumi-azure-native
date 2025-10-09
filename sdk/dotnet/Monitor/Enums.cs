@@ -73,6 +73,85 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// The severity of triggered alert.
+    /// </summary>
+    [EnumType]
+    public readonly struct AlertSeverity : IEquatable<AlertSeverity>
+    {
+        private readonly string _value;
+
+        private AlertSeverity(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Critical
+        /// </summary>
+        public static AlertSeverity Sev0 { get; } = new AlertSeverity("Sev0");
+        /// <summary>
+        /// Error
+        /// </summary>
+        public static AlertSeverity Sev1 { get; } = new AlertSeverity("Sev1");
+        /// <summary>
+        /// Warning
+        /// </summary>
+        public static AlertSeverity Sev2 { get; } = new AlertSeverity("Sev2");
+        /// <summary>
+        /// Informational
+        /// </summary>
+        public static AlertSeverity Sev3 { get; } = new AlertSeverity("Sev3");
+        /// <summary>
+        /// Verbose
+        /// </summary>
+        public static AlertSeverity Sev4 { get; } = new AlertSeverity("Sev4");
+
+        public static bool operator ==(AlertSeverity left, AlertSeverity right) => left.Equals(right);
+        public static bool operator !=(AlertSeverity left, AlertSeverity right) => !left.Equals(right);
+
+        public static explicit operator string(AlertSeverity value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AlertSeverity other && Equals(other);
+        public bool Equals(AlertSeverity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of the authentication setting
+    /// </summary>
+    [EnumType]
+    public readonly struct AuthenticationKind : IEquatable<AuthenticationKind>
+    {
+        private readonly string _value;
+
+        private AuthenticationKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AuthenticationKind ManagedIdentity { get; } = new AuthenticationKind("ManagedIdentity");
+
+        public static bool operator ==(AuthenticationKind left, AuthenticationKind right) => left.Equals(right);
+        public static bool operator !=(AuthenticationKind left, AuthenticationKind right) => !left.Equals(right);
+
+        public static explicit operator string(AuthenticationKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AuthenticationKind other && Equals(other);
+        public bool Equals(AuthenticationKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the operator that is used to compare the metric data and the threshold.
     /// </summary>
     [EnumType]
@@ -174,6 +253,43 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Aggregation type for child dependencies.
+    /// </summary>
+    [EnumType]
+    public readonly struct DependenciesAggregationType : IEquatable<DependenciesAggregationType>
+    {
+        private readonly string _value;
+
+        private DependenciesAggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Default behavior: Worst child health state is propagated.
+        /// </summary>
+        public static DependenciesAggregationType WorstOf { get; } = new DependenciesAggregationType("WorstOf");
+        /// <summary>
+        /// Based on configurable thresholds.
+        /// </summary>
+        public static DependenciesAggregationType Thresholds { get; } = new DependenciesAggregationType("Thresholds");
+
+        public static bool operator ==(DependenciesAggregationType left, DependenciesAggregationType right) => left.Equals(right);
+        public static bool operator !=(DependenciesAggregationType left, DependenciesAggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(DependenciesAggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DependenciesAggregationType other && Equals(other);
+        public bool Equals(DependenciesAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Operator for dimension values
     /// </summary>
     [EnumType]
@@ -197,6 +313,185 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DimensionOperator other && Equals(other);
         public bool Equals(DimensionOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of the discovery rule
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscoveryRuleKind : IEquatable<DiscoveryRuleKind>
+    {
+        private readonly string _value;
+
+        private DiscoveryRuleKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static DiscoveryRuleKind ResourceGraphQuery { get; } = new DiscoveryRuleKind("ResourceGraphQuery");
+        public static DiscoveryRuleKind ApplicationInsightsTopology { get; } = new DiscoveryRuleKind("ApplicationInsightsTopology");
+
+        public static bool operator ==(DiscoveryRuleKind left, DiscoveryRuleKind right) => left.Equals(right);
+        public static bool operator !=(DiscoveryRuleKind left, DiscoveryRuleKind right) => !left.Equals(right);
+
+        public static explicit operator string(DiscoveryRuleKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscoveryRuleKind other && Equals(other);
+        public bool Equals(DiscoveryRuleKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to add all recommended signals to the discovered entities.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscoveryRuleRecommendedSignalsBehavior : IEquatable<DiscoveryRuleRecommendedSignalsBehavior>
+    {
+        private readonly string _value;
+
+        private DiscoveryRuleRecommendedSignalsBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Automatically add recommended signals
+        /// </summary>
+        public static DiscoveryRuleRecommendedSignalsBehavior Enabled { get; } = new DiscoveryRuleRecommendedSignalsBehavior("Enabled");
+        /// <summary>
+        /// Do not automatically add recommended signals
+        /// </summary>
+        public static DiscoveryRuleRecommendedSignalsBehavior Disabled { get; } = new DiscoveryRuleRecommendedSignalsBehavior("Disabled");
+
+        public static bool operator ==(DiscoveryRuleRecommendedSignalsBehavior left, DiscoveryRuleRecommendedSignalsBehavior right) => left.Equals(right);
+        public static bool operator !=(DiscoveryRuleRecommendedSignalsBehavior left, DiscoveryRuleRecommendedSignalsBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DiscoveryRuleRecommendedSignalsBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscoveryRuleRecommendedSignalsBehavior other && Equals(other);
+        public bool Equals(DiscoveryRuleRecommendedSignalsBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to create relationships between the discovered entities based on a set of built-in rules. These relationships cannot be manually deleted.
+    /// </summary>
+    [EnumType]
+    public readonly struct DiscoveryRuleRelationshipDiscoveryBehavior : IEquatable<DiscoveryRuleRelationshipDiscoveryBehavior>
+    {
+        private readonly string _value;
+
+        private DiscoveryRuleRelationshipDiscoveryBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Automatically attempt to discover relationships
+        /// </summary>
+        public static DiscoveryRuleRelationshipDiscoveryBehavior Enabled { get; } = new DiscoveryRuleRelationshipDiscoveryBehavior("Enabled");
+        /// <summary>
+        /// Do not automatically attempt to discover relationships
+        /// </summary>
+        public static DiscoveryRuleRelationshipDiscoveryBehavior Disabled { get; } = new DiscoveryRuleRelationshipDiscoveryBehavior("Disabled");
+
+        public static bool operator ==(DiscoveryRuleRelationshipDiscoveryBehavior left, DiscoveryRuleRelationshipDiscoveryBehavior right) => left.Equals(right);
+        public static bool operator !=(DiscoveryRuleRelationshipDiscoveryBehavior left, DiscoveryRuleRelationshipDiscoveryBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(DiscoveryRuleRelationshipDiscoveryBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DiscoveryRuleRelationshipDiscoveryBehavior other && Equals(other);
+        public bool Equals(DiscoveryRuleRelationshipDiscoveryBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Threshold direction
+    /// </summary>
+    [EnumType]
+    public readonly struct DynamicThresholdDirection : IEquatable<DynamicThresholdDirection>
+    {
+        private readonly string _value;
+
+        private DynamicThresholdDirection(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Lower than
+        /// </summary>
+        public static DynamicThresholdDirection LowerThan { get; } = new DynamicThresholdDirection("LowerThan");
+        /// <summary>
+        /// Greater than
+        /// </summary>
+        public static DynamicThresholdDirection GreaterThan { get; } = new DynamicThresholdDirection("GreaterThan");
+        /// <summary>
+        /// Greater or Lower Than
+        /// </summary>
+        public static DynamicThresholdDirection GreaterOrLowerThan { get; } = new DynamicThresholdDirection("GreaterOrLowerThan");
+
+        public static bool operator ==(DynamicThresholdDirection left, DynamicThresholdDirection right) => left.Equals(right);
+        public static bool operator !=(DynamicThresholdDirection left, DynamicThresholdDirection right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicThresholdDirection value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicThresholdDirection other && Equals(other);
+        public bool Equals(DynamicThresholdDirection other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// ML model to use for dynamic thresholds
+    /// </summary>
+    [EnumType]
+    public readonly struct DynamicThresholdModel : IEquatable<DynamicThresholdModel>
+    {
+        private readonly string _value;
+
+        private DynamicThresholdModel(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Anomaly detection model
+        /// </summary>
+        public static DynamicThresholdModel AnomalyDetection { get; } = new DynamicThresholdModel("AnomalyDetection");
+
+        public static bool operator ==(DynamicThresholdModel left, DynamicThresholdModel right) => left.Equals(right);
+        public static bool operator !=(DynamicThresholdModel left, DynamicThresholdModel right) => !left.Equals(right);
+
+        public static explicit operator string(DynamicThresholdModel value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DynamicThresholdModel other && Equals(other);
+        public bool Equals(DynamicThresholdModel other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -261,6 +556,47 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DynamicThresholdSensitivity other && Equals(other);
         public bool Equals(DynamicThresholdSensitivity other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Impact of the entity in health state propagation
+    /// </summary>
+    [EnumType]
+    public readonly struct EntityImpact : IEquatable<EntityImpact>
+    {
+        private readonly string _value;
+
+        private EntityImpact(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard impact
+        /// </summary>
+        public static EntityImpact Standard { get; } = new EntityImpact("Standard");
+        /// <summary>
+        /// Limited impact
+        /// </summary>
+        public static EntityImpact Limited { get; } = new EntityImpact("Limited");
+        /// <summary>
+        /// Suppressed impact
+        /// </summary>
+        public static EntityImpact Suppressed { get; } = new EntityImpact("Suppressed");
+
+        public static bool operator ==(EntityImpact left, EntityImpact right) => left.Equals(right);
+        public static bool operator !=(EntityImpact left, EntityImpact right) => !left.Equals(right);
+
+        public static explicit operator string(EntityImpact value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EntityImpact other && Equals(other);
+        public bool Equals(EntityImpact other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -998,6 +1334,41 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Type of aggregation to apply to the metric
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricAggregationType : IEquatable<MetricAggregationType>
+    {
+        private readonly string _value;
+
+        private MetricAggregationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricAggregationType None { get; } = new MetricAggregationType("None");
+        public static MetricAggregationType Average { get; } = new MetricAggregationType("Average");
+        public static MetricAggregationType Count { get; } = new MetricAggregationType("Count");
+        public static MetricAggregationType Minimum { get; } = new MetricAggregationType("Minimum");
+        public static MetricAggregationType Maximum { get; } = new MetricAggregationType("Maximum");
+        public static MetricAggregationType Total { get; } = new MetricAggregationType("Total");
+
+        public static bool operator ==(MetricAggregationType left, MetricAggregationType right) => left.Equals(right);
+        public static bool operator !=(MetricAggregationType left, MetricAggregationType right) => !left.Equals(right);
+
+        public static explicit operator string(MetricAggregationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricAggregationType other && Equals(other);
+        public bool Equals(MetricAggregationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the metric statistic type. How the metrics from multiple instances are combined.
     /// </summary>
     [EnumType]
@@ -1375,6 +1746,59 @@ namespace Pulumi.AzureNative.Monitor
     }
 
     /// <summary>
+    /// Interval in which the signal is being evaluated. Defaults to PT1M (1 minute).
+    /// </summary>
+    [EnumType]
+    public readonly struct RefreshInterval : IEquatable<RefreshInterval>
+    {
+        private readonly string _value;
+
+        private RefreshInterval(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// One Minute
+        /// </summary>
+        public static RefreshInterval PT1M { get; } = new RefreshInterval("PT1M");
+        /// <summary>
+        /// Five Minutes
+        /// </summary>
+        public static RefreshInterval PT5M { get; } = new RefreshInterval("PT5M");
+        /// <summary>
+        /// Ten Minutes
+        /// </summary>
+        public static RefreshInterval PT10M { get; } = new RefreshInterval("PT10M");
+        /// <summary>
+        /// Thirty Minutes
+        /// </summary>
+        public static RefreshInterval PT30M { get; } = new RefreshInterval("PT30M");
+        /// <summary>
+        /// One Hour
+        /// </summary>
+        public static RefreshInterval PT1H { get; } = new RefreshInterval("PT1H");
+        /// <summary>
+        /// Two Hours
+        /// </summary>
+        public static RefreshInterval PT2H { get; } = new RefreshInterval("PT2H");
+
+        public static bool operator ==(RefreshInterval left, RefreshInterval right) => left.Equals(right);
+        public static bool operator !=(RefreshInterval left, RefreshInterval right) => !left.Equals(right);
+
+        public static explicit operator string(RefreshInterval value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RefreshInterval other && Equals(other);
+        public bool Equals(RefreshInterval other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// the scale direction. Whether the scaling action increases or decreases the number of instances.
     /// </summary>
     [EnumType]
@@ -1494,6 +1918,87 @@ namespace Pulumi.AzureNative.Monitor
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ScopedResourceKind other && Equals(other);
         public bool Equals(ScopedResourceKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Kind of the signal definition
+    /// </summary>
+    [EnumType]
+    public readonly struct SignalKind : IEquatable<SignalKind>
+    {
+        private readonly string _value;
+
+        private SignalKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SignalKind AzureResourceMetric { get; } = new SignalKind("AzureResourceMetric");
+        public static SignalKind LogAnalyticsQuery { get; } = new SignalKind("LogAnalyticsQuery");
+        public static SignalKind PrometheusMetricsQuery { get; } = new SignalKind("PrometheusMetricsQuery");
+
+        public static bool operator ==(SignalKind left, SignalKind right) => left.Equals(right);
+        public static bool operator !=(SignalKind left, SignalKind right) => !left.Equals(right);
+
+        public static explicit operator string(SignalKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SignalKind other && Equals(other);
+        public bool Equals(SignalKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Operator how to compare the signal value with the threshold
+    /// </summary>
+    [EnumType]
+    public readonly struct SignalOperator : IEquatable<SignalOperator>
+    {
+        private readonly string _value;
+
+        private SignalOperator(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Less than
+        /// </summary>
+        public static SignalOperator LessThan { get; } = new SignalOperator("LessThan");
+        /// <summary>
+        /// Less than or equal to
+        /// </summary>
+        public static SignalOperator LessThanOrEqual { get; } = new SignalOperator("LessThanOrEqual");
+        /// <summary>
+        /// Greater than
+        /// </summary>
+        public static SignalOperator GreaterThan { get; } = new SignalOperator("GreaterThan");
+        /// <summary>
+        /// Greater than or equal to
+        /// </summary>
+        public static SignalOperator GreaterThanOrEqual { get; } = new SignalOperator("GreaterThanOrEqual");
+        /// <summary>
+        /// Equal to
+        /// </summary>
+        public static SignalOperator Equal { get; } = new SignalOperator("Equal");
+
+        public static bool operator ==(SignalOperator left, SignalOperator right) => left.Equals(right);
+        public static bool operator !=(SignalOperator left, SignalOperator right) => !left.Equals(right);
+
+        public static explicit operator string(SignalOperator value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SignalOperator other && Equals(other);
+        public bool Equals(SignalOperator other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

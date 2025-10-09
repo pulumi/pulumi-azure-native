@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Dashboard
     /// The managed dashboard resource type.
     /// 
     /// Uses Azure REST API version 2024-11-01-preview.
+    /// 
+    /// Other available API versions: 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dashboard [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Dashboard")]
     public partial class Dashboard : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.Dashboard
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:dashboard/v20241101preview:Dashboard" },
+                    new global::Pulumi.Alias { Type = "azure-native:dashboard/v20250801:Dashboard" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -1510,16 +1510,19 @@ _utilities.register(
    "azure-native:cdn:CustomDomain": "CustomDomain",
    "azure-native:cdn:Endpoint": "Endpoint",
    "azure-native:cdn:KeyGroup": "KeyGroup",
+   "azure-native:cdn:KnowledgeSource": "KnowledgeSource",
    "azure-native:cdn:Origin": "Origin",
    "azure-native:cdn:OriginGroup": "OriginGroup",
    "azure-native:cdn:Policy": "Policy",
    "azure-native:cdn:Profile": "Profile",
+   "azure-native:cdn:ProfileAgent": "ProfileAgent",
    "azure-native:cdn:Route": "Route",
    "azure-native:cdn:Rule": "Rule",
    "azure-native:cdn:RuleSet": "RuleSet",
    "azure-native:cdn:Secret": "Secret",
    "azure-native:cdn:SecurityPolicy": "SecurityPolicy",
-   "azure-native:cdn:TunnelPolicy": "TunnelPolicy"
+   "azure-native:cdn:TunnelPolicy": "TunnelPolicy",
+   "azure-native:cdn:WebAgent": "WebAgent"
   }
  },
  {
@@ -1799,6 +1802,7 @@ _utilities.register(
    "azure-native:containerservice:ManagedClusterSnapshot": "ManagedClusterSnapshot",
    "azure-native:containerservice:ManagedNamespace": "ManagedNamespace",
    "azure-native:containerservice:Namespace": "Namespace",
+   "azure-native:containerservice:NodeCustomization": "NodeCustomization",
    "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:containerservice:Snapshot": "Snapshot",
    "azure-native:containerservice:TrustedAccessRoleBinding": "TrustedAccessRoleBinding",
@@ -2451,6 +2455,7 @@ _utilities.register(
    "azure-native:edge:Execution": "Execution",
    "azure-native:edge:Instance": "Instance",
    "azure-native:edge:Schema": "Schema",
+   "azure-native:edge:SchemaReference": "SchemaReference",
    "azure-native:edge:SchemaVersion": "SchemaVersion",
    "azure-native:edge:Site": "Site",
    "azure-native:edge:SiteReference": "SiteReference",
@@ -3328,12 +3333,16 @@ _utilities.register(
   "classes": {
    "azure-native:monitor:ActionGroup": "ActionGroup",
    "azure-native:monitor:ActivityLogAlert": "ActivityLogAlert",
+   "azure-native:monitor:AuthenticationSetting": "AuthenticationSetting",
    "azure-native:monitor:AutoscaleSetting": "AutoscaleSetting",
    "azure-native:monitor:AzureMonitorWorkspace": "AzureMonitorWorkspace",
    "azure-native:monitor:DataCollectionEndpoint": "DataCollectionEndpoint",
    "azure-native:monitor:DataCollectionRule": "DataCollectionRule",
    "azure-native:monitor:DataCollectionRuleAssociation": "DataCollectionRuleAssociation",
    "azure-native:monitor:DiagnosticSetting": "DiagnosticSetting",
+   "azure-native:monitor:DiscoveryRule": "DiscoveryRule",
+   "azure-native:monitor:Entity": "Entity",
+   "azure-native:monitor:HealthModel": "HealthModel",
    "azure-native:monitor:Issue": "Issue",
    "azure-native:monitor:ManagementGroupDiagnosticSetting": "ManagementGroupDiagnosticSetting",
    "azure-native:monitor:MetricAlert": "MetricAlert",
@@ -3341,7 +3350,9 @@ _utilities.register(
    "azure-native:monitor:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:monitor:PrivateLinkScope": "PrivateLinkScope",
    "azure-native:monitor:PrivateLinkScopedResource": "PrivateLinkScopedResource",
+   "azure-native:monitor:Relationship": "Relationship",
    "azure-native:monitor:ScheduledQueryRule": "ScheduledQueryRule",
+   "azure-native:monitor:SignalDefinition": "SignalDefinition",
    "azure-native:monitor:SubscriptionDiagnosticSetting": "SubscriptionDiagnosticSetting",
    "azure-native:monitor:TenantActionGroup": "TenantActionGroup"
   }

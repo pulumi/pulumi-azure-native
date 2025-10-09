@@ -133,6 +133,8 @@ def get_dataflow_graph(dataflow_graph_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-07-01-preview.
 
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str dataflow_graph_name: Name of Instance dataflowEndpoint resource.
     :param builtins.str dataflow_profile_name: Name of Instance dataflowProfile resource
@@ -164,6 +166,8 @@ def get_dataflow_graph_output(dataflow_graph_name: Optional[pulumi.Input[builtin
     Get a DataflowGraphResource
 
     Uses Azure REST API version 2025-07-01-preview.
+
+    Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native iotoperations [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str dataflow_graph_name: Name of Instance dataflowEndpoint resource.

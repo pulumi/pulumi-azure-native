@@ -121,6 +121,8 @@ __all__ = [
     'NamespacePropertiesResponse',
     'NetworkPoliciesResponse',
     'NetworkProfileForSnapshotResponse',
+    'NodeCustomizationPropertiesResponse',
+    'NodeCustomizationScriptResponse',
     'NodeImageSelectionResponse',
     'NodeImageSelectionStatusResponse',
     'NodeImageVersionResponse',
@@ -6949,6 +6951,197 @@ class NetworkProfileForSnapshotResponse(dict):
 
 
 @pulumi.output_type
+class NodeCustomizationPropertiesResponse(dict):
+    """
+    The properties of the Node Customization resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "containerImages":
+            suggest = "container_images"
+        elif key == "customizationScripts":
+            suggest = "customization_scripts"
+        elif key == "identityProfile":
+            suggest = "identity_profile"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeCustomizationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeCustomizationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeCustomizationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: builtins.str,
+                 version: builtins.str,
+                 container_images: Optional[Sequence[builtins.str]] = None,
+                 customization_scripts: Optional[Sequence['outputs.NodeCustomizationScriptResponse']] = None,
+                 identity_profile: Optional['outputs.UserAssignedIdentityResponse'] = None):
+        """
+        The properties of the Node Customization resource.
+        :param builtins.str provisioning_state: The provisioning state of the node customization.
+        :param builtins.str version: An auto-generated value that changes when the other fields of the image customization are changed.
+        :param Sequence[builtins.str] container_images: The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
+        :param Sequence['NodeCustomizationScriptResponse'] customization_scripts: The scripts to customize the node before or after image capture.
+        :param 'UserAssignedIdentityResponse' identity_profile: The identity used to execute node customization tasks during image build time and provisioning time. 
+               If not specified the default agentpool identity will be used.
+               This does not affect provisioned nodes.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "version", version)
+        if container_images is not None:
+            pulumi.set(__self__, "container_images", container_images)
+        if customization_scripts is not None:
+            pulumi.set(__self__, "customization_scripts", customization_scripts)
+        if identity_profile is not None:
+            pulumi.set(__self__, "identity_profile", identity_profile)
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The provisioning state of the node customization.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @property
+    @pulumi.getter
+    def version(self) -> builtins.str:
+        """
+        An auto-generated value that changes when the other fields of the image customization are changed.
+        """
+        return pulumi.get(self, "version")
+
+    @property
+    @pulumi.getter(name="containerImages")
+    def container_images(self) -> Optional[Sequence[builtins.str]]:
+        """
+        The list of container images to cache on nodes. See https://kubernetes.io/docs/concepts/containers/images/#image-names
+        """
+        return pulumi.get(self, "container_images")
+
+    @property
+    @pulumi.getter(name="customizationScripts")
+    def customization_scripts(self) -> Optional[Sequence['outputs.NodeCustomizationScriptResponse']]:
+        """
+        The scripts to customize the node before or after image capture.
+        """
+        return pulumi.get(self, "customization_scripts")
+
+    @property
+    @pulumi.getter(name="identityProfile")
+    def identity_profile(self) -> Optional['outputs.UserAssignedIdentityResponse']:
+        """
+        The identity used to execute node customization tasks during image build time and provisioning time. 
+        If not specified the default agentpool identity will be used.
+        This does not affect provisioned nodes.
+        """
+        return pulumi.get(self, "identity_profile")
+
+
+@pulumi.output_type
+class NodeCustomizationScriptResponse(dict):
+    """
+    Node customization script
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "executionPoint":
+            suggest = "execution_point"
+        elif key == "scriptType":
+            suggest = "script_type"
+        elif key == "rebootAfter":
+            suggest = "reboot_after"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NodeCustomizationScriptResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NodeCustomizationScriptResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NodeCustomizationScriptResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 execution_point: builtins.str,
+                 name: builtins.str,
+                 script_type: builtins.str,
+                 reboot_after: Optional[builtins.bool] = None,
+                 script: Optional[builtins.str] = None):
+        """
+        Node customization script
+        :param builtins.str execution_point: The stage at which the script is executed.
+               Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+        :param builtins.str name: The name for the customization script. 
+               Must be unique within the node customization resource.
+               Can only contain lowercase alphanumeric,'-' or '.' characters.
+        :param builtins.str script_type: The runtime environment for the script (e.g. Bash).
+        :param builtins.bool reboot_after: Whether the node should reboot after successful script execution.
+        :param builtins.str script: The script content to be executed in plain text. Do not include secrets.
+        """
+        pulumi.set(__self__, "execution_point", execution_point)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "script_type", script_type)
+        if reboot_after is not None:
+            pulumi.set(__self__, "reboot_after", reboot_after)
+        if script is not None:
+            pulumi.set(__self__, "script", script)
+
+    @property
+    @pulumi.getter(name="executionPoint")
+    def execution_point(self) -> builtins.str:
+        """
+        The stage at which the script is executed.
+        Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+        """
+        return pulumi.get(self, "execution_point")
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name for the customization script. 
+        Must be unique within the node customization resource.
+        Can only contain lowercase alphanumeric,'-' or '.' characters.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="scriptType")
+    def script_type(self) -> builtins.str:
+        """
+        The runtime environment for the script (e.g. Bash).
+        """
+        return pulumi.get(self, "script_type")
+
+    @property
+    @pulumi.getter(name="rebootAfter")
+    def reboot_after(self) -> Optional[builtins.bool]:
+        """
+        Whether the node should reboot after successful script execution.
+        """
+        return pulumi.get(self, "reboot_after")
+
+    @property
+    @pulumi.getter
+    def script(self) -> Optional[builtins.str]:
+        """
+        The script content to be executed in plain text. Do not include secrets.
+        """
+        return pulumi.get(self, "script")
+
+
+@pulumi.output_type
 class NodeImageSelectionResponse(dict):
     """
     The node image upgrade to be applied to the target nodes in update run.
@@ -8634,17 +8827,17 @@ class UpgradeOverrideSettingsResponse(dict):
 @pulumi.output_type
 class UserAssignedIdentityResponse(dict):
     """
-    Details about a user assigned identity.
+    User assigned identity properties
     """
     @staticmethod
     def __key_warning(key: str):
         suggest = None
         if key == "clientId":
             suggest = "client_id"
-        elif key == "objectId":
-            suggest = "object_id"
         elif key == "principalId":
             suggest = "principal_id"
+        elif key == "objectId":
+            suggest = "object_id"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -8660,33 +8853,39 @@ class UserAssignedIdentityResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 client_id: Optional[builtins.str] = None,
+                 client_id: builtins.str,
+                 principal_id: builtins.str,
                  object_id: Optional[builtins.str] = None,
-                 principal_id: Optional[builtins.str] = None,
                  resource_id: Optional[builtins.str] = None):
         """
-        Details about a user assigned identity.
-        :param builtins.str client_id: The client ID of the user assigned identity.
-        :param builtins.str object_id: The object ID of the user assigned identity.
+        User assigned identity properties
+        :param builtins.str client_id: The client ID of the assigned identity.
         :param builtins.str principal_id: The principal ID of the assigned identity.
+        :param builtins.str object_id: The object ID of the user assigned identity.
         :param builtins.str resource_id: The resource ID of the user assigned identity.
         """
-        if client_id is not None:
-            pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "principal_id", principal_id)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
-        if principal_id is not None:
-            pulumi.set(__self__, "principal_id", principal_id)
         if resource_id is not None:
             pulumi.set(__self__, "resource_id", resource_id)
 
     @property
     @pulumi.getter(name="clientId")
-    def client_id(self) -> Optional[builtins.str]:
+    def client_id(self) -> builtins.str:
         """
-        The client ID of the user assigned identity.
+        The client ID of the assigned identity.
         """
         return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> builtins.str:
+        """
+        The principal ID of the assigned identity.
+        """
+        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="objectId")
@@ -8695,14 +8894,6 @@ class UserAssignedIdentityResponse(dict):
         The object ID of the user assigned identity.
         """
         return pulumi.get(self, "object_id")
-
-    @property
-    @pulumi.getter(name="principalId")
-    def principal_id(self) -> Optional[builtins.str]:
-        """
-        The principal ID of the assigned identity.
-        """
-        return pulumi.get(self, "principal_id")
 
     @property
     @pulumi.getter(name="resourceId")

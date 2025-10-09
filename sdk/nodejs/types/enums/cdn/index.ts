@@ -88,6 +88,16 @@ export const AfdQueryStringCachingBehavior = {
  */
 export type AfdQueryStringCachingBehavior = (typeof AfdQueryStringCachingBehavior)[keyof typeof AfdQueryStringCachingBehavior];
 
+export const AgentPathType = {
+    Chat: "Chat",
+    McpServer: "McpServer",
+} as const;
+
+/**
+ * The type of the path.
+ */
+export type AgentPathType = (typeof AgentPathType)[keyof typeof AgentPathType];
+
 export const Algorithm = {
     SHA256: "SHA256",
 } as const;
@@ -351,6 +361,29 @@ export const KeyVaultSigningKeyParametersType = {
 } as const;
 
 export type KeyVaultSigningKeyParametersType = (typeof KeyVaultSigningKeyParametersType)[keyof typeof KeyVaultSigningKeyParametersType];
+
+export const KnowledgeSourceType = {
+    SchemaOrgMarkup: "SchemaOrgMarkup",
+    RssFeeds: "RssFeeds",
+    Sitemap: "Sitemap",
+} as const;
+
+/**
+ * Format or origin of the knowledge source.
+ */
+export type KnowledgeSourceType = (typeof KnowledgeSourceType)[keyof typeof KnowledgeSourceType];
+
+export const KnowledgeSourceUpdateFrequency = {
+    EverySixHours: "EverySixHours",
+    Daily: "Daily",
+    Weekly: "Weekly",
+    Monthly: "Monthly",
+} as const;
+
+/**
+ * Specifies the units of time for scheduling update intervals for the knowledge source.
+ */
+export type KnowledgeSourceUpdateFrequency = (typeof KnowledgeSourceUpdateFrequency)[keyof typeof KnowledgeSourceUpdateFrequency];
 
 export const LinkToDefaultDomain = {
     Enabled: "Enabled",

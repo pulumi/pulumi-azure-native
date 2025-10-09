@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-07-01-preview.
  *
- * Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-04-01-preview, 2022-07-01, 2025-05-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dnsresolver [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class DnsForwardingRuleset extends pulumi.CustomResource {
     /**
@@ -124,7 +124,7 @@ export class DnsForwardingRuleset extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20220701:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20250501:DnsForwardingRuleset" }, { type: "azure-native:network/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20220701:DnsForwardingRuleset" }, { type: "azure-native:network/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:network:DnsForwardingRuleset" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dnsresolver/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20220701:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20250501:DnsForwardingRuleset" }, { type: "azure-native:dnsresolver/v20251001preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20200401preview:DnsForwardingRuleset" }, { type: "azure-native:network/v20220701:DnsForwardingRuleset" }, { type: "azure-native:network/v20230701preview:DnsForwardingRuleset" }, { type: "azure-native:network:DnsForwardingRuleset" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(DnsForwardingRuleset.__pulumiType, name, resourceInputs, opts);
     }

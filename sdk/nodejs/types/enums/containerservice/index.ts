@@ -146,6 +146,23 @@ export const DeploymentSafeguardsLevel = {
  */
 export type DeploymentSafeguardsLevel = (typeof DeploymentSafeguardsLevel)[keyof typeof DeploymentSafeguardsLevel];
 
+export const ExecutionPoint = {
+    /**
+     * Execute during node image build time.
+     */
+    NodeImageBuildTime: "NodeImageBuildTime",
+    /**
+     * Execute during node provisioning time.
+     */
+    NodeProvisionTime: "NodeProvisionTime",
+} as const;
+
+/**
+ * The stage at which the script is executed.
+ * Specifying `NodeImageBuildTime` will ensure changes are persisted into the node image.
+ */
+export type ExecutionPoint = (typeof ExecutionPoint)[keyof typeof ExecutionPoint];
+
 export const Expander = {
     /**
      * Selects the node group that will have the least idle CPU (if tied, unused memory) after scale-up. This is useful when you have different classes of nodes, for example, high CPU or high memory nodes, and only want to expand those when there are pending pods that need a lot of those resources.
@@ -725,6 +742,22 @@ export const ScaleSetPriority = {
  * The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
  */
 export type ScaleSetPriority = (typeof ScaleSetPriority)[keyof typeof ScaleSetPriority];
+
+export const ScriptType = {
+    /**
+     * Bash script.
+     */
+    Bash: "Bash",
+    /**
+     * PowerShell script.
+     */
+    PowerShell: "PowerShell",
+} as const;
+
+/**
+ * The runtime environment for the script (e.g. Bash).
+ */
+export type ScriptType = (typeof ScriptType)[keyof typeof ScriptType];
 
 export const ServiceMeshMode = {
     /**

@@ -193,7 +193,10 @@ Cdn:
     additions:
         AFDTargetGroup: 2024-06-01-preview
         KeyGroup: 2024-06-01-preview
+        KnowledgeSource: 2025-09-01-preview
+        ProfileAgent: 2025-09-01-preview
         TunnelPolicy: 2024-06-01-preview
+        WebAgent: 2025-09-01-preview
 CertificateRegistration:
     tracking: "2024-04-01"
 ChangeAnalysis:
@@ -330,6 +333,7 @@ ContainerService:
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
         Namespace: 2025-02-02-preview
+        NodeCustomization: 2025-08-02-preview
         UpdateRun: 2024-05-02-preview
         listFleetCredentials: 2024-05-02-preview
         listManagedClusterAccessProfile: "2020-03-01"
@@ -774,6 +778,7 @@ Edge:
         Execution: "2025-06-01"
         Instance: "2025-06-01"
         Schema: "2025-06-01"
+        SchemaReference: "2025-08-01"
         SchemaVersion: "2025-06-01"
         SiteReference: "2025-06-01"
         SitesByServiceGroup: 2025-03-01-preview
@@ -1113,19 +1118,25 @@ Monitor:
     tracking: 2024-10-01-preview
     additions:
         ActivityLogAlert: "2020-10-01"
+        AuthenticationSetting: 2025-05-03-preview
         AutoscaleSetting: 2021-05-01-preview
         AzureMonitorWorkspace: "2023-04-03"
         DataCollectionEndpoint: "2022-06-01"
         DataCollectionRule: "2022-06-01"
         DataCollectionRuleAssociation: "2022-06-01"
         DiagnosticSetting: 2021-05-01-preview
+        DiscoveryRule: 2025-05-03-preview
+        Entity: 2025-05-03-preview
+        HealthModel: 2025-05-03-preview
         Issue: 2025-05-03-preview
         ManagementGroupDiagnosticSetting: 2021-05-01-preview
         MetricAlert: "2018-03-01"
         PrivateEndpointConnection: 2023-06-01-preview
         PrivateLinkScope: 2023-06-01-preview
         PrivateLinkScopedResource: 2023-06-01-preview
+        Relationship: 2025-05-03-preview
         ScheduledQueryRule: 2025-01-01-preview
+        SignalDefinition: 2025-05-03-preview
         SubscriptionDiagnosticSetting: 2021-05-01-preview
         TenantActionGroup: 2023-05-01-preview
         listDiagnosticSettingsCategory: 2021-05-01-preview
