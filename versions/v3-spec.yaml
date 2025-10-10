@@ -332,6 +332,7 @@ ContainerService:
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
+        MeshMembership: 2025-08-02-preview
         Namespace: 2025-02-02-preview
         NodeCustomization: 2025-08-02-preview
         UpdateRun: 2024-05-02-preview
@@ -1345,6 +1346,9 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-10-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-01-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:

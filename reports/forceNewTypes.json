@@ -3852,6 +3852,20 @@
   {
     "VersionedModule": "containerservice/v20250802preview",
     "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250802preview",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "managedIdentity"
+  },
+  {
+    "VersionedModule": "containerservice/v20250802preview",
+    "Module": "ContainerService",
     "ResourceName": "NodeCustomization",
     "ReferenceName": "NodeCustomizationScript",
     "Property": "name"
@@ -98239,6 +98253,27 @@
   },
   {
     "VersionedModule": "mongocluster/v20250801preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
     "Module": "MongoCluster",
     "ResourceName": "MongoCluster",
     "ReferenceName": "MongoClusterRestoreParameters",
