@@ -80,7 +80,7 @@ const publicIP = new network.PublicIPAddress("pip", {
 const virtualmachine  = new compute.VirtualMachine("vm", {
     resourceGroupName: resourceGroup.name,
     hardwareProfile: {
-        vmSize: "Standard_A0",
+        vmSize: "Standard_A1_v2",
     },
     networkProfile: {
         networkInterfaces: [{
