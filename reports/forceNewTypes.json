@@ -2079,6 +2079,13 @@
     "Property": "location"
   },
   {
+    "VersionedModule": "azuredatatransfer/v20251010preview",
+    "Module": "AzureDataTransfer",
+    "ResourceName": "Flow",
+    "ReferenceName": "SelectedResource",
+    "Property": "location"
+  },
+  {
     "VersionedModule": "azuresphere",
     "Module": "AzureSphere",
     "ResourceName": "Deployment",
@@ -3844,6 +3851,20 @@
   },
   {
     "VersionedModule": "containerservice/v20250702preview",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "managedIdentity"
+  },
+  {
+    "VersionedModule": "containerservice/v20250802preview",
+    "Module": "ContainerService",
+    "ResourceName": "IdentityBinding",
+    "ReferenceName": "IdentityBindingManagedIdentityProfile",
+    "Property": "resourceId"
+  },
+  {
+    "VersionedModule": "containerservice/v20250802preview",
     "Module": "ContainerService",
     "ResourceName": "IdentityBinding",
     "ReferenceName": "IdentityBindingManagedIdentityProfile",
@@ -7516,6 +7537,13 @@
     "ResourceName": "Monitor",
     "ReferenceName": "DatadogOrganizationProperties",
     "Property": "redirectUri"
+  },
+  {
+    "VersionedModule": "deviceregistry",
+    "Module": "DeviceRegistry",
+    "ResourceName": "Policy",
+    "ReferenceName": "SupportedKeyType",
+    "Property": "keyType"
   },
   {
     "VersionedModule": "deviceregistry/v20251101preview",
@@ -98239,6 +98267,27 @@
   },
   {
     "VersionedModule": "mongocluster/v20250801preview",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterRestoreParameters",
+    "Property": "restoreParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "CreateMode",
+    "Property": "createMode"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
+    "Module": "MongoCluster",
+    "ResourceName": "MongoCluster",
+    "ReferenceName": "MongoClusterReplicaParameters",
+    "Property": "replicaParameters"
+  },
+  {
+    "VersionedModule": "mongocluster/v20250901",
     "Module": "MongoCluster",
     "ResourceName": "MongoCluster",
     "ReferenceName": "MongoClusterRestoreParameters",
