@@ -124,7 +124,8 @@
     "2025-03-01-preview",
     "2025-04-11-preview",
     "2025-05-21",
-    "2025-05-30-preview"
+    "2025-05-30-preview",
+    "2025-10-10-preview"
   ],
   "AzureFleet": [
     "2025-07-01-preview"
@@ -188,7 +189,8 @@
   ],
   "CloudHealth": [],
   "Cloudngfw": [
-    "2025-07-07-preview"
+    "2025-07-07-preview",
+    "2025-10-08"
   ],
   "CodeSigning": [
     "2025-10-13"
@@ -560,7 +562,8 @@
     "2024-10-01-preview",
     "2025-02-01",
     "2025-04-01-preview",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-10-01-preview"
   ],
   "DevHub": [
     "2024-05-01-preview",
@@ -606,7 +609,8 @@
     "2025-08-01"
   ],
   "EdgeMarketplace": [
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2024-10-01"
   ],
   "EdgeOrder": [],
   "EdgeOrderPartner": [],
@@ -862,7 +866,8 @@
     "2023-08-01-preview",
     "2023-12-01-preview",
     "2024-01-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2025-10-01-preview"
   ],
   "Marketplace": [
     "2025-01-01"
@@ -902,7 +907,8 @@
     "2024-10-01-preview",
     "2025-04-01-preview",
     "2025-07-01-preview",
-    "2025-08-01-preview"
+    "2025-08-01-preview",
+    "2025-09-01"
   ],
   "Monitor": [
     "2018-04-16",
@@ -1015,7 +1021,8 @@
     "2024-06-01-preview",
     "2024-07-01",
     "2024-09-01-preview",
-    "2024-10-01"
+    "2024-10-01",
+    "2025-01-01"
   ],
   "NetworkCloud": [
     "2025-07-01-preview",
@@ -1160,9 +1167,7 @@
   ],
   "Scheduler": [],
   "Scom": [],
-  "Search": [
-    "2025-10-01-preview"
-  ],
+  "Search": [],
   "SecretSyncController": [],
   "Security": [
     "2019-01-01",
@@ -1293,7 +1298,8 @@
     "2025-03-01"
   ],
   "Storage": [
-    "2025-01-01"
+    "2025-01-01",
+    "2025-06-01"
   ],
   "StorageActions": [],
   "StorageCache": [
