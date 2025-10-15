@@ -1358,6 +1358,10 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 	if inputs == nil {
 		// There may be no old state (i.e., importing a new resource).
+		// Read the canonical ID from the response.
+		if azureId, ok := response["id"].(string); ok {
+			id = azureId
+		}
 		// Extract inputs from resource's ID and response body.
 		pathItems, err := resources.ParseResourceID(id, res.Path)
 		if err != nil {
