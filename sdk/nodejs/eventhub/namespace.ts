@@ -44,103 +44,103 @@ export class Namespace extends pulumi.CustomResource {
     /**
      * Alternate name specified when alias and namespace names are same.
      */
-    public readonly alternateName!: pulumi.Output<string | undefined>;
+    declare public readonly alternateName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Cluster ARM ID of the Namespace.
      */
-    public readonly clusterArmId!: pulumi.Output<string | undefined>;
+    declare public readonly clusterArmId: pulumi.Output<string | undefined>;
     /**
      * The time the Namespace was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * This property disables SAS authentication for the Event Hubs namespace.
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * Properties of BYOK Encryption description
      */
-    public readonly encryption!: pulumi.Output<outputs.eventhub.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.eventhub.EncryptionResponse | undefined>;
     /**
      * Properties of BYOK Identity description
      */
-    public readonly identity!: pulumi.Output<outputs.eventhub.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventhub.IdentityResponse | undefined>;
     /**
      * Value that indicates whether AutoInflate is enabled for eventhub namespace.
      */
-    public readonly isAutoInflateEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAutoInflateEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Value that indicates whether Kafka is enabled for eventhub namespace.
      */
-    public readonly kafkaEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly kafkaEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Upper limit of throughput units when AutoInflate is enabled, value should be within 0 to 20 throughput units. ( '0' if AutoInflateEnabled = true)
      */
-    public readonly maximumThroughputUnits!: pulumi.Output<number | undefined>;
+    declare public readonly maximumThroughputUnits: pulumi.Output<number | undefined>;
     /**
      * Identifier for Azure Insights metrics.
      */
-    public /*out*/ readonly metricId!: pulumi.Output<string>;
+    declare public /*out*/ readonly metricId: pulumi.Output<string>;
     /**
      * The minimum TLS version for the cluster to support, e.g. '1.2'
      */
-    public readonly minimumTlsVersion!: pulumi.Output<string | undefined>;
+    declare public readonly minimumTlsVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connections.
      */
-    public readonly privateEndpointConnections!: pulumi.Output<outputs.eventhub.PrivateEndpointConnectionResponse[] | undefined>;
+    declare public readonly privateEndpointConnections: pulumi.Output<outputs.eventhub.PrivateEndpointConnectionResponse[] | undefined>;
     /**
      * Provisioning state of the Namespace.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Endpoint you can use to perform Service Bus operations.
      */
-    public /*out*/ readonly serviceBusEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceBusEndpoint: pulumi.Output<string>;
     /**
      * Properties of sku resource
      */
-    public readonly sku!: pulumi.Output<outputs.eventhub.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.eventhub.SkuResponse | undefined>;
     /**
      * Status of the Namespace.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventhub.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The time the Namespace was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
     /**
      * Enabling this property creates a Standard Event Hubs Namespace in regions supported availability zones.
      */
-    public readonly zoneRedundant!: pulumi.Output<boolean | undefined>;
+    declare public readonly zoneRedundant: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a Namespace resource with the given unique name, arguments, and options.
@@ -153,26 +153,26 @@ export class Namespace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alternateName"] = args ? args.alternateName : undefined;
-            resourceInputs["clusterArmId"] = args ? args.clusterArmId : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
+            resourceInputs["alternateName"] = args?.alternateName;
+            resourceInputs["clusterArmId"] = args?.clusterArmId;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
             resourceInputs["encryption"] = args ? (args.encryption ? pulumi.output(args.encryption).apply(inputs.eventhub.encryptionArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isAutoInflateEnabled"] = args ? args.isAutoInflateEnabled : undefined;
-            resourceInputs["kafkaEnabled"] = args ? args.kafkaEnabled : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumThroughputUnits"] = args ? args.maximumThroughputUnits : undefined;
-            resourceInputs["minimumTlsVersion"] = args ? args.minimumTlsVersion : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["privateEndpointConnections"] = args ? args.privateEndpointConnections : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isAutoInflateEnabled"] = args?.isAutoInflateEnabled;
+            resourceInputs["kafkaEnabled"] = args?.kafkaEnabled;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumThroughputUnits"] = args?.maximumThroughputUnits;
+            resourceInputs["minimumTlsVersion"] = args?.minimumTlsVersion;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["privateEndpointConnections"] = args?.privateEndpointConnections;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundant"] = args?.zoneRedundant;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["metricId"] = undefined /*out*/;

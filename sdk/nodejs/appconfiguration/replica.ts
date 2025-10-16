@@ -44,31 +44,31 @@ export class Replica extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The URI of the replica where the replica API will be available.
      */
-    public /*out*/ readonly endpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
      * The location of the replica.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the replica.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the replica.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource system metadata.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appconfiguration.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Replica resource with the given unique name, arguments, and options.
@@ -81,16 +81,16 @@ export class Replica extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configStoreName === undefined) && !opts.urn) {
+            if (args?.configStoreName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configStoreName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configStoreName"] = args ? args.configStoreName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["replicaName"] = args ? args.replicaName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["configStoreName"] = args?.configStoreName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["replicaName"] = args?.replicaName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

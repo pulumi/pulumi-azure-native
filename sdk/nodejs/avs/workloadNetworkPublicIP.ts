@@ -44,35 +44,35 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Display name of the Public IP Block.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Number of Public IPs requested.
      */
-    public readonly numberOfPublicIPs!: pulumi.Output<number | undefined>;
+    declare public readonly numberOfPublicIPs: pulumi.Output<number | undefined>;
     /**
      * The provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * CIDR Block of the Public IP Block.
      */
-    public /*out*/ readonly publicIPBlock!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIPBlock: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkloadNetworkPublicIP resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class WorkloadNetworkPublicIP extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["numberOfPublicIPs"] = args ? args.numberOfPublicIPs : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["publicIPId"] = args ? args.publicIPId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["numberOfPublicIPs"] = args?.numberOfPublicIPs;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["publicIPId"] = args?.publicIPId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

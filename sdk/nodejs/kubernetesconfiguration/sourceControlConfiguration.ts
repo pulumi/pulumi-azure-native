@@ -44,71 +44,71 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Compliance Status of the Configuration
      */
-    public /*out*/ readonly complianceStatus!: pulumi.Output<outputs.kubernetesconfiguration.ComplianceStatusResponse>;
+    declare public /*out*/ readonly complianceStatus: pulumi.Output<outputs.kubernetesconfiguration.ComplianceStatusResponse>;
     /**
      * Name-value pairs of protected configuration settings for the configuration
      */
-    public readonly configurationProtectedSettings!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly configurationProtectedSettings: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Option to enable Helm Operator for this git configuration.
      */
-    public readonly enableHelmOperator!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableHelmOperator: pulumi.Output<boolean | undefined>;
     /**
      * Properties for Helm operator.
      */
-    public readonly helmOperatorProperties!: pulumi.Output<outputs.kubernetesconfiguration.HelmOperatorPropertiesResponse | undefined>;
+    declare public readonly helmOperatorProperties: pulumi.Output<outputs.kubernetesconfiguration.HelmOperatorPropertiesResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Instance name of the operator - identifying the specific configuration.
      */
-    public readonly operatorInstanceName!: pulumi.Output<string | undefined>;
+    declare public readonly operatorInstanceName: pulumi.Output<string | undefined>;
     /**
      * The namespace to which this operator is installed to. Maximum of 253 lower case alphanumeric characters, hyphen and period only.
      */
-    public readonly operatorNamespace!: pulumi.Output<string | undefined>;
+    declare public readonly operatorNamespace: pulumi.Output<string | undefined>;
     /**
      * Any Parameters for the Operator instance in string format.
      */
-    public readonly operatorParams!: pulumi.Output<string | undefined>;
+    declare public readonly operatorParams: pulumi.Output<string | undefined>;
     /**
      * Scope at which the operator will be installed.
      */
-    public readonly operatorScope!: pulumi.Output<string | undefined>;
+    declare public readonly operatorScope: pulumi.Output<string | undefined>;
     /**
      * Type of the operator
      */
-    public readonly operatorType!: pulumi.Output<string | undefined>;
+    declare public readonly operatorType: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource provider.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Public Key associated with this SourceControl configuration (either generated within the cluster or provided by the user).
      */
-    public /*out*/ readonly repositoryPublicKey!: pulumi.Output<string>;
+    declare public /*out*/ readonly repositoryPublicKey: pulumi.Output<string>;
     /**
      * Url of the SourceControl Repository.
      */
-    public readonly repositoryUrl!: pulumi.Output<string | undefined>;
+    declare public readonly repositoryUrl: pulumi.Output<string | undefined>;
     /**
      * Base64-encoded known_hosts contents containing public SSH keys required to access private Git instances
      */
-    public readonly sshKnownHostsContents!: pulumi.Output<string | undefined>;
+    declare public readonly sshKnownHostsContents: pulumi.Output<string | undefined>;
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesconfiguration.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SourceControlConfiguration resource with the given unique name, arguments, and options.
@@ -121,33 +121,33 @@ export class SourceControlConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceName === undefined) && !opts.urn) {
+            if (args?.clusterResourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceName'");
             }
-            if ((!args || args.clusterRp === undefined) && !opts.urn) {
+            if (args?.clusterRp === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterRp'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceName"] = args ? args.clusterResourceName : undefined;
-            resourceInputs["clusterRp"] = args ? args.clusterRp : undefined;
-            resourceInputs["configurationProtectedSettings"] = args ? args.configurationProtectedSettings : undefined;
-            resourceInputs["enableHelmOperator"] = args ? args.enableHelmOperator : undefined;
-            resourceInputs["helmOperatorProperties"] = args ? args.helmOperatorProperties : undefined;
-            resourceInputs["operatorInstanceName"] = args ? args.operatorInstanceName : undefined;
-            resourceInputs["operatorNamespace"] = (args ? args.operatorNamespace : undefined) ?? "default";
-            resourceInputs["operatorParams"] = args ? args.operatorParams : undefined;
-            resourceInputs["operatorScope"] = args ? args.operatorScope : undefined;
-            resourceInputs["operatorType"] = args ? args.operatorType : undefined;
-            resourceInputs["repositoryUrl"] = args ? args.repositoryUrl : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceControlConfigurationName"] = args ? args.sourceControlConfigurationName : undefined;
-            resourceInputs["sshKnownHostsContents"] = args ? args.sshKnownHostsContents : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceName"] = args?.clusterResourceName;
+            resourceInputs["clusterRp"] = args?.clusterRp;
+            resourceInputs["configurationProtectedSettings"] = args?.configurationProtectedSettings;
+            resourceInputs["enableHelmOperator"] = args?.enableHelmOperator;
+            resourceInputs["helmOperatorProperties"] = args?.helmOperatorProperties;
+            resourceInputs["operatorInstanceName"] = args?.operatorInstanceName;
+            resourceInputs["operatorNamespace"] = (args?.operatorNamespace) ?? "default";
+            resourceInputs["operatorParams"] = args?.operatorParams;
+            resourceInputs["operatorScope"] = args?.operatorScope;
+            resourceInputs["operatorType"] = args?.operatorType;
+            resourceInputs["repositoryUrl"] = args?.repositoryUrl;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceControlConfigurationName"] = args?.sourceControlConfigurationName;
+            resourceInputs["sshKnownHostsContents"] = args?.sshKnownHostsContents;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["complianceStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

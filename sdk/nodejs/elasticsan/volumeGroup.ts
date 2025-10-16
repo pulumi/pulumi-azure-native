@@ -44,51 +44,51 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of encryption
      */
-    public readonly encryption!: pulumi.Output<string | undefined>;
+    declare public readonly encryption: pulumi.Output<string | undefined>;
     /**
      * Encryption Properties describing Key Vault and Identity information
      */
-    public readonly encryptionProperties!: pulumi.Output<outputs.elasticsan.EncryptionPropertiesResponse | undefined>;
+    declare public readonly encryptionProperties: pulumi.Output<outputs.elasticsan.EncryptionPropertiesResponse | undefined>;
     /**
      * A boolean indicating whether or not Data Integrity Check is enabled
      */
-    public readonly enforceDataIntegrityCheckForIscsi!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforceDataIntegrityCheckForIscsi: pulumi.Output<boolean | undefined>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.elasticsan.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.elasticsan.IdentityResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.elasticsan.NetworkRuleSetResponse | undefined>;
+    declare public readonly networkAcls: pulumi.Output<outputs.elasticsan.NetworkRuleSetResponse | undefined>;
     /**
      * The list of Private Endpoint Connections.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.elasticsan.PrivateEndpointConnectionResponse[]>;
     /**
      * Type of storage target
      */
-    public readonly protocolType!: pulumi.Output<string | undefined>;
+    declare public readonly protocolType: pulumi.Output<string | undefined>;
     /**
      * State of the operation on the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VolumeGroup resource with the given unique name, arguments, and options.
@@ -101,21 +101,21 @@ export class VolumeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["encryptionProperties"] = args ? args.encryptionProperties : undefined;
-            resourceInputs["enforceDataIntegrityCheckForIscsi"] = args ? args.enforceDataIntegrityCheckForIscsi : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["protocolType"] = args ? args.protocolType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["encryptionProperties"] = args?.encryptionProperties;
+            resourceInputs["enforceDataIntegrityCheckForIscsi"] = args?.enforceDataIntegrityCheckForIscsi;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["protocolType"] = args?.protocolType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["privateEndpointConnections"] = undefined /*out*/;

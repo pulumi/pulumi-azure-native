@@ -41,31 +41,31 @@ export class ProductGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false.
      */
-    public /*out*/ readonly builtIn!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly builtIn: pulumi.Output<boolean>;
     /**
      * Group description. Can contain HTML formatting tags.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * Group name.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://<tenant>.onmicrosoft.com/groups/<group object id>`; otherwise the value is null.
      */
-    public /*out*/ readonly externalId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly externalId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ProductGroup resource with the given unique name, arguments, and options.
@@ -78,19 +78,19 @@ export class ProductGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.productId === undefined) && !opts.urn) {
+            if (args?.productId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'productId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["productId"] = args ? args.productId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["productId"] = args?.productId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["builtIn"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;

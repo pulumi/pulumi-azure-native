@@ -42,20 +42,20 @@ export class NotificationRegistration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly properties!: pulumi.Output<outputs.providerhub.NotificationRegistrationPropertiesResponse>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly properties: pulumi.Output<outputs.providerhub.NotificationRegistrationPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.providerhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.providerhub.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NotificationRegistration resource with the given unique name, arguments, and options.
@@ -68,12 +68,12 @@ export class NotificationRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.providerNamespace === undefined) && !opts.urn) {
+            if (args?.providerNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'providerNamespace'");
             }
-            resourceInputs["notificationRegistrationName"] = args ? args.notificationRegistrationName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["providerNamespace"] = args ? args.providerNamespace : undefined;
+            resourceInputs["notificationRegistrationName"] = args?.notificationRegistrationName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["providerNamespace"] = args?.providerNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

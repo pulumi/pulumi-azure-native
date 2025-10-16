@@ -44,63 +44,63 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Key-Value pair representing additional properties for profiles.
      */
-    public /*out*/ readonly extendedProperties!: pulumi.Output<{[key: string]: string}>;
+    declare public /*out*/ readonly extendedProperties: pulumi.Output<{[key: string]: string}>;
     /**
      * The Id of the frontdoor.
      */
-    public /*out*/ readonly frontDoorId!: pulumi.Output<string>;
+    declare public /*out*/ readonly frontDoorId: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.cdn.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.cdn.ManagedServiceIdentityResponse | undefined>;
     /**
      * Kind of the profile. Used by portal to differentiate traditional CDN profile and new AFD profile.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Defines rules that scrub sensitive fields in the Azure Front Door profile logs.
      */
-    public readonly logScrubbing!: pulumi.Output<outputs.cdn.ProfileLogScrubbingResponse | undefined>;
+    declare public readonly logScrubbing: pulumi.Output<outputs.cdn.ProfileLogScrubbingResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Send and receive timeout on forwarding request to the origin. When timeout is reached, the request fails and returns.
      */
-    public readonly originResponseTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly originResponseTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * Provisioning status of the profile.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource status of the profile.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * The pricing tier (defines Azure Front Door Standard or Premium or a CDN provider, feature list and rate) of the profile.
      */
-    public readonly sku!: pulumi.Output<outputs.cdn.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.cdn.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logScrubbing"] = args ? args.logScrubbing : undefined;
-            resourceInputs["originResponseTimeoutSeconds"] = args ? args.originResponseTimeoutSeconds : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logScrubbing"] = args?.logScrubbing;
+            resourceInputs["originResponseTimeoutSeconds"] = args?.originResponseTimeoutSeconds;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["extendedProperties"] = undefined /*out*/;
             resourceInputs["frontDoorId"] = undefined /*out*/;

@@ -44,55 +44,55 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
     /**
      * Correspond domain name of certain Spatial Anchors Account
      */
-    public /*out*/ readonly accountDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountDomain: pulumi.Output<string>;
     /**
      * unique id of certain account.
      */
-    public /*out*/ readonly accountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The identity associated with this account
      */
-    public readonly identity!: pulumi.Output<outputs.mixedreality.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.mixedreality.IdentityResponse | undefined>;
     /**
      * The kind of account, if supported
      */
-    public readonly kind!: pulumi.Output<outputs.mixedreality.SkuResponse | undefined>;
+    declare public readonly kind: pulumi.Output<outputs.mixedreality.SkuResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The plan associated with this account
      */
-    public readonly plan!: pulumi.Output<outputs.mixedreality.IdentityResponse | undefined>;
+    declare public readonly plan: pulumi.Output<outputs.mixedreality.IdentityResponse | undefined>;
     /**
      * The sku associated with this account
      */
-    public readonly sku!: pulumi.Output<outputs.mixedreality.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.mixedreality.SkuResponse | undefined>;
     /**
      * The name of the storage account associated with this accountId
      */
-    public readonly storageAccountName!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountName: pulumi.Output<string | undefined>;
     /**
      * System metadata for this account
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mixedreality.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mixedreality.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RemoteRenderingAccount resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class RemoteRenderingAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["storageAccountName"] = args ? args.storageAccountName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["storageAccountName"] = args?.storageAccountName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["accountDomain"] = undefined /*out*/;
             resourceInputs["accountId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

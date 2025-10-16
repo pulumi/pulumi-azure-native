@@ -44,55 +44,55 @@ export class Package extends pulumi.CustomResource {
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public readonly allOf!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public readonly allOf: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the contentLink of the Package.
      */
-    public readonly contentLink!: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
+    declare public readonly contentLink: pulumi.Output<outputs.automation.ContentLinkResponse | undefined>;
     /**
      * Gets or sets the isGlobal flag of the package.
      */
-    public /*out*/ readonly default!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly default: pulumi.Output<boolean | undefined>;
     /**
      * Gets or sets the error info of the Package.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.automation.PackageErrorInfoResponse | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.automation.PackageErrorInfoResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the provisioning state of the Package.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets the size in bytes of the Package.
      */
-    public /*out*/ readonly sizeInBytes!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly sizeInBytes: pulumi.Output<number | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets the version of the Package.
      */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Package resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !opts.urn) {
+            if (args?.contentLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.runtimeEnvironmentName === undefined) && !opts.urn) {
+            if (args?.runtimeEnvironmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'runtimeEnvironmentName'");
             }
-            resourceInputs["allOf"] = args ? args.allOf : undefined;
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentLink"] = args ? args.contentLink : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runtimeEnvironmentName"] = args ? args.runtimeEnvironmentName : undefined;
+            resourceInputs["allOf"] = args?.allOf;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["contentLink"] = args?.contentLink;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runtimeEnvironmentName"] = args?.runtimeEnvironmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["default"] = undefined /*out*/;
             resourceInputs["error"] = undefined /*out*/;

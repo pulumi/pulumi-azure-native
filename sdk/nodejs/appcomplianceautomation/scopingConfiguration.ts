@@ -42,27 +42,27 @@ export class ScopingConfiguration extends pulumi.CustomResource {
     /**
      * List of scoping question answers.
      */
-    public readonly answers!: pulumi.Output<outputs.appcomplianceautomation.ScopingAnswerResponse[] | undefined>;
+    declare public readonly answers: pulumi.Output<outputs.appcomplianceautomation.ScopingAnswerResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ScopingConfiguration resource with the given unique name, arguments, and options.
@@ -75,12 +75,12 @@ export class ScopingConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["answers"] = args ? args.answers : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["scopingConfigurationName"] = args ? args.scopingConfigurationName : undefined;
+            resourceInputs["answers"] = args?.answers;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["scopingConfigurationName"] = args?.scopingConfigurationName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

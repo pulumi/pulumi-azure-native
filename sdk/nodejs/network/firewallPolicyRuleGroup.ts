@@ -44,31 +44,31 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * Priority of the Firewall Policy Rule Group resource.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The provisioning state of the firewall policy rule group resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Group of Firewall Policy rules.
      */
-    public readonly rules!: pulumi.Output<(outputs.network.FirewallPolicyFilterRuleResponse | outputs.network.FirewallPolicyNatRuleResponse)[] | undefined>;
+    declare public readonly rules: pulumi.Output<(outputs.network.FirewallPolicyFilterRuleResponse | outputs.network.FirewallPolicyNatRuleResponse)[] | undefined>;
     /**
      * Rule Group type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FirewallPolicyRuleGroup resource with the given unique name, arguments, and options.
@@ -81,19 +81,19 @@ export class FirewallPolicyRuleGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.firewallPolicyName === undefined) && !opts.urn) {
+            if (args?.firewallPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firewallPolicyName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleGroupName"] = args ? args.ruleGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleGroupName"] = args?.ruleGroupName;
+            resourceInputs["rules"] = args?.rules;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

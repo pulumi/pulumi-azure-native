@@ -45,46 +45,46 @@ export class GlobalReachConnection extends pulumi.CustomResource {
      * The network used for global reach carved out from the original network block
      * provided for the private cloud
      */
-    public /*out*/ readonly addressPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly addressPrefix: pulumi.Output<string>;
     /**
      * Authorization key from the peer express route used for the global reach
      * connection
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connection status of the global reach connection
      */
-    public /*out*/ readonly circuitConnectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly circuitConnectionStatus: pulumi.Output<string>;
     /**
      * The ID of the Private Cloud's ExpressRoute Circuit that is participating in the
      * global reach connection
      */
-    public readonly expressRouteId!: pulumi.Output<string | undefined>;
+    declare public readonly expressRouteId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Identifier of the ExpressRoute Circuit to peer with in the global reach
      * connection
      */
-    public readonly peerExpressRouteCircuit!: pulumi.Output<string | undefined>;
+    declare public readonly peerExpressRouteCircuit: pulumi.Output<string | undefined>;
     /**
      * The state of the  ExpressRoute Circuit Authorization provisioning
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GlobalReachConnection resource with the given unique name, arguments, and options.
@@ -97,18 +97,18 @@ export class GlobalReachConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["expressRouteId"] = args ? args.expressRouteId : undefined;
-            resourceInputs["globalReachConnectionName"] = args ? args.globalReachConnectionName : undefined;
-            resourceInputs["peerExpressRouteCircuit"] = args ? args.peerExpressRouteCircuit : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["expressRouteId"] = args?.expressRouteId;
+            resourceInputs["globalReachConnectionName"] = args?.globalReachConnectionName;
+            resourceInputs["peerExpressRouteCircuit"] = args?.peerExpressRouteCircuit;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["circuitConnectionStatus"] = undefined /*out*/;

@@ -44,27 +44,27 @@ export class DpsCertificate extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The entity tag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the certificate.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * properties of a certificate
      */
-    public readonly properties!: pulumi.Output<outputs.deviceprovisioningservices.CertificatePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.deviceprovisioningservices.CertificatePropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceprovisioningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceprovisioningservices.SystemDataResponse>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DpsCertificate resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class DpsCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.provisioningServiceName === undefined) && !opts.urn) {
+            if (args?.provisioningServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'provisioningServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["provisioningServiceName"] = args ? args.provisioningServiceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["provisioningServiceName"] = args?.provisioningServiceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

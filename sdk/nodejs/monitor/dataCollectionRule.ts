@@ -44,76 +44,76 @@ export class DataCollectionRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the data collection endpoint that this rule can be used with.
      */
-    public readonly dataCollectionEndpointId!: pulumi.Output<string | undefined>;
+    declare public readonly dataCollectionEndpointId: pulumi.Output<string | undefined>;
     /**
      * The specification of data flows.
      */
-    public readonly dataFlows!: pulumi.Output<outputs.monitor.DataFlowResponse[] | undefined>;
+    declare public readonly dataFlows: pulumi.Output<outputs.monitor.DataFlowResponse[] | undefined>;
     /**
      * The specification of data sources. 
      * This property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint.
      */
-    public readonly dataSources!: pulumi.Output<outputs.monitor.DataCollectionRuleResponseDataSources | undefined>;
+    declare public readonly dataSources: pulumi.Output<outputs.monitor.DataCollectionRuleResponseDataSources | undefined>;
     /**
      * Description of the data collection rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The specification of destinations.
      */
-    public readonly destinations!: pulumi.Output<outputs.monitor.DataCollectionRuleResponseDestinations | undefined>;
+    declare public readonly destinations: pulumi.Output<outputs.monitor.DataCollectionRuleResponseDestinations | undefined>;
     /**
      * Resource entity tag (ETag).
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Managed service identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.monitor.DataCollectionRuleResourceResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitor.DataCollectionRuleResourceResponseIdentity | undefined>;
     /**
      * The immutable ID of this data collection rule. This property is READ-ONLY.
      */
-    public /*out*/ readonly immutableId!: pulumi.Output<string>;
+    declare public /*out*/ readonly immutableId: pulumi.Output<string>;
     /**
      * The kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Metadata about the resource
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.monitor.DataCollectionRuleResponseMetadata>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.monitor.DataCollectionRuleResponseMetadata>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Declaration of custom streams used in this rule.
      */
-    public readonly streamDeclarations!: pulumi.Output<{[key: string]: outputs.monitor.StreamDeclarationResponse} | undefined>;
+    declare public readonly streamDeclarations: pulumi.Output<{[key: string]: outputs.monitor.StreamDeclarationResponse} | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.monitor.DataCollectionRuleResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.DataCollectionRuleResourceResponseSystemData>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataCollectionRule resource with the given unique name, arguments, and options.
@@ -126,21 +126,21 @@ export class DataCollectionRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataCollectionEndpointId"] = args ? args.dataCollectionEndpointId : undefined;
-            resourceInputs["dataCollectionRuleName"] = args ? args.dataCollectionRuleName : undefined;
-            resourceInputs["dataFlows"] = args ? args.dataFlows : undefined;
-            resourceInputs["dataSources"] = args ? args.dataSources : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["destinations"] = args ? args.destinations : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["streamDeclarations"] = args ? args.streamDeclarations : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataCollectionEndpointId"] = args?.dataCollectionEndpointId;
+            resourceInputs["dataCollectionRuleName"] = args?.dataCollectionRuleName;
+            resourceInputs["dataFlows"] = args?.dataFlows;
+            resourceInputs["dataSources"] = args?.dataSources;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["destinations"] = args?.destinations;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["streamDeclarations"] = args?.streamDeclarations;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["immutableId"] = undefined /*out*/;

@@ -42,51 +42,51 @@ export class FluidRelayServer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * All encryption configuration for a resource.
      */
-    public readonly encryption!: pulumi.Output<outputs.fluidrelay.EncryptionPropertiesResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.fluidrelay.EncryptionPropertiesResponse | undefined>;
     /**
      * The Fluid Relay Service endpoints for this server.
      */
-    public /*out*/ readonly fluidRelayEndpoints!: pulumi.Output<outputs.fluidrelay.FluidRelayEndpointsResponse>;
+    declare public /*out*/ readonly fluidRelayEndpoints: pulumi.Output<outputs.fluidrelay.FluidRelayEndpointsResponse>;
     /**
      * The Fluid tenantId for this server
      */
-    public /*out*/ readonly frsTenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly frsTenantId: pulumi.Output<string>;
     /**
      * The type of identity used for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.fluidrelay.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.fluidrelay.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provision states for FluidRelay RP
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Sku of the storage associated with the resource
      */
-    public readonly storagesku!: pulumi.Output<string | undefined>;
+    declare public readonly storagesku: pulumi.Output<string | undefined>;
     /**
      * System meta data for this resource, including creation and modification information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.fluidrelay.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.fluidrelay.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FluidRelayServer resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class FluidRelayServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["fluidRelayServerName"] = args ? args.fluidRelayServerName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["storagesku"] = args ? args.storagesku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["fluidRelayServerName"] = args?.fluidRelayServerName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["storagesku"] = args?.storagesku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["fluidRelayEndpoints"] = undefined /*out*/;
             resourceInputs["frsTenantId"] = undefined /*out*/;

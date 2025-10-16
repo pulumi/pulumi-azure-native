@@ -42,71 +42,71 @@ export class Webhook extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * content type
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * webhook deliveryStatus
      */
-    public /*out*/ readonly deliveryStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly deliveryStatus: pulumi.Output<string>;
     /**
      * whether to enable ssl verification
      */
-    public readonly enableSslVerification!: pulumi.Output<string | undefined>;
+    declare public readonly enableSslVerification: pulumi.Output<string | undefined>;
     /**
      * under which event notification should be sent.
      */
-    public readonly events!: pulumi.Output<string[] | undefined>;
+    declare public readonly events: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * webhook payload url
      */
-    public readonly payloadUrl!: pulumi.Output<string | undefined>;
+    declare public readonly payloadUrl: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * whether to send notification under any event.
      */
-    public readonly sendAllEvents!: pulumi.Output<string | undefined>;
+    declare public readonly sendAllEvents: pulumi.Output<string | undefined>;
     /**
      * Webhook status.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appcomplianceautomation.SystemDataResponse>;
     /**
      * Tenant id.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * whether to update webhookKey.
      */
-    public readonly updateWebhookKey!: pulumi.Output<string | undefined>;
+    declare public readonly updateWebhookKey: pulumi.Output<string | undefined>;
     /**
      * Webhook id in database.
      */
-    public /*out*/ readonly webhookId!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookId: pulumi.Output<string>;
     /**
      * webhook secret token. If not set, this field value is null; otherwise, please set a string value.
      */
-    public readonly webhookKey!: pulumi.Output<string | undefined>;
+    declare public readonly webhookKey: pulumi.Output<string | undefined>;
     /**
      * whether webhookKey is enabled.
      */
-    public /*out*/ readonly webhookKeyEnabled!: pulumi.Output<string>;
+    declare public /*out*/ readonly webhookKeyEnabled: pulumi.Output<string>;
 
     /**
      * Create a Webhook resource with the given unique name, arguments, and options.
@@ -119,19 +119,19 @@ export class Webhook extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.reportName === undefined) && !opts.urn) {
+            if (args?.reportName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reportName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["enableSslVerification"] = args ? args.enableSslVerification : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["payloadUrl"] = args ? args.payloadUrl : undefined;
-            resourceInputs["reportName"] = args ? args.reportName : undefined;
-            resourceInputs["sendAllEvents"] = args ? args.sendAllEvents : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["updateWebhookKey"] = args ? args.updateWebhookKey : undefined;
-            resourceInputs["webhookKey"] = args ? args.webhookKey : undefined;
-            resourceInputs["webhookName"] = args ? args.webhookName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["enableSslVerification"] = args?.enableSslVerification;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["payloadUrl"] = args?.payloadUrl;
+            resourceInputs["reportName"] = args?.reportName;
+            resourceInputs["sendAllEvents"] = args?.sendAllEvents;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["updateWebhookKey"] = args?.updateWebhookKey;
+            resourceInputs["webhookKey"] = args?.webhookKey;
+            resourceInputs["webhookName"] = args?.webhookName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deliveryStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

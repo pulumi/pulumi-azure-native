@@ -44,51 +44,51 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Local network gateway's BGP speaker settings.
      */
-    public readonly bgpSettings!: pulumi.Output<outputs.network.BgpSettingsResponse | undefined>;
+    declare public readonly bgpSettings: pulumi.Output<outputs.network.BgpSettingsResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * FQDN of local network gateway.
      */
-    public readonly fqdn!: pulumi.Output<string | undefined>;
+    declare public readonly fqdn: pulumi.Output<string | undefined>;
     /**
      * IP address of local network gateway.
      */
-    public readonly gatewayIpAddress!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayIpAddress: pulumi.Output<string | undefined>;
     /**
      * Local network site address space.
      */
-    public readonly localNetworkAddressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly localNetworkAddressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the local network gateway resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the local network gateway resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LocalNetworkGateway resource with the given unique name, arguments, and options.
@@ -101,18 +101,18 @@ export class LocalNetworkGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bgpSettings"] = args ? args.bgpSettings : undefined;
-            resourceInputs["fqdn"] = args ? args.fqdn : undefined;
-            resourceInputs["gatewayIpAddress"] = args ? args.gatewayIpAddress : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["localNetworkAddressSpace"] = args ? args.localNetworkAddressSpace : undefined;
-            resourceInputs["localNetworkGatewayName"] = args ? args.localNetworkGatewayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bgpSettings"] = args?.bgpSettings;
+            resourceInputs["fqdn"] = args?.fqdn;
+            resourceInputs["gatewayIpAddress"] = args?.gatewayIpAddress;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["localNetworkAddressSpace"] = args?.localNetworkAddressSpace;
+            resourceInputs["localNetworkGatewayName"] = args?.localNetworkGatewayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

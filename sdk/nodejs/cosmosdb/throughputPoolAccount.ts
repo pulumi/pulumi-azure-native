@@ -44,35 +44,35 @@ export class ThroughputPoolAccount extends pulumi.CustomResource {
     /**
      * The instance id of global database account in the throughputPool.
      */
-    public /*out*/ readonly accountInstanceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly accountInstanceId: pulumi.Output<string>;
     /**
      * The location of  global database account in the throughputPool.
      */
-    public readonly accountLocation!: pulumi.Output<string | undefined>;
+    declare public readonly accountLocation: pulumi.Output<string | undefined>;
     /**
      * The resource identifier of global database account in the throughputPool.
      */
-    public readonly accountResourceIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly accountResourceIdentifier: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A provisioning state of the ThroughputPool Account.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ThroughputPoolAccount resource with the given unique name, arguments, and options.
@@ -85,17 +85,17 @@ export class ThroughputPoolAccount extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.throughputPoolName === undefined) && !opts.urn) {
+            if (args?.throughputPoolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'throughputPoolName'");
             }
-            resourceInputs["accountLocation"] = args ? args.accountLocation : undefined;
-            resourceInputs["accountResourceIdentifier"] = args ? args.accountResourceIdentifier : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["throughputPoolAccountName"] = args ? args.throughputPoolAccountName : undefined;
-            resourceInputs["throughputPoolName"] = args ? args.throughputPoolName : undefined;
+            resourceInputs["accountLocation"] = args?.accountLocation;
+            resourceInputs["accountResourceIdentifier"] = args?.accountResourceIdentifier;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["throughputPoolAccountName"] = args?.throughputPoolAccountName;
+            resourceInputs["throughputPoolName"] = args?.throughputPoolName;
             resourceInputs["accountInstanceId"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

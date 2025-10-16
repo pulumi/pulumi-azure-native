@@ -44,71 +44,71 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The list of Log Analytics workspaces associated with the cluster
      */
-    public /*out*/ readonly associatedWorkspaces!: pulumi.Output<outputs.operationalinsights.AssociatedWorkspaceResponse[] | undefined>;
+    declare public /*out*/ readonly associatedWorkspaces: pulumi.Output<outputs.operationalinsights.AssociatedWorkspaceResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cluster's billing type.
      */
-    public readonly billingType!: pulumi.Output<string | undefined>;
+    declare public readonly billingType: pulumi.Output<string | undefined>;
     /**
      * Additional properties for capacity reservation
      */
-    public /*out*/ readonly capacityReservationProperties!: pulumi.Output<outputs.operationalinsights.CapacityReservationPropertiesResponse | undefined>;
+    declare public /*out*/ readonly capacityReservationProperties: pulumi.Output<outputs.operationalinsights.CapacityReservationPropertiesResponse | undefined>;
     /**
      * The ID associated with the cluster.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The cluster creation time
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Resource's identity.
      */
-    public readonly identity!: pulumi.Output<outputs.operationalinsights.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.operationalinsights.ManagedServiceIdentityResponse | undefined>;
     /**
      * Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones.
      */
-    public readonly isAvailabilityZonesEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAvailabilityZonesEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'
      */
-    public readonly isDoubleEncryptionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isDoubleEncryptionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The associated key properties.
      */
-    public readonly keyVaultProperties!: pulumi.Output<outputs.operationalinsights.KeyVaultPropertiesResponse | undefined>;
+    declare public readonly keyVaultProperties: pulumi.Output<outputs.operationalinsights.KeyVaultPropertiesResponse | undefined>;
     /**
      * The last time the cluster was updated.
      */
-    public /*out*/ readonly lastModifiedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the cluster.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The sku properties.
      */
-    public readonly sku!: pulumi.Output<outputs.operationalinsights.ClusterSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.operationalinsights.ClusterSkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -121,19 +121,19 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["billingType"] = args ? args.billingType : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["isAvailabilityZonesEnabled"] = args ? args.isAvailabilityZonesEnabled : undefined;
-            resourceInputs["isDoubleEncryptionEnabled"] = args ? args.isDoubleEncryptionEnabled : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["billingType"] = args?.billingType;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["isAvailabilityZonesEnabled"] = args?.isAvailabilityZonesEnabled;
+            resourceInputs["isDoubleEncryptionEnabled"] = args?.isDoubleEncryptionEnabled;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedWorkspaces"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["capacityReservationProperties"] = undefined /*out*/;

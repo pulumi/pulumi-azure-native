@@ -42,31 +42,31 @@ export class FleetAnalytic extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A provisioning state of the FleetAnalytics.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The type of the fleet analytics resource.
      */
-    public readonly storageLocationType!: pulumi.Output<string | undefined>;
+    declare public readonly storageLocationType: pulumi.Output<string | undefined>;
     /**
      * The unique identifier of the fleet analytics resource.
      */
-    public readonly storageLocationUri!: pulumi.Output<string | undefined>;
+    declare public readonly storageLocationUri: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cosmosdb.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FleetAnalytic resource with the given unique name, arguments, and options.
@@ -79,17 +79,17 @@ export class FleetAnalytic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["fleetAnalyticsName"] = args ? args.fleetAnalyticsName : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageLocationType"] = args ? args.storageLocationType : undefined;
-            resourceInputs["storageLocationUri"] = args ? args.storageLocationUri : undefined;
+            resourceInputs["fleetAnalyticsName"] = args?.fleetAnalyticsName;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageLocationType"] = args?.storageLocationType;
+            resourceInputs["storageLocationUri"] = args?.storageLocationUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

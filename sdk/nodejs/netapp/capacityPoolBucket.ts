@@ -44,27 +44,27 @@ export class CapacityPoolBucket extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * File System user having access to volume data. For Unix, this is the user's uid and gid. For Windows, this is the user's username. Note that the Unix and Windows user details are mutually exclusive, meaning one or other must be supplied, but not both.
      */
-    public readonly fileSystemUser!: pulumi.Output<outputs.netapp.FileSystemUserResponse | undefined>;
+    declare public readonly fileSystemUser: pulumi.Output<outputs.netapp.FileSystemUserResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The volume path mounted inside the bucket. The default is the root path '/' if no value is provided when the bucket is created.
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Properties of the server managing the lifecycle of volume buckets
      */
-    public readonly server!: pulumi.Output<outputs.netapp.BucketServerPropertiesResponse | undefined>;
+    declare public readonly server: pulumi.Output<outputs.netapp.BucketServerPropertiesResponse | undefined>;
     /**
      * The bucket credentials status. There states:
      *
@@ -72,15 +72,15 @@ export class CapacityPoolBucket extends pulumi.CustomResource {
      * "CredentialsExpired": Access and Secret key pair have expired.
      * "Active": The certificate has been installed and credentials are unexpired.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CapacityPoolBucket resource with the given unique name, arguments, and options.
@@ -93,26 +93,26 @@ export class CapacityPoolBucket extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeName === undefined) && !opts.urn) {
+            if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["bucketName"] = args ? args.bucketName : undefined;
-            resourceInputs["fileSystemUser"] = args ? args.fileSystemUser : undefined;
-            resourceInputs["path"] = (args ? args.path : undefined) ?? "/";
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["server"] = args ? args.server : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["bucketName"] = args?.bucketName;
+            resourceInputs["fileSystemUser"] = args?.fileSystemUser;
+            resourceInputs["path"] = (args?.path) ?? "/";
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["server"] = args?.server;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

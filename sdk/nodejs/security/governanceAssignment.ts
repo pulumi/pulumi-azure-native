@@ -42,39 +42,39 @@ export class GovernanceAssignment extends pulumi.CustomResource {
     /**
      * The additional data for the governance assignment - e.g. links to ticket (optional), see example
      */
-    public readonly additionalData!: pulumi.Output<outputs.security.GovernanceAssignmentAdditionalDataResponse | undefined>;
+    declare public readonly additionalData: pulumi.Output<outputs.security.GovernanceAssignmentAdditionalDataResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The email notifications settings for the governance rule, states whether to disable notifications for mangers and owners
      */
-    public readonly governanceEmailNotification!: pulumi.Output<outputs.security.GovernanceEmailNotificationResponse | undefined>;
+    declare public readonly governanceEmailNotification: pulumi.Output<outputs.security.GovernanceEmailNotificationResponse | undefined>;
     /**
      * Defines whether there is a grace period on the governance assignment
      */
-    public readonly isGracePeriod!: pulumi.Output<boolean | undefined>;
+    declare public readonly isGracePeriod: pulumi.Output<boolean | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Owner for the governance assignment - e.g. user@contoso.com - see example
      */
-    public readonly owner!: pulumi.Output<string | undefined>;
+    declare public readonly owner: pulumi.Output<string | undefined>;
     /**
      * The remediation due-date - after this date Secure Score will be affected (in case of  active grace-period)
      */
-    public readonly remediationDueDate!: pulumi.Output<string>;
+    declare public readonly remediationDueDate: pulumi.Output<string>;
     /**
      * The ETA (estimated time of arrival) for remediation (optional), see example
      */
-    public readonly remediationEta!: pulumi.Output<outputs.security.RemediationEtaResponse | undefined>;
+    declare public readonly remediationEta: pulumi.Output<outputs.security.RemediationEtaResponse | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a GovernanceAssignment resource with the given unique name, arguments, and options.
@@ -87,24 +87,24 @@ export class GovernanceAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.assessmentName === undefined) && !opts.urn) {
+            if (args?.assessmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'assessmentName'");
             }
-            if ((!args || args.remediationDueDate === undefined) && !opts.urn) {
+            if (args?.remediationDueDate === undefined && !opts.urn) {
                 throw new Error("Missing required property 'remediationDueDate'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["assignmentKey"] = args ? args.assignmentKey : undefined;
-            resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
-            resourceInputs["isGracePeriod"] = args ? args.isGracePeriod : undefined;
-            resourceInputs["owner"] = args ? args.owner : undefined;
-            resourceInputs["remediationDueDate"] = args ? args.remediationDueDate : undefined;
-            resourceInputs["remediationEta"] = args ? args.remediationEta : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["assignmentKey"] = args?.assignmentKey;
+            resourceInputs["governanceEmailNotification"] = args?.governanceEmailNotification;
+            resourceInputs["isGracePeriod"] = args?.isGracePeriod;
+            resourceInputs["owner"] = args?.owner;
+            resourceInputs["remediationDueDate"] = args?.remediationDueDate;
+            resourceInputs["remediationEta"] = args?.remediationEta;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

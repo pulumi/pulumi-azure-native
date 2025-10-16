@@ -44,107 +44,107 @@ export class Account extends pulumi.CustomResource {
     /**
      * Gets or sets the status of the account.
      */
-    public /*out*/ readonly accountStatus!: pulumi.Output<outputs.purview.AccountPropertiesResponseAccountStatus>;
+    declare public /*out*/ readonly accountStatus: pulumi.Output<outputs.purview.AccountPropertiesResponseAccountStatus>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * External Cloud Service connectors
      */
-    public /*out*/ readonly cloudConnectors!: pulumi.Output<outputs.purview.CloudConnectorsResponse | undefined>;
+    declare public /*out*/ readonly cloudConnectors: pulumi.Output<outputs.purview.CloudConnectorsResponse | undefined>;
     /**
      * Gets the time at which the entity was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Gets the creator of the entity.
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Gets the creators of the entity's object id.
      */
-    public /*out*/ readonly createdByObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdByObjectId: pulumi.Output<string>;
     /**
      * Gets the default domain in the account.
      */
-    public /*out*/ readonly defaultDomain!: pulumi.Output<string>;
+    declare public /*out*/ readonly defaultDomain: pulumi.Output<string>;
     /**
      * The URIs that are the public endpoints of the account.
      */
-    public /*out*/ readonly endpoints!: pulumi.Output<outputs.purview.AccountPropertiesResponseEndpoints>;
+    declare public /*out*/ readonly endpoints: pulumi.Output<outputs.purview.AccountPropertiesResponseEndpoints>;
     /**
      * Gets or sets the friendly name.
      */
-    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly friendlyName: pulumi.Output<string>;
     /**
      * The Managed Identity of the resource
      */
-    public readonly identity!: pulumi.Output<outputs.purview.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.purview.IdentityResponse | undefined>;
     /**
      * Ingestion Storage Account Info
      */
-    public readonly ingestionStorage!: pulumi.Output<outputs.purview.IngestionStorageResponse | undefined>;
+    declare public readonly ingestionStorage: pulumi.Output<outputs.purview.IngestionStorageResponse | undefined>;
     /**
      * Gets or sets the location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the state of managed eventhub. If enabled managed eventhub will be created, if disabled the managed eventhub will be removed.
      */
-    public readonly managedEventHubState!: pulumi.Output<string | undefined>;
+    declare public readonly managedEventHubState: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the managed resource group name
      */
-    public readonly managedResourceGroupName!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourceGroupName: pulumi.Output<string | undefined>;
     /**
      * Gets the resource identifiers of the managed resources.
      */
-    public /*out*/ readonly managedResources!: pulumi.Output<outputs.purview.AccountPropertiesResponseManagedResources>;
+    declare public /*out*/ readonly managedResources: pulumi.Output<outputs.purview.AccountPropertiesResponseManagedResources>;
     /**
      * Gets or sets the public network access for managed resources.
      */
-    public readonly managedResourcesPublicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly managedResourcesPublicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Merge Info.
      */
-    public /*out*/ readonly mergeInfo!: pulumi.Output<outputs.purview.AccountMergeInfoResponse | undefined>;
+    declare public /*out*/ readonly mergeInfo: pulumi.Output<outputs.purview.AccountMergeInfoResponse | undefined>;
     /**
      * Gets or sets the name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the private endpoint connections information.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.purview.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.purview.PrivateEndpointConnectionResponse[]>;
     /**
      * Gets or sets the state of the provisioning.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets the public network access.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the Sku.
      */
-    public readonly sku!: pulumi.Output<outputs.purview.AccountResponseSku | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.purview.AccountResponseSku | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.purview.TrackedResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.purview.TrackedResourceResponseSystemData>;
     /**
      * Tags on the azure resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the state of tenant endpoint.
      */
-    public readonly tenantEndpointState!: pulumi.Output<string | undefined>;
+    declare public readonly tenantEndpointState: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -157,21 +157,21 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["ingestionStorage"] = args ? args.ingestionStorage : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedEventHubState"] = (args ? args.managedEventHubState : undefined) ?? "NotSpecified";
-            resourceInputs["managedResourceGroupName"] = args ? args.managedResourceGroupName : undefined;
-            resourceInputs["managedResourcesPublicNetworkAccess"] = (args ? args.managedResourcesPublicNetworkAccess : undefined) ?? "NotSpecified";
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantEndpointState"] = args ? args.tenantEndpointState : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["ingestionStorage"] = args?.ingestionStorage;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedEventHubState"] = (args?.managedEventHubState) ?? "NotSpecified";
+            resourceInputs["managedResourceGroupName"] = args?.managedResourceGroupName;
+            resourceInputs["managedResourcesPublicNetworkAccess"] = (args?.managedResourcesPublicNetworkAccess) ?? "NotSpecified";
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantEndpointState"] = args?.tenantEndpointState;
             resourceInputs["accountStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudConnectors"] = undefined /*out*/;

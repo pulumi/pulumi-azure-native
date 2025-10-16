@@ -44,35 +44,35 @@ export class CapacityPoolSubvolume extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * parent path to the subvolume
      */
-    public readonly parentPath!: pulumi.Output<string | undefined>;
+    declare public readonly parentPath: pulumi.Output<string | undefined>;
     /**
      * Path to the subvolume
      */
-    public readonly path!: pulumi.Output<string | undefined>;
+    declare public readonly path: pulumi.Output<string | undefined>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Truncate subvolume to the provided size in bytes
      */
-    public readonly size!: pulumi.Output<number | undefined>;
+    declare public readonly size: pulumi.Output<number | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CapacityPoolSubvolume resource with the given unique name, arguments, and options.
@@ -85,26 +85,26 @@ export class CapacityPoolSubvolume extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.poolName === undefined) && !opts.urn) {
+            if (args?.poolName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'poolName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeName === undefined) && !opts.urn) {
+            if (args?.volumeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["parentPath"] = args ? args.parentPath : undefined;
-            resourceInputs["path"] = args ? args.path : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["size"] = args ? args.size : undefined;
-            resourceInputs["subvolumeName"] = args ? args.subvolumeName : undefined;
-            resourceInputs["volumeName"] = args ? args.volumeName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["parentPath"] = args?.parentPath;
+            resourceInputs["path"] = args?.path;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["size"] = args?.size;
+            resourceInputs["subvolumeName"] = args?.subvolumeName;
+            resourceInputs["volumeName"] = args?.volumeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -44,55 +44,55 @@ export class VirtualWan extends pulumi.CustomResource {
     /**
      * True if branch to branch traffic is allowed.
      */
-    public readonly allowBranchToBranchTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowBranchToBranchTraffic: pulumi.Output<boolean | undefined>;
     /**
      * True if Vnet to Vnet traffic is allowed.
      */
-    public readonly allowVnetToVnetTraffic!: pulumi.Output<boolean | undefined>;
+    declare public readonly allowVnetToVnetTraffic: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Vpn encryption to be disabled or not.
      */
-    public readonly disableVpnEncryption!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableVpnEncryption: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The office local breakout category.
      */
-    public /*out*/ readonly office365LocalBreakoutCategory!: pulumi.Output<string>;
+    declare public /*out*/ readonly office365LocalBreakoutCategory: pulumi.Output<string>;
     /**
      * The provisioning state of the virtual WAN resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * List of VirtualHubs in the VirtualWAN.
      */
-    public /*out*/ readonly virtualHubs!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly virtualHubs: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * List of VpnSites in the VirtualWAN.
      */
-    public /*out*/ readonly vpnSites!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly vpnSites: pulumi.Output<outputs.network.SubResourceResponse[]>;
 
     /**
      * Create a VirtualWan resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class VirtualWan extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowBranchToBranchTraffic"] = args ? args.allowBranchToBranchTraffic : undefined;
-            resourceInputs["allowVnetToVnetTraffic"] = args ? args.allowVnetToVnetTraffic : undefined;
-            resourceInputs["disableVpnEncryption"] = args ? args.disableVpnEncryption : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualWANName"] = args ? args.virtualWANName : undefined;
+            resourceInputs["allowBranchToBranchTraffic"] = args?.allowBranchToBranchTraffic;
+            resourceInputs["allowVnetToVnetTraffic"] = args?.allowVnetToVnetTraffic;
+            resourceInputs["disableVpnEncryption"] = args?.disableVpnEncryption;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualWANName"] = args?.virtualWANName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

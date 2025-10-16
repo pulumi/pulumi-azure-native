@@ -44,43 +44,43 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Default Action for Network Rule Set
      */
-    public readonly defaultAction!: pulumi.Output<string | undefined>;
+    declare public readonly defaultAction: pulumi.Output<string | undefined>;
     /**
      * List of IpRules
      */
-    public readonly ipRules!: pulumi.Output<outputs.servicebus.NWRuleSetIpRulesResponse[] | undefined>;
+    declare public readonly ipRules: pulumi.Output<outputs.servicebus.NWRuleSetIpRulesResponse[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This determines if traffic is allowed over public network. By default it is enabled.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * Value that indicates whether Trusted Service Access is Enabled or not.
      */
-    public readonly trustedServiceAccessEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly trustedServiceAccessEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * List VirtualNetwork Rules
      */
-    public readonly virtualNetworkRules!: pulumi.Output<outputs.servicebus.NWRuleSetVirtualNetworkRulesResponse[] | undefined>;
+    declare public readonly virtualNetworkRules: pulumi.Output<outputs.servicebus.NWRuleSetVirtualNetworkRulesResponse[] | undefined>;
 
     /**
      * Create a NamespaceNetworkRuleSet resource with the given unique name, arguments, and options.
@@ -93,19 +93,19 @@ export class NamespaceNetworkRuleSet extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultAction"] = args ? args.defaultAction : undefined;
-            resourceInputs["ipRules"] = args ? args.ipRules : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["trustedServiceAccessEnabled"] = args ? args.trustedServiceAccessEnabled : undefined;
-            resourceInputs["virtualNetworkRules"] = args ? args.virtualNetworkRules : undefined;
+            resourceInputs["defaultAction"] = args?.defaultAction;
+            resourceInputs["ipRules"] = args?.ipRules;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["trustedServiceAccessEnabled"] = args?.trustedServiceAccessEnabled;
+            resourceInputs["virtualNetworkRules"] = args?.virtualNetworkRules;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

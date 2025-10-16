@@ -42,63 +42,63 @@ export class KafkaConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The client id prefix of the dynamically generated client ids.
      */
-    public readonly clientIdPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly clientIdPrefix: pulumi.Output<string | undefined>;
     /**
      * Extended Location
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsmq.ExtendedLocationPropertyResponse>;
     /**
      * The details of KafkaConnector Docker Image.
      */
-    public readonly image!: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse | undefined>;
+    declare public readonly image: pulumi.Output<outputs.iotoperationsmq.ContainerImageResponse | undefined>;
     /**
      * The number of KafkaConnector pods to spin up.
      */
-    public readonly instances!: pulumi.Output<number | undefined>;
+    declare public readonly instances: pulumi.Output<number | undefined>;
     /**
      * The details for connecting with Remote Kafka Broker.
      */
-    public readonly kafkaConnection!: pulumi.Output<outputs.iotoperationsmq.KafkaRemoteBrokerConnectionSpecResponse>;
+    declare public readonly kafkaConnection: pulumi.Output<outputs.iotoperationsmq.KafkaRemoteBrokerConnectionSpecResponse>;
     /**
      * The details for connecting with Local Broker.
      */
-    public readonly localBrokerConnection!: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
+    declare public readonly localBrokerConnection: pulumi.Output<outputs.iotoperationsmq.LocalBrokerConnectionSpecResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The log level of the Bridge Connector instances.
      */
-    public readonly logLevel!: pulumi.Output<string | undefined>;
+    declare public readonly logLevel: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Node Tolerations for the Bridge Connector pods.
      */
-    public readonly nodeTolerations!: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
+    declare public readonly nodeTolerations: pulumi.Output<outputs.iotoperationsmq.NodeTolerationsResponse | undefined>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsmq.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KafkaConnector resource with the given unique name, arguments, and options.
@@ -111,31 +111,31 @@ export class KafkaConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.kafkaConnection === undefined) && !opts.urn) {
+            if (args?.kafkaConnection === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kafkaConnection'");
             }
-            if ((!args || args.mqName === undefined) && !opts.urn) {
+            if (args?.mqName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mqName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientIdPrefix"] = args ? args.clientIdPrefix : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["image"] = args ? args.image : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["kafkaConnection"] = args ? args.kafkaConnection : undefined;
-            resourceInputs["kafkaConnectorName"] = args ? args.kafkaConnectorName : undefined;
+            resourceInputs["clientIdPrefix"] = args?.clientIdPrefix;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["image"] = args?.image;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["kafkaConnection"] = args?.kafkaConnection;
+            resourceInputs["kafkaConnectorName"] = args?.kafkaConnectorName;
             resourceInputs["localBrokerConnection"] = args ? (args.localBrokerConnection ? pulumi.output(args.localBrokerConnection).apply(inputs.iotoperationsmq.localBrokerConnectionSpecArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logLevel"] = (args ? args.logLevel : undefined) ?? "info";
-            resourceInputs["mqName"] = args ? args.mqName : undefined;
-            resourceInputs["nodeTolerations"] = args ? args.nodeTolerations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logLevel"] = (args?.logLevel) ?? "info";
+            resourceInputs["mqName"] = args?.mqName;
+            resourceInputs["nodeTolerations"] = args?.nodeTolerations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

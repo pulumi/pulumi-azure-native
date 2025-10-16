@@ -44,111 +44,111 @@ export class Queue extends pulumi.CustomResource {
     /**
      * Last time a message was sent, or the last time there was a receive request to this queue.
      */
-    public /*out*/ readonly accessedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly accessedAt: pulumi.Output<string>;
     /**
      * ISO 8061 timeSpan idle interval after which the queue is automatically deleted. The minimum duration is 5 minutes.
      */
-    public readonly autoDeleteOnIdle!: pulumi.Output<string | undefined>;
+    declare public readonly autoDeleteOnIdle: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Message Count Details.
      */
-    public /*out*/ readonly countDetails!: pulumi.Output<outputs.servicebus.MessageCountDetailsResponse>;
+    declare public /*out*/ readonly countDetails: pulumi.Output<outputs.servicebus.MessageCountDetailsResponse>;
     /**
      * The exact time the message was created.
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * A value that indicates whether this queue has dead letter support when a message expires.
      */
-    public readonly deadLetteringOnMessageExpiration!: pulumi.Output<boolean | undefined>;
+    declare public readonly deadLetteringOnMessageExpiration: pulumi.Output<boolean | undefined>;
     /**
      * ISO 8601 default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself.
      */
-    public readonly defaultMessageTimeToLive!: pulumi.Output<string | undefined>;
+    declare public readonly defaultMessageTimeToLive: pulumi.Output<string | undefined>;
     /**
      * ISO 8601 timeSpan structure that defines the duration of the duplicate detection history. The default value is 10 minutes.
      */
-    public readonly duplicateDetectionHistoryTimeWindow!: pulumi.Output<string | undefined>;
+    declare public readonly duplicateDetectionHistoryTimeWindow: pulumi.Output<string | undefined>;
     /**
      * Value that indicates whether server-side batched operations are enabled.
      */
-    public readonly enableBatchedOperations!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBatchedOperations: pulumi.Output<boolean | undefined>;
     /**
      * A value that indicates whether Express Entities are enabled. An express queue holds a message in memory temporarily before writing it to persistent storage.
      */
-    public readonly enableExpress!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableExpress: pulumi.Output<boolean | undefined>;
     /**
      * A value that indicates whether the queue is to be partitioned across multiple message brokers.
      */
-    public readonly enablePartitioning!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePartitioning: pulumi.Output<boolean | undefined>;
     /**
      * Queue/Topic name to forward the Dead Letter message
      */
-    public readonly forwardDeadLetteredMessagesTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardDeadLetteredMessagesTo: pulumi.Output<string | undefined>;
     /**
      * Queue/Topic name to forward the messages
      */
-    public readonly forwardTo!: pulumi.Output<string | undefined>;
+    declare public readonly forwardTo: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * ISO 8601 timespan duration of a peek-lock; that is, the amount of time that the message is locked for other receivers. The maximum value for LockDuration is 5 minutes; the default value is 1 minute.
      */
-    public readonly lockDuration!: pulumi.Output<string | undefined>;
+    declare public readonly lockDuration: pulumi.Output<string | undefined>;
     /**
      * The maximum delivery count. A message is automatically deadlettered after this number of deliveries. default value is 10.
      */
-    public readonly maxDeliveryCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxDeliveryCount: pulumi.Output<number | undefined>;
     /**
      * Maximum size (in KB) of the message payload that can be accepted by the queue. This property is only used in Premium today and default is 1024.
      */
-    public readonly maxMessageSizeInKilobytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxMessageSizeInKilobytes: pulumi.Output<number | undefined>;
     /**
      * The maximum size of the queue in megabytes, which is the size of memory allocated for the queue. Default is 1024.
      */
-    public readonly maxSizeInMegabytes!: pulumi.Output<number | undefined>;
+    declare public readonly maxSizeInMegabytes: pulumi.Output<number | undefined>;
     /**
      * The number of messages in the queue.
      */
-    public /*out*/ readonly messageCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly messageCount: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A value indicating if this queue requires duplicate detection.
      */
-    public readonly requiresDuplicateDetection!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresDuplicateDetection: pulumi.Output<boolean | undefined>;
     /**
      * A value that indicates whether the queue supports the concept of sessions.
      */
-    public readonly requiresSession!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiresSession: pulumi.Output<boolean | undefined>;
     /**
      * The size of the queue, in bytes.
      */
-    public /*out*/ readonly sizeInBytes!: pulumi.Output<number>;
+    declare public /*out*/ readonly sizeInBytes: pulumi.Output<number>;
     /**
      * Enumerates the possible values for the status of a messaging entity.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The exact time the message was updated.
      */
-    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAt: pulumi.Output<string>;
 
     /**
      * Create a Queue resource with the given unique name, arguments, and options.
@@ -161,31 +161,31 @@ export class Queue extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoDeleteOnIdle"] = args ? args.autoDeleteOnIdle : undefined;
-            resourceInputs["deadLetteringOnMessageExpiration"] = args ? args.deadLetteringOnMessageExpiration : undefined;
-            resourceInputs["defaultMessageTimeToLive"] = args ? args.defaultMessageTimeToLive : undefined;
-            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args ? args.duplicateDetectionHistoryTimeWindow : undefined;
-            resourceInputs["enableBatchedOperations"] = args ? args.enableBatchedOperations : undefined;
-            resourceInputs["enableExpress"] = args ? args.enableExpress : undefined;
-            resourceInputs["enablePartitioning"] = args ? args.enablePartitioning : undefined;
-            resourceInputs["forwardDeadLetteredMessagesTo"] = args ? args.forwardDeadLetteredMessagesTo : undefined;
-            resourceInputs["forwardTo"] = args ? args.forwardTo : undefined;
-            resourceInputs["lockDuration"] = args ? args.lockDuration : undefined;
-            resourceInputs["maxDeliveryCount"] = args ? args.maxDeliveryCount : undefined;
-            resourceInputs["maxMessageSizeInKilobytes"] = args ? args.maxMessageSizeInKilobytes : undefined;
-            resourceInputs["maxSizeInMegabytes"] = args ? args.maxSizeInMegabytes : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["queueName"] = args ? args.queueName : undefined;
-            resourceInputs["requiresDuplicateDetection"] = args ? args.requiresDuplicateDetection : undefined;
-            resourceInputs["requiresSession"] = args ? args.requiresSession : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["autoDeleteOnIdle"] = args?.autoDeleteOnIdle;
+            resourceInputs["deadLetteringOnMessageExpiration"] = args?.deadLetteringOnMessageExpiration;
+            resourceInputs["defaultMessageTimeToLive"] = args?.defaultMessageTimeToLive;
+            resourceInputs["duplicateDetectionHistoryTimeWindow"] = args?.duplicateDetectionHistoryTimeWindow;
+            resourceInputs["enableBatchedOperations"] = args?.enableBatchedOperations;
+            resourceInputs["enableExpress"] = args?.enableExpress;
+            resourceInputs["enablePartitioning"] = args?.enablePartitioning;
+            resourceInputs["forwardDeadLetteredMessagesTo"] = args?.forwardDeadLetteredMessagesTo;
+            resourceInputs["forwardTo"] = args?.forwardTo;
+            resourceInputs["lockDuration"] = args?.lockDuration;
+            resourceInputs["maxDeliveryCount"] = args?.maxDeliveryCount;
+            resourceInputs["maxMessageSizeInKilobytes"] = args?.maxMessageSizeInKilobytes;
+            resourceInputs["maxSizeInMegabytes"] = args?.maxSizeInMegabytes;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["queueName"] = args?.queueName;
+            resourceInputs["requiresDuplicateDetection"] = args?.requiresDuplicateDetection;
+            resourceInputs["requiresSession"] = args?.requiresSession;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
             resourceInputs["accessedAt"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["countDetails"] = undefined /*out*/;

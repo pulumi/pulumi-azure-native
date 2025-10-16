@@ -44,91 +44,91 @@ export class VpnConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Expected bandwidth in MBPS.
      */
-    public readonly connectionBandwidth!: pulumi.Output<number | undefined>;
+    declare public readonly connectionBandwidth: pulumi.Output<number | undefined>;
     /**
      * The connection status.
      */
-    public /*out*/ readonly connectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionStatus: pulumi.Output<string>;
     /**
      * DPD timeout in seconds for vpn connection.
      */
-    public readonly dpdTimeoutSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly dpdTimeoutSeconds: pulumi.Output<number | undefined>;
     /**
      * Egress bytes transferred.
      */
-    public /*out*/ readonly egressBytesTransferred!: pulumi.Output<number>;
+    declare public /*out*/ readonly egressBytesTransferred: pulumi.Output<number>;
     /**
      * EnableBgp flag.
      */
-    public readonly enableBgp!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableBgp: pulumi.Output<boolean | undefined>;
     /**
      * Enable internet security.
      */
-    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableInternetSecurity: pulumi.Output<boolean | undefined>;
     /**
      * EnableBgp flag.
      */
-    public readonly enableRateLimiting!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableRateLimiting: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Ingress bytes transferred.
      */
-    public /*out*/ readonly ingressBytesTransferred!: pulumi.Output<number>;
+    declare public /*out*/ readonly ingressBytesTransferred: pulumi.Output<number>;
     /**
      * The IPSec Policies to be considered by this connection.
      */
-    public readonly ipsecPolicies!: pulumi.Output<outputs.network.IpsecPolicyResponse[] | undefined>;
+    declare public readonly ipsecPolicies: pulumi.Output<outputs.network.IpsecPolicyResponse[] | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the VPN connection resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Id of the connected vpn site.
      */
-    public readonly remoteVpnSite!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly remoteVpnSite: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    public readonly routingConfiguration!: pulumi.Output<outputs.network.RoutingConfigurationResponse | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationResponse | undefined>;
     /**
      * Routing weight for vpn connection.
      */
-    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    declare public readonly routingWeight: pulumi.Output<number | undefined>;
     /**
      * SharedKey for the vpn connection.
      */
-    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly sharedKey: pulumi.Output<string | undefined>;
     /**
      * The Traffic Selector Policies to be considered by this connection.
      */
-    public readonly trafficSelectorPolicies!: pulumi.Output<outputs.network.TrafficSelectorPolicyResponse[] | undefined>;
+    declare public readonly trafficSelectorPolicies: pulumi.Output<outputs.network.TrafficSelectorPolicyResponse[] | undefined>;
     /**
      * Use local azure ip to initiate connection.
      */
-    public readonly useLocalAzureIpAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly useLocalAzureIpAddress: pulumi.Output<boolean | undefined>;
     /**
      * Enable policy-based traffic selectors.
      */
-    public readonly usePolicyBasedTrafficSelectors!: pulumi.Output<boolean | undefined>;
+    declare public readonly usePolicyBasedTrafficSelectors: pulumi.Output<boolean | undefined>;
     /**
      * Connection protocol used for this connection.
      */
-    public readonly vpnConnectionProtocolType!: pulumi.Output<string | undefined>;
+    declare public readonly vpnConnectionProtocolType: pulumi.Output<string | undefined>;
     /**
      * List of all vpn site link connections to the gateway.
      */
-    public readonly vpnLinkConnections!: pulumi.Output<outputs.network.VpnSiteLinkConnectionResponse[] | undefined>;
+    declare public readonly vpnLinkConnections: pulumi.Output<outputs.network.VpnSiteLinkConnectionResponse[] | undefined>;
 
     /**
      * Create a VpnConnection resource with the given unique name, arguments, and options.
@@ -141,32 +141,32 @@ export class VpnConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.gatewayName === undefined) && !opts.urn) {
+            if (args?.gatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'gatewayName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectionBandwidth"] = args ? args.connectionBandwidth : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["dpdTimeoutSeconds"] = args ? args.dpdTimeoutSeconds : undefined;
-            resourceInputs["enableBgp"] = args ? args.enableBgp : undefined;
-            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            resourceInputs["enableRateLimiting"] = args ? args.enableRateLimiting : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipsecPolicies"] = args ? args.ipsecPolicies : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["remoteVpnSite"] = args ? args.remoteVpnSite : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["trafficSelectorPolicies"] = args ? args.trafficSelectorPolicies : undefined;
-            resourceInputs["useLocalAzureIpAddress"] = args ? args.useLocalAzureIpAddress : undefined;
-            resourceInputs["usePolicyBasedTrafficSelectors"] = args ? args.usePolicyBasedTrafficSelectors : undefined;
-            resourceInputs["vpnConnectionProtocolType"] = args ? args.vpnConnectionProtocolType : undefined;
-            resourceInputs["vpnLinkConnections"] = args ? args.vpnLinkConnections : undefined;
+            resourceInputs["connectionBandwidth"] = args?.connectionBandwidth;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["dpdTimeoutSeconds"] = args?.dpdTimeoutSeconds;
+            resourceInputs["enableBgp"] = args?.enableBgp;
+            resourceInputs["enableInternetSecurity"] = args?.enableInternetSecurity;
+            resourceInputs["enableRateLimiting"] = args?.enableRateLimiting;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipsecPolicies"] = args?.ipsecPolicies;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["remoteVpnSite"] = args?.remoteVpnSite;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["routingWeight"] = args?.routingWeight;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["trafficSelectorPolicies"] = args?.trafficSelectorPolicies;
+            resourceInputs["useLocalAzureIpAddress"] = args?.useLocalAzureIpAddress;
+            resourceInputs["usePolicyBasedTrafficSelectors"] = args?.usePolicyBasedTrafficSelectors;
+            resourceInputs["vpnConnectionProtocolType"] = args?.vpnConnectionProtocolType;
+            resourceInputs["vpnLinkConnections"] = args?.vpnLinkConnections;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionStatus"] = undefined /*out*/;
             resourceInputs["egressBytesTransferred"] = undefined /*out*/;
