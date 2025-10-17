@@ -332,6 +332,7 @@ ContainerService:
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
+        MeshMembership: 2025-08-02-preview
         Namespace: 2025-02-02-preview
         NodeCustomization: 2025-08-02-preview
         UpdateRun: 2024-05-02-preview
@@ -734,6 +735,7 @@ DeviceProvisioningServices:
 DeviceRegistry:
     tracking: "2024-11-01"
     additions:
+        Credential: 2025-11-01-preview
         DiscoveredAsset: 2024-09-01-preview
         DiscoveredAssetEndpointProfile: 2024-09-01-preview
         Namespace: 2025-07-01-preview
@@ -741,6 +743,7 @@ DeviceRegistry:
         NamespaceDevice: 2025-07-01-preview
         NamespaceDiscoveredAsset: 2025-07-01-preview
         NamespaceDiscoveredDevice: 2025-07-01-preview
+        Policy: 2025-11-01-preview
         Schema: 2024-09-01-preview
         SchemaRegistry: 2024-09-01-preview
         SchemaVersion: 2024-09-01-preview
@@ -1345,6 +1348,9 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-10-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-01-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:
