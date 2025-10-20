@@ -2847,6 +2847,21 @@ Cdn:
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/customDomains/{customDomainName}
         RpNamespace: Microsoft.Cdn
+    EdgeAction:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}
+        RpNamespace: Microsoft.Cdn
+    EdgeActionExecutionFilter:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/executionFilters/{executionFilter}
+        RpNamespace: Microsoft.Cdn
+    EdgeActionVersion:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version}
+        RpNamespace: Microsoft.Cdn
     Endpoint:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
@@ -2921,6 +2936,11 @@ Cdn:
         ApiVersion: 2025-09-01-preview
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-09-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}
+        RpNamespace: Microsoft.Cdn
+    getEdgeActionVersionCode:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version}/getVersionCode
         RpNamespace: Microsoft.Cdn
     getProfileSupportedOptimizationTypes:
         ApiVersion: "2025-06-01"
@@ -3941,6 +3961,11 @@ ContainerService:
         ApiVersion: 2025-04-02-preview
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-04-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName}
+        RpNamespace: Microsoft.ContainerService
+    MeshMembership:
+        ApiVersion: 2025-08-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-08-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName}
         RpNamespace: Microsoft.ContainerService
     Namespace:
         ApiVersion: 2025-02-02-preview
@@ -5728,6 +5753,11 @@ DeviceRegistry:
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/stable/2024-11-01/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}
         RpNamespace: Microsoft.DeviceRegistry
+    Credential:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default
+        RpNamespace: Microsoft.DeviceRegistry
     DiscoveredAsset:
         ApiVersion: 2024-09-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2024-09-01-preview/deviceregistry.json
@@ -5762,6 +5792,11 @@ DeviceRegistry:
         ApiVersion: 2025-07-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}
+        RpNamespace: Microsoft.DeviceRegistry
+    Policy:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName}
         RpNamespace: Microsoft.DeviceRegistry
     Schema:
         ApiVersion: 2024-09-01-preview
