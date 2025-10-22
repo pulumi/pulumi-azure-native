@@ -157,7 +157,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:       "tenant-id",
 			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientSecretCredential{}, cred)
 		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
@@ -171,7 +171,7 @@ func TestNewCredential(t *testing.T) {
 			clientSecret: "client-secret",
 			tenantId:     "tenant-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "Subscription")
 	})
@@ -182,7 +182,7 @@ func TestNewCredential(t *testing.T) {
 			clientSecret:   "client-secret",
 			subscriptionId: "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "Tenant")
 	})
@@ -198,7 +198,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:           "tenant-id",
 			subscriptionId:     "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientCertificateCredential{}, cred)
 		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
@@ -216,7 +216,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:       "tenant-id",
 			subscriptionId: "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 	})
@@ -232,7 +232,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:           "tenant-id",
 			subscriptionId:     "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.Contains(t, err.Error(), "failed to parse certificate")
 		require.Contains(t, err.Error(), "password incorrect")
@@ -246,7 +246,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:       "tenant-id",
 			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 		clientVal := reflect.ValueOf(cred).Elem().FieldByName("client")
@@ -265,7 +265,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:          "tenant-id",
 			subscriptionId:    "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -278,7 +278,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:          "tenant-id",
 			subscriptionId:    "subscription-id",
 		}
-		_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.Error(t, err)
 		require.ErrorIs(t, err, os.ErrNotExist)
 	})
@@ -292,7 +292,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:              "tenant-id",
 			subscriptionId:        "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -307,7 +307,7 @@ func TestNewCredential(t *testing.T) {
 			tenantId:              "tenant-id",
 			subscriptionId:        "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ClientAssertionCredential{}, cred)
 	})
@@ -334,7 +334,7 @@ func TestNewCredential(t *testing.T) {
 				tenantId:  "tenant-id",
 			},
 		} {
-			_, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+			_, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 			require.Error(t, err)
 		}
 	})
@@ -344,7 +344,7 @@ func TestNewCredential(t *testing.T) {
 			useMsi:         true,
 			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 	})
@@ -356,7 +356,7 @@ func TestNewCredential(t *testing.T) {
 			clientId:       "123",
 			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.ManagedIdentityCredential{}, cred)
 		// FUTURE: assert cred.client.id = "123"
@@ -364,7 +364,7 @@ func TestNewCredential(t *testing.T) {
 
 	t.Run("CLI", func(t *testing.T) {
 		conf := &authConfiguration{}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 	})
@@ -373,7 +373,7 @@ func TestNewCredential(t *testing.T) {
 		conf := &authConfiguration{
 			auxTenants: []string{"123", "456"},
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
@@ -384,12 +384,38 @@ func TestNewCredential(t *testing.T) {
 	t.Run("CLI with subscription id", func(t *testing.T) {
 		conf := &authConfiguration{
 			subscriptionId: "subscription-id",
+			// Mock showSubscription to return a non-default subscription
+			showSubscription: func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+				return &Subscription{
+					ID:        "subscription-id",
+					IsDefault: false, // Non-default subscription should be passed to SDK
+				}, nil
+			},
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
 		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
 		require.Equal(t, "subscription-id", optsVal.FieldByName("Subscription").String())
+	})
+
+	t.Run("CLI with default subscription id", func(t *testing.T) {
+		conf := &authConfiguration{
+			subscriptionId: "subscription-id",
+			// Mock showSubscription to return the default subscription
+			showSubscription: func(ctx context.Context, subscriptionID string) (*Subscription, error) {
+				return &Subscription{
+					ID:        "subscription-id",
+					IsDefault: true, // Default subscription should NOT be passed to SDK
+				}, nil
+			},
+		}
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
+		require.NoError(t, err)
+		require.IsType(t, &azidentity.AzureCLICredential{}, cred)
+		optsVal := reflect.ValueOf(cred).Elem().FieldByName("opts")
+		// When it's the default subscription, we should NOT pass it to the SDK
+		require.Equal(t, "", optsVal.FieldByName("Subscription").String())
 	})
 
 	t.Run("Azure Default Credential", func(t *testing.T) {
@@ -397,7 +423,7 @@ func TestNewCredential(t *testing.T) {
 			useDefault:     true,
 			subscriptionId: "subscription-id",
 		}
-		cred, err := newSingleMethodAuthCredential(conf, azcore.ClientOptions{})
+		cred, err := newSingleMethodAuthCredential(context.Background(), conf, azcore.ClientOptions{})
 		require.NoError(t, err)
 		require.IsType(t, &azidentity.DefaultAzureCredential{}, cred)
 	})
