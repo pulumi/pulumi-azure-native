@@ -71,3 +71,11 @@ var forceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
 		"WebApp":         codegen.NewStringSet("location", "kind"),
 	},
 }
+
+// noForceNewMap overrides forceNewMap and x-ms-mutability to *not* force
+// replacement. Appropriate when Azure previously forced replacement but no longer does.
+var noForceNewMap = map[openapi.ModuleName]map[string]codegen.StringSet{
+	"ServiceBus": {
+		"Namespace": codegen.NewStringSet("zoneRedundant"), // https://github.com/pulumi/pulumi-azure-native/issues/4105
+	},
+}

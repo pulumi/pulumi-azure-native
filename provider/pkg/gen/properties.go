@@ -529,6 +529,14 @@ func (m *moduleGenerator) forceNew(schema *openapi.Schema, propertyName string, 
 	// and then re-add it with the new `keyType` without replacing the whole storage account (which would be
 	// very disruptive).
 
+	if resourceMap, ok := noForceNewMap[m.moduleName]; ok {
+		if properties, ok := resourceMap[m.resourceName]; ok {
+			if properties.Has(propertyName) {
+				return noForceNew
+			}
+		}
+	}
+
 	hasMutabilityInfo, forcesRecreate := propChangeForcesRecreate(schema)
 
 	if hasMutabilityInfo && forcesRecreate {
