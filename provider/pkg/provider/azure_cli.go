@@ -8,7 +8,6 @@ import (
 	"encoding/json"
 	"os"
 	"os/exec"
-	"runtime"
 	"strings"
 	"time"
 
@@ -52,25 +51,14 @@ type azSubscriptionProvider func(ctx context.Context, subscriptionID string) (*S
 // this code is derived from "CLI token provider" code in the Azure SDK for Go:
 // https://github.com/Azure/azure-sdk-for-go/blob/519e8ab1a0e433b755c31ebaa6b177dfc83cb838/sdk/azidentity/azure_cli_credential.go#L117-L172
 var defaultAzSubscriptionProvider = func(ctx context.Context, subscriptionID string) (*Subscription, error) {
-	commandLine := "az account show -o json "
+	// Build command arguments as array to avoid shell quoting issues
+	args := []string{"account", "show", "-o", "json"}
 	if subscriptionID != "" {
-		// subscription needs quotes because it may contain spaces
-		commandLine += ` --subscription "` + subscriptionID + `"`
+		args = append(args, "--subscription", subscriptionID)
 	}
-	logging.V(9).Infof("Running command: %s", commandLine)
+	logging.V(9).Infof("Running command: az %s", strings.Join(args, " "))
 
-	var cliCmd *exec.Cmd
-	if runtime.GOOS == "windows" {
-		dir := os.Getenv("SYSTEMROOT")
-		if dir == "" {
-			return nil, newSubscriptionUnavailableError("environment variable 'SYSTEMROOT' has no value")
-		}
-		cliCmd = exec.CommandContext(ctx, "cmd.exe", "/c", commandLine)
-		cliCmd.Dir = dir
-	} else {
-		cliCmd = exec.CommandContext(ctx, "/bin/sh", "-c", commandLine)
-		cliCmd.Dir = "/bin"
-	}
+	cliCmd := exec.CommandContext(ctx, "az", args...)
 	cliCmd.Env = os.Environ()
 	var stdout, stderr bytes.Buffer
 	cliCmd.Stderr = &stderr

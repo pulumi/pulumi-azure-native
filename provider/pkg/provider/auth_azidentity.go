@@ -56,7 +56,7 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 	// Create the azcore.TokenCredential implementation based on the auth configuration.
 	// This routine evaluates the auth configuration and other environment variables,
 	// and ultimately resolves the Azure cloud and subscription ID.
-	cred, err := newSingleMethodAuthCredential(authConf, baseClientOpts)
+	cred, err := newSingleMethodAuthCredential(ctx, authConf, baseClientOpts)
 	if err != nil {
 		return nil, err
 	}
@@ -120,7 +120,7 @@ func NewAzCoreIdentity(ctx context.Context, authConf *authConfiguration, baseCli
 //   - When a method is configured but instantiating the credential fails, we return an error and do not fall through to
 //     the next method.
 //   - Auxiliary or additional tenants are supported for SP with client secret and CLI authentication, not for others.
-func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
+func newSingleMethodAuthCredential(ctx context.Context, authConf *authConfiguration, baseClientOpts azcore.ClientOptions) (azcore.TokenCredential, error) {
 	if authConf.useDefault {
 		logging.V(9).Infof("[auth] Using default Azure credential")
 		fmtErrorMessage := "A %s must be configured when authenticating using the Default Azure Credential."
@@ -215,7 +215,18 @@ func newSingleMethodAuthCredential(authConf *authConfiguration, baseClientOpts a
 	}
 	// note that the subscription ID is discoverable when using the Azure CLI credential and hence optional.
 	if authConf.subscriptionId != "" {
-		options.Subscription = authConf.subscriptionId
+		// Query the subscription to check if it's the default.
+		// This avoids triggering a shell quoting bug in the Azure SDK when using the default subscription.
+		activeSubscription, err := authConf.showSubscription(ctx, authConf.subscriptionId)
+		if err != nil {
+			return nil, err
+		}
+
+		// Only pass subscription to SDK if it's not the default subscription.
+		// When using the default, the SDK will auto-detect it without needing the parameter.
+		if !activeSubscription.IsDefault {
+			options.Subscription = authConf.subscriptionId
+		}
 	}
 	return azidentity.NewAzureCLICredential(options)
 }
