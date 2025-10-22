@@ -23,6 +23,41 @@ const (
 
 var subscriptionIdRegex = regexp.MustCompile(`/subscriptions/([^/]+)`)
 
+// roleAssignmentClient defines the interface for role assignment operations needed for testing.
+type roleAssignmentClient interface {
+	// getTenantId retrieves the tenant ID for a given subscription.
+	getTenantId(ctx context.Context, subscriptionId string) (string, error)
+	// convertResponseToOutputs converts an Azure API response to SDK outputs.
+	convertResponseToOutputs(response map[string]any) map[string]any
+}
+
+// roleAssignmentClientImpl implements roleAssignmentClient using real Azure SDK clients.
+type roleAssignmentClientImpl struct {
+	subsClient *armsubscriptions.Client
+	crudClient crud.ResourceCrudClient
+}
+
+func (c *roleAssignmentClientImpl) getTenantId(ctx context.Context, subscriptionId string) (string, error) {
+	if c.subsClient == nil {
+		return "", fmt.Errorf("subscriptions client is nil")
+	}
+
+	resp, err := c.subsClient.Get(ctx, subscriptionId, nil)
+	if err != nil {
+		return "", fmt.Errorf("failed to get subscription %s: %w", subscriptionId, err)
+	}
+
+	if resp.Subscription.TenantID == nil {
+		return "", fmt.Errorf("subscription %s has no tenant ID", subscriptionId)
+	}
+
+	return *resp.Subscription.TenantID, nil
+}
+
+func (c *roleAssignmentClientImpl) convertResponseToOutputs(response map[string]any) map[string]any {
+	return c.crudClient.ResponseBodyToSdkOutputs(response)
+}
+
 // roleAssignment returns a custom resource for RoleAssignment that handles cross-tenant scenarios.
 //
 // Cross-tenant role assignments (those with delegatedManagedIdentityResourceId) require a special
@@ -36,9 +71,8 @@ func roleAssignment(
 ) (*CustomResource, error) {
 	// This func's parameters are all nil when the function is called for the first time, for
 	// `customresources.featureLookup`, so we initialize the objects we need conditionally
-	var crudClient crud.ResourceCrudClient
+	var client roleAssignmentClient
 	var res resources.AzureAPIResource
-	var subsClient *armsubscriptions.Client
 
 	if lookupResource != nil && crudClientFactory != nil && tokenCred != nil {
 		var found bool
@@ -50,11 +84,16 @@ func roleAssignment(
 		if !found {
 			return nil, fmt.Errorf("resource %q not found", roleAssignmentTok)
 		}
-		crudClient = crudClientFactory(&res)
+		crudClient := crudClientFactory(&res)
 
-		subsClient, err = armsubscriptions.NewClient(tokenCred, nil)
+		subsClient, err := armsubscriptions.NewClient(tokenCred, nil)
 		if err != nil {
 			return nil, err
+		}
+
+		client = &roleAssignmentClientImpl{
+			subsClient: subsClient,
+			crudClient: crudClient,
 		}
 	}
 
@@ -62,7 +101,7 @@ func roleAssignment(
 		tok:  roleAssignmentTok,
 		path: roleAssignmentPath,
 		Read: func(ctx context.Context, id string, inputs resource.PropertyMap) (map[string]any, bool, error) {
-			return readRoleAssignment(ctx, id, inputs, crudClient, subsClient, &res, azureClient)
+			return readRoleAssignment(ctx, id, inputs, client, &res, azureClient)
 		},
 	}, nil
 }
@@ -72,8 +111,7 @@ func readRoleAssignment(
 	ctx context.Context,
 	id string,
 	inputs resource.PropertyMap,
-	crudClient crud.ResourceCrudClient,
-	subsClient *armsubscriptions.Client,
+	client roleAssignmentClient,
 	res *resources.AzureAPIResource,
 	azureClient azure.AzureClient,
 ) (map[string]any, bool, error) {
@@ -95,7 +133,7 @@ func readRoleAssignment(
 		}
 
 		// Get tenant ID for the subscription
-		tenantId, err = getTenantIdForSubscription(ctx, subsClient, subscriptionId)
+		tenantId, err = client.getTenantId(ctx, subscriptionId)
 		if err != nil {
 			return nil, false, fmt.Errorf("failed to get tenant ID for subscription %s: %w", subscriptionId, err)
 		}
@@ -123,7 +161,7 @@ func readRoleAssignment(
 	}
 
 	// Convert response to SDK outputs
-	outputs := crudClient.ResponseBodyToSdkOutputs(response)
+	outputs := client.convertResponseToOutputs(response)
 	return outputs, true, nil
 }
 
@@ -135,22 +173,4 @@ func extractSubscriptionId(resourceId string) (string, error) {
 		return "", fmt.Errorf("could not extract subscription ID from resource ID: %s", resourceId)
 	}
 	return matches[1], nil
-}
-
-// getTenantIdForSubscription retrieves the tenant ID for a given subscription.
-func getTenantIdForSubscription(ctx context.Context, client *armsubscriptions.Client, subscriptionId string) (string, error) {
-	if client == nil {
-		return "", fmt.Errorf("subscriptions client is nil")
-	}
-
-	resp, err := client.Get(ctx, subscriptionId, nil)
-	if err != nil {
-		return "", fmt.Errorf("failed to get subscription %s: %w", subscriptionId, err)
-	}
-
-	if resp.Subscription.TenantID == nil {
-		return "", fmt.Errorf("subscription %s has no tenant ID", subscriptionId)
-	}
-
-	return *resp.Subscription.TenantID, nil
 }
