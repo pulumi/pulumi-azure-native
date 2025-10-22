@@ -3942,6 +3942,11 @@ ContainerService:
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-04-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName}
         RpNamespace: Microsoft.ContainerService
+    MeshMembership:
+        ApiVersion: 2025-08-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-08-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName}
+        RpNamespace: Microsoft.ContainerService
     Namespace:
         ApiVersion: 2025-02-02-preview
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
@@ -4520,6 +4525,11 @@ DBforMySQL:
         ApiVersion: "2023-12-30"
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/stable/2023-12-30/FirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DBforMySQL
+    LongRunningBackup:
+        ApiVersion: 2025-06-01-preview
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/preview/2025-06-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/backupsV2/{backupName}
         RpNamespace: Microsoft.DBforMySQL
     PrivateEndpointConnection:
         ApiVersion: "2023-06-30"
@@ -5728,6 +5738,11 @@ DeviceRegistry:
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/stable/2024-11-01/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}
         RpNamespace: Microsoft.DeviceRegistry
+    Credential:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default
+        RpNamespace: Microsoft.DeviceRegistry
     DiscoveredAsset:
         ApiVersion: 2024-09-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2024-09-01-preview/deviceregistry.json
@@ -5762,6 +5777,11 @@ DeviceRegistry:
         ApiVersion: 2025-07-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}
+        RpNamespace: Microsoft.DeviceRegistry
+    Policy:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName}
         RpNamespace: Microsoft.DeviceRegistry
     Schema:
         ApiVersion: 2024-09-01-preview
