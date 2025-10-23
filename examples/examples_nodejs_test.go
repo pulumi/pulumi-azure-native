@@ -346,6 +346,16 @@ https://stackoverflow.com/questions/79454225/turn-off-notifications-like-pim-tes
 	integration.ProgramTest(t, &test)
 }
 
+func TestRoleAssignmentsTs(t *testing.T) {
+	skipIfShort(t)
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "roleassignments"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccPIMRoleManagementPolicies(t *testing.T) {
 	skipIfShort(t)
 

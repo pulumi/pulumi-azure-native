@@ -1779,21 +1779,44 @@ func (l *inMemoryLoader) LoadPackageV2(ctx context.Context, descriptor *pschema.
 	return nil, errors.Errorf("package %s not found in the in-memory map", descriptor.Name)
 }
 
-// GoModVersion Creates a valid go mod version from our pulumictl version.
-// Essentially, this removes any '+xxx' additions. See tests for examples.
+// GoModVersion creates a valid Go module version from our pulumictl version.
+//
+// Go modules don't support build metadata (the +xxx part of semver), so this function
+// transforms versions by moving build metadata into the prerelease section. The
+// transformation works by:
+//  1. Keeping only the first prerelease component (e.g., "alpha")
+//  2. Appending the build metadata as additional prerelease components
+//  3. Clearing the build metadata field
+//
+// Examples:
+//   - 1.1.0-alpha.0+9fa804e8         → v1.1.0-alpha.9fa804e8
+//   - 1.1.0-alpha.0+9fa804e8.dirty   → v1.1.0-alpha.9fa804e8.dirty
+//   - 3.9.0-alpha.1761105334+0701526 → v3.9.0-alpha.g0701526
+//
+// Special handling: Build metadata starting with '0' (like commit SHA 0701526) is
+// prefixed with 'g' to avoid creating numeric prerelease identifiers with leading
+// zeros, which violate Go's semver rules and cause go.mod parsing errors.
 func GoModVersion(packageVersion *semver.Version) string {
 	if packageVersion == nil {
 		return "latest"
 	}
 	buildVersion := *packageVersion
-	// If the version has a prerelease with a build number like 0+9fa804e8, make if Go-compatible by simplifying to 9fa804e8.
+	// If the version has a prerelease with build metadata, move the build metadata
+	// into the prerelease section to make it Go module compatible.
 	if buildVersion.Pre != nil && buildVersion.Build != nil {
 		buildVersion.Pre = buildVersion.Pre[:1]
 		for _, build := range buildVersion.Build {
+			// Prefix build metadata starting with '0' with 'g' to avoid numeric
+			// identifiers with leading zeros (e.g., "0701526" → "g0701526").
+			// This prevents go.mod parse errors since numeric identifiers cannot
+			// have leading zeros per Go's semver specification.
+			if strings.HasPrefix(build, "0") {
+				build = "g" + build
+			}
 			buildVersion.Pre = append(buildVersion.Pre, semver.PRVersion{VersionStr: build})
 		}
 	}
-	// Ignore build versions
+	// Clear build metadata since we've moved it to prerelease
 	buildVersion.Build = nil
 	return "v" + buildVersion.String()
 }
