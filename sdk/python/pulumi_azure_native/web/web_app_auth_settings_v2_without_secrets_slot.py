@@ -18,13 +18,14 @@ from . import outputs
 from ._enums import *
 from ._inputs import *
 
-__all__ = ['WebAppAuthSettingsV2Args', 'WebAppAuthSettingsV2']
+__all__ = ['WebAppAuthSettingsV2WithoutSecretsSlotArgs', 'WebAppAuthSettingsV2WithoutSecretsSlot']
 
 @pulumi.input_type
-class WebAppAuthSettingsV2Args:
+class WebAppAuthSettingsV2WithoutSecretsSlotArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[builtins.str],
                  resource_group_name: pulumi.Input[builtins.str],
+                 slot: pulumi.Input[builtins.str],
                  global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
                  http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
                  identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
@@ -32,9 +33,10 @@ class WebAppAuthSettingsV2Args:
                  login: Optional[pulumi.Input['LoginArgs']] = None,
                  platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
         """
-        The set of arguments for constructing a WebAppAuthSettingsV2 resource.
+        The set of arguments for constructing a WebAppAuthSettingsV2WithoutSecretsSlot resource.
         :param pulumi.Input[builtins.str] name: Name of web app.
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
         :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
         :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
         :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
@@ -44,6 +46,7 @@ class WebAppAuthSettingsV2Args:
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "slot", slot)
         if global_validation is not None:
             pulumi.set(__self__, "global_validation", global_validation)
         if http_settings is not None:
@@ -80,6 +83,18 @@ class WebAppAuthSettingsV2Args:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter
+    def slot(self) -> pulumi.Input[builtins.str]:
+        """
+        Name of web app slot. If not specified then will default to production slot.
+        """
+        return pulumi.get(self, "slot")
+
+    @slot.setter
+    def slot(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "slot", value)
 
     @property
     @pulumi.getter(name="globalValidation")
@@ -154,8 +169,8 @@ class WebAppAuthSettingsV2Args:
         pulumi.set(self, "platform", value)
 
 
-@pulumi.type_token("azure-native:web:WebAppAuthSettingsV2")
-class WebAppAuthSettingsV2(pulumi.CustomResource):
+@pulumi.type_token("azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot")
+class WebAppAuthSettingsV2WithoutSecretsSlot(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -168,13 +183,14 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 slot: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
 
-        Uses Azure REST API version 2021-02-01. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-04-01.
 
-        Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -186,27 +202,28 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] name: Name of web app.
         :param pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']] platform: The configuration settings of the platform of App Service Authentication/Authorization.
         :param pulumi.Input[builtins.str] resource_group_name: Name of the resource group to which the resource belongs.
+        :param pulumi.Input[builtins.str] slot: Name of web app slot. If not specified then will default to production slot.
         """
         ...
     @overload
     def __init__(__self__,
                  resource_name: str,
-                 args: WebAppAuthSettingsV2Args,
+                 args: WebAppAuthSettingsV2WithoutSecretsSlotArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
 
-        Uses Azure REST API version 2021-02-01. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
+        Uses Azure REST API version 2024-04-01.
 
-        Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
-        :param WebAppAuthSettingsV2Args args: The arguments to use to populate this resource's properties.
+        :param WebAppAuthSettingsV2WithoutSecretsSlotArgs args: The arguments to use to populate this resource's properties.
         :param pulumi.ResourceOptions opts: Options for the resource.
         """
         ...
     def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(WebAppAuthSettingsV2Args, pulumi.ResourceOptions, *args, **kwargs)
+        resource_args, opts = _utilities.get_resource_args_opts(WebAppAuthSettingsV2WithoutSecretsSlotArgs, pulumi.ResourceOptions, *args, **kwargs)
         if resource_args is not None:
             __self__._internal_init(resource_name, opts, **resource_args.__dict__)
         else:
@@ -223,6 +240,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  platform: Optional[pulumi.Input[Union['AuthPlatformArgs', 'AuthPlatformArgsDict']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
+                 slot: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -230,7 +248,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         if opts.id is None:
             if __props__ is not None:
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = WebAppAuthSettingsV2Args.__new__(WebAppAuthSettingsV2Args)
+            __props__ = WebAppAuthSettingsV2WithoutSecretsSlotArgs.__new__(WebAppAuthSettingsV2WithoutSecretsSlotArgs)
 
             __props__.__dict__["global_validation"] = global_validation
             __props__.__dict__["http_settings"] = http_settings
@@ -244,12 +262,15 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if slot is None and not opts.urn:
+                raise TypeError("Missing required property 'slot'")
+            __props__.__dict__["slot"] = slot
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppAuthSettingsV2"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppAuthSettingsV2")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20200601:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20200901:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20201001:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20201201:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20210101:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20210115:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2Slot"), pulumi.Alias(type_="azure-native:web/v20210201:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20210301:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20220301:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20220901:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20230101:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20231201:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20240401:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web/v20241101:WebAppAuthSettingsV2WithoutSecretsSlot"), pulumi.Alias(type_="azure-native:web:WebAppAuthSettingsV2Slot")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(WebAppAuthSettingsV2, __self__).__init__(
-            'azure-native:web:WebAppAuthSettingsV2',
+        super(WebAppAuthSettingsV2WithoutSecretsSlot, __self__).__init__(
+            'azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot',
             resource_name,
             __props__,
             opts)
@@ -257,9 +278,9 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
     @staticmethod
     def get(resource_name: str,
             id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppAuthSettingsV2':
+            opts: Optional[pulumi.ResourceOptions] = None) -> 'WebAppAuthSettingsV2WithoutSecretsSlot':
         """
-        Get an existing WebAppAuthSettingsV2 resource's state with the given name, id, and optional extra
+        Get an existing WebAppAuthSettingsV2WithoutSecretsSlot resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
 
         :param str resource_name: The unique name of the resulting resource.
@@ -268,7 +289,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
-        __props__ = WebAppAuthSettingsV2Args.__new__(WebAppAuthSettingsV2Args)
+        __props__ = WebAppAuthSettingsV2WithoutSecretsSlotArgs.__new__(WebAppAuthSettingsV2WithoutSecretsSlotArgs)
 
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["global_validation"] = None
@@ -279,7 +300,7 @@ class WebAppAuthSettingsV2(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["platform"] = None
         __props__.__dict__["type"] = None
-        return WebAppAuthSettingsV2(resource_name, opts=opts, __props__=__props__)
+        return WebAppAuthSettingsV2WithoutSecretsSlot(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="azureApiVersion")

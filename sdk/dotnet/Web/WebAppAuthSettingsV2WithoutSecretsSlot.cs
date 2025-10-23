@@ -12,12 +12,12 @@ namespace Pulumi.AzureNative.Web
     /// <summary>
     /// Configuration settings for the Azure App Service Authentication / Authorization V2 feature.
     /// 
-    /// Uses Azure REST API version 2021-02-01. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
+    /// Uses Azure REST API version 2024-04-01.
     /// 
-    /// Other available API versions: 2020-06-01, 2020-09-01, 2020-10-01, 2020-12-01, 2021-01-01, 2021-01-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2021-03-01, 2022-03-01, 2022-09-01, 2023-01-01, 2023-12-01, 2024-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
-    [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2")]
-    public partial class WebAppAuthSettingsV2 : global::Pulumi.CustomResource
+    [AzureNativeResourceType("azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot")]
+    public partial class WebAppAuthSettingsV2WithoutSecretsSlot : global::Pulumi.CustomResource
     {
         /// <summary>
         /// The Azure API version of the resource.
@@ -75,19 +75,19 @@ namespace Pulumi.AzureNative.Web
 
 
         /// <summary>
-        /// Create a WebAppAuthSettingsV2 resource with the given unique name, arguments, and options.
+        /// Create a WebAppAuthSettingsV2WithoutSecretsSlot resource with the given unique name, arguments, and options.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WebAppAuthSettingsV2(string name, WebAppAuthSettingsV2Args args, CustomResourceOptions? options = null)
-            : base("azure-native:web:WebAppAuthSettingsV2", name, args ?? new WebAppAuthSettingsV2Args(), MakeResourceOptions(options, ""))
+        public WebAppAuthSettingsV2WithoutSecretsSlot(string name, WebAppAuthSettingsV2WithoutSecretsSlotArgs args, CustomResourceOptions? options = null)
+            : base("azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot", name, args ?? new WebAppAuthSettingsV2WithoutSecretsSlotArgs(), MakeResourceOptions(options, ""))
         {
         }
 
-        private WebAppAuthSettingsV2(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:web:WebAppAuthSettingsV2", name, null, MakeResourceOptions(options, id))
+        private WebAppAuthSettingsV2WithoutSecretsSlot(string name, Input<string> id, CustomResourceOptions? options = null)
+            : base("azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot", name, null, MakeResourceOptions(options, id))
         {
         }
 
@@ -98,20 +98,23 @@ namespace Pulumi.AzureNative.Web
                 Version = Utilities.Version,
                 Aliases =
                 {
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppAuthSettingsV2" },
-                    new global::Pulumi.Alias { Type = "azure-native:web/v20241101:WebAppAuthSettingsV2" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200601:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20200901:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20201201:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20241101:WebAppAuthSettingsV2WithoutSecretsSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2Slot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -120,20 +123,20 @@ namespace Pulumi.AzureNative.Web
             return merged;
         }
         /// <summary>
-        /// Get an existing WebAppAuthSettingsV2 resource's state with the given name, ID, and optional extra
+        /// Get an existing WebAppAuthSettingsV2WithoutSecretsSlot resource's state with the given name, ID, and optional extra
         /// properties used to qualify the lookup.
         /// </summary>
         ///
         /// <param name="name">The unique name of the resulting resource.</param>
         /// <param name="id">The unique provider ID of the resource to lookup.</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static WebAppAuthSettingsV2 Get(string name, Input<string> id, CustomResourceOptions? options = null)
+        public static WebAppAuthSettingsV2WithoutSecretsSlot Get(string name, Input<string> id, CustomResourceOptions? options = null)
         {
-            return new WebAppAuthSettingsV2(name, id, options);
+            return new WebAppAuthSettingsV2WithoutSecretsSlot(name, id, options);
         }
     }
 
-    public sealed class WebAppAuthSettingsV2Args : global::Pulumi.ResourceArgs
+    public sealed class WebAppAuthSettingsV2WithoutSecretsSlotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
@@ -183,9 +186,15 @@ namespace Pulumi.AzureNative.Web
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
-        public WebAppAuthSettingsV2Args()
+        /// <summary>
+        /// Name of web app slot. If not specified then will default to production slot.
+        /// </summary>
+        [Input("slot", required: true)]
+        public Input<string> Slot { get; set; } = null!;
+
+        public WebAppAuthSettingsV2WithoutSecretsSlotArgs()
         {
         }
-        public static new WebAppAuthSettingsV2Args Empty => new WebAppAuthSettingsV2Args();
+        public static new WebAppAuthSettingsV2WithoutSecretsSlotArgs Empty => new WebAppAuthSettingsV2WithoutSecretsSlotArgs();
     }
 }
