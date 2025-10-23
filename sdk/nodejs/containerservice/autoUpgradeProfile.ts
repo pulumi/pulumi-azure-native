@@ -44,46 +44,46 @@ export class AutoUpgradeProfile extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configures how auto-upgrade will be run.
      */
-    public readonly channel!: pulumi.Output<string>;
+    declare public readonly channel: pulumi.Output<string>;
     /**
      * If set to False: the auto upgrade has effect - target managed clusters will be upgraded on schedule.
      * If set to True: the auto upgrade has no effect - no upgrade will be run on the target managed clusters.
      * This is a boolean and not an enum because enabled/disabled are all available states of the auto upgrade profile.
      * By default, this is set to False.
      */
-    public readonly disabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly disabled: pulumi.Output<boolean | undefined>;
     /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The node image upgrade to be applied to the target clusters in auto upgrade.
      */
-    public readonly nodeImageSelection!: pulumi.Output<outputs.containerservice.AutoUpgradeNodeImageSelectionResponse | undefined>;
+    declare public readonly nodeImageSelection: pulumi.Output<outputs.containerservice.AutoUpgradeNodeImageSelectionResponse | undefined>;
     /**
      * The provisioning state of the AutoUpgradeProfile resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerservice.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The resource id of the UpdateStrategy resource to reference. If not specified, the auto upgrade will run on all clusters which are members of the fleet.
      */
-    public readonly updateStrategyId!: pulumi.Output<string | undefined>;
+    declare public readonly updateStrategyId: pulumi.Output<string | undefined>;
 
     /**
      * Create a AutoUpgradeProfile resource with the given unique name, arguments, and options.
@@ -96,22 +96,22 @@ export class AutoUpgradeProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.channel === undefined) && !opts.urn) {
+            if (args?.channel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channel'");
             }
-            if ((!args || args.fleetName === undefined) && !opts.urn) {
+            if (args?.fleetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'fleetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoUpgradeProfileName"] = args ? args.autoUpgradeProfileName : undefined;
-            resourceInputs["channel"] = args ? args.channel : undefined;
-            resourceInputs["disabled"] = args ? args.disabled : undefined;
-            resourceInputs["fleetName"] = args ? args.fleetName : undefined;
-            resourceInputs["nodeImageSelection"] = args ? args.nodeImageSelection : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["updateStrategyId"] = args ? args.updateStrategyId : undefined;
+            resourceInputs["autoUpgradeProfileName"] = args?.autoUpgradeProfileName;
+            resourceInputs["channel"] = args?.channel;
+            resourceInputs["disabled"] = args?.disabled;
+            resourceInputs["fleetName"] = args?.fleetName;
+            resourceInputs["nodeImageSelection"] = args?.nodeImageSelection;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["updateStrategyId"] = args?.updateStrategyId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

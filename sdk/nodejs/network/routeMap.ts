@@ -44,35 +44,35 @@ export class RouteMap extends pulumi.CustomResource {
     /**
      * List of connections which have this RoutMap associated for inbound traffic.
      */
-    public readonly associatedInboundConnections!: pulumi.Output<string[] | undefined>;
+    declare public readonly associatedInboundConnections: pulumi.Output<string[] | undefined>;
     /**
      * List of connections which have this RoutMap associated for outbound traffic.
      */
-    public readonly associatedOutboundConnections!: pulumi.Output<string[] | undefined>;
+    declare public readonly associatedOutboundConnections: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the RouteMap resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of RouteMap rules to be applied.
      */
-    public readonly rules!: pulumi.Output<outputs.network.RouteMapRuleResponse[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.network.RouteMapRuleResponse[] | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RouteMap resource with the given unique name, arguments, and options.
@@ -85,19 +85,19 @@ export class RouteMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualHubName === undefined) && !opts.urn) {
+            if (args?.virtualHubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualHubName'");
             }
-            resourceInputs["associatedInboundConnections"] = args ? args.associatedInboundConnections : undefined;
-            resourceInputs["associatedOutboundConnections"] = args ? args.associatedOutboundConnections : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeMapName"] = args ? args.routeMapName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["virtualHubName"] = args ? args.virtualHubName : undefined;
+            resourceInputs["associatedInboundConnections"] = args?.associatedInboundConnections;
+            resourceInputs["associatedOutboundConnections"] = args?.associatedOutboundConnections;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeMapName"] = args?.routeMapName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["virtualHubName"] = args?.virtualHubName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

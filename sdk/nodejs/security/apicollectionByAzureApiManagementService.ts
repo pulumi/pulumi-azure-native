@@ -39,55 +39,55 @@ export class APICollectionByAzureApiManagementService extends pulumi.CustomResou
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The base URI for this API collection. All endpoints of this API collection extend this base URI.
      */
-    public /*out*/ readonly baseUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly baseUrl: pulumi.Output<string>;
     /**
      * The resource Id of the resource from where this API collection was discovered.
      */
-    public /*out*/ readonly discoveredVia!: pulumi.Output<string>;
+    declare public /*out*/ readonly discoveredVia: pulumi.Output<string>;
     /**
      * The display name of the API collection.
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The number of API endpoints discovered in this API collection.
      */
-    public /*out*/ readonly numberOfApiEndpoints!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfApiEndpoints: pulumi.Output<number>;
     /**
      * The number of API endpoints in this API collection which are exposing sensitive data in their requests and/or responses.
      */
-    public /*out*/ readonly numberOfApiEndpointsWithSensitiveDataExposed!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfApiEndpointsWithSensitiveDataExposed: pulumi.Output<number>;
     /**
      * The number of API endpoints in this API collection for which API traffic from the internet was observed.
      */
-    public /*out*/ readonly numberOfExternalApiEndpoints!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfExternalApiEndpoints: pulumi.Output<number>;
     /**
      * The number of API endpoints in this API collection that have not received any API traffic in the last 30 days.
      */
-    public /*out*/ readonly numberOfInactiveApiEndpoints!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfInactiveApiEndpoints: pulumi.Output<number>;
     /**
      * The number of API endpoints in this API collection that are unauthenticated.
      */
-    public /*out*/ readonly numberOfUnauthenticatedApiEndpoints!: pulumi.Output<number>;
+    declare public /*out*/ readonly numberOfUnauthenticatedApiEndpoints: pulumi.Output<number>;
     /**
      * Gets the provisioning state of the API collection.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The highest priority sensitivity label from Microsoft Purview in this API collection.
      */
-    public /*out*/ readonly sensitivityLabel!: pulumi.Output<string>;
+    declare public /*out*/ readonly sensitivityLabel: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a APICollectionByAzureApiManagementService resource with the given unique name, arguments, and options.
@@ -100,15 +100,15 @@ export class APICollectionByAzureApiManagementService extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["apiId"] = args ? args.apiId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["apiId"] = args?.apiId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["baseUrl"] = undefined /*out*/;
             resourceInputs["discoveredVia"] = undefined /*out*/;

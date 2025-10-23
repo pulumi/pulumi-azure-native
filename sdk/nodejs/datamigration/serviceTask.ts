@@ -44,27 +44,27 @@ export class ServiceTask extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * HTTP strong entity tag value. This is ignored if submitted.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Custom task properties
      */
-    public readonly properties!: pulumi.Output<outputs.datamigration.ConnectToMongoDbTaskPropertiesResponse | outputs.datamigration.ConnectToSourceMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToSourceOracleSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse | outputs.datamigration.GetTdeCertificatesSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesMySqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesOracleTaskPropertiesResponse | outputs.datamigration.GetUserTablesPostgreSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlSyncTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.MigrateMongoDbTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.MigrateSsisTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.ValidateMongoDbTaskPropertiesResponse | outputs.datamigration.ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.datamigration.ConnectToMongoDbTaskPropertiesResponse | outputs.datamigration.ConnectToSourceMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToSourceOracleSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourcePostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerSyncTaskPropertiesResponse | outputs.datamigration.ConnectToSourceSqlServerTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForMySqlTaskPropertiesResponse | outputs.datamigration.ConnectToTargetAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlDbTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMISyncTaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlMITaskPropertiesResponse | outputs.datamigration.ConnectToTargetSqlSqlDbSyncTaskPropertiesResponse | outputs.datamigration.GetTdeCertificatesSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesMySqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesOracleTaskPropertiesResponse | outputs.datamigration.GetUserTablesPostgreSqlTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlSyncTaskPropertiesResponse | outputs.datamigration.GetUserTablesSqlTaskPropertiesResponse | outputs.datamigration.MigrateMongoDbTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlOfflineTaskPropertiesResponse | outputs.datamigration.MigrateMySqlAzureDbForMySqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigratePostgreSqlAzureDbForPostgreSqlSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlDbTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.MigrateSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.MigrateSsisTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlDbSyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMISyncTaskPropertiesResponse | outputs.datamigration.ValidateMigrationInputSqlServerSqlMITaskPropertiesResponse | outputs.datamigration.ValidateMongoDbTaskPropertiesResponse | outputs.datamigration.ValidateOracleAzureDbForPostgreSqlSyncTaskPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServiceTask resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class ServiceTask extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupName === undefined) && !opts.urn) {
+            if (args?.groupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["groupName"] = args ? args.groupName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["taskName"] = args ? args.taskName : undefined;
+            resourceInputs["groupName"] = args?.groupName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["taskName"] = args?.taskName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

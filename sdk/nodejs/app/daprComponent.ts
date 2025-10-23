@@ -44,55 +44,55 @@ export class DaprComponent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Component type
      */
-    public readonly componentType!: pulumi.Output<string | undefined>;
+    declare public readonly componentType: pulumi.Output<string | undefined>;
     /**
      * Boolean describing if the component errors are ignores
      */
-    public readonly ignoreErrors!: pulumi.Output<boolean | undefined>;
+    declare public readonly ignoreErrors: pulumi.Output<boolean | undefined>;
     /**
      * Initialization timeout
      */
-    public readonly initTimeout!: pulumi.Output<string | undefined>;
+    declare public readonly initTimeout: pulumi.Output<string | undefined>;
     /**
      * Component metadata
      */
-    public readonly metadata!: pulumi.Output<outputs.app.DaprMetadataResponse[] | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.app.DaprMetadataResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Names of container apps that can use this Dapr component
      */
-    public readonly scopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly scopes: pulumi.Output<string[] | undefined>;
     /**
      * Name of a Dapr component to retrieve component secrets from
      */
-    public readonly secretStoreComponent!: pulumi.Output<string | undefined>;
+    declare public readonly secretStoreComponent: pulumi.Output<string | undefined>;
     /**
      * Collection of secrets used by a Dapr component
      */
-    public readonly secrets!: pulumi.Output<outputs.app.SecretResponse[] | undefined>;
+    declare public readonly secrets: pulumi.Output<outputs.app.SecretResponse[] | undefined>;
     /**
      * List of container app services that are bound to the Dapr component
      */
-    public readonly serviceComponentBind!: pulumi.Output<outputs.app.DaprComponentServiceBindingResponse[] | undefined>;
+    declare public readonly serviceComponentBind: pulumi.Output<outputs.app.DaprComponentServiceBindingResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Component version
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a DaprComponent resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class DaprComponent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["componentName"] = args ? args.componentName : undefined;
-            resourceInputs["componentType"] = args ? args.componentType : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["ignoreErrors"] = (args ? args.ignoreErrors : undefined) ?? false;
-            resourceInputs["initTimeout"] = args ? args.initTimeout : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scopes"] = args ? args.scopes : undefined;
-            resourceInputs["secretStoreComponent"] = args ? args.secretStoreComponent : undefined;
-            resourceInputs["secrets"] = args ? args.secrets : undefined;
-            resourceInputs["serviceComponentBind"] = args ? args.serviceComponentBind : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["componentName"] = args?.componentName;
+            resourceInputs["componentType"] = args?.componentType;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["ignoreErrors"] = (args?.ignoreErrors) ?? false;
+            resourceInputs["initTimeout"] = args?.initTimeout;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scopes"] = args?.scopes;
+            resourceInputs["secretStoreComponent"] = args?.secretStoreComponent;
+            resourceInputs["secrets"] = args?.secrets;
+            resourceInputs["serviceComponentBind"] = args?.serviceComponentBind;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

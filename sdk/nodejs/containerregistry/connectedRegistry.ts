@@ -44,71 +44,71 @@ export class ConnectedRegistry extends pulumi.CustomResource {
     /**
      * The activation properties of the connected registry.
      */
-    public /*out*/ readonly activation!: pulumi.Output<outputs.containerregistry.ActivationPropertiesResponse>;
+    declare public /*out*/ readonly activation: pulumi.Output<outputs.containerregistry.ActivationPropertiesResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of the ACR token resource IDs used to authenticate clients to the connected registry.
      */
-    public readonly clientTokenIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly clientTokenIds: pulumi.Output<string[] | undefined>;
     /**
      * The current connection state of the connected registry.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<string>;
     /**
      * The garbage collection properties of the connected registry.
      */
-    public readonly garbageCollection!: pulumi.Output<outputs.containerregistry.GarbageCollectionPropertiesResponse | undefined>;
+    declare public readonly garbageCollection: pulumi.Output<outputs.containerregistry.GarbageCollectionPropertiesResponse | undefined>;
     /**
      * The last activity time of the connected registry.
      */
-    public /*out*/ readonly lastActivityTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastActivityTime: pulumi.Output<string>;
     /**
      * The logging properties of the connected registry.
      */
-    public readonly logging!: pulumi.Output<outputs.containerregistry.LoggingPropertiesResponse | undefined>;
+    declare public readonly logging: pulumi.Output<outputs.containerregistry.LoggingPropertiesResponse | undefined>;
     /**
      * The login server properties of the connected registry.
      */
-    public /*out*/ readonly loginServer!: pulumi.Output<outputs.containerregistry.LoginServerPropertiesResponse | undefined>;
+    declare public /*out*/ readonly loginServer: pulumi.Output<outputs.containerregistry.LoginServerPropertiesResponse | undefined>;
     /**
      * The mode of the connected registry resource that indicates the permissions of the registry.
      */
-    public readonly mode!: pulumi.Output<string>;
+    declare public readonly mode: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of notifications subscription information for the connected registry.
      */
-    public readonly notificationsList!: pulumi.Output<string[] | undefined>;
+    declare public readonly notificationsList: pulumi.Output<string[] | undefined>;
     /**
      * The parent of the connected registry.
      */
-    public readonly parent!: pulumi.Output<outputs.containerregistry.ParentPropertiesResponse>;
+    declare public readonly parent: pulumi.Output<outputs.containerregistry.ParentPropertiesResponse>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The list of current statuses of the connected registry.
      */
-    public /*out*/ readonly statusDetails!: pulumi.Output<outputs.containerregistry.StatusDetailPropertiesResponse[]>;
+    declare public /*out*/ readonly statusDetails: pulumi.Output<outputs.containerregistry.StatusDetailPropertiesResponse[]>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerregistry.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The current version of ACR runtime on the connected registry.
      */
-    public /*out*/ readonly version!: pulumi.Output<string>;
+    declare public /*out*/ readonly version: pulumi.Output<string>;
 
     /**
      * Create a ConnectedRegistry resource with the given unique name, arguments, and options.
@@ -121,27 +121,27 @@ export class ConnectedRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mode === undefined) && !opts.urn) {
+            if (args?.mode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mode'");
             }
-            if ((!args || args.parent === undefined) && !opts.urn) {
+            if (args?.parent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'parent'");
             }
-            if ((!args || args.registryName === undefined) && !opts.urn) {
+            if (args?.registryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clientTokenIds"] = args ? args.clientTokenIds : undefined;
-            resourceInputs["connectedRegistryName"] = args ? args.connectedRegistryName : undefined;
-            resourceInputs["garbageCollection"] = args ? args.garbageCollection : undefined;
+            resourceInputs["clientTokenIds"] = args?.clientTokenIds;
+            resourceInputs["connectedRegistryName"] = args?.connectedRegistryName;
+            resourceInputs["garbageCollection"] = args?.garbageCollection;
             resourceInputs["logging"] = args ? (args.logging ? pulumi.output(args.logging).apply(inputs.containerregistry.loggingPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["notificationsList"] = args ? args.notificationsList : undefined;
-            resourceInputs["parent"] = args ? args.parent : undefined;
-            resourceInputs["registryName"] = args ? args.registryName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["notificationsList"] = args?.notificationsList;
+            resourceInputs["parent"] = args?.parent;
+            resourceInputs["registryName"] = args?.registryName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["activation"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;

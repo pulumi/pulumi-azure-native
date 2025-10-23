@@ -44,43 +44,43 @@ export class MigrationConfig extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * State in which Standard to Premium Migration is, possible values : Unknown, Reverting, Completing, Initiating, Syncing, Active
      */
-    public /*out*/ readonly migrationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly migrationState: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Number of entities pending to be replicated.
      */
-    public /*out*/ readonly pendingReplicationOperationsCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly pendingReplicationOperationsCount: pulumi.Output<number>;
     /**
      * Name to access Standard Namespace after migration
      */
-    public readonly postMigrationName!: pulumi.Output<string>;
+    declare public readonly postMigrationName: pulumi.Output<string>;
     /**
      * Provisioning state of Migration Configuration 
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicebus.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicebus.SystemDataResponse>;
     /**
      * Existing premium Namespace ARM Id name which has no entities, will be used for migration
      */
-    public readonly targetNamespace!: pulumi.Output<string>;
+    declare public readonly targetNamespace: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MigrationConfig resource with the given unique name, arguments, and options.
@@ -93,23 +93,23 @@ export class MigrationConfig extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.postMigrationName === undefined) && !opts.urn) {
+            if (args?.postMigrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'postMigrationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetNamespace === undefined) && !opts.urn) {
+            if (args?.targetNamespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetNamespace'");
             }
-            resourceInputs["configName"] = args ? args.configName : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["postMigrationName"] = args ? args.postMigrationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetNamespace"] = args ? args.targetNamespace : undefined;
+            resourceInputs["configName"] = args?.configName;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["postMigrationName"] = args?.postMigrationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetNamespace"] = args?.targetNamespace;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["migrationState"] = undefined /*out*/;

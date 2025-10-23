@@ -42,55 +42,55 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * The allowed subnets of the virtual network.
      */
-    public readonly allowedSubnets!: pulumi.Output<outputs.devtestlab.SubnetResponse[] | undefined>;
+    declare public readonly allowedSubnets: pulumi.Output<outputs.devtestlab.SubnetResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the virtual network.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The description of the virtual network.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The Microsoft.Network resource identifier of the virtual network.
      */
-    public readonly externalProviderResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly externalProviderResourceId: pulumi.Output<string | undefined>;
     /**
      * The external subnet properties.
      */
-    public /*out*/ readonly externalSubnets!: pulumi.Output<outputs.devtestlab.ExternalSubnetResponse[]>;
+    declare public /*out*/ readonly externalSubnets: pulumi.Output<outputs.devtestlab.ExternalSubnetResponse[]>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The subnet overrides of the virtual network.
      */
-    public readonly subnetOverrides!: pulumi.Output<outputs.devtestlab.SubnetOverrideResponse[] | undefined>;
+    declare public readonly subnetOverrides: pulumi.Output<outputs.devtestlab.SubnetOverrideResponse[] | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -103,21 +103,21 @@ export class VirtualNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["allowedSubnets"] = args ? args.allowedSubnets : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["externalProviderResourceId"] = args ? args.externalProviderResourceId : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnetOverrides"] = args ? args.subnetOverrides : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["allowedSubnets"] = args?.allowedSubnets;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["externalProviderResourceId"] = args?.externalProviderResourceId;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnetOverrides"] = args?.subnetOverrides;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["externalSubnets"] = undefined /*out*/;

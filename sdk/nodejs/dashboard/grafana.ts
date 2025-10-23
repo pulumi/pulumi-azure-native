@@ -44,39 +44,39 @@ export class Grafana extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The managed identity of the grafana resource.
      */
-    public readonly identity!: pulumi.Output<outputs.dashboard.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.dashboard.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the grafana resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Name of the grafana resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Properties specific to the grafana resource.
      */
-    public readonly properties!: pulumi.Output<outputs.dashboard.ManagedGrafanaPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.dashboard.ManagedGrafanaPropertiesResponse>;
     /**
      * The Sku of the grafana resource.
      */
-    public readonly sku!: pulumi.Output<outputs.dashboard.ResourceSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.dashboard.ResourceSkuResponse | undefined>;
     /**
      * The system meta data relating to this grafana resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dashboard.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dashboard.SystemDataResponse>;
     /**
      * The tags for grafana resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the grafana resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Grafana resource with the given unique name, arguments, and options.
@@ -89,16 +89,16 @@ export class Grafana extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.dashboard.managedGrafanaPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

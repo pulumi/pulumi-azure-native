@@ -44,131 +44,131 @@ export class ContentTemplate extends pulumi.CustomResource {
     /**
      * The creator of the content item.
      */
-    public readonly author!: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
+    declare public readonly author: pulumi.Output<outputs.securityinsights.MetadataAuthorResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Categories for the item
      */
-    public readonly categories!: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
+    declare public readonly categories: pulumi.Output<outputs.securityinsights.MetadataCategoriesResponse | undefined>;
     /**
      * Static ID for the content.  Used to identify dependencies and content from solutions or community.  Hard-coded/static for out of the box content and solutions. Dynamic for user-created.  This is the resource name
      */
-    public readonly contentId!: pulumi.Output<string>;
+    declare public readonly contentId: pulumi.Output<string>;
     /**
      * The kind of content the template is for.
      */
-    public readonly contentKind!: pulumi.Output<string>;
+    declare public readonly contentKind: pulumi.Output<string>;
     /**
      * Unique ID for the content. It should be generated based on the contentId of the package, contentId of the template, contentKind of the template and the contentVersion of the template
      */
-    public readonly contentProductId!: pulumi.Output<string>;
+    declare public readonly contentProductId: pulumi.Output<string>;
     /**
      * Schema version of the content. Can be used to distinguish between different flow based on the schema version
      */
-    public readonly contentSchemaVersion!: pulumi.Output<string | undefined>;
+    declare public readonly contentSchemaVersion: pulumi.Output<string | undefined>;
     /**
      * The custom version of the content. A optional free text
      */
-    public readonly customVersion!: pulumi.Output<string | undefined>;
+    declare public readonly customVersion: pulumi.Output<string | undefined>;
     /**
      * Dependant templates. Expandable.
      */
-    public /*out*/ readonly dependantTemplates!: pulumi.Output<outputs.securityinsights.TemplatePropertiesResponse[]>;
+    declare public /*out*/ readonly dependantTemplates: pulumi.Output<outputs.securityinsights.TemplatePropertiesResponse[]>;
     /**
      * Dependencies for the content item, what other content items it requires to work.  Can describe more complex dependencies using a recursive/nested structure. For a single dependency an id/kind/version can be supplied or operator/criteria for complex formats.
      */
-    public readonly dependencies!: pulumi.Output<outputs.securityinsights.MetadataDependenciesResponse | undefined>;
+    declare public readonly dependencies: pulumi.Output<outputs.securityinsights.MetadataDependenciesResponse | undefined>;
     /**
      * The display name of the template
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * first publish date content item
      */
-    public readonly firstPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly firstPublishDate: pulumi.Output<string | undefined>;
     /**
      * the icon identifier. this id can later be fetched from the content metadata
      */
-    public readonly icon!: pulumi.Output<string | undefined>;
+    declare public readonly icon: pulumi.Output<string | undefined>;
     /**
      * Flag indicates if this template is deprecated
      */
-    public /*out*/ readonly isDeprecated!: pulumi.Output<string>;
+    declare public /*out*/ readonly isDeprecated: pulumi.Output<string>;
     /**
      * last publish date for the content item
      */
-    public readonly lastPublishDate!: pulumi.Output<string | undefined>;
+    declare public readonly lastPublishDate: pulumi.Output<string | undefined>;
     /**
      * The JSON of the ARM template to deploy active content. Expandable.
      */
-    public readonly mainTemplate!: pulumi.Output<any | undefined>;
+    declare public readonly mainTemplate: pulumi.Output<any | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * the package Id contains this template
      */
-    public readonly packageId!: pulumi.Output<string>;
+    declare public readonly packageId: pulumi.Output<string>;
     /**
      * the packageKind of the package contains this template
      */
-    public readonly packageKind!: pulumi.Output<string | undefined>;
+    declare public readonly packageKind: pulumi.Output<string | undefined>;
     /**
      * the name of the package contains this template
      */
-    public readonly packageName!: pulumi.Output<string | undefined>;
+    declare public readonly packageName: pulumi.Output<string | undefined>;
     /**
      * Version of the package.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
      */
-    public readonly packageVersion!: pulumi.Output<string>;
+    declare public readonly packageVersion: pulumi.Output<string>;
     /**
      * preview image file names. These will be taken from the solution artifacts
      */
-    public readonly previewImages!: pulumi.Output<string[] | undefined>;
+    declare public readonly previewImages: pulumi.Output<string[] | undefined>;
     /**
      * preview image file names. These will be taken from the solution artifacts. used for dark theme support
      */
-    public readonly previewImagesDark!: pulumi.Output<string[] | undefined>;
+    declare public readonly previewImagesDark: pulumi.Output<string[] | undefined>;
     /**
      * Providers for the content item
      */
-    public readonly providers!: pulumi.Output<string[] | undefined>;
+    declare public readonly providers: pulumi.Output<string[] | undefined>;
     /**
      * Source of the content.  This is where/how it was created.
      */
-    public readonly source!: pulumi.Output<outputs.securityinsights.MetadataSourceResponse>;
+    declare public readonly source: pulumi.Output<outputs.securityinsights.MetadataSourceResponse>;
     /**
      * Support information for the template - type, name, contact information
      */
-    public readonly support!: pulumi.Output<outputs.securityinsights.MetadataSupportResponse | undefined>;
+    declare public readonly support: pulumi.Output<outputs.securityinsights.MetadataSupportResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * the tactics the resource covers
      */
-    public readonly threatAnalysisTactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTactics: pulumi.Output<string[] | undefined>;
     /**
      * the techniques the resource covers, these have to be aligned with the tactics being used
      */
-    public readonly threatAnalysisTechniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly threatAnalysisTechniques: pulumi.Output<string[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the content.  Default and recommended format is numeric (e.g. 1, 1.0, 1.0.0, 1.0.0.0), following ARM metadata best practices.  Can also be any string, but then we cannot guarantee any version checks
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a ContentTemplate resource with the given unique name, arguments, and options.
@@ -181,64 +181,64 @@ export class ContentTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentId === undefined) && !opts.urn) {
+            if (args?.contentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentId'");
             }
-            if ((!args || args.contentKind === undefined) && !opts.urn) {
+            if (args?.contentKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentKind'");
             }
-            if ((!args || args.contentProductId === undefined) && !opts.urn) {
+            if (args?.contentProductId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentProductId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.packageId === undefined) && !opts.urn) {
+            if (args?.packageId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageId'");
             }
-            if ((!args || args.packageVersion === undefined) && !opts.urn) {
+            if (args?.packageVersion === undefined && !opts.urn) {
                 throw new Error("Missing required property 'packageVersion'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["author"] = args ? args.author : undefined;
-            resourceInputs["categories"] = args ? args.categories : undefined;
-            resourceInputs["contentId"] = args ? args.contentId : undefined;
-            resourceInputs["contentKind"] = args ? args.contentKind : undefined;
-            resourceInputs["contentProductId"] = args ? args.contentProductId : undefined;
-            resourceInputs["contentSchemaVersion"] = args ? args.contentSchemaVersion : undefined;
-            resourceInputs["customVersion"] = args ? args.customVersion : undefined;
-            resourceInputs["dependencies"] = args ? args.dependencies : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["firstPublishDate"] = args ? args.firstPublishDate : undefined;
-            resourceInputs["icon"] = args ? args.icon : undefined;
-            resourceInputs["lastPublishDate"] = args ? args.lastPublishDate : undefined;
-            resourceInputs["mainTemplate"] = args ? args.mainTemplate : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageKind"] = args ? args.packageKind : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["packageVersion"] = args ? args.packageVersion : undefined;
-            resourceInputs["previewImages"] = args ? args.previewImages : undefined;
-            resourceInputs["previewImagesDark"] = args ? args.previewImagesDark : undefined;
-            resourceInputs["providers"] = args ? args.providers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["support"] = args ? args.support : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["threatAnalysisTactics"] = args ? args.threatAnalysisTactics : undefined;
-            resourceInputs["threatAnalysisTechniques"] = args ? args.threatAnalysisTechniques : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["author"] = args?.author;
+            resourceInputs["categories"] = args?.categories;
+            resourceInputs["contentId"] = args?.contentId;
+            resourceInputs["contentKind"] = args?.contentKind;
+            resourceInputs["contentProductId"] = args?.contentProductId;
+            resourceInputs["contentSchemaVersion"] = args?.contentSchemaVersion;
+            resourceInputs["customVersion"] = args?.customVersion;
+            resourceInputs["dependencies"] = args?.dependencies;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["firstPublishDate"] = args?.firstPublishDate;
+            resourceInputs["icon"] = args?.icon;
+            resourceInputs["lastPublishDate"] = args?.lastPublishDate;
+            resourceInputs["mainTemplate"] = args?.mainTemplate;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageKind"] = args?.packageKind;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["packageVersion"] = args?.packageVersion;
+            resourceInputs["previewImages"] = args?.previewImages;
+            resourceInputs["previewImagesDark"] = args?.previewImagesDark;
+            resourceInputs["providers"] = args?.providers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["support"] = args?.support;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["threatAnalysisTactics"] = args?.threatAnalysisTactics;
+            resourceInputs["threatAnalysisTechniques"] = args?.threatAnalysisTechniques;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dependantTemplates"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

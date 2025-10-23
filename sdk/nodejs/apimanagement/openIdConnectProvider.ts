@@ -41,43 +41,43 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Client ID of developer console which is the client application.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * Client Secret of developer console which is the client application.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * User-friendly description of OpenID Connect Provider.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * User-friendly OpenID Connect Provider name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Metadata endpoint URI.
      */
-    public readonly metadataEndpoint!: pulumi.Output<string>;
+    declare public readonly metadataEndpoint: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * If true, the Open ID Connect provider will be used in the API documentation in the developer portal. False by default if no value is provided.
      */
-    public readonly useInApiDocumentation!: pulumi.Output<boolean | undefined>;
+    declare public readonly useInApiDocumentation: pulumi.Output<boolean | undefined>;
     /**
      * If true, the Open ID Connect provider may be used in the developer portal test console. True by default if no value is provided.
      */
-    public readonly useInTestConsole!: pulumi.Output<boolean | undefined>;
+    declare public readonly useInTestConsole: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a OpenIdConnectProvider resource with the given unique name, arguments, and options.
@@ -90,31 +90,31 @@ export class OpenIdConnectProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.metadataEndpoint === undefined) && !opts.urn) {
+            if (args?.metadataEndpoint === undefined && !opts.urn) {
                 throw new Error("Missing required property 'metadataEndpoint'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metadataEndpoint"] = args ? args.metadataEndpoint : undefined;
-            resourceInputs["opid"] = args ? args.opid : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["useInApiDocumentation"] = args ? args.useInApiDocumentation : undefined;
-            resourceInputs["useInTestConsole"] = args ? args.useInTestConsole : undefined;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metadataEndpoint"] = args?.metadataEndpoint;
+            resourceInputs["opid"] = args?.opid;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["useInApiDocumentation"] = args?.useInApiDocumentation;
+            resourceInputs["useInTestConsole"] = args?.useInTestConsole;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

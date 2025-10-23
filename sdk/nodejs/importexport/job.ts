@@ -42,35 +42,35 @@ export class Job extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the job identity details
      */
-    public /*out*/ readonly identity!: pulumi.Output<outputs.importexport.IdentityDetailsResponse | undefined>;
+    declare public /*out*/ readonly identity: pulumi.Output<outputs.importexport.IdentityDetailsResponse | undefined>;
     /**
      * Specifies the Azure location where the job is created.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Specifies the name of the job.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the job properties
      */
-    public readonly properties!: pulumi.Output<outputs.importexport.JobDetailsResponse>;
+    declare public readonly properties: pulumi.Output<outputs.importexport.JobDetailsResponse>;
     /**
      * SystemData of ImportExport Jobs.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.importexport.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.importexport.SystemDataResponse>;
     /**
      * Specifies the tags that are assigned to the job.
      */
-    public readonly tags!: pulumi.Output<any | undefined>;
+    declare public readonly tags: pulumi.Output<any | undefined>;
     /**
      * Specifies the type of the job resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -83,14 +83,14 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["location"] = args?.location;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.importexport.jobDetailsArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

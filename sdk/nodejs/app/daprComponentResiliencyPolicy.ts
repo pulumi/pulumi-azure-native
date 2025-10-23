@@ -44,27 +44,27 @@ export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The optional inbound component resiliency policy configuration
      */
-    public readonly inboundPolicy!: pulumi.Output<outputs.app.DaprComponentResiliencyPolicyConfigurationResponse | undefined>;
+    declare public readonly inboundPolicy: pulumi.Output<outputs.app.DaprComponentResiliencyPolicyConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The optional outbound component resiliency policy configuration
      */
-    public readonly outboundPolicy!: pulumi.Output<outputs.app.DaprComponentResiliencyPolicyConfigurationResponse | undefined>;
+    declare public readonly outboundPolicy: pulumi.Output<outputs.app.DaprComponentResiliencyPolicyConfigurationResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DaprComponentResiliencyPolicy resource with the given unique name, arguments, and options.
@@ -77,21 +77,21 @@ export class DaprComponentResiliencyPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.componentName === undefined) && !opts.urn) {
+            if (args?.componentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'componentName'");
             }
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["componentName"] = args ? args.componentName : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["inboundPolicy"] = args ? args.inboundPolicy : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["outboundPolicy"] = args ? args.outboundPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["componentName"] = args?.componentName;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["inboundPolicy"] = args?.inboundPolicy;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["outboundPolicy"] = args?.outboundPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

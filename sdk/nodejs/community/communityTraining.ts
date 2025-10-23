@@ -42,63 +42,63 @@ export class CommunityTraining extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * To indicate whether the Community Training instance has Disaster Recovery enabled
      */
-    public readonly disasterRecoveryEnabled!: pulumi.Output<boolean>;
+    declare public readonly disasterRecoveryEnabled: pulumi.Output<boolean>;
     /**
      * The identity configuration of the Community Training resource
      */
-    public readonly identityConfiguration!: pulumi.Output<outputs.community.IdentityConfigurationPropertiesResponse>;
+    declare public readonly identityConfiguration: pulumi.Output<outputs.community.IdentityConfigurationPropertiesResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The email address of the portal admin
      */
-    public readonly portalAdminEmailAddress!: pulumi.Output<string>;
+    declare public readonly portalAdminEmailAddress: pulumi.Output<string>;
     /**
      * The portal name (website name) of the Community Training instance
      */
-    public readonly portalName!: pulumi.Output<string>;
+    declare public readonly portalName: pulumi.Output<string>;
     /**
      * The email address of the portal owner. Will be used as the primary contact
      */
-    public readonly portalOwnerEmailAddress!: pulumi.Output<string>;
+    declare public readonly portalOwnerEmailAddress: pulumi.Output<string>;
     /**
      * The organization name of the portal owner
      */
-    public readonly portalOwnerOrganizationName!: pulumi.Output<string>;
+    declare public readonly portalOwnerOrganizationName: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    public readonly sku!: pulumi.Output<outputs.community.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.community.SkuResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.community.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.community.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * To indicate whether the Community Training instance has Zone Redundancy enabled
      */
-    public readonly zoneRedundancyEnabled!: pulumi.Output<boolean>;
+    declare public readonly zoneRedundancyEnabled: pulumi.Output<boolean>;
 
     /**
      * Create a CommunityTraining resource with the given unique name, arguments, and options.
@@ -111,42 +111,42 @@ export class CommunityTraining extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.disasterRecoveryEnabled === undefined) && !opts.urn) {
+            if (args?.disasterRecoveryEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'disasterRecoveryEnabled'");
             }
-            if ((!args || args.identityConfiguration === undefined) && !opts.urn) {
+            if (args?.identityConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityConfiguration'");
             }
-            if ((!args || args.portalAdminEmailAddress === undefined) && !opts.urn) {
+            if (args?.portalAdminEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalAdminEmailAddress'");
             }
-            if ((!args || args.portalName === undefined) && !opts.urn) {
+            if (args?.portalName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalName'");
             }
-            if ((!args || args.portalOwnerEmailAddress === undefined) && !opts.urn) {
+            if (args?.portalOwnerEmailAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalOwnerEmailAddress'");
             }
-            if ((!args || args.portalOwnerOrganizationName === undefined) && !opts.urn) {
+            if (args?.portalOwnerOrganizationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'portalOwnerOrganizationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.zoneRedundancyEnabled === undefined) && !opts.urn) {
+            if (args?.zoneRedundancyEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'zoneRedundancyEnabled'");
             }
-            resourceInputs["communityTrainingName"] = args ? args.communityTrainingName : undefined;
-            resourceInputs["disasterRecoveryEnabled"] = args ? args.disasterRecoveryEnabled : undefined;
+            resourceInputs["communityTrainingName"] = args?.communityTrainingName;
+            resourceInputs["disasterRecoveryEnabled"] = args?.disasterRecoveryEnabled;
             resourceInputs["identityConfiguration"] = args ? (args.identityConfiguration ? pulumi.output(args.identityConfiguration).apply(inputs.community.identityConfigurationPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["portalAdminEmailAddress"] = args ? args.portalAdminEmailAddress : undefined;
-            resourceInputs["portalName"] = args ? args.portalName : undefined;
-            resourceInputs["portalOwnerEmailAddress"] = args ? args.portalOwnerEmailAddress : undefined;
-            resourceInputs["portalOwnerOrganizationName"] = args ? args.portalOwnerOrganizationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["portalAdminEmailAddress"] = args?.portalAdminEmailAddress;
+            resourceInputs["portalName"] = args?.portalName;
+            resourceInputs["portalOwnerEmailAddress"] = args?.portalOwnerEmailAddress;
+            resourceInputs["portalOwnerOrganizationName"] = args?.portalOwnerOrganizationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zoneRedundancyEnabled"] = args?.zoneRedundancyEnabled;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

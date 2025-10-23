@@ -44,43 +44,43 @@ export class Cluster extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The identity
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<number>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<number>;
     /**
      * The cluster size
      */
-    public readonly clusterSize!: pulumi.Output<number | undefined>;
+    declare public readonly clusterSize: pulumi.Output<number | undefined>;
     /**
      * The hosts
      */
-    public readonly hosts!: pulumi.Output<string[] | undefined>;
+    declare public readonly hosts: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The state of the cluster provisioning
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU (Stock Keeping Unit) assigned to this resource.
      */
-    public readonly sku!: pulumi.Output<outputs.avs.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.avs.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Name of the vsan datastore associated with the cluster
      */
-    public readonly vsanDatastoreName!: pulumi.Output<string | undefined>;
+    declare public readonly vsanDatastoreName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Cluster resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class Cluster extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterSize"] = args ? args.clusterSize : undefined;
-            resourceInputs["hosts"] = args ? args.hosts : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["vsanDatastoreName"] = args ? args.vsanDatastoreName : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterSize"] = args?.clusterSize;
+            resourceInputs["hosts"] = args?.hosts;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["vsanDatastoreName"] = args?.vsanDatastoreName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

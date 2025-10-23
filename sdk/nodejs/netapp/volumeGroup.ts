@@ -44,31 +44,31 @@ export class VolumeGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Volume group details
      */
-    public readonly groupMetaData!: pulumi.Output<outputs.netapp.VolumeGroupMetaDataResponse | undefined>;
+    declare public readonly groupMetaData: pulumi.Output<outputs.netapp.VolumeGroupMetaDataResponse | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * List of volumes from group
      */
-    public readonly volumes!: pulumi.Output<outputs.netapp.VolumeGroupVolumePropertiesResponse[] | undefined>;
+    declare public readonly volumes: pulumi.Output<outputs.netapp.VolumeGroupVolumePropertiesResponse[] | undefined>;
 
     /**
      * Create a VolumeGroup resource with the given unique name, arguments, and options.
@@ -81,18 +81,18 @@ export class VolumeGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["groupMetaData"] = args ? args.groupMetaData : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
-            resourceInputs["volumes"] = args ? args.volumes : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["groupMetaData"] = args?.groupMetaData;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
+            resourceInputs["volumes"] = args?.volumes;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

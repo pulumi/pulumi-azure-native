@@ -42,55 +42,55 @@ export class Dataset extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Detailed description of the Dataset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Edge location of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsdataprocessor.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsdataprocessor.ExtendedLocationResponse>;
     /**
      * List of keys that can be used for joining on enrich.
      */
-    public readonly keys!: pulumi.Output<{[key: string]: outputs.iotoperationsdataprocessor.DatasetPropertyKeyResponse} | undefined>;
+    declare public readonly keys: pulumi.Output<{[key: string]: outputs.iotoperationsdataprocessor.DatasetPropertyKeyResponse} | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Path to the payload in the message. Enrich will add only the payload to the enriched message, other fields will not be kept except for in the indexes.
      */
-    public readonly payload!: pulumi.Output<string | undefined>;
+    declare public readonly payload: pulumi.Output<string | undefined>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsdataprocessor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsdataprocessor.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Path to an RFC3339 timestamp in the message. If no path is provided, the ingestion time of the record is used for time-based joins.
      */
-    public readonly timestamp!: pulumi.Output<string | undefined>;
+    declare public readonly timestamp: pulumi.Output<string | undefined>;
     /**
      * Time to live for individual records.
      */
-    public readonly ttl!: pulumi.Output<string | undefined>;
+    declare public readonly ttl: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Dataset resource with the given unique name, arguments, and options.
@@ -103,26 +103,26 @@ export class Dataset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.instanceName === undefined) && !opts.urn) {
+            if (args?.instanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'instanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["datasetName"] = args ? args.datasetName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["instanceName"] = args ? args.instanceName : undefined;
-            resourceInputs["keys"] = args ? args.keys : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["payload"] = args ? args.payload : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timestamp"] = args ? args.timestamp : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["datasetName"] = args?.datasetName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["instanceName"] = args?.instanceName;
+            resourceInputs["keys"] = args?.keys;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["payload"] = args?.payload;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timestamp"] = args?.timestamp;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

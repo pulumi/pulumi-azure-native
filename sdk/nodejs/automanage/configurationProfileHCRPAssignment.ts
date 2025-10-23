@@ -44,27 +44,27 @@ export class ConfigurationProfileHCRPAssignment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Azure resource id. Indicates if this resource is managed by another Azure resource.
      */
-    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Properties of the configuration profile assignment.
      */
-    public readonly properties!: pulumi.Output<outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.automanage.ConfigurationProfileAssignmentPropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automanage.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automanage.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationProfileHCRPAssignment resource with the given unique name, arguments, and options.
@@ -77,16 +77,16 @@ export class ConfigurationProfileHCRPAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.machineName === undefined) && !opts.urn) {
+            if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["configurationProfileAssignmentName"] = args ? args.configurationProfileAssignmentName : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["configurationProfileAssignmentName"] = args?.configurationProfileAssignmentName;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

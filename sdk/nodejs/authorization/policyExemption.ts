@@ -44,55 +44,55 @@ export class PolicyExemption extends pulumi.CustomResource {
     /**
      * The option whether validate the exemption is at or under the assignment scope.
      */
-    public readonly assignmentScopeValidation!: pulumi.Output<string | undefined>;
+    declare public readonly assignmentScopeValidation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The description of the policy exemption.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy exemption.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The policy exemption category. Possible values are Waiver and Mitigated.
      */
-    public readonly exemptionCategory!: pulumi.Output<string>;
+    declare public readonly exemptionCategory: pulumi.Output<string>;
     /**
      * The expiration date and time (in UTC ISO 8601 format yyyy-MM-ddTHH:mm:ssZ) of the policy exemption.
      */
-    public readonly expiresOn!: pulumi.Output<string | undefined>;
+    declare public readonly expiresOn: pulumi.Output<string | undefined>;
     /**
      * The policy exemption metadata. Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * The name of the policy exemption.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ID of the policy assignment that is being exempted.
      */
-    public readonly policyAssignmentId!: pulumi.Output<string>;
+    declare public readonly policyAssignmentId: pulumi.Output<string>;
     /**
      * The policy definition reference ID list when the associated policy assignment is an assignment of a policy set definition.
      */
-    public readonly policyDefinitionReferenceIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly policyDefinitionReferenceIds: pulumi.Output<string[] | undefined>;
     /**
      * The resource selector list to filter policies by resource properties.
      */
-    public readonly resourceSelectors!: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
+    declare public readonly resourceSelectors: pulumi.Output<outputs.authorization.ResourceSelectorResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/policyExemptions).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PolicyExemption resource with the given unique name, arguments, and options.
@@ -105,26 +105,26 @@ export class PolicyExemption extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.exemptionCategory === undefined) && !opts.urn) {
+            if (args?.exemptionCategory === undefined && !opts.urn) {
                 throw new Error("Missing required property 'exemptionCategory'");
             }
-            if ((!args || args.policyAssignmentId === undefined) && !opts.urn) {
+            if (args?.policyAssignmentId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyAssignmentId'");
             }
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignmentScopeValidation"] = (args ? args.assignmentScopeValidation : undefined) ?? "Default";
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["exemptionCategory"] = args ? args.exemptionCategory : undefined;
-            resourceInputs["expiresOn"] = args ? args.expiresOn : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["policyAssignmentId"] = args ? args.policyAssignmentId : undefined;
-            resourceInputs["policyDefinitionReferenceIds"] = args ? args.policyDefinitionReferenceIds : undefined;
-            resourceInputs["policyExemptionName"] = args ? args.policyExemptionName : undefined;
-            resourceInputs["resourceSelectors"] = args ? args.resourceSelectors : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignmentScopeValidation"] = (args?.assignmentScopeValidation) ?? "Default";
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["exemptionCategory"] = args?.exemptionCategory;
+            resourceInputs["expiresOn"] = args?.expiresOn;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["policyAssignmentId"] = args?.policyAssignmentId;
+            resourceInputs["policyDefinitionReferenceIds"] = args?.policyDefinitionReferenceIds;
+            resourceInputs["policyExemptionName"] = args?.policyExemptionName;
+            resourceInputs["resourceSelectors"] = args?.resourceSelectors;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

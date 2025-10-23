@@ -42,55 +42,55 @@ export class ContactProfile extends pulumi.CustomResource {
     /**
      * Auto-tracking configuration.
      */
-    public readonly autoTrackingConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly autoTrackingConfiguration: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
-    public readonly eventHubUri!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubUri: pulumi.Output<string | undefined>;
     /**
      * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
-    public readonly links!: pulumi.Output<outputs.orbital.ContactProfileLinkResponse[]>;
+    declare public readonly links: pulumi.Output<outputs.orbital.ContactProfileLinkResponse[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    public readonly minimumElevationDegrees!: pulumi.Output<number | undefined>;
+    declare public readonly minimumElevationDegrees: pulumi.Output<number | undefined>;
     /**
      * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
-    public readonly minimumViableContactDuration!: pulumi.Output<string | undefined>;
+    declare public readonly minimumViableContactDuration: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network configuration of customer virtual network.
      */
-    public readonly networkConfiguration!: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration>;
+    declare public readonly networkConfiguration: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.orbital.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Third-party mission configuration of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
-    public readonly thirdPartyConfigurations!: pulumi.Output<outputs.orbital.ContactProfileThirdPartyConfigurationResponse[] | undefined>;
+    declare public readonly thirdPartyConfigurations: pulumi.Output<outputs.orbital.ContactProfileThirdPartyConfigurationResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ContactProfile resource with the given unique name, arguments, and options.
@@ -103,26 +103,26 @@ export class ContactProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+            if (args?.networkConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoTrackingConfiguration"] = args ? args.autoTrackingConfiguration : undefined;
-            resourceInputs["contactProfileName"] = args ? args.contactProfileName : undefined;
-            resourceInputs["eventHubUri"] = args ? args.eventHubUri : undefined;
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
-            resourceInputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
-            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["thirdPartyConfigurations"] = args ? args.thirdPartyConfigurations : undefined;
+            resourceInputs["autoTrackingConfiguration"] = args?.autoTrackingConfiguration;
+            resourceInputs["contactProfileName"] = args?.contactProfileName;
+            resourceInputs["eventHubUri"] = args?.eventHubUri;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["minimumElevationDegrees"] = args?.minimumElevationDegrees;
+            resourceInputs["minimumViableContactDuration"] = args?.minimumViableContactDuration;
+            resourceInputs["networkConfiguration"] = args?.networkConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["thirdPartyConfigurations"] = args?.thirdPartyConfigurations;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

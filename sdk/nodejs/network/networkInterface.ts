@@ -44,123 +44,123 @@ export class NetworkInterface extends pulumi.CustomResource {
     /**
      * Auxiliary mode of Network Interface resource.
      */
-    public readonly auxiliaryMode!: pulumi.Output<string | undefined>;
+    declare public readonly auxiliaryMode: pulumi.Output<string | undefined>;
     /**
      * Auxiliary sku of Network Interface resource.
      */
-    public readonly auxiliarySku!: pulumi.Output<string | undefined>;
+    declare public readonly auxiliarySku: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Whether default outbound connectivity for nic was configured or not.
      */
-    public /*out*/ readonly defaultOutboundConnectivityEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly defaultOutboundConnectivityEnabled: pulumi.Output<boolean>;
     /**
      * Indicates whether to disable tcp state tracking.
      */
-    public readonly disableTcpStateTracking!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableTcpStateTracking: pulumi.Output<boolean | undefined>;
     /**
      * The DNS settings in network interface.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.network.NetworkInterfaceDnsSettingsResponse | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.network.NetworkInterfaceDnsSettingsResponse | undefined>;
     /**
      * A reference to the dscp configuration to which the network interface is linked.
      */
-    public /*out*/ readonly dscpConfiguration!: pulumi.Output<outputs.network.SubResourceResponse>;
+    declare public /*out*/ readonly dscpConfiguration: pulumi.Output<outputs.network.SubResourceResponse>;
     /**
      * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
-    public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableAcceleratedNetworking: pulumi.Output<boolean | undefined>;
     /**
      * Indicates whether IP forwarding is enabled on this network interface.
      */
-    public readonly enableIPForwarding!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIPForwarding: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the network interface.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * A list of references to linked BareMetal resources.
      */
-    public /*out*/ readonly hostedWorkloads!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hostedWorkloads: pulumi.Output<string[]>;
     /**
      * A list of IPConfigurations of the network interface.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.NetworkInterfaceIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The MAC address of the network interface.
      */
-    public /*out*/ readonly macAddress!: pulumi.Output<string>;
+    declare public /*out*/ readonly macAddress: pulumi.Output<string>;
     /**
      * Migration phase of Network Interface resource.
      */
-    public readonly migrationPhase!: pulumi.Output<string | undefined>;
+    declare public readonly migrationPhase: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The reference to the NetworkSecurityGroup resource.
      */
-    public readonly networkSecurityGroup!: pulumi.Output<outputs.network.NetworkSecurityGroupResponse | undefined>;
+    declare public readonly networkSecurityGroup: pulumi.Output<outputs.network.NetworkSecurityGroupResponse | undefined>;
     /**
      * Type of Network Interface resource.
      */
-    public readonly nicType!: pulumi.Output<string | undefined>;
+    declare public readonly nicType: pulumi.Output<string | undefined>;
     /**
      * Whether this is a primary network interface on a virtual machine.
      */
-    public /*out*/ readonly primary!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly primary: pulumi.Output<boolean>;
     /**
      * A reference to the private endpoint to which the network interface is linked.
      */
-    public /*out*/ readonly privateEndpoint!: pulumi.Output<outputs.network.PrivateEndpointResponse>;
+    declare public /*out*/ readonly privateEndpoint: pulumi.Output<outputs.network.PrivateEndpointResponse>;
     /**
      * Privatelinkservice of the network interface resource.
      */
-    public readonly privateLinkService!: pulumi.Output<outputs.network.PrivateLinkServiceResponse | undefined>;
+    declare public readonly privateLinkService: pulumi.Output<outputs.network.PrivateLinkServiceResponse | undefined>;
     /**
      * The provisioning state of the network interface resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource GUID property of the network interface resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A list of TapConfigurations of the network interface.
      */
-    public /*out*/ readonly tapConfigurations!: pulumi.Output<outputs.network.NetworkInterfaceTapConfigurationResponse[]>;
+    declare public /*out*/ readonly tapConfigurations: pulumi.Output<outputs.network.NetworkInterfaceTapConfigurationResponse[]>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The reference to a virtual machine.
      */
-    public /*out*/ readonly virtualMachine!: pulumi.Output<outputs.network.SubResourceResponse>;
+    declare public /*out*/ readonly virtualMachine: pulumi.Output<outputs.network.SubResourceResponse>;
     /**
      * Whether the virtual machine this nic is attached to supports encryption.
      */
-    public /*out*/ readonly vnetEncryptionSupported!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly vnetEncryptionSupported: pulumi.Output<boolean>;
     /**
      * WorkloadType of the NetworkInterface for BareMetal resources
      */
-    public readonly workloadType!: pulumi.Output<string | undefined>;
+    declare public readonly workloadType: pulumi.Output<string | undefined>;
 
     /**
      * Create a NetworkInterface resource with the given unique name, arguments, and options.
@@ -173,27 +173,27 @@ export class NetworkInterface extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["auxiliaryMode"] = args ? args.auxiliaryMode : undefined;
-            resourceInputs["auxiliarySku"] = args ? args.auxiliarySku : undefined;
-            resourceInputs["disableTcpStateTracking"] = args ? args.disableTcpStateTracking : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["enableAcceleratedNetworking"] = args ? args.enableAcceleratedNetworking : undefined;
-            resourceInputs["enableIPForwarding"] = args ? args.enableIPForwarding : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["migrationPhase"] = args ? args.migrationPhase : undefined;
-            resourceInputs["networkInterfaceName"] = args ? args.networkInterfaceName : undefined;
-            resourceInputs["networkSecurityGroup"] = args ? args.networkSecurityGroup : undefined;
-            resourceInputs["nicType"] = args ? args.nicType : undefined;
-            resourceInputs["privateLinkService"] = args ? args.privateLinkService : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadType"] = args ? args.workloadType : undefined;
+            resourceInputs["auxiliaryMode"] = args?.auxiliaryMode;
+            resourceInputs["auxiliarySku"] = args?.auxiliarySku;
+            resourceInputs["disableTcpStateTracking"] = args?.disableTcpStateTracking;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["enableAcceleratedNetworking"] = args?.enableAcceleratedNetworking;
+            resourceInputs["enableIPForwarding"] = args?.enableIPForwarding;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["migrationPhase"] = args?.migrationPhase;
+            resourceInputs["networkInterfaceName"] = args?.networkInterfaceName;
+            resourceInputs["networkSecurityGroup"] = args?.networkSecurityGroup;
+            resourceInputs["nicType"] = args?.nicType;
+            resourceInputs["privateLinkService"] = args?.privateLinkService;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadType"] = args?.workloadType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultOutboundConnectivityEnabled"] = undefined /*out*/;
             resourceInputs["dscpConfiguration"] = undefined /*out*/;

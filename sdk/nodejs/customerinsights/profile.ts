@@ -42,87 +42,87 @@ export class Profile extends pulumi.CustomResource {
     /**
      * The api entity set name. This becomes the odata entity set name for the entity Type being referred in this object.
      */
-    public readonly apiEntitySetName!: pulumi.Output<string | undefined>;
+    declare public readonly apiEntitySetName: pulumi.Output<string | undefined>;
     /**
      * The attributes for the Type.
      */
-    public readonly attributes!: pulumi.Output<{[key: string]: string[]} | undefined>;
+    declare public readonly attributes: pulumi.Output<{[key: string]: string[]} | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Localized descriptions for the property.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Localized display names for the property.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of entity.
      */
-    public readonly entityType!: pulumi.Output<string | undefined>;
+    declare public readonly entityType: pulumi.Output<string | undefined>;
     /**
      * The properties of the Profile.
      */
-    public readonly fields!: pulumi.Output<outputs.customerinsights.PropertyDefinitionResponse[] | undefined>;
+    declare public readonly fields: pulumi.Output<outputs.customerinsights.PropertyDefinitionResponse[] | undefined>;
     /**
      * The instance count.
      */
-    public readonly instancesCount!: pulumi.Output<number | undefined>;
+    declare public readonly instancesCount: pulumi.Output<number | undefined>;
     /**
      * Large Image associated with the Property or EntityType.
      */
-    public readonly largeImage!: pulumi.Output<string | undefined>;
+    declare public readonly largeImage: pulumi.Output<string | undefined>;
     /**
      * The last changed time for the type definition.
      */
-    public /*out*/ readonly lastChangedUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastChangedUtc: pulumi.Output<string>;
     /**
      * Any custom localized attributes for the Type.
      */
-    public readonly localizedAttributes!: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
+    declare public readonly localizedAttributes: pulumi.Output<{[key: string]: {[key: string]: string}} | undefined>;
     /**
      * Medium Image associated with the Property or EntityType.
      */
-    public readonly mediumImage!: pulumi.Output<string | undefined>;
+    declare public readonly mediumImage: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The schema org link. This helps ACI identify and suggest semantic models.
      */
-    public readonly schemaItemTypeLink!: pulumi.Output<string | undefined>;
+    declare public readonly schemaItemTypeLink: pulumi.Output<string | undefined>;
     /**
      * Small Image associated with the Property or EntityType.
      */
-    public readonly smallImage!: pulumi.Output<string | undefined>;
+    declare public readonly smallImage: pulumi.Output<string | undefined>;
     /**
      * The strong IDs.
      */
-    public readonly strongIds!: pulumi.Output<outputs.customerinsights.StrongIdResponse[] | undefined>;
+    declare public readonly strongIds: pulumi.Output<outputs.customerinsights.StrongIdResponse[] | undefined>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * The timestamp property name. Represents the time when the interaction or profile update happened.
      */
-    public readonly timestampFieldName!: pulumi.Output<string | undefined>;
+    declare public readonly timestampFieldName: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The name of the entity.
      */
-    public readonly typeName!: pulumi.Output<string | undefined>;
+    declare public readonly typeName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Profile resource with the given unique name, arguments, and options.
@@ -135,30 +135,30 @@ export class Profile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["apiEntitySetName"] = args ? args.apiEntitySetName : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["instancesCount"] = args ? args.instancesCount : undefined;
-            resourceInputs["largeImage"] = args ? args.largeImage : undefined;
-            resourceInputs["localizedAttributes"] = args ? args.localizedAttributes : undefined;
-            resourceInputs["mediumImage"] = args ? args.mediumImage : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaItemTypeLink"] = args ? args.schemaItemTypeLink : undefined;
-            resourceInputs["smallImage"] = args ? args.smallImage : undefined;
-            resourceInputs["strongIds"] = args ? args.strongIds : undefined;
-            resourceInputs["timestampFieldName"] = args ? args.timestampFieldName : undefined;
-            resourceInputs["typeName"] = args ? args.typeName : undefined;
+            resourceInputs["apiEntitySetName"] = args?.apiEntitySetName;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["instancesCount"] = args?.instancesCount;
+            resourceInputs["largeImage"] = args?.largeImage;
+            resourceInputs["localizedAttributes"] = args?.localizedAttributes;
+            resourceInputs["mediumImage"] = args?.mediumImage;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaItemTypeLink"] = args?.schemaItemTypeLink;
+            resourceInputs["smallImage"] = args?.smallImage;
+            resourceInputs["strongIds"] = args?.strongIds;
+            resourceInputs["timestampFieldName"] = args?.timestampFieldName;
+            resourceInputs["typeName"] = args?.typeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastChangedUtc"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

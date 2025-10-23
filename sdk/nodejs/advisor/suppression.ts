@@ -44,31 +44,31 @@ export class Suppression extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the expiration time stamp.
      */
-    public /*out*/ readonly expirationTimeStamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationTimeStamp: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The GUID of the suppression.
      */
-    public readonly suppressionId!: pulumi.Output<string | undefined>;
+    declare public readonly suppressionId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.advisor.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.advisor.SystemDataResponse>;
     /**
      * The duration for which the suppression is valid.
      */
-    public readonly ttl!: pulumi.Output<string | undefined>;
+    declare public readonly ttl: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Suppression resource with the given unique name, arguments, and options.
@@ -81,17 +81,17 @@ export class Suppression extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.recommendationId === undefined) && !opts.urn) {
+            if (args?.recommendationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'recommendationId'");
             }
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["recommendationId"] = args ? args.recommendationId : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["suppressionId"] = args ? args.suppressionId : undefined;
-            resourceInputs["ttl"] = args ? args.ttl : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["recommendationId"] = args?.recommendationId;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["suppressionId"] = args?.suppressionId;
+            resourceInputs["ttl"] = args?.ttl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["expirationTimeStamp"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
