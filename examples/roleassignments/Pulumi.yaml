@@ -1,0 +1,7 @@
+name: roleassignments
+runtime: nodejs
+description: Azure Native RoleAssignment example with cross-tenant support
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: ""
