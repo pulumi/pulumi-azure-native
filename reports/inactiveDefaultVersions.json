@@ -62,7 +62,8 @@
   "ManufacturingPlatform": [
     "2025-03-01"
   ],
-  "PortalServices": [
+  "MobileNetwork": [
+    "2022-04-01-preview",
     "2024-04-01"
   ],
   "ProgrammableConnectivity": [
@@ -88,9 +89,6 @@
   ],
   "VMwareCloudSimple": [
     "2019-04-01"
-  ],
-  "VideoAnalyzer": [
-    "2021-11-01-preview"
   ],
   "Widget": [
     "2021-11-01"
