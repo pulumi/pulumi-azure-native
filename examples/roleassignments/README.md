@@ -108,6 +108,6 @@ pulumi destroy
 
 ## Notes
 
-- The Reports Reader role (`4a5d8f65-41da-4de4-8968-e035b65339cf`) is used as it has minimal security impact
+- The Reports Reader role (`028f4ed7-e2a9-465e-a8f4-9c0ffdfdc027`) is used as it has minimal security impact
 - The testuser principal ID (`e61877e9-d26b-4890-9a3c-2287e77ca427`) is a placeholder and should be replaced with an actual user in your tenant
 - Cross-tenant assignments require that the delegated tenant has authorized your tenant for cross-tenant access
