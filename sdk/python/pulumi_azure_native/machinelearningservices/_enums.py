@@ -78,6 +78,7 @@ __all__ = [
     'LoadBalancerType',
     'LogVerbosity',
     'MLAssistConfigurationType',
+    'ManagedNetworkKind',
     'ManagedNetworkStatus',
     'ManagedServiceIdentityType',
     'MaterializationStoreType',
@@ -138,6 +139,7 @@ __all__ = [
     'SslConfigStatus',
     'StackMetaLearnerType',
     'StochasticOptimizer',
+    'SystemDatastoresAuthMode',
     'TargetAggregationFunction',
     'TargetLagsMode',
     'TargetRollingWindowSizeMode',
@@ -1349,6 +1351,15 @@ class MLAssistConfigurationType(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:machinelearningservices:ManagedNetworkKind")
+class ManagedNetworkKind(builtins.str, Enum):
+    """
+    The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+    """
+    V1 = "V1"
+    V2 = "V2"
+
+
 @pulumi.type_token("azure-native:machinelearningservices:ManagedNetworkStatus")
 class ManagedNetworkStatus(builtins.str, Enum):
     """
@@ -1939,6 +1950,9 @@ class RuleStatus(builtins.str, Enum):
     """
     INACTIVE = "Inactive"
     ACTIVE = "Active"
+    PROVISIONING = "Provisioning"
+    DELETING = "Deleting"
+    FAILED = "Failed"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:RuleType")
@@ -2172,6 +2186,16 @@ class StochasticOptimizer(builtins.str, Enum):
     """
     AdamW is a variant of the optimizer Adam that has an improved implementation of weight decay.
     """
+
+
+@pulumi.type_token("azure-native:machinelearningservices:SystemDatastoresAuthMode")
+class SystemDatastoresAuthMode(builtins.str, Enum):
+    """
+    The auth mode used for accessing the system datastores of the workspace.
+    """
+    ACCESS_KEY = "AccessKey"
+    IDENTITY = "Identity"
+    USER_DELEGATION_SAS = "UserDelegationSAS"
 
 
 @pulumi.type_token("azure-native:machinelearningservices:TargetAggregationFunction")

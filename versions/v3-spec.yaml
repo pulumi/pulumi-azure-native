@@ -968,9 +968,8 @@ M365SecurityAndCompliance:
 MachineLearning:
     tracking: "2019-10-01"
 MachineLearningServices:
-    tracking: "2024-10-01"
+    tracking: "2025-09-01"
     additions:
-        CapabilityHost: 2025-01-01-preview
         CapacityReservationGroup: 2024-01-01-preview
         ConnectionDeployment: 2025-01-01-preview
         ConnectionRaiBlocklist: 2025-01-01-preview

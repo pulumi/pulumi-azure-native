@@ -16,6 +16,24 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
     public sealed class ManagedNetworkSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// A flag to indicate if monitoring needs to be enabled for the managed network firewall.
+        /// </summary>
+        [Input("enableFirewallLog")]
+        public Input<bool>? EnableFirewallLog { get; set; }
+
+        /// <summary>
+        /// A flag to indicate if monitoring needs to be enabled for the managed network.
+        /// </summary>
+        [Input("enableNetworkMonitor")]
+        public Input<bool>? EnableNetworkMonitor { get; set; }
+
+        /// <summary>
+        /// Public IP address assigned to the Azure Firewall.
+        /// </summary>
+        [Input("firewallPublicIpAddress")]
+        public Input<string>? FirewallPublicIpAddress { get; set; }
+
+        /// <summary>
         /// Firewall Sku used for FQDN Rules
         /// </summary>
         [Input("firewallSku")]
@@ -26,6 +44,12 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
         /// </summary>
         [Input("isolationMode")]
         public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.IsolationMode>? IsolationMode { get; set; }
+
+        /// <summary>
+        /// The Kind of the managed network. Users can switch from V1 to V2 for granular access controls, but cannot switch back to V1 once V2 is enabled.
+        /// </summary>
+        [Input("managedNetworkKind")]
+        public InputUnion<string, Pulumi.AzureNative.MachineLearningServices.ManagedNetworkKind>? ManagedNetworkKind { get; set; }
 
         [Input("outboundRules")]
         private InputMap<object>? _outboundRules;
@@ -43,6 +67,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.Inputs
 
         public ManagedNetworkSettingsArgs()
         {
+            EnableFirewallLog = false;
+            EnableNetworkMonitor = false;
         }
         public static new ManagedNetworkSettingsArgs Empty => new ManagedNetworkSettingsArgs();
     }

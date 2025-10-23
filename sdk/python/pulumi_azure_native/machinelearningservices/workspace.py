@@ -31,6 +31,7 @@ class WorkspaceArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  discovery_url: Optional[pulumi.Input[builtins.str]] = None,
                  enable_data_isolation: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption: Optional[pulumi.Input['EncryptionPropertyArgs']] = None,
                  feature_store_settings: Optional[pulumi.Input['FeatureStoreSettingsArgs']] = None,
                  friendly_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -43,12 +44,14 @@ class WorkspaceArgs:
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  managed_network: Optional[pulumi.Input['ManagedNetworkSettingsArgs']] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 provision_network_now: Optional[pulumi.Input[builtins.bool]] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  serverless_compute_settings: Optional[pulumi.Input['ServerlessComputeSettingsArgs']] = None,
                  service_managed_resources_settings: Optional[pulumi.Input['ServiceManagedResourcesSettingsArgs']] = None,
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]]] = None,
                  sku: Optional[pulumi.Input['SkuArgs']] = None,
                  storage_account: Optional[pulumi.Input[builtins.str]] = None,
+                 system_datastores_auth_mode: Optional[pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  v1_legacy_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  workspace_hub_config: Optional[pulumi.Input['WorkspaceHubConfigArgs']] = None,
@@ -71,12 +74,14 @@ class WorkspaceArgs:
         :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input['ManagedNetworkSettingsArgs'] managed_network: Managed Network settings for a machine learning workspace.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity resource id that represents the workspace identity.
+        :param pulumi.Input[builtins.bool] provision_network_now: Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed.
         :param pulumi.Input['ServerlessComputeSettingsArgs'] serverless_compute_settings: Settings for serverless compute created in the workspace
         :param pulumi.Input['ServiceManagedResourcesSettingsArgs'] service_managed_resources_settings: The service managed resource settings.
         :param pulumi.Input[Sequence[pulumi.Input['SharedPrivateLinkResourceArgs']]] shared_private_link_resources: The list of shared private link resources in this workspace.
         :param pulumi.Input['SkuArgs'] sku: The sku of the workspace.
         :param pulumi.Input[builtins.str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        :param pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[builtins.bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
         :param pulumi.Input['WorkspaceHubConfigArgs'] workspace_hub_config: WorkspaceHub's configuration object.
@@ -99,6 +104,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "discovery_url", discovery_url)
         if enable_data_isolation is not None:
             pulumi.set(__self__, "enable_data_isolation", enable_data_isolation)
+        if enable_service_side_cmk_encryption is not None:
+            pulumi.set(__self__, "enable_service_side_cmk_encryption", enable_service_side_cmk_encryption)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
         if feature_store_settings is not None:
@@ -125,6 +132,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "managed_network", managed_network)
         if primary_user_assigned_identity is not None:
             pulumi.set(__self__, "primary_user_assigned_identity", primary_user_assigned_identity)
+        if provision_network_now is not None:
+            pulumi.set(__self__, "provision_network_now", provision_network_now)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if serverless_compute_settings is not None:
@@ -137,6 +146,8 @@ class WorkspaceArgs:
             pulumi.set(__self__, "sku", sku)
         if storage_account is not None:
             pulumi.set(__self__, "storage_account", storage_account)
+        if system_datastores_auth_mode is not None:
+            pulumi.set(__self__, "system_datastores_auth_mode", system_datastores_auth_mode)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if v1_legacy_mode is None:
@@ -237,6 +248,15 @@ class WorkspaceArgs:
     @enable_data_isolation.setter
     def enable_data_isolation(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_data_isolation", value)
+
+    @property
+    @pulumi.getter(name="enableServiceSideCMKEncryption")
+    def enable_service_side_cmk_encryption(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "enable_service_side_cmk_encryption")
+
+    @enable_service_side_cmk_encryption.setter
+    def enable_service_side_cmk_encryption(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_service_side_cmk_encryption", value)
 
     @property
     @pulumi.getter
@@ -377,6 +397,18 @@ class WorkspaceArgs:
         pulumi.set(self, "primary_user_assigned_identity", value)
 
     @property
+    @pulumi.getter(name="provisionNetworkNow")
+    def provision_network_now(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        """
+        return pulumi.get(self, "provision_network_now")
+
+    @provision_network_now.setter
+    def provision_network_now(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "provision_network_now", value)
+
+    @property
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]]:
         """
@@ -449,6 +481,18 @@ class WorkspaceArgs:
         pulumi.set(self, "storage_account", value)
 
     @property
+    @pulumi.getter(name="systemDatastoresAuthMode")
+    def system_datastores_auth_mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']]]:
+        """
+        The auth mode used for accessing the system datastores of the workspace.
+        """
+        return pulumi.get(self, "system_datastores_auth_mode")
+
+    @system_datastores_auth_mode.setter
+    def system_datastores_auth_mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']]]):
+        pulumi.set(self, "system_datastores_auth_mode", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         """
@@ -510,6 +554,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  discovery_url: Optional[pulumi.Input[builtins.str]] = None,
                  enable_data_isolation: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -522,6 +567,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 provision_network_now: Optional[pulumi.Input[builtins.bool]] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
@@ -529,6 +575,7 @@ class Workspace(pulumi.CustomResource):
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[builtins.str]] = None,
+                 system_datastores_auth_mode: Optional[pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  v1_legacy_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  workspace_hub_config: Optional[pulumi.Input[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
@@ -537,9 +584,9 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
-        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -558,6 +605,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] location: Specifies the location of the resource.
         :param pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']] managed_network: Managed Network settings for a machine learning workspace.
         :param pulumi.Input[builtins.str] primary_user_assigned_identity: The user assigned identity resource id that represents the workspace identity.
+        :param pulumi.Input[builtins.bool] provision_network_now: Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
         :param pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']] public_network_access: Whether requests from Public Network are allowed.
         :param pulumi.Input[builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']] serverless_compute_settings: Settings for serverless compute created in the workspace
@@ -565,6 +613,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]] shared_private_link_resources: The list of shared private link resources in this workspace.
         :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: The sku of the workspace.
         :param pulumi.Input[builtins.str] storage_account: ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created
+        :param pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']] system_datastores_auth_mode: The auth mode used for accessing the system datastores of the workspace.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Contains resource tags defined as key/value pairs.
         :param pulumi.Input[builtins.bool] v1_legacy_mode: Enabling v1_legacy_mode may prevent you from using features provided by the v2 API.
         :param pulumi.Input[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']] workspace_hub_config: WorkspaceHub's configuration object.
@@ -579,9 +628,9 @@ class Workspace(pulumi.CustomResource):
         """
         An object that represents a machine learning workspace.
 
-        Uses Azure REST API version 2024-10-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
+        Uses Azure REST API version 2025-09-01. In version 2.x of the Azure Native provider, it used API version 2023-04-01.
 
-        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-05-01-preview, 2020-05-15-preview, 2020-06-01, 2020-08-01, 2020-09-01-preview, 2021-01-01, 2021-03-01-preview, 2021-04-01, 2021-07-01, 2022-01-01-preview, 2022-02-01-preview, 2022-05-01, 2022-06-01-preview, 2022-10-01, 2022-10-01-preview, 2022-12-01-preview, 2023-02-01-preview, 2023-04-01, 2023-04-01-preview, 2023-06-01-preview, 2023-08-01-preview, 2023-10-01, 2024-01-01-preview, 2024-04-01, 2024-07-01-preview, 2024-10-01, 2024-10-01-preview, 2025-01-01-preview, 2025-04-01, 2025-04-01-preview, 2025-06-01, 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param WorkspaceArgs args: The arguments to use to populate this resource's properties.
@@ -605,6 +654,7 @@ class Workspace(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  discovery_url: Optional[pulumi.Input[builtins.str]] = None,
                  enable_data_isolation: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_service_side_cmk_encryption: Optional[pulumi.Input[builtins.bool]] = None,
                  encryption: Optional[pulumi.Input[Union['EncryptionPropertyArgs', 'EncryptionPropertyArgsDict']]] = None,
                  feature_store_settings: Optional[pulumi.Input[Union['FeatureStoreSettingsArgs', 'FeatureStoreSettingsArgsDict']]] = None,
                  friendly_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -617,6 +667,7 @@ class Workspace(pulumi.CustomResource):
                  location: Optional[pulumi.Input[builtins.str]] = None,
                  managed_network: Optional[pulumi.Input[Union['ManagedNetworkSettingsArgs', 'ManagedNetworkSettingsArgsDict']]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 provision_network_now: Optional[pulumi.Input[builtins.bool]] = None,
                  public_network_access: Optional[pulumi.Input[Union[builtins.str, 'PublicNetworkAccess']]] = None,
                  resource_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  serverless_compute_settings: Optional[pulumi.Input[Union['ServerlessComputeSettingsArgs', 'ServerlessComputeSettingsArgsDict']]] = None,
@@ -624,6 +675,7 @@ class Workspace(pulumi.CustomResource):
                  shared_private_link_resources: Optional[pulumi.Input[Sequence[pulumi.Input[Union['SharedPrivateLinkResourceArgs', 'SharedPrivateLinkResourceArgsDict']]]]] = None,
                  sku: Optional[pulumi.Input[Union['SkuArgs', 'SkuArgsDict']]] = None,
                  storage_account: Optional[pulumi.Input[builtins.str]] = None,
+                 system_datastores_auth_mode: Optional[pulumi.Input[Union[builtins.str, 'SystemDatastoresAuthMode']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  v1_legacy_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  workspace_hub_config: Optional[pulumi.Input[Union['WorkspaceHubConfigArgs', 'WorkspaceHubConfigArgsDict']]] = None,
@@ -646,6 +698,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["discovery_url"] = discovery_url
             __props__.__dict__["enable_data_isolation"] = enable_data_isolation
+            __props__.__dict__["enable_service_side_cmk_encryption"] = enable_service_side_cmk_encryption
             __props__.__dict__["encryption"] = encryption
             __props__.__dict__["feature_store_settings"] = feature_store_settings
             __props__.__dict__["friendly_name"] = friendly_name
@@ -660,6 +713,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_network"] = managed_network
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
+            __props__.__dict__["provision_network_now"] = provision_network_now
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -669,6 +723,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["shared_private_link_resources"] = shared_private_link_resources
             __props__.__dict__["sku"] = sku
             __props__.__dict__["storage_account"] = storage_account
+            __props__.__dict__["system_datastores_auth_mode"] = system_datastores_auth_mode
             __props__.__dict__["tags"] = tags
             if v1_legacy_mode is None:
                 v1_legacy_mode = False
@@ -720,6 +775,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["description"] = None
         __props__.__dict__["discovery_url"] = None
         __props__.__dict__["enable_data_isolation"] = None
+        __props__.__dict__["enable_service_side_cmk_encryption"] = None
         __props__.__dict__["encryption"] = None
         __props__.__dict__["feature_store_settings"] = None
         __props__.__dict__["friendly_name"] = None
@@ -737,6 +793,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["primary_user_assigned_identity"] = None
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["private_link_count"] = None
+        __props__.__dict__["provision_network_now"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
         __props__.__dict__["serverless_compute_settings"] = None
@@ -747,6 +804,7 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["storage_account"] = None
         __props__.__dict__["storage_hns_enabled"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["system_datastores_auth_mode"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["tenant_id"] = None
         __props__.__dict__["type"] = None
@@ -812,6 +870,11 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter(name="enableDataIsolation")
     def enable_data_isolation(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "enable_data_isolation")
+
+    @property
+    @pulumi.getter(name="enableServiceSideCMKEncryption")
+    def enable_service_side_cmk_encryption(self) -> pulumi.Output[Optional[builtins.bool]]:
+        return pulumi.get(self, "enable_service_side_cmk_encryption")
 
     @property
     @pulumi.getter
@@ -944,6 +1007,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "private_link_count")
 
     @property
+    @pulumi.getter(name="provisionNetworkNow")
+    def provision_network_now(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Set to trigger the provisioning of the managed VNet with the default Options when creating a Workspace with the managed VNet enabled, or else it does nothing.
+        """
+        return pulumi.get(self, "provision_network_now")
+
+    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[builtins.str]:
         """
@@ -1022,6 +1093,14 @@ class Workspace(pulumi.CustomResource):
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="systemDatastoresAuthMode")
+    def system_datastores_auth_mode(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The auth mode used for accessing the system datastores of the workspace.
+        """
+        return pulumi.get(self, "system_datastores_auth_mode")
 
     @property
     @pulumi.getter
