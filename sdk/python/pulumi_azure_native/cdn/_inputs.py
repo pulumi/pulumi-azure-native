@@ -185,6 +185,8 @@ __all__ = [
     'ServerPortMatchConditionParametersArgsDict',
     'SharedPrivateLinkResourcePropertiesArgs',
     'SharedPrivateLinkResourcePropertiesArgsDict',
+    'SkuTypeArgs',
+    'SkuTypeArgsDict',
     'SkuArgs',
     'SkuArgsDict',
     'SocketAddrMatchConditionParametersArgs',
@@ -6995,6 +6997,60 @@ class SharedPrivateLinkResourcePropertiesArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input['SharedPrivateLinkResourceStatus']]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class SkuTypeArgsDict(TypedDict):
+        """
+        Sku of edge actions.
+        """
+        name: pulumi.Input[builtins.str]
+        """
+        The name of the SKU for the EdgeAction.
+        """
+        tier: pulumi.Input[builtins.str]
+        """
+        The pricing tier associated with the SKU.
+        """
+elif False:
+    SkuTypeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SkuTypeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[builtins.str],
+                 tier: pulumi.Input[builtins.str]):
+        """
+        Sku of edge actions.
+        :param pulumi.Input[builtins.str] name: The name of the SKU for the EdgeAction.
+        :param pulumi.Input[builtins.str] tier: The pricing tier associated with the SKU.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[builtins.str]:
+        """
+        The name of the SKU for the EdgeAction.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def tier(self) -> pulumi.Input[builtins.str]:
+        """
+        The pricing tier associated with the SKU.
+        """
+        return pulumi.get(self, "tier")
+
+    @tier.setter
+    def tier(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tier", value)
 
 
 if not MYPY:

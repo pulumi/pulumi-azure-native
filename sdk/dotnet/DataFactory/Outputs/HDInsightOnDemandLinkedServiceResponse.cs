@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object ClusterResourceGroup;
         /// <summary>
+        /// HDInsight On-demand cluster resource group authentication type.
+        /// </summary>
+        public readonly string? ClusterResourceGroupAuthType;
+        /// <summary>
         /// Number of worker/data nodes in the cluster. Suggestion value: 4. Type: int (or Expression with resultType int).
         /// </summary>
         public readonly object ClusterSize;
@@ -186,6 +190,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object clusterResourceGroup,
 
+            string? clusterResourceGroupAuthType,
+
             object clusterSize,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clusterSshPassword,
@@ -259,6 +265,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ClusterNamePrefix = clusterNamePrefix;
             ClusterPassword = clusterPassword;
             ClusterResourceGroup = clusterResourceGroup;
+            ClusterResourceGroupAuthType = clusterResourceGroupAuthType;
             ClusterSize = clusterSize;
             ClusterSshPassword = clusterSshPassword;
             ClusterSshUserName = clusterSshUserName;

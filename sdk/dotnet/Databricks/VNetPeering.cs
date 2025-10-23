@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Databricks
     /// 
     /// Uses Azure REST API version 2024-05-01.
     /// 
-    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:databricks:VNetPeering")]
     public partial class VNetPeering : global::Pulumi.CustomResource
@@ -130,6 +130,7 @@ namespace Pulumi.AzureNative.Databricks
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240501:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20240901preview:VNetPeering" },
                     new global::Pulumi.Alias { Type = "azure-native:databricks/v20250301preview:VNetPeering" },
+                    new global::Pulumi.Alias { Type = "azure-native:databricks/v20250801preview:VNetPeering" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

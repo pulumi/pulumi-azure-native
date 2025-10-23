@@ -2847,6 +2847,21 @@ Cdn:
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}/customDomains/{customDomainName}
         RpNamespace: Microsoft.Cdn
+    EdgeAction:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}
+        RpNamespace: Microsoft.Cdn
+    EdgeActionExecutionFilter:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/executionFilters/{executionFilter}
+        RpNamespace: Microsoft.Cdn
+    EdgeActionVersion:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version}
+        RpNamespace: Microsoft.Cdn
     Endpoint:
         ApiVersion: "2025-06-01"
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/stable/2025-06-01/openapi.json
@@ -2921,6 +2936,11 @@ Cdn:
         ApiVersion: 2025-09-01-preview
         SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-09-01-preview/openapi.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/webAgents/{webAgentName}
+        RpNamespace: Microsoft.Cdn
+    getEdgeActionVersionCode:
+        ApiVersion: 2024-07-22-preview
+        SpecFilePath: specification/cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2024-07-22-preview/edgeaction.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Cdn/edgeActions/{edgeActionName}/versions/{version}/getVersionCode
         RpNamespace: Microsoft.Cdn
     getProfileSupportedOptimizationTypes:
         ApiVersion: "2025-06-01"
@@ -3209,6 +3229,16 @@ CognitiveServices:
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-04-01-preview/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/connections/{connectionName}
         RpNamespace: Microsoft.CognitiveServices
+    AgentApplication:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name}
+        RpNamespace: Microsoft.CognitiveServices
+    AgentDeployment:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{appName}/deployments/{deploymentName}
+        RpNamespace: Microsoft.CognitiveServices
     CommitmentPlan:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
@@ -3228,6 +3258,11 @@ CognitiveServices:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/encryptionScopes/{encryptionScopeName}
+        RpNamespace: Microsoft.CognitiveServices
+    OutboundRule:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/managedNetworks/{managedNetworkName}/outboundRules/{ruleName}
         RpNamespace: Microsoft.CognitiveServices
     PrivateEndpointConnection:
         ApiVersion: "2024-10-01"
@@ -3259,10 +3294,20 @@ CognitiveServices:
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiBlocklists/{raiBlocklistName}/raiBlocklistItems/{raiBlocklistItemName}
         RpNamespace: Microsoft.CognitiveServices
+    RaiExternalSafetyProvider:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiExternalSafetyProviders/{safetyProviderName}
+        RpNamespace: Microsoft.CognitiveServices
     RaiPolicy:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiPolicies/{raiPolicyName}
+        RpNamespace: Microsoft.CognitiveServices
+    RaiToolLabel:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/raiToolLabels/{raiToolConnectionName}
         RpNamespace: Microsoft.CognitiveServices
     RaiTopic:
         ApiVersion: 2025-07-01-preview
@@ -3274,10 +3319,20 @@ CognitiveServices:
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/commitmentPlans/{commitmentPlanName}
         RpNamespace: Microsoft.CognitiveServices
+    SubscriptionRaiPolicy:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/providers/Microsoft.CognitiveServices/raiPolicy/{raiPolicyName}
+        RpNamespace: Microsoft.CognitiveServices
     listAccountKeys:
         ApiVersion: "2024-10-01"
         SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/stable/2024-10-01/cognitiveservices.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/listKeys
+        RpNamespace: Microsoft.CognitiveServices
+    listAgentApplicationAgents:
+        ApiVersion: 2025-10-01-preview
+        SpecFilePath: specification/cognitiveservices/resource-manager/Microsoft.CognitiveServices/preview/2025-10-01-preview/cognitiveservices.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CognitiveServices/accounts/{accountName}/projects/{projectName}/applications/{name}/listAgents
         RpNamespace: Microsoft.CognitiveServices
 Commerce: {}
 Communication:
@@ -3942,6 +3997,11 @@ ContainerService:
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-04-02-preview/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/managedNamespaces/{managedNamespaceName}
         RpNamespace: Microsoft.ContainerService
+    MeshMembership:
+        ApiVersion: 2025-08-02-preview
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-08-02-preview/managedClusters.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/meshMemberships/{meshMembershipName}
+        RpNamespace: Microsoft.ContainerService
     Namespace:
         ApiVersion: 2025-02-02-preview
         SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/preview/2025-02-02-preview/managedClusters.json
@@ -4520,6 +4580,11 @@ DBforMySQL:
         ApiVersion: "2023-12-30"
         SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/stable/2023-12-30/FirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/firewallRules/{firewallRuleName}
+        RpNamespace: Microsoft.DBforMySQL
+    LongRunningBackup:
+        ApiVersion: 2025-06-01-preview
+        SpecFilePath: specification/mysql/resource-manager/Microsoft.DBforMySQL/FlexibleServers/preview/2025-06-01-preview/openapi.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/flexibleServers/{serverName}/backupsV2/{backupName}
         RpNamespace: Microsoft.DBforMySQL
     PrivateEndpointConnection:
         ApiVersion: "2023-06-30"
@@ -5728,6 +5793,11 @@ DeviceRegistry:
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/stable/2024-11-01/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/assetEndpointProfiles/{assetEndpointProfileName}
         RpNamespace: Microsoft.DeviceRegistry
+    Credential:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default
+        RpNamespace: Microsoft.DeviceRegistry
     DiscoveredAsset:
         ApiVersion: 2024-09-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2024-09-01-preview/deviceregistry.json
@@ -5762,6 +5832,11 @@ DeviceRegistry:
         ApiVersion: 2025-07-01-preview
         SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-07-01-preview/deviceregistry.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/discoveredDevices/{discoveredDeviceName}
+        RpNamespace: Microsoft.DeviceRegistry
+    Policy:
+        ApiVersion: 2025-11-01-preview
+        SpecFilePath: specification/deviceregistry/resource-manager/Microsoft.DeviceRegistry/preview/2025-11-01-preview/deviceregistry.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DeviceRegistry/namespaces/{namespaceName}/credentials/default/policies/{policyName}
         RpNamespace: Microsoft.DeviceRegistry
     Schema:
         ApiVersion: 2024-09-01-preview
@@ -12961,57 +13036,6 @@ VerifiedId:
         SpecFilePath: specification/verifiedid/resource-manager/Microsoft.VerifiedId/preview/2024-01-26-preview/verifiedid.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.VerifiedId/authorities/{authorityName}
         RpNamespace: Microsoft.VerifiedId
-VideoAnalyzer:
-    AccessPolicy:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/accessPolicies/{accessPolicyName}
-        RpNamespace: Microsoft.Media
-    EdgeModule:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/EdgeModules.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}
-        RpNamespace: Microsoft.Media
-    LivePipeline:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/livePipelines/{livePipelineName}
-        RpNamespace: Microsoft.Media
-    PipelineJob:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/pipelineJobs/{pipelineJobName}
-        RpNamespace: Microsoft.Media
-    PipelineTopology:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/PipelineTopologies.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/pipelineTopologies/{pipelineTopologyName}
-        RpNamespace: Microsoft.Media
-    PrivateEndpointConnection:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/VideoAnalyzers.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/privateEndpointConnections/{name}
-        RpNamespace: Microsoft.Media
-    Video:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/videos/{videoName}
-        RpNamespace: Microsoft.Media
-    VideoAnalyzer:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/VideoAnalyzers.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}
-        RpNamespace: Microsoft.Media
-    listEdgeModuleProvisioningToken:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/EdgeModules.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/edgeModules/{edgeModuleName}/listProvisioningToken
-        RpNamespace: Microsoft.Media
-    listVideoContentToken:
-        ApiVersion: 2021-11-01-preview
-        SpecFilePath: specification/videoanalyzer/resource-manager/Microsoft.Media/preview/2021-11-01-preview/Videos.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{accountName}/videos/{videoName}/listContentToken
-        RpNamespace: Microsoft.Media
 VideoIndexer:
     Account:
         ApiVersion: "2024-01-01"

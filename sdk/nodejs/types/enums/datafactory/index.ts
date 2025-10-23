@@ -404,6 +404,17 @@ export const HDInsightClusterAuthenticationType = {
  */
 export type HDInsightClusterAuthenticationType = (typeof HDInsightClusterAuthenticationType)[keyof typeof HDInsightClusterAuthenticationType];
 
+export const HDInsightOndemandClusterResourceGroupAuthenticationType = {
+    ServicePrincipalKey: "ServicePrincipalKey",
+    SystemAssignedManagedIdentity: "SystemAssignedManagedIdentity",
+    UserAssignedManagedIdentity: "UserAssignedManagedIdentity",
+} as const;
+
+/**
+ * HDInsight On-demand cluster resource group authentication type.
+ */
+export type HDInsightOndemandClusterResourceGroupAuthenticationType = (typeof HDInsightOndemandClusterResourceGroupAuthenticationType)[keyof typeof HDInsightOndemandClusterResourceGroupAuthenticationType];
+
 export const HiveAuthenticationType = {
     Anonymous: "Anonymous",
     Username: "Username",

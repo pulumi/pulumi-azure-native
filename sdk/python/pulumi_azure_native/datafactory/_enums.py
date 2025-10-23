@@ -44,6 +44,7 @@ __all__ = [
     'HBaseAuthenticationType',
     'HDInsightActivityDebugInfoOption',
     'HDInsightClusterAuthenticationType',
+    'HDInsightOndemandClusterResourceGroupAuthenticationType',
     'HiveAuthenticationType',
     'HiveServerType',
     'HiveThriftTransportProtocol',
@@ -468,6 +469,16 @@ class HDInsightClusterAuthenticationType(builtins.str, Enum):
     HDInsight cluster authentication type.
     """
     BASIC_AUTH = "BasicAuth"
+    SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
+    USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
+
+
+@pulumi.type_token("azure-native:datafactory:HDInsightOndemandClusterResourceGroupAuthenticationType")
+class HDInsightOndemandClusterResourceGroupAuthenticationType(builtins.str, Enum):
+    """
+    HDInsight On-demand cluster resource group authentication type.
+    """
+    SERVICE_PRINCIPAL_KEY = "ServicePrincipalKey"
     SYSTEM_ASSIGNED_MANAGED_IDENTITY = "SystemAssignedManagedIdentity"
     USER_ASSIGNED_MANAGED_IDENTITY = "UserAssignedManagedIdentity"
 

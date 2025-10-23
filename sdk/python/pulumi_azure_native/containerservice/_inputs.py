@@ -193,6 +193,8 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'MeshMembershipPropertiesArgs',
+    'MeshMembershipPropertiesArgsDict',
     'NamespacePropertiesArgs',
     'NamespacePropertiesArgsDict',
     'NetworkPoliciesArgs',
@@ -7278,6 +7280,41 @@ class ManagedServiceIdentityArgs:
     @user_assigned_identities.setter
     def user_assigned_identities(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "user_assigned_identities", value)
+
+
+if not MYPY:
+    class MeshMembershipPropertiesArgsDict(TypedDict):
+        """
+        Mesh membership properties of a managed cluster.
+        """
+        managed_mesh_id: pulumi.Input[builtins.str]
+        """
+        The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+elif False:
+    MeshMembershipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MeshMembershipPropertiesArgs:
+    def __init__(__self__, *,
+                 managed_mesh_id: pulumi.Input[builtins.str]):
+        """
+        Mesh membership properties of a managed cluster.
+        :param pulumi.Input[builtins.str] managed_mesh_id: The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+        pulumi.set(__self__, "managed_mesh_id", managed_mesh_id)
+
+    @property
+    @pulumi.getter(name="managedMeshID")
+    def managed_mesh_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+        return pulumi.get(self, "managed_mesh_id")
+
+    @managed_mesh_id.setter
+    def managed_mesh_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "managed_mesh_id", value)
 
 
 if not MYPY:

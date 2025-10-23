@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Configuration for JWT authenticator in the managed cluster.
  *
  * Uses Azure REST API version 2025-07-02-preview.
+ *
+ * Other available API versions: 2025-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class JWTAuthenticator extends pulumi.CustomResource {
     /**
@@ -96,7 +98,7 @@ export class JWTAuthenticator extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250702preview:JWTAuthenticator" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:containerservice/v20250702preview:JWTAuthenticator" }, { type: "azure-native:containerservice/v20250802preview:JWTAuthenticator" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(JWTAuthenticator.__pulumiType, name, resourceInputs, opts);
     }

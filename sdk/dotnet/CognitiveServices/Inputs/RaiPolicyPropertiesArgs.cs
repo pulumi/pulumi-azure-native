@@ -45,11 +45,35 @@ namespace Pulumi.AzureNative.CognitiveServices.Inputs
             set => _customBlocklists = value;
         }
 
+        [Input("customTopics")]
+        private InputList<Inputs.CustomTopicConfigArgs>? _customTopics;
+
         /// <summary>
-        /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+        /// The list of custom rai topics.
+        /// </summary>
+        public InputList<Inputs.CustomTopicConfigArgs> CustomTopics
+        {
+            get => _customTopics ?? (_customTopics = new InputList<Inputs.CustomTopicConfigArgs>());
+            set => _customTopics = value;
+        }
+
+        /// <summary>
+        /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.CognitiveServices.RaiPolicyMode>? Mode { get; set; }
+
+        [Input("safetyProviders")]
+        private InputList<Inputs.SafetyProviderConfigArgs>? _safetyProviders;
+
+        /// <summary>
+        /// The list of Safety Providers.
+        /// </summary>
+        public InputList<Inputs.SafetyProviderConfigArgs> SafetyProviders
+        {
+            get => _safetyProviders ?? (_safetyProviders = new InputList<Inputs.SafetyProviderConfigArgs>());
+            set => _safetyProviders = value;
+        }
 
         public RaiPolicyPropertiesArgs()
         {

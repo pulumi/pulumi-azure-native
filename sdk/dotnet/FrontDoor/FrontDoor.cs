@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.FrontDoor
     /// 
     /// Uses Azure REST API version 2021-06-01.
     /// 
-    /// Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:FrontDoor")]
     public partial class FrontDoor : global::Pulumi.CustomResource
@@ -164,6 +164,7 @@ namespace Pulumi.AzureNative.FrontDoor
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200401:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20200501:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20210601:FrontDoor" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20210601:FrontDoor" },
                     new global::Pulumi.Alias { Type = "azure-native:network:FrontDoor" },
                 },
