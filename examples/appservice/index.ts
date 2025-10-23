@@ -141,9 +141,6 @@ new web.WebAppConnectionStrings("conns", {
 new web.WebAppAuthSettingsV2("auth", {
     resourceGroupName: resourceGroup.name,
     name: app.name,
-    platform: {
-        enabled: false,
-    },
     httpSettings: {
         requireHttps: true,
     },
