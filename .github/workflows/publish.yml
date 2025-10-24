@@ -174,7 +174,7 @@ jobs:
         run: >
           twine upload
           -u "__token__"
-          -p "${{ steps.esc-secrets.outputs.PYPI_PASSWORD }}"
+          -p "${{ steps.esc-secrets.outputs.PYPI_API_TOKEN }}"
           "${{ github.workspace }}/sdk/python/bin/dist/*"
           --skip-existing
           --verbose
@@ -282,7 +282,7 @@ jobs:
         working-directory: sdk/nodejs/bin
         run: npm publish --tag "${{ steps.tag.outputs.tag }}"
         env:
-          NPM_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
@@ -341,9 +341,12 @@ jobs:
         if: inputs.prerelease == false
         run: gradle -p ./sdk/java publishToSonatype closeAndReleaseSonatypeStagingRepository
         env:
+          PACKAGE_VERSION: ${{ env.PROVIDER_VERSION }}
           SIGNING_KEY_ID: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_KEY_ID }}
           SIGNING_KEY: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_KEY }}
           SIGNING_PASSWORD: ${{ steps.esc-secrets.outputs.JAVA_SIGNING_PASSWORD }}
+          PUBLISH_REPO_PASSWORD: ${{ steps.esc-secrets.outputs.OSSRH_PASSWORD }}
+          PUBLISH_REPO_USERNAME: ${{ steps.esc-secrets.outputs.OSSRH_USERNAME }}
 
       - if: failure() && github.event_name == 'push'
         name: Notify Slack
