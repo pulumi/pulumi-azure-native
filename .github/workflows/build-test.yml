@@ -45,6 +45,7 @@ env:
   PULUMI_API: https://api.pulumi-staging.io
   # Feature toggle that's read in provider.go enableAzcoreBackend()
   PULUMI_ENABLE_AZCORE_BACKEND: ${{ inputs.use_azcore }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   # AZURE_CLI_FOLDER is the content of a ~/.azure/ folder, zipped and base64-encoded, for CLI auth.
   # If/when the contained refresh token expires, someone with access to our subscription needs to
   # `az login` on their own computer and repeat the steps below.
