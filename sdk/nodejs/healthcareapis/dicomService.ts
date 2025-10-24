@@ -44,75 +44,75 @@ export class DicomService extends pulumi.CustomResource {
     /**
      * Dicom Service authentication configuration.
      */
-    public /*out*/ readonly authenticationConfiguration!: pulumi.Output<outputs.healthcareapis.DicomServiceAuthenticationConfigurationResponse | undefined>;
+    declare public /*out*/ readonly authenticationConfiguration: pulumi.Output<outputs.healthcareapis.DicomServiceAuthenticationConfigurationResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Dicom Service Cors configuration.
      */
-    public readonly corsConfiguration!: pulumi.Output<outputs.healthcareapis.CorsConfigurationResponse | undefined>;
+    declare public readonly corsConfiguration: pulumi.Output<outputs.healthcareapis.CorsConfigurationResponse | undefined>;
     /**
      * If data partitions is enabled or not.
      */
-    public readonly enableDataPartitions!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDataPartitions: pulumi.Output<boolean | undefined>;
     /**
      * The encryption settings of the DICOM service
      */
-    public readonly encryption!: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.healthcareapis.EncryptionResponse | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * DICOM Service event support status.
      */
-    public /*out*/ readonly eventState!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventState: pulumi.Output<string>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of private endpoint connections that are set up for this resource.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.healthcareapis.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Control permission for data plane traffic coming from public networks while private endpoint is enabled.
      */
-    public /*out*/ readonly publicNetworkAccess!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicNetworkAccess: pulumi.Output<string>;
     /**
      * The url of the Dicom Services.
      */
-    public /*out*/ readonly serviceUrl!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceUrl: pulumi.Output<string>;
     /**
      * The configuration of external storage account
      */
-    public readonly storageConfiguration!: pulumi.Output<outputs.healthcareapis.StorageConfigurationResponse | undefined>;
+    declare public readonly storageConfiguration: pulumi.Output<outputs.healthcareapis.StorageConfigurationResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DicomService resource with the given unique name, arguments, and options.
@@ -125,22 +125,22 @@ export class DicomService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
-            resourceInputs["dicomServiceName"] = args ? args.dicomServiceName : undefined;
-            resourceInputs["enableDataPartitions"] = args ? args.enableDataPartitions : undefined;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageConfiguration"] = args ? args.storageConfiguration : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["corsConfiguration"] = args?.corsConfiguration;
+            resourceInputs["dicomServiceName"] = args?.dicomServiceName;
+            resourceInputs["enableDataPartitions"] = args?.enableDataPartitions;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageConfiguration"] = args?.storageConfiguration;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

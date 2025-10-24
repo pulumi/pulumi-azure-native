@@ -44,83 +44,83 @@ export class ImportJob extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A recent and frequently updated rate of total files, directories, and symlinks imported per second.
      */
-    public /*out*/ readonly blobsImportedPerSecond!: pulumi.Output<number>;
+    declare public /*out*/ readonly blobsImportedPerSecond: pulumi.Output<number>;
     /**
      * A recent and frequently updated rate of blobs walked per second.
      */
-    public /*out*/ readonly blobsWalkedPerSecond!: pulumi.Output<number>;
+    declare public /*out*/ readonly blobsWalkedPerSecond: pulumi.Output<number>;
     /**
      * How the import job will handle conflicts. For example, if the import job is trying to bring in a directory, but a file is at that path, how it handles it. Fail indicates that the import job should stop immediately and not do anything with the conflict. Skip indicates that it should pass over the conflict. OverwriteIfDirty causes the import job to delete and re-import the file or directory if it is a conflicting type, is dirty, or was not previously imported. OverwriteAlways extends OverwriteIfDirty to include releasing files that had been restored but were not dirty. Please reference https://learn.microsoft.com/en-us/azure/azure-managed-lustre/ for a thorough explanation of these resolution modes.
      */
-    public readonly conflictResolutionMode!: pulumi.Output<string | undefined>;
+    declare public readonly conflictResolutionMode: pulumi.Output<string | undefined>;
     /**
      * An array of blob paths/prefixes that get imported into the cluster namespace. It has '/' as the default value.
      */
-    public readonly importPrefixes!: pulumi.Output<string[] | undefined>;
+    declare public readonly importPrefixes: pulumi.Output<string[] | undefined>;
     /**
      * The time of the last completed archive operation
      */
-    public /*out*/ readonly lastCompletionTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastCompletionTime: pulumi.Output<string>;
     /**
      * The time the latest archive operation started
      */
-    public /*out*/ readonly lastStartedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastStartedTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Total non-conflict oriented errors the import job will tolerate before exiting with failure. -1 means infinite. 0 means exit immediately and is the default.
      */
-    public readonly maximumErrors!: pulumi.Output<number | undefined>;
+    declare public readonly maximumErrors: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ARM provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The state of the import job. InProgress indicates the import is still running. Canceled indicates it has been canceled by the user. Completed indicates import finished, successfully importing all discovered blobs into the Lustre namespace. CompletedPartial indicates the import finished but some blobs either were found to be conflicting and could not be imported or other errors were encountered. Failed means the import was unable to complete due to a fatal error.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The status message of the import job.
      */
-    public /*out*/ readonly statusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusMessage: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The total blobs that have been imported since import began.
      */
-    public /*out*/ readonly totalBlobsImported!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalBlobsImported: pulumi.Output<number>;
     /**
      * The total blob objects walked.
      */
-    public /*out*/ readonly totalBlobsWalked!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalBlobsWalked: pulumi.Output<number>;
     /**
      * Number of conflicts in the import job.
      */
-    public /*out*/ readonly totalConflicts!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalConflicts: pulumi.Output<number>;
     /**
      * Number of errors in the import job.
      */
-    public /*out*/ readonly totalErrors!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalErrors: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ImportJob resource with the given unique name, arguments, and options.
@@ -133,20 +133,20 @@ export class ImportJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amlFilesystemName === undefined) && !opts.urn) {
+            if (args?.amlFilesystemName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amlFilesystemName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["amlFilesystemName"] = args ? args.amlFilesystemName : undefined;
-            resourceInputs["conflictResolutionMode"] = (args ? args.conflictResolutionMode : undefined) ?? "Fail";
-            resourceInputs["importJobName"] = args ? args.importJobName : undefined;
-            resourceInputs["importPrefixes"] = args ? args.importPrefixes : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maximumErrors"] = (args ? args.maximumErrors : undefined) ?? 0;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["amlFilesystemName"] = args?.amlFilesystemName;
+            resourceInputs["conflictResolutionMode"] = (args?.conflictResolutionMode) ?? "Fail";
+            resourceInputs["importJobName"] = args?.importJobName;
+            resourceInputs["importPrefixes"] = args?.importPrefixes;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maximumErrors"] = (args?.maximumErrors) ?? 0;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["blobsImportedPerSecond"] = undefined /*out*/;
             resourceInputs["blobsWalkedPerSecond"] = undefined /*out*/;

@@ -44,111 +44,111 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
     /**
      * Flag to indicate whether auto-apply capability, to automatically change the target object access resource, is enabled. If not enabled, a user must, after the review completes, apply the access review.
      */
-    public readonly autoApplyDecisionsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly autoApplyDecisionsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * This is the collection of backup reviewers.
      */
-    public readonly backupReviewers!: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
+    declare public readonly backupReviewers: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
     /**
      * This specifies the behavior for the autoReview feature when an access review completes.
      */
-    public readonly defaultDecision!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDecision: pulumi.Output<string | undefined>;
     /**
      * Flag to indicate whether reviewers are required to provide a justification when reviewing access.
      */
-    public readonly defaultDecisionEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly defaultDecisionEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The description provided by the access review creator and visible to admins.
      */
-    public readonly descriptionForAdmins!: pulumi.Output<string | undefined>;
+    declare public readonly descriptionForAdmins: pulumi.Output<string | undefined>;
     /**
      * The description provided by the access review creator to be shown to reviewers.
      */
-    public readonly descriptionForReviewers!: pulumi.Output<string | undefined>;
+    declare public readonly descriptionForReviewers: pulumi.Output<string | undefined>;
     /**
      * The display name for the schedule definition.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The duration in days for an instance.
      */
-    public readonly instanceDurationInDays!: pulumi.Output<number | undefined>;
+    declare public readonly instanceDurationInDays: pulumi.Output<number | undefined>;
     /**
      * This is the collection of instances returned when one does an expand on it.
      */
-    public readonly instances!: pulumi.Output<outputs.authorization.AccessReviewInstanceResponse[] | undefined>;
+    declare public readonly instances: pulumi.Output<outputs.authorization.AccessReviewInstanceResponse[] | undefined>;
     /**
      * The interval for recurrence. For a quarterly review, the interval is 3 for type : absoluteMonthly.
      */
-    public readonly interval!: pulumi.Output<number | undefined>;
+    declare public readonly interval: pulumi.Output<number | undefined>;
     /**
      * Flag to indicate whether the reviewer is required to pass justification when recording a decision.
      */
-    public readonly justificationRequiredOnApproval!: pulumi.Output<boolean | undefined>;
+    declare public readonly justificationRequiredOnApproval: pulumi.Output<boolean | undefined>;
     /**
      * Flag to indicate whether sending mails to reviewers and the review creator is enabled.
      */
-    public readonly mailNotificationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly mailNotificationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * The access review schedule definition unique id.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The identity id
      */
-    public /*out*/ readonly principalId!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalId: pulumi.Output<string>;
     /**
      * The identity display name
      */
-    public /*out*/ readonly principalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalName: pulumi.Output<string>;
     /**
      * The identity type : user/servicePrincipal
      */
-    public /*out*/ readonly principalType!: pulumi.Output<string>;
+    declare public /*out*/ readonly principalType: pulumi.Output<string>;
     /**
      * Access Review schedule definition recurrence range.
      */
-    public readonly range!: pulumi.Output<outputs.authorization.AccessReviewRecurrenceRangeResponse | undefined>;
+    declare public readonly range: pulumi.Output<outputs.authorization.AccessReviewRecurrenceRangeResponse | undefined>;
     /**
      * Recommendations for access reviews are calculated by looking back at 30 days of data(w.r.t the start date of the review) by default. However, in some scenarios, customers want to change how far back to look at and want to configure 60 days, 90 days, etc. instead. This setting allows customers to configure this duration. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
      */
-    public readonly recommendationLookBackDuration!: pulumi.Output<string | undefined>;
+    declare public readonly recommendationLookBackDuration: pulumi.Output<string | undefined>;
     /**
      * Flag to indicate whether showing recommendations to reviewers is enabled.
      */
-    public readonly recommendationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly recommendationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Flag to indicate whether sending reminder emails to reviewers are enabled.
      */
-    public readonly reminderNotificationsEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly reminderNotificationsEnabled: pulumi.Output<boolean | undefined>;
     /**
      * This is the collection of reviewers.
      */
-    public readonly reviewers!: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
+    declare public readonly reviewers: pulumi.Output<outputs.authorization.AccessReviewReviewerResponse[] | undefined>;
     /**
      * This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
      */
-    public /*out*/ readonly reviewersType!: pulumi.Output<string>;
+    declare public /*out*/ readonly reviewersType: pulumi.Output<string>;
     /**
      * This is used to define what to include in scope of the review. The scope definition includes the resourceId and roleDefinitionId.
      */
-    public /*out*/ readonly scope!: pulumi.Output<outputs.authorization.AccessReviewScopeResponse>;
+    declare public /*out*/ readonly scope: pulumi.Output<outputs.authorization.AccessReviewScopeResponse>;
     /**
      * This read-only field specifies the status of an accessReview.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * The user principal name(if valid)
      */
-    public /*out*/ readonly userPrincipalName!: pulumi.Output<string>;
+    declare public /*out*/ readonly userPrincipalName: pulumi.Output<string>;
 
     /**
      * Create a AccessReviewScheduleDefinitionById resource with the given unique name, arguments, and options.
@@ -161,31 +161,31 @@ export class AccessReviewScheduleDefinitionById extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["autoApplyDecisionsEnabled"] = args ? args.autoApplyDecisionsEnabled : undefined;
-            resourceInputs["backupReviewers"] = args ? args.backupReviewers : undefined;
-            resourceInputs["defaultDecision"] = args ? args.defaultDecision : undefined;
-            resourceInputs["defaultDecisionEnabled"] = args ? args.defaultDecisionEnabled : undefined;
-            resourceInputs["descriptionForAdmins"] = args ? args.descriptionForAdmins : undefined;
-            resourceInputs["descriptionForReviewers"] = args ? args.descriptionForReviewers : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["excludeResourceId"] = args ? args.excludeResourceId : undefined;
-            resourceInputs["excludeRoleDefinitionId"] = args ? args.excludeRoleDefinitionId : undefined;
-            resourceInputs["expandNestedMemberships"] = args ? args.expandNestedMemberships : undefined;
-            resourceInputs["inactiveDuration"] = args ? args.inactiveDuration : undefined;
-            resourceInputs["includeAccessBelowResource"] = args ? args.includeAccessBelowResource : undefined;
-            resourceInputs["includeInheritedAccess"] = args ? args.includeInheritedAccess : undefined;
-            resourceInputs["instanceDurationInDays"] = args ? args.instanceDurationInDays : undefined;
-            resourceInputs["instances"] = args ? args.instances : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["justificationRequiredOnApproval"] = args ? args.justificationRequiredOnApproval : undefined;
-            resourceInputs["mailNotificationsEnabled"] = args ? args.mailNotificationsEnabled : undefined;
-            resourceInputs["range"] = args ? args.range : undefined;
-            resourceInputs["recommendationLookBackDuration"] = args ? args.recommendationLookBackDuration : undefined;
-            resourceInputs["recommendationsEnabled"] = args ? args.recommendationsEnabled : undefined;
-            resourceInputs["reminderNotificationsEnabled"] = args ? args.reminderNotificationsEnabled : undefined;
-            resourceInputs["reviewers"] = args ? args.reviewers : undefined;
-            resourceInputs["scheduleDefinitionId"] = args ? args.scheduleDefinitionId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["autoApplyDecisionsEnabled"] = args?.autoApplyDecisionsEnabled;
+            resourceInputs["backupReviewers"] = args?.backupReviewers;
+            resourceInputs["defaultDecision"] = args?.defaultDecision;
+            resourceInputs["defaultDecisionEnabled"] = args?.defaultDecisionEnabled;
+            resourceInputs["descriptionForAdmins"] = args?.descriptionForAdmins;
+            resourceInputs["descriptionForReviewers"] = args?.descriptionForReviewers;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["excludeResourceId"] = args?.excludeResourceId;
+            resourceInputs["excludeRoleDefinitionId"] = args?.excludeRoleDefinitionId;
+            resourceInputs["expandNestedMemberships"] = args?.expandNestedMemberships;
+            resourceInputs["inactiveDuration"] = args?.inactiveDuration;
+            resourceInputs["includeAccessBelowResource"] = args?.includeAccessBelowResource;
+            resourceInputs["includeInheritedAccess"] = args?.includeInheritedAccess;
+            resourceInputs["instanceDurationInDays"] = args?.instanceDurationInDays;
+            resourceInputs["instances"] = args?.instances;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["justificationRequiredOnApproval"] = args?.justificationRequiredOnApproval;
+            resourceInputs["mailNotificationsEnabled"] = args?.mailNotificationsEnabled;
+            resourceInputs["range"] = args?.range;
+            resourceInputs["recommendationLookBackDuration"] = args?.recommendationLookBackDuration;
+            resourceInputs["recommendationsEnabled"] = args?.recommendationsEnabled;
+            resourceInputs["reminderNotificationsEnabled"] = args?.reminderNotificationsEnabled;
+            resourceInputs["reviewers"] = args?.reviewers;
+            resourceInputs["scheduleDefinitionId"] = args?.scheduleDefinitionId;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["principalId"] = undefined /*out*/;

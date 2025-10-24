@@ -44,59 +44,59 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The state of managed private endpoint connection.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<outputs.dashboard.ManagedPrivateEndpointConnectionStateResponse>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<outputs.dashboard.ManagedPrivateEndpointConnectionStateResponse>;
     /**
      * The group Ids of the managed private endpoint.
      */
-    public readonly groupIds!: pulumi.Output<string[] | undefined>;
+    declare public readonly groupIds: pulumi.Output<string[] | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The ARM resource ID of the resource for which the managed private endpoint is pointing to.
      */
-    public readonly privateLinkResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceId: pulumi.Output<string | undefined>;
     /**
      * The region of the resource to which the managed private endpoint is pointing to.
      */
-    public readonly privateLinkResourceRegion!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkResourceRegion: pulumi.Output<string | undefined>;
     /**
      * The private IP of private endpoint after approval. This property is empty before connection is approved.
      */
-    public /*out*/ readonly privateLinkServicePrivateIP!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateLinkServicePrivateIP: pulumi.Output<string>;
     /**
      * The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port.
      */
-    public readonly privateLinkServiceUrl!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkServiceUrl: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * User input request message of the managed private endpoint.
      */
-    public readonly requestMessage!: pulumi.Output<string | undefined>;
+    declare public readonly requestMessage: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dashboard.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dashboard.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedPrivateEndpoint resource with the given unique name, arguments, and options.
@@ -109,22 +109,22 @@ export class ManagedPrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["groupIds"] = args ? args.groupIds : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedPrivateEndpointName"] = args ? args.managedPrivateEndpointName : undefined;
-            resourceInputs["privateLinkResourceId"] = args ? args.privateLinkResourceId : undefined;
-            resourceInputs["privateLinkResourceRegion"] = args ? args.privateLinkResourceRegion : undefined;
-            resourceInputs["privateLinkServiceUrl"] = args ? args.privateLinkServiceUrl : undefined;
-            resourceInputs["requestMessage"] = args ? args.requestMessage : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["groupIds"] = args?.groupIds;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedPrivateEndpointName"] = args?.managedPrivateEndpointName;
+            resourceInputs["privateLinkResourceId"] = args?.privateLinkResourceId;
+            resourceInputs["privateLinkResourceRegion"] = args?.privateLinkResourceRegion;
+            resourceInputs["privateLinkServiceUrl"] = args?.privateLinkServiceUrl;
+            resourceInputs["requestMessage"] = args?.requestMessage;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

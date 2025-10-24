@@ -44,59 +44,59 @@ export class StorageTarget extends pulumi.CustomResource {
     /**
      * The percentage of cache space allocated for this storage target
      */
-    public /*out*/ readonly allocationPercentage!: pulumi.Output<number>;
+    declare public /*out*/ readonly allocationPercentage: pulumi.Output<number>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Properties when targetType is blobNfs.
      */
-    public readonly blobNfs!: pulumi.Output<outputs.storagecache.BlobNfsTargetResponse | undefined>;
+    declare public readonly blobNfs: pulumi.Output<outputs.storagecache.BlobNfsTargetResponse | undefined>;
     /**
      * Properties when targetType is clfs.
      */
-    public readonly clfs!: pulumi.Output<outputs.storagecache.ClfsTargetResponse | undefined>;
+    declare public readonly clfs: pulumi.Output<outputs.storagecache.ClfsTargetResponse | undefined>;
     /**
      * List of cache namespace junctions to target for namespace associations.
      */
-    public readonly junctions!: pulumi.Output<outputs.storagecache.NamespaceJunctionResponse[] | undefined>;
+    declare public readonly junctions: pulumi.Output<outputs.storagecache.NamespaceJunctionResponse[] | undefined>;
     /**
      * Region name string.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Name of the Storage Target.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Properties when targetType is nfs3.
      */
-    public readonly nfs3!: pulumi.Output<outputs.storagecache.Nfs3TargetResponse | undefined>;
+    declare public readonly nfs3: pulumi.Output<outputs.storagecache.Nfs3TargetResponse | undefined>;
     /**
      * ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Storage target operational state.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagecache.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagecache.SystemDataResponse>;
     /**
      * Type of the Storage Target.
      */
-    public readonly targetType!: pulumi.Output<string>;
+    declare public readonly targetType: pulumi.Output<string>;
     /**
      * Type of the Storage Target; Microsoft.StorageCache/Cache/StorageTarget
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Properties when targetType is unknown.
      */
-    public readonly unknown!: pulumi.Output<outputs.storagecache.UnknownTargetResponse | undefined>;
+    declare public readonly unknown: pulumi.Output<outputs.storagecache.UnknownTargetResponse | undefined>;
 
     /**
      * Create a StorageTarget resource with the given unique name, arguments, and options.
@@ -109,25 +109,25 @@ export class StorageTarget extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.cacheName === undefined) && !opts.urn) {
+            if (args?.cacheName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'cacheName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            resourceInputs["blobNfs"] = args ? args.blobNfs : undefined;
-            resourceInputs["cacheName"] = args ? args.cacheName : undefined;
-            resourceInputs["clfs"] = args ? args.clfs : undefined;
-            resourceInputs["junctions"] = args ? args.junctions : undefined;
-            resourceInputs["nfs3"] = args ? args.nfs3 : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageTargetName"] = args ? args.storageTargetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["unknown"] = args ? args.unknown : undefined;
+            resourceInputs["blobNfs"] = args?.blobNfs;
+            resourceInputs["cacheName"] = args?.cacheName;
+            resourceInputs["clfs"] = args?.clfs;
+            resourceInputs["junctions"] = args?.junctions;
+            resourceInputs["nfs3"] = args?.nfs3;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageTargetName"] = args?.storageTargetName;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["unknown"] = args?.unknown;
             resourceInputs["allocationPercentage"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;

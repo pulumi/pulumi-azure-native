@@ -44,56 +44,56 @@ export class AFDCustomDomain extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource reference to the Azure DNS zone
      */
-    public readonly azureDnsZone!: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public readonly azureDnsZone: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step. DCV stands for DomainControlValidation.
      */
-    public /*out*/ readonly domainValidationState!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainValidationState: pulumi.Output<string>;
     /**
      * Key-Value pair representing migration properties for domains.
      */
-    public readonly extendedProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly extendedProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The host name of the domain. Must be a domain name.
      */
-    public readonly hostName!: pulumi.Output<string>;
+    declare public readonly hostName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource reference to the Azure resource where custom domain ownership was prevalidated
      */
-    public readonly preValidatedCustomDomainResourceId!: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
+    declare public readonly preValidatedCustomDomainResourceId: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
     /**
      * The name of the profile which holds the domain.
      */
-    public readonly profileName!: pulumi.Output<string>;
+    declare public readonly profileName: pulumi.Output<string>;
     /**
      * Provisioning status
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * The configuration specifying how to enable HTTPS for the domain - using AzureFrontDoor managed certificate or user's own certificate. If not specified, enabling ssl uses AzureFrontDoor managed certificate by default.
      */
-    public readonly tlsSettings!: pulumi.Output<outputs.cdn.AFDDomainHttpsParametersResponse | undefined>;
+    declare public readonly tlsSettings: pulumi.Output<outputs.cdn.AFDDomainHttpsParametersResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Values the customer needs to validate domain ownership
      */
-    public /*out*/ readonly validationProperties!: pulumi.Output<outputs.cdn.DomainValidationPropertiesResponse>;
+    declare public /*out*/ readonly validationProperties: pulumi.Output<outputs.cdn.DomainValidationPropertiesResponse>;
 
     /**
      * Create a AFDCustomDomain resource with the given unique name, arguments, and options.
@@ -106,23 +106,23 @@ export class AFDCustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hostName === undefined) && !opts.urn) {
+            if (args?.hostName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostName'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureDnsZone"] = args ? args.azureDnsZone : undefined;
-            resourceInputs["customDomainName"] = args ? args.customDomainName : undefined;
-            resourceInputs["extendedProperties"] = args ? args.extendedProperties : undefined;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["preValidatedCustomDomainResourceId"] = args ? args.preValidatedCustomDomainResourceId : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tlsSettings"] = args ? args.tlsSettings : undefined;
+            resourceInputs["azureDnsZone"] = args?.azureDnsZone;
+            resourceInputs["customDomainName"] = args?.customDomainName;
+            resourceInputs["extendedProperties"] = args?.extendedProperties;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["preValidatedCustomDomainResourceId"] = args?.preValidatedCustomDomainResourceId;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tlsSettings"] = args?.tlsSettings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["domainValidationState"] = undefined /*out*/;

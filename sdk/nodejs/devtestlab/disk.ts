@@ -42,67 +42,67 @@ export class Disk extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the disk.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * When backed by a blob, the name of the VHD blob without extension.
      */
-    public readonly diskBlobName!: pulumi.Output<string | undefined>;
+    declare public readonly diskBlobName: pulumi.Output<string | undefined>;
     /**
      * The size of the disk in Gibibytes.
      */
-    public readonly diskSizeGiB!: pulumi.Output<number | undefined>;
+    declare public readonly diskSizeGiB: pulumi.Output<number | undefined>;
     /**
      * The storage type for the disk (i.e. Standard, Premium).
      */
-    public readonly diskType!: pulumi.Output<string | undefined>;
+    declare public readonly diskType: pulumi.Output<string | undefined>;
     /**
      * When backed by a blob, the URI of underlying blob.
      */
-    public readonly diskUri!: pulumi.Output<string | undefined>;
+    declare public readonly diskUri: pulumi.Output<string | undefined>;
     /**
      * The host caching policy of the disk (i.e. None, ReadOnly, ReadWrite).
      */
-    public readonly hostCaching!: pulumi.Output<string | undefined>;
+    declare public readonly hostCaching: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the VM to which this disk is leased.
      */
-    public readonly leasedByLabVmId!: pulumi.Output<string | undefined>;
+    declare public readonly leasedByLabVmId: pulumi.Output<string | undefined>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * When backed by managed disk, this is the ID of the compute disk resource.
      */
-    public readonly managedDiskId!: pulumi.Output<string | undefined>;
+    declare public readonly managedDiskId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * When backed by a blob, the storage account where the blob is.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
 
     /**
      * Create a Disk resource with the given unique name, arguments, and options.
@@ -115,29 +115,29 @@ export class Disk extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.userName === undefined) && !opts.urn) {
+            if (args?.userName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'userName'");
             }
-            resourceInputs["diskBlobName"] = args ? args.diskBlobName : undefined;
-            resourceInputs["diskSizeGiB"] = args ? args.diskSizeGiB : undefined;
-            resourceInputs["diskType"] = args ? args.diskType : undefined;
-            resourceInputs["diskUri"] = args ? args.diskUri : undefined;
-            resourceInputs["hostCaching"] = args ? args.hostCaching : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["leasedByLabVmId"] = args ? args.leasedByLabVmId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedDiskId"] = args ? args.managedDiskId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["diskBlobName"] = args?.diskBlobName;
+            resourceInputs["diskSizeGiB"] = args?.diskSizeGiB;
+            resourceInputs["diskType"] = args?.diskType;
+            resourceInputs["diskUri"] = args?.diskUri;
+            resourceInputs["hostCaching"] = args?.hostCaching;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["leasedByLabVmId"] = args?.leasedByLabVmId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedDiskId"] = args?.managedDiskId;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,44 +42,44 @@ export class PremiumMicrosoftDefenderForThreatIntelligence extends pulumi.Custom
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The available data types for the connector.
      */
-    public readonly dataTypes!: pulumi.Output<outputs.securityinsights.PremiumMdtiDataConnectorDataTypesResponse>;
+    declare public readonly dataTypes: pulumi.Output<outputs.securityinsights.PremiumMdtiDataConnectorDataTypesResponse>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'PremiumMicrosoftDefenderForThreatIntelligence'.
      */
-    public readonly kind!: pulumi.Output<"PremiumMicrosoftDefenderForThreatIntelligence">;
+    declare public readonly kind: pulumi.Output<"PremiumMicrosoftDefenderForThreatIntelligence">;
     /**
      * The lookback period for the feed to be imported. The date-time to begin importing the feed from, for example: 2024-01-01T00:00:00.000Z.
      */
-    public readonly lookbackPeriod!: pulumi.Output<string>;
+    declare public readonly lookbackPeriod: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The flag to indicate whether the tenant has the premium SKU required to access this connector.
      */
-    public readonly requiredSKUsPresent!: pulumi.Output<boolean | undefined>;
+    declare public readonly requiredSKUsPresent: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PremiumMicrosoftDefenderForThreatIntelligence resource with the given unique name, arguments, and options.
@@ -92,29 +92,29 @@ export class PremiumMicrosoftDefenderForThreatIntelligence extends pulumi.Custom
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataTypes === undefined) && !opts.urn) {
+            if (args?.dataTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataTypes'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.lookbackPeriod === undefined) && !opts.urn) {
+            if (args?.lookbackPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lookbackPeriod'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
+            resourceInputs["dataConnectorId"] = args?.dataConnectorId;
+            resourceInputs["dataTypes"] = args?.dataTypes;
             resourceInputs["kind"] = "PremiumMicrosoftDefenderForThreatIntelligence";
-            resourceInputs["lookbackPeriod"] = args ? args.lookbackPeriod : undefined;
-            resourceInputs["requiredSKUsPresent"] = args ? args.requiredSKUsPresent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["lookbackPeriod"] = args?.lookbackPeriod;
+            resourceInputs["requiredSKUsPresent"] = args?.requiredSKUsPresent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,39 +44,39 @@ export class Target extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
      */
-    public readonly connectionServerName!: pulumi.Output<string>;
+    declare public readonly connectionServerName: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databasewatcher.SystemDataResponse>;
     /**
      * The type of authentication to use when connecting to a target.
      */
-    public readonly targetAuthenticationType!: pulumi.Output<string>;
+    declare public readonly targetAuthenticationType: pulumi.Output<string>;
     /**
      * Discriminator property for TargetProperties.
      */
-    public readonly targetType!: pulumi.Output<string>;
+    declare public readonly targetType: pulumi.Output<string>;
     /**
      * To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
      */
-    public readonly targetVault!: pulumi.Output<outputs.databasewatcher.VaultSecretResponse | undefined>;
+    declare public readonly targetVault: pulumi.Output<outputs.databasewatcher.VaultSecretResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -89,28 +89,28 @@ export class Target extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectionServerName === undefined) && !opts.urn) {
+            if (args?.connectionServerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionServerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.targetAuthenticationType === undefined) && !opts.urn) {
+            if (args?.targetAuthenticationType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetAuthenticationType'");
             }
-            if ((!args || args.targetType === undefined) && !opts.urn) {
+            if (args?.targetType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetType'");
             }
-            if ((!args || args.watcherName === undefined) && !opts.urn) {
+            if (args?.watcherName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'watcherName'");
             }
-            resourceInputs["connectionServerName"] = args ? args.connectionServerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["targetAuthenticationType"] = args ? args.targetAuthenticationType : undefined;
-            resourceInputs["targetName"] = args ? args.targetName : undefined;
-            resourceInputs["targetType"] = args ? args.targetType : undefined;
-            resourceInputs["targetVault"] = args ? args.targetVault : undefined;
-            resourceInputs["watcherName"] = args ? args.watcherName : undefined;
+            resourceInputs["connectionServerName"] = args?.connectionServerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["targetAuthenticationType"] = args?.targetAuthenticationType;
+            resourceInputs["targetName"] = args?.targetName;
+            resourceInputs["targetType"] = args?.targetType;
+            resourceInputs["targetVault"] = args?.targetVault;
+            resourceInputs["watcherName"] = args?.watcherName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

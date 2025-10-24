@@ -44,63 +44,63 @@ export class SyncGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Conflict logging retention period.
      */
-    public readonly conflictLoggingRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly conflictLoggingRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * Conflict resolution policy of the sync group.
      */
-    public readonly conflictResolutionPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly conflictResolutionPolicy: pulumi.Output<string | undefined>;
     /**
      * If conflict logging is enabled.
      */
-    public readonly enableConflictLogging!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableConflictLogging: pulumi.Output<boolean | undefined>;
     /**
      * User name for the sync group hub database credential.
      */
-    public readonly hubDatabaseUserName!: pulumi.Output<string | undefined>;
+    declare public readonly hubDatabaseUserName: pulumi.Output<string | undefined>;
     /**
      * Sync interval of the sync group.
      */
-    public readonly interval!: pulumi.Output<number | undefined>;
+    declare public readonly interval: pulumi.Output<number | undefined>;
     /**
      * Last sync time of the sync group.
      */
-    public /*out*/ readonly lastSyncTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncTime: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private endpoint name of the sync group if use private link connection is enabled.
      */
-    public /*out*/ readonly privateEndpointName!: pulumi.Output<string>;
+    declare public /*out*/ readonly privateEndpointName: pulumi.Output<string>;
     /**
      * Sync schema of the sync group.
      */
-    public readonly schema!: pulumi.Output<outputs.sql.SyncGroupSchemaResponse | undefined>;
+    declare public readonly schema: pulumi.Output<outputs.sql.SyncGroupSchemaResponse | undefined>;
     /**
      * The name and capacity of the SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.sql.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.sql.SkuResponse | undefined>;
     /**
      * ARM resource id of the sync database in the sync group.
      */
-    public readonly syncDatabaseId!: pulumi.Output<string | undefined>;
+    declare public readonly syncDatabaseId: pulumi.Output<string | undefined>;
     /**
      * Sync state of the sync group.
      */
-    public /*out*/ readonly syncState!: pulumi.Output<string>;
+    declare public /*out*/ readonly syncState: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * If use private link connection is enabled.
      */
-    public readonly usePrivateLinkConnection!: pulumi.Output<boolean | undefined>;
+    declare public readonly usePrivateLinkConnection: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a SyncGroup resource with the given unique name, arguments, and options.
@@ -113,29 +113,29 @@ export class SyncGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["conflictLoggingRetentionInDays"] = args ? args.conflictLoggingRetentionInDays : undefined;
-            resourceInputs["conflictResolutionPolicy"] = args ? args.conflictResolutionPolicy : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["enableConflictLogging"] = args ? args.enableConflictLogging : undefined;
-            resourceInputs["hubDatabasePassword"] = args ? args.hubDatabasePassword : undefined;
-            resourceInputs["hubDatabaseUserName"] = args ? args.hubDatabaseUserName : undefined;
-            resourceInputs["interval"] = args ? args.interval : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schema"] = args ? args.schema : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["syncDatabaseId"] = args ? args.syncDatabaseId : undefined;
-            resourceInputs["syncGroupName"] = args ? args.syncGroupName : undefined;
-            resourceInputs["usePrivateLinkConnection"] = args ? args.usePrivateLinkConnection : undefined;
+            resourceInputs["conflictLoggingRetentionInDays"] = args?.conflictLoggingRetentionInDays;
+            resourceInputs["conflictResolutionPolicy"] = args?.conflictResolutionPolicy;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["enableConflictLogging"] = args?.enableConflictLogging;
+            resourceInputs["hubDatabasePassword"] = args?.hubDatabasePassword;
+            resourceInputs["hubDatabaseUserName"] = args?.hubDatabaseUserName;
+            resourceInputs["interval"] = args?.interval;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schema"] = args?.schema;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["syncDatabaseId"] = args?.syncDatabaseId;
+            resourceInputs["syncGroupName"] = args?.syncGroupName;
+            resourceInputs["usePrivateLinkConnection"] = args?.usePrivateLinkConnection;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastSyncTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

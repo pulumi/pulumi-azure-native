@@ -44,35 +44,35 @@ export class WebPubSubCustomCertificate extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Base uri of the KeyVault that stores certificate.
      */
-    public readonly keyVaultBaseUri!: pulumi.Output<string>;
+    declare public readonly keyVaultBaseUri: pulumi.Output<string>;
     /**
      * Certificate secret name.
      */
-    public readonly keyVaultSecretName!: pulumi.Output<string>;
+    declare public readonly keyVaultSecretName: pulumi.Output<string>;
     /**
      * Certificate secret version.
      */
-    public readonly keyVaultSecretVersion!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultSecretVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.webpubsub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.webpubsub.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebPubSubCustomCertificate resource with the given unique name, arguments, and options.
@@ -85,24 +85,24 @@ export class WebPubSubCustomCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.keyVaultBaseUri === undefined) && !opts.urn) {
+            if (args?.keyVaultBaseUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultBaseUri'");
             }
-            if ((!args || args.keyVaultSecretName === undefined) && !opts.urn) {
+            if (args?.keyVaultSecretName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'keyVaultSecretName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["keyVaultBaseUri"] = args ? args.keyVaultBaseUri : undefined;
-            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            resourceInputs["keyVaultSecretVersion"] = args ? args.keyVaultSecretVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["keyVaultBaseUri"] = args?.keyVaultBaseUri;
+            resourceInputs["keyVaultSecretName"] = args?.keyVaultSecretName;
+            resourceInputs["keyVaultSecretVersion"] = args?.keyVaultSecretVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,51 +42,51 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the semicolon-separated list of alerts that are disabled, or empty string to disable no alerts. Possible values: Sql_Injection; Sql_Injection_Vulnerability; Access_Anomaly; Data_Exfiltration; Unsafe_Action.
      */
-    public readonly disabledAlerts!: pulumi.Output<string | undefined>;
+    declare public readonly disabledAlerts: pulumi.Output<string | undefined>;
     /**
      * Specifies that the alert is sent to the account administrators.
      */
-    public readonly emailAccountAdmins!: pulumi.Output<string | undefined>;
+    declare public readonly emailAccountAdmins: pulumi.Output<string | undefined>;
     /**
      * Specifies the semicolon-separated list of e-mail addresses to which the alert is sent.
      */
-    public readonly emailAddresses!: pulumi.Output<string | undefined>;
+    declare public readonly emailAddresses: pulumi.Output<string | undefined>;
     /**
      * Resource kind.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the number of days to keep in the Threat Detection audit logs.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the state of the policy. If state is Enabled, storageEndpoint and storageAccountAccessKey are required.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs. If state is Enabled, storageEndpoint is required.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies whether to use the default server policy.
      */
-    public readonly useServerDefault!: pulumi.Output<string | undefined>;
+    declare public readonly useServerDefault: pulumi.Output<string | undefined>;
 
     /**
      * Create a DatabaseThreatDetectionPolicy resource with the given unique name, arguments, and options.
@@ -99,31 +99,31 @@ export class DatabaseThreatDetectionPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["disabledAlerts"] = args ? args.disabledAlerts : undefined;
-            resourceInputs["emailAccountAdmins"] = args ? args.emailAccountAdmins : undefined;
-            resourceInputs["emailAddresses"] = args ? args.emailAddresses : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["securityAlertPolicyName"] = args ? args.securityAlertPolicyName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
-            resourceInputs["useServerDefault"] = args ? args.useServerDefault : undefined;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["disabledAlerts"] = args?.disabledAlerts;
+            resourceInputs["emailAccountAdmins"] = args?.emailAccountAdmins;
+            resourceInputs["emailAddresses"] = args?.emailAddresses;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["securityAlertPolicyName"] = args?.securityAlertPolicyName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
+            resourceInputs["useServerDefault"] = args?.useServerDefault;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

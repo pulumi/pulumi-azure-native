@@ -42,31 +42,31 @@ export class ProfileAgent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of custom domains associated with this agent link.
      */
-    public readonly customDomains!: pulumi.Output<outputs.cdn.ResourceReferenceResponse[]>;
+    declare public readonly customDomains: pulumi.Output<outputs.cdn.ResourceReferenceResponse[]>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning status of the profile agent association.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Reference to the web agent resource.
      */
-    public readonly webAgent!: pulumi.Output<outputs.cdn.ResourceReferenceResponse>;
+    declare public readonly webAgent: pulumi.Output<outputs.cdn.ResourceReferenceResponse>;
 
     /**
      * Create a ProfileAgent resource with the given unique name, arguments, and options.
@@ -79,23 +79,23 @@ export class ProfileAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customDomains === undefined) && !opts.urn) {
+            if (args?.customDomains === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customDomains'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.webAgent === undefined) && !opts.urn) {
+            if (args?.webAgent === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAgent'");
             }
-            resourceInputs["agentName"] = args ? args.agentName : undefined;
-            resourceInputs["customDomains"] = args ? args.customDomains : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["webAgent"] = args ? args.webAgent : undefined;
+            resourceInputs["agentName"] = args?.agentName;
+            resourceInputs["customDomains"] = args?.customDomains;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["webAgent"] = args?.webAgent;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

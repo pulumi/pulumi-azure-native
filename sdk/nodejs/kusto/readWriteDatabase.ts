@@ -42,52 +42,52 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the data should be kept in cache for fast queries in TimeSpan.
      */
-    public readonly hotCachePeriod!: pulumi.Output<string | undefined>;
+    declare public readonly hotCachePeriod: pulumi.Output<string | undefined>;
     /**
      * Indicates whether the database is followed.
      */
-    public /*out*/ readonly isFollowed!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isFollowed: pulumi.Output<boolean>;
     /**
      * KeyVault properties for the database encryption.
      */
-    public readonly keyVaultProperties!: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
+    declare public readonly keyVaultProperties: pulumi.Output<outputs.kusto.KeyVaultPropertiesResponse | undefined>;
     /**
      * Kind of the database
      * Expected value is 'ReadWrite'.
      */
-    public readonly kind!: pulumi.Output<"ReadWrite">;
+    declare public readonly kind: pulumi.Output<"ReadWrite">;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The time the data should be kept before it stops being accessible to queries in TimeSpan.
      */
-    public readonly softDeletePeriod!: pulumi.Output<string | undefined>;
+    declare public readonly softDeletePeriod: pulumi.Output<string | undefined>;
     /**
      * The statistics of the database.
      */
-    public /*out*/ readonly statistics!: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
+    declare public /*out*/ readonly statistics: pulumi.Output<outputs.kusto.DatabaseStatisticsResponse>;
     /**
      * The database suspension details. If the database is suspended, this object contains information related to the database's suspension state.
      */
-    public /*out*/ readonly suspensionDetails!: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
+    declare public /*out*/ readonly suspensionDetails: pulumi.Output<outputs.kusto.SuspensionDetailsResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ReadWriteDatabase resource with the given unique name, arguments, and options.
@@ -100,24 +100,24 @@ export class ReadWriteDatabase extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["callerRole"] = args ? args.callerRole : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["hotCachePeriod"] = args ? args.hotCachePeriod : undefined;
-            resourceInputs["keyVaultProperties"] = args ? args.keyVaultProperties : undefined;
+            resourceInputs["callerRole"] = args?.callerRole;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["hotCachePeriod"] = args?.hotCachePeriod;
+            resourceInputs["keyVaultProperties"] = args?.keyVaultProperties;
             resourceInputs["kind"] = "ReadWrite";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["softDeletePeriod"] = args ? args.softDeletePeriod : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["softDeletePeriod"] = args?.softDeletePeriod;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["isFollowed"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,43 +44,43 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
     /**
      * Authorization key to establish the connection.
      */
-    public readonly authorizationKey!: pulumi.Output<string | undefined>;
+    declare public readonly authorizationKey: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Enable internet security.
      */
-    public readonly enableInternetSecurity!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableInternetSecurity: pulumi.Output<boolean | undefined>;
     /**
      * Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled.
      */
-    public readonly enablePrivateLinkFastPath!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePrivateLinkFastPath: pulumi.Output<boolean | undefined>;
     /**
      * The ExpressRoute circuit peering.
      */
-    public readonly expressRouteCircuitPeering!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringIdResponse>;
+    declare public readonly expressRouteCircuitPeering: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringIdResponse>;
     /**
      * Enable FastPath to vWan Firewall hub.
      */
-    public readonly expressRouteGatewayBypass!: pulumi.Output<boolean | undefined>;
+    declare public readonly expressRouteGatewayBypass: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the express route connection resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Routing Configuration indicating the associated and propagated route tables on this connection.
      */
-    public readonly routingConfiguration!: pulumi.Output<outputs.network.RoutingConfigurationResponse | undefined>;
+    declare public readonly routingConfiguration: pulumi.Output<outputs.network.RoutingConfigurationResponse | undefined>;
     /**
      * The routing weight associated to the connection.
      */
-    public readonly routingWeight!: pulumi.Output<number | undefined>;
+    declare public readonly routingWeight: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteConnection resource with the given unique name, arguments, and options.
@@ -93,30 +93,30 @@ export class ExpressRouteConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.expressRouteCircuitPeering === undefined) && !opts.urn) {
+            if (args?.expressRouteCircuitPeering === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteCircuitPeering'");
             }
-            if ((!args || args.expressRouteGatewayName === undefined) && !opts.urn) {
+            if (args?.expressRouteGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'expressRouteGatewayName'");
             }
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authorizationKey"] = args ? args.authorizationKey : undefined;
-            resourceInputs["connectionName"] = args ? args.connectionName : undefined;
-            resourceInputs["enableInternetSecurity"] = args ? args.enableInternetSecurity : undefined;
-            resourceInputs["enablePrivateLinkFastPath"] = args ? args.enablePrivateLinkFastPath : undefined;
-            resourceInputs["expressRouteCircuitPeering"] = args ? args.expressRouteCircuitPeering : undefined;
-            resourceInputs["expressRouteGatewayBypass"] = args ? args.expressRouteGatewayBypass : undefined;
-            resourceInputs["expressRouteGatewayName"] = args ? args.expressRouteGatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routingConfiguration"] = args ? args.routingConfiguration : undefined;
-            resourceInputs["routingWeight"] = args ? args.routingWeight : undefined;
+            resourceInputs["authorizationKey"] = args?.authorizationKey;
+            resourceInputs["connectionName"] = args?.connectionName;
+            resourceInputs["enableInternetSecurity"] = args?.enableInternetSecurity;
+            resourceInputs["enablePrivateLinkFastPath"] = args?.enablePrivateLinkFastPath;
+            resourceInputs["expressRouteCircuitPeering"] = args?.expressRouteCircuitPeering;
+            resourceInputs["expressRouteGatewayBypass"] = args?.expressRouteGatewayBypass;
+            resourceInputs["expressRouteGatewayName"] = args?.expressRouteGatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routingConfiguration"] = args?.routingConfiguration;
+            resourceInputs["routingWeight"] = args?.routingWeight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
         } else {

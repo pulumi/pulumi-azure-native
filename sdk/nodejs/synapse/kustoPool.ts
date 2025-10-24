@@ -44,75 +44,75 @@ export class KustoPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Kusto Pool data ingestion URI.
      */
-    public /*out*/ readonly dataIngestionUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataIngestionUri: pulumi.Output<string>;
     /**
      * A boolean value that indicates if the purge operations are enabled.
      */
-    public readonly enablePurge!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePurge: pulumi.Output<boolean | undefined>;
     /**
      * A boolean value that indicates if the streaming ingest is enabled.
      */
-    public readonly enableStreamingIngest!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableStreamingIngest: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * List of the Kusto Pool's language extensions.
      */
-    public /*out*/ readonly languageExtensions!: pulumi.Output<outputs.synapse.LanguageExtensionsListResponse>;
+    declare public /*out*/ readonly languageExtensions: pulumi.Output<outputs.synapse.LanguageExtensionsListResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optimized auto scale definition.
      */
-    public readonly optimizedAutoscale!: pulumi.Output<outputs.synapse.OptimizedAutoscaleResponse | undefined>;
+    declare public readonly optimizedAutoscale: pulumi.Output<outputs.synapse.OptimizedAutoscaleResponse | undefined>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU of the kusto pool.
      */
-    public readonly sku!: pulumi.Output<outputs.synapse.AzureSkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.synapse.AzureSkuResponse>;
     /**
      * The state of the resource.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The reason for the Kusto Pool's current state.
      */
-    public /*out*/ readonly stateReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly stateReason: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.synapse.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.synapse.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Kusto Pool URI.
      */
-    public /*out*/ readonly uri!: pulumi.Output<string>;
+    declare public /*out*/ readonly uri: pulumi.Output<string>;
     /**
      * The workspace unique identifier.
      */
-    public readonly workspaceUID!: pulumi.Output<string | undefined>;
+    declare public readonly workspaceUID: pulumi.Output<string | undefined>;
 
     /**
      * Create a KustoPool resource with the given unique name, arguments, and options.
@@ -125,25 +125,25 @@ export class KustoPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["enablePurge"] = (args ? args.enablePurge : undefined) ?? false;
-            resourceInputs["enableStreamingIngest"] = (args ? args.enableStreamingIngest : undefined) ?? false;
-            resourceInputs["kustoPoolName"] = args ? args.kustoPoolName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["optimizedAutoscale"] = args ? args.optimizedAutoscale : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
-            resourceInputs["workspaceUID"] = args ? args.workspaceUID : undefined;
+            resourceInputs["enablePurge"] = (args?.enablePurge) ?? false;
+            resourceInputs["enableStreamingIngest"] = (args?.enableStreamingIngest) ?? false;
+            resourceInputs["kustoPoolName"] = args?.kustoPoolName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["optimizedAutoscale"] = args?.optimizedAutoscale;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
+            resourceInputs["workspaceUID"] = args?.workspaceUID;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dataIngestionUri"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

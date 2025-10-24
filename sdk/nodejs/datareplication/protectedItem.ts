@@ -44,20 +44,20 @@ export class ProtectedItem extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Protected item model properties.
      */
-    public readonly properties!: pulumi.Output<outputs.datareplication.ProtectedItemModelPropertiesResponse>;
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datareplication.ProtectedItemModelResponseSystemData>;
+    declare public readonly properties: pulumi.Output<outputs.datareplication.ProtectedItemModelPropertiesResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datareplication.ProtectedItemModelResponseSystemData>;
     /**
      * Gets or sets the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ProtectedItem resource with the given unique name, arguments, and options.
@@ -70,19 +70,19 @@ export class ProtectedItem extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vaultName === undefined) && !opts.urn) {
+            if (args?.vaultName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vaultName'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["protectedItemName"] = args ? args.protectedItemName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vaultName"] = args ? args.vaultName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["protectedItemName"] = args?.protectedItemName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vaultName"] = args?.vaultName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

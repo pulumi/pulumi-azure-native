@@ -44,63 +44,63 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Private store offer creation date
      */
-    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
      * Identifier for purposes of race condition
      */
-    public readonly eTag!: pulumi.Output<string | undefined>;
+    declare public readonly eTag: pulumi.Output<string | undefined>;
     /**
      * Icon File Uris
      */
-    public readonly iconFileUris!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly iconFileUris: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Private store offer modification date
      */
-    public /*out*/ readonly modifiedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * It will be displayed prominently in the marketplace
      */
-    public /*out*/ readonly offerDisplayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly offerDisplayName: pulumi.Output<string>;
     /**
      * Offer plans
      */
-    public readonly plans!: pulumi.Output<outputs.marketplace.PlanResponse[] | undefined>;
+    declare public readonly plans: pulumi.Output<outputs.marketplace.PlanResponse[] | undefined>;
     /**
      * Private store unique id
      */
-    public readonly privateStoreId!: pulumi.Output<string>;
+    declare public readonly privateStoreId: pulumi.Output<string>;
     /**
      * Publisher name that will be displayed prominently in the marketplace
      */
-    public /*out*/ readonly publisherDisplayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly publisherDisplayName: pulumi.Output<string>;
     /**
      * Plan ids limitation for this offer
      */
-    public readonly specificPlanIdsLimitation!: pulumi.Output<string[] | undefined>;
+    declare public readonly specificPlanIdsLimitation: pulumi.Output<string[] | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.marketplace.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.marketplace.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Offers unique id
      */
-    public /*out*/ readonly uniqueOfferId!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueOfferId: pulumi.Output<string>;
     /**
      * Indicating whether the offer was not updated to db (true = not updated). If the allow list is identical to the existed one in db, the offer would not be updated.
      */
-    public readonly updateSuppressedDueIdempotence!: pulumi.Output<boolean | undefined>;
+    declare public readonly updateSuppressedDueIdempotence: pulumi.Output<boolean | undefined>;
 
     /**
      * Create a PrivateStoreCollectionOffer resource with the given unique name, arguments, and options.
@@ -113,20 +113,20 @@ export class PrivateStoreCollectionOffer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.collectionId === undefined) && !opts.urn) {
+            if (args?.collectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'collectionId'");
             }
-            if ((!args || args.privateStoreId === undefined) && !opts.urn) {
+            if (args?.privateStoreId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateStoreId'");
             }
-            resourceInputs["collectionId"] = args ? args.collectionId : undefined;
-            resourceInputs["eTag"] = args ? args.eTag : undefined;
-            resourceInputs["iconFileUris"] = args ? args.iconFileUris : undefined;
-            resourceInputs["offerId"] = args ? args.offerId : undefined;
-            resourceInputs["plans"] = args ? args.plans : undefined;
-            resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
-            resourceInputs["specificPlanIdsLimitation"] = args ? args.specificPlanIdsLimitation : undefined;
-            resourceInputs["updateSuppressedDueIdempotence"] = args ? args.updateSuppressedDueIdempotence : undefined;
+            resourceInputs["collectionId"] = args?.collectionId;
+            resourceInputs["eTag"] = args?.eTag;
+            resourceInputs["iconFileUris"] = args?.iconFileUris;
+            resourceInputs["offerId"] = args?.offerId;
+            resourceInputs["plans"] = args?.plans;
+            resourceInputs["privateStoreId"] = args?.privateStoreId;
+            resourceInputs["specificPlanIdsLimitation"] = args?.specificPlanIdsLimitation;
+            resourceInputs["updateSuppressedDueIdempotence"] = args?.updateSuppressedDueIdempotence;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["modifiedAt"] = undefined /*out*/;

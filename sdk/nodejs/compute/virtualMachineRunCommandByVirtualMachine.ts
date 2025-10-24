@@ -44,83 +44,83 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
     /**
      * Optional. If set to true, provisioning will complete as soon as the script starts and will not wait for script to complete.
      */
-    public readonly asyncExecution!: pulumi.Output<boolean | undefined>;
+    declare public readonly asyncExecution: pulumi.Output<boolean | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * User-assigned managed identity that has access to errorBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
      */
-    public readonly errorBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
+    declare public readonly errorBlobManagedIdentity: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
     /**
      * Specifies the Azure storage blob where script error stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer errorBlobManagedIdentity parameter.
      */
-    public readonly errorBlobUri!: pulumi.Output<string | undefined>;
+    declare public readonly errorBlobUri: pulumi.Output<string | undefined>;
     /**
      * The virtual machine run command instance view.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.VirtualMachineRunCommandInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.compute.VirtualMachineRunCommandInstanceViewResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * User-assigned managed identity that has access to outputBlobUri storage blob. Use an empty object in case of system-assigned identity. Make sure managed identity has been given access to blob's container with 'Storage Blob Data Contributor' role assignment. In case of user-assigned identity, make sure you add it under VM's identity. For more info on managed identity and Run Command, refer https://aka.ms/ManagedIdentity and https://aka.ms/RunCommandManaged
      */
-    public readonly outputBlobManagedIdentity!: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
+    declare public readonly outputBlobManagedIdentity: pulumi.Output<outputs.compute.RunCommandManagedIdentityResponse | undefined>;
     /**
      * Specifies the Azure storage blob where script output stream will be uploaded. Use a SAS URI with read, append, create, write access OR use managed identity to provide the VM access to the blob. Refer outputBlobManagedIdentity parameter.
      */
-    public readonly outputBlobUri!: pulumi.Output<string | undefined>;
+    declare public readonly outputBlobUri: pulumi.Output<string | undefined>;
     /**
      * The parameters used by the script.
      */
-    public readonly parameters!: pulumi.Output<outputs.compute.RunCommandInputParameterResponse[] | undefined>;
+    declare public readonly parameters: pulumi.Output<outputs.compute.RunCommandInputParameterResponse[] | undefined>;
     /**
      * The parameters used by the script.
      */
-    public readonly protectedParameters!: pulumi.Output<outputs.compute.RunCommandInputParameterResponse[] | undefined>;
+    declare public readonly protectedParameters: pulumi.Output<outputs.compute.RunCommandInputParameterResponse[] | undefined>;
     /**
      * The provisioning state, which only appears in the response. If treatFailureAsDeploymentFailure set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If treatFailureAsDeploymentFailure set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies the user account password on the VM when executing the run command.
      */
-    public readonly runAsPassword!: pulumi.Output<string | undefined>;
+    declare public readonly runAsPassword: pulumi.Output<string | undefined>;
     /**
      * Specifies the user account on the VM when executing the run command.
      */
-    public readonly runAsUser!: pulumi.Output<string | undefined>;
+    declare public readonly runAsUser: pulumi.Output<string | undefined>;
     /**
      * The source of the run command script.
      */
-    public readonly source!: pulumi.Output<outputs.compute.VirtualMachineRunCommandScriptSourceResponse | undefined>;
+    declare public readonly source: pulumi.Output<outputs.compute.VirtualMachineRunCommandScriptSourceResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The timeout in seconds to execute the run command.
      */
-    public readonly timeoutInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly timeoutInSeconds: pulumi.Output<number | undefined>;
     /**
      * Optional. If set to true, any failure in the script will fail the deployment and ProvisioningState will be marked as Failed. If set to false, ProvisioningState would only reflect whether the run command was run or not by the extensions platform, it would not indicate whether script failed in case of script failures. See instance view of run command in case of script failures to see executionMessage, output, error: https://aka.ms/runcommandmanaged#get-execution-status-and-results
      */
-    public readonly treatFailureAsDeploymentFailure!: pulumi.Output<boolean | undefined>;
+    declare public readonly treatFailureAsDeploymentFailure: pulumi.Output<boolean | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineRunCommandByVirtualMachine resource with the given unique name, arguments, and options.
@@ -133,29 +133,29 @@ export class VirtualMachineRunCommandByVirtualMachine extends pulumi.CustomResou
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.vmName === undefined) && !opts.urn) {
+            if (args?.vmName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vmName'");
             }
-            resourceInputs["asyncExecution"] = args ? args.asyncExecution : undefined;
-            resourceInputs["errorBlobManagedIdentity"] = args ? args.errorBlobManagedIdentity : undefined;
-            resourceInputs["errorBlobUri"] = args ? args.errorBlobUri : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outputBlobManagedIdentity"] = args ? args.outputBlobManagedIdentity : undefined;
-            resourceInputs["outputBlobUri"] = args ? args.outputBlobUri : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["protectedParameters"] = args ? args.protectedParameters : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["runAsPassword"] = args ? args.runAsPassword : undefined;
-            resourceInputs["runAsUser"] = args ? args.runAsUser : undefined;
-            resourceInputs["runCommandName"] = args ? args.runCommandName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["timeoutInSeconds"] = args ? args.timeoutInSeconds : undefined;
-            resourceInputs["treatFailureAsDeploymentFailure"] = args ? args.treatFailureAsDeploymentFailure : undefined;
-            resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["asyncExecution"] = args?.asyncExecution;
+            resourceInputs["errorBlobManagedIdentity"] = args?.errorBlobManagedIdentity;
+            resourceInputs["errorBlobUri"] = args?.errorBlobUri;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outputBlobManagedIdentity"] = args?.outputBlobManagedIdentity;
+            resourceInputs["outputBlobUri"] = args?.outputBlobUri;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["protectedParameters"] = args?.protectedParameters;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["runAsPassword"] = args?.runAsPassword;
+            resourceInputs["runAsUser"] = args?.runAsUser;
+            resourceInputs["runCommandName"] = args?.runCommandName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["timeoutInSeconds"] = args?.timeoutInSeconds;
+            resourceInputs["treatFailureAsDeploymentFailure"] = args?.treatFailureAsDeploymentFailure;
+            resourceInputs["vmName"] = args?.vmName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

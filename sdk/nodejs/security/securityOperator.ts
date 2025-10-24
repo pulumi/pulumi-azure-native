@@ -42,19 +42,19 @@ export class SecurityOperator extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Identity for the resource.
      */
-    public /*out*/ readonly identity!: pulumi.Output<outputs.security.IdentityResponse | undefined>;
+    declare public /*out*/ readonly identity: pulumi.Output<outputs.security.IdentityResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityOperator resource with the given unique name, arguments, and options.
@@ -67,11 +67,11 @@ export class SecurityOperator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pricingName === undefined) && !opts.urn) {
+            if (args?.pricingName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pricingName'");
             }
-            resourceInputs["pricingName"] = args ? args.pricingName : undefined;
-            resourceInputs["securityOperatorName"] = args ? args.securityOperatorName : undefined;
+            resourceInputs["pricingName"] = args?.pricingName;
+            resourceInputs["securityOperatorName"] = args?.securityOperatorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

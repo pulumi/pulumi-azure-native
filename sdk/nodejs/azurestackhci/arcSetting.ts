@@ -44,59 +44,59 @@ export class ArcSetting extends pulumi.CustomResource {
     /**
      * Aggregate state of Arc agent across the nodes in this HCI cluster.
      */
-    public /*out*/ readonly aggregateState!: pulumi.Output<string>;
+    declare public /*out*/ readonly aggregateState: pulumi.Output<string>;
     /**
      * App id of arc AAD identity.
      */
-    public readonly arcApplicationClientId!: pulumi.Output<string | undefined>;
+    declare public readonly arcApplicationClientId: pulumi.Output<string | undefined>;
     /**
      * Object id of arc AAD identity.
      */
-    public readonly arcApplicationObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly arcApplicationObjectId: pulumi.Output<string | undefined>;
     /**
      * Tenant id of arc AAD identity.
      */
-    public readonly arcApplicationTenantId!: pulumi.Output<string | undefined>;
+    declare public readonly arcApplicationTenantId: pulumi.Output<string | undefined>;
     /**
      * The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources.
      */
-    public readonly arcInstanceResourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly arcInstanceResourceGroup: pulumi.Output<string | undefined>;
     /**
      * Object id of arc AAD service principal.
      */
-    public readonly arcServicePrincipalObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly arcServicePrincipalObjectId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * contains connectivity related configuration for ARC resources
      */
-    public readonly connectivityProperties!: pulumi.Output<outputs.azurestackhci.ArcConnectivityPropertiesResponse[] | undefined>;
+    declare public readonly connectivityProperties: pulumi.Output<outputs.azurestackhci.ArcConnectivityPropertiesResponse[] | undefined>;
     /**
      * Properties for each of the default extensions category
      */
-    public /*out*/ readonly defaultExtensions!: pulumi.Output<outputs.azurestackhci.DefaultExtensionDetailsResponse[]>;
+    declare public /*out*/ readonly defaultExtensions: pulumi.Output<outputs.azurestackhci.DefaultExtensionDetailsResponse[]>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of Arc agent in each of the nodes.
      */
-    public /*out*/ readonly perNodeDetails!: pulumi.Output<outputs.azurestackhci.PerNodeStateResponse[]>;
+    declare public /*out*/ readonly perNodeDetails: pulumi.Output<outputs.azurestackhci.PerNodeStateResponse[]>;
     /**
      * Provisioning state of the ArcSetting proxy resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ArcSetting resource with the given unique name, arguments, and options.
@@ -109,21 +109,21 @@ export class ArcSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["arcApplicationClientId"] = args ? args.arcApplicationClientId : undefined;
-            resourceInputs["arcApplicationObjectId"] = args ? args.arcApplicationObjectId : undefined;
-            resourceInputs["arcApplicationTenantId"] = args ? args.arcApplicationTenantId : undefined;
-            resourceInputs["arcInstanceResourceGroup"] = args ? args.arcInstanceResourceGroup : undefined;
-            resourceInputs["arcServicePrincipalObjectId"] = args ? args.arcServicePrincipalObjectId : undefined;
-            resourceInputs["arcSettingName"] = args ? args.arcSettingName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["connectivityProperties"] = args ? args.connectivityProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["arcApplicationClientId"] = args?.arcApplicationClientId;
+            resourceInputs["arcApplicationObjectId"] = args?.arcApplicationObjectId;
+            resourceInputs["arcApplicationTenantId"] = args?.arcApplicationTenantId;
+            resourceInputs["arcInstanceResourceGroup"] = args?.arcInstanceResourceGroup;
+            resourceInputs["arcServicePrincipalObjectId"] = args?.arcServicePrincipalObjectId;
+            resourceInputs["arcSettingName"] = args?.arcSettingName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["connectivityProperties"] = args?.connectivityProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["aggregateState"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["defaultExtensions"] = undefined /*out*/;

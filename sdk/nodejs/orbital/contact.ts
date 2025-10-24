@@ -42,83 +42,83 @@ export class Contact extends pulumi.CustomResource {
     /**
      * The configuration associated with the allocated antenna.
      */
-    public /*out*/ readonly antennaConfiguration!: pulumi.Output<outputs.orbital.ContactsPropertiesResponseAntennaConfiguration>;
+    declare public /*out*/ readonly antennaConfiguration: pulumi.Output<outputs.orbital.ContactsPropertiesResponseAntennaConfiguration>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The reference to the contact profile resource.
      */
-    public readonly contactProfile!: pulumi.Output<outputs.orbital.ContactsPropertiesResponseContactProfile>;
+    declare public readonly contactProfile: pulumi.Output<outputs.orbital.ContactsPropertiesResponseContactProfile>;
     /**
      * Azimuth of the antenna at the end of the contact in decimal degrees.
      */
-    public /*out*/ readonly endAzimuthDegrees!: pulumi.Output<number>;
+    declare public /*out*/ readonly endAzimuthDegrees: pulumi.Output<number>;
     /**
      * Spacecraft elevation above the horizon at contact end.
      */
-    public /*out*/ readonly endElevationDegrees!: pulumi.Output<number>;
+    declare public /*out*/ readonly endElevationDegrees: pulumi.Output<number>;
     /**
      * Any error message while scheduling a contact.
      */
-    public /*out*/ readonly errorMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly errorMessage: pulumi.Output<string>;
     /**
      * Azure Ground Station name.
      */
-    public readonly groundStationName!: pulumi.Output<string>;
+    declare public readonly groundStationName: pulumi.Output<string>;
     /**
      * Maximum elevation of the antenna during the contact in decimal degrees.
      */
-    public /*out*/ readonly maximumElevationDegrees!: pulumi.Output<number>;
+    declare public /*out*/ readonly maximumElevationDegrees: pulumi.Output<number>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Reservation end time of a contact (ISO 8601 UTC standard).
      */
-    public readonly reservationEndTime!: pulumi.Output<string>;
+    declare public readonly reservationEndTime: pulumi.Output<string>;
     /**
      * Reservation start time of a contact (ISO 8601 UTC standard).
      */
-    public readonly reservationStartTime!: pulumi.Output<string>;
+    declare public readonly reservationStartTime: pulumi.Output<string>;
     /**
      * Receive end time of a contact (ISO 8601 UTC standard).
      */
-    public /*out*/ readonly rxEndTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly rxEndTime: pulumi.Output<string>;
     /**
      * Receive start time of a contact (ISO 8601 UTC standard).
      */
-    public /*out*/ readonly rxStartTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly rxStartTime: pulumi.Output<string>;
     /**
      * Azimuth of the antenna at the start of the contact in decimal degrees.
      */
-    public /*out*/ readonly startAzimuthDegrees!: pulumi.Output<number>;
+    declare public /*out*/ readonly startAzimuthDegrees: pulumi.Output<number>;
     /**
      * Spacecraft elevation above the horizon at contact start.
      */
-    public /*out*/ readonly startElevationDegrees!: pulumi.Output<number>;
+    declare public /*out*/ readonly startElevationDegrees: pulumi.Output<number>;
     /**
      * Status of a contact.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.orbital.SystemDataResponse>;
     /**
      * Transmit end time of a contact (ISO 8601 UTC standard).
      */
-    public /*out*/ readonly txEndTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly txEndTime: pulumi.Output<string>;
     /**
      * Transmit start time of a contact (ISO 8601 UTC standard).
      */
-    public /*out*/ readonly txStartTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly txStartTime: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Contact resource with the given unique name, arguments, and options.
@@ -131,31 +131,31 @@ export class Contact extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contactProfile === undefined) && !opts.urn) {
+            if (args?.contactProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contactProfile'");
             }
-            if ((!args || args.groundStationName === undefined) && !opts.urn) {
+            if (args?.groundStationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groundStationName'");
             }
-            if ((!args || args.reservationEndTime === undefined) && !opts.urn) {
+            if (args?.reservationEndTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationEndTime'");
             }
-            if ((!args || args.reservationStartTime === undefined) && !opts.urn) {
+            if (args?.reservationStartTime === undefined && !opts.urn) {
                 throw new Error("Missing required property 'reservationStartTime'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.spacecraftName === undefined) && !opts.urn) {
+            if (args?.spacecraftName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'spacecraftName'");
             }
-            resourceInputs["contactName"] = args ? args.contactName : undefined;
-            resourceInputs["contactProfile"] = args ? args.contactProfile : undefined;
-            resourceInputs["groundStationName"] = args ? args.groundStationName : undefined;
-            resourceInputs["reservationEndTime"] = args ? args.reservationEndTime : undefined;
-            resourceInputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
+            resourceInputs["contactName"] = args?.contactName;
+            resourceInputs["contactProfile"] = args?.contactProfile;
+            resourceInputs["groundStationName"] = args?.groundStationName;
+            resourceInputs["reservationEndTime"] = args?.reservationEndTime;
+            resourceInputs["reservationStartTime"] = args?.reservationStartTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spacecraftName"] = args?.spacecraftName;
             resourceInputs["antennaConfiguration"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["endAzimuthDegrees"] = undefined /*out*/;

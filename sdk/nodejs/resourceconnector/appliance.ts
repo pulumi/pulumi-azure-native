@@ -44,55 +44,55 @@ export class Appliance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Represents a supported Fabric/Infra. (AKSEdge etc...).
      */
-    public readonly distro!: pulumi.Output<string | undefined>;
+    declare public readonly distro: pulumi.Output<string | undefined>;
     /**
      * Identity for the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.resourceconnector.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.resourceconnector.IdentityResponse | undefined>;
     /**
      * Contains infrastructure information about the Appliance
      */
-    public readonly infrastructureConfig!: pulumi.Output<outputs.resourceconnector.AppliancePropertiesResponseInfrastructureConfig | undefined>;
+    declare public readonly infrastructureConfig: pulumi.Output<outputs.resourceconnector.AppliancePropertiesResponseInfrastructureConfig | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Certificates pair used to download MSI certificate from HIS. Can only be set once.
      */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
+    declare public readonly publicKey: pulumi.Output<string | undefined>;
     /**
      * Appliance’s health and state of connection to on-prem
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.resourceconnector.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.resourceconnector.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the Appliance
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Appliance resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class Appliance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["distro"] = (args ? args.distro : undefined) ?? "AKSEdge";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["infrastructureConfig"] = args ? args.infrastructureConfig : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["distro"] = (args?.distro) ?? "AKSEdge";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["infrastructureConfig"] = args?.infrastructureConfig;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

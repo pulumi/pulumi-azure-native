@@ -44,59 +44,59 @@ export class Snapshot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * CreationData to be used to specify the source agent pool resource ID to create this snapshot.
      */
-    public readonly creationData!: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
+    declare public readonly creationData: pulumi.Output<outputs.containerservice.CreationDataResponse | undefined>;
     /**
      * Whether to use a FIPS-enabled OS.
      */
-    public /*out*/ readonly enableFIPS!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly enableFIPS: pulumi.Output<boolean>;
     /**
      * The version of Kubernetes.
      */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The version of node image.
      */
-    public /*out*/ readonly nodeImageVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly nodeImageVersion: pulumi.Output<string>;
     /**
      * Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
      */
-    public /*out*/ readonly osSku!: pulumi.Output<string>;
+    declare public /*out*/ readonly osSku: pulumi.Output<string>;
     /**
      * The operating system type. The default is Linux.
      */
-    public /*out*/ readonly osType!: pulumi.Output<string>;
+    declare public /*out*/ readonly osType: pulumi.Output<string>;
     /**
      * The type of a snapshot. The default is NodePool.
      */
-    public readonly snapshotType!: pulumi.Output<string | undefined>;
+    declare public readonly snapshotType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerservice.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The size of the VM.
      */
-    public /*out*/ readonly vmSize!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmSize: pulumi.Output<string>;
 
     /**
      * Create a Snapshot resource with the given unique name, arguments, and options.
@@ -109,15 +109,15 @@ export class Snapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["snapshotType"] = args ? args.snapshotType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["snapshotType"] = args?.snapshotType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["enableFIPS"] = undefined /*out*/;
             resourceInputs["kubernetesVersion"] = undefined /*out*/;

@@ -44,39 +44,39 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
     /**
      * The list of the application principals. This is a legacy parameter and is no longer used.
      */
-    public /*out*/ readonly applicationPrincipals!: pulumi.Output<string>;
+    declare public /*out*/ readonly applicationPrincipals: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The state of the data masking policy.
      */
-    public readonly dataMaskingState!: pulumi.Output<string>;
+    declare public readonly dataMaskingState: pulumi.Output<string>;
     /**
      * The list of the exempt principals. Specifies the semicolon-separated list of database users for which the data masking policy does not apply. The specified users receive data results without masking for all of the database queries.
      */
-    public readonly exemptPrincipals!: pulumi.Output<string | undefined>;
+    declare public readonly exemptPrincipals: pulumi.Output<string | undefined>;
     /**
      * The kind of Data Masking Policy. Metadata, used for Azure portal.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The location of the data masking policy.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The masking level. This is a legacy parameter and is no longer used.
      */
-    public /*out*/ readonly maskingLevel!: pulumi.Output<string>;
+    declare public /*out*/ readonly maskingLevel: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataMaskingPolicy resource with the given unique name, arguments, and options.
@@ -89,24 +89,24 @@ export class DataMaskingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataMaskingState === undefined) && !opts.urn) {
+            if (args?.dataMaskingState === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMaskingState'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["dataMaskingPolicyName"] = args ? args.dataMaskingPolicyName : undefined;
-            resourceInputs["dataMaskingState"] = args ? args.dataMaskingState : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["exemptPrincipals"] = args ? args.exemptPrincipals : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["dataMaskingPolicyName"] = args?.dataMaskingPolicyName;
+            resourceInputs["dataMaskingState"] = args?.dataMaskingState;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["exemptPrincipals"] = args?.exemptPrincipals;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["applicationPrincipals"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;

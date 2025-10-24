@@ -44,47 +44,47 @@ export class User extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Email address.
      */
-    public readonly email!: pulumi.Output<string | undefined>;
+    declare public readonly email: pulumi.Output<string | undefined>;
     /**
      * First name.
      */
-    public readonly firstName!: pulumi.Output<string | undefined>;
+    declare public readonly firstName: pulumi.Output<string | undefined>;
     /**
      * Collection of groups user is part of.
      */
-    public /*out*/ readonly groups!: pulumi.Output<outputs.apimanagement.GroupContractPropertiesResponse[]>;
+    declare public /*out*/ readonly groups: pulumi.Output<outputs.apimanagement.GroupContractPropertiesResponse[]>;
     /**
      * Collection of user identities.
      */
-    public readonly identities!: pulumi.Output<outputs.apimanagement.UserIdentityContractResponse[] | undefined>;
+    declare public readonly identities: pulumi.Output<outputs.apimanagement.UserIdentityContractResponse[] | undefined>;
     /**
      * Last name.
      */
-    public readonly lastName!: pulumi.Output<string | undefined>;
+    declare public readonly lastName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optional note about a user set by the administrator.
      */
-    public readonly note!: pulumi.Output<string | undefined>;
+    declare public readonly note: pulumi.Output<string | undefined>;
     /**
      * Date of user registration. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly registrationDate!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly registrationDate: pulumi.Output<string | undefined>;
     /**
      * Account state. Specifies whether the user is active or not. Blocked users are unable to sign into the developer portal or call any APIs of subscribed products. Default state is Active.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a User resource with the given unique name, arguments, and options.
@@ -97,34 +97,34 @@ export class User extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.email === undefined) && !opts.urn) {
+            if (args?.email === undefined && !opts.urn) {
                 throw new Error("Missing required property 'email'");
             }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
+            if (args?.firstName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'firstName'");
             }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
+            if (args?.lastName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'lastName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["appType"] = args ? args.appType : undefined;
-            resourceInputs["confirmation"] = args ? args.confirmation : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["identities"] = args ? args.identities : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["note"] = args ? args.note : undefined;
-            resourceInputs["notify"] = args ? args.notify : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["state"] = (args ? args.state : undefined) ?? "active";
-            resourceInputs["userId"] = args ? args.userId : undefined;
+            resourceInputs["appType"] = args?.appType;
+            resourceInputs["confirmation"] = args?.confirmation;
+            resourceInputs["email"] = args?.email;
+            resourceInputs["firstName"] = args?.firstName;
+            resourceInputs["identities"] = args?.identities;
+            resourceInputs["lastName"] = args?.lastName;
+            resourceInputs["note"] = args?.note;
+            resourceInputs["notify"] = args?.notify;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["state"] = (args?.state) ?? "active";
+            resourceInputs["userId"] = args?.userId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groups"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,31 +42,31 @@ export class ConfigurationProfile extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The identity block returned by ARM resource that supports managed identity.
      */
-    public readonly identity!: pulumi.Output<outputs.changeanalysis.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.changeanalysis.ResourceIdentityResponse | undefined>;
     /**
      * The location where the resource is to be deployed.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The properties of a configuration profile.
      */
-    public readonly properties!: pulumi.Output<outputs.changeanalysis.ConfigurationProfileResourcePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.changeanalysis.ConfigurationProfileResourcePropertiesResponse>;
     /**
      * Top level metadata https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/common-api-contracts.md#system-metadata-for-all-azure-resources
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.changeanalysis.SystemDataResponse | undefined>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.changeanalysis.SystemDataResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConfigurationProfile resource with the given unique name, arguments, and options.
@@ -79,10 +79,10 @@ export class ConfigurationProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["properties"] = args?.properties;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

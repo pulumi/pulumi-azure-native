@@ -44,63 +44,63 @@ export class StorageSyncService extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.storagesync.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.storagesync.ManagedServiceIdentityResponse | undefined>;
     /**
      * Incoming Traffic Policy
      */
-    public readonly incomingTrafficPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly incomingTrafficPolicy: pulumi.Output<string | undefined>;
     /**
      * Resource Last Operation Name
      */
-    public /*out*/ readonly lastOperationName!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastOperationName: pulumi.Output<string>;
     /**
      * StorageSyncService lastWorkflowId
      */
-    public /*out*/ readonly lastWorkflowId!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastWorkflowId: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of private endpoint connection associated with the specified storage sync service
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.storagesync.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.storagesync.PrivateEndpointConnectionResponse[]>;
     /**
      * StorageSyncService Provisioning State
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Storage Sync service status.
      */
-    public /*out*/ readonly storageSyncServiceStatus!: pulumi.Output<number>;
+    declare public /*out*/ readonly storageSyncServiceStatus: pulumi.Output<number>;
     /**
      * Storage Sync service Uid
      */
-    public /*out*/ readonly storageSyncServiceUid!: pulumi.Output<string>;
+    declare public /*out*/ readonly storageSyncServiceUid: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.storagesync.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.storagesync.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Use Identity authorization when customer have finished setup RBAC permissions.
      */
-    public readonly useIdentity!: pulumi.Output<boolean>;
+    declare public readonly useIdentity: pulumi.Output<boolean>;
 
     /**
      * Create a StorageSyncService resource with the given unique name, arguments, and options.
@@ -113,16 +113,16 @@ export class StorageSyncService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["incomingTrafficPolicy"] = args ? args.incomingTrafficPolicy : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageSyncServiceName"] = args ? args.storageSyncServiceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["useIdentity"] = args ? args.useIdentity : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["incomingTrafficPolicy"] = args?.incomingTrafficPolicy;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageSyncServiceName"] = args?.storageSyncServiceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["useIdentity"] = args?.useIdentity;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastOperationName"] = undefined /*out*/;
             resourceInputs["lastWorkflowId"] = undefined /*out*/;

@@ -42,67 +42,67 @@ export class StorageClass extends pulumi.CustomResource {
     /**
      * The access mode: [ReadWriteOnce, ReadWriteMany] or [ReadWriteOnce]
      */
-    public readonly accessModes!: pulumi.Output<string[] | undefined>;
+    declare public readonly accessModes: pulumi.Output<string[] | undefined>;
     /**
      * Volume can be expanded or not
      */
-    public readonly allowVolumeExpansion!: pulumi.Output<string | undefined>;
+    declare public readonly allowVolumeExpansion: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Allow single data node failure
      */
-    public readonly dataResilience!: pulumi.Output<string | undefined>;
+    declare public readonly dataResilience: pulumi.Output<string | undefined>;
     /**
      * Failover speed: NA, Slow, Fast
      */
-    public readonly failoverSpeed!: pulumi.Output<string | undefined>;
+    declare public readonly failoverSpeed: pulumi.Output<string | undefined>;
     /**
      * Limitations of the storage class
      */
-    public readonly limitations!: pulumi.Output<string[] | undefined>;
+    declare public readonly limitations: pulumi.Output<string[] | undefined>;
     /**
      * Additional mount options
      */
-    public readonly mountOptions!: pulumi.Output<string[] | undefined>;
+    declare public readonly mountOptions: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Performance tier
      */
-    public readonly performance!: pulumi.Output<string | undefined>;
+    declare public readonly performance: pulumi.Output<string | undefined>;
     /**
      * Selection priority when multiple storage classes meet the criteria. 0: Highest, -1: Never use
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Provisioner name
      */
-    public readonly provisioner!: pulumi.Output<string | undefined>;
+    declare public readonly provisioner: pulumi.Output<string | undefined>;
     /**
      * Resource provision state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.kubernetesruntime.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Properties of the StorageClass
      */
-    public readonly typeProperties!: pulumi.Output<outputs.kubernetesruntime.BlobStorageClassTypePropertiesResponse | outputs.kubernetesruntime.NativeStorageClassTypePropertiesResponse | outputs.kubernetesruntime.NfsStorageClassTypePropertiesResponse | outputs.kubernetesruntime.RwxStorageClassTypePropertiesResponse | outputs.kubernetesruntime.SmbStorageClassTypePropertiesResponse>;
+    declare public readonly typeProperties: pulumi.Output<outputs.kubernetesruntime.BlobStorageClassTypePropertiesResponse | outputs.kubernetesruntime.NativeStorageClassTypePropertiesResponse | outputs.kubernetesruntime.NfsStorageClassTypePropertiesResponse | outputs.kubernetesruntime.RwxStorageClassTypePropertiesResponse | outputs.kubernetesruntime.SmbStorageClassTypePropertiesResponse>;
     /**
      * Binding mode of volumes: Immediate, WaitForFirstConsumer
      */
-    public readonly volumeBindingMode!: pulumi.Output<string | undefined>;
+    declare public readonly volumeBindingMode: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageClass resource with the given unique name, arguments, and options.
@@ -115,25 +115,25 @@ export class StorageClass extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            if ((!args || args.typeProperties === undefined) && !opts.urn) {
+            if (args?.typeProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'typeProperties'");
             }
-            resourceInputs["accessModes"] = args ? args.accessModes : undefined;
-            resourceInputs["allowVolumeExpansion"] = args ? args.allowVolumeExpansion : undefined;
-            resourceInputs["dataResilience"] = args ? args.dataResilience : undefined;
-            resourceInputs["failoverSpeed"] = args ? args.failoverSpeed : undefined;
-            resourceInputs["limitations"] = args ? args.limitations : undefined;
-            resourceInputs["mountOptions"] = args ? args.mountOptions : undefined;
-            resourceInputs["performance"] = args ? args.performance : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["provisioner"] = args ? args.provisioner : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["storageClassName"] = args ? args.storageClassName : undefined;
-            resourceInputs["typeProperties"] = args ? args.typeProperties : undefined;
-            resourceInputs["volumeBindingMode"] = args ? args.volumeBindingMode : undefined;
+            resourceInputs["accessModes"] = args?.accessModes;
+            resourceInputs["allowVolumeExpansion"] = args?.allowVolumeExpansion;
+            resourceInputs["dataResilience"] = args?.dataResilience;
+            resourceInputs["failoverSpeed"] = args?.failoverSpeed;
+            resourceInputs["limitations"] = args?.limitations;
+            resourceInputs["mountOptions"] = args?.mountOptions;
+            resourceInputs["performance"] = args?.performance;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["provisioner"] = args?.provisioner;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["storageClassName"] = args?.storageClassName;
+            resourceInputs["typeProperties"] = args?.typeProperties;
+            resourceInputs["volumeBindingMode"] = args?.volumeBindingMode;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

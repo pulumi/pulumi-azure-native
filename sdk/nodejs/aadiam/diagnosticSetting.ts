@@ -42,39 +42,39 @@ export class DiagnosticSetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource Id for the event hub authorization rule.
      */
-    public readonly eventHubAuthorizationRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubAuthorizationRuleId: pulumi.Output<string | undefined>;
     /**
      * The name of the event hub. If none is specified, the default event hub will be selected.
      */
-    public readonly eventHubName!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubName: pulumi.Output<string | undefined>;
     /**
      * The list of logs settings.
      */
-    public readonly logs!: pulumi.Output<outputs.aadiam.LogSettingsResponse[] | undefined>;
+    declare public readonly logs: pulumi.Output<outputs.aadiam.LogSettingsResponse[] | undefined>;
     /**
      * Azure resource name
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The service bus rule Id of the diagnostic setting. This is here to maintain backwards compatibility.
      */
-    public readonly serviceBusRuleId!: pulumi.Output<string | undefined>;
+    declare public readonly serviceBusRuleId: pulumi.Output<string | undefined>;
     /**
      * The resource ID of the storage account to which you would like to send Diagnostic Logs.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The workspace ID (resource ID of a Log Analytics workspace) for a Log Analytics workspace to which you would like to send Diagnostic Logs. Example: /subscriptions/4b9e8510-67ab-4e9a-95a9-e2f1e570ea9c/resourceGroups/insights-integration/providers/Microsoft.OperationalInsights/workspaces/viruela2
      */
-    public readonly workspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly workspaceId: pulumi.Output<string | undefined>;
 
     /**
      * Create a DiagnosticSetting resource with the given unique name, arguments, and options.
@@ -87,13 +87,13 @@ export class DiagnosticSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["eventHubAuthorizationRuleId"] = args ? args.eventHubAuthorizationRuleId : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["logs"] = args ? args.logs : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["serviceBusRuleId"] = args ? args.serviceBusRuleId : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["eventHubAuthorizationRuleId"] = args?.eventHubAuthorizationRuleId;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["logs"] = args?.logs;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["serviceBusRuleId"] = args?.serviceBusRuleId;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

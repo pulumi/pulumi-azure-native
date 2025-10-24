@@ -44,59 +44,59 @@ export class GalleryImageVersion extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The publishing profile of a gallery image Version.
      */
-    public readonly publishingProfile!: pulumi.Output<outputs.compute.GalleryImageVersionPublishingProfileResponse | undefined>;
+    declare public readonly publishingProfile: pulumi.Output<outputs.compute.GalleryImageVersionPublishingProfileResponse | undefined>;
     /**
      * This is the replication status of the gallery image version.
      */
-    public /*out*/ readonly replicationStatus!: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
+    declare public /*out*/ readonly replicationStatus: pulumi.Output<outputs.compute.ReplicationStatusResponse>;
     /**
      * Indicates if this is a soft-delete resource restoration request.
      */
-    public readonly restore!: pulumi.Output<boolean | undefined>;
+    declare public readonly restore: pulumi.Output<boolean | undefined>;
     /**
      * This is the safety profile of the Gallery Image Version.
      */
-    public readonly safetyProfile!: pulumi.Output<outputs.compute.GalleryImageVersionSafetyProfileResponse | undefined>;
+    declare public readonly safetyProfile: pulumi.Output<outputs.compute.GalleryImageVersionSafetyProfileResponse | undefined>;
     /**
      * The security profile of a gallery image version
      */
-    public readonly securityProfile!: pulumi.Output<outputs.compute.ImageVersionSecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.compute.ImageVersionSecurityProfileResponse | undefined>;
     /**
      * This is the storage profile of a Gallery Image Version.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.compute.GalleryImageVersionStorageProfileResponse>;
+    declare public readonly storageProfile: pulumi.Output<outputs.compute.GalleryImageVersionStorageProfileResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * This is the validations profile of a Gallery Image Version.
      */
-    public /*out*/ readonly validationsProfile!: pulumi.Output<outputs.compute.ValidationsProfileResponse>;
+    declare public /*out*/ readonly validationsProfile: pulumi.Output<outputs.compute.ValidationsProfileResponse>;
 
     /**
      * Create a GalleryImageVersion resource with the given unique name, arguments, and options.
@@ -109,29 +109,29 @@ export class GalleryImageVersion extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.galleryImageName === undefined) && !opts.urn) {
+            if (args?.galleryImageName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryImageName'");
             }
-            if ((!args || args.galleryName === undefined) && !opts.urn) {
+            if (args?.galleryName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'galleryName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageProfile === undefined) && !opts.urn) {
+            if (args?.storageProfile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageProfile'");
             }
-            resourceInputs["galleryImageName"] = args ? args.galleryImageName : undefined;
-            resourceInputs["galleryImageVersionName"] = args ? args.galleryImageVersionName : undefined;
-            resourceInputs["galleryName"] = args ? args.galleryName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publishingProfile"] = args ? args.publishingProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["restore"] = args ? args.restore : undefined;
-            resourceInputs["safetyProfile"] = args ? args.safetyProfile : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["galleryImageName"] = args?.galleryImageName;
+            resourceInputs["galleryImageVersionName"] = args?.galleryImageVersionName;
+            resourceInputs["galleryName"] = args?.galleryName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publishingProfile"] = args?.publishingProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["restore"] = args?.restore;
+            resourceInputs["safetyProfile"] = args?.safetyProfile;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

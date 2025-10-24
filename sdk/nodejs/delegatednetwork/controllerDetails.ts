@@ -44,47 +44,47 @@ export class ControllerDetails extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * dnc application id should be used by customer to authenticate with dnc gateway.
      */
-    public /*out*/ readonly dncAppId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dncAppId: pulumi.Output<string>;
     /**
      * dnc endpoint url that customers can use to connect to
      */
-    public /*out*/ readonly dncEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly dncEndpoint: pulumi.Output<string>;
     /**
      * tenant id of dnc application id
      */
-    public /*out*/ readonly dncTenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dncTenantId: pulumi.Output<string>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current state of dnc controller resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The purpose of the dnc controller resource.
      */
-    public readonly purpose!: pulumi.Output<string | undefined>;
+    declare public readonly purpose: pulumi.Output<string | undefined>;
     /**
      * Resource guid.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ControllerDetails resource with the given unique name, arguments, and options.
@@ -97,14 +97,14 @@ export class ControllerDetails extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["purpose"] = (args ? args.purpose : undefined) ?? "prod";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["purpose"] = (args?.purpose) ?? "prod";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dncAppId"] = undefined /*out*/;
             resourceInputs["dncEndpoint"] = undefined /*out*/;
