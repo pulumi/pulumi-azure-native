@@ -8,6 +8,194 @@ using Pulumi;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
+    /// Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentDeploymentState : IEquatable<AgentDeploymentState>
+    {
+        private readonly string _value;
+
+        private AgentDeploymentState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The deployment is starting.
+        /// </summary>
+        public static AgentDeploymentState Starting { get; } = new AgentDeploymentState("Starting");
+        /// <summary>
+        /// The deployment started/is operational.
+        /// </summary>
+        public static AgentDeploymentState Running { get; } = new AgentDeploymentState("Running");
+        /// <summary>
+        /// The deployment is being stopped.
+        /// </summary>
+        public static AgentDeploymentState Stopping { get; } = new AgentDeploymentState("Stopping");
+        /// <summary>
+        /// The deployment was stopped.
+        /// </summary>
+        public static AgentDeploymentState Stopped { get; } = new AgentDeploymentState("Stopped");
+        /// <summary>
+        /// The deployment failed.
+        /// </summary>
+        public static AgentDeploymentState Failed { get; } = new AgentDeploymentState("Failed");
+        /// <summary>
+        /// The deployment is being deleted.
+        /// </summary>
+        public static AgentDeploymentState Deleting { get; } = new AgentDeploymentState("Deleting");
+        /// <summary>
+        /// The deployment was deleted.
+        /// </summary>
+        public static AgentDeploymentState Deleted { get; } = new AgentDeploymentState("Deleted");
+        /// <summary>
+        /// The deployment is being updated.
+        /// </summary>
+        public static AgentDeploymentState Updating { get; } = new AgentDeploymentState("Updating");
+
+        public static bool operator ==(AgentDeploymentState left, AgentDeploymentState right) => left.Equals(right);
+        public static bool operator !=(AgentDeploymentState left, AgentDeploymentState right) => !left.Equals(right);
+
+        public static explicit operator string(AgentDeploymentState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentDeploymentState other && Equals(other);
+        public bool Equals(AgentDeploymentState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Gets or sets the type of deployment for the agent.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentDeploymentType : IEquatable<AgentDeploymentType>
+    {
+        private readonly string _value;
+
+        private AgentDeploymentType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The underlying infra is managed by the platform in the deployer's subscription
+        /// </summary>
+        public static AgentDeploymentType Managed { get; } = new AgentDeploymentType("Managed");
+        /// <summary>
+        /// The underlying infra is owned by the platform
+        /// </summary>
+        public static AgentDeploymentType Hosted { get; } = new AgentDeploymentType("Hosted");
+        /// <summary>
+        /// The underlying infra is provisioned by the deployer (BYO)
+        /// </summary>
+        public static AgentDeploymentType Custom { get; } = new AgentDeploymentType("Custom");
+
+        public static bool operator ==(AgentDeploymentType left, AgentDeploymentType right) => left.Equals(right);
+        public static bool operator !=(AgentDeploymentType left, AgentDeploymentType right) => !left.Equals(right);
+
+        public static explicit operator string(AgentDeploymentType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentDeploymentType other && Equals(other);
+        public bool Equals(AgentDeploymentType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The protocol used by the agent/exposed by a deployment.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentProtocol : IEquatable<AgentProtocol>
+    {
+        private readonly string _value;
+
+        private AgentProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Agent protocol (aka Active)
+        /// </summary>
+        public static AgentProtocol Agent { get; } = new AgentProtocol("Agent");
+        /// <summary>
+        /// Agent2Agent standard
+        /// </summary>
+        public static AgentProtocol A2A { get; } = new AgentProtocol("A2A");
+        /// <summary>
+        /// OpenAI-compatible
+        /// </summary>
+        public static AgentProtocol Responses { get; } = new AgentProtocol("Responses");
+
+        public static bool operator ==(AgentProtocol left, AgentProtocol right) => left.Equals(right);
+        public static bool operator !=(AgentProtocol left, AgentProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(AgentProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentProtocol other && Equals(other);
+        public bool Equals(AgentProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Authorization scheme type.
+    /// </summary>
+    [EnumType]
+    public readonly struct BuiltInAuthorizationScheme : IEquatable<BuiltInAuthorizationScheme>
+    {
+        private readonly string _value;
+
+        private BuiltInAuthorizationScheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Standard AzureML RBAC
+        /// </summary>
+        public static BuiltInAuthorizationScheme Default { get; } = new BuiltInAuthorizationScheme("Default");
+        /// <summary>
+        /// Claim-based, requires membership in the tenant
+        /// </summary>
+        public static BuiltInAuthorizationScheme OrganizationScope { get; } = new BuiltInAuthorizationScheme("OrganizationScope");
+        /// <summary>
+        /// Microsoft365-specific (AzureBotService) authorization
+        /// </summary>
+        public static BuiltInAuthorizationScheme Microsoft365 { get; } = new BuiltInAuthorizationScheme("Microsoft365");
+        /// <summary>
+        /// Custom scheme defined by the application author
+        /// </summary>
+        public static BuiltInAuthorizationScheme Custom { get; } = new BuiltInAuthorizationScheme("Custom");
+
+        public static bool operator ==(BuiltInAuthorizationScheme left, BuiltInAuthorizationScheme right) => left.Equals(right);
+        public static bool operator !=(BuiltInAuthorizationScheme left, BuiltInAuthorizationScheme right) => !left.Equals(right);
+
+        public static explicit operator string(BuiltInAuthorizationScheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BuiltInAuthorizationScheme other && Equals(other);
+        public bool Equals(BuiltInAuthorizationScheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Setting for trusted services.
     /// </summary>
     [EnumType]
@@ -403,6 +591,96 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// Specifies the kind of Entra identity described by this object.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityKind : IEquatable<IdentityKind>
+    {
+        private readonly string _value;
+
+        private IdentityKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Represents a class identity, used for agentic applications.
+        /// </summary>
+        public static IdentityKind AgentBlueprint { get; } = new IdentityKind("AgentBlueprint");
+        /// <summary>
+        /// Represents an instance identity.
+        /// </summary>
+        public static IdentityKind AgentInstance { get; } = new IdentityKind("AgentInstance");
+        /// <summary>
+        /// Represents an agentic instance identity with user-like traits.
+        /// </summary>
+        public static IdentityKind AgenticUser { get; } = new IdentityKind("AgenticUser");
+        /// <summary>
+        /// Represents a classic managed identity.
+        /// </summary>
+        public static IdentityKind Managed { get; } = new IdentityKind("Managed");
+        /// <summary>
+        /// No identity.
+        /// </summary>
+        public static IdentityKind None { get; } = new IdentityKind("None");
+
+        public static bool operator ==(IdentityKind left, IdentityKind right) => left.Equals(right);
+        public static bool operator !=(IdentityKind left, IdentityKind right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityKind other && Equals(other);
+        public bool Equals(IdentityKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enumeration of identity types, from the perspective of management.
+    /// </summary>
+    [EnumType]
+    public readonly struct IdentityManagementType : IEquatable<IdentityManagementType>
+    {
+        private readonly string _value;
+
+        private IdentityManagementType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Platform-managed identity.
+        /// </summary>
+        public static IdentityManagementType System { get; } = new IdentityManagementType("System");
+        /// <summary>
+        /// User-managed identity.
+        /// </summary>
+        public static IdentityManagementType User { get; } = new IdentityManagementType("User");
+        /// <summary>
+        /// No identity.
+        /// </summary>
+        public static IdentityManagementType None { get; } = new IdentityManagementType("None");
+
+        public static bool operator ==(IdentityManagementType left, IdentityManagementType right) => left.Equals(right);
+        public static bool operator !=(IdentityManagementType left, IdentityManagementType right) => !left.Equals(right);
+
+        public static explicit operator string(IdentityManagementType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is IdentityManagementType other && Equals(other);
+        public bool Equals(IdentityManagementType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Enumerates the possible value of keySource for Encryption
     /// </summary>
     [EnumType]
@@ -586,6 +864,40 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// The action types to apply to the content filters
+    /// </summary>
+    [EnumType]
+    public readonly struct RaiActionType : IEquatable<RaiActionType>
+    {
+        private readonly string _value;
+
+        private RaiActionType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RaiActionType None { get; } = new RaiActionType("None");
+        public static RaiActionType BLOCKING { get; } = new RaiActionType("BLOCKING");
+        public static RaiActionType ANNOTATING { get; } = new RaiActionType("ANNOTATING");
+        public static RaiActionType HITL { get; } = new RaiActionType("HITL");
+        public static RaiActionType RETRY { get; } = new RaiActionType("RETRY");
+
+        public static bool operator ==(RaiActionType left, RaiActionType right) => left.Equals(right);
+        public static bool operator !=(RaiActionType left, RaiActionType right) => !left.Equals(right);
+
+        public static explicit operator string(RaiActionType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RaiActionType other && Equals(other);
+        public bool Equals(RaiActionType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Content source to apply the Content Filters.
     /// </summary>
     [EnumType]
@@ -600,6 +912,10 @@ namespace Pulumi.AzureNative.CognitiveServices
 
         public static RaiPolicyContentSource Prompt { get; } = new RaiPolicyContentSource("Prompt");
         public static RaiPolicyContentSource Completion { get; } = new RaiPolicyContentSource("Completion");
+        public static RaiPolicyContentSource PreToolCall { get; } = new RaiPolicyContentSource("PreToolCall");
+        public static RaiPolicyContentSource PostToolCall { get; } = new RaiPolicyContentSource("PostToolCall");
+        public static RaiPolicyContentSource PreRun { get; } = new RaiPolicyContentSource("PreRun");
+        public static RaiPolicyContentSource PostRun { get; } = new RaiPolicyContentSource("PostRun");
 
         public static bool operator ==(RaiPolicyContentSource left, RaiPolicyContentSource right) => left.Equals(right);
         public static bool operator !=(RaiPolicyContentSource left, RaiPolicyContentSource right) => !left.Equals(right);
@@ -617,7 +933,7 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
-    /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+    /// Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
     /// </summary>
     [EnumType]
     public readonly struct RaiPolicyMode : IEquatable<RaiPolicyMode>
@@ -715,6 +1031,105 @@ namespace Pulumi.AzureNative.CognitiveServices
     }
 
     /// <summary>
+    /// Category of a managed network Outbound Rule of a cognitive services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleCategory : IEquatable<RuleCategory>
+    {
+        private readonly string _value;
+
+        private RuleCategory(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleCategory Required { get; } = new RuleCategory("Required");
+        public static RuleCategory Recommended { get; } = new RuleCategory("Recommended");
+        public static RuleCategory UserDefined { get; } = new RuleCategory("UserDefined");
+        public static RuleCategory Dependency { get; } = new RuleCategory("Dependency");
+
+        public static bool operator ==(RuleCategory left, RuleCategory right) => left.Equals(right);
+        public static bool operator !=(RuleCategory left, RuleCategory right) => !left.Equals(right);
+
+        public static explicit operator string(RuleCategory value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleCategory other && Equals(other);
+        public bool Equals(RuleCategory other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of a managed network Outbound Rule of a cognitive services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleStatus : IEquatable<RuleStatus>
+    {
+        private readonly string _value;
+
+        private RuleStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleStatus Inactive { get; } = new RuleStatus("Inactive");
+        public static RuleStatus Active { get; } = new RuleStatus("Active");
+        public static RuleStatus Provisioning { get; } = new RuleStatus("Provisioning");
+        public static RuleStatus Deleting { get; } = new RuleStatus("Deleting");
+        public static RuleStatus Failed { get; } = new RuleStatus("Failed");
+
+        public static bool operator ==(RuleStatus left, RuleStatus right) => left.Equals(right);
+        public static bool operator !=(RuleStatus left, RuleStatus right) => !left.Equals(right);
+
+        public static explicit operator string(RuleStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleStatus other && Equals(other);
+        public bool Equals(RuleStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of a managed network Outbound Rule of a cognitive services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleType : IEquatable<RuleType>
+    {
+        private readonly string _value;
+
+        private RuleType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static RuleType FQDN { get; } = new RuleType("FQDN");
+        public static RuleType PrivateEndpoint { get; } = new RuleType("PrivateEndpoint");
+        public static RuleType ServiceTag { get; } = new RuleType("ServiceTag");
+
+        public static bool operator ==(RuleType left, RuleType right) => left.Equals(right);
+        public static bool operator !=(RuleType left, RuleType right) => !left.Equals(right);
+
+        public static explicit operator string(RuleType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleType other && Equals(other);
+        public bool Equals(RuleType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
     /// </summary>
     [EnumType]
@@ -741,6 +1156,39 @@ namespace Pulumi.AzureNative.CognitiveServices
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SkuTier other && Equals(other);
         public bool Equals(SkuTier other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Methodology used to route traffic to the application's deployments.
+    /// </summary>
+    [EnumType]
+    public readonly struct TrafficRoutingProtocol : IEquatable<TrafficRoutingProtocol>
+    {
+        private readonly string _value;
+
+        private TrafficRoutingProtocol(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Percentage based routing
+        /// </summary>
+        public static TrafficRoutingProtocol FixedRatio { get; } = new TrafficRoutingProtocol("FixedRatio");
+
+        public static bool operator ==(TrafficRoutingProtocol left, TrafficRoutingProtocol right) => left.Equals(right);
+        public static bool operator !=(TrafficRoutingProtocol left, TrafficRoutingProtocol right) => !left.Equals(right);
+
+        public static explicit operator string(TrafficRoutingProtocol value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TrafficRoutingProtocol other && Equals(other);
+        public bool Equals(TrafficRoutingProtocol other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -28,10 +28,13 @@ class GetCertificateProfileResult:
     """
     Certificate profile resource.
     """
-    def __init__(__self__, azure_api_version=None, id=None, identity_validation_id=None, include_city=None, include_country=None, include_postal_code=None, include_state=None, include_street_address=None, name=None, profile_type=None, provisioning_state=None, status=None, system_data=None, type=None):
+    def __init__(__self__, azure_api_version=None, certificates=None, id=None, identity_validation_id=None, include_city=None, include_country=None, include_postal_code=None, include_state=None, include_street_address=None, name=None, profile_type=None, provisioning_state=None, status=None, system_data=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")
         pulumi.set(__self__, "azure_api_version", azure_api_version)
+        if certificates and not isinstance(certificates, list):
+            raise TypeError("Expected argument 'certificates' to be a list")
+        pulumi.set(__self__, "certificates", certificates)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -79,6 +82,14 @@ class GetCertificateProfileResult:
         The Azure API version of the resource.
         """
         return pulumi.get(self, "azure_api_version")
+
+    @property
+    @pulumi.getter
+    def certificates(self) -> Sequence['outputs.CertificateResponse']:
+        """
+        List of renewed certificates.
+        """
+        return pulumi.get(self, "certificates")
 
     @property
     @pulumi.getter
@@ -192,6 +203,7 @@ class AwaitableGetCertificateProfileResult(GetCertificateProfileResult):
             yield self
         return GetCertificateProfileResult(
             azure_api_version=self.azure_api_version,
+            certificates=self.certificates,
             id=self.id,
             identity_validation_id=self.identity_validation_id,
             include_city=self.include_city,
@@ -232,6 +244,7 @@ def get_certificate_profile(account_name: Optional[builtins.str] = None,
 
     return AwaitableGetCertificateProfileResult(
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
+        certificates=pulumi.get(__ret__, 'certificates'),
         id=pulumi.get(__ret__, 'id'),
         identity_validation_id=pulumi.get(__ret__, 'identity_validation_id'),
         include_city=pulumi.get(__ret__, 'include_city'),
@@ -269,6 +282,7 @@ def get_certificate_profile_output(account_name: Optional[pulumi.Input[builtins.
     __ret__ = pulumi.runtime.invoke_output('azure-native:codesigning:getCertificateProfile', __args__, opts=opts, typ=GetCertificateProfileResult)
     return __ret__.apply(lambda __response__: GetCertificateProfileResult(
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
+        certificates=pulumi.get(__response__, 'certificates'),
         id=pulumi.get(__response__, 'id'),
         identity_validation_id=pulumi.get(__response__, 'identity_validation_id'),
         include_city=pulumi.get(__response__, 'include_city'),

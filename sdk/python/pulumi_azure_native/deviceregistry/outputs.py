@@ -26,6 +26,8 @@ __all__ = [
     'AssetStatusResponse',
     'AuthenticationResponse',
     'BrokerStateStoreDestinationConfigurationResponse',
+    'CertificateAuthorityConfigurationResponse',
+    'CertificateConfigurationResponse',
     'DataPointResponse',
     'DatasetBrokerStateStoreDestinationResponse',
     'DatasetMqttDestinationResponse',
@@ -49,6 +51,7 @@ __all__ = [
     'ExtendedLocationResponse',
     'HostAuthenticationResponse',
     'InboundEndpointsResponse',
+    'LeafCertificateConfigurationResponse',
     'ManagementActionResponse',
     'ManagementGroupResponse',
     'MessageSchemaReferenceResponse',
@@ -419,6 +422,134 @@ class BrokerStateStoreDestinationConfigurationResponse(dict):
         The MQTT broker state store destination key.
         """
         return pulumi.get(self, "key")
+
+
+@pulumi.output_type
+class CertificateAuthorityConfigurationResponse(dict):
+    """
+    The configuration to set up an ICA.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "keyType":
+            suggest = "key_type"
+        elif key == "validityNotAfter":
+            suggest = "validity_not_after"
+        elif key == "validityNotBefore":
+            suggest = "validity_not_before"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateAuthorityConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateAuthorityConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateAuthorityConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 key_type: builtins.str,
+                 subject: builtins.str,
+                 validity_not_after: builtins.str,
+                 validity_not_before: builtins.str):
+        """
+        The configuration to set up an ICA.
+        :param builtins.str key_type: Crypto type: ECC.
+        :param builtins.str subject: Certificate subject.
+        :param builtins.str validity_not_after: Certificate is valid not after this date. Format ISO8601. Generated based on validity period.
+        :param builtins.str validity_not_before: Certificate is valid not before this date. Format ISO8601. Generated based on on validity period.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+        pulumi.set(__self__, "subject", subject)
+        pulumi.set(__self__, "validity_not_after", validity_not_after)
+        pulumi.set(__self__, "validity_not_before", validity_not_before)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> builtins.str:
+        """
+        Crypto type: ECC.
+        """
+        return pulumi.get(self, "key_type")
+
+    @property
+    @pulumi.getter
+    def subject(self) -> builtins.str:
+        """
+        Certificate subject.
+        """
+        return pulumi.get(self, "subject")
+
+    @property
+    @pulumi.getter(name="validityNotAfter")
+    def validity_not_after(self) -> builtins.str:
+        """
+        Certificate is valid not after this date. Format ISO8601. Generated based on validity period.
+        """
+        return pulumi.get(self, "validity_not_after")
+
+    @property
+    @pulumi.getter(name="validityNotBefore")
+    def validity_not_before(self) -> builtins.str:
+        """
+        Certificate is valid not before this date. Format ISO8601. Generated based on on validity period.
+        """
+        return pulumi.get(self, "validity_not_before")
+
+
+@pulumi.output_type
+class CertificateConfigurationResponse(dict):
+    """
+    The certificate configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "certificateAuthorityConfiguration":
+            suggest = "certificate_authority_configuration"
+        elif key == "leafCertificateConfiguration":
+            suggest = "leaf_certificate_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 certificate_authority_configuration: 'outputs.CertificateAuthorityConfigurationResponse',
+                 leaf_certificate_configuration: 'outputs.LeafCertificateConfigurationResponse'):
+        """
+        The certificate configuration.
+        :param 'CertificateAuthorityConfigurationResponse' certificate_authority_configuration: The configuration to set up an ICA.
+        :param 'LeafCertificateConfigurationResponse' leaf_certificate_configuration: The leaf certificate configuration.
+        """
+        pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
+        pulumi.set(__self__, "leaf_certificate_configuration", leaf_certificate_configuration)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityConfiguration")
+    def certificate_authority_configuration(self) -> 'outputs.CertificateAuthorityConfigurationResponse':
+        """
+        The configuration to set up an ICA.
+        """
+        return pulumi.get(self, "certificate_authority_configuration")
+
+    @property
+    @pulumi.getter(name="leafCertificateConfiguration")
+    def leaf_certificate_configuration(self) -> 'outputs.LeafCertificateConfigurationResponse':
+        """
+        The leaf certificate configuration.
+        """
+        return pulumi.get(self, "leaf_certificate_configuration")
 
 
 @pulumi.output_type
@@ -1703,6 +1834,45 @@ class InboundEndpointsResponse(dict):
         Protocol version associated with the endpoint e.g. 1 or 2 for endpointType Microsoft.HTTP, and 3.5 or 5.0 for endpointType Microsoft.Mqtt etc.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class LeafCertificateConfigurationResponse(dict):
+    """
+    The leaf certificate configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "validityPeriodInDays":
+            suggest = "validity_period_in_days"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LeafCertificateConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LeafCertificateConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LeafCertificateConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 validity_period_in_days: builtins.int):
+        """
+        The leaf certificate configuration.
+        :param builtins.int validity_period_in_days: The validity period in days.
+        """
+        pulumi.set(__self__, "validity_period_in_days", validity_period_in_days)
+
+    @property
+    @pulumi.getter(name="validityPeriodInDays")
+    def validity_period_in_days(self) -> builtins.int:
+        """
+        The validity period in days.
+        """
+        return pulumi.get(self, "validity_period_in_days")
 
 
 @pulumi.output_type

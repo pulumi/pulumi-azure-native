@@ -40377,6 +40377,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             suggest = "cluster_name_prefix"
         elif key == "clusterPassword":
             suggest = "cluster_password"
+        elif key == "clusterResourceGroupAuthType":
+            suggest = "cluster_resource_group_auth_type"
         elif key == "clusterSshPassword":
             suggest = "cluster_ssh_password"
         elif key == "clusterSshUserName":
@@ -40450,6 +40452,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[Any] = None,
+                 cluster_resource_group_auth_type: Optional[builtins.str] = None,
                  cluster_ssh_password: Optional[Any] = None,
                  cluster_ssh_user_name: Optional[Any] = None,
                  cluster_type: Optional[Any] = None,
@@ -40492,6 +40495,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_password: The password to access the cluster.
+        :param builtins.str cluster_resource_group_auth_type: HDInsight On-demand cluster resource group authentication type.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
@@ -40536,6 +40540,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             pulumi.set(__self__, "cluster_name_prefix", cluster_name_prefix)
         if cluster_password is not None:
             pulumi.set(__self__, "cluster_password", cluster_password)
+        if cluster_resource_group_auth_type is not None:
+            pulumi.set(__self__, "cluster_resource_group_auth_type", cluster_resource_group_auth_type)
         if cluster_ssh_password is not None:
             pulumi.set(__self__, "cluster_ssh_password", cluster_ssh_password)
         if cluster_ssh_user_name is not None:
@@ -40687,6 +40693,14 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         The password to access the cluster.
         """
         return pulumi.get(self, "cluster_password")
+
+    @property
+    @pulumi.getter(name="clusterResourceGroupAuthType")
+    def cluster_resource_group_auth_type(self) -> Optional[builtins.str]:
+        """
+        HDInsight On-demand cluster resource group authentication type.
+        """
+        return pulumi.get(self, "cluster_resource_group_auth_type")
 
     @property
     @pulumi.getter(name="clusterSshPassword")

@@ -36,7 +36,7 @@ class BudgetArgs:
         The set of arguments for constructing a Budget resource.
         :param pulumi.Input[builtins.float] amount: The total amount of cost to track with the budget
         :param pulumi.Input[Union[builtins.str, 'CategoryType']] category: The category of the budget, whether the budget tracks cost or usage.
-        :param pulumi.Input[builtins.str] scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        :param pulumi.Input[builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[builtins.str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         :param pulumi.Input['BudgetTimePeriodArgs'] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         :param pulumi.Input[builtins.str] budget_name: Budget Name.
@@ -86,7 +86,7 @@ class BudgetArgs:
     @pulumi.getter
     def scope(self) -> pulumi.Input[builtins.str]:
         """
-        The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        The fully qualified Azure Resource manager identifier of the resource.
         """
         return pulumi.get(self, "scope")
 
@@ -198,7 +198,7 @@ class Budget(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] e_tag: eTag of the resource. To handle concurrent update scenario, this field will be used to determine whether the user is updating the latest version or not.
         :param pulumi.Input[Union['BudgetFilterArgs', 'BudgetFilterArgsDict']] filter: May be used to filter budgets by user-specified dimensions and/or tags.
         :param pulumi.Input[Mapping[str, pulumi.Input[Union['NotificationArgs', 'NotificationArgsDict']]]] notifications: Dictionary of notifications associated with the budget. Budget can have up to five notifications.
-        :param pulumi.Input[builtins.str] scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+        :param pulumi.Input[builtins.str] scope: The fully qualified Azure Resource manager identifier of the resource.
         :param pulumi.Input[Union[builtins.str, 'TimeGrainType']] time_grain: The time covered by a budget. Tracking of the amount will be reset based on the time grain. BillingMonth, BillingQuarter, and BillingAnnual are only supported by WD customers
         :param pulumi.Input[Union['BudgetTimePeriodArgs', 'BudgetTimePeriodArgsDict']] time_period: Has start and end date of the budget. The start date must be first of the month and should be less than the end date. Budget start date must be on or after June 1, 2017. Future start date should not be more than twelve months. Past start date should  be selected within the timegrain period. There are no restrictions on the end date.
         """
@@ -271,6 +271,7 @@ class Budget(pulumi.CustomResource):
             __props__.__dict__["current_spend"] = None
             __props__.__dict__["forecast_spend"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:consumption/v20190101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190401preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190501preview:Budget"), pulumi.Alias(type_="azure-native:consumption/v20190601:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20191101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20210501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20211001:Budget"), pulumi.Alias(type_="azure-native:consumption/v20220901:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230301:Budget"), pulumi.Alias(type_="azure-native:consumption/v20230501:Budget"), pulumi.Alias(type_="azure-native:consumption/v20231101:Budget"), pulumi.Alias(type_="azure-native:consumption/v20240801:Budget")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -305,6 +306,7 @@ class Budget(pulumi.CustomResource):
         __props__.__dict__["forecast_spend"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["notifications"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["time_grain"] = None
         __props__.__dict__["time_period"] = None
         __props__.__dict__["type"] = None
@@ -370,7 +372,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -381,6 +383,14 @@ class Budget(pulumi.CustomResource):
         Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
         return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="timeGrain")
@@ -402,7 +412,7 @@ class Budget(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[builtins.str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

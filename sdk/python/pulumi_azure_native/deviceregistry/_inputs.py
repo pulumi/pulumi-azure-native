@@ -21,6 +21,10 @@ __all__ = [
     'AuthenticationArgsDict',
     'BrokerStateStoreDestinationConfigurationArgs',
     'BrokerStateStoreDestinationConfigurationArgsDict',
+    'CertificateAuthorityConfigurationArgs',
+    'CertificateAuthorityConfigurationArgsDict',
+    'CertificateConfigurationArgs',
+    'CertificateConfigurationArgsDict',
     'DataPointArgs',
     'DataPointArgsDict',
     'DatasetBrokerStateStoreDestinationArgs',
@@ -59,6 +63,8 @@ __all__ = [
     'HostAuthenticationArgsDict',
     'InboundEndpointsArgs',
     'InboundEndpointsArgsDict',
+    'LeafCertificateConfigurationArgs',
+    'LeafCertificateConfigurationArgsDict',
     'ManagementActionArgs',
     'ManagementActionArgsDict',
     'ManagementGroupArgs',
@@ -227,6 +233,95 @@ class BrokerStateStoreDestinationConfigurationArgs:
     @key.setter
     def key(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "key", value)
+
+
+if not MYPY:
+    class CertificateAuthorityConfigurationArgsDict(TypedDict):
+        """
+        The configuration to set up an ICA.
+        """
+        key_type: pulumi.Input[Union[builtins.str, 'SupportedKeyType']]
+        """
+        Crypto type: ECC.
+        """
+elif False:
+    CertificateAuthorityConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertificateAuthorityConfigurationArgs:
+    def __init__(__self__, *,
+                 key_type: pulumi.Input[Union[builtins.str, 'SupportedKeyType']]):
+        """
+        The configuration to set up an ICA.
+        :param pulumi.Input[Union[builtins.str, 'SupportedKeyType']] key_type: Crypto type: ECC.
+        """
+        pulumi.set(__self__, "key_type", key_type)
+
+    @property
+    @pulumi.getter(name="keyType")
+    def key_type(self) -> pulumi.Input[Union[builtins.str, 'SupportedKeyType']]:
+        """
+        Crypto type: ECC.
+        """
+        return pulumi.get(self, "key_type")
+
+    @key_type.setter
+    def key_type(self, value: pulumi.Input[Union[builtins.str, 'SupportedKeyType']]):
+        pulumi.set(self, "key_type", value)
+
+
+if not MYPY:
+    class CertificateConfigurationArgsDict(TypedDict):
+        """
+        The certificate configuration.
+        """
+        certificate_authority_configuration: pulumi.Input['CertificateAuthorityConfigurationArgsDict']
+        """
+        The configuration to set up an ICA.
+        """
+        leaf_certificate_configuration: pulumi.Input['LeafCertificateConfigurationArgsDict']
+        """
+        The leaf certificate configuration.
+        """
+elif False:
+    CertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 certificate_authority_configuration: pulumi.Input['CertificateAuthorityConfigurationArgs'],
+                 leaf_certificate_configuration: pulumi.Input['LeafCertificateConfigurationArgs']):
+        """
+        The certificate configuration.
+        :param pulumi.Input['CertificateAuthorityConfigurationArgs'] certificate_authority_configuration: The configuration to set up an ICA.
+        :param pulumi.Input['LeafCertificateConfigurationArgs'] leaf_certificate_configuration: The leaf certificate configuration.
+        """
+        pulumi.set(__self__, "certificate_authority_configuration", certificate_authority_configuration)
+        pulumi.set(__self__, "leaf_certificate_configuration", leaf_certificate_configuration)
+
+    @property
+    @pulumi.getter(name="certificateAuthorityConfiguration")
+    def certificate_authority_configuration(self) -> pulumi.Input['CertificateAuthorityConfigurationArgs']:
+        """
+        The configuration to set up an ICA.
+        """
+        return pulumi.get(self, "certificate_authority_configuration")
+
+    @certificate_authority_configuration.setter
+    def certificate_authority_configuration(self, value: pulumi.Input['CertificateAuthorityConfigurationArgs']):
+        pulumi.set(self, "certificate_authority_configuration", value)
+
+    @property
+    @pulumi.getter(name="leafCertificateConfiguration")
+    def leaf_certificate_configuration(self) -> pulumi.Input['LeafCertificateConfigurationArgs']:
+        """
+        The leaf certificate configuration.
+        """
+        return pulumi.get(self, "leaf_certificate_configuration")
+
+    @leaf_certificate_configuration.setter
+    def leaf_certificate_configuration(self, value: pulumi.Input['LeafCertificateConfigurationArgs']):
+        pulumi.set(self, "leaf_certificate_configuration", value)
 
 
 if not MYPY:
@@ -1721,6 +1816,41 @@ class InboundEndpointsArgs:
     @version.setter
     def version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class LeafCertificateConfigurationArgsDict(TypedDict):
+        """
+        The leaf certificate configuration.
+        """
+        validity_period_in_days: pulumi.Input[builtins.int]
+        """
+        The validity period in days.
+        """
+elif False:
+    LeafCertificateConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LeafCertificateConfigurationArgs:
+    def __init__(__self__, *,
+                 validity_period_in_days: pulumi.Input[builtins.int]):
+        """
+        The leaf certificate configuration.
+        :param pulumi.Input[builtins.int] validity_period_in_days: The validity period in days.
+        """
+        pulumi.set(__self__, "validity_period_in_days", validity_period_in_days)
+
+    @property
+    @pulumi.getter(name="validityPeriodInDays")
+    def validity_period_in_days(self) -> pulumi.Input[builtins.int]:
+        """
+        The validity period in days.
+        """
+        return pulumi.get(self, "validity_period_in_days")
+
+    @validity_period_in_days.setter
+    def validity_period_in_days(self, value: pulumi.Input[builtins.int]):
+        pulumi.set(self, "validity_period_in_days", value)
 
 
 if not MYPY:

@@ -27,6 +27,8 @@ __all__ = [
     'DeliveryRuleActionParametersType',
     'DeliveryRuleConditionParametersType',
     'DestinationProtocol',
+    'EdgeActionIsDefaultVersion',
+    'EdgeActionVersionDeploymentType',
     'EnabledState',
     'ForwardingProtocol',
     'GeoFilterActions',
@@ -317,6 +319,25 @@ class DestinationProtocol(builtins.str, Enum):
     MATCH_REQUEST = "MatchRequest"
     HTTP = "Http"
     HTTPS = "Https"
+
+
+@pulumi.type_token("azure-native:cdn:EdgeActionIsDefaultVersion")
+class EdgeActionIsDefaultVersion(builtins.str, Enum):
+    """
+    The active state
+    """
+    TRUE = "True"
+    FALSE = "False"
+
+
+@pulumi.type_token("azure-native:cdn:EdgeActionVersionDeploymentType")
+class EdgeActionVersionDeploymentType(builtins.str, Enum):
+    """
+    The deployment type
+    """
+    ZIP = "zip"
+    FILE = "file"
+    OTHERS = "others"
 
 
 @pulumi.type_token("azure-native:cdn:EnabledState")

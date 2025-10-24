@@ -2,6 +2,110 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AgentDeploymentState = {
+    /**
+     * The deployment is starting.
+     */
+    Starting: "Starting",
+    /**
+     * The deployment started/is operational.
+     */
+    Running: "Running",
+    /**
+     * The deployment is being stopped.
+     */
+    Stopping: "Stopping",
+    /**
+     * The deployment was stopped.
+     */
+    Stopped: "Stopped",
+    /**
+     * The deployment failed.
+     */
+    Failed: "Failed",
+    /**
+     * The deployment is being deleted.
+     */
+    Deleting: "Deleting",
+    /**
+     * The deployment was deleted.
+     */
+    Deleted: "Deleted",
+    /**
+     * The deployment is being updated.
+     */
+    Updating: "Updating",
+} as const;
+
+/**
+ * Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+ */
+export type AgentDeploymentState = (typeof AgentDeploymentState)[keyof typeof AgentDeploymentState];
+
+export const AgentDeploymentType = {
+    /**
+     * The underlying infra is managed by the platform in the deployer's subscription
+     */
+    Managed: "Managed",
+    /**
+     * The underlying infra is owned by the platform
+     */
+    Hosted: "Hosted",
+    /**
+     * The underlying infra is provisioned by the deployer (BYO)
+     */
+    Custom: "Custom",
+} as const;
+
+/**
+ * Gets or sets the type of deployment for the agent.
+ */
+export type AgentDeploymentType = (typeof AgentDeploymentType)[keyof typeof AgentDeploymentType];
+
+export const AgentProtocol = {
+    /**
+     * Agent protocol (aka Active)
+     */
+    Agent: "Agent",
+    /**
+     * Agent2Agent standard
+     */
+    A2A: "A2A",
+    /**
+     * OpenAI-compatible
+     */
+    Responses: "Responses",
+} as const;
+
+/**
+ * The protocol used by the agent/exposed by a deployment.
+ */
+export type AgentProtocol = (typeof AgentProtocol)[keyof typeof AgentProtocol];
+
+export const BuiltInAuthorizationScheme = {
+    /**
+     * Standard AzureML RBAC
+     */
+    Default: "Default",
+    /**
+     * Claim-based, requires membership in the tenant
+     */
+    OrganizationScope: "OrganizationScope",
+    /**
+     * Microsoft365-specific (AzureBotService) authorization
+     */
+    Microsoft365: "Microsoft365",
+    /**
+     * Custom scheme defined by the application author
+     */
+    Custom: "Custom",
+} as const;
+
+/**
+ * Authorization scheme type.
+ */
+export type BuiltInAuthorizationScheme = (typeof BuiltInAuthorizationScheme)[keyof typeof BuiltInAuthorizationScheme];
+
 export const ByPassSelection = {
     None: "None",
     AzureServices: "AzureServices",
@@ -208,6 +312,54 @@ export const HostingModel = {
  */
 export type HostingModel = (typeof HostingModel)[keyof typeof HostingModel];
 
+export const IdentityKind = {
+    /**
+     * Represents a class identity, used for agentic applications.
+     */
+    AgentBlueprint: "AgentBlueprint",
+    /**
+     * Represents an instance identity.
+     */
+    AgentInstance: "AgentInstance",
+    /**
+     * Represents an agentic instance identity with user-like traits.
+     */
+    AgenticUser: "AgenticUser",
+    /**
+     * Represents a classic managed identity.
+     */
+    Managed: "Managed",
+    /**
+     * No identity.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Specifies the kind of Entra identity described by this object.
+ */
+export type IdentityKind = (typeof IdentityKind)[keyof typeof IdentityKind];
+
+export const IdentityManagementType = {
+    /**
+     * Platform-managed identity.
+     */
+    System: "System",
+    /**
+     * User-managed identity.
+     */
+    User: "User",
+    /**
+     * No identity.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Enumeration of identity types, from the perspective of management.
+ */
+export type IdentityManagementType = (typeof IdentityManagementType)[keyof typeof IdentityManagementType];
+
 export const KeySource = {
     Microsoft_CognitiveServices: "Microsoft.CognitiveServices",
     Microsoft_KeyVault: "Microsoft.KeyVault",
@@ -265,9 +417,26 @@ export const PublicNetworkAccess = {
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
+export const RaiActionType = {
+    None: "None",
+    BLOCKING: "BLOCKING",
+    ANNOTATING: "ANNOTATING",
+    HITL: "HITL",
+    RETRY: "RETRY",
+} as const;
+
+/**
+ * The action types to apply to the content filters
+ */
+export type RaiActionType = (typeof RaiActionType)[keyof typeof RaiActionType];
+
 export const RaiPolicyContentSource = {
     Prompt: "Prompt",
     Completion: "Completion",
+    PreToolCall: "PreToolCall",
+    PostToolCall: "PostToolCall",
+    PreRun: "PreRun",
+    PostRun: "PostRun",
 } as const;
 
 /**
@@ -283,7 +452,7 @@ export const RaiPolicyMode = {
 } as const;
 
 /**
- * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+ * Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
  */
 export type RaiPolicyMode = (typeof RaiPolicyMode)[keyof typeof RaiPolicyMode];
 
@@ -310,6 +479,42 @@ export const RoutingMethods = {
  */
 export type RoutingMethods = (typeof RoutingMethods)[keyof typeof RoutingMethods];
 
+export const RuleCategory = {
+    Required: "Required",
+    Recommended: "Recommended",
+    UserDefined: "UserDefined",
+    Dependency: "Dependency",
+} as const;
+
+/**
+ * Category of a managed network Outbound Rule of a cognitive services account.
+ */
+export type RuleCategory = (typeof RuleCategory)[keyof typeof RuleCategory];
+
+export const RuleStatus = {
+    Inactive: "Inactive",
+    Active: "Active",
+    Provisioning: "Provisioning",
+    Deleting: "Deleting",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Type of a managed network Outbound Rule of a cognitive services account.
+ */
+export type RuleStatus = (typeof RuleStatus)[keyof typeof RuleStatus];
+
+export const RuleType = {
+    FQDN: "FQDN",
+    PrivateEndpoint: "PrivateEndpoint",
+    ServiceTag: "ServiceTag",
+} as const;
+
+/**
+ * Type of a managed network Outbound Rule of a cognitive services account.
+ */
+export type RuleType = (typeof RuleType)[keyof typeof RuleType];
+
 export const SkuTier = {
     Free: "Free",
     Basic: "Basic",
@@ -322,3 +527,15 @@ export const SkuTier = {
  * This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
  */
 export type SkuTier = (typeof SkuTier)[keyof typeof SkuTier];
+
+export const TrafficRoutingProtocol = {
+    /**
+     * Percentage based routing
+     */
+    FixedRatio: "FixedRatio",
+} as const;
+
+/**
+ * Methodology used to route traffic to the application's deployments.
+ */
+export type TrafficRoutingProtocol = (typeof TrafficRoutingProtocol)[keyof typeof TrafficRoutingProtocol];

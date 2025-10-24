@@ -7,6 +7,10 @@ import pulumi
 from enum import Enum
 
 __all__ = [
+    'AgentDeploymentState',
+    'AgentDeploymentType',
+    'AgentProtocol',
+    'BuiltInAuthorizationScheme',
     'ByPassSelection',
     'CapabilityHostKind',
     'ConnectionAuthType',
@@ -16,18 +20,125 @@ __all__ = [
     'DeploymentScaleType',
     'EncryptionScopeState',
     'HostingModel',
+    'IdentityKind',
+    'IdentityManagementType',
     'KeySource',
     'ManagedPERequirement',
     'ManagedPEStatus',
     'NetworkRuleAction',
     'PrivateEndpointServiceConnectionStatus',
     'PublicNetworkAccess',
+    'RaiActionType',
     'RaiPolicyContentSource',
     'RaiPolicyMode',
     'ResourceIdentityType',
     'RoutingMethods',
+    'RuleCategory',
+    'RuleStatus',
+    'RuleType',
     'SkuTier',
+    'TrafficRoutingProtocol',
 ]
+
+
+@pulumi.type_token("azure-native:cognitiveservices:AgentDeploymentState")
+class AgentDeploymentState(builtins.str, Enum):
+    """
+    Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+    """
+    STARTING = "Starting"
+    """
+    The deployment is starting.
+    """
+    RUNNING = "Running"
+    """
+    The deployment started/is operational.
+    """
+    STOPPING = "Stopping"
+    """
+    The deployment is being stopped.
+    """
+    STOPPED = "Stopped"
+    """
+    The deployment was stopped.
+    """
+    FAILED = "Failed"
+    """
+    The deployment failed.
+    """
+    DELETING = "Deleting"
+    """
+    The deployment is being deleted.
+    """
+    DELETED = "Deleted"
+    """
+    The deployment was deleted.
+    """
+    UPDATING = "Updating"
+    """
+    The deployment is being updated.
+    """
+
+
+@pulumi.type_token("azure-native:cognitiveservices:AgentDeploymentType")
+class AgentDeploymentType(builtins.str, Enum):
+    """
+    Gets or sets the type of deployment for the agent.
+    """
+    MANAGED = "Managed"
+    """
+    The underlying infra is managed by the platform in the deployer's subscription
+    """
+    HOSTED = "Hosted"
+    """
+    The underlying infra is owned by the platform
+    """
+    CUSTOM = "Custom"
+    """
+    The underlying infra is provisioned by the deployer (BYO)
+    """
+
+
+@pulumi.type_token("azure-native:cognitiveservices:AgentProtocol")
+class AgentProtocol(builtins.str, Enum):
+    """
+    The protocol used by the agent/exposed by a deployment.
+    """
+    AGENT = "Agent"
+    """
+    Agent protocol (aka Active)
+    """
+    A2_A = "A2A"
+    """
+    Agent2Agent standard
+    """
+    RESPONSES = "Responses"
+    """
+    OpenAI-compatible
+    """
+
+
+@pulumi.type_token("azure-native:cognitiveservices:BuiltInAuthorizationScheme")
+class BuiltInAuthorizationScheme(builtins.str, Enum):
+    """
+    Authorization scheme type.
+    """
+    DEFAULT = "Default"
+    """
+    Standard AzureML RBAC
+    """
+    ORGANIZATION_SCOPE = "OrganizationScope"
+    """
+    Claim-based, requires membership in the tenant
+    """
+    MICROSOFT365 = "Microsoft365"
+    """
+    Microsoft365-specific (AzureBotService) authorization
+    """
+    CUSTOM = "Custom"
+    """
+    Custom scheme defined by the application author
+    """
 
 
 @pulumi.type_token("azure-native:cognitiveservices:ByPassSelection")
@@ -227,6 +338,52 @@ class HostingModel(builtins.str, Enum):
     PROVISIONED_WEB = "ProvisionedWeb"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:IdentityKind")
+class IdentityKind(builtins.str, Enum):
+    """
+    Specifies the kind of Entra identity described by this object.
+    """
+    AGENT_BLUEPRINT = "AgentBlueprint"
+    """
+    Represents a class identity, used for agentic applications.
+    """
+    AGENT_INSTANCE = "AgentInstance"
+    """
+    Represents an instance identity.
+    """
+    AGENTIC_USER = "AgenticUser"
+    """
+    Represents an agentic instance identity with user-like traits.
+    """
+    MANAGED = "Managed"
+    """
+    Represents a classic managed identity.
+    """
+    NONE = "None"
+    """
+    No identity.
+    """
+
+
+@pulumi.type_token("azure-native:cognitiveservices:IdentityManagementType")
+class IdentityManagementType(builtins.str, Enum):
+    """
+    Enumeration of identity types, from the perspective of management.
+    """
+    SYSTEM = "System"
+    """
+    Platform-managed identity.
+    """
+    USER = "User"
+    """
+    User-managed identity.
+    """
+    NONE = "None"
+    """
+    No identity.
+    """
+
+
 @pulumi.type_token("azure-native:cognitiveservices:KeySource")
 class KeySource(builtins.str, Enum):
     """
@@ -278,6 +435,18 @@ class PublicNetworkAccess(builtins.str, Enum):
     DISABLED = "Disabled"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RaiActionType")
+class RaiActionType(builtins.str, Enum):
+    """
+    The action types to apply to the content filters
+    """
+    NONE = "None"
+    BLOCKING = "BLOCKING"
+    ANNOTATING = "ANNOTATING"
+    HITL = "HITL"
+    RETRY = "RETRY"
+
+
 @pulumi.type_token("azure-native:cognitiveservices:RaiPolicyContentSource")
 class RaiPolicyContentSource(builtins.str, Enum):
     """
@@ -285,12 +454,16 @@ class RaiPolicyContentSource(builtins.str, Enum):
     """
     PROMPT = "Prompt"
     COMPLETION = "Completion"
+    PRE_TOOL_CALL = "PreToolCall"
+    POST_TOOL_CALL = "PostToolCall"
+    PRE_RUN = "PreRun"
+    POST_RUN = "PostRun"
 
 
 @pulumi.type_token("azure-native:cognitiveservices:RaiPolicyMode")
 class RaiPolicyMode(builtins.str, Enum):
     """
-    Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+    Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
     """
     DEFAULT = "Default"
     DEFERRED = "Deferred"
@@ -319,6 +492,39 @@ class RoutingMethods(builtins.str, Enum):
     PERFORMANCE = "Performance"
 
 
+@pulumi.type_token("azure-native:cognitiveservices:RuleCategory")
+class RuleCategory(builtins.str, Enum):
+    """
+    Category of a managed network Outbound Rule of a cognitive services account.
+    """
+    REQUIRED = "Required"
+    RECOMMENDED = "Recommended"
+    USER_DEFINED = "UserDefined"
+    DEPENDENCY = "Dependency"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:RuleStatus")
+class RuleStatus(builtins.str, Enum):
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    """
+    INACTIVE = "Inactive"
+    ACTIVE = "Active"
+    PROVISIONING = "Provisioning"
+    DELETING = "Deleting"
+    FAILED = "Failed"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:RuleType")
+class RuleType(builtins.str, Enum):
+    """
+    Type of a managed network Outbound Rule of a cognitive services account.
+    """
+    FQDN = "FQDN"
+    PRIVATE_ENDPOINT = "PrivateEndpoint"
+    SERVICE_TAG = "ServiceTag"
+
+
 @pulumi.type_token("azure-native:cognitiveservices:SkuTier")
 class SkuTier(builtins.str, Enum):
     """
@@ -329,3 +535,14 @@ class SkuTier(builtins.str, Enum):
     STANDARD = "Standard"
     PREMIUM = "Premium"
     ENTERPRISE = "Enterprise"
+
+
+@pulumi.type_token("azure-native:cognitiveservices:TrafficRoutingProtocol")
+class TrafficRoutingProtocol(builtins.str, Enum):
+    """
+    Methodology used to route traffic to the application's deployments.
+    """
+    FIXED_RATIO = "FixedRatio"
+    """
+    Percentage based routing
+    """

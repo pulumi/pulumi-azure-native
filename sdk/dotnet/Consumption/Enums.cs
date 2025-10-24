@@ -131,7 +131,7 @@ namespace Pulumi.AzureNative.Consumption
         }
 
         /// <summary>
-        /// Alert will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future. 
+        /// Alert will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future.
         /// </summary>
         public static OperatorType EqualTo { get; } = new OperatorType("EqualTo");
         /// <summary>
