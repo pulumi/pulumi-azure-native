@@ -192,11 +192,15 @@ Cdn:
     tracking: "2025-06-01"
     additions:
         AFDTargetGroup: 2024-06-01-preview
+        EdgeAction: 2024-07-22-preview
+        EdgeActionExecutionFilter: 2024-07-22-preview
+        EdgeActionVersion: 2024-07-22-preview
         KeyGroup: 2024-06-01-preview
         KnowledgeSource: 2025-09-01-preview
         ProfileAgent: 2025-09-01-preview
         TunnelPolicy: 2024-06-01-preview
         WebAgent: 2025-09-01-preview
+        getEdgeActionVersionCode: 2024-07-22-preview
 CertificateRegistration:
     tracking: "2024-04-01"
 ChangeAnalysis:
@@ -214,10 +218,17 @@ CognitiveServices:
     additions:
         AccountCapabilityHost: 2025-04-01-preview
         AccountConnection: 2025-04-01-preview
+        AgentApplication: 2025-10-01-preview
+        AgentDeployment: 2025-10-01-preview
+        OutboundRule: 2025-10-01-preview
         Project: 2025-04-01-preview
         ProjectCapabilityHost: 2025-04-01-preview
         ProjectConnection: 2025-04-01-preview
+        RaiExternalSafetyProvider: 2025-10-01-preview
+        RaiToolLabel: 2025-10-01-preview
         RaiTopic: 2025-07-01-preview
+        SubscriptionRaiPolicy: 2025-10-01-preview
+        listAgentApplicationAgents: 2025-10-01-preview
 Commerce: {}
 Communication:
     tracking: 2023-06-01-preview
@@ -332,6 +343,7 @@ ContainerService:
         LoadBalancer: 2024-10-02-preview
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
+        MeshMembership: 2025-08-02-preview
         Namespace: 2025-02-02-preview
         NodeCustomization: 2025-08-02-preview
         UpdateRun: 2024-05-02-preview
@@ -399,6 +411,7 @@ DBforMySQL:
         Configuration: "2023-12-30"
         Database: "2023-12-30"
         FirewallRule: "2023-12-30"
+        LongRunningBackup: 2025-06-01-preview
         PrivateEndpointConnection: "2023-06-30"
         SingleServer: "2017-12-01"
         SingleServerConfiguration: "2017-12-01"
@@ -507,6 +520,21 @@ DBforMySQL:
         - modulename: DBforMySQL
           resourcename: Server
           detail: version 2024-12-30 is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Configuration
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: Database
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: FirewallRule
+          detail: version 2025-06-01-preview is greater than 2017-12-01
+        - modulename: DBforMySQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2025-06-01-preview is greater than 2018-06-01
+        - modulename: DBforMySQL
+          resourcename: Server
+          detail: version 2025-06-01-preview is greater than 2017-12-01
 DBforPostgreSQL:
     tracking: "2024-08-01"
     additions:
@@ -734,6 +762,7 @@ DeviceProvisioningServices:
 DeviceRegistry:
     tracking: "2024-11-01"
     additions:
+        Credential: 2025-11-01-preview
         DiscoveredAsset: 2024-09-01-preview
         DiscoveredAssetEndpointProfile: 2024-09-01-preview
         Namespace: 2025-07-01-preview
@@ -741,6 +770,7 @@ DeviceRegistry:
         NamespaceDevice: 2025-07-01-preview
         NamespaceDiscoveredAsset: 2025-07-01-preview
         NamespaceDiscoveredDevice: 2025-07-01-preview
+        Policy: 2025-11-01-preview
         Schema: 2024-09-01-preview
         SchemaRegistry: 2024-09-01-preview
         SchemaVersion: 2024-09-01-preview
@@ -1344,6 +1374,9 @@ Network:
         - modulename: Network
           resourcename: ManagementGroupNetworkManagerConnection
           detail: version 2024-10-01 is greater than 2022-09-01
+        - modulename: Network
+          resourcename: ManagementGroupNetworkManagerConnection
+          detail: version 2025-01-01 is greater than 2022-09-01
 NetworkCloud:
     tracking: "2025-02-01"
 NetworkFunction:
@@ -1690,8 +1723,6 @@ VMwareCloudSimple:
     tracking: "2019-04-01"
 VerifiedId:
     tracking: 2024-01-26-preview
-VideoAnalyzer:
-    tracking: 2021-11-01-preview
 VideoIndexer:
     tracking: "2024-01-01"
     additions:
