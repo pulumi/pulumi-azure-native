@@ -4620,6 +4620,8 @@ _utilities.register(
    "azure-native:web:WebAppAuthSettingsSlot": "WebAppAuthSettingsSlot",
    "azure-native:web:WebAppAuthSettingsV2": "WebAppAuthSettingsV2",
    "azure-native:web:WebAppAuthSettingsV2Slot": "WebAppAuthSettingsV2Slot",
+   "azure-native:web:WebAppAuthSettingsV2WithoutSecrets": "WebAppAuthSettingsV2WithoutSecrets",
+   "azure-native:web:WebAppAuthSettingsV2WithoutSecretsSlot": "WebAppAuthSettingsV2WithoutSecretsSlot",
    "azure-native:web:WebAppAzureStorageAccounts": "WebAppAzureStorageAccounts",
    "azure-native:web:WebAppAzureStorageAccountsSlot": "WebAppAzureStorageAccountsSlot",
    "azure-native:web:WebAppBackupConfiguration": "WebAppBackupConfiguration",
