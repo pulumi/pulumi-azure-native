@@ -15,6 +15,12 @@ guidance.
 
 ### Building locally
 
+Ensure to clone this repository including submodules:
+
+```shell
+git clone --recurse-submodules https://github.com/pulumi/pulumi-azure-native
+```
+
 Run the following commands to install Go modules, generate all SDKs, and build the provider:
 
 ```bash
