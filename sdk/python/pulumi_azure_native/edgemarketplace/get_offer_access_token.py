@@ -83,7 +83,7 @@ def get_offer_access_token(offer_id: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-08-01-preview, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str offer_id: Id of the offer
@@ -110,7 +110,7 @@ def get_offer_access_token_output(offer_id: Optional[pulumi.Input[builtins.str]]
 
     Uses Azure REST API version 2023-08-01.
 
-    Other available API versions: 2023-08-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-08-01-preview, 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native edgemarketplace [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str offer_id: Id of the offer

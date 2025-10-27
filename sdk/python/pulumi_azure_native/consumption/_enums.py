@@ -67,7 +67,7 @@ class OperatorType(builtins.str, Enum):
     """
     EQUAL_TO = "EqualTo"
     """
-    Alert will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future. 
+    Alert will be triggered if the evaluated cost is the same as threshold value. Note: It’s not recommended to use this OperatorType as there’s low chance of cost being exactly the same as threshold value, leading to missing of your alert. This OperatorType will be deprecated in future.
     """
     GREATER_THAN = "GreaterThan"
     """

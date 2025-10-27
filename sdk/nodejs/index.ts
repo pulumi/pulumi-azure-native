@@ -254,7 +254,6 @@ import * as timeseriesinsights from "./timeseriesinsights";
 import * as trafficmanager from "./trafficmanager";
 import * as types from "./types";
 import * as verifiedid from "./verifiedid";
-import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -510,7 +509,6 @@ export {
     trafficmanager,
     types,
     verifiedid,
-    videoanalyzer,
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,

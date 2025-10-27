@@ -439,6 +439,39 @@ namespace Pulumi.AzureNative.DeviceRegistry
     }
 
     /// <summary>
+    /// Crypto type: ECC.
+    /// </summary>
+    [EnumType]
+    public readonly struct SupportedKeyType : IEquatable<SupportedKeyType>
+    {
+        private readonly string _value;
+
+        private SupportedKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Indicates the ECC key type.
+        /// </summary>
+        public static SupportedKeyType ECC { get; } = new SupportedKeyType("ECC");
+
+        public static bool operator ==(SupportedKeyType left, SupportedKeyType right) => left.Equals(right);
+        public static bool operator !=(SupportedKeyType left, SupportedKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(SupportedKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SupportedKeyType other && Equals(other);
+        public bool Equals(SupportedKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of managed service identity (either system assigned, or none).
     /// </summary>
     [EnumType]

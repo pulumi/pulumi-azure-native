@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines an Network Experiment Profile and lists of Experiments
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetNetworkExperimentProfileResult> InvokeAsync(GetNetworkExperimentProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkExperimentProfileResult>("azure-native:frontdoor:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines an Network Experiment Profile and lists of Experiments
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:frontdoor:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FrontDoor
         /// Defines an Network Experiment Profile and lists of Experiments
         /// 
         /// Uses Azure REST API version 2019-11-01.
+        /// 
+        /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetNetworkExperimentProfileResult> Invoke(GetNetworkExperimentProfileInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkExperimentProfileResult>("azure-native:frontdoor:getNetworkExperimentProfile", args ?? new GetNetworkExperimentProfileInvokeArgs(), options.WithDefaults());

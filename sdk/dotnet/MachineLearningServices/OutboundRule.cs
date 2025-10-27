@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
     /// <summary>
     /// Uses Azure REST API version 2025-04-01-preview.
     /// 
-    /// Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:machinelearningservices:OutboundRule")]
     public partial class OutboundRule : global::Pulumi.CustomResource
@@ -74,6 +74,7 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 {
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250401preview:OutboundRule" },
                     new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20250701preview:OutboundRule" },
+                    new global::Pulumi.Alias { Type = "azure-native:machinelearningservices/v20251001preview:OutboundRule" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

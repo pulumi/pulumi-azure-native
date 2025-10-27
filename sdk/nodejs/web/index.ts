@@ -70,6 +70,11 @@ export const getAppServicePlan: typeof import("./getAppServicePlan").getAppServi
 export const getAppServicePlanOutput: typeof import("./getAppServicePlan").getAppServicePlanOutput = null as any;
 utilities.lazyLoad(exports, ["getAppServicePlan","getAppServicePlanOutput"], () => require("./getAppServicePlan"));
 
+export { GetAppServicePlanServerFarmRdpPasswordArgs, GetAppServicePlanServerFarmRdpPasswordResult, GetAppServicePlanServerFarmRdpPasswordOutputArgs } from "./getAppServicePlanServerFarmRdpPassword";
+export const getAppServicePlanServerFarmRdpPassword: typeof import("./getAppServicePlanServerFarmRdpPassword").getAppServicePlanServerFarmRdpPassword = null as any;
+export const getAppServicePlanServerFarmRdpPasswordOutput: typeof import("./getAppServicePlanServerFarmRdpPassword").getAppServicePlanServerFarmRdpPasswordOutput = null as any;
+utilities.lazyLoad(exports, ["getAppServicePlanServerFarmRdpPassword","getAppServicePlanServerFarmRdpPasswordOutput"], () => require("./getAppServicePlanServerFarmRdpPassword"));
+
 export { GetCertificateArgs, GetCertificateResult, GetCertificateOutputArgs } from "./getCertificate";
 export const getCertificate: typeof import("./getCertificate").getCertificate = null as any;
 export const getCertificateOutput: typeof import("./getCertificate").getCertificateOutput = null as any;
@@ -354,6 +359,11 @@ export { ListAppServicePlanHybridConnectionKeysArgs, ListAppServicePlanHybridCon
 export const listAppServicePlanHybridConnectionKeys: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeys = null as any;
 export const listAppServicePlanHybridConnectionKeysOutput: typeof import("./listAppServicePlanHybridConnectionKeys").listAppServicePlanHybridConnectionKeysOutput = null as any;
 utilities.lazyLoad(exports, ["listAppServicePlanHybridConnectionKeys","listAppServicePlanHybridConnectionKeysOutput"], () => require("./listAppServicePlanHybridConnectionKeys"));
+
+export { ListAppServicePlanServerFarmInstanceDetailsArgs, ListAppServicePlanServerFarmInstanceDetailsResult, ListAppServicePlanServerFarmInstanceDetailsOutputArgs } from "./listAppServicePlanServerFarmInstanceDetails";
+export const listAppServicePlanServerFarmInstanceDetails: typeof import("./listAppServicePlanServerFarmInstanceDetails").listAppServicePlanServerFarmInstanceDetails = null as any;
+export const listAppServicePlanServerFarmInstanceDetailsOutput: typeof import("./listAppServicePlanServerFarmInstanceDetails").listAppServicePlanServerFarmInstanceDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["listAppServicePlanServerFarmInstanceDetails","listAppServicePlanServerFarmInstanceDetailsOutput"], () => require("./listAppServicePlanServerFarmInstanceDetails"));
 
 export { ListConnectionConsentLinksArgs, ListConnectionConsentLinksResult, ListConnectionConsentLinksOutputArgs } from "./listConnectionConsentLinks";
 export const listConnectionConsentLinks: typeof import("./listConnectionConsentLinks").listConnectionConsentLinks = null as any;

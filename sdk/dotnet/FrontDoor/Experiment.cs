@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.FrontDoor
     /// Defines the properties of an Experiment
     /// 
     /// Uses Azure REST API version 2019-11-01.
+    /// 
+    /// Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:frontdoor:Experiment")]
     public partial class Experiment : global::Pulumi.CustomResource
@@ -115,6 +117,7 @@ namespace Pulumi.AzureNative.FrontDoor
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20191101:Experiment" },
+                    new global::Pulumi.Alias { Type = "azure-native:frontdoor/v20251001:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network/v20191101:Experiment" },
                     new global::Pulumi.Alias { Type = "azure-native:network:Experiment" },
                 },
