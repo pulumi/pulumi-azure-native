@@ -135,6 +135,7 @@ __all__ = [
     'RequestsBasedTriggerResponse',
     'ResourceConfigResponse',
     'ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse',
+    'ServerFarmInstanceResponse',
     'SiteConfigResponse',
     'SiteDnsConfigResponse',
     'SiteLimitsResponse',
@@ -8277,6 +8278,53 @@ class ResponseMessageEnvelopeRemotePrivateEndpointConnectionResponse(dict):
         Logical Availability Zones the service is hosted in
         """
         return pulumi.get(self, "zones")
+
+
+@pulumi.output_type
+class ServerFarmInstanceResponse(dict):
+    """
+    Represents details of a single instance in a server farm.
+    """
+    def __init__(__self__, *,
+                 instance_name: Optional[builtins.str] = None,
+                 ip_address: Optional[builtins.str] = None,
+                 status: Optional[builtins.str] = None):
+        """
+        Represents details of a single instance in a server farm.
+        :param builtins.str instance_name: The instance name.
+        :param builtins.str ip_address: The instance IP address.
+        :param builtins.str status: The instance status.
+        """
+        if instance_name is not None:
+            pulumi.set(__self__, "instance_name", instance_name)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="instanceName")
+    def instance_name(self) -> Optional[builtins.str]:
+        """
+        The instance name.
+        """
+        return pulumi.get(self, "instance_name")
+
+    @property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[builtins.str]:
+        """
+        The instance IP address.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[builtins.str]:
+        """
+        The instance status.
+        """
+        return pulumi.get(self, "status")
 
 
 @pulumi.output_type

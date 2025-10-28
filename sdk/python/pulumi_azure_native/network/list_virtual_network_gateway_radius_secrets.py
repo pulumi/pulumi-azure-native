@@ -71,6 +71,8 @@ def list_virtual_network_gateway_radius_secrets(resource_group_name: Optional[bu
 
     Uses Azure REST API version 2024-10-01.
 
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     :param builtins.str virtual_network_gateway_name: The name of the virtual network gateway.
@@ -91,6 +93,8 @@ def list_virtual_network_gateway_radius_secrets_output(resource_group_name: Opti
     List all Radius servers with respective radius secrets from virtual network gateway VpnClientConfiguration.
 
     Uses Azure REST API version 2024-10-01.
+
+    Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.

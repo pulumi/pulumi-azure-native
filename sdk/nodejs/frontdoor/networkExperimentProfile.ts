@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Defines an Network Experiment Profile and lists of Experiments
  *
  * Uses Azure REST API version 2019-11-01.
+ *
+ * Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class NetworkExperimentProfile extends pulumi.CustomResource {
     /**
@@ -107,7 +109,7 @@ export class NetworkExperimentProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:NetworkExperimentProfile" }, { type: "azure-native:network/v20191101:NetworkExperimentProfile" }, { type: "azure-native:network:NetworkExperimentProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20191101:NetworkExperimentProfile" }, { type: "azure-native:frontdoor/v20251001:NetworkExperimentProfile" }, { type: "azure-native:network/v20191101:NetworkExperimentProfile" }, { type: "azure-native:network:NetworkExperimentProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NetworkExperimentProfile.__pulumiType, name, resourceInputs, opts);
     }

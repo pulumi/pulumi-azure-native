@@ -15,8 +15,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Lists deployments for catalog.
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListCatalogDeploymentsResult> InvokeAsync(ListCatalogDeploymentsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsArgs(), options.WithDefaults());
@@ -25,8 +23,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Lists deployments for catalog.
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());
@@ -35,8 +31,6 @@ namespace Pulumi.AzureNative.AzureSphere
         /// Lists deployments for catalog.
         /// 
         /// Uses Azure REST API version 2024-04-01.
-        /// 
-        /// Other available API versions: 2022-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuresphere [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListCatalogDeploymentsResult> Invoke(ListCatalogDeploymentsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListCatalogDeploymentsResult>("azure-native:azuresphere:listCatalogDeployments", args ?? new ListCatalogDeploymentsInvokeArgs(), options.WithDefaults());

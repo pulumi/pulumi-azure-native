@@ -57,7 +57,8 @@
   "AppConfiguration": [
     "2024-06-01",
     "2024-06-15-preview",
-    "2025-02-01-preview"
+    "2025-02-01-preview",
+    "2025-06-01-preview"
   ],
   "AppPlatform": [
     "2024-05-01-preview"
@@ -124,7 +125,8 @@
     "2025-03-01-preview",
     "2025-04-11-preview",
     "2025-05-21",
-    "2025-05-30-preview"
+    "2025-05-30-preview",
+    "2025-10-10-preview"
   ],
   "AzureFleet": [
     "2025-07-01-preview"
@@ -188,7 +190,8 @@
   ],
   "CloudHealth": [],
   "Cloudngfw": [
-    "2025-07-07-preview"
+    "2025-07-07-preview",
+    "2025-10-08"
   ],
   "CodeSigning": [
     "2025-10-13"
@@ -197,7 +200,8 @@
     "2025-04-01-preview",
     "2025-06-01",
     "2025-07-01-preview",
-    "2025-09-01"
+    "2025-09-01",
+    "2025-10-01-preview"
   ],
   "Commerce": [],
   "Communication": [
@@ -265,7 +269,9 @@
     "2024-11-01-preview",
     "2025-03-01-preview",
     "2025-04-01",
-    "2025-05-01-preview"
+    "2025-05-01-preview",
+    "2025-06-01-preview",
+    "2025-11-01"
   ],
   "ContainerService": [
     "2020-04-01",
@@ -467,7 +473,8 @@
     "2024-06-01-preview",
     "2024-10-01-preview",
     "2024-12-01-preview",
-    "2024-12-30"
+    "2024-12-30",
+    "2025-06-01-preview"
   ],
   "DBforPostgreSQL": [
     "2017-12-01-preview",
@@ -536,7 +543,9 @@
   ],
   "Databricks": [
     "2024-09-01-preview",
-    "2025-03-01-preview"
+    "2025-03-01-preview",
+    "2025-08-01-preview",
+    "2025-10-01-preview"
   ],
   "Datadog": [],
   "DelegatedNetwork": [],
@@ -560,7 +569,8 @@
     "2024-10-01-preview",
     "2025-02-01",
     "2025-04-01-preview",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-10-01-preview"
   ],
   "DevHub": [
     "2024-05-01-preview",
@@ -606,7 +616,8 @@
     "2025-08-01"
   ],
   "EdgeMarketplace": [
-    "2023-08-01-preview"
+    "2023-08-01-preview",
+    "2024-10-01"
   ],
   "EdgeOrder": [],
   "EdgeOrderPartner": [],
@@ -621,7 +632,8 @@
   ],
   "ElasticSan": [
     "2024-06-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2025-09-01"
   ],
   "EngagementFabric": [],
   "EnterpriseKnowledgeGraph": [],
@@ -655,7 +667,8 @@
     "2021-06-01",
     "2022-05-01",
     "2024-02-01",
-    "2025-03-01"
+    "2025-03-01",
+    "2025-10-01"
   ],
   "GraphServices": [],
   "GuestConfiguration": [],
@@ -836,7 +849,8 @@
     "2025-04-01-preview",
     "2025-06-01",
     "2025-07-01-preview",
-    "2025-09-01"
+    "2025-09-01",
+    "2025-10-01-preview"
   ],
   "Maintenance": [],
   "ManagedIdentity": [
@@ -862,7 +876,8 @@
     "2023-08-01-preview",
     "2023-12-01-preview",
     "2024-01-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2025-10-01-preview"
   ],
   "Marketplace": [
     "2025-01-01"
@@ -902,7 +917,8 @@
     "2024-10-01-preview",
     "2025-04-01-preview",
     "2025-07-01-preview",
-    "2025-08-01-preview"
+    "2025-08-01-preview",
+    "2025-09-01"
   ],
   "Monitor": [
     "2018-04-16",
@@ -969,7 +985,9 @@
     "2025-03-01",
     "2025-03-01-preview",
     "2025-06-01",
-    "2025-07-01-preview"
+    "2025-07-01-preview",
+    "2025-08-01",
+    "2025-08-01-preview"
   ],
   "Network": [
     "2019-04-01",
@@ -1015,7 +1033,8 @@
     "2024-06-01-preview",
     "2024-07-01",
     "2024-09-01-preview",
-    "2024-10-01"
+    "2024-10-01",
+    "2025-01-01"
   ],
   "NetworkCloud": [
     "2025-07-01-preview",
@@ -1027,7 +1046,8 @@
     "2023-06-06",
     "2023-10-01-preview",
     "2024-05-01-preview",
-    "2024-07-01-preview"
+    "2024-07-01-preview",
+    "2024-12-01-preview"
   ],
   "OffAzureSpringBoot": [],
   "OnlineExperimentation": [
@@ -1129,7 +1149,8 @@
     "2024-11-01"
   ],
   "RedisEnterprise": [
-    "2025-07-01"
+    "2025-07-01",
+    "2025-08-01-preview"
   ],
   "Relationships": [],
   "Relay": [],
@@ -1160,9 +1181,7 @@
   ],
   "Scheduler": [],
   "Scom": [],
-  "Search": [
-    "2025-10-01-preview"
-  ],
+  "Search": [],
   "SecretSyncController": [],
   "Security": [
     "2019-01-01",
@@ -1203,7 +1222,8 @@
     "2025-05-04-preview",
     "2025-06-01",
     "2025-07-01-preview",
-    "2025-09-01-preview"
+    "2025-09-01-preview",
+    "2025-11-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [
@@ -1293,7 +1313,8 @@
     "2025-03-01"
   ],
   "Storage": [
-    "2025-01-01"
+    "2025-01-01",
+    "2025-06-01"
   ],
   "StorageActions": [],
   "StorageCache": [
@@ -1331,7 +1352,6 @@
   ],
   "VMwareCloudSimple": [],
   "VerifiedId": [],
-  "VideoAnalyzer": [],
   "VideoIndexer": [
     "2024-04-01-preview",
     "2024-06-01-preview",
@@ -1367,7 +1387,8 @@
     "2023-01-01",
     "2023-12-01",
     "2024-04-01",
-    "2024-11-01"
+    "2024-11-01",
+    "2025-03-01"
   ],
   "WebPubSub": [
     "2024-04-01-preview",

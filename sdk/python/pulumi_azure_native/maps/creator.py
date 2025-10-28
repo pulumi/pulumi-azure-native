@@ -138,7 +138,7 @@ class Creator(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
 
-        Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,7 +160,7 @@ class Creator(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-07-01-preview. In version 2.x of the Azure Native provider, it used API version 2021-02-01.
 
-        Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-02-01-preview, 2021-02-01, 2021-07-01-preview, 2021-12-01-preview, 2023-06-01, 2023-08-01-preview, 2023-12-01-preview, 2024-01-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native maps [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param CreatorArgs args: The arguments to use to populate this resource's properties.
@@ -208,7 +208,7 @@ class Creator(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210201:Creator"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20230601:Creator"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20231201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20240101preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20240701preview:Creator")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:maps/v20200201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20210201:Creator"), pulumi.Alias(type_="azure-native:maps/v20210701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20211201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20230601:Creator"), pulumi.Alias(type_="azure-native:maps/v20230801preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20231201preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20240101preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20240701preview:Creator"), pulumi.Alias(type_="azure-native:maps/v20251001preview:Creator")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Creator, __self__).__init__(
             'azure-native:maps:Creator',

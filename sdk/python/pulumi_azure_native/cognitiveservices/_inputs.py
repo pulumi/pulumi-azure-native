@@ -25,10 +25,20 @@ __all__ = [
     'AccountKeyAuthTypeConnectionPropertiesArgsDict',
     'AccountPropertiesArgs',
     'AccountPropertiesArgsDict',
+    'AgentProtocolVersionArgs',
+    'AgentProtocolVersionArgsDict',
+    'AgentReferenceArgs',
+    'AgentReferenceArgsDict',
+    'AgenticApplicationArgs',
+    'AgenticApplicationArgsDict',
     'ApiKeyAuthConnectionPropertiesArgs',
     'ApiKeyAuthConnectionPropertiesArgsDict',
     'ApiPropertiesArgs',
     'ApiPropertiesArgsDict',
+    'ApplicationTrafficRoutingPolicyArgs',
+    'ApplicationTrafficRoutingPolicyArgsDict',
+    'AssignedIdentityArgs',
+    'AssignedIdentityArgsDict',
     'CapabilityHostArgs',
     'CapabilityHostArgsDict',
     'CommitmentPeriodArgs',
@@ -59,6 +69,8 @@ __all__ = [
     'CustomKeysConnectionPropertiesArgsDict',
     'CustomKeysArgs',
     'CustomKeysArgsDict',
+    'CustomTopicConfigArgs',
+    'CustomTopicConfigArgsDict',
     'DeploymentCapacitySettingsArgs',
     'DeploymentCapacitySettingsArgsDict',
     'DeploymentModelArgs',
@@ -71,12 +83,20 @@ __all__ = [
     'EncryptionScopePropertiesArgsDict',
     'EncryptionArgs',
     'EncryptionArgsDict',
+    'FqdnOutboundRuleArgs',
+    'FqdnOutboundRuleArgsDict',
+    'HostedAgentDeploymentArgs',
+    'HostedAgentDeploymentArgsDict',
     'IdentityArgs',
     'IdentityArgsDict',
     'IpRuleArgs',
     'IpRuleArgsDict',
     'KeyVaultPropertiesArgs',
     'KeyVaultPropertiesArgsDict',
+    'M365BuiltInAuthorizationPolicyArgs',
+    'M365BuiltInAuthorizationPolicyArgsDict',
+    'ManagedAgentDeploymentArgs',
+    'ManagedAgentDeploymentArgsDict',
     'ManagedIdentityAuthTypeConnectionPropertiesArgs',
     'ManagedIdentityAuthTypeConnectionPropertiesArgsDict',
     'MultiRegionSettingsArgs',
@@ -87,6 +107,8 @@ __all__ = [
     'NoneAuthTypeConnectionPropertiesArgsDict',
     'OAuth2AuthTypeConnectionPropertiesArgs',
     'OAuth2AuthTypeConnectionPropertiesArgsDict',
+    'OrganizationSharedBuiltInAuthorizationPolicyArgs',
+    'OrganizationSharedBuiltInAuthorizationPolicyArgsDict',
     'PATAuthTypeConnectionPropertiesArgs',
     'PATAuthTypeConnectionPropertiesArgsDict',
     'PrivateEndpointConnectionPropertiesArgs',
@@ -99,28 +121,44 @@ __all__ = [
     'RaiBlocklistItemPropertiesArgsDict',
     'RaiBlocklistPropertiesArgs',
     'RaiBlocklistPropertiesArgsDict',
+    'RaiExternalSafetyProviderSchemaPropertiesArgs',
+    'RaiExternalSafetyProviderSchemaPropertiesArgsDict',
     'RaiMonitorConfigArgs',
     'RaiMonitorConfigArgsDict',
     'RaiPolicyContentFilterArgs',
     'RaiPolicyContentFilterArgsDict',
     'RaiPolicyPropertiesArgs',
     'RaiPolicyPropertiesArgsDict',
+    'RaiToolLabelPropertiesAccountScopeArgs',
+    'RaiToolLabelPropertiesAccountScopeArgsDict',
+    'RaiToolLabelPropertiesProjectScopesArgs',
+    'RaiToolLabelPropertiesProjectScopesArgsDict',
+    'RaiToolLabelPropertiesArgs',
+    'RaiToolLabelPropertiesArgsDict',
     'RaiTopicPropertiesArgs',
     'RaiTopicPropertiesArgsDict',
     'RegionSettingArgs',
     'RegionSettingArgsDict',
+    'RoleBasedBuiltInAuthorizationPolicyArgs',
+    'RoleBasedBuiltInAuthorizationPolicyArgsDict',
     'SASAuthTypeConnectionPropertiesArgs',
     'SASAuthTypeConnectionPropertiesArgsDict',
+    'SafetyProviderConfigArgs',
+    'SafetyProviderConfigArgsDict',
     'ServicePrincipalAuthTypeConnectionPropertiesArgs',
     'ServicePrincipalAuthTypeConnectionPropertiesArgsDict',
     'SkuArgs',
     'SkuArgsDict',
+    'TrafficRoutingRuleArgs',
+    'TrafficRoutingRuleArgsDict',
     'UserOwnedAmlWorkspaceArgs',
     'UserOwnedAmlWorkspaceArgsDict',
     'UserOwnedStorageArgs',
     'UserOwnedStorageArgsDict',
     'UsernamePasswordAuthTypeConnectionPropertiesArgs',
     'UsernamePasswordAuthTypeConnectionPropertiesArgsDict',
+    'VersionedAgentReferenceArgs',
+    'VersionedAgentReferenceArgsDict',
     'VirtualNetworkRuleArgs',
     'VirtualNetworkRuleArgsDict',
 ]
@@ -991,6 +1029,314 @@ class AccountPropertiesArgs:
 
 
 if not MYPY:
+    class AgentProtocolVersionArgsDict(TypedDict):
+        """
+        Type modeling the protocol and version used by an agent/exposed by a deployment.
+        """
+        protocol: NotRequired[pulumi.Input[Union[builtins.str, 'AgentProtocol']]]
+        """
+        The protocol used by the agent/exposed by a deployment.
+        """
+        version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The version of the protocol.
+        """
+elif False:
+    AgentProtocolVersionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentProtocolVersionArgs:
+    def __init__(__self__, *,
+                 protocol: Optional[pulumi.Input[Union[builtins.str, 'AgentProtocol']]] = None,
+                 version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Type modeling the protocol and version used by an agent/exposed by a deployment.
+        :param pulumi.Input[Union[builtins.str, 'AgentProtocol']] protocol: The protocol used by the agent/exposed by a deployment.
+        :param pulumi.Input[builtins.str] version: The version of the protocol.
+        """
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if version is not None:
+            pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[builtins.str, 'AgentProtocol']]]:
+        """
+        The protocol used by the agent/exposed by a deployment.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[builtins.str, 'AgentProtocol']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The version of the protocol.
+        """
+        return pulumi.get(self, "version")
+
+    @version.setter
+    def version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "version", value)
+
+
+if not MYPY:
+    class AgentReferenceArgsDict(TypedDict):
+        """
+        Type modeling a reference to a version of an agent definition.
+        """
+        agent_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets the agent's unique identifier within the organization (subscription).
+        """
+        agent_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets the agent's name (unique within the project/app).
+        """
+elif False:
+    AgentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgentReferenceArgs:
+    def __init__(__self__, *,
+                 agent_id: Optional[pulumi.Input[builtins.str]] = None,
+                 agent_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Type modeling a reference to a version of an agent definition.
+        :param pulumi.Input[builtins.str] agent_id: Gets the agent's unique identifier within the organization (subscription).
+        :param pulumi.Input[builtins.str] agent_name: Gets the agent's name (unique within the project/app).
+        """
+        if agent_id is not None:
+            pulumi.set(__self__, "agent_id", agent_id)
+        if agent_name is not None:
+            pulumi.set(__self__, "agent_name", agent_name)
+
+    @property
+    @pulumi.getter(name="agentId")
+    def agent_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets the agent's unique identifier within the organization (subscription).
+        """
+        return pulumi.get(self, "agent_id")
+
+    @agent_id.setter
+    def agent_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "agent_id", value)
+
+    @property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets the agent's name (unique within the project/app).
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "agent_name", value)
+
+
+if not MYPY:
+    class AgenticApplicationArgsDict(TypedDict):
+        """
+        Resource type representing an agentic application as a management construct.
+        """
+        agent_identity_blueprint: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
+        """
+        The EntraId Agentic Blueprint of the application.
+        """
+        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgsDict']]]]
+        """
+        The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+        """
+        authorization_policy: NotRequired[pulumi.Input[Union['M365BuiltInAuthorizationPolicyArgsDict', 'OrganizationSharedBuiltInAuthorizationPolicyArgsDict', 'RoleBasedBuiltInAuthorizationPolicyArgsDict']]]
+        """
+        Gets or sets the authorization policy associated with this agentic application instance.
+        """
+        base_url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The application's dedicated invocation endpoint.
+        """
+        default_instance_identity: NotRequired[pulumi.Input['AssignedIdentityArgsDict']]
+        """
+        The (default) agent instance identity of the application.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The display name of the application.
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        traffic_routing_policy: NotRequired[pulumi.Input['ApplicationTrafficRoutingPolicyArgsDict']]
+        """
+        Gets or sets the traffic routing policy for the application's deployments.
+        """
+elif False:
+    AgenticApplicationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AgenticApplicationArgs:
+    def __init__(__self__, *,
+                 agent_identity_blueprint: Optional[pulumi.Input['AssignedIdentityArgs']] = None,
+                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]] = None,
+                 authorization_policy: Optional[pulumi.Input[Union['M365BuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']]] = None,
+                 base_url: Optional[pulumi.Input[builtins.str]] = None,
+                 default_instance_identity: Optional[pulumi.Input['AssignedIdentityArgs']] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 traffic_routing_policy: Optional[pulumi.Input['ApplicationTrafficRoutingPolicyArgs']] = None):
+        """
+        Resource type representing an agentic application as a management construct.
+        :param pulumi.Input['AssignedIdentityArgs'] agent_identity_blueprint: The EntraId Agentic Blueprint of the application.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]] agents: The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+        :param pulumi.Input[Union['M365BuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']] authorization_policy: Gets or sets the authorization policy associated with this agentic application instance.
+        :param pulumi.Input[builtins.str] base_url: The application's dedicated invocation endpoint.
+        :param pulumi.Input['AssignedIdentityArgs'] default_instance_identity: The (default) agent instance identity of the application.
+        :param pulumi.Input[builtins.str] description: The asset description text.
+        :param pulumi.Input[builtins.str] display_name: The display name of the application.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        :param pulumi.Input['ApplicationTrafficRoutingPolicyArgs'] traffic_routing_policy: Gets or sets the traffic routing policy for the application's deployments.
+        """
+        if agent_identity_blueprint is not None:
+            pulumi.set(__self__, "agent_identity_blueprint", agent_identity_blueprint)
+        if agents is not None:
+            pulumi.set(__self__, "agents", agents)
+        if authorization_policy is not None:
+            pulumi.set(__self__, "authorization_policy", authorization_policy)
+        if base_url is not None:
+            pulumi.set(__self__, "base_url", base_url)
+        if default_instance_identity is not None:
+            pulumi.set(__self__, "default_instance_identity", default_instance_identity)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if traffic_routing_policy is not None:
+            pulumi.set(__self__, "traffic_routing_policy", traffic_routing_policy)
+
+    @property
+    @pulumi.getter(name="agentIdentityBlueprint")
+    def agent_identity_blueprint(self) -> Optional[pulumi.Input['AssignedIdentityArgs']]:
+        """
+        The EntraId Agentic Blueprint of the application.
+        """
+        return pulumi.get(self, "agent_identity_blueprint")
+
+    @agent_identity_blueprint.setter
+    def agent_identity_blueprint(self, value: Optional[pulumi.Input['AssignedIdentityArgs']]):
+        pulumi.set(self, "agent_identity_blueprint", value)
+
+    @property
+    @pulumi.getter
+    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]]:
+        """
+        The list of agent definitions comprising this application, returned as references to the objects under the parent project; use this to obtain a flat list of all agent-version pairs represented by this application.
+        """
+        return pulumi.get(self, "agents")
+
+    @agents.setter
+    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentReferenceArgs']]]]):
+        pulumi.set(self, "agents", value)
+
+    @property
+    @pulumi.getter(name="authorizationPolicy")
+    def authorization_policy(self) -> Optional[pulumi.Input[Union['M365BuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']]]:
+        """
+        Gets or sets the authorization policy associated with this agentic application instance.
+        """
+        return pulumi.get(self, "authorization_policy")
+
+    @authorization_policy.setter
+    def authorization_policy(self, value: Optional[pulumi.Input[Union['M365BuiltInAuthorizationPolicyArgs', 'OrganizationSharedBuiltInAuthorizationPolicyArgs', 'RoleBasedBuiltInAuthorizationPolicyArgs']]]):
+        pulumi.set(self, "authorization_policy", value)
+
+    @property
+    @pulumi.getter(name="baseUrl")
+    def base_url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The application's dedicated invocation endpoint.
+        """
+        return pulumi.get(self, "base_url")
+
+    @base_url.setter
+    def base_url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "base_url", value)
+
+    @property
+    @pulumi.getter(name="defaultInstanceIdentity")
+    def default_instance_identity(self) -> Optional[pulumi.Input['AssignedIdentityArgs']]:
+        """
+        The (default) agent instance identity of the application.
+        """
+        return pulumi.get(self, "default_instance_identity")
+
+    @default_instance_identity.setter
+    def default_instance_identity(self, value: Optional[pulumi.Input['AssignedIdentityArgs']]):
+        pulumi.set(self, "default_instance_identity", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The display name of the application.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+    @property
+    @pulumi.getter(name="trafficRoutingPolicy")
+    def traffic_routing_policy(self) -> Optional[pulumi.Input['ApplicationTrafficRoutingPolicyArgs']]:
+        """
+        Gets or sets the traffic routing policy for the application's deployments.
+        """
+        return pulumi.get(self, "traffic_routing_policy")
+
+    @traffic_routing_policy.setter
+    def traffic_routing_policy(self, value: Optional[pulumi.Input['ApplicationTrafficRoutingPolicyArgs']]):
+        pulumi.set(self, "traffic_routing_policy", value)
+
+
+if not MYPY:
     class ApiKeyAuthConnectionPropertiesArgsDict(TypedDict):
         """
         This connection type covers the generic ApiKey auth connection categories, for examples:
@@ -1444,6 +1790,193 @@ class ApiPropertiesArgs:
     @website_name.setter
     def website_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "website_name", value)
+
+
+if not MYPY:
+    class ApplicationTrafficRoutingPolicyArgsDict(TypedDict):
+        """
+        Type representing an application traffic policy as a property of an agentic application.
+        """
+        protocol: NotRequired[pulumi.Input[Union[builtins.str, 'TrafficRoutingProtocol']]]
+        """
+        Methodology used to route traffic to the application's deployments.
+        """
+        rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgsDict']]]]
+        """
+        Gets or sets the collection of traffic routing rules.
+        """
+elif False:
+    ApplicationTrafficRoutingPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ApplicationTrafficRoutingPolicyArgs:
+    def __init__(__self__, *,
+                 protocol: Optional[pulumi.Input[Union[builtins.str, 'TrafficRoutingProtocol']]] = None,
+                 rules: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgs']]]] = None):
+        """
+        Type representing an application traffic policy as a property of an agentic application.
+        :param pulumi.Input[Union[builtins.str, 'TrafficRoutingProtocol']] protocol: Methodology used to route traffic to the application's deployments.
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgs']]] rules: Gets or sets the collection of traffic routing rules.
+        """
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[Union[builtins.str, 'TrafficRoutingProtocol']]]:
+        """
+        Methodology used to route traffic to the application's deployments.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[Union[builtins.str, 'TrafficRoutingProtocol']]]):
+        pulumi.set(self, "protocol", value)
+
+    @property
+    @pulumi.getter
+    def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgs']]]]:
+        """
+        Gets or sets the collection of traffic routing rules.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficRoutingRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+if not MYPY:
+    class AssignedIdentityArgsDict(TypedDict):
+        """
+        Type representing an identity assignment
+        """
+        client_id: pulumi.Input[builtins.str]
+        """
+        The client ID of the identity.
+        """
+        kind: pulumi.Input[Union[builtins.str, 'IdentityKind']]
+        """
+        Specifies the kind of Entra identity described by this object.
+        """
+        principal_id: pulumi.Input[builtins.str]
+        """
+        The principal ID of the identity.
+        """
+        tenant_id: pulumi.Input[builtins.str]
+        """
+        The tenant ID of the identity.
+        """
+        type: pulumi.Input[Union[builtins.str, 'IdentityManagementType']]
+        """
+        Enumeration of identity types, from the perspective of management.
+        """
+        subject: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The subject of this identity assignment.
+        """
+elif False:
+    AssignedIdentityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AssignedIdentityArgs:
+    def __init__(__self__, *,
+                 client_id: pulumi.Input[builtins.str],
+                 kind: pulumi.Input[Union[builtins.str, 'IdentityKind']],
+                 principal_id: pulumi.Input[builtins.str],
+                 tenant_id: pulumi.Input[builtins.str],
+                 type: pulumi.Input[Union[builtins.str, 'IdentityManagementType']],
+                 subject: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Type representing an identity assignment
+        :param pulumi.Input[builtins.str] client_id: The client ID of the identity.
+        :param pulumi.Input[Union[builtins.str, 'IdentityKind']] kind: Specifies the kind of Entra identity described by this object.
+        :param pulumi.Input[builtins.str] principal_id: The principal ID of the identity.
+        :param pulumi.Input[builtins.str] tenant_id: The tenant ID of the identity.
+        :param pulumi.Input[Union[builtins.str, 'IdentityManagementType']] type: Enumeration of identity types, from the perspective of management.
+        :param pulumi.Input[builtins.str] subject: The subject of this identity assignment.
+        """
+        pulumi.set(__self__, "client_id", client_id)
+        pulumi.set(__self__, "kind", kind)
+        pulumi.set(__self__, "principal_id", principal_id)
+        pulumi.set(__self__, "tenant_id", tenant_id)
+        pulumi.set(__self__, "type", type)
+        if subject is not None:
+            pulumi.set(__self__, "subject", subject)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The client ID of the identity.
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Input[Union[builtins.str, 'IdentityKind']]:
+        """
+        Specifies the kind of Entra identity described by this object.
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: pulumi.Input[Union[builtins.str, 'IdentityKind']]):
+        pulumi.set(self, "kind", value)
+
+    @property
+    @pulumi.getter(name="principalId")
+    def principal_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The principal ID of the identity.
+        """
+        return pulumi.get(self, "principal_id")
+
+    @principal_id.setter
+    def principal_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "principal_id", value)
+
+    @property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[builtins.str]:
+        """
+        The tenant ID of the identity.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tenant_id", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[builtins.str, 'IdentityManagementType']]:
+        """
+        Enumeration of identity types, from the perspective of management.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[builtins.str, 'IdentityManagementType']]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def subject(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The subject of this identity assignment.
+        """
+        return pulumi.get(self, "subject")
+
+    @subject.setter
+    def subject(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subject", value)
 
 
 if not MYPY:
@@ -2581,6 +3114,82 @@ class CustomKeysArgs:
 
 
 if not MYPY:
+    class CustomTopicConfigArgsDict(TypedDict):
+        """
+        Gets or sets the source to which filter applies.
+        """
+        blocking: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If blocking would occur.
+        """
+        source: NotRequired[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]
+        """
+        Content source to apply the Content Filters.
+        """
+        topic_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of RAI topic.
+        """
+elif False:
+    CustomTopicConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CustomTopicConfigArgs:
+    def __init__(__self__, *,
+                 blocking: Optional[pulumi.Input[builtins.bool]] = None,
+                 source: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]] = None,
+                 topic_name: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Gets or sets the source to which filter applies.
+        :param pulumi.Input[builtins.bool] blocking: If blocking would occur.
+        :param pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
+        :param pulumi.Input[builtins.str] topic_name: Name of RAI topic.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+        if topic_name is not None:
+            pulumi.set(__self__, "topic_name", topic_name)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]):
+        pulumi.set(self, "source", value)
+
+    @property
+    @pulumi.getter(name="topicName")
+    def topic_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of RAI topic.
+        """
+        return pulumi.get(self, "topic_name")
+
+    @topic_name.setter
+    def topic_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "topic_name", value)
+
+
+if not MYPY:
     class DeploymentCapacitySettingsArgsDict(TypedDict):
         """
         Internal use only.
@@ -3121,6 +3730,315 @@ class EncryptionArgs:
 
 
 if not MYPY:
+    class FqdnOutboundRuleArgsDict(TypedDict):
+        """
+        FQDN Outbound Rule for the managed network of a cognitive services account.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'FQDN'.
+        """
+        category: NotRequired[pulumi.Input[Union[builtins.str, 'RuleCategory']]]
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        destination: NotRequired[pulumi.Input[builtins.str]]
+        status: NotRequired[pulumi.Input[Union[builtins.str, 'RuleStatus']]]
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+elif False:
+    FqdnOutboundRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FqdnOutboundRuleArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str],
+                 category: Optional[pulumi.Input[Union[builtins.str, 'RuleCategory']]] = None,
+                 destination: Optional[pulumi.Input[builtins.str]] = None,
+                 status: Optional[pulumi.Input[Union[builtins.str, 'RuleStatus']]] = None):
+        """
+        FQDN Outbound Rule for the managed network of a cognitive services account.
+        :param pulumi.Input[builtins.str] type: Type of a managed network Outbound Rule of a cognitive services account.
+               Expected value is 'FQDN'.
+        :param pulumi.Input[Union[builtins.str, 'RuleCategory']] category: Category of a managed network Outbound Rule of a cognitive services account.
+        :param pulumi.Input[Union[builtins.str, 'RuleStatus']] status: Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        pulumi.set(__self__, "type", 'FQDN')
+        if category is not None:
+            pulumi.set(__self__, "category", category)
+        if destination is not None:
+            pulumi.set(__self__, "destination", destination)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        Expected value is 'FQDN'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def category(self) -> Optional[pulumi.Input[Union[builtins.str, 'RuleCategory']]]:
+        """
+        Category of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "category")
+
+    @category.setter
+    def category(self, value: Optional[pulumi.Input[Union[builtins.str, 'RuleCategory']]]):
+        pulumi.set(self, "category", value)
+
+    @property
+    @pulumi.getter
+    def destination(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "destination")
+
+    @destination.setter
+    def destination(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "destination", value)
+
+    @property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[builtins.str, 'RuleStatus']]]:
+        """
+        Type of a managed network Outbound Rule of a cognitive services account.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[builtins.str, 'RuleStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class HostedAgentDeploymentArgsDict(TypedDict):
+        """
+        Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+        """
+        deployment_type: pulumi.Input[builtins.str]
+        """
+        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+        Expected value is 'Hosted'.
+        """
+        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
+        """
+        Returns a flat list of agent:version deployed in this deployment.
+        """
+        deployment_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets or sets the unique identifier of the deployment.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets or sets the display name of the deployment.
+        """
+        max_replicas: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Gets or sets the maximum number of replicas for this hosted deployment.
+        """
+        min_replicas: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Gets or sets the minimum number of replicas for this hosted deployment.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
+        """
+        Gets or sets the supported protocol types and versions exposed by this deployment.
+        """
+        state: NotRequired[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]
+        """
+        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    HostedAgentDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class HostedAgentDeploymentArgs:
+    def __init__(__self__, *,
+                 deployment_type: pulumi.Input[builtins.str],
+                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]] = None,
+                 deployment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 max_replicas: Optional[pulumi.Input[builtins.int]] = None,
+                 min_replicas: Optional[pulumi.Input[builtins.int]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]] = None,
+                 state: Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+        """
+        Represents a hosted agent deployment where the underlying infrastructure is owned by the platform.
+        :param pulumi.Input[builtins.str] deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+               Expected value is 'Hosted'.
+        :param pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]] agents: Returns a flat list of agent:version deployed in this deployment.
+        :param pulumi.Input[builtins.str] deployment_id: Gets or sets the unique identifier of the deployment.
+        :param pulumi.Input[builtins.str] description: The asset description text.
+        :param pulumi.Input[builtins.str] display_name: Gets or sets the display name of the deployment.
+        :param pulumi.Input[builtins.int] max_replicas: Gets or sets the maximum number of replicas for this hosted deployment.
+        :param pulumi.Input[builtins.int] min_replicas: Gets or sets the minimum number of replicas for this hosted deployment.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]] protocols: Gets or sets the supported protocol types and versions exposed by this deployment.
+        :param pulumi.Input[Union[builtins.str, 'AgentDeploymentState']] state: Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "deployment_type", 'Hosted')
+        if agents is not None:
+            pulumi.set(__self__, "agents", agents)
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if max_replicas is not None:
+            pulumi.set(__self__, "max_replicas", max_replicas)
+        if min_replicas is not None:
+            pulumi.set(__self__, "min_replicas", min_replicas)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+        Expected value is 'Hosted'.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter
+    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]]:
+        """
+        Returns a flat list of agent:version deployed in this deployment.
+        """
+        return pulumi.get(self, "agents")
+
+    @agents.setter
+    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]]):
+        pulumi.set(self, "agents", value)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets or sets the unique identifier of the deployment.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets or sets the display name of the deployment.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter(name="maxReplicas")
+    def max_replicas(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Gets or sets the maximum number of replicas for this hosted deployment.
+        """
+        return pulumi.get(self, "max_replicas")
+
+    @max_replicas.setter
+    def max_replicas(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_replicas", value)
+
+    @property
+    @pulumi.getter(name="minReplicas")
+    def min_replicas(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Gets or sets the minimum number of replicas for this hosted deployment.
+        """
+        return pulumi.get(self, "min_replicas")
+
+    @min_replicas.setter
+    def min_replicas(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "min_replicas", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]]:
+        """
+        Gets or sets the supported protocol types and versions exposed by this deployment.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]:
+        """
+        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+if not MYPY:
     class IdentityArgsDict(TypedDict):
         """
         Identity for the resource.
@@ -3298,6 +4216,222 @@ class KeyVaultPropertiesArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "key_version", value)
+
+
+if not MYPY:
+    class M365BuiltInAuthorizationPolicyArgsDict(TypedDict):
+        """
+        Represents a built-in authorization policy specific to Azure Bot Service/M365 authentication.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Authorization scheme type.
+        Expected value is 'Microsoft365'.
+        """
+elif False:
+    M365BuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class M365BuiltInAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        Represents a built-in authorization policy specific to Azure Bot Service/M365 authentication.
+        :param pulumi.Input[builtins.str] type: Authorization scheme type.
+               Expected value is 'Microsoft365'.
+        """
+        pulumi.set(__self__, "type", 'Microsoft365')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Authorization scheme type.
+        Expected value is 'Microsoft365'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
+    class ManagedAgentDeploymentArgsDict(TypedDict):
+        """
+        Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+        """
+        deployment_type: pulumi.Input[builtins.str]
+        """
+        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+        Expected value is 'Managed'.
+        """
+        agents: NotRequired[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgsDict']]]]
+        """
+        Returns a flat list of agent:version deployed in this deployment.
+        """
+        deployment_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets or sets the unique identifier of the deployment.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The asset description text.
+        """
+        display_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets or sets the display name of the deployment.
+        """
+        protocols: NotRequired[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgsDict']]]]
+        """
+        Gets or sets the supported protocol types and versions exposed by this deployment.
+        """
+        state: NotRequired[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]
+        """
+        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        """
+        tags: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+elif False:
+    ManagedAgentDeploymentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedAgentDeploymentArgs:
+    def __init__(__self__, *,
+                 deployment_type: pulumi.Input[builtins.str],
+                 agents: Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]] = None,
+                 deployment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 display_name: Optional[pulumi.Input[builtins.str]] = None,
+                 protocols: Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]] = None,
+                 state: Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+        """
+        Represents a managed agent deployment where the underlying infrastructure is managed by the platform in the deployer's subscription.
+        :param pulumi.Input[builtins.str] deployment_type: Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+               Expected value is 'Managed'.
+        :param pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]] agents: Returns a flat list of agent:version deployed in this deployment.
+        :param pulumi.Input[builtins.str] deployment_id: Gets or sets the unique identifier of the deployment.
+        :param pulumi.Input[builtins.str] description: The asset description text.
+        :param pulumi.Input[builtins.str] display_name: Gets or sets the display name of the deployment.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]] protocols: Gets or sets the supported protocol types and versions exposed by this deployment.
+        :param pulumi.Input[Union[builtins.str, 'AgentDeploymentState']] state: Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        pulumi.set(__self__, "deployment_type", 'Managed')
+        if agents is not None:
+            pulumi.set(__self__, "agents", agents)
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if display_name is not None:
+            pulumi.set(__self__, "display_name", display_name)
+        if protocols is not None:
+            pulumi.set(__self__, "protocols", protocols)
+        if state is not None:
+            pulumi.set(__self__, "state", state)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="deploymentType")
+    def deployment_type(self) -> pulumi.Input[builtins.str]:
+        """
+        Specifies the type of deployment for an agent, indicating how the underlying compute and network infrastructure is managed.
+        Expected value is 'Managed'.
+        """
+        return pulumi.get(self, "deployment_type")
+
+    @deployment_type.setter
+    def deployment_type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "deployment_type", value)
+
+    @property
+    @pulumi.getter
+    def agents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]]:
+        """
+        Returns a flat list of agent:version deployed in this deployment.
+        """
+        return pulumi.get(self, "agents")
+
+    @agents.setter
+    def agents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['VersionedAgentReferenceArgs']]]]):
+        pulumi.set(self, "agents", value)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets or sets the unique identifier of the deployment.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="displayName")
+    def display_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets or sets the display name of the deployment.
+        """
+        return pulumi.get(self, "display_name")
+
+    @display_name.setter
+    def display_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def protocols(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]]:
+        """
+        Gets or sets the supported protocol types and versions exposed by this deployment.
+        """
+        return pulumi.get(self, "protocols")
+
+    @protocols.setter
+    def protocols(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AgentProtocolVersionArgs']]]]):
+        pulumi.set(self, "protocols", value)
+
+    @property
+    @pulumi.getter
+    def state(self) -> Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]:
+        """
+        Gets or sets the current operational state of the deployment (and, intrinsically, of the comprising agents).
+        """
+        return pulumi.get(self, "state")
+
+    @state.setter
+    def state(self, value: Optional[pulumi.Input[Union[builtins.str, 'AgentDeploymentState']]]):
+        pulumi.set(self, "state", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 if not MYPY:
@@ -4016,6 +5150,44 @@ class OAuth2AuthTypeConnectionPropertiesArgs:
 
 
 if not MYPY:
+    class OrganizationSharedBuiltInAuthorizationPolicyArgsDict(TypedDict):
+        """
+        Built-in authorization policy scoped to organization/tenant.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Authorization scheme type.
+        Expected value is 'OrganizationScope'.
+        """
+elif False:
+    OrganizationSharedBuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class OrganizationSharedBuiltInAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        Built-in authorization policy scoped to organization/tenant.
+        :param pulumi.Input[builtins.str] type: Authorization scheme type.
+               Expected value is 'OrganizationScope'.
+        """
+        pulumi.set(__self__, "type", 'OrganizationScope')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Authorization scheme type.
+        Expected value is 'OrganizationScope'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class PATAuthTypeConnectionPropertiesArgsDict(TypedDict):
         auth_type: pulumi.Input[builtins.str]
         """
@@ -4486,6 +5658,162 @@ class RaiBlocklistPropertiesArgs:
 
 
 if not MYPY:
+    class RaiExternalSafetyProviderSchemaPropertiesArgsDict(TypedDict):
+        """
+        RAI External SafetyProvider schema properties.
+        """
+        key_vault_uri: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The Key Vault URI that contains the api key for safety provider urls.
+        """
+        managed_identity: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The managed identity to access the Key Vault.
+        """
+        mode: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Safety provider mode sync/async.
+        """
+        provider_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unique identifier of the safety provider.
+        """
+        provider_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of the safety provider.
+        """
+        secret_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The name of the secret in Key Vault that contains the api key to access the webhook.
+        """
+        url: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Webhook URL for the safety provider.
+        """
+elif False:
+    RaiExternalSafetyProviderSchemaPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiExternalSafetyProviderSchemaPropertiesArgs:
+    def __init__(__self__, *,
+                 key_vault_uri: Optional[pulumi.Input[builtins.str]] = None,
+                 managed_identity: Optional[pulumi.Input[builtins.str]] = None,
+                 mode: Optional[pulumi.Input[builtins.str]] = None,
+                 provider_id: Optional[pulumi.Input[builtins.str]] = None,
+                 provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 secret_name: Optional[pulumi.Input[builtins.str]] = None,
+                 url: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        RAI External SafetyProvider schema properties.
+        :param pulumi.Input[builtins.str] key_vault_uri: The Key Vault URI that contains the api key for safety provider urls.
+        :param pulumi.Input[builtins.str] managed_identity: The managed identity to access the Key Vault.
+        :param pulumi.Input[builtins.str] mode: Safety provider mode sync/async.
+        :param pulumi.Input[builtins.str] provider_id: The unique identifier of the safety provider.
+        :param pulumi.Input[builtins.str] provider_name: Name of the safety provider.
+        :param pulumi.Input[builtins.str] secret_name: The name of the secret in Key Vault that contains the api key to access the webhook.
+        :param pulumi.Input[builtins.str] url: Webhook URL for the safety provider.
+        """
+        if key_vault_uri is not None:
+            pulumi.set(__self__, "key_vault_uri", key_vault_uri)
+        if managed_identity is not None:
+            pulumi.set(__self__, "managed_identity", managed_identity)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+        if provider_id is not None:
+            pulumi.set(__self__, "provider_id", provider_id)
+        if provider_name is not None:
+            pulumi.set(__self__, "provider_name", provider_name)
+        if secret_name is not None:
+            pulumi.set(__self__, "secret_name", secret_name)
+        if url is not None:
+            pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="keyVaultUri")
+    def key_vault_uri(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The Key Vault URI that contains the api key for safety provider urls.
+        """
+        return pulumi.get(self, "key_vault_uri")
+
+    @key_vault_uri.setter
+    def key_vault_uri(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "key_vault_uri", value)
+
+    @property
+    @pulumi.getter(name="managedIdentity")
+    def managed_identity(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The managed identity to access the Key Vault.
+        """
+        return pulumi.get(self, "managed_identity")
+
+    @managed_identity.setter
+    def managed_identity(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "managed_identity", value)
+
+    @property
+    @pulumi.getter
+    def mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Safety provider mode sync/async.
+        """
+        return pulumi.get(self, "mode")
+
+    @mode.setter
+    def mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="providerId")
+    def provider_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique identifier of the safety provider.
+        """
+        return pulumi.get(self, "provider_id")
+
+    @provider_id.setter
+    def provider_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "provider_id", value)
+
+    @property
+    @pulumi.getter(name="providerName")
+    def provider_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of the safety provider.
+        """
+        return pulumi.get(self, "provider_name")
+
+    @provider_name.setter
+    def provider_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "provider_name", value)
+
+    @property
+    @pulumi.getter(name="secretName")
+    def secret_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The name of the secret in Key Vault that contains the api key to access the webhook.
+        """
+        return pulumi.get(self, "secret_name")
+
+    @secret_name.setter
+    def secret_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "secret_name", value)
+
+    @property
+    @pulumi.getter
+    def url(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Webhook URL for the safety provider.
+        """
+        return pulumi.get(self, "url")
+
+    @url.setter
+    def url(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "url", value)
+
+
+if not MYPY:
     class RaiMonitorConfigArgsDict(TypedDict):
         """
         Cognitive Services Rai Monitor Config.
@@ -4546,6 +5874,10 @@ if not MYPY:
         """
         Azure OpenAI Content Filter.
         """
+        action: NotRequired[pulumi.Input[Union[builtins.str, 'RaiActionType']]]
+        """
+        The action types to apply to the content filters
+        """
         blocking: NotRequired[pulumi.Input[builtins.bool]]
         """
         If blocking would occur.
@@ -4572,6 +5904,7 @@ elif False:
 @pulumi.input_type
 class RaiPolicyContentFilterArgs:
     def __init__(__self__, *,
+                 action: Optional[pulumi.Input[Union[builtins.str, 'RaiActionType']]] = None,
                  blocking: Optional[pulumi.Input[builtins.bool]] = None,
                  enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -4579,12 +5912,15 @@ class RaiPolicyContentFilterArgs:
                  source: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]] = None):
         """
         Azure OpenAI Content Filter.
+        :param pulumi.Input[Union[builtins.str, 'RaiActionType']] action: The action types to apply to the content filters
         :param pulumi.Input[builtins.bool] blocking: If blocking would occur.
         :param pulumi.Input[builtins.bool] enabled: If the ContentFilter is enabled.
         :param pulumi.Input[builtins.str] name: Name of ContentFilter.
         :param pulumi.Input[Union[builtins.str, 'ContentLevel']] severity_threshold: Level at which content is filtered.
         :param pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
         """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if blocking is not None:
             pulumi.set(__self__, "blocking", blocking)
         if enabled is not None:
@@ -4595,6 +5931,18 @@ class RaiPolicyContentFilterArgs:
             pulumi.set(__self__, "severity_threshold", severity_threshold)
         if source is not None:
             pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[Union[builtins.str, 'RaiActionType']]]:
+        """
+        The action types to apply to the content filters
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[Union[builtins.str, 'RaiActionType']]]):
+        pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter
@@ -4674,9 +6022,17 @@ if not MYPY:
         """
         The list of custom Blocklist.
         """
+        custom_topics: NotRequired[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgsDict']]]]
+        """
+        The list of custom rai topics.
+        """
         mode: NotRequired[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]]
         """
-        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+        """
+        safety_providers: NotRequired[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgsDict']]]]
+        """
+        The list of Safety Providers.
         """
 elif False:
     RaiPolicyPropertiesArgsDict: TypeAlias = Mapping[str, Any]
@@ -4687,13 +6043,17 @@ class RaiPolicyPropertiesArgs:
                  base_policy_name: Optional[pulumi.Input[builtins.str]] = None,
                  content_filters: Optional[pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]]] = None,
                  custom_blocklists: Optional[pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]]] = None,
-                 mode: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]] = None):
+                 custom_topics: Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]] = None,
+                 mode: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]] = None,
+                 safety_providers: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]]] = None):
         """
         Azure OpenAI Content Filters properties.
         :param pulumi.Input[builtins.str] base_policy_name: Name of Rai policy.
         :param pulumi.Input[Sequence[pulumi.Input['RaiPolicyContentFilterArgs']]] content_filters: The list of Content Filters.
         :param pulumi.Input[Sequence[pulumi.Input['CustomBlocklistConfigArgs']]] custom_blocklists: The list of custom Blocklist.
-        :param pulumi.Input[Union[builtins.str, 'RaiPolicyMode']] mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+        :param pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]] custom_topics: The list of custom rai topics.
+        :param pulumi.Input[Union[builtins.str, 'RaiPolicyMode']] mode: Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
+        :param pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]] safety_providers: The list of Safety Providers.
         """
         if base_policy_name is not None:
             pulumi.set(__self__, "base_policy_name", base_policy_name)
@@ -4701,8 +6061,12 @@ class RaiPolicyPropertiesArgs:
             pulumi.set(__self__, "content_filters", content_filters)
         if custom_blocklists is not None:
             pulumi.set(__self__, "custom_blocklists", custom_blocklists)
+        if custom_topics is not None:
+            pulumi.set(__self__, "custom_topics", custom_topics)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
+        if safety_providers is not None:
+            pulumi.set(__self__, "safety_providers", safety_providers)
 
     @property
     @pulumi.getter(name="basePolicyName")
@@ -4741,16 +6105,201 @@ class RaiPolicyPropertiesArgs:
         pulumi.set(self, "custom_blocklists", value)
 
     @property
+    @pulumi.getter(name="customTopics")
+    def custom_topics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]]:
+        """
+        The list of custom rai topics.
+        """
+        return pulumi.get(self, "custom_topics")
+
+    @custom_topics.setter
+    def custom_topics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CustomTopicConfigArgs']]]]):
+        pulumi.set(self, "custom_topics", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]]:
         """
-        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2024-10-01. It is the same as 'Deferred' in previous version.
+        Rai policy mode. The enum value mapping is as below: Default = 0, Deferred=1, Blocking=2, Asynchronous_filter =3. Please use 'Asynchronous_filter' after 2025-06-01. It is the same as 'Deferred' in previous version.
         """
         return pulumi.get(self, "mode")
 
     @mode.setter
     def mode(self, value: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyMode']]]):
         pulumi.set(self, "mode", value)
+
+    @property
+    @pulumi.getter(name="safetyProviders")
+    def safety_providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]]]:
+        """
+        The list of Safety Providers.
+        """
+        return pulumi.get(self, "safety_providers")
+
+    @safety_providers.setter
+    def safety_providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SafetyProviderConfigArgs']]]]):
+        pulumi.set(self, "safety_providers", value)
+
+
+if not MYPY:
+    class RaiToolLabelPropertiesAccountScopeArgsDict(TypedDict):
+        """
+        Account-level tool label definition.
+        """
+        label_values: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]
+        """
+        Dictionary of label key-value pairs for the account scope.
+        """
+elif False:
+    RaiToolLabelPropertiesAccountScopeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiToolLabelPropertiesAccountScopeArgs:
+    def __init__(__self__, *,
+                 label_values: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+        """
+        Account-level tool label definition.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] label_values: Dictionary of label key-value pairs for the account scope.
+        """
+        if label_values is not None:
+            pulumi.set(__self__, "label_values", label_values)
+
+    @property
+    @pulumi.getter(name="labelValues")
+    def label_values(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        Dictionary of label key-value pairs for the account scope.
+        """
+        return pulumi.get(self, "label_values")
+
+    @label_values.setter
+    def label_values(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "label_values", value)
+
+
+if not MYPY:
+    class RaiToolLabelPropertiesProjectScopesArgsDict(TypedDict):
+        label_values: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]
+        """
+        Dictionary of label key-value pairs for the project scope.
+        """
+        project: pulumi.Input[builtins.str]
+        """
+        Project name to which this scope applies.
+        """
+elif False:
+    RaiToolLabelPropertiesProjectScopesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiToolLabelPropertiesProjectScopesArgs:
+    def __init__(__self__, *,
+                 label_values: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]],
+                 project: pulumi.Input[builtins.str]):
+        """
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] label_values: Dictionary of label key-value pairs for the project scope.
+        :param pulumi.Input[builtins.str] project: Project name to which this scope applies.
+        """
+        pulumi.set(__self__, "label_values", label_values)
+        pulumi.set(__self__, "project", project)
+
+    @property
+    @pulumi.getter(name="labelValues")
+    def label_values(self) -> pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]:
+        """
+        Dictionary of label key-value pairs for the project scope.
+        """
+        return pulumi.get(self, "label_values")
+
+    @label_values.setter
+    def label_values(self, value: pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]):
+        pulumi.set(self, "label_values", value)
+
+    @property
+    @pulumi.getter
+    def project(self) -> pulumi.Input[builtins.str]:
+        """
+        Project name to which this scope applies.
+        """
+        return pulumi.get(self, "project")
+
+    @project.setter
+    def project(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "project", value)
+
+
+if not MYPY:
+    class RaiToolLabelPropertiesArgsDict(TypedDict):
+        """
+        RAI Tool Label properties.
+        """
+        tool_connection_name: pulumi.Input[builtins.str]
+        """
+        The unique tool connection name, e.g., 'Web_Search'.
+        """
+        account_scope: NotRequired[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgsDict']]
+        """
+        Account-level tool label definition.
+        """
+        project_scopes: NotRequired[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgsDict']]]]
+        """
+        List of project-level tool label definitions.
+        """
+elif False:
+    RaiToolLabelPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RaiToolLabelPropertiesArgs:
+    def __init__(__self__, *,
+                 tool_connection_name: pulumi.Input[builtins.str],
+                 account_scope: Optional[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs']] = None,
+                 project_scopes: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]] = None):
+        """
+        RAI Tool Label properties.
+        :param pulumi.Input[builtins.str] tool_connection_name: The unique tool connection name, e.g., 'Web_Search'.
+        :param pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs'] account_scope: Account-level tool label definition.
+        :param pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]] project_scopes: List of project-level tool label definitions.
+        """
+        pulumi.set(__self__, "tool_connection_name", tool_connection_name)
+        if account_scope is not None:
+            pulumi.set(__self__, "account_scope", account_scope)
+        if project_scopes is not None:
+            pulumi.set(__self__, "project_scopes", project_scopes)
+
+    @property
+    @pulumi.getter(name="toolConnectionName")
+    def tool_connection_name(self) -> pulumi.Input[builtins.str]:
+        """
+        The unique tool connection name, e.g., 'Web_Search'.
+        """
+        return pulumi.get(self, "tool_connection_name")
+
+    @tool_connection_name.setter
+    def tool_connection_name(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "tool_connection_name", value)
+
+    @property
+    @pulumi.getter(name="accountScope")
+    def account_scope(self) -> Optional[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs']]:
+        """
+        Account-level tool label definition.
+        """
+        return pulumi.get(self, "account_scope")
+
+    @account_scope.setter
+    def account_scope(self, value: Optional[pulumi.Input['RaiToolLabelPropertiesAccountScopeArgs']]):
+        pulumi.set(self, "account_scope", value)
+
+    @property
+    @pulumi.getter(name="projectScopes")
+    def project_scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]]:
+        """
+        List of project-level tool label definitions.
+        """
+        return pulumi.get(self, "project_scopes")
+
+    @project_scopes.setter
+    def project_scopes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['RaiToolLabelPropertiesProjectScopesArgs']]]]):
+        pulumi.set(self, "project_scopes", value)
 
 
 if not MYPY:
@@ -5006,6 +6555,44 @@ class RegionSettingArgs:
 
 
 if not MYPY:
+    class RoleBasedBuiltInAuthorizationPolicyArgsDict(TypedDict):
+        """
+        Built-in role-based authorization policy.
+        """
+        type: pulumi.Input[builtins.str]
+        """
+        Authorization scheme type.
+        Expected value is 'Default'.
+        """
+elif False:
+    RoleBasedBuiltInAuthorizationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class RoleBasedBuiltInAuthorizationPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[builtins.str]):
+        """
+        Built-in role-based authorization policy.
+        :param pulumi.Input[builtins.str] type: Authorization scheme type.
+               Expected value is 'Default'.
+        """
+        pulumi.set(__self__, "type", 'Default')
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[builtins.str]:
+        """
+        Authorization scheme type.
+        Expected value is 'Default'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[builtins.str]):
+        pulumi.set(self, "type", value)
+
+
+if not MYPY:
     class SASAuthTypeConnectionPropertiesArgsDict(TypedDict):
         auth_type: pulumi.Input[builtins.str]
         """
@@ -5194,6 +6781,82 @@ class SASAuthTypeConnectionPropertiesArgs:
     @use_workspace_managed_identity.setter
     def use_workspace_managed_identity(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class SafetyProviderConfigArgsDict(TypedDict):
+        """
+        Gets or sets the source to which safety providers applies.
+        """
+        blocking: NotRequired[pulumi.Input[builtins.bool]]
+        """
+        If blocking would occur.
+        """
+        safety_provider_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Name of RAI Safety Provider.
+        """
+        source: NotRequired[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]
+        """
+        Content source to apply the Content Filters.
+        """
+elif False:
+    SafetyProviderConfigArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class SafetyProviderConfigArgs:
+    def __init__(__self__, *,
+                 blocking: Optional[pulumi.Input[builtins.bool]] = None,
+                 safety_provider_name: Optional[pulumi.Input[builtins.str]] = None,
+                 source: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]] = None):
+        """
+        Gets or sets the source to which safety providers applies.
+        :param pulumi.Input[builtins.bool] blocking: If blocking would occur.
+        :param pulumi.Input[builtins.str] safety_provider_name: Name of RAI Safety Provider.
+        :param pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']] source: Content source to apply the Content Filters.
+        """
+        if blocking is not None:
+            pulumi.set(__self__, "blocking", blocking)
+        if safety_provider_name is not None:
+            pulumi.set(__self__, "safety_provider_name", safety_provider_name)
+        if source is not None:
+            pulumi.set(__self__, "source", source)
+
+    @property
+    @pulumi.getter
+    def blocking(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        If blocking would occur.
+        """
+        return pulumi.get(self, "blocking")
+
+    @blocking.setter
+    def blocking(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "blocking", value)
+
+    @property
+    @pulumi.getter(name="safetyProviderName")
+    def safety_provider_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Name of RAI Safety Provider.
+        """
+        return pulumi.get(self, "safety_provider_name")
+
+    @safety_provider_name.setter
+    def safety_provider_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "safety_provider_name", value)
+
+    @property
+    @pulumi.getter
+    def source(self) -> Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]:
+        """
+        Content source to apply the Content Filters.
+        """
+        return pulumi.get(self, "source")
+
+    @source.setter
+    def source(self, value: Optional[pulumi.Input[Union[builtins.str, 'RaiPolicyContentSource']]]):
+        pulumi.set(self, "source", value)
 
 
 if not MYPY:
@@ -5503,6 +7166,102 @@ class SkuArgs:
 
 
 if not MYPY:
+    class TrafficRoutingRuleArgsDict(TypedDict):
+        """
+        Represents a rule for routing traffic to a specific deployment.
+        """
+        deployment_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The unique identifier of the deployment to which traffic is routed by this rule.
+        """
+        description: NotRequired[pulumi.Input[builtins.str]]
+        """
+        A user-provided description for this traffic routing rule.
+        """
+        rule_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The identifier of this traffic routing rule.
+        """
+        traffic_percentage: NotRequired[pulumi.Input[builtins.int]]
+        """
+        Gets or sets the percentage of traffic allocated to this instance.
+        """
+elif False:
+    TrafficRoutingRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class TrafficRoutingRuleArgs:
+    def __init__(__self__, *,
+                 deployment_id: Optional[pulumi.Input[builtins.str]] = None,
+                 description: Optional[pulumi.Input[builtins.str]] = None,
+                 rule_id: Optional[pulumi.Input[builtins.str]] = None,
+                 traffic_percentage: Optional[pulumi.Input[builtins.int]] = None):
+        """
+        Represents a rule for routing traffic to a specific deployment.
+        :param pulumi.Input[builtins.str] deployment_id: The unique identifier of the deployment to which traffic is routed by this rule.
+        :param pulumi.Input[builtins.str] description: A user-provided description for this traffic routing rule.
+        :param pulumi.Input[builtins.str] rule_id: The identifier of this traffic routing rule.
+        :param pulumi.Input[builtins.int] traffic_percentage: Gets or sets the percentage of traffic allocated to this instance.
+        """
+        if deployment_id is not None:
+            pulumi.set(__self__, "deployment_id", deployment_id)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if rule_id is not None:
+            pulumi.set(__self__, "rule_id", rule_id)
+        if traffic_percentage is not None:
+            pulumi.set(__self__, "traffic_percentage", traffic_percentage)
+
+    @property
+    @pulumi.getter(name="deploymentId")
+    def deployment_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The unique identifier of the deployment to which traffic is routed by this rule.
+        """
+        return pulumi.get(self, "deployment_id")
+
+    @deployment_id.setter
+    def deployment_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "deployment_id", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        A user-provided description for this traffic routing rule.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="ruleId")
+    def rule_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The identifier of this traffic routing rule.
+        """
+        return pulumi.get(self, "rule_id")
+
+    @rule_id.setter
+    def rule_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "rule_id", value)
+
+    @property
+    @pulumi.getter(name="trafficPercentage")
+    def traffic_percentage(self) -> Optional[pulumi.Input[builtins.int]]:
+        """
+        Gets or sets the percentage of traffic allocated to this instance.
+        """
+        return pulumi.get(self, "traffic_percentage")
+
+    @traffic_percentage.setter
+    def traffic_percentage(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "traffic_percentage", value)
+
+
+if not MYPY:
     class UserOwnedAmlWorkspaceArgsDict(TypedDict):
         """
         The user owned AML workspace for Cognitive Services account.
@@ -5796,6 +7555,82 @@ class UsernamePasswordAuthTypeConnectionPropertiesArgs:
     @use_workspace_managed_identity.setter
     def use_workspace_managed_identity(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "use_workspace_managed_identity", value)
+
+
+if not MYPY:
+    class VersionedAgentReferenceArgsDict(TypedDict):
+        """
+        Type modeling a reference to a version of an agent definition.
+        """
+        agent_id: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets the agent's unique identifier within the organization (subscription).
+        """
+        agent_name: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets the agent's name (unique within the project/app).
+        """
+        agent_version: NotRequired[pulumi.Input[builtins.str]]
+        """
+        Gets the agent's version (unique for each agent lineage).
+        """
+elif False:
+    VersionedAgentReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VersionedAgentReferenceArgs:
+    def __init__(__self__, *,
+                 agent_id: Optional[pulumi.Input[builtins.str]] = None,
+                 agent_name: Optional[pulumi.Input[builtins.str]] = None,
+                 agent_version: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Type modeling a reference to a version of an agent definition.
+        :param pulumi.Input[builtins.str] agent_id: Gets the agent's unique identifier within the organization (subscription).
+        :param pulumi.Input[builtins.str] agent_name: Gets the agent's name (unique within the project/app).
+        :param pulumi.Input[builtins.str] agent_version: Gets the agent's version (unique for each agent lineage).
+        """
+        if agent_id is not None:
+            pulumi.set(__self__, "agent_id", agent_id)
+        if agent_name is not None:
+            pulumi.set(__self__, "agent_name", agent_name)
+        if agent_version is not None:
+            pulumi.set(__self__, "agent_version", agent_version)
+
+    @property
+    @pulumi.getter(name="agentId")
+    def agent_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets the agent's unique identifier within the organization (subscription).
+        """
+        return pulumi.get(self, "agent_id")
+
+    @agent_id.setter
+    def agent_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "agent_id", value)
+
+    @property
+    @pulumi.getter(name="agentName")
+    def agent_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets the agent's name (unique within the project/app).
+        """
+        return pulumi.get(self, "agent_name")
+
+    @agent_name.setter
+    def agent_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "agent_name", value)
+
+    @property
+    @pulumi.getter(name="agentVersion")
+    def agent_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Gets the agent's version (unique for each agent lineage).
+        """
+        return pulumi.get(self, "agent_version")
+
+    @agent_version.setter
+    def agent_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "agent_version", value)
 
 
 if not MYPY:

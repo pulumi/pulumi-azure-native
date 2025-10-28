@@ -492,8 +492,6 @@ if typing.TYPE_CHECKING:
     trafficmanager = __trafficmanager
     import pulumi_azure_native.verifiedid as __verifiedid
     verifiedid = __verifiedid
-    import pulumi_azure_native.videoanalyzer as __videoanalyzer
-    videoanalyzer = __videoanalyzer
     import pulumi_azure_native.videoindexer as __videoindexer
     videoindexer = __videoindexer
     import pulumi_azure_native.virtualmachineimages as __virtualmachineimages
@@ -758,7 +756,6 @@ else:
     timeseriesinsights = _utilities.lazy_import('pulumi_azure_native.timeseriesinsights')
     trafficmanager = _utilities.lazy_import('pulumi_azure_native.trafficmanager')
     verifiedid = _utilities.lazy_import('pulumi_azure_native.verifiedid')
-    videoanalyzer = _utilities.lazy_import('pulumi_azure_native.videoanalyzer')
     videoindexer = _utilities.lazy_import('pulumi_azure_native.videoindexer')
     virtualmachineimages = _utilities.lazy_import('pulumi_azure_native.virtualmachineimages')
     vmwarecloudsimple = _utilities.lazy_import('pulumi_azure_native.vmwarecloudsimple')
@@ -1508,6 +1505,9 @@ _utilities.register(
    "azure-native:cdn:AFDOriginGroup": "AFDOriginGroup",
    "azure-native:cdn:AFDTargetGroup": "AFDTargetGroup",
    "azure-native:cdn:CustomDomain": "CustomDomain",
+   "azure-native:cdn:EdgeAction": "EdgeAction",
+   "azure-native:cdn:EdgeActionExecutionFilter": "EdgeActionExecutionFilter",
+   "azure-native:cdn:EdgeActionVersion": "EdgeActionVersion",
    "azure-native:cdn:Endpoint": "Endpoint",
    "azure-native:cdn:KeyGroup": "KeyGroup",
    "azure-native:cdn:KnowledgeSource": "KnowledgeSource",
@@ -1602,19 +1602,25 @@ _utilities.register(
    "azure-native:cognitiveservices:Account": "Account",
    "azure-native:cognitiveservices:AccountCapabilityHost": "AccountCapabilityHost",
    "azure-native:cognitiveservices:AccountConnection": "AccountConnection",
+   "azure-native:cognitiveservices:AgentApplication": "AgentApplication",
+   "azure-native:cognitiveservices:AgentDeployment": "AgentDeployment",
    "azure-native:cognitiveservices:CommitmentPlan": "CommitmentPlan",
    "azure-native:cognitiveservices:CommitmentPlanAssociation": "CommitmentPlanAssociation",
    "azure-native:cognitiveservices:Deployment": "Deployment",
    "azure-native:cognitiveservices:EncryptionScope": "EncryptionScope",
+   "azure-native:cognitiveservices:OutboundRule": "OutboundRule",
    "azure-native:cognitiveservices:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:cognitiveservices:Project": "Project",
    "azure-native:cognitiveservices:ProjectCapabilityHost": "ProjectCapabilityHost",
    "azure-native:cognitiveservices:ProjectConnection": "ProjectConnection",
    "azure-native:cognitiveservices:RaiBlocklist": "RaiBlocklist",
    "azure-native:cognitiveservices:RaiBlocklistItem": "RaiBlocklistItem",
+   "azure-native:cognitiveservices:RaiExternalSafetyProvider": "RaiExternalSafetyProvider",
    "azure-native:cognitiveservices:RaiPolicy": "RaiPolicy",
+   "azure-native:cognitiveservices:RaiToolLabel": "RaiToolLabel",
    "azure-native:cognitiveservices:RaiTopic": "RaiTopic",
-   "azure-native:cognitiveservices:SharedCommitmentPlan": "SharedCommitmentPlan"
+   "azure-native:cognitiveservices:SharedCommitmentPlan": "SharedCommitmentPlan",
+   "azure-native:cognitiveservices:SubscriptionRaiPolicy": "SubscriptionRaiPolicy"
   }
  },
  {
@@ -1801,6 +1807,7 @@ _utilities.register(
    "azure-native:containerservice:ManagedCluster": "ManagedCluster",
    "azure-native:containerservice:ManagedClusterSnapshot": "ManagedClusterSnapshot",
    "azure-native:containerservice:ManagedNamespace": "ManagedNamespace",
+   "azure-native:containerservice:MeshMembership": "MeshMembership",
    "azure-native:containerservice:Namespace": "Namespace",
    "azure-native:containerservice:NodeCustomization": "NodeCustomization",
    "azure-native:containerservice:PrivateEndpointConnection": "PrivateEndpointConnection",
@@ -2176,6 +2183,7 @@ _utilities.register(
    "azure-native:dbformysql:Configuration": "Configuration",
    "azure-native:dbformysql:Database": "Database",
    "azure-native:dbformysql:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql:LongRunningBackup": "LongRunningBackup",
    "azure-native:dbformysql:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:dbformysql:Server": "Server",
    "azure-native:dbformysql:SingleServer": "SingleServer",
@@ -2300,6 +2308,7 @@ _utilities.register(
   "classes": {
    "azure-native:deviceregistry:Asset": "Asset",
    "azure-native:deviceregistry:AssetEndpointProfile": "AssetEndpointProfile",
+   "azure-native:deviceregistry:Credential": "Credential",
    "azure-native:deviceregistry:DiscoveredAsset": "DiscoveredAsset",
    "azure-native:deviceregistry:DiscoveredAssetEndpointProfile": "DiscoveredAssetEndpointProfile",
    "azure-native:deviceregistry:Namespace": "Namespace",
@@ -2307,6 +2316,7 @@ _utilities.register(
    "azure-native:deviceregistry:NamespaceDevice": "NamespaceDevice",
    "azure-native:deviceregistry:NamespaceDiscoveredAsset": "NamespaceDiscoveredAsset",
    "azure-native:deviceregistry:NamespaceDiscoveredDevice": "NamespaceDiscoveredDevice",
+   "azure-native:deviceregistry:Policy": "Policy",
    "azure-native:deviceregistry:Schema": "Schema",
    "azure-native:deviceregistry:SchemaRegistry": "SchemaRegistry",
    "azure-native:deviceregistry:SchemaVersion": "SchemaVersion"
@@ -4532,21 +4542,6 @@ _utilities.register(
   "fqn": "pulumi_azure_native.verifiedid",
   "classes": {
    "azure-native:verifiedid:Authority": "Authority"
-  }
- },
- {
-  "pkg": "azure-native",
-  "mod": "videoanalyzer",
-  "fqn": "pulumi_azure_native.videoanalyzer",
-  "classes": {
-   "azure-native:videoanalyzer:AccessPolicy": "AccessPolicy",
-   "azure-native:videoanalyzer:EdgeModule": "EdgeModule",
-   "azure-native:videoanalyzer:LivePipeline": "LivePipeline",
-   "azure-native:videoanalyzer:PipelineJob": "PipelineJob",
-   "azure-native:videoanalyzer:PipelineTopology": "PipelineTopology",
-   "azure-native:videoanalyzer:PrivateEndpointConnection": "PrivateEndpointConnection",
-   "azure-native:videoanalyzer:Video": "Video",
-   "azure-native:videoanalyzer:VideoAnalyzer": "VideoAnalyzer"
   }
  },
  {

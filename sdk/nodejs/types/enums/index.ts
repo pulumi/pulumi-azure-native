@@ -214,7 +214,6 @@ import * as synapse from "./synapse";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as trafficmanager from "./trafficmanager";
-import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -438,7 +437,6 @@ export {
     testbase,
     timeseriesinsights,
     trafficmanager,
-    videoanalyzer,
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,

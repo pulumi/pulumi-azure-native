@@ -100,6 +100,11 @@ export const getManagedNamespace: typeof import("./getManagedNamespace").getMana
 export const getManagedNamespaceOutput: typeof import("./getManagedNamespace").getManagedNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedNamespace","getManagedNamespaceOutput"], () => require("./getManagedNamespace"));
 
+export { GetMeshMembershipArgs, GetMeshMembershipResult, GetMeshMembershipOutputArgs } from "./getMeshMembership";
+export const getMeshMembership: typeof import("./getMeshMembership").getMeshMembership = null as any;
+export const getMeshMembershipOutput: typeof import("./getMeshMembership").getMeshMembershipOutput = null as any;
+utilities.lazyLoad(exports, ["getMeshMembership","getMeshMembershipOutput"], () => require("./getMeshMembership"));
+
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
 export const getNamespaceOutput: typeof import("./getNamespace").getNamespaceOutput = null as any;
@@ -200,6 +205,11 @@ export type ManagedNamespace = import("./managedNamespace").ManagedNamespace;
 export const ManagedNamespace: typeof import("./managedNamespace").ManagedNamespace = null as any;
 utilities.lazyLoad(exports, ["ManagedNamespace"], () => require("./managedNamespace"));
 
+export { MeshMembershipArgs } from "./meshMembership";
+export type MeshMembership = import("./meshMembership").MeshMembership;
+export const MeshMembership: typeof import("./meshMembership").MeshMembership = null as any;
+utilities.lazyLoad(exports, ["MeshMembership"], () => require("./meshMembership"));
+
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
@@ -264,6 +274,8 @@ const _module = {
                 return new ManagedClusterSnapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedNamespace":
                 return new ManagedNamespace(name, <any>undefined, { urn })
+            case "azure-native:containerservice:MeshMembership":
+                return new MeshMembership(name, <any>undefined, { urn })
             case "azure-native:containerservice:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:NodeCustomization":

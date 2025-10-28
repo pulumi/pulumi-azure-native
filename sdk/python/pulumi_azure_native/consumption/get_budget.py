@@ -28,7 +28,7 @@ class GetBudgetResult:
     """
     A budget resource.
     """
-    def __init__(__self__, amount=None, azure_api_version=None, category=None, current_spend=None, e_tag=None, filter=None, forecast_spend=None, id=None, name=None, notifications=None, time_grain=None, time_period=None, type=None):
+    def __init__(__self__, amount=None, azure_api_version=None, category=None, current_spend=None, e_tag=None, filter=None, forecast_spend=None, id=None, name=None, notifications=None, system_data=None, time_grain=None, time_period=None, type=None):
         if amount and not isinstance(amount, float):
             raise TypeError("Expected argument 'amount' to be a float")
         pulumi.set(__self__, "amount", amount)
@@ -59,6 +59,9 @@ class GetBudgetResult:
         if notifications and not isinstance(notifications, dict):
             raise TypeError("Expected argument 'notifications' to be a dict")
         pulumi.set(__self__, "notifications", notifications)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if time_grain and not isinstance(time_grain, str):
             raise TypeError("Expected argument 'time_grain' to be a str")
         pulumi.set(__self__, "time_grain", time_grain)
@@ -129,7 +132,7 @@ class GetBudgetResult:
     @pulumi.getter
     def id(self) -> builtins.str:
         """
-        Resource Id.
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -137,7 +140,7 @@ class GetBudgetResult:
     @pulumi.getter
     def name(self) -> builtins.str:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -148,6 +151,14 @@ class GetBudgetResult:
         Dictionary of notifications associated with the budget. Budget can have up to five notifications.
         """
         return pulumi.get(self, "notifications")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter(name="timeGrain")
@@ -169,7 +180,7 @@ class GetBudgetResult:
     @pulumi.getter
     def type(self) -> builtins.str:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -190,6 +201,7 @@ class AwaitableGetBudgetResult(GetBudgetResult):
             id=self.id,
             name=self.name,
             notifications=self.notifications,
+            system_data=self.system_data,
             time_grain=self.time_grain,
             time_period=self.time_period,
             type=self.type)
@@ -207,7 +219,7 @@ def get_budget(budget_name: Optional[builtins.str] = None,
 
 
     :param builtins.str budget_name: Budget Name.
-    :param builtins.str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+    :param builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['budgetName'] = budget_name
@@ -226,6 +238,7 @@ def get_budget(budget_name: Optional[builtins.str] = None,
         id=pulumi.get(__ret__, 'id'),
         name=pulumi.get(__ret__, 'name'),
         notifications=pulumi.get(__ret__, 'notifications'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         time_grain=pulumi.get(__ret__, 'time_grain'),
         time_period=pulumi.get(__ret__, 'time_period'),
         type=pulumi.get(__ret__, 'type'))
@@ -241,7 +254,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[builtins.str]] = None,
 
 
     :param builtins.str budget_name: Budget Name.
-    :param builtins.str scope: The scope associated with budget operations. This includes '/subscriptions/{subscriptionId}/' for subscription scope, '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, '/providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for billingProfile scope, '/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for invoiceSection scope.
+    :param builtins.str scope: The fully qualified Azure Resource manager identifier of the resource.
     """
     __args__ = dict()
     __args__['budgetName'] = budget_name
@@ -259,6 +272,7 @@ def get_budget_output(budget_name: Optional[pulumi.Input[builtins.str]] = None,
         id=pulumi.get(__response__, 'id'),
         name=pulumi.get(__response__, 'name'),
         notifications=pulumi.get(__response__, 'notifications'),
+        system_data=pulumi.get(__response__, 'system_data'),
         time_grain=pulumi.get(__response__, 'time_grain'),
         time_period=pulumi.get(__response__, 'time_period'),
         type=pulumi.get(__response__, 'type')))

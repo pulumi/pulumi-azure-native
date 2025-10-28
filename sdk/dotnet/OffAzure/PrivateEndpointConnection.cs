@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.OffAzure
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240501preview:PrivateEndpointConnectionController" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure/v20240701preview:PrivateEndpointConnection" },
+                    new global::Pulumi.Alias { Type = "azure-native:offazure/v20241201preview:PrivateEndpointConnection" },
                     new global::Pulumi.Alias { Type = "azure-native:offazure:PrivateEndpointConnectionController" },
                 },
             };

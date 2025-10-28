@@ -26,6 +26,7 @@ from .get_maintenance_configuration import *
 from .get_managed_cluster import *
 from .get_managed_cluster_snapshot import *
 from .get_managed_namespace import *
+from .get_mesh_membership import *
 from .get_namespace import *
 from .get_node_customization import *
 from .get_private_endpoint_connection import *
@@ -46,6 +47,7 @@ from .maintenance_configuration import *
 from .managed_cluster import *
 from .managed_cluster_snapshot import *
 from .managed_namespace import *
+from .mesh_membership import *
 from .namespace import *
 from .node_customization import *
 from .private_endpoint_connection import *

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-06-01.
  *
- * Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2019-04-01, 2019-05-01, 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FrontDoor extends pulumi.CustomResource {
     /**
@@ -175,7 +175,7 @@ export class FrontDoor extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20190401:FrontDoor" }, { type: "azure-native:frontdoor/v20190501:FrontDoor" }, { type: "azure-native:frontdoor/v20200101:FrontDoor" }, { type: "azure-native:frontdoor/v20200401:FrontDoor" }, { type: "azure-native:frontdoor/v20200501:FrontDoor" }, { type: "azure-native:frontdoor/v20210601:FrontDoor" }, { type: "azure-native:network/v20210601:FrontDoor" }, { type: "azure-native:network:FrontDoor" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20190401:FrontDoor" }, { type: "azure-native:frontdoor/v20190501:FrontDoor" }, { type: "azure-native:frontdoor/v20200101:FrontDoor" }, { type: "azure-native:frontdoor/v20200401:FrontDoor" }, { type: "azure-native:frontdoor/v20200501:FrontDoor" }, { type: "azure-native:frontdoor/v20210601:FrontDoor" }, { type: "azure-native:frontdoor/v20251001:FrontDoor" }, { type: "azure-native:network/v20210601:FrontDoor" }, { type: "azure-native:network:FrontDoor" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FrontDoor.__pulumiType, name, resourceInputs, opts);
     }

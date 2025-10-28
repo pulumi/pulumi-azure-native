@@ -139,6 +139,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01.
 
+        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[builtins.str, 'State']] enabled_state: The state of the Experiment
@@ -158,6 +160,8 @@ class NetworkExperimentProfile(pulumi.CustomResource):
         Defines an Network Experiment Profile and lists of Experiments
 
         Uses Azure REST API version 2019-11-01.
+
+        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param NetworkExperimentProfileArgs args: The arguments to use to populate this resource's properties.
@@ -201,7 +205,7 @@ class NetworkExperimentProfile(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network/v20191101:NetworkExperimentProfile"), pulumi.Alias(type_="azure-native:network:NetworkExperimentProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(NetworkExperimentProfile, __self__).__init__(
             'azure-native:frontdoor:NetworkExperimentProfile',

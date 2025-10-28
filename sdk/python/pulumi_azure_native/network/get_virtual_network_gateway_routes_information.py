@@ -108,7 +108,7 @@ def get_virtual_network_gateway_routes_information(attempt_refresh: Optional[bui
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-10-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.bool attempt_refresh: Attempt to recalculate the Route Sets Information for the gateway
@@ -137,7 +137,7 @@ def get_virtual_network_gateway_routes_information_output(attempt_refresh: Optio
 
     Uses Azure REST API version 2024-07-01.
 
-    Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2024-10-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.bool attempt_refresh: Attempt to recalculate the Route Sets Information for the gateway
