@@ -116,7 +116,7 @@ def get_outbound_rule(managed_network_name: Optional[builtins.str] = None,
     """
     Uses Azure REST API version 2025-04-01-preview.
 
-    Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str managed_network_name: Name of the managedNetwork associated with the workspace. Only 'default' is supported.
@@ -147,7 +147,7 @@ def get_outbound_rule_output(managed_network_name: Optional[pulumi.Input[builtin
     """
     Uses Azure REST API version 2025-04-01-preview.
 
-    Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str managed_network_name: Name of the managedNetwork associated with the workspace. Only 'default' is supported.

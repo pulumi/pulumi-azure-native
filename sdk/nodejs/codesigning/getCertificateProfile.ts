@@ -47,6 +47,10 @@ export interface GetCertificateProfileResult {
      */
     readonly azureApiVersion: string;
     /**
+     * List of renewed certificates.
+     */
+    readonly certificates: outputs.codesigning.CertificateResponse[];
+    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;

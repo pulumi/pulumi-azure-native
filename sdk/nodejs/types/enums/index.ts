@@ -146,7 +146,6 @@ import * as maps from "./maps";
 import * as marketplace from "./marketplace";
 import * as migrate from "./migrate";
 import * as mission from "./mission";
-import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as mongocluster from "./mongocluster";
 import * as monitor from "./monitor";
@@ -214,7 +213,6 @@ import * as synapse from "./synapse";
 import * as testbase from "./testbase";
 import * as timeseriesinsights from "./timeseriesinsights";
 import * as trafficmanager from "./trafficmanager";
-import * as videoanalyzer from "./videoanalyzer";
 import * as videoindexer from "./videoindexer";
 import * as virtualmachineimages from "./virtualmachineimages";
 import * as vmwarecloudsimple from "./vmwarecloudsimple";
@@ -370,7 +368,6 @@ export {
     marketplace,
     migrate,
     mission,
-    mixedreality,
     mobilenetwork,
     mongocluster,
     monitor,
@@ -438,7 +435,6 @@ export {
     testbase,
     timeseriesinsights,
     trafficmanager,
-    videoanalyzer,
     videoindexer,
     virtualmachineimages,
     vmwarecloudsimple,

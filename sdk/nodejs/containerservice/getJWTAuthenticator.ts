@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Configuration for JWT authenticator in the managed cluster.
  *
  * Uses Azure REST API version 2025-07-02-preview.
+ *
+ * Other available API versions: 2025-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJWTAuthenticator(args: GetJWTAuthenticatorArgs, opts?: pulumi.InvokeOptions): Promise<GetJWTAuthenticatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -69,6 +71,8 @@ export interface GetJWTAuthenticatorResult {
  * Configuration for JWT authenticator in the managed cluster.
  *
  * Uses Azure REST API version 2025-07-02-preview.
+ *
+ * Other available API versions: 2025-08-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getJWTAuthenticatorOutput(args: GetJWTAuthenticatorOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetJWTAuthenticatorResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

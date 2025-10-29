@@ -388,10 +388,6 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
-    "ModuleName": "MixedReality",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
     "ModuleName": "MongoCluster",
     "Detail": "expected no additions but found some"
   },

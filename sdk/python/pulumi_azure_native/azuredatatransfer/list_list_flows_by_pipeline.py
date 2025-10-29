@@ -60,7 +60,7 @@ def list_list_flows_by_pipeline(pipeline_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-05-21.
 
-    Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-04-11-preview, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str pipeline_name: The name of the pipeline on which to operate.
@@ -85,7 +85,7 @@ def list_list_flows_by_pipeline_output(pipeline_name: Optional[pulumi.Input[buil
 
     Uses Azure REST API version 2025-05-21.
 
-    Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2025-04-11-preview, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str pipeline_name: The name of the pipeline on which to operate.

@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2025-05-21.
         /// 
-        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListListFlowsByPipelineResult> InvokeAsync(ListListFlowsByPipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListListFlowsByPipelineResult>("azure-native:azuredatatransfer:listListFlowsByPipeline", args ?? new ListListFlowsByPipelineArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2025-05-21.
         /// 
-        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListListFlowsByPipelineResult> Invoke(ListListFlowsByPipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListListFlowsByPipelineResult>("azure-native:azuredatatransfer:listListFlowsByPipeline", args ?? new ListListFlowsByPipelineInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AzureDataTransfer
         /// 
         /// Uses Azure REST API version 2025-05-21.
         /// 
-        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-04-11-preview, 2025-05-30-preview, 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListListFlowsByPipelineResult> Invoke(ListListFlowsByPipelineInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListListFlowsByPipelineResult>("azure-native:azuredatatransfer:listListFlowsByPipeline", args ?? new ListListFlowsByPipelineInvokeArgs(), options.WithDefaults());

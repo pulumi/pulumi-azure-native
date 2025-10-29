@@ -10,7 +10,7 @@ import * as utilities from "../utilities";
 /**
  * Uses Azure REST API version 2025-04-01-preview.
  *
- * Other available API versions: 2025-07-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2025-07-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native machinelearningservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class OutboundRule extends pulumi.CustomResource {
     /**
@@ -100,7 +100,7 @@ export class OutboundRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20250401preview:OutboundRule" }, { type: "azure-native:machinelearningservices/v20250701preview:OutboundRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20250401preview:OutboundRule" }, { type: "azure-native:machinelearningservices/v20250701preview:OutboundRule" }, { type: "azure-native:machinelearningservices/v20251001preview:OutboundRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OutboundRule.__pulumiType, name, resourceInputs, opts);
     }

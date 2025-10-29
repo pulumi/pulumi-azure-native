@@ -106,7 +106,7 @@ class RulesEngine(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01.
 
-        Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +126,7 @@ class RulesEngine(pulumi.CustomResource):
 
         Uses Azure REST API version 2021-06-01.
 
-        Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param RulesEngineArgs args: The arguments to use to populate this resource's properties.
@@ -168,7 +168,7 @@ class RulesEngine(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20200101:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200501:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network:RulesEngine")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20200101:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200401:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20200501:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:RulesEngine"), pulumi.Alias(type_="azure-native:network/v20210601:RulesEngine"), pulumi.Alias(type_="azure-native:network:RulesEngine")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(RulesEngine, __self__).__init__(
             'azure-native:frontdoor:RulesEngine',
