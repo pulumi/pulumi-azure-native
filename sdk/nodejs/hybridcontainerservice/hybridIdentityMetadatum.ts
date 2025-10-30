@@ -42,35 +42,35 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The identity of the provisioned cluster.
      */
-    public readonly identity!: pulumi.Output<outputs.hybridcontainerservice.ProvisionedClusterIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.hybridcontainerservice.ProvisionedClusterIdentityResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * provisioning state of the hybridIdentityMetadata resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Onboarding public key for provisioning the Managed identity for the HybridAKS cluster.
      */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
+    declare public readonly publicKey: pulumi.Output<string | undefined>;
     /**
      * Unique id of the parent provisioned cluster resource.
      */
-    public readonly resourceUid!: pulumi.Output<string | undefined>;
+    declare public readonly resourceUid: pulumi.Output<string | undefined>;
     /**
      * The system data.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HybridIdentityMetadatum resource with the given unique name, arguments, and options.
@@ -83,18 +83,18 @@ export class HybridIdentityMetadatum extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["hybridIdentityMetadataResourceName"] = args ? args.hybridIdentityMetadataResourceName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
+            resourceInputs["hybridIdentityMetadataResourceName"] = args?.hybridIdentityMetadataResourceName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["resourceUid"] = args?.resourceUid;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

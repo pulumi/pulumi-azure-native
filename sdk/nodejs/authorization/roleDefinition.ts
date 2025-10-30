@@ -44,51 +44,51 @@ export class RoleDefinition extends pulumi.CustomResource {
     /**
      * Role definition assignable scopes.
      */
-    public readonly assignableScopes!: pulumi.Output<string[] | undefined>;
+    declare public readonly assignableScopes: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Id of the user who created the assignment
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<string>;
     /**
      * Time it was created
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * The role definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The role definition name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Role definition permissions.
      */
-    public readonly permissions!: pulumi.Output<outputs.authorization.PermissionResponse[] | undefined>;
+    declare public readonly permissions: pulumi.Output<outputs.authorization.PermissionResponse[] | undefined>;
     /**
      * The role name.
      */
-    public readonly roleName!: pulumi.Output<string | undefined>;
+    declare public readonly roleName: pulumi.Output<string | undefined>;
     /**
      * The role type.
      */
-    public readonly roleType!: pulumi.Output<string | undefined>;
+    declare public readonly roleType: pulumi.Output<string | undefined>;
     /**
      * The role definition type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Id of the user who updated the assignment
      */
-    public /*out*/ readonly updatedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedBy: pulumi.Output<string>;
     /**
      * Time it was updated
      */
-    public /*out*/ readonly updatedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedOn: pulumi.Output<string>;
 
     /**
      * Create a RoleDefinition resource with the given unique name, arguments, and options.
@@ -101,16 +101,16 @@ export class RoleDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignableScopes"] = args ? args.assignableScopes : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["permissions"] = args ? args.permissions : undefined;
-            resourceInputs["roleDefinitionId"] = args ? args.roleDefinitionId : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["roleType"] = args ? args.roleType : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["assignableScopes"] = args?.assignableScopes;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["permissions"] = args?.permissions;
+            resourceInputs["roleDefinitionId"] = args?.roleDefinitionId;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["roleType"] = args?.roleType;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

@@ -44,71 +44,71 @@ export class FileImport extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The content type of this file.
      */
-    public readonly contentType!: pulumi.Output<string>;
+    declare public readonly contentType: pulumi.Output<string>;
     /**
      * The time the file was imported.
      */
-    public /*out*/ readonly createdTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimeUTC: pulumi.Output<string>;
     /**
      * Represents the error file (if the import was ingested with errors or failed the validation).
      */
-    public /*out*/ readonly errorFile!: pulumi.Output<outputs.securityinsights.FileMetadataResponse>;
+    declare public /*out*/ readonly errorFile: pulumi.Output<outputs.securityinsights.FileMetadataResponse>;
     /**
      * An ordered list of some of the errors that were encountered during validation.
      */
-    public /*out*/ readonly errorsPreview!: pulumi.Output<outputs.securityinsights.ValidationErrorResponse[]>;
+    declare public /*out*/ readonly errorsPreview: pulumi.Output<outputs.securityinsights.ValidationErrorResponse[]>;
     /**
      * The time the files associated with this import are deleted from the storage account.
      */
-    public /*out*/ readonly filesValidUntilTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly filesValidUntilTimeUTC: pulumi.Output<string>;
     /**
      * Represents the imported file.
      */
-    public readonly importFile!: pulumi.Output<outputs.securityinsights.FileMetadataResponse>;
+    declare public readonly importFile: pulumi.Output<outputs.securityinsights.FileMetadataResponse>;
     /**
      * The time the file import record is soft deleted from the database and history.
      */
-    public /*out*/ readonly importValidUntilTimeUTC!: pulumi.Output<string>;
+    declare public /*out*/ readonly importValidUntilTimeUTC: pulumi.Output<string>;
     /**
      * The number of records that have been successfully ingested.
      */
-    public /*out*/ readonly ingestedRecordCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly ingestedRecordCount: pulumi.Output<number>;
     /**
      * Describes how to ingest the records in the file.
      */
-    public readonly ingestionMode!: pulumi.Output<string>;
+    declare public readonly ingestionMode: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The source for the data in the file.
      */
-    public readonly source!: pulumi.Output<string>;
+    declare public readonly source: pulumi.Output<string>;
     /**
      * The state of the file import.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The number of records in the file.
      */
-    public /*out*/ readonly totalRecordCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalRecordCount: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The number of records that have passed validation.
      */
-    public /*out*/ readonly validRecordCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly validRecordCount: pulumi.Output<number>;
 
     /**
      * Create a FileImport resource with the given unique name, arguments, and options.
@@ -121,31 +121,31 @@ export class FileImport extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.contentType === undefined) && !opts.urn) {
+            if (args?.contentType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentType'");
             }
-            if ((!args || args.importFile === undefined) && !opts.urn) {
+            if (args?.importFile === undefined && !opts.urn) {
                 throw new Error("Missing required property 'importFile'");
             }
-            if ((!args || args.ingestionMode === undefined) && !opts.urn) {
+            if (args?.ingestionMode === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ingestionMode'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["fileImportId"] = args ? args.fileImportId : undefined;
-            resourceInputs["importFile"] = args ? args.importFile : undefined;
-            resourceInputs["ingestionMode"] = args ? args.ingestionMode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["fileImportId"] = args?.fileImportId;
+            resourceInputs["importFile"] = args?.importFile;
+            resourceInputs["ingestionMode"] = args?.ingestionMode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimeUTC"] = undefined /*out*/;
             resourceInputs["errorFile"] = undefined /*out*/;

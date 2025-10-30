@@ -44,23 +44,23 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The properties of custom domain for API portal
      */
-    public readonly properties!: pulumi.Output<outputs.appplatform.ApiPortalCustomDomainPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.appplatform.ApiPortalCustomDomainPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appplatform.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ApiPortalCustomDomain resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class ApiPortalCustomDomain extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.apiPortalName === undefined) && !opts.urn) {
+            if (args?.apiPortalName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'apiPortalName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["apiPortalName"] = args ? args.apiPortalName : undefined;
-            resourceInputs["domainName"] = args ? args.domainName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["apiPortalName"] = args?.apiPortalName;
+            resourceInputs["domainName"] = args?.domainName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

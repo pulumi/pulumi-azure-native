@@ -44,59 +44,59 @@ export class ProjectCatalog extends pulumi.CustomResource {
     /**
      * Properties for an Azure DevOps catalog type.
      */
-    public readonly adoGit!: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
+    declare public readonly adoGit: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connection state of the catalog.
      */
-    public /*out*/ readonly connectionState!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectionState: pulumi.Output<string>;
     /**
      * Properties for a GitHub catalog type.
      */
-    public readonly gitHub!: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
+    declare public readonly gitHub: pulumi.Output<outputs.devcenter.GitCatalogResponse | undefined>;
     /**
      * When the catalog was last connected.
      */
-    public /*out*/ readonly lastConnectionTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastConnectionTime: pulumi.Output<string>;
     /**
      * Stats of the latest synchronization.
      */
-    public /*out*/ readonly lastSyncStats!: pulumi.Output<outputs.devcenter.SyncStatsResponse>;
+    declare public /*out*/ readonly lastSyncStats: pulumi.Output<outputs.devcenter.SyncStatsResponse>;
     /**
      * When the catalog was last synced.
      */
-    public /*out*/ readonly lastSyncTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastSyncTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The synchronization state of the catalog.
      */
-    public /*out*/ readonly syncState!: pulumi.Output<string>;
+    declare public /*out*/ readonly syncState: pulumi.Output<string>;
     /**
      * Indicates the type of sync that is configured for the catalog.
      */
-    public readonly syncType!: pulumi.Output<string | undefined>;
+    declare public readonly syncType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ProjectCatalog resource with the given unique name, arguments, and options.
@@ -109,19 +109,19 @@ export class ProjectCatalog extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["adoGit"] = args ? args.adoGit : undefined;
-            resourceInputs["catalogName"] = args ? args.catalogName : undefined;
-            resourceInputs["gitHub"] = args ? args.gitHub : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["syncType"] = args ? args.syncType : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["adoGit"] = args?.adoGit;
+            resourceInputs["catalogName"] = args?.catalogName;
+            resourceInputs["gitHub"] = args?.gitHub;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["syncType"] = args?.syncType;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectionState"] = undefined /*out*/;
             resourceInputs["lastConnectionTime"] = undefined /*out*/;

@@ -44,36 +44,36 @@ export class NamespaceTopic extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Event retention for the namespace topic expressed in days. The property default value is 1 day.
      * Min event retention duration value is 1 day and max event retention duration value is 1 day.
      */
-    public readonly eventRetentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly eventRetentionInDays: pulumi.Output<number | undefined>;
     /**
      * This determines the format that is expected for incoming events published to the topic.
      */
-    public readonly inputSchema!: pulumi.Output<string | undefined>;
+    declare public readonly inputSchema: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the namespace topic.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Publisher type of the namespace topic.
      */
-    public readonly publisherType!: pulumi.Output<string | undefined>;
+    declare public readonly publisherType: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a NamespaceTopic resource with the given unique name, arguments, and options.
@@ -86,18 +86,18 @@ export class NamespaceTopic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["eventRetentionInDays"] = args ? args.eventRetentionInDays : undefined;
-            resourceInputs["inputSchema"] = (args ? args.inputSchema : undefined) ?? "CloudEventSchemaV1_0";
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["publisherType"] = args ? args.publisherType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["topicName"] = args ? args.topicName : undefined;
+            resourceInputs["eventRetentionInDays"] = args?.eventRetentionInDays;
+            resourceInputs["inputSchema"] = (args?.inputSchema) ?? "CloudEventSchemaV1_0";
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["publisherType"] = args?.publisherType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["topicName"] = args?.topicName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

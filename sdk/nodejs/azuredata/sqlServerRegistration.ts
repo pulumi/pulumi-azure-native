@@ -42,39 +42,39 @@ export class SqlServerRegistration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Optional Properties as JSON string
      */
-    public readonly propertyBag!: pulumi.Output<string | undefined>;
+    declare public readonly propertyBag: pulumi.Output<string | undefined>;
     /**
      * Resource Group Name
      */
-    public readonly resourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly resourceGroup: pulumi.Output<string | undefined>;
     /**
      * Subscription Id
      */
-    public readonly subscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionId: pulumi.Output<string | undefined>;
     /**
      * Read only system data
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azuredata.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azuredata.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SqlServerRegistration resource with the given unique name, arguments, and options.
@@ -87,16 +87,16 @@ export class SqlServerRegistration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["propertyBag"] = args ? args.propertyBag : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["propertyBag"] = args?.propertyBag;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlServerRegistrationName"] = args?.sqlServerRegistrationName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

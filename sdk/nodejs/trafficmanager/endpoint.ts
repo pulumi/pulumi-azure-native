@@ -44,71 +44,71 @@ export class Endpoint extends pulumi.CustomResource {
     /**
      * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
      */
-    public readonly alwaysServe!: pulumi.Output<string | undefined>;
+    declare public readonly alwaysServe: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of custom headers.
      */
-    public readonly customHeaders!: pulumi.Output<outputs.trafficmanager.EndpointPropertiesResponseCustomHeaders[] | undefined>;
+    declare public readonly customHeaders: pulumi.Output<outputs.trafficmanager.EndpointPropertiesResponseCustomHeaders[] | undefined>;
     /**
      * Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
      */
-    public readonly endpointLocation!: pulumi.Output<string | undefined>;
+    declare public readonly endpointLocation: pulumi.Output<string | undefined>;
     /**
      * The monitoring status of the endpoint.
      */
-    public readonly endpointMonitorStatus!: pulumi.Output<string | undefined>;
+    declare public readonly endpointMonitorStatus: pulumi.Output<string | undefined>;
     /**
      * The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
      */
-    public readonly endpointStatus!: pulumi.Output<string | undefined>;
+    declare public readonly endpointStatus: pulumi.Output<string | undefined>;
     /**
      * The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
      */
-    public readonly geoMapping!: pulumi.Output<string[] | undefined>;
+    declare public readonly geoMapping: pulumi.Output<string[] | undefined>;
     /**
      * The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    public readonly minChildEndpoints!: pulumi.Output<number | undefined>;
+    declare public readonly minChildEndpoints: pulumi.Output<number | undefined>;
     /**
      * The minimum number of IPv4 (DNS record type A) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    public readonly minChildEndpointsIPv4!: pulumi.Output<number | undefined>;
+    declare public readonly minChildEndpointsIPv4: pulumi.Output<number | undefined>;
     /**
      * The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
      */
-    public readonly minChildEndpointsIPv6!: pulumi.Output<number | undefined>;
+    declare public readonly minChildEndpointsIPv6: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
      */
-    public readonly subnets!: pulumi.Output<outputs.trafficmanager.EndpointPropertiesResponseSubnets[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.trafficmanager.EndpointPropertiesResponseSubnets[] | undefined>;
     /**
      * The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
      */
-    public readonly target!: pulumi.Output<string | undefined>;
+    declare public readonly target: pulumi.Output<string | undefined>;
     /**
      * The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
      */
-    public readonly targetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly targetResourceId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
      */
-    public readonly type!: pulumi.Output<string | undefined>;
+    declare public readonly type: pulumi.Output<string | undefined>;
     /**
      * The weight of this endpoint when using the 'Weighted' traffic routing method. Possible values are from 1 to 1000.
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a Endpoint resource with the given unique name, arguments, and options.
@@ -121,36 +121,36 @@ export class Endpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.endpointType === undefined) && !opts.urn) {
+            if (args?.endpointType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'endpointType'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["alwaysServe"] = args ? args.alwaysServe : undefined;
-            resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
-            resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
-            resourceInputs["endpointMonitorStatus"] = args ? args.endpointMonitorStatus : undefined;
-            resourceInputs["endpointName"] = args ? args.endpointName : undefined;
-            resourceInputs["endpointStatus"] = args ? args.endpointStatus : undefined;
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["geoMapping"] = args ? args.geoMapping : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["minChildEndpoints"] = args ? args.minChildEndpoints : undefined;
-            resourceInputs["minChildEndpointsIPv4"] = args ? args.minChildEndpointsIPv4 : undefined;
-            resourceInputs["minChildEndpointsIPv6"] = args ? args.minChildEndpointsIPv6 : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["target"] = args ? args.target : undefined;
-            resourceInputs["targetResourceId"] = args ? args.targetResourceId : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["alwaysServe"] = args?.alwaysServe;
+            resourceInputs["customHeaders"] = args?.customHeaders;
+            resourceInputs["endpointLocation"] = args?.endpointLocation;
+            resourceInputs["endpointMonitorStatus"] = args?.endpointMonitorStatus;
+            resourceInputs["endpointName"] = args?.endpointName;
+            resourceInputs["endpointStatus"] = args?.endpointStatus;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["geoMapping"] = args?.geoMapping;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["minChildEndpoints"] = args?.minChildEndpoints;
+            resourceInputs["minChildEndpointsIPv4"] = args?.minChildEndpointsIPv4;
+            resourceInputs["minChildEndpointsIPv6"] = args?.minChildEndpointsIPv6;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["target"] = args?.target;
+            resourceInputs["targetResourceId"] = args?.targetResourceId;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
         } else {
             resourceInputs["alwaysServe"] = undefined /*out*/;

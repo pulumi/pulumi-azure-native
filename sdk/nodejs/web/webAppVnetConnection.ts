@@ -44,48 +44,48 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A certificate file (.cer) blob containing the public key of the private key used to authenticate a 
      * Point-To-Site VPN connection.
      */
-    public readonly certBlob!: pulumi.Output<string | undefined>;
+    declare public readonly certBlob: pulumi.Output<string | undefined>;
     /**
      * The client certificate thumbprint.
      */
-    public /*out*/ readonly certThumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly certThumbprint: pulumi.Output<string>;
     /**
      * DNS servers to be used by this Virtual Network. This should be a comma-separated list of IP addresses.
      */
-    public readonly dnsServers!: pulumi.Output<string | undefined>;
+    declare public readonly dnsServers: pulumi.Output<string | undefined>;
     /**
      * Flag that is used to denote if this is VNET injection
      */
-    public readonly isSwift!: pulumi.Output<boolean | undefined>;
+    declare public readonly isSwift: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * <code>true</code> if a resync is required; otherwise, <code>false</code>.
      */
-    public /*out*/ readonly resyncRequired!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly resyncRequired: pulumi.Output<boolean>;
     /**
      * The routes that this Virtual Network connection uses.
      */
-    public /*out*/ readonly routes!: pulumi.Output<outputs.web.VnetRouteResponse[]>;
+    declare public /*out*/ readonly routes: pulumi.Output<outputs.web.VnetRouteResponse[]>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The Virtual Network's resource ID.
      */
-    public readonly vnetResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly vnetResourceId: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppVnetConnection resource with the given unique name, arguments, and options.
@@ -98,20 +98,20 @@ export class WebAppVnetConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["certBlob"] = args ? args.certBlob : undefined;
-            resourceInputs["dnsServers"] = args ? args.dnsServers : undefined;
-            resourceInputs["isSwift"] = args ? args.isSwift : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["vnetName"] = args ? args.vnetName : undefined;
-            resourceInputs["vnetResourceId"] = args ? args.vnetResourceId : undefined;
+            resourceInputs["certBlob"] = args?.certBlob;
+            resourceInputs["dnsServers"] = args?.dnsServers;
+            resourceInputs["isSwift"] = args?.isSwift;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["vnetName"] = args?.vnetName;
+            resourceInputs["vnetResourceId"] = args?.vnetResourceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["certThumbprint"] = undefined /*out*/;
             resourceInputs["resyncRequired"] = undefined /*out*/;

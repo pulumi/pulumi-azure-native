@@ -44,91 +44,91 @@ export class VirtualNetwork extends pulumi.CustomResource {
     /**
      * The AddressSpace that contains an array of IP address ranges that can be used by subnets.
      */
-    public readonly addressSpace!: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
+    declare public readonly addressSpace: pulumi.Output<outputs.network.AddressSpaceResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
      */
-    public readonly bgpCommunities!: pulumi.Output<outputs.network.VirtualNetworkBgpCommunitiesResponse | undefined>;
+    declare public readonly bgpCommunities: pulumi.Output<outputs.network.VirtualNetworkBgpCommunitiesResponse | undefined>;
     /**
      * The DDoS protection plan associated with the virtual network.
      */
-    public readonly ddosProtectionPlan!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly ddosProtectionPlan: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
      */
-    public readonly dhcpOptions!: pulumi.Output<outputs.network.DhcpOptionsResponse | undefined>;
+    declare public readonly dhcpOptions: pulumi.Output<outputs.network.DhcpOptionsResponse | undefined>;
     /**
      * Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
      */
-    public readonly enableDdosProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableDdosProtection: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if VM protection is enabled for all the subnets in the virtual network.
      */
-    public readonly enableVmProtection!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableVmProtection: pulumi.Output<boolean | undefined>;
     /**
      * Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
      */
-    public readonly encryption!: pulumi.Output<outputs.network.VirtualNetworkEncryptionResponse | undefined>;
+    declare public readonly encryption: pulumi.Output<outputs.network.VirtualNetworkEncryptionResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the virtual network.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * A collection of references to flow log resources.
      */
-    public /*out*/ readonly flowLogs!: pulumi.Output<outputs.network.FlowLogResponse[]>;
+    declare public /*out*/ readonly flowLogs: pulumi.Output<outputs.network.FlowLogResponse[]>;
     /**
      * The FlowTimeout value (in minutes) for the Virtual Network
      */
-    public readonly flowTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly flowTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * Array of IpAllocation which reference this VNET.
      */
-    public readonly ipAllocations!: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
+    declare public readonly ipAllocations: pulumi.Output<outputs.network.SubResourceResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Private Endpoint VNet Policies.
      */
-    public readonly privateEndpointVNetPolicies!: pulumi.Output<string | undefined>;
+    declare public readonly privateEndpointVNetPolicies: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the virtual network resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resourceGuid property of the Virtual Network resource.
      */
-    public /*out*/ readonly resourceGuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceGuid: pulumi.Output<string>;
     /**
      * A list of subnets in a Virtual Network.
      */
-    public readonly subnets!: pulumi.Output<outputs.network.SubnetResponse[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.network.SubnetResponse[] | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of peerings in a Virtual Network.
      */
-    public readonly virtualNetworkPeerings!: pulumi.Output<outputs.network.VirtualNetworkPeeringResponse[] | undefined>;
+    declare public readonly virtualNetworkPeerings: pulumi.Output<outputs.network.VirtualNetworkPeeringResponse[] | undefined>;
 
     /**
      * Create a VirtualNetwork resource with the given unique name, arguments, and options.
@@ -141,27 +141,27 @@ export class VirtualNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressSpace"] = args ? args.addressSpace : undefined;
-            resourceInputs["bgpCommunities"] = args ? args.bgpCommunities : undefined;
-            resourceInputs["ddosProtectionPlan"] = args ? args.ddosProtectionPlan : undefined;
-            resourceInputs["dhcpOptions"] = args ? args.dhcpOptions : undefined;
-            resourceInputs["enableDdosProtection"] = (args ? args.enableDdosProtection : undefined) ?? false;
-            resourceInputs["enableVmProtection"] = (args ? args.enableVmProtection : undefined) ?? false;
-            resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["flowTimeoutInMinutes"] = args ? args.flowTimeoutInMinutes : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipAllocations"] = args ? args.ipAllocations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["privateEndpointVNetPolicies"] = args ? args.privateEndpointVNetPolicies : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkName"] = args ? args.virtualNetworkName : undefined;
-            resourceInputs["virtualNetworkPeerings"] = args ? args.virtualNetworkPeerings : undefined;
+            resourceInputs["addressSpace"] = args?.addressSpace;
+            resourceInputs["bgpCommunities"] = args?.bgpCommunities;
+            resourceInputs["ddosProtectionPlan"] = args?.ddosProtectionPlan;
+            resourceInputs["dhcpOptions"] = args?.dhcpOptions;
+            resourceInputs["enableDdosProtection"] = (args?.enableDdosProtection) ?? false;
+            resourceInputs["enableVmProtection"] = (args?.enableVmProtection) ?? false;
+            resourceInputs["encryption"] = args?.encryption;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["flowTimeoutInMinutes"] = args?.flowTimeoutInMinutes;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipAllocations"] = args?.ipAllocations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["privateEndpointVNetPolicies"] = args?.privateEndpointVNetPolicies;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkName"] = args?.virtualNetworkName;
+            resourceInputs["virtualNetworkPeerings"] = args?.virtualNetworkPeerings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["flowLogs"] = undefined /*out*/;

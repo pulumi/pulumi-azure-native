@@ -44,23 +44,23 @@ export class Datastore extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly datastoreProperties!: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse | outputs.machinelearningservices.OneLakeDatastoreResponse>;
+    declare public readonly datastoreProperties: pulumi.Output<outputs.machinelearningservices.AzureBlobDatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen1DatastoreResponse | outputs.machinelearningservices.AzureDataLakeGen2DatastoreResponse | outputs.machinelearningservices.AzureFileDatastoreResponse | outputs.machinelearningservices.OneLakeDatastoreResponse>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Datastore resource with the given unique name, arguments, and options.
@@ -73,20 +73,20 @@ export class Datastore extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.datastoreProperties === undefined) && !opts.urn) {
+            if (args?.datastoreProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'datastoreProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["datastoreProperties"] = args ? args.datastoreProperties : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["skipValidation"] = args ? args.skipValidation : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["datastoreProperties"] = args?.datastoreProperties;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["skipValidation"] = args?.skipValidation;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

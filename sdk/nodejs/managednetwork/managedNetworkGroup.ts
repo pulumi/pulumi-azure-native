@@ -42,47 +42,47 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Responsibility role under which this Managed Network Group will be created
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The collection of management groups covered by the Managed Network
      */
-    public readonly managementGroups!: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
+    declare public readonly managementGroups: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the ManagedNetwork resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The collection of  subnets covered by the Managed Network
      */
-    public readonly subnets!: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
+    declare public readonly subnets: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
     /**
      * The collection of subscriptions covered by the Managed Network
      */
-    public readonly subscriptions!: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
+    declare public readonly subscriptions: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The collection of virtual nets covered by the Managed Network
      */
-    public readonly virtualNetworks!: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
+    declare public readonly virtualNetworks: pulumi.Output<outputs.managednetwork.ResourceIdResponse[] | undefined>;
 
     /**
      * Create a ManagedNetworkGroup resource with the given unique name, arguments, and options.
@@ -95,21 +95,21 @@ export class ManagedNetworkGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedNetworkName === undefined) && !opts.urn) {
+            if (args?.managedNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedNetworkName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedNetworkGroupName"] = args ? args.managedNetworkGroupName : undefined;
-            resourceInputs["managedNetworkName"] = args ? args.managedNetworkName : undefined;
-            resourceInputs["managementGroups"] = args ? args.managementGroups : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subnets"] = args ? args.subnets : undefined;
-            resourceInputs["subscriptions"] = args ? args.subscriptions : undefined;
-            resourceInputs["virtualNetworks"] = args ? args.virtualNetworks : undefined;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedNetworkGroupName"] = args?.managedNetworkGroupName;
+            resourceInputs["managedNetworkName"] = args?.managedNetworkName;
+            resourceInputs["managementGroups"] = args?.managementGroups;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subnets"] = args?.subnets;
+            resourceInputs["subscriptions"] = args?.subscriptions;
+            resourceInputs["virtualNetworks"] = args?.virtualNetworks;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -42,47 +42,47 @@ export class Spacecraft extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Immutable list of Spacecraft links.
      */
-    public readonly links!: pulumi.Output<outputs.orbital.SpacecraftLinkResponse[]>;
+    declare public readonly links: pulumi.Output<outputs.orbital.SpacecraftLinkResponse[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * NORAD ID of the spacecraft.
      */
-    public readonly noradId!: pulumi.Output<string | undefined>;
+    declare public readonly noradId: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.orbital.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Title line of the two-line element set (TLE).
      */
-    public readonly titleLine!: pulumi.Output<string>;
+    declare public readonly titleLine: pulumi.Output<string>;
     /**
      * Line 1 of the two-line element set (TLE).
      */
-    public readonly tleLine1!: pulumi.Output<string>;
+    declare public readonly tleLine1: pulumi.Output<string>;
     /**
      * Line 2 of the two-line element set (TLE).
      */
-    public readonly tleLine2!: pulumi.Output<string>;
+    declare public readonly tleLine2: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Spacecraft resource with the given unique name, arguments, and options.
@@ -95,30 +95,30 @@ export class Spacecraft extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.links === undefined) && !opts.urn) {
+            if (args?.links === undefined && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.titleLine === undefined) && !opts.urn) {
+            if (args?.titleLine === undefined && !opts.urn) {
                 throw new Error("Missing required property 'titleLine'");
             }
-            if ((!args || args.tleLine1 === undefined) && !opts.urn) {
+            if (args?.tleLine1 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tleLine1'");
             }
-            if ((!args || args.tleLine2 === undefined) && !opts.urn) {
+            if (args?.tleLine2 === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tleLine2'");
             }
-            resourceInputs["links"] = args ? args.links : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["noradId"] = args ? args.noradId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["titleLine"] = args ? args.titleLine : undefined;
-            resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
-            resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
+            resourceInputs["links"] = args?.links;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["noradId"] = args?.noradId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spacecraftName"] = args?.spacecraftName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["titleLine"] = args?.titleLine;
+            resourceInputs["tleLine1"] = args?.tleLine1;
+            resourceInputs["tleLine2"] = args?.tleLine2;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

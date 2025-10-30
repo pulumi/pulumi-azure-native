@@ -42,75 +42,75 @@ export class CloudConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Connector billing model
      */
-    public readonly billingModel!: pulumi.Output<string | undefined>;
+    declare public readonly billingModel: pulumi.Output<string | undefined>;
     /**
      * Collection information
      */
-    public /*out*/ readonly collectionInfo!: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponse>;
+    declare public /*out*/ readonly collectionInfo: pulumi.Output<outputs.costmanagement.ConnectorCollectionInfoResponse>;
     /**
      * Connector definition creation datetime
      */
-    public /*out*/ readonly createdOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdOn: pulumi.Output<string>;
     /**
      * Credentials authentication key (eg AWS ARN)
      */
-    public readonly credentialsKey!: pulumi.Output<string | undefined>;
+    declare public readonly credentialsKey: pulumi.Output<string | undefined>;
     /**
      * Number of days remaining of trial
      */
-    public /*out*/ readonly daysTrialRemaining!: pulumi.Output<number>;
+    declare public /*out*/ readonly daysTrialRemaining: pulumi.Output<number>;
     /**
      * Default ManagementGroupId
      */
-    public readonly defaultManagementGroupId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultManagementGroupId: pulumi.Output<string | undefined>;
     /**
      * Connector DisplayName
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Associated ExternalBillingAccountId
      */
-    public /*out*/ readonly externalBillingAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly externalBillingAccountId: pulumi.Output<string>;
     /**
      * Connector kind (eg aws)
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Connector last modified datetime
      */
-    public /*out*/ readonly modifiedOn!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedOn: pulumi.Output<string>;
     /**
      * Connector name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The display name of the providerBillingAccountId as defined on the external provider
      */
-    public /*out*/ readonly providerBillingAccountDisplayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerBillingAccountDisplayName: pulumi.Output<string>;
     /**
      * Connector providerBillingAccountId, determined from credentials (eg AWS Consolidated account number)
      */
-    public /*out*/ readonly providerBillingAccountId!: pulumi.Output<string>;
+    declare public /*out*/ readonly providerBillingAccountId: pulumi.Output<string>;
     /**
      * Identifying source report. (For AWS this is a CUR report name, defined with Daily and with Resources)
      */
-    public readonly reportId!: pulumi.Output<string | undefined>;
+    declare public readonly reportId: pulumi.Output<string | undefined>;
     /**
      * Connector status
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Billing SubscriptionId
      */
-    public readonly subscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly subscriptionId: pulumi.Output<string | undefined>;
     /**
      * Connector type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CloudConnector resource with the given unique name, arguments, and options.
@@ -123,15 +123,15 @@ export class CloudConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["billingModel"] = args ? args.billingModel : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["credentialsKey"] = args ? args.credentialsKey : undefined;
-            resourceInputs["credentialsSecret"] = args ? args.credentialsSecret : undefined;
-            resourceInputs["defaultManagementGroupId"] = args ? args.defaultManagementGroupId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["reportId"] = args ? args.reportId : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
+            resourceInputs["billingModel"] = args?.billingModel;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["credentialsKey"] = args?.credentialsKey;
+            resourceInputs["credentialsSecret"] = args?.credentialsSecret;
+            resourceInputs["defaultManagementGroupId"] = args?.defaultManagementGroupId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["reportId"] = args?.reportId;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["collectionInfo"] = undefined /*out*/;
             resourceInputs["createdOn"] = undefined /*out*/;

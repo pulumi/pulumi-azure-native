@@ -42,64 +42,64 @@ export class DefaultUserRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A description for this rule. Restricted to 140 chars.
      */
-    public /*out*/ readonly description!: pulumi.Output<string>;
+    declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
      * The destination port ranges.
      */
-    public /*out*/ readonly destinationPortRanges!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly destinationPortRanges: pulumi.Output<string[]>;
     /**
      * The destination address prefixes. CIDR or destination IP ranges.
      */
-    public /*out*/ readonly destinations!: pulumi.Output<outputs.network.AddressPrefixItemResponse[]>;
+    declare public /*out*/ readonly destinations: pulumi.Output<outputs.network.AddressPrefixItemResponse[]>;
     /**
      * Indicates if the traffic matched against the rule in inbound or outbound.
      */
-    public /*out*/ readonly direction!: pulumi.Output<string>;
+    declare public /*out*/ readonly direction: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Default rule flag.
      */
-    public readonly flag!: pulumi.Output<string | undefined>;
+    declare public readonly flag: pulumi.Output<string | undefined>;
     /**
      * Whether the rule is custom or default.
      * Expected value is 'Default'.
      */
-    public readonly kind!: pulumi.Output<"Default">;
+    declare public readonly kind: pulumi.Output<"Default">;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network protocol this rule applies to.
      */
-    public /*out*/ readonly protocol!: pulumi.Output<string>;
+    declare public /*out*/ readonly protocol: pulumi.Output<string>;
     /**
      * The provisioning state of the security configuration user rule resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The source port ranges.
      */
-    public /*out*/ readonly sourcePortRanges!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly sourcePortRanges: pulumi.Output<string[]>;
     /**
      * The CIDR or source IP ranges.
      */
-    public /*out*/ readonly sources!: pulumi.Output<outputs.network.AddressPrefixItemResponse[]>;
+    declare public /*out*/ readonly sources: pulumi.Output<outputs.network.AddressPrefixItemResponse[]>;
     /**
      * The system metadata related to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.network.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.network.SystemDataResponse>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DefaultUserRule resource with the given unique name, arguments, and options.
@@ -112,28 +112,28 @@ export class DefaultUserRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.configurationName === undefined) && !opts.urn) {
+            if (args?.configurationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'configurationName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.networkManagerName === undefined) && !opts.urn) {
+            if (args?.networkManagerName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'networkManagerName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleCollectionName === undefined) && !opts.urn) {
+            if (args?.ruleCollectionName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleCollectionName'");
             }
-            resourceInputs["configurationName"] = args ? args.configurationName : undefined;
-            resourceInputs["flag"] = args ? args.flag : undefined;
+            resourceInputs["configurationName"] = args?.configurationName;
+            resourceInputs["flag"] = args?.flag;
             resourceInputs["kind"] = "Default";
-            resourceInputs["networkManagerName"] = args ? args.networkManagerName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleCollectionName"] = args ? args.ruleCollectionName : undefined;
-            resourceInputs["ruleName"] = args ? args.ruleName : undefined;
+            resourceInputs["networkManagerName"] = args?.networkManagerName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleCollectionName"] = args?.ruleCollectionName;
+            resourceInputs["ruleName"] = args?.ruleName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["destinationPortRanges"] = undefined /*out*/;

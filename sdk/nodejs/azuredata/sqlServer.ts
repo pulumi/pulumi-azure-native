@@ -39,35 +39,35 @@ export class SqlServer extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Cores of the Sql Server.
      */
-    public readonly cores!: pulumi.Output<number | undefined>;
+    declare public readonly cores: pulumi.Output<number | undefined>;
     /**
      * Sql Server Edition.
      */
-    public readonly edition!: pulumi.Output<string | undefined>;
+    declare public readonly edition: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Sql Server Json Property Bag.
      */
-    public readonly propertyBag!: pulumi.Output<string | undefined>;
+    declare public readonly propertyBag: pulumi.Output<string | undefined>;
     /**
      * ID for Parent Sql Server Registration.
      */
-    public readonly registrationID!: pulumi.Output<string | undefined>;
+    declare public readonly registrationID: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the Sql Server.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a SqlServer resource with the given unique name, arguments, and options.
@@ -80,20 +80,20 @@ export class SqlServer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlServerRegistrationName === undefined) && !opts.urn) {
+            if (args?.sqlServerRegistrationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlServerRegistrationName'");
             }
-            resourceInputs["cores"] = args ? args.cores : undefined;
-            resourceInputs["edition"] = args ? args.edition : undefined;
-            resourceInputs["propertyBag"] = args ? args.propertyBag : undefined;
-            resourceInputs["registrationID"] = args ? args.registrationID : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlServerName"] = args ? args.sqlServerName : undefined;
-            resourceInputs["sqlServerRegistrationName"] = args ? args.sqlServerRegistrationName : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cores"] = args?.cores;
+            resourceInputs["edition"] = args?.edition;
+            resourceInputs["propertyBag"] = args?.propertyBag;
+            resourceInputs["registrationID"] = args?.registrationID;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlServerName"] = args?.sqlServerName;
+            resourceInputs["sqlServerRegistrationName"] = args?.sqlServerRegistrationName;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

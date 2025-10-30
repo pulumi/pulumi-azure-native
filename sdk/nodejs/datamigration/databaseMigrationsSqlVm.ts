@@ -44,23 +44,23 @@ export class DatabaseMigrationsSqlVm extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Database Migration Resource properties for SQL Virtual Machine.
      */
-    public readonly properties!: pulumi.Output<outputs.datamigration.DatabaseMigrationPropertiesSqlVmResponse>;
+    declare public readonly properties: pulumi.Output<outputs.datamigration.DatabaseMigrationPropertiesSqlVmResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.datamigration.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.datamigration.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DatabaseMigrationsSqlVm resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class DatabaseMigrationsSqlVm extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sqlVirtualMachineName === undefined) && !opts.urn) {
+            if (args?.sqlVirtualMachineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sqlVirtualMachineName'");
             }
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sqlVirtualMachineName"] = args ? args.sqlVirtualMachineName : undefined;
-            resourceInputs["targetDbName"] = args ? args.targetDbName : undefined;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sqlVirtualMachineName"] = args?.sqlVirtualMachineName;
+            resourceInputs["targetDbName"] = args?.targetDbName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

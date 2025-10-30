@@ -44,74 +44,74 @@ export class ApplicationGroup extends pulumi.CustomResource {
     /**
      * Resource Type of ApplicationGroup.
      */
-    public readonly applicationGroupType!: pulumi.Output<string>;
+    declare public readonly applicationGroupType: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Is cloud pc resource.
      */
-    public /*out*/ readonly cloudPcResource!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly cloudPcResource: pulumi.Output<boolean>;
     /**
      * Description of ApplicationGroup.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The etag field is *not* required. If it is provided in the response body, it must also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields. 
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Friendly name of ApplicationGroup.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * HostPool arm path of ApplicationGroup.
      */
-    public readonly hostPoolArmPath!: pulumi.Output<string>;
-    public readonly identity!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
+    declare public readonly hostPoolArmPath: pulumi.Output<string>;
+    declare public readonly identity: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseIdentity | undefined>;
     /**
      * Metadata used by portal/tooling/etc to render different UX experiences for resources of the same type. E.g. ApiApps are a kind of Microsoft.Web/sites type.  If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ObjectId of ApplicationGroup. (internal use)
      */
-    public /*out*/ readonly objectId!: pulumi.Output<string>;
-    public readonly plan!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
+    declare public /*out*/ readonly objectId: pulumi.Output<string>;
+    declare public readonly plan: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponsePlan | undefined>;
     /**
      * Boolean representing whether the applicationGroup is show in the feed.
      */
-    public readonly showInFeed!: pulumi.Output<boolean | undefined>;
-    public readonly sku!: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
+    declare public readonly showInFeed: pulumi.Output<boolean | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.desktopvirtualization.ResourceModelWithAllowedPropertySetResponseSku | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Workspace arm path of ApplicationGroup.
      */
-    public /*out*/ readonly workspaceArmPath!: pulumi.Output<string>;
+    declare public /*out*/ readonly workspaceArmPath: pulumi.Output<string>;
 
     /**
      * Create a ApplicationGroup resource with the given unique name, arguments, and options.
@@ -124,29 +124,29 @@ export class ApplicationGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationGroupType === undefined) && !opts.urn) {
+            if (args?.applicationGroupType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupType'");
             }
-            if ((!args || args.hostPoolArmPath === undefined) && !opts.urn) {
+            if (args?.hostPoolArmPath === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hostPoolArmPath'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            resourceInputs["applicationGroupType"] = args ? args.applicationGroupType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["hostPoolArmPath"] = args ? args.hostPoolArmPath : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["plan"] = args ? args.plan : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["showInFeed"] = args ? args.showInFeed : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["applicationGroupName"] = args?.applicationGroupName;
+            resourceInputs["applicationGroupType"] = args?.applicationGroupType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["hostPoolArmPath"] = args?.hostPoolArmPath;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["plan"] = args?.plan;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["showInFeed"] = args?.showInFeed;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cloudPcResource"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -42,23 +42,23 @@ export class Solution extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the ETAG for optimistic concurrency control.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Gets the name of this REST resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets or sets the properties of the solution.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.SolutionPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.migrate.SolutionPropertiesResponse>;
     /**
      * Gets the type of this REST resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Solution resource with the given unique name, arguments, and options.
@@ -71,16 +71,16 @@ export class Solution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.migrateProjectName === undefined) && !opts.urn) {
+            if (args?.migrateProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'migrateProjectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["migrateProjectName"] = args ? args.migrateProjectName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
+            resourceInputs["migrateProjectName"] = args?.migrateProjectName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["solutionName"] = args?.solutionName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

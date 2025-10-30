@@ -42,111 +42,111 @@ export class VirtualMachine extends pulumi.CustomResource {
     /**
      * The amount of memory
      */
-    public readonly amountOfRam!: pulumi.Output<number>;
+    declare public readonly amountOfRam: pulumi.Output<number>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of Virtual Disks' Controllers
      */
-    public /*out*/ readonly controllers!: pulumi.Output<outputs.vmwarecloudsimple.VirtualDiskControllerResponse[]>;
+    declare public /*out*/ readonly controllers: pulumi.Output<outputs.vmwarecloudsimple.VirtualDiskControllerResponse[]>;
     /**
      * Virtual machine properties
      */
-    public readonly customization!: pulumi.Output<outputs.vmwarecloudsimple.GuestOSCustomizationResponse | undefined>;
+    declare public readonly customization: pulumi.Output<outputs.vmwarecloudsimple.GuestOSCustomizationResponse | undefined>;
     /**
      * The list of Virtual Disks
      */
-    public readonly disks!: pulumi.Output<outputs.vmwarecloudsimple.VirtualDiskResponse[] | undefined>;
+    declare public readonly disks: pulumi.Output<outputs.vmwarecloudsimple.VirtualDiskResponse[] | undefined>;
     /**
      * The DNS name of Virtual Machine in VCenter
      */
-    public /*out*/ readonly dnsname!: pulumi.Output<string>;
+    declare public /*out*/ readonly dnsname: pulumi.Output<string>;
     /**
      * Expose Guest OS or not
      */
-    public readonly exposeToGuestVM!: pulumi.Output<boolean | undefined>;
+    declare public readonly exposeToGuestVM: pulumi.Output<boolean | undefined>;
     /**
      * The path to virtual machine folder in VCenter
      */
-    public /*out*/ readonly folder!: pulumi.Output<string>;
+    declare public /*out*/ readonly folder: pulumi.Output<string>;
     /**
      * The name of Guest OS
      */
-    public /*out*/ readonly guestOS!: pulumi.Output<string>;
+    declare public /*out*/ readonly guestOS: pulumi.Output<string>;
     /**
      * The Guest OS type
      */
-    public /*out*/ readonly guestOSType!: pulumi.Output<string>;
+    declare public /*out*/ readonly guestOSType: pulumi.Output<string>;
     /**
      * Azure region
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * {virtualMachineName}
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of Virtual NICs
      */
-    public readonly nics!: pulumi.Output<outputs.vmwarecloudsimple.VirtualNicResponse[] | undefined>;
+    declare public readonly nics: pulumi.Output<outputs.vmwarecloudsimple.VirtualNicResponse[] | undefined>;
     /**
      * The number of CPU cores
      */
-    public readonly numberOfCores!: pulumi.Output<number>;
+    declare public readonly numberOfCores: pulumi.Output<number>;
     /**
      * Password for login. Deprecated - use customization property
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Private Cloud Id
      */
-    public readonly privateCloudId!: pulumi.Output<string>;
+    declare public readonly privateCloudId: pulumi.Output<string>;
     /**
      * The provisioning status of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The public ip of Virtual Machine
      */
-    public /*out*/ readonly publicIP!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicIP: pulumi.Output<string>;
     /**
      * Virtual Machines Resource Pool
      */
-    public readonly resourcePool!: pulumi.Output<outputs.vmwarecloudsimple.ResourcePoolResponse | undefined>;
+    declare public readonly resourcePool: pulumi.Output<outputs.vmwarecloudsimple.ResourcePoolResponse | undefined>;
     /**
      * The status of Virtual machine
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The list of tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Virtual Machine Template Id
      */
-    public readonly templateId!: pulumi.Output<string | undefined>;
+    declare public readonly templateId: pulumi.Output<string | undefined>;
     /**
      * {resourceProviderNamespace}/{resourceType}
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Username for login. Deprecated - use customization property
      */
-    public readonly username!: pulumi.Output<string | undefined>;
+    declare public readonly username: pulumi.Output<string | undefined>;
     /**
      * The list of Virtual VSphere Networks
      */
-    public readonly vSphereNetworks!: pulumi.Output<string[] | undefined>;
+    declare public readonly vSphereNetworks: pulumi.Output<string[] | undefined>;
     /**
      * The internal id of Virtual Machine in VCenter
      */
-    public /*out*/ readonly vmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmId: pulumi.Output<string>;
     /**
      * VMware tools version
      */
-    public /*out*/ readonly vmwaretools!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmwaretools: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachine resource with the given unique name, arguments, and options.
@@ -159,34 +159,34 @@ export class VirtualMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.amountOfRam === undefined) && !opts.urn) {
+            if (args?.amountOfRam === undefined && !opts.urn) {
                 throw new Error("Missing required property 'amountOfRam'");
             }
-            if ((!args || args.numberOfCores === undefined) && !opts.urn) {
+            if (args?.numberOfCores === undefined && !opts.urn) {
                 throw new Error("Missing required property 'numberOfCores'");
             }
-            if ((!args || args.privateCloudId === undefined) && !opts.urn) {
+            if (args?.privateCloudId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudId'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["amountOfRam"] = args ? args.amountOfRam : undefined;
-            resourceInputs["customization"] = args ? args.customization : undefined;
-            resourceInputs["disks"] = args ? args.disks : undefined;
-            resourceInputs["exposeToGuestVM"] = args ? args.exposeToGuestVM : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["nics"] = args ? args.nics : undefined;
-            resourceInputs["numberOfCores"] = args ? args.numberOfCores : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["privateCloudId"] = args ? args.privateCloudId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourcePool"] = args ? args.resourcePool : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["templateId"] = args ? args.templateId : undefined;
-            resourceInputs["username"] = args ? args.username : undefined;
-            resourceInputs["vSphereNetworks"] = args ? args.vSphereNetworks : undefined;
-            resourceInputs["virtualMachineName"] = args ? args.virtualMachineName : undefined;
+            resourceInputs["amountOfRam"] = args?.amountOfRam;
+            resourceInputs["customization"] = args?.customization;
+            resourceInputs["disks"] = args?.disks;
+            resourceInputs["exposeToGuestVM"] = args?.exposeToGuestVM;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["nics"] = args?.nics;
+            resourceInputs["numberOfCores"] = args?.numberOfCores;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["privateCloudId"] = args?.privateCloudId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourcePool"] = args?.resourcePool;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["templateId"] = args?.templateId;
+            resourceInputs["username"] = args?.username;
+            resourceInputs["vSphereNetworks"] = args?.vSphereNetworks;
+            resourceInputs["virtualMachineName"] = args?.virtualMachineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["controllers"] = undefined /*out*/;
             resourceInputs["dnsname"] = undefined /*out*/;

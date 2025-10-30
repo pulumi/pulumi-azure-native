@@ -42,51 +42,51 @@ export class AnalyticsConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Data destination configuration for Analytics Connector.
      */
-    public readonly dataDestinationConfiguration!: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorDataLakeDataDestinationResponse>;
+    declare public readonly dataDestinationConfiguration: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorDataLakeDataDestinationResponse>;
     /**
      * Data mapping configuration for Analytics Connector.
      */
-    public readonly dataMappingConfiguration!: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorFhirToParquetMappingResponse>;
+    declare public readonly dataMappingConfiguration: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorFhirToParquetMappingResponse>;
     /**
      * Data source for Analytics Connector.
      */
-    public readonly dataSourceConfiguration!: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorFhirServiceDataSourceResponse>;
+    declare public readonly dataSourceConfiguration: pulumi.Output<outputs.healthcareapis.AnalyticsConnectorFhirServiceDataSourceResponse>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Setting indicating whether the service has a managed identity associated with it.
      */
-    public readonly identity!: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.healthcareapis.ServiceManagedIdentityResponseIdentity | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.healthcareapis.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AnalyticsConnector resource with the given unique name, arguments, and options.
@@ -99,30 +99,30 @@ export class AnalyticsConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataDestinationConfiguration === undefined) && !opts.urn) {
+            if (args?.dataDestinationConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataDestinationConfiguration'");
             }
-            if ((!args || args.dataMappingConfiguration === undefined) && !opts.urn) {
+            if (args?.dataMappingConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataMappingConfiguration'");
             }
-            if ((!args || args.dataSourceConfiguration === undefined) && !opts.urn) {
+            if (args?.dataSourceConfiguration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataSourceConfiguration'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["analyticsConnectorName"] = args ? args.analyticsConnectorName : undefined;
-            resourceInputs["dataDestinationConfiguration"] = args ? args.dataDestinationConfiguration : undefined;
-            resourceInputs["dataMappingConfiguration"] = args ? args.dataMappingConfiguration : undefined;
-            resourceInputs["dataSourceConfiguration"] = args ? args.dataSourceConfiguration : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["analyticsConnectorName"] = args?.analyticsConnectorName;
+            resourceInputs["dataDestinationConfiguration"] = args?.dataDestinationConfiguration;
+            resourceInputs["dataMappingConfiguration"] = args?.dataMappingConfiguration;
+            resourceInputs["dataSourceConfiguration"] = args?.dataSourceConfiguration;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

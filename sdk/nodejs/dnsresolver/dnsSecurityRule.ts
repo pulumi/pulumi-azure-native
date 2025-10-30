@@ -44,51 +44,51 @@ export class DnsSecurityRule extends pulumi.CustomResource {
     /**
      * The action to take on DNS requests that match the DNS security rule.
      */
-    public readonly action!: pulumi.Output<outputs.dnsresolver.DnsSecurityRuleActionResponse>;
+    declare public readonly action: pulumi.Output<outputs.dnsresolver.DnsSecurityRuleActionResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * DNS resolver policy domains lists that the DNS security rule applies to.
      */
-    public readonly dnsResolverDomainLists!: pulumi.Output<outputs.dnsresolver.SubResourceResponse[]>;
+    declare public readonly dnsResolverDomainLists: pulumi.Output<outputs.dnsresolver.SubResourceResponse[]>;
     /**
      * The state of DNS security rule.
      */
-    public readonly dnsSecurityRuleState!: pulumi.Output<string | undefined>;
+    declare public readonly dnsSecurityRuleState: pulumi.Output<string | undefined>;
     /**
      * ETag of the DNS security rule.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The priority of the DNS security rule.
      */
-    public readonly priority!: pulumi.Output<number>;
+    declare public readonly priority: pulumi.Output<number>;
     /**
      * The current provisioning state of the DNS security rule. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DnsSecurityRule resource with the given unique name, arguments, and options.
@@ -101,30 +101,30 @@ export class DnsSecurityRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.action === undefined) && !opts.urn) {
+            if (args?.action === undefined && !opts.urn) {
                 throw new Error("Missing required property 'action'");
             }
-            if ((!args || args.dnsResolverDomainLists === undefined) && !opts.urn) {
+            if (args?.dnsResolverDomainLists === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverDomainLists'");
             }
-            if ((!args || args.dnsResolverPolicyName === undefined) && !opts.urn) {
+            if (args?.dnsResolverPolicyName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsResolverPolicyName'");
             }
-            if ((!args || args.priority === undefined) && !opts.urn) {
+            if (args?.priority === undefined && !opts.urn) {
                 throw new Error("Missing required property 'priority'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["action"] = args ? args.action : undefined;
-            resourceInputs["dnsResolverDomainLists"] = args ? args.dnsResolverDomainLists : undefined;
-            resourceInputs["dnsResolverPolicyName"] = args ? args.dnsResolverPolicyName : undefined;
-            resourceInputs["dnsSecurityRuleName"] = args ? args.dnsSecurityRuleName : undefined;
-            resourceInputs["dnsSecurityRuleState"] = args ? args.dnsSecurityRuleState : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["action"] = args?.action;
+            resourceInputs["dnsResolverDomainLists"] = args?.dnsResolverDomainLists;
+            resourceInputs["dnsResolverPolicyName"] = args?.dnsResolverPolicyName;
+            resourceInputs["dnsSecurityRuleName"] = args?.dnsSecurityRuleName;
+            resourceInputs["dnsSecurityRuleState"] = args?.dnsSecurityRuleState;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

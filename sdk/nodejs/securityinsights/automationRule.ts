@@ -42,55 +42,55 @@ export class AutomationRule extends pulumi.CustomResource {
     /**
      * The actions to execute when the automation rule is triggered.
      */
-    public readonly actions!: pulumi.Output<(outputs.securityinsights.AutomationRuleAddIncidentTaskActionResponse | outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
+    declare public readonly actions: pulumi.Output<(outputs.securityinsights.AutomationRuleAddIncidentTaskActionResponse | outputs.securityinsights.AutomationRuleModifyPropertiesActionResponse | outputs.securityinsights.AutomationRuleRunPlaybookActionResponse)[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Information on the client (user or application) that made some action
      */
-    public /*out*/ readonly createdBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
+    declare public /*out*/ readonly createdBy: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
     /**
      * The time the automation rule was created.
      */
-    public /*out*/ readonly createdTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimeUtc: pulumi.Output<string>;
     /**
      * The display name of the automation rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Information on the client (user or application) that made some action
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.securityinsights.ClientInfoResponse>;
     /**
      * The last time the automation rule was updated.
      */
-    public /*out*/ readonly lastModifiedTimeUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTimeUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The order of execution of the automation rule.
      */
-    public readonly order!: pulumi.Output<number>;
+    declare public readonly order: pulumi.Output<number>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * Describes automation rule triggering logic.
      */
-    public readonly triggeringLogic!: pulumi.Output<outputs.securityinsights.AutomationRuleTriggeringLogicResponse>;
+    declare public readonly triggeringLogic: pulumi.Output<outputs.securityinsights.AutomationRuleTriggeringLogicResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AutomationRule resource with the given unique name, arguments, and options.
@@ -103,31 +103,31 @@ export class AutomationRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.actions === undefined) && !opts.urn) {
+            if (args?.actions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'actions'");
             }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.order === undefined) && !opts.urn) {
+            if (args?.order === undefined && !opts.urn) {
                 throw new Error("Missing required property 'order'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.triggeringLogic === undefined) && !opts.urn) {
+            if (args?.triggeringLogic === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggeringLogic'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["actions"] = args ? args.actions : undefined;
-            resourceInputs["automationRuleId"] = args ? args.automationRuleId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["order"] = args ? args.order : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["triggeringLogic"] = args ? args.triggeringLogic : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["actions"] = args?.actions;
+            resourceInputs["automationRuleId"] = args?.automationRuleId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["order"] = args?.order;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["triggeringLogic"] = args?.triggeringLogic;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdBy"] = undefined /*out*/;
             resourceInputs["createdTimeUtc"] = undefined /*out*/;

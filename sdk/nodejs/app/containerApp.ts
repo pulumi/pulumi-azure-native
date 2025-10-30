@@ -44,103 +44,103 @@ export class ContainerApp extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Non versioned Container App configuration properties.
      */
-    public readonly configuration!: pulumi.Output<outputs.app.ConfigurationResponse | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.app.ConfigurationResponse | undefined>;
     /**
      * Id used to verify domain name ownership
      */
-    public /*out*/ readonly customDomainVerificationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customDomainVerificationId: pulumi.Output<string>;
     /**
      * Any errors that occurred during deployment
      */
-    public /*out*/ readonly deploymentErrors!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentErrors: pulumi.Output<string>;
     /**
      * Resource ID of environment.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The endpoint of the eventstream of the container app.
      */
-    public /*out*/ readonly eventStreamEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventStreamEndpoint: pulumi.Output<string>;
     /**
      * The complex type of the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
     /**
      * managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
      */
-    public readonly identity!: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
     /**
      * Metadata used to render different experiences for resources of the same type; e.g. WorkflowApp is a kind of Microsoft.App/ContainerApps type. If supported, the resource provider must validate and persist this value.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Name of the latest ready revision of the Container App.
      */
-    public /*out*/ readonly latestReadyRevisionName!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestReadyRevisionName: pulumi.Output<string>;
     /**
      * Fully Qualified Domain Name of the latest revision of the Container App.
      */
-    public /*out*/ readonly latestRevisionFqdn!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestRevisionFqdn: pulumi.Output<string>;
     /**
      * Name of the latest revision of the Container App.
      */
-    public /*out*/ readonly latestRevisionName!: pulumi.Output<string>;
+    declare public /*out*/ readonly latestRevisionName: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The fully qualified resource ID of the resource that manages this resource. Indicates if this resource is managed by another Azure resource. If this is present, complete mode deployment will not delete the resource if it is removed from the template since it is managed by another resource.
      */
-    public readonly managedBy!: pulumi.Output<string | undefined>;
+    declare public readonly managedBy: pulumi.Output<string | undefined>;
     /**
      * Deprecated. Resource ID of the Container App's environment.
      */
-    public readonly managedEnvironmentId!: pulumi.Output<string | undefined>;
+    declare public readonly managedEnvironmentId: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Outbound IP Addresses for container app.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Container App auto patch configuration.
      */
-    public readonly patchingConfiguration!: pulumi.Output<outputs.app.ContainerAppResponsePatchingConfiguration | undefined>;
+    declare public readonly patchingConfiguration: pulumi.Output<outputs.app.ContainerAppResponsePatchingConfiguration | undefined>;
     /**
      * Provisioning state of the Container App.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Running status of the Container App.
      */
-    public /*out*/ readonly runningStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly runningStatus: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Container App versioned application definition.
      */
-    public readonly template!: pulumi.Output<outputs.app.TemplateResponse | undefined>;
+    declare public readonly template: pulumi.Output<outputs.app.TemplateResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Workload profile name to pin for container app execution.
      */
-    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly workloadProfileName: pulumi.Output<string | undefined>;
 
     /**
      * Create a ContainerApp resource with the given unique name, arguments, and options.
@@ -153,23 +153,23 @@ export class ContainerApp extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.configurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedBy"] = args ? args.managedBy : undefined;
-            resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
-            resourceInputs["patchingConfiguration"] = args ? args.patchingConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["containerAppName"] = args?.containerAppName;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedBy"] = args?.managedBy;
+            resourceInputs["managedEnvironmentId"] = args?.managedEnvironmentId;
+            resourceInputs["patchingConfiguration"] = args?.patchingConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["template"] = args ? (args.template ? pulumi.output(args.template).apply(inputs.app.templateArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
