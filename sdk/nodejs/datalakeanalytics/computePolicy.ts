@@ -42,31 +42,31 @@ export class ComputePolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The maximum degree of parallelism per job this user can use to submit jobs.
      */
-    public readonly maxDegreeOfParallelismPerJob!: pulumi.Output<number>;
+    declare public readonly maxDegreeOfParallelismPerJob: pulumi.Output<number>;
     /**
      * The minimum priority per job this user can use to submit jobs.
      */
-    public readonly minPriorityPerJob!: pulumi.Output<number>;
+    declare public readonly minPriorityPerJob: pulumi.Output<number>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The AAD object identifier for the entity to create a policy for.
      */
-    public readonly objectId!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
     /**
      * The type of AAD object the object identifier refers to.
      */
-    public readonly objectType!: pulumi.Output<string>;
+    declare public readonly objectType: pulumi.Output<string>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ComputePolicy resource with the given unique name, arguments, and options.
@@ -79,25 +79,25 @@ export class ComputePolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.objectType === undefined) && !opts.urn) {
+            if (args?.objectType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["computePolicyName"] = args ? args.computePolicyName : undefined;
-            resourceInputs["maxDegreeOfParallelismPerJob"] = args ? args.maxDegreeOfParallelismPerJob : undefined;
-            resourceInputs["minPriorityPerJob"] = args ? args.minPriorityPerJob : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["objectType"] = args ? args.objectType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["computePolicyName"] = args?.computePolicyName;
+            resourceInputs["maxDegreeOfParallelismPerJob"] = args?.maxDegreeOfParallelismPerJob;
+            resourceInputs["minPriorityPerJob"] = args?.minPriorityPerJob;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["objectType"] = args?.objectType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -42,51 +42,51 @@ export class CloudConnection extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cloud connector which discovered the remote resource.
      */
-    public readonly cloudConnector!: pulumi.Output<outputs.hybridcloud.ResourceReferenceResponse | undefined>;
+    declare public readonly cloudConnector: pulumi.Output<outputs.hybridcloud.ResourceReferenceResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the cloud collection resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Identifier for the remote cloud resource
      */
-    public readonly remoteResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly remoteResourceId: pulumi.Output<string | undefined>;
     /**
      * Shared key of the cloud connection.
      */
-    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly sharedKey: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The virtualHub to which the cloud connection belongs.
      */
-    public readonly virtualHub!: pulumi.Output<outputs.hybridcloud.ResourceReferenceResponse | undefined>;
+    declare public readonly virtualHub: pulumi.Output<outputs.hybridcloud.ResourceReferenceResponse | undefined>;
 
     /**
      * Create a CloudConnection resource with the given unique name, arguments, and options.
@@ -99,17 +99,17 @@ export class CloudConnection extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudConnectionName"] = args ? args.cloudConnectionName : undefined;
-            resourceInputs["cloudConnector"] = args ? args.cloudConnector : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["remoteResourceId"] = args ? args.remoteResourceId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["cloudConnectionName"] = args?.cloudConnectionName;
+            resourceInputs["cloudConnector"] = args?.cloudConnector;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["remoteResourceId"] = args?.remoteResourceId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHub"] = args?.virtualHub;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,67 +44,67 @@ export class CapacityPool extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * If enabled (true) the pool can contain cool Access enabled volumes.
      */
-    public readonly coolAccess!: pulumi.Output<boolean | undefined>;
+    declare public readonly coolAccess: pulumi.Output<boolean | undefined>;
     /**
      * Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
      */
-    public readonly encryptionType!: pulumi.Output<string | undefined>;
+    declare public readonly encryptionType: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * UUID v4 used to identify the Pool
      */
-    public /*out*/ readonly poolId!: pulumi.Output<string>;
+    declare public /*out*/ readonly poolId: pulumi.Output<string>;
     /**
      * Azure lifecycle management
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The qos type of the pool
      */
-    public readonly qosType!: pulumi.Output<string | undefined>;
+    declare public readonly qosType: pulumi.Output<string | undefined>;
     /**
      * The service level of the file system
      */
-    public readonly serviceLevel!: pulumi.Output<string>;
+    declare public readonly serviceLevel: pulumi.Output<string>;
     /**
      * Provisioned size of the pool (in bytes). Allowed values are in 1TiB chunks (value must be multiple of 1099511627776).
      */
-    public readonly size!: pulumi.Output<number>;
+    declare public readonly size: pulumi.Output<number>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.netapp.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Total throughput of pool in MiB/s
      */
-    public /*out*/ readonly totalThroughputMibps!: pulumi.Output<number>;
+    declare public /*out*/ readonly totalThroughputMibps: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Utilized throughput of pool in MiB/s
      */
-    public /*out*/ readonly utilizedThroughputMibps!: pulumi.Output<number>;
+    declare public /*out*/ readonly utilizedThroughputMibps: pulumi.Output<number>;
 
     /**
      * Create a CapacityPool resource with the given unique name, arguments, and options.
@@ -117,28 +117,28 @@ export class CapacityPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceLevel === undefined) && !opts.urn) {
+            if (args?.serviceLevel === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceLevel'");
             }
-            if ((!args || args.size === undefined) && !opts.urn) {
+            if (args?.size === undefined && !opts.urn) {
                 throw new Error("Missing required property 'size'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["coolAccess"] = (args ? args.coolAccess : undefined) ?? false;
-            resourceInputs["encryptionType"] = (args ? args.encryptionType : undefined) ?? "Single";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["poolName"] = args ? args.poolName : undefined;
-            resourceInputs["qosType"] = (args ? args.qosType : undefined) ?? "Auto";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceLevel"] = args ? args.serviceLevel : undefined;
-            resourceInputs["size"] = (args ? args.size : undefined) ?? 4398046511104;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["coolAccess"] = (args?.coolAccess) ?? false;
+            resourceInputs["encryptionType"] = (args?.encryptionType) ?? "Single";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["poolName"] = args?.poolName;
+            resourceInputs["qosType"] = (args?.qosType) ?? "Auto";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceLevel"] = args?.serviceLevel;
+            resourceInputs["size"] = (args?.size) ?? 4398046511104;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

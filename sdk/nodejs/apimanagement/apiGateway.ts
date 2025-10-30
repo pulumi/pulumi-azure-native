@@ -44,63 +44,63 @@ export class ApiGateway extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Information regarding how the gateway should integrate with backend systems.
      */
-    public readonly backend!: pulumi.Output<outputs.apimanagement.BackendConfigurationResponse | undefined>;
+    declare public readonly backend: pulumi.Output<outputs.apimanagement.BackendConfigurationResponse | undefined>;
     /**
      * Information regarding the Configuration API of the API Management gateway. This is only applicable for API gateway with Standard SKU.
      */
-    public /*out*/ readonly configurationApi!: pulumi.Output<outputs.apimanagement.GatewayConfigurationApiResponse | undefined>;
+    declare public /*out*/ readonly configurationApi: pulumi.Output<outputs.apimanagement.GatewayConfigurationApiResponse | undefined>;
     /**
      * Creation UTC date of the API Management gateway.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.
      */
-    public /*out*/ readonly createdAtUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAtUtc: pulumi.Output<string>;
     /**
      * ETag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Information regarding how the gateway should be exposed.
      */
-    public /*out*/ readonly frontend!: pulumi.Output<outputs.apimanagement.FrontendConfigurationResponse | undefined>;
+    declare public /*out*/ readonly frontend: pulumi.Output<outputs.apimanagement.FrontendConfigurationResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current provisioning state of the API Management gateway which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * SKU properties of the API Management gateway.
      */
-    public readonly sku!: pulumi.Output<outputs.apimanagement.ApiManagementGatewaySkuPropertiesResponse>;
+    declare public readonly sku: pulumi.Output<outputs.apimanagement.ApiManagementGatewaySkuPropertiesResponse>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.apimanagement.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.apimanagement.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The provisioning state of the API Management gateway, which is targeted by the long running operation started on the gateway.
      */
-    public /*out*/ readonly targetProvisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly targetProvisioningState: pulumi.Output<string>;
     /**
      * Resource type for API Management resource is set to Microsoft.ApiManagement.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The type of VPN in which API Management gateway needs to be configured in. 
      */
-    public readonly virtualNetworkType!: pulumi.Output<string | undefined>;
+    declare public readonly virtualNetworkType: pulumi.Output<string | undefined>;
 
     /**
      * Create a ApiGateway resource with the given unique name, arguments, and options.
@@ -113,19 +113,19 @@ export class ApiGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["backend"] = args ? args.backend : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetworkType"] = args ? args.virtualNetworkType : undefined;
+            resourceInputs["backend"] = args?.backend;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetworkType"] = args?.virtualNetworkType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationApi"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;

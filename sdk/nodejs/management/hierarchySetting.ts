@@ -41,27 +41,27 @@ export class HierarchySetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Settings that sets the default Management Group under which new subscriptions get added in this tenant. For example, /providers/Microsoft.Management/managementGroups/defaultGroup
      */
-    public readonly defaultManagementGroup!: pulumi.Output<string | undefined>;
+    declare public readonly defaultManagementGroup: pulumi.Output<string | undefined>;
     /**
      * The name of the object. In this case, default.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Indicates whether RBAC access is required upon group creation under the root Management Group. If set to true, user will require Microsoft.Management/managementGroups/write action on the root Management Group scope in order to create new Groups directly under the root. This will prevent new users from creating new Management Groups, unless they are given access.
      */
-    public readonly requireAuthorizationForGroupCreation!: pulumi.Output<boolean | undefined>;
+    declare public readonly requireAuthorizationForGroupCreation: pulumi.Output<boolean | undefined>;
     /**
      * The AAD Tenant ID associated with the hierarchy settings. For example, 00000000-0000-0000-0000-000000000000
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups/settings.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HierarchySetting resource with the given unique name, arguments, and options.
@@ -74,12 +74,12 @@ export class HierarchySetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.groupId === undefined) && !opts.urn) {
+            if (args?.groupId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupId'");
             }
-            resourceInputs["defaultManagementGroup"] = args ? args.defaultManagementGroup : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["requireAuthorizationForGroupCreation"] = args ? args.requireAuthorizationForGroupCreation : undefined;
+            resourceInputs["defaultManagementGroup"] = args?.defaultManagementGroup;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["requireAuthorizationForGroupCreation"] = args?.requireAuthorizationForGroupCreation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

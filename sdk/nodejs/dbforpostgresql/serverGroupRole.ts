@@ -44,33 +44,33 @@ export class ServerGroupRole extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.
      */
-    public readonly objectId!: pulumi.Output<string>;
-    public readonly principalType!: pulumi.Output<string>;
+    declare public readonly objectId: pulumi.Output<string>;
+    declare public readonly principalType: pulumi.Output<string>;
     /**
      * Provisioning state of the role
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public readonly roleType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public readonly roleType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * A type definition that refers the id to an Azure Resource Manager resource.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerGroupRole resource with the given unique name, arguments, and options.
@@ -83,26 +83,26 @@ export class ServerGroupRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.objectId === undefined) && !opts.urn) {
+            if (args?.objectId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'objectId'");
             }
-            if ((!args || args.principalType === undefined) && !opts.urn) {
+            if (args?.principalType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'principalType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["objectId"] = args ? args.objectId : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["principalType"] = args ? args.principalType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleName"] = args ? args.roleName : undefined;
-            resourceInputs["roleType"] = (args ? args.roleType : undefined) ?? "user";
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["objectId"] = args?.objectId;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["principalType"] = args?.principalType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleName"] = args?.roleName;
+            resourceInputs["roleType"] = (args?.roleType) ?? "user";
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

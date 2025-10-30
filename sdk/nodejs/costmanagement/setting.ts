@@ -42,31 +42,31 @@ export class Setting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Array of scopes with additional details used by Cost Management in the Azure portal.
      */
-    public readonly cache!: pulumi.Output<outputs.costmanagement.SettingsPropertiesResponseCache[] | undefined>;
+    declare public readonly cache: pulumi.Output<outputs.costmanagement.SettingsPropertiesResponseCache[] | undefined>;
     /**
      * Resource kind.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Sets the default scope the current user will see when they sign into Azure Cost Management in the Azure portal.
      */
-    public readonly scope!: pulumi.Output<string>;
+    declare public readonly scope: pulumi.Output<string>;
     /**
      * Indicates what scope Cost Management in the Azure portal should default to. Allowed values: LastUsed.
      */
-    public readonly startOn!: pulumi.Output<string | undefined>;
+    declare public readonly startOn: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Setting resource with the given unique name, arguments, and options.
@@ -79,13 +79,13 @@ export class Setting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["cache"] = args ? args.cache : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["settingName"] = args ? args.settingName : undefined;
-            resourceInputs["startOn"] = args ? args.startOn : undefined;
+            resourceInputs["cache"] = args?.cache;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["settingName"] = args?.settingName;
+            resourceInputs["startOn"] = args?.startOn;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["kind"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

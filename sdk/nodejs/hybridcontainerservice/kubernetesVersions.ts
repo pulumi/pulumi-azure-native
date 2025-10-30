@@ -44,24 +44,24 @@ export class KubernetesVersions extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Extended location pointing to the underlying infrastructure
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.hybridcontainerservice.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.hybridcontainerservice.ExtendedLocationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public /*out*/ readonly properties!: pulumi.Output<outputs.hybridcontainerservice.KubernetesVersionProfileResponseProperties>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public /*out*/ readonly properties: pulumi.Output<outputs.hybridcontainerservice.KubernetesVersionProfileResponseProperties>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a KubernetesVersions resource with the given unique name, arguments, and options.
@@ -74,11 +74,11 @@ export class KubernetesVersions extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.customLocationResourceUri === undefined) && !opts.urn) {
+            if (args?.customLocationResourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'customLocationResourceUri'");
             }
-            resourceInputs["customLocationResourceUri"] = args ? args.customLocationResourceUri : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["customLocationResourceUri"] = args?.customLocationResourceUri;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;

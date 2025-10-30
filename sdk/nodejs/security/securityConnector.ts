@@ -44,55 +44,55 @@ export class SecurityConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The security connector environment data.
      */
-    public readonly environmentData!: pulumi.Output<outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.DockerHubEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | outputs.security.JFrogEnvironmentDataResponse | undefined>;
+    declare public readonly environmentData: pulumi.Output<outputs.security.AwsEnvironmentDataResponse | outputs.security.AzureDevOpsScopeEnvironmentDataResponse | outputs.security.DockerHubEnvironmentDataResponse | outputs.security.GcpProjectEnvironmentDataResponse | outputs.security.GithubScopeEnvironmentDataResponse | outputs.security.GitlabScopeEnvironmentDataResponse | outputs.security.JFrogEnvironmentDataResponse | undefined>;
     /**
      * The multi cloud resource's cloud name.
      */
-    public readonly environmentName!: pulumi.Output<string | undefined>;
+    declare public readonly environmentName: pulumi.Output<string | undefined>;
     /**
      * Entity tag is used for comparing two or more entities from the same requested resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The multi cloud resource identifier (account id in case of AWS connector, project number in case of GCP connector).
      */
-    public readonly hierarchyIdentifier!: pulumi.Output<string | undefined>;
+    declare public readonly hierarchyIdentifier: pulumi.Output<string | undefined>;
     /**
      * The date on which the trial period will end, if applicable. Trial period exists for 30 days after upgrading to payed offerings.
      */
-    public /*out*/ readonly hierarchyIdentifierTrialEndDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly hierarchyIdentifierTrialEndDate: pulumi.Output<string>;
     /**
      * Kind of the resource
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Location where the resource is stored
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * A collection of offerings for the security connector.
      */
-    public readonly offerings!: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorDockerHubOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.CspmMonitorJFrogOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmDockerHubOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderCspmJFrogOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersDockerHubOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForContainersJFrogOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse)[] | undefined>;
+    declare public readonly offerings: pulumi.Output<(outputs.security.CspmMonitorAwsOfferingResponse | outputs.security.CspmMonitorAzureDevOpsOfferingResponse | outputs.security.CspmMonitorDockerHubOfferingResponse | outputs.security.CspmMonitorGcpOfferingResponse | outputs.security.CspmMonitorGitLabOfferingResponse | outputs.security.CspmMonitorGithubOfferingResponse | outputs.security.CspmMonitorJFrogOfferingResponse | outputs.security.DefenderCspmAwsOfferingResponse | outputs.security.DefenderCspmDockerHubOfferingResponse | outputs.security.DefenderCspmGcpOfferingResponse | outputs.security.DefenderCspmJFrogOfferingResponse | outputs.security.DefenderFoDatabasesAwsOfferingResponse | outputs.security.DefenderForContainersAwsOfferingResponse | outputs.security.DefenderForContainersDockerHubOfferingResponse | outputs.security.DefenderForContainersGcpOfferingResponse | outputs.security.DefenderForContainersJFrogOfferingResponse | outputs.security.DefenderForDatabasesGcpOfferingResponse | outputs.security.DefenderForServersAwsOfferingResponse | outputs.security.DefenderForServersGcpOfferingResponse)[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
      * A list of key value pairs that describe the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SecurityConnector resource with the given unique name, arguments, and options.
@@ -105,18 +105,18 @@ export class SecurityConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["environmentData"] = args ? args.environmentData : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["hierarchyIdentifier"] = args ? args.hierarchyIdentifier : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["offerings"] = args ? args.offerings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["securityConnectorName"] = args ? args.securityConnectorName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["environmentData"] = args?.environmentData;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["hierarchyIdentifier"] = args?.hierarchyIdentifier;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["offerings"] = args?.offerings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["securityConnectorName"] = args?.securityConnectorName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["hierarchyIdentifierTrialEndDate"] = undefined /*out*/;

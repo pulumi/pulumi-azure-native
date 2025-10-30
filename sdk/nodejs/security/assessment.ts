@@ -44,43 +44,43 @@ export class Assessment extends pulumi.CustomResource {
     /**
      * Additional data regarding the assessment
      */
-    public readonly additionalData!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly additionalData: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * User friendly display name of the assessment
      */
-    public /*out*/ readonly displayName!: pulumi.Output<string>;
+    declare public /*out*/ readonly displayName: pulumi.Output<string>;
     /**
      * Links relevant to the assessment
      */
-    public /*out*/ readonly links!: pulumi.Output<outputs.security.AssessmentLinksResponse>;
+    declare public /*out*/ readonly links: pulumi.Output<outputs.security.AssessmentLinksResponse>;
     /**
      * Describes properties of an assessment metadata.
      */
-    public readonly metadata!: pulumi.Output<outputs.security.SecurityAssessmentMetadataPropertiesResponse | undefined>;
+    declare public readonly metadata: pulumi.Output<outputs.security.SecurityAssessmentMetadataPropertiesResponse | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Data regarding 3rd party partner integration
      */
-    public readonly partnersData!: pulumi.Output<outputs.security.SecurityAssessmentPartnerDataResponse | undefined>;
+    declare public readonly partnersData: pulumi.Output<outputs.security.SecurityAssessmentPartnerDataResponse | undefined>;
     /**
      * Details of the resource that was assessed
      */
-    public readonly resourceDetails!: pulumi.Output<outputs.security.AzureResourceDetailsResponse | outputs.security.OnPremiseResourceDetailsResponse | outputs.security.OnPremiseSqlResourceDetailsResponse>;
+    declare public readonly resourceDetails: pulumi.Output<outputs.security.AzureResourceDetailsResponse | outputs.security.OnPremiseResourceDetailsResponse | outputs.security.OnPremiseSqlResourceDetailsResponse>;
     /**
      * The result of the assessment
      */
-    public readonly status!: pulumi.Output<outputs.security.AssessmentStatusResponseResponse>;
+    declare public readonly status: pulumi.Output<outputs.security.AssessmentStatusResponseResponse>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Assessment resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class Assessment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceDetails === undefined) && !opts.urn) {
+            if (args?.resourceDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceDetails'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.status === undefined) && !opts.urn) {
+            if (args?.status === undefined && !opts.urn) {
                 throw new Error("Missing required property 'status'");
             }
-            resourceInputs["additionalData"] = args ? args.additionalData : undefined;
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["partnersData"] = args ? args.partnersData : undefined;
-            resourceInputs["resourceDetails"] = args ? args.resourceDetails : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
+            resourceInputs["additionalData"] = args?.additionalData;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["partnersData"] = args?.partnersData;
+            resourceInputs["resourceDetails"] = args?.resourceDetails;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["status"] = args?.status;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;

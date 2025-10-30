@@ -41,19 +41,19 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
     /**
      * Azure Active Directory only Authentication enabled.
      */
-    public readonly azureADOnlyAuthentication!: pulumi.Output<boolean>;
+    declare public readonly azureADOnlyAuthentication: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ServerAzureADOnlyAuthentication resource with the given unique name, arguments, and options.
@@ -66,19 +66,19 @@ export class ServerAzureADOnlyAuthentication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.azureADOnlyAuthentication === undefined) && !opts.urn) {
+            if (args?.azureADOnlyAuthentication === undefined && !opts.urn) {
                 throw new Error("Missing required property 'azureADOnlyAuthentication'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["authenticationName"] = args ? args.authenticationName : undefined;
-            resourceInputs["azureADOnlyAuthentication"] = args ? args.azureADOnlyAuthentication : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["authenticationName"] = args?.authenticationName;
+            resourceInputs["azureADOnlyAuthentication"] = args?.azureADOnlyAuthentication;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

@@ -42,36 +42,36 @@ export class MSTIDataConnector extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The available data types for the connector.
      */
-    public readonly dataTypes!: pulumi.Output<outputs.securityinsights.MSTIDataConnectorDataTypesResponse>;
+    declare public readonly dataTypes: pulumi.Output<outputs.securityinsights.MSTIDataConnectorDataTypesResponse>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The kind of the data connector
      * Expected value is 'MicrosoftThreatIntelligence'.
      */
-    public readonly kind!: pulumi.Output<"MicrosoftThreatIntelligence">;
+    declare public readonly kind: pulumi.Output<"MicrosoftThreatIntelligence">;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tenant id to connect to, and get the data from.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MSTIDataConnector resource with the given unique name, arguments, and options.
@@ -84,24 +84,24 @@ export class MSTIDataConnector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dataTypes === undefined) && !opts.urn) {
+            if (args?.dataTypes === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dataTypes'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["dataConnectorId"] = args ? args.dataConnectorId : undefined;
-            resourceInputs["dataTypes"] = args ? args.dataTypes : undefined;
+            resourceInputs["dataConnectorId"] = args?.dataConnectorId;
+            resourceInputs["dataTypes"] = args?.dataTypes;
             resourceInputs["kind"] = "MicrosoftThreatIntelligence";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tenantId"] = args?.tenantId;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

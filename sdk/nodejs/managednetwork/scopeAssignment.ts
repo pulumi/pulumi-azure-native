@@ -39,31 +39,31 @@ export class ScopeAssignment extends pulumi.CustomResource {
     /**
      * The managed network ID with scope will be assigned to.
      */
-    public readonly assignedManagedNetwork!: pulumi.Output<string | undefined>;
+    declare public readonly assignedManagedNetwork: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the ManagedNetwork resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ScopeAssignment resource with the given unique name, arguments, and options.
@@ -76,13 +76,13 @@ export class ScopeAssignment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["assignedManagedNetwork"] = args ? args.assignedManagedNetwork : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["scopeAssignmentName"] = args ? args.scopeAssignmentName : undefined;
+            resourceInputs["assignedManagedNetwork"] = args?.assignedManagedNetwork;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["scopeAssignmentName"] = args?.scopeAssignmentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

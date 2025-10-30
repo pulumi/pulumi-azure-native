@@ -44,31 +44,31 @@ export class VirtualEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Type of endpoint for the virtual endpoints.
      */
-    public readonly endpointType!: pulumi.Output<string | undefined>;
+    declare public readonly endpointType: pulumi.Output<string | undefined>;
     /**
      * List of flexible servers that one of the virtual endpoints can refer to.
      */
-    public readonly members!: pulumi.Output<string[] | undefined>;
+    declare public readonly members: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dbforpostgresql.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * List of virtual endpoints for a flexible server.
      */
-    public /*out*/ readonly virtualEndpoints!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualEndpoints: pulumi.Output<string[]>;
 
     /**
      * Create a VirtualEndpoint resource with the given unique name, arguments, and options.
@@ -81,17 +81,17 @@ export class VirtualEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["endpointType"] = args ? args.endpointType : undefined;
-            resourceInputs["members"] = args ? args.members : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["virtualEndpointName"] = args ? args.virtualEndpointName : undefined;
+            resourceInputs["endpointType"] = args?.endpointType;
+            resourceInputs["members"] = args?.members;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["virtualEndpointName"] = args?.virtualEndpointName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

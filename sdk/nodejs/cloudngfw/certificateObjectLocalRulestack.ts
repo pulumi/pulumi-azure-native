@@ -44,43 +44,43 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
     /**
      * comment for this object
      */
-    public readonly auditComment!: pulumi.Output<string | undefined>;
+    declare public readonly auditComment: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * use certificate self signed
      */
-    public readonly certificateSelfSigned!: pulumi.Output<string>;
+    declare public readonly certificateSelfSigned: pulumi.Output<string>;
     /**
      * Resource Id of certificate signer, to be populated only when certificateSelfSigned is false
      */
-    public readonly certificateSignerResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly certificateSignerResourceId: pulumi.Output<string | undefined>;
     /**
      * user description for this object
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * read only string representing last create or update
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cloudngfw.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cloudngfw.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CertificateObjectLocalRulestack resource with the given unique name, arguments, and options.
@@ -93,22 +93,22 @@ export class CertificateObjectLocalRulestack extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.certificateSelfSigned === undefined) && !opts.urn) {
+            if (args?.certificateSelfSigned === undefined && !opts.urn) {
                 throw new Error("Missing required property 'certificateSelfSigned'");
             }
-            if ((!args || args.localRulestackName === undefined) && !opts.urn) {
+            if (args?.localRulestackName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'localRulestackName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["auditComment"] = args ? args.auditComment : undefined;
-            resourceInputs["certificateSelfSigned"] = args ? args.certificateSelfSigned : undefined;
-            resourceInputs["certificateSignerResourceId"] = args ? args.certificateSignerResourceId : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["localRulestackName"] = args ? args.localRulestackName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["auditComment"] = args?.auditComment;
+            resourceInputs["certificateSelfSigned"] = args?.certificateSelfSigned;
+            resourceInputs["certificateSignerResourceId"] = args?.certificateSignerResourceId;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["localRulestackName"] = args?.localRulestackName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

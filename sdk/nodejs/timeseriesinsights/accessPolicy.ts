@@ -44,27 +44,27 @@ export class AccessPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An description of the access policy.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The objectId of the principal in Azure Active Directory.
      */
-    public readonly principalObjectId!: pulumi.Output<string | undefined>;
+    declare public readonly principalObjectId: pulumi.Output<string | undefined>;
     /**
      * The list of roles the principal is assigned on the environment.
      */
-    public readonly roles!: pulumi.Output<string[] | undefined>;
+    declare public readonly roles: pulumi.Output<string[] | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AccessPolicy resource with the given unique name, arguments, and options.
@@ -77,18 +77,18 @@ export class AccessPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.environmentName === undefined) && !opts.urn) {
+            if (args?.environmentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'environmentName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accessPolicyName"] = args ? args.accessPolicyName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
-            resourceInputs["principalObjectId"] = args ? args.principalObjectId : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roles"] = args ? args.roles : undefined;
+            resourceInputs["accessPolicyName"] = args?.accessPolicyName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["environmentName"] = args?.environmentName;
+            resourceInputs["principalObjectId"] = args?.principalObjectId;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roles"] = args?.roles;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

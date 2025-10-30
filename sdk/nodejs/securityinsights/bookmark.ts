@@ -44,75 +44,75 @@ export class Bookmark extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The time the bookmark was created
      */
-    public readonly created!: pulumi.Output<string | undefined>;
+    declare public readonly created: pulumi.Output<string | undefined>;
     /**
      * Describes a user that created the bookmark
      */
-    public readonly createdBy!: pulumi.Output<outputs.securityinsights.UserInfoResponse | undefined>;
+    declare public readonly createdBy: pulumi.Output<outputs.securityinsights.UserInfoResponse | undefined>;
     /**
      * The display name of the bookmark
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The bookmark event time
      */
-    public readonly eventTime!: pulumi.Output<string | undefined>;
+    declare public readonly eventTime: pulumi.Output<string | undefined>;
     /**
      * Describes an incident that relates to bookmark
      */
-    public readonly incidentInfo!: pulumi.Output<outputs.securityinsights.IncidentInfoResponse | undefined>;
+    declare public readonly incidentInfo: pulumi.Output<outputs.securityinsights.IncidentInfoResponse | undefined>;
     /**
      * List of labels relevant to this bookmark
      */
-    public readonly labels!: pulumi.Output<string[] | undefined>;
+    declare public readonly labels: pulumi.Output<string[] | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The notes of the bookmark
      */
-    public readonly notes!: pulumi.Output<string | undefined>;
+    declare public readonly notes: pulumi.Output<string | undefined>;
     /**
      * The query of the bookmark.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The end time for the query
      */
-    public readonly queryEndTime!: pulumi.Output<string | undefined>;
+    declare public readonly queryEndTime: pulumi.Output<string | undefined>;
     /**
      * The query result of the bookmark.
      */
-    public readonly queryResult!: pulumi.Output<string | undefined>;
+    declare public readonly queryResult: pulumi.Output<string | undefined>;
     /**
      * The start time for the query
      */
-    public readonly queryStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly queryStartTime: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The last time the bookmark was updated
      */
-    public readonly updated!: pulumi.Output<string | undefined>;
+    declare public readonly updated: pulumi.Output<string | undefined>;
     /**
      * Describes a user that updated the bookmark
      */
-    public readonly updatedBy!: pulumi.Output<outputs.securityinsights.UserInfoResponse | undefined>;
+    declare public readonly updatedBy: pulumi.Output<outputs.securityinsights.UserInfoResponse | undefined>;
 
     /**
      * Create a Bookmark resource with the given unique name, arguments, and options.
@@ -125,34 +125,34 @@ export class Bookmark extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["bookmarkId"] = args ? args.bookmarkId : undefined;
-            resourceInputs["created"] = args ? args.created : undefined;
-            resourceInputs["createdBy"] = args ? args.createdBy : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["eventTime"] = args ? args.eventTime : undefined;
-            resourceInputs["incidentInfo"] = args ? args.incidentInfo : undefined;
-            resourceInputs["labels"] = args ? args.labels : undefined;
-            resourceInputs["notes"] = args ? args.notes : undefined;
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["queryEndTime"] = args ? args.queryEndTime : undefined;
-            resourceInputs["queryResult"] = args ? args.queryResult : undefined;
-            resourceInputs["queryStartTime"] = args ? args.queryStartTime : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["updated"] = args ? args.updated : undefined;
-            resourceInputs["updatedBy"] = args ? args.updatedBy : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["bookmarkId"] = args?.bookmarkId;
+            resourceInputs["created"] = args?.created;
+            resourceInputs["createdBy"] = args?.createdBy;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["eventTime"] = args?.eventTime;
+            resourceInputs["incidentInfo"] = args?.incidentInfo;
+            resourceInputs["labels"] = args?.labels;
+            resourceInputs["notes"] = args?.notes;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["queryEndTime"] = args?.queryEndTime;
+            resourceInputs["queryResult"] = args?.queryResult;
+            resourceInputs["queryStartTime"] = args?.queryStartTime;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["updated"] = args?.updated;
+            resourceInputs["updatedBy"] = args?.updatedBy;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,79 +44,79 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The endpoint used by clients to access their configuration.
      */
-    public /*out*/ readonly configurationAccess!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseConfigurationAccess | undefined>;
+    declare public /*out*/ readonly configurationAccess: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseConfigurationAccess | undefined>;
     /**
      * Description of the data collection endpoint.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Resource entity tag (ETag).
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Failover configuration on this endpoint. This property is READ-ONLY.
      */
-    public /*out*/ readonly failoverConfiguration!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseFailoverConfiguration>;
+    declare public /*out*/ readonly failoverConfiguration: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseFailoverConfiguration>;
     /**
      * Managed service identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.monitor.DataCollectionEndpointResourceResponseIdentity | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitor.DataCollectionEndpointResourceResponseIdentity | undefined>;
     /**
      * The immutable ID of this data collection endpoint resource. This property is READ-ONLY.
      */
-    public readonly immutableId!: pulumi.Output<string | undefined>;
+    declare public readonly immutableId: pulumi.Output<string | undefined>;
     /**
      * The kind of the resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The endpoint used by clients to ingest logs.
      */
-    public /*out*/ readonly logsIngestion!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseLogsIngestion | undefined>;
+    declare public /*out*/ readonly logsIngestion: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseLogsIngestion | undefined>;
     /**
      * Metadata for the resource. This property is READ-ONLY.
      */
-    public /*out*/ readonly metadata!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseMetadata>;
+    declare public /*out*/ readonly metadata: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseMetadata>;
     /**
      * The endpoint used by clients to ingest metrics.
      */
-    public /*out*/ readonly metricsIngestion!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseMetricsIngestion | undefined>;
+    declare public /*out*/ readonly metricsIngestion: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseMetricsIngestion | undefined>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network access control rules for the endpoints.
      */
-    public readonly networkAcls!: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseNetworkAcls | undefined>;
+    declare public readonly networkAcls: pulumi.Output<outputs.monitor.DataCollectionEndpointResponseNetworkAcls | undefined>;
     /**
      * List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY.
      */
-    public /*out*/ readonly privateLinkScopedResources!: pulumi.Output<outputs.monitor.PrivateLinkScopedResourceResponse[]>;
+    declare public /*out*/ readonly privateLinkScopedResources: pulumi.Output<outputs.monitor.PrivateLinkScopedResourceResponse[]>;
     /**
      * The resource provisioning state. This property is READ-ONLY.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.monitor.DataCollectionEndpointResourceResponseSystemData>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.monitor.DataCollectionEndpointResourceResponseSystemData>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataCollectionEndpoint resource with the given unique name, arguments, and options.
@@ -129,18 +129,18 @@ export class DataCollectionEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["dataCollectionEndpointName"] = args ? args.dataCollectionEndpointName : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["immutableId"] = args ? args.immutableId : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["dataCollectionEndpointName"] = args?.dataCollectionEndpointName;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["immutableId"] = args?.immutableId;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["configurationAccess"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

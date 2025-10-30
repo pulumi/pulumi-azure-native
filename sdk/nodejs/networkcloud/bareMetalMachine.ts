@@ -42,163 +42,163 @@ export class BareMetalMachine extends pulumi.CustomResource {
     /**
      * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
      */
-    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedResourceIds: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connection string for the baseboard management controller including IP address and protocol.
      */
-    public readonly bmcConnectionString!: pulumi.Output<string>;
+    declare public readonly bmcConnectionString: pulumi.Output<string>;
     /**
      * The credentials of the baseboard management controller on this bare metal machine.
      */
-    public readonly bmcCredentials!: pulumi.Output<outputs.networkcloud.AdministrativeCredentialsResponse>;
+    declare public readonly bmcCredentials: pulumi.Output<outputs.networkcloud.AdministrativeCredentialsResponse>;
     /**
      * The MAC address of the BMC device.
      */
-    public readonly bmcMacAddress!: pulumi.Output<string>;
+    declare public readonly bmcMacAddress: pulumi.Output<string>;
     /**
      * The MAC address of a NIC connected to the PXE network.
      */
-    public readonly bootMacAddress!: pulumi.Output<string>;
+    declare public readonly bootMacAddress: pulumi.Output<string>;
     /**
      * The resource ID of the cluster this bare metal machine is associated with.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The cordon status of the bare metal machine.
      */
-    public /*out*/ readonly cordonStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly cordonStatus: pulumi.Output<string>;
     /**
      * The more detailed status of the bare metal machine.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the current detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * The hardware inventory, including information acquired from the model/sku information and from the ironic inspector.
      */
-    public /*out*/ readonly hardwareInventory!: pulumi.Output<outputs.networkcloud.HardwareInventoryResponse>;
+    declare public /*out*/ readonly hardwareInventory: pulumi.Output<outputs.networkcloud.HardwareInventoryResponse>;
     /**
      * The details of the latest hardware validation performed for this bare metal machine.
      */
-    public /*out*/ readonly hardwareValidationStatus!: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse>;
+    declare public /*out*/ readonly hardwareValidationStatus: pulumi.Output<outputs.networkcloud.HardwareValidationStatusResponse>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the HybridAksClusters that have nodes hosted on this bare metal machine.
      */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hybridAksClustersAssociatedIds: pulumi.Output<string[]>;
     /**
      * The name of this machine represented by the host object in the Cluster's Kubernetes control plane.
      */
-    public /*out*/ readonly kubernetesNodeName!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesNodeName: pulumi.Output<string>;
     /**
      * The version of Kubernetes running on this machine.
      */
-    public /*out*/ readonly kubernetesVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly kubernetesVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The cluster version that has been applied to this machine during deployment or a version update.
      */
-    public readonly machineClusterVersion!: pulumi.Output<string | undefined>;
+    declare public readonly machineClusterVersion: pulumi.Output<string | undefined>;
     /**
      * The custom details provided by the customer.
      */
-    public readonly machineDetails!: pulumi.Output<string>;
+    declare public readonly machineDetails: pulumi.Output<string>;
     /**
      * The OS-level hostname assigned to this machine.
      */
-    public readonly machineName!: pulumi.Output<string>;
+    declare public readonly machineName: pulumi.Output<string>;
     /**
      * The list of roles that are assigned to the cluster node running on this machine.
      */
-    public /*out*/ readonly machineRoles!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly machineRoles: pulumi.Output<string[]>;
     /**
      * The unique internal identifier of the bare metal machine SKU.
      */
-    public readonly machineSkuId!: pulumi.Output<string>;
+    declare public readonly machineSkuId: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The IPv4 address that is assigned to the bare metal machine during the cluster deployment.
      */
-    public /*out*/ readonly oamIpv4Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly oamIpv4Address: pulumi.Output<string>;
     /**
      * The IPv6 address that is assigned to the bare metal machine during the cluster deployment.
      */
-    public /*out*/ readonly oamIpv6Address!: pulumi.Output<string>;
+    declare public /*out*/ readonly oamIpv6Address: pulumi.Output<string>;
     /**
      * The image that is currently provisioned to the OS disk.
      */
-    public /*out*/ readonly osImage!: pulumi.Output<string>;
+    declare public /*out*/ readonly osImage: pulumi.Output<string>;
     /**
      * The power state derived from the baseboard management controller.
      */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
+    declare public /*out*/ readonly powerState: pulumi.Output<string>;
     /**
      * The provisioning state of the bare metal machine.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The resource ID of the rack where this bare metal machine resides.
      */
-    public readonly rackId!: pulumi.Output<string>;
+    declare public readonly rackId: pulumi.Output<string>;
     /**
      * The rack slot in which this bare metal machine is located, ordered from the bottom up i.e. the lowest slot is 1.
      */
-    public readonly rackSlot!: pulumi.Output<number>;
+    declare public readonly rackSlot: pulumi.Output<number>;
     /**
      * The indicator of whether the bare metal machine is ready to receive workloads.
      */
-    public /*out*/ readonly readyState!: pulumi.Output<string>;
+    declare public /*out*/ readonly readyState: pulumi.Output<string>;
     /**
      * The runtime protection status of the bare metal machine.
      */
-    public /*out*/ readonly runtimeProtectionStatus!: pulumi.Output<outputs.networkcloud.RuntimeProtectionStatusResponse>;
+    declare public /*out*/ readonly runtimeProtectionStatus: pulumi.Output<outputs.networkcloud.RuntimeProtectionStatusResponse>;
     /**
      * The list of statuses that represent secret rotation activity.
      */
-    public /*out*/ readonly secretRotationStatus!: pulumi.Output<outputs.networkcloud.SecretRotationStatusResponse[]>;
+    declare public /*out*/ readonly secretRotationStatus: pulumi.Output<outputs.networkcloud.SecretRotationStatusResponse[]>;
     /**
      * The serial number of the bare metal machine.
      */
-    public readonly serialNumber!: pulumi.Output<string>;
+    declare public readonly serialNumber: pulumi.Output<string>;
     /**
      * The discovered value of the machine's service tag.
      */
-    public /*out*/ readonly serviceTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceTag: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of the resource IDs for the VirtualMachines that are hosted on this bare metal machine.
      */
-    public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualMachinesAssociatedIds: pulumi.Output<string[]>;
 
     /**
      * Create a BareMetalMachine resource with the given unique name, arguments, and options.
@@ -211,58 +211,58 @@ export class BareMetalMachine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.bmcConnectionString === undefined) && !opts.urn) {
+            if (args?.bmcConnectionString === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcConnectionString'");
             }
-            if ((!args || args.bmcCredentials === undefined) && !opts.urn) {
+            if (args?.bmcCredentials === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcCredentials'");
             }
-            if ((!args || args.bmcMacAddress === undefined) && !opts.urn) {
+            if (args?.bmcMacAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bmcMacAddress'");
             }
-            if ((!args || args.bootMacAddress === undefined) && !opts.urn) {
+            if (args?.bootMacAddress === undefined && !opts.urn) {
                 throw new Error("Missing required property 'bootMacAddress'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.machineDetails === undefined) && !opts.urn) {
+            if (args?.machineDetails === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineDetails'");
             }
-            if ((!args || args.machineName === undefined) && !opts.urn) {
+            if (args?.machineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineName'");
             }
-            if ((!args || args.machineSkuId === undefined) && !opts.urn) {
+            if (args?.machineSkuId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'machineSkuId'");
             }
-            if ((!args || args.rackId === undefined) && !opts.urn) {
+            if (args?.rackId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackId'");
             }
-            if ((!args || args.rackSlot === undefined) && !opts.urn) {
+            if (args?.rackSlot === undefined && !opts.urn) {
                 throw new Error("Missing required property 'rackSlot'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serialNumber === undefined) && !opts.urn) {
+            if (args?.serialNumber === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serialNumber'");
             }
-            resourceInputs["bareMetalMachineName"] = args ? args.bareMetalMachineName : undefined;
-            resourceInputs["bmcConnectionString"] = args ? args.bmcConnectionString : undefined;
-            resourceInputs["bmcCredentials"] = args ? args.bmcCredentials : undefined;
-            resourceInputs["bmcMacAddress"] = args ? args.bmcMacAddress : undefined;
-            resourceInputs["bootMacAddress"] = args ? args.bootMacAddress : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["machineClusterVersion"] = args ? args.machineClusterVersion : undefined;
-            resourceInputs["machineDetails"] = args ? args.machineDetails : undefined;
-            resourceInputs["machineName"] = args ? args.machineName : undefined;
-            resourceInputs["machineSkuId"] = args ? args.machineSkuId : undefined;
-            resourceInputs["rackId"] = args ? args.rackId : undefined;
-            resourceInputs["rackSlot"] = args ? args.rackSlot : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["bareMetalMachineName"] = args?.bareMetalMachineName;
+            resourceInputs["bmcConnectionString"] = args?.bmcConnectionString;
+            resourceInputs["bmcCredentials"] = args?.bmcCredentials;
+            resourceInputs["bmcMacAddress"] = args?.bmcMacAddress;
+            resourceInputs["bootMacAddress"] = args?.bootMacAddress;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["machineClusterVersion"] = args?.machineClusterVersion;
+            resourceInputs["machineDetails"] = args?.machineDetails;
+            resourceInputs["machineName"] = args?.machineName;
+            resourceInputs["machineSkuId"] = args?.machineSkuId;
+            resourceInputs["rackId"] = args?.rackId;
+            resourceInputs["rackSlot"] = args?.rackSlot;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

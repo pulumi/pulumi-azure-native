@@ -44,99 +44,99 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
     /**
      * The Azure ASN.
      */
-    public readonly azureASN!: pulumi.Output<number | undefined>;
+    declare public readonly azureASN: pulumi.Output<number | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of circuit connections associated with Azure Private Peering for this circuit.
      */
-    public readonly connections!: pulumi.Output<outputs.network.ExpressRouteCircuitConnectionResponse[] | undefined>;
+    declare public readonly connections: pulumi.Output<outputs.network.ExpressRouteCircuitConnectionResponse[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The ExpressRoute connection.
      */
-    public /*out*/ readonly expressRouteConnection!: pulumi.Output<outputs.network.ExpressRouteConnectionIdResponse | undefined>;
+    declare public /*out*/ readonly expressRouteConnection: pulumi.Output<outputs.network.ExpressRouteConnectionIdResponse | undefined>;
     /**
      * The GatewayManager Etag.
      */
-    public readonly gatewayManagerEtag!: pulumi.Output<string | undefined>;
+    declare public readonly gatewayManagerEtag: pulumi.Output<string | undefined>;
     /**
      * The IPv6 peering configuration.
      */
-    public readonly ipv6PeeringConfig!: pulumi.Output<outputs.network.Ipv6ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    declare public readonly ipv6PeeringConfig: pulumi.Output<outputs.network.Ipv6ExpressRouteCircuitPeeringConfigResponse | undefined>;
     /**
      * Who was the last to modify the peering.
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<string>;
     /**
      * The Microsoft peering configuration.
      */
-    public readonly microsoftPeeringConfig!: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringConfigResponse | undefined>;
+    declare public readonly microsoftPeeringConfig: pulumi.Output<outputs.network.ExpressRouteCircuitPeeringConfigResponse | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The peer ASN.
      */
-    public readonly peerASN!: pulumi.Output<number | undefined>;
+    declare public readonly peerASN: pulumi.Output<number | undefined>;
     /**
      * The list of peered circuit connections associated with Azure Private Peering for this circuit.
      */
-    public /*out*/ readonly peeredConnections!: pulumi.Output<outputs.network.PeerExpressRouteCircuitConnectionResponse[]>;
+    declare public /*out*/ readonly peeredConnections: pulumi.Output<outputs.network.PeerExpressRouteCircuitConnectionResponse[]>;
     /**
      * The peering type.
      */
-    public readonly peeringType!: pulumi.Output<string | undefined>;
+    declare public readonly peeringType: pulumi.Output<string | undefined>;
     /**
      * The primary port.
      */
-    public readonly primaryAzurePort!: pulumi.Output<string | undefined>;
+    declare public readonly primaryAzurePort: pulumi.Output<string | undefined>;
     /**
      * The primary address prefix.
      */
-    public readonly primaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly primaryPeerAddressPrefix: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the express route circuit peering resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The reference to the RouteFilter resource.
      */
-    public readonly routeFilter!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly routeFilter: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * The secondary port.
      */
-    public readonly secondaryAzurePort!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryAzurePort: pulumi.Output<string | undefined>;
     /**
      * The secondary address prefix.
      */
-    public readonly secondaryPeerAddressPrefix!: pulumi.Output<string | undefined>;
+    declare public readonly secondaryPeerAddressPrefix: pulumi.Output<string | undefined>;
     /**
      * The shared key.
      */
-    public readonly sharedKey!: pulumi.Output<string | undefined>;
+    declare public readonly sharedKey: pulumi.Output<string | undefined>;
     /**
      * The peering state.
      */
-    public readonly state!: pulumi.Output<string | undefined>;
+    declare public readonly state: pulumi.Output<string | undefined>;
     /**
      * The peering stats of express route circuit.
      */
-    public readonly stats!: pulumi.Output<outputs.network.ExpressRouteCircuitStatsResponse | undefined>;
+    declare public readonly stats: pulumi.Output<outputs.network.ExpressRouteCircuitStatsResponse | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The VLAN ID.
      */
-    public readonly vlanId!: pulumi.Output<number | undefined>;
+    declare public readonly vlanId: pulumi.Output<number | undefined>;
 
     /**
      * Create a ExpressRouteCircuitPeering resource with the given unique name, arguments, and options.
@@ -149,33 +149,33 @@ export class ExpressRouteCircuitPeering extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.circuitName === undefined) && !opts.urn) {
+            if (args?.circuitName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'circuitName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureASN"] = args ? args.azureASN : undefined;
-            resourceInputs["circuitName"] = args ? args.circuitName : undefined;
-            resourceInputs["connections"] = args ? args.connections : undefined;
-            resourceInputs["gatewayManagerEtag"] = args ? args.gatewayManagerEtag : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipv6PeeringConfig"] = args ? args.ipv6PeeringConfig : undefined;
-            resourceInputs["microsoftPeeringConfig"] = args ? args.microsoftPeeringConfig : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["peerASN"] = args ? args.peerASN : undefined;
-            resourceInputs["peeringName"] = args ? args.peeringName : undefined;
-            resourceInputs["peeringType"] = args ? args.peeringType : undefined;
-            resourceInputs["primaryAzurePort"] = args ? args.primaryAzurePort : undefined;
-            resourceInputs["primaryPeerAddressPrefix"] = args ? args.primaryPeerAddressPrefix : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["routeFilter"] = args ? args.routeFilter : undefined;
-            resourceInputs["secondaryAzurePort"] = args ? args.secondaryAzurePort : undefined;
-            resourceInputs["secondaryPeerAddressPrefix"] = args ? args.secondaryPeerAddressPrefix : undefined;
-            resourceInputs["sharedKey"] = args ? args.sharedKey : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["stats"] = args ? args.stats : undefined;
-            resourceInputs["vlanId"] = args ? args.vlanId : undefined;
+            resourceInputs["azureASN"] = args?.azureASN;
+            resourceInputs["circuitName"] = args?.circuitName;
+            resourceInputs["connections"] = args?.connections;
+            resourceInputs["gatewayManagerEtag"] = args?.gatewayManagerEtag;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipv6PeeringConfig"] = args?.ipv6PeeringConfig;
+            resourceInputs["microsoftPeeringConfig"] = args?.microsoftPeeringConfig;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["peerASN"] = args?.peerASN;
+            resourceInputs["peeringName"] = args?.peeringName;
+            resourceInputs["peeringType"] = args?.peeringType;
+            resourceInputs["primaryAzurePort"] = args?.primaryAzurePort;
+            resourceInputs["primaryPeerAddressPrefix"] = args?.primaryPeerAddressPrefix;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["routeFilter"] = args?.routeFilter;
+            resourceInputs["secondaryAzurePort"] = args?.secondaryAzurePort;
+            resourceInputs["secondaryPeerAddressPrefix"] = args?.secondaryPeerAddressPrefix;
+            resourceInputs["sharedKey"] = args?.sharedKey;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["stats"] = args?.stats;
+            resourceInputs["vlanId"] = args?.vlanId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["expressRouteConnection"] = undefined /*out*/;

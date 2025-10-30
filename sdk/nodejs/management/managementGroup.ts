@@ -44,31 +44,31 @@ export class ManagementGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of children.
      */
-    public /*out*/ readonly children!: pulumi.Output<outputs.management.ManagementGroupChildInfoResponse[] | undefined>;
+    declare public /*out*/ readonly children: pulumi.Output<outputs.management.ManagementGroupChildInfoResponse[] | undefined>;
     /**
      * The details of a management group.
      */
-    public readonly details!: pulumi.Output<outputs.management.ManagementGroupDetailsResponse | undefined>;
+    declare public readonly details: pulumi.Output<outputs.management.ManagementGroupDetailsResponse | undefined>;
     /**
      * The friendly name of the management group.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource.  For example, Microsoft.Management/managementGroups
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagementGroup resource with the given unique name, arguments, and options.
@@ -81,10 +81,10 @@ export class ManagementGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["details"] = args ? args.details : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["groupId"] = args ? args.groupId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["details"] = args?.details;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["groupId"] = args?.groupId;
+            resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;

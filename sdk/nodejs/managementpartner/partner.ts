@@ -39,47 +39,47 @@ export class Partner extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * This is the DateTime when the partner was created.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string | undefined>;
     /**
      * Type of the partner
      */
-    public /*out*/ readonly etag!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<number | undefined>;
     /**
      * Name of the partner
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * This is the object id.
      */
-    public /*out*/ readonly objectId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly objectId: pulumi.Output<string | undefined>;
     /**
      * This is the partner id
      */
-    public readonly partnerId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerId: pulumi.Output<string | undefined>;
     /**
      * This is the partner name
      */
-    public /*out*/ readonly partnerName!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly partnerName: pulumi.Output<string | undefined>;
     /**
      * This is the tenant id.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Type of resource. "Microsoft.ManagementPartner/partners"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * This is the DateTime when the partner was updated.
      */
-    public /*out*/ readonly updatedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly updatedTime: pulumi.Output<string | undefined>;
     /**
      * This is the version.
      */
-    public /*out*/ readonly version!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<number | undefined>;
 
     /**
      * Create a Partner resource with the given unique name, arguments, and options.
@@ -92,7 +92,7 @@ export class Partner extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            resourceInputs["partnerId"] = args ? args.partnerId : undefined;
+            resourceInputs["partnerId"] = args?.partnerId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTime"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -44,36 +44,36 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Edge Profile of the resource
      */
-    public /*out*/ readonly edgeProfile!: pulumi.Output<outputs.databoxedge.EdgeProfileResponse>;
+    declare public /*out*/ readonly edgeProfile: pulumi.Output<outputs.databoxedge.EdgeProfileResponse>;
     /**
      * Role type.
      * Expected value is 'CloudEdgeManagement'.
      */
-    public readonly kind!: pulumi.Output<"CloudEdgeManagement">;
+    declare public readonly kind: pulumi.Output<"CloudEdgeManagement">;
     /**
      * Local Edge Management Status
      */
-    public /*out*/ readonly localManagementStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly localManagementStatus: pulumi.Output<string>;
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Role status.
      */
-    public readonly roleStatus!: pulumi.Output<string>;
+    declare public readonly roleStatus: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of Role
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CloudEdgeManagementRole resource with the given unique name, arguments, and options.
@@ -86,23 +86,23 @@ export class CloudEdgeManagementRole extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.roleStatus === undefined) && !opts.urn) {
+            if (args?.roleStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'roleStatus'");
             }
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
+            resourceInputs["deviceName"] = args?.deviceName;
             resourceInputs["kind"] = "CloudEdgeManagement";
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["roleStatus"] = args ? args.roleStatus : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["roleStatus"] = args?.roleStatus;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["edgeProfile"] = undefined /*out*/;
             resourceInputs["localManagementStatus"] = undefined /*out*/;

@@ -42,55 +42,55 @@ export class Target extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A list of components.
      */
-    public readonly components!: pulumi.Output<outputs.iotoperationsorchestrator.ComponentPropertiesResponse[] | undefined>;
+    declare public readonly components: pulumi.Output<outputs.iotoperationsorchestrator.ComponentPropertiesResponse[] | undefined>;
     /**
      * Edge location of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.iotoperationsorchestrator.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.iotoperationsorchestrator.ExtendedLocationResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Reconciliation Policy.
      */
-    public readonly reconciliationPolicy!: pulumi.Output<outputs.iotoperationsorchestrator.ReconciliationPolicyResponse | undefined>;
+    declare public readonly reconciliationPolicy: pulumi.Output<outputs.iotoperationsorchestrator.ReconciliationPolicyResponse | undefined>;
     /**
      * Deployment scope (such as Kubernetes namespace).
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.iotoperationsorchestrator.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.iotoperationsorchestrator.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Defines the device topology for a target or instance.
      */
-    public readonly topologies!: pulumi.Output<outputs.iotoperationsorchestrator.TopologiesPropertiesResponse[] | undefined>;
+    declare public readonly topologies: pulumi.Output<outputs.iotoperationsorchestrator.TopologiesPropertiesResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version of the particular resource.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a Target resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class Target extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["components"] = args ? args.components : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["reconciliationPolicy"] = args ? args.reconciliationPolicy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["topologies"] = args ? args.topologies : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["components"] = args?.components;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["reconciliationPolicy"] = args?.reconciliationPolicy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["topologies"] = args?.topologies;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

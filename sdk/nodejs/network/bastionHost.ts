@@ -44,88 +44,88 @@ export class BastionHost extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Enable/Disable Copy/Paste feature of the Bastion Host resource.
      */
-    public readonly disableCopyPaste!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableCopyPaste: pulumi.Output<boolean | undefined>;
     /**
      * FQDN for the endpoint on which bastion host is accessible.
      */
-    public readonly dnsName!: pulumi.Output<string | undefined>;
+    declare public readonly dnsName: pulumi.Output<string | undefined>;
     /**
      * Enable/Disable File Copy feature of the Bastion Host resource.
      */
-    public readonly enableFileCopy!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableFileCopy: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable IP Connect feature of the Bastion Host resource.
      */
-    public readonly enableIpConnect!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableIpConnect: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Kerberos feature of the Bastion Host resource.
      */
-    public readonly enableKerberos!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableKerberos: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Private Only feature of the Bastion Host resource.
      */
-    public readonly enablePrivateOnlyBastion!: pulumi.Output<boolean | undefined>;
+    declare public readonly enablePrivateOnlyBastion: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Session Recording feature of the Bastion Host resource.
      */
-    public readonly enableSessionRecording!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableSessionRecording: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Shareable Link of the Bastion Host resource.
      */
-    public readonly enableShareableLink!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableShareableLink: pulumi.Output<boolean | undefined>;
     /**
      * Enable/Disable Tunneling feature of the Bastion Host resource.
      */
-    public readonly enableTunneling!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableTunneling: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * IP configuration of the Bastion Host resource.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.BastionHostIPConfigurationResponse[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.BastionHostIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly networkAcls!: pulumi.Output<outputs.network.BastionHostPropertiesFormatResponseNetworkAcls | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly networkAcls: pulumi.Output<outputs.network.BastionHostPropertiesFormatResponseNetworkAcls | undefined>;
     /**
      * The provisioning state of the bastion host resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The scale units for the Bastion Host resource.
      */
-    public readonly scaleUnits!: pulumi.Output<number | undefined>;
+    declare public readonly scaleUnits: pulumi.Output<number | undefined>;
     /**
      * The sku of this Bastion Host.
      */
-    public readonly sku!: pulumi.Output<outputs.network.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.SkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Reference to an existing virtual network required for Developer Bastion Host only.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * A list of availability zones denoting where the resource needs to come from.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a BastionHost resource with the given unique name, arguments, and options.
@@ -138,29 +138,29 @@ export class BastionHost extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["bastionHostName"] = args ? args.bastionHostName : undefined;
-            resourceInputs["disableCopyPaste"] = (args ? args.disableCopyPaste : undefined) ?? false;
-            resourceInputs["dnsName"] = args ? args.dnsName : undefined;
-            resourceInputs["enableFileCopy"] = (args ? args.enableFileCopy : undefined) ?? false;
-            resourceInputs["enableIpConnect"] = (args ? args.enableIpConnect : undefined) ?? false;
-            resourceInputs["enableKerberos"] = (args ? args.enableKerberos : undefined) ?? false;
-            resourceInputs["enablePrivateOnlyBastion"] = (args ? args.enablePrivateOnlyBastion : undefined) ?? false;
-            resourceInputs["enableSessionRecording"] = (args ? args.enableSessionRecording : undefined) ?? false;
-            resourceInputs["enableShareableLink"] = (args ? args.enableShareableLink : undefined) ?? false;
-            resourceInputs["enableTunneling"] = (args ? args.enableTunneling : undefined) ?? false;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scaleUnits"] = args ? args.scaleUnits : undefined;
+            resourceInputs["bastionHostName"] = args?.bastionHostName;
+            resourceInputs["disableCopyPaste"] = (args?.disableCopyPaste) ?? false;
+            resourceInputs["dnsName"] = args?.dnsName;
+            resourceInputs["enableFileCopy"] = (args?.enableFileCopy) ?? false;
+            resourceInputs["enableIpConnect"] = (args?.enableIpConnect) ?? false;
+            resourceInputs["enableKerberos"] = (args?.enableKerberos) ?? false;
+            resourceInputs["enablePrivateOnlyBastion"] = (args?.enablePrivateOnlyBastion) ?? false;
+            resourceInputs["enableSessionRecording"] = (args?.enableSessionRecording) ?? false;
+            resourceInputs["enableShareableLink"] = (args?.enableShareableLink) ?? false;
+            resourceInputs["enableTunneling"] = (args?.enableTunneling) ?? false;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkAcls"] = args?.networkAcls;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scaleUnits"] = args?.scaleUnits;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.network.skuArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

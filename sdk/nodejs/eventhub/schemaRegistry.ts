@@ -44,41 +44,41 @@ export class SchemaRegistry extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Exact time the Schema Group was created.
      */
-    public /*out*/ readonly createdAtUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdAtUtc: pulumi.Output<string>;
     /**
      * The ETag value.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * dictionary object for SchemaGroup group properties
      */
-    public readonly groupProperties!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly groupProperties: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly schemaCompatibility!: pulumi.Output<string | undefined>;
-    public readonly schemaType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly schemaCompatibility: pulumi.Output<string | undefined>;
+    declare public readonly schemaType: pulumi.Output<string | undefined>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventhub.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventhub.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Exact time the Schema Group was updated
      */
-    public /*out*/ readonly updatedAtUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedAtUtc: pulumi.Output<string>;
 
     /**
      * Create a SchemaRegistry resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class SchemaRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["groupProperties"] = args ? args.groupProperties : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaCompatibility"] = args ? args.schemaCompatibility : undefined;
-            resourceInputs["schemaGroupName"] = args ? args.schemaGroupName : undefined;
-            resourceInputs["schemaType"] = args ? args.schemaType : undefined;
+            resourceInputs["groupProperties"] = args?.groupProperties;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaCompatibility"] = args?.schemaCompatibility;
+            resourceInputs["schemaGroupName"] = args?.schemaGroupName;
+            resourceInputs["schemaType"] = args?.schemaType;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdAtUtc"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

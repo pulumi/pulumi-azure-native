@@ -44,67 +44,67 @@ export class PrivateEndpoint extends pulumi.CustomResource {
     /**
      * Application security groups in which the private endpoint IP configuration is included.
      */
-    public readonly applicationSecurityGroups!: pulumi.Output<outputs.network.ApplicationSecurityGroupResponse[] | undefined>;
+    declare public readonly applicationSecurityGroups: pulumi.Output<outputs.network.ApplicationSecurityGroupResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * An array of custom dns configurations.
      */
-    public readonly customDnsConfigs!: pulumi.Output<outputs.network.CustomDnsConfigPropertiesFormatResponse[] | undefined>;
+    declare public readonly customDnsConfigs: pulumi.Output<outputs.network.CustomDnsConfigPropertiesFormatResponse[] | undefined>;
     /**
      * The custom name of the network interface attached to the private endpoint.
      */
-    public readonly customNetworkInterfaceName!: pulumi.Output<string | undefined>;
+    declare public readonly customNetworkInterfaceName: pulumi.Output<string | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the load balancer.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.PrivateEndpointIPConfigurationResponse[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.PrivateEndpointIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
      */
-    public readonly manualPrivateLinkServiceConnections!: pulumi.Output<outputs.network.PrivateLinkServiceConnectionResponse[] | undefined>;
+    declare public readonly manualPrivateLinkServiceConnections: pulumi.Output<outputs.network.PrivateLinkServiceConnectionResponse[] | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * An array of references to the network interfaces created for this private endpoint.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
     /**
      * A grouping of information about the connection to the remote resource.
      */
-    public readonly privateLinkServiceConnections!: pulumi.Output<outputs.network.PrivateLinkServiceConnectionResponse[] | undefined>;
+    declare public readonly privateLinkServiceConnections: pulumi.Output<outputs.network.PrivateLinkServiceConnectionResponse[] | undefined>;
     /**
      * The provisioning state of the private endpoint resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The ID of the subnet from which the private IP will be allocated.
      */
-    public readonly subnet!: pulumi.Output<outputs.network.SubnetResponse | undefined>;
+    declare public readonly subnet: pulumi.Output<outputs.network.SubnetResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PrivateEndpoint resource with the given unique name, arguments, and options.
@@ -117,22 +117,22 @@ export class PrivateEndpoint extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationSecurityGroups"] = args ? args.applicationSecurityGroups : undefined;
-            resourceInputs["customDnsConfigs"] = args ? args.customDnsConfigs : undefined;
-            resourceInputs["customNetworkInterfaceName"] = args ? args.customNetworkInterfaceName : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manualPrivateLinkServiceConnections"] = args ? args.manualPrivateLinkServiceConnections : undefined;
-            resourceInputs["privateEndpointName"] = args ? args.privateEndpointName : undefined;
-            resourceInputs["privateLinkServiceConnections"] = args ? args.privateLinkServiceConnections : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["applicationSecurityGroups"] = args?.applicationSecurityGroups;
+            resourceInputs["customDnsConfigs"] = args?.customDnsConfigs;
+            resourceInputs["customNetworkInterfaceName"] = args?.customNetworkInterfaceName;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manualPrivateLinkServiceConnections"] = args?.manualPrivateLinkServiceConnections;
+            resourceInputs["privateEndpointName"] = args?.privateEndpointName;
+            resourceInputs["privateLinkServiceConnections"] = args?.privateLinkServiceConnections;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["subnet"] = args ? (args.subnet ? pulumi.output(args.subnet).apply(inputs.network.subnetArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

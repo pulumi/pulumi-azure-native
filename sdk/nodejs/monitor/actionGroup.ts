@@ -44,83 +44,83 @@ export class ActionGroup extends pulumi.CustomResource {
     /**
      * The list of ARM role receivers that are part of this action group. Roles are Azure RBAC roles and only built-in roles are supported.
      */
-    public readonly armRoleReceivers!: pulumi.Output<outputs.monitor.ArmRoleReceiverResponse[] | undefined>;
+    declare public readonly armRoleReceivers: pulumi.Output<outputs.monitor.ArmRoleReceiverResponse[] | undefined>;
     /**
      * The list of AutomationRunbook receivers that are part of this action group.
      */
-    public readonly automationRunbookReceivers!: pulumi.Output<outputs.monitor.AutomationRunbookReceiverResponse[] | undefined>;
+    declare public readonly automationRunbookReceivers: pulumi.Output<outputs.monitor.AutomationRunbookReceiverResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The list of AzureAppPush receivers that are part of this action group.
      */
-    public readonly azureAppPushReceivers!: pulumi.Output<outputs.monitor.AzureAppPushReceiverResponse[] | undefined>;
+    declare public readonly azureAppPushReceivers: pulumi.Output<outputs.monitor.AzureAppPushReceiverResponse[] | undefined>;
     /**
      * The list of azure function receivers that are part of this action group.
      */
-    public readonly azureFunctionReceivers!: pulumi.Output<outputs.monitor.AzureFunctionReceiverResponse[] | undefined>;
+    declare public readonly azureFunctionReceivers: pulumi.Output<outputs.monitor.AzureFunctionReceiverResponse[] | undefined>;
     /**
      * The list of email receivers that are part of this action group.
      */
-    public readonly emailReceivers!: pulumi.Output<outputs.monitor.EmailReceiverResponse[] | undefined>;
+    declare public readonly emailReceivers: pulumi.Output<outputs.monitor.EmailReceiverResponse[] | undefined>;
     /**
      * Indicates whether this action group is enabled. If an action group is not enabled, then none of its receivers will receive communications.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * The list of event hub receivers that are part of this action group.
      */
-    public readonly eventHubReceivers!: pulumi.Output<outputs.monitor.EventHubReceiverResponse[] | undefined>;
+    declare public readonly eventHubReceivers: pulumi.Output<outputs.monitor.EventHubReceiverResponse[] | undefined>;
     /**
      * The short name of the action group. This will be used in SMS messages.
      */
-    public readonly groupShortName!: pulumi.Output<string>;
+    declare public readonly groupShortName: pulumi.Output<string>;
     /**
      * Managed service identity (system assigned and/or user assigned identities)
      */
-    public readonly identity!: pulumi.Output<outputs.monitor.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.monitor.ManagedServiceIdentityResponse | undefined>;
     /**
      * The list of incident receivers that are part of this action group.
      */
-    public readonly incidentReceivers!: pulumi.Output<outputs.monitor.IncidentReceiverResponse[] | undefined>;
+    declare public readonly incidentReceivers: pulumi.Output<outputs.monitor.IncidentReceiverResponse[] | undefined>;
     /**
      * The list of ITSM receivers that are part of this action group.
      */
-    public readonly itsmReceivers!: pulumi.Output<outputs.monitor.ItsmReceiverResponse[] | undefined>;
+    declare public readonly itsmReceivers: pulumi.Output<outputs.monitor.ItsmReceiverResponse[] | undefined>;
     /**
      * Resource location
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The list of logic app receivers that are part of this action group.
      */
-    public readonly logicAppReceivers!: pulumi.Output<outputs.monitor.LogicAppReceiverResponse[] | undefined>;
+    declare public readonly logicAppReceivers: pulumi.Output<outputs.monitor.LogicAppReceiverResponse[] | undefined>;
     /**
      * Azure resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of SMS receivers that are part of this action group.
      */
-    public readonly smsReceivers!: pulumi.Output<outputs.monitor.SmsReceiverResponse[] | undefined>;
+    declare public readonly smsReceivers: pulumi.Output<outputs.monitor.SmsReceiverResponse[] | undefined>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The list of voice receivers that are part of this action group.
      */
-    public readonly voiceReceivers!: pulumi.Output<outputs.monitor.VoiceReceiverResponse[] | undefined>;
+    declare public readonly voiceReceivers: pulumi.Output<outputs.monitor.VoiceReceiverResponse[] | undefined>;
     /**
      * The list of webhook receivers that are part of this action group.
      */
-    public readonly webhookReceivers!: pulumi.Output<outputs.monitor.WebhookReceiverResponse[] | undefined>;
+    declare public readonly webhookReceivers: pulumi.Output<outputs.monitor.WebhookReceiverResponse[] | undefined>;
 
     /**
      * Create a ActionGroup resource with the given unique name, arguments, and options.
@@ -133,34 +133,34 @@ export class ActionGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.groupShortName === undefined) && !opts.urn) {
+            if (args?.groupShortName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'groupShortName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["actionGroupName"] = args ? args.actionGroupName : undefined;
-            resourceInputs["armRoleReceivers"] = args ? args.armRoleReceivers : undefined;
-            resourceInputs["automationRunbookReceivers"] = args ? args.automationRunbookReceivers : undefined;
-            resourceInputs["azureAppPushReceivers"] = args ? args.azureAppPushReceivers : undefined;
-            resourceInputs["azureFunctionReceivers"] = args ? args.azureFunctionReceivers : undefined;
-            resourceInputs["emailReceivers"] = args ? args.emailReceivers : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["eventHubReceivers"] = args ? args.eventHubReceivers : undefined;
-            resourceInputs["groupShortName"] = args ? args.groupShortName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["incidentReceivers"] = args ? args.incidentReceivers : undefined;
-            resourceInputs["itsmReceivers"] = args ? args.itsmReceivers : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["logicAppReceivers"] = args ? args.logicAppReceivers : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["smsReceivers"] = args ? args.smsReceivers : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["voiceReceivers"] = args ? args.voiceReceivers : undefined;
-            resourceInputs["webhookReceivers"] = args ? args.webhookReceivers : undefined;
+            resourceInputs["actionGroupName"] = args?.actionGroupName;
+            resourceInputs["armRoleReceivers"] = args?.armRoleReceivers;
+            resourceInputs["automationRunbookReceivers"] = args?.automationRunbookReceivers;
+            resourceInputs["azureAppPushReceivers"] = args?.azureAppPushReceivers;
+            resourceInputs["azureFunctionReceivers"] = args?.azureFunctionReceivers;
+            resourceInputs["emailReceivers"] = args?.emailReceivers;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["eventHubReceivers"] = args?.eventHubReceivers;
+            resourceInputs["groupShortName"] = args?.groupShortName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["incidentReceivers"] = args?.incidentReceivers;
+            resourceInputs["itsmReceivers"] = args?.itsmReceivers;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["logicAppReceivers"] = args?.logicAppReceivers;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["smsReceivers"] = args?.smsReceivers;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["voiceReceivers"] = args?.voiceReceivers;
+            resourceInputs["webhookReceivers"] = args?.webhookReceivers;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

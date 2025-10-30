@@ -42,67 +42,67 @@ export class AzureBareMetalInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies the Azure Bare Metal Instance unique ID.
      */
-    public readonly azureBareMetalInstanceId!: pulumi.Output<string | undefined>;
+    declare public readonly azureBareMetalInstanceId: pulumi.Output<string | undefined>;
     /**
      * Specifies the hardware settings for the Azure Bare Metal Instance.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.baremetalinfrastructure.HardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.baremetalinfrastructure.HardwareProfileResponse | undefined>;
     /**
      * Hardware revision of an Azure Bare Metal Instance
      */
-    public readonly hwRevision!: pulumi.Output<string | undefined>;
+    declare public readonly hwRevision: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the network settings for the Azure Bare Metal Instance.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.baremetalinfrastructure.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.baremetalinfrastructure.NetworkProfileResponse | undefined>;
     /**
      * Specifies the operating system settings for the Azure Bare Metal Instance.
      */
-    public readonly osProfile!: pulumi.Output<outputs.baremetalinfrastructure.OSProfileResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.baremetalinfrastructure.OSProfileResponse | undefined>;
     /**
      * ARM ID of another AzureBareMetalInstance that will share a network with this AzureBareMetalInstance
      */
-    public readonly partnerNodeId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerNodeId: pulumi.Output<string | undefined>;
     /**
      * Resource power state
      */
-    public readonly powerState!: pulumi.Output<string | undefined>;
+    declare public readonly powerState: pulumi.Output<string | undefined>;
     /**
      * State of provisioning of the AzureBareMetalInstance
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource proximity placement group
      */
-    public readonly proximityPlacementGroup!: pulumi.Output<string | undefined>;
+    declare public readonly proximityPlacementGroup: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage settings for the Azure Bare Metal Instance disks.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.baremetalinfrastructure.StorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.baremetalinfrastructure.StorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.baremetalinfrastructure.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.baremetalinfrastructure.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureBareMetalInstance resource with the given unique name, arguments, and options.
@@ -115,22 +115,22 @@ export class AzureBareMetalInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureBareMetalInstanceId"] = args ? args.azureBareMetalInstanceId : undefined;
-            resourceInputs["azureBareMetalInstanceName"] = args ? args.azureBareMetalInstanceName : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["hwRevision"] = args ? args.hwRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["partnerNodeId"] = args ? args.partnerNodeId : undefined;
-            resourceInputs["powerState"] = args ? args.powerState : undefined;
-            resourceInputs["proximityPlacementGroup"] = args ? args.proximityPlacementGroup : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["azureBareMetalInstanceId"] = args?.azureBareMetalInstanceId;
+            resourceInputs["azureBareMetalInstanceName"] = args?.azureBareMetalInstanceName;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["hwRevision"] = args?.hwRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["partnerNodeId"] = args?.partnerNodeId;
+            resourceInputs["powerState"] = args?.powerState;
+            resourceInputs["proximityPlacementGroup"] = args?.proximityPlacementGroup;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageProfile"] = args?.storageProfile;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

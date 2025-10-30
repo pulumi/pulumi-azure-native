@@ -44,35 +44,35 @@ export class SandboxCustomImage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The base image name on which the custom image is built on top of. It can be one of the LanguageExtensionImageName (e.g.: 'Python3_10_8', 'Python3_10_8_DL') or the name of an existing custom image. Either this property or languageVersion should be specified.
      */
-    public readonly baseImageName!: pulumi.Output<string | undefined>;
+    declare public readonly baseImageName: pulumi.Output<string | undefined>;
     /**
      * The language name, for example Python.
      */
-    public readonly language!: pulumi.Output<string>;
+    declare public readonly language: pulumi.Output<string>;
     /**
      * The version of the language. Either this property or baseImageName should be specified.
      */
-    public readonly languageVersion!: pulumi.Output<string | undefined>;
+    declare public readonly languageVersion: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The requirements file content.
      */
-    public readonly requirementsFileContent!: pulumi.Output<string | undefined>;
+    declare public readonly requirementsFileContent: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a SandboxCustomImage resource with the given unique name, arguments, and options.
@@ -85,22 +85,22 @@ export class SandboxCustomImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.language === undefined) && !opts.urn) {
+            if (args?.language === undefined && !opts.urn) {
                 throw new Error("Missing required property 'language'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["baseImageName"] = args ? args.baseImageName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["language"] = args ? args.language : undefined;
-            resourceInputs["languageVersion"] = args ? args.languageVersion : undefined;
-            resourceInputs["requirementsFileContent"] = args ? args.requirementsFileContent : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sandboxCustomImageName"] = args ? args.sandboxCustomImageName : undefined;
+            resourceInputs["baseImageName"] = args?.baseImageName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["language"] = args?.language;
+            resourceInputs["languageVersion"] = args?.languageVersion;
+            resourceInputs["requirementsFileContent"] = args?.requirementsFileContent;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sandboxCustomImageName"] = args?.sandboxCustomImageName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

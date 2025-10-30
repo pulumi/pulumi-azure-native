@@ -44,95 +44,95 @@ export class FirewallPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The parent firewall policy from which rules are inherited.
      */
-    public readonly basePolicy!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly basePolicy: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * List of references to Child Firewall Policies.
      */
-    public /*out*/ readonly childPolicies!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly childPolicies: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * DNS Proxy Settings definition.
      */
-    public readonly dnsSettings!: pulumi.Output<outputs.network.DnsSettingsResponse | undefined>;
+    declare public readonly dnsSettings: pulumi.Output<outputs.network.DnsSettingsResponse | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Explicit Proxy Settings definition.
      */
-    public readonly explicitProxy!: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
+    declare public readonly explicitProxy: pulumi.Output<outputs.network.ExplicitProxyResponse | undefined>;
     /**
      * List of references to Azure Firewalls that this Firewall Policy is associated with.
      */
-    public /*out*/ readonly firewalls!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly firewalls: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The identity of the firewall policy.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
     /**
      * Insights on Firewall Policy.
      */
-    public readonly insights!: pulumi.Output<outputs.network.FirewallPolicyInsightsResponse | undefined>;
+    declare public readonly insights: pulumi.Output<outputs.network.FirewallPolicyInsightsResponse | undefined>;
     /**
      * The configuration for Intrusion detection.
      */
-    public readonly intrusionDetection!: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetectionResponse | undefined>;
+    declare public readonly intrusionDetection: pulumi.Output<outputs.network.FirewallPolicyIntrusionDetectionResponse | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the firewall policy resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * List of references to FirewallPolicyRuleCollectionGroups.
      */
-    public /*out*/ readonly ruleCollectionGroups!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly ruleCollectionGroups: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)
      */
-    public /*out*/ readonly size!: pulumi.Output<string>;
+    declare public /*out*/ readonly size: pulumi.Output<string>;
     /**
      * The Firewall Policy SKU.
      */
-    public readonly sku!: pulumi.Output<outputs.network.FirewallPolicySkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.network.FirewallPolicySkuResponse | undefined>;
     /**
      * The private IP addresses/IP ranges to which traffic will not be SNAT.
      */
-    public readonly snat!: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
+    declare public readonly snat: pulumi.Output<outputs.network.FirewallPolicySNATResponse | undefined>;
     /**
      * SQL Settings definition.
      */
-    public readonly sql!: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
+    declare public readonly sql: pulumi.Output<outputs.network.FirewallPolicySQLResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The operation mode for Threat Intelligence.
      */
-    public readonly threatIntelMode!: pulumi.Output<string | undefined>;
+    declare public readonly threatIntelMode: pulumi.Output<string | undefined>;
     /**
      * ThreatIntel Whitelist for Firewall Policy.
      */
-    public readonly threatIntelWhitelist!: pulumi.Output<outputs.network.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
+    declare public readonly threatIntelWhitelist: pulumi.Output<outputs.network.FirewallPolicyThreatIntelWhitelistResponse | undefined>;
     /**
      * TLS Configuration definition.
      */
-    public readonly transportSecurity!: pulumi.Output<outputs.network.FirewallPolicyTransportSecurityResponse | undefined>;
+    declare public readonly transportSecurity: pulumi.Output<outputs.network.FirewallPolicyTransportSecurityResponse | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FirewallPolicy resource with the given unique name, arguments, and options.
@@ -145,26 +145,26 @@ export class FirewallPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["basePolicy"] = args ? args.basePolicy : undefined;
-            resourceInputs["dnsSettings"] = args ? args.dnsSettings : undefined;
-            resourceInputs["explicitProxy"] = args ? args.explicitProxy : undefined;
-            resourceInputs["firewallPolicyName"] = args ? args.firewallPolicyName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["insights"] = args ? args.insights : undefined;
-            resourceInputs["intrusionDetection"] = args ? args.intrusionDetection : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["snat"] = args ? args.snat : undefined;
-            resourceInputs["sql"] = args ? args.sql : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["threatIntelMode"] = args ? args.threatIntelMode : undefined;
-            resourceInputs["threatIntelWhitelist"] = args ? args.threatIntelWhitelist : undefined;
-            resourceInputs["transportSecurity"] = args ? args.transportSecurity : undefined;
+            resourceInputs["basePolicy"] = args?.basePolicy;
+            resourceInputs["dnsSettings"] = args?.dnsSettings;
+            resourceInputs["explicitProxy"] = args?.explicitProxy;
+            resourceInputs["firewallPolicyName"] = args?.firewallPolicyName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["insights"] = args?.insights;
+            resourceInputs["intrusionDetection"] = args?.intrusionDetection;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["snat"] = args?.snat;
+            resourceInputs["sql"] = args?.sql;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["threatIntelMode"] = args?.threatIntelMode;
+            resourceInputs["threatIntelWhitelist"] = args?.threatIntelWhitelist;
+            resourceInputs["transportSecurity"] = args?.transportSecurity;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["childPolicies"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

@@ -41,43 +41,43 @@ export class DataExport extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The latest data export rule modification time.
      */
-    public readonly createdDate!: pulumi.Output<string | undefined>;
+    declare public readonly createdDate: pulumi.Output<string | undefined>;
     /**
      * The data export rule ID.
      */
-    public readonly dataExportId!: pulumi.Output<string | undefined>;
+    declare public readonly dataExportId: pulumi.Output<string | undefined>;
     /**
      * Active when enabled.
      */
-    public readonly enable!: pulumi.Output<boolean | undefined>;
+    declare public readonly enable: pulumi.Output<boolean | undefined>;
     /**
      * Optional. Allows to define an Event Hub name. Not applicable when destination is Storage Account.
      */
-    public readonly eventHubName!: pulumi.Output<string | undefined>;
+    declare public readonly eventHubName: pulumi.Output<string | undefined>;
     /**
      * Date and time when the export was last modified.
      */
-    public readonly lastModifiedDate!: pulumi.Output<string | undefined>;
+    declare public readonly lastModifiedDate: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure.
      */
-    public readonly resourceId!: pulumi.Output<string>;
+    declare public readonly resourceId: pulumi.Output<string>;
     /**
      * An array of tables to export, for example: [“Heartbeat, SecurityEvent”].
      */
-    public readonly tableNames!: pulumi.Output<string[]>;
+    declare public readonly tableNames: pulumi.Output<string[]>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DataExport resource with the given unique name, arguments, and options.
@@ -90,28 +90,28 @@ export class DataExport extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceId === undefined) && !opts.urn) {
+            if (args?.resourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceId'");
             }
-            if ((!args || args.tableNames === undefined) && !opts.urn) {
+            if (args?.tableNames === undefined && !opts.urn) {
                 throw new Error("Missing required property 'tableNames'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["createdDate"] = args ? args.createdDate : undefined;
-            resourceInputs["dataExportId"] = args ? args.dataExportId : undefined;
-            resourceInputs["dataExportName"] = args ? args.dataExportName : undefined;
-            resourceInputs["enable"] = args ? args.enable : undefined;
-            resourceInputs["eventHubName"] = args ? args.eventHubName : undefined;
-            resourceInputs["lastModifiedDate"] = args ? args.lastModifiedDate : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["tableNames"] = args ? args.tableNames : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["createdDate"] = args?.createdDate;
+            resourceInputs["dataExportId"] = args?.dataExportId;
+            resourceInputs["dataExportName"] = args?.dataExportName;
+            resourceInputs["enable"] = args?.enable;
+            resourceInputs["eventHubName"] = args?.eventHubName;
+            resourceInputs["lastModifiedDate"] = args?.lastModifiedDate;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["tableNames"] = args?.tableNames;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

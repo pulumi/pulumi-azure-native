@@ -44,79 +44,79 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Boolean indicating whether this is an existing local virtual machine or if one should be created.
      */
-    public readonly createFromLocal!: pulumi.Output<boolean | undefined>;
+    declare public readonly createFromLocal: pulumi.Output<boolean | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
     /**
      * Guest agent install status.
      */
-    public /*out*/ readonly guestAgentInstallStatus!: pulumi.Output<outputs.azurestackhci.GuestAgentInstallStatusResponse | undefined>;
+    declare public /*out*/ readonly guestAgentInstallStatus: pulumi.Output<outputs.azurestackhci.GuestAgentInstallStatusResponse | undefined>;
     /**
      * HardwareProfile - Specifies the hardware settings for the virtual machine instance.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesHardwareProfileResponse | undefined>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.azurestackhci.HttpProxyConfigurationResponse | undefined>;
+    declare public readonly httpProxyConfig: pulumi.Output<outputs.azurestackhci.HttpProxyConfigurationResponse | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.azurestackhci.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.azurestackhci.ManagedServiceIdentityResponse | undefined>;
     /**
      * The virtual machine instance view.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.azurestackhci.VirtualMachineInstanceViewResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * NetworkProfile - describes the network configuration the virtual machine instance
      */
-    public readonly networkProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesNetworkProfileResponse | undefined>;
     /**
      * OsProfile - describes the configuration of the operating system and sets login data
      */
-    public readonly osProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesOsProfileResponse | undefined>;
     /**
      * Provisioning state of the virtual machine instance.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Unique identifier defined by ARC to identify the guest of the VM.
      */
-    public readonly resourceUid!: pulumi.Output<string | undefined>;
+    declare public readonly resourceUid: pulumi.Output<string | undefined>;
     /**
      * SecurityProfile - Specifies the security settings for the virtual machine instance.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesSecurityProfileResponse | undefined>;
     /**
      * The observed state of virtual machine instances
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstanceStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.azurestackhci.VirtualMachineInstanceStatusResponse>;
     /**
      * StorageProfile - contains information about the disks and storage information for the virtual machine instance
      */
-    public readonly storageProfile!: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.azurestackhci.VirtualMachineInstancePropertiesStorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unique identifier for the vm resource.
      */
-    public /*out*/ readonly vmId!: pulumi.Output<string>;
+    declare public /*out*/ readonly vmId: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineInstance resource with the given unique name, arguments, and options.
@@ -129,20 +129,20 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["createFromLocal"] = (args ? args.createFromLocal : undefined) ?? false;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
+            resourceInputs["createFromLocal"] = (args?.createFromLocal) ?? false;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
             resourceInputs["hardwareProfile"] = args ? (args.hardwareProfile ? pulumi.output(args.hardwareProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesHardwareProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["networkProfile"] = args?.networkProfile;
             resourceInputs["osProfile"] = args ? (args.osProfile ? pulumi.output(args.osProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesOsProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["resourceUid"] = args?.resourceUid;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["securityProfile"] = args ? (args.securityProfile ? pulumi.output(args.securityProfile).apply(inputs.azurestackhci.virtualMachineInstancePropertiesSecurityProfileArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["guestAgentInstallStatus"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;

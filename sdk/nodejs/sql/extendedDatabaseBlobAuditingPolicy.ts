@@ -104,11 +104,11 @@ export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
      * 
      * For more information, see [Database-Level Audit Actions](https://docs.microsoft.com/en-us/sql/relational-databases/security/auditing/sql-server-audit-action-groups-and-actions#database-level-audit-actions)
      */
-    public readonly auditActionsAndGroups!: pulumi.Output<string[] | undefined>;
+    declare public readonly auditActionsAndGroups: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Specifies whether audit events are sent to Azure Monitor. 
      * In order to send the events to Azure Monitor, specify 'State' as 'Enabled' and 'IsAzureMonitorTargetEnabled' as true.
@@ -122,48 +122,48 @@ export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
      * For more information, see [Diagnostic Settings REST API](https://go.microsoft.com/fwlink/?linkid=2033207)
      * or [Diagnostic Settings PowerShell](https://go.microsoft.com/fwlink/?linkid=2033043)
      */
-    public readonly isAzureMonitorTargetEnabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly isAzureMonitorTargetEnabled: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether Managed Identity is used to access blob storage
      */
-    public readonly isManagedIdentityInUse!: pulumi.Output<boolean | undefined>;
+    declare public readonly isManagedIdentityInUse: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether storageAccountAccessKey value is the storage's secondary key.
      */
-    public readonly isStorageSecondaryKeyInUse!: pulumi.Output<boolean | undefined>;
+    declare public readonly isStorageSecondaryKeyInUse: pulumi.Output<boolean | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies condition of where clause when creating an audit.
      */
-    public readonly predicateExpression!: pulumi.Output<string | undefined>;
+    declare public readonly predicateExpression: pulumi.Output<string | undefined>;
     /**
      * Specifies the amount of time in milliseconds that can elapse before audit actions are forced to be processed.
      * The default minimum value is 1000 (1 second). The maximum is 2,147,483,647.
      */
-    public readonly queueDelayMs!: pulumi.Output<number | undefined>;
+    declare public readonly queueDelayMs: pulumi.Output<number | undefined>;
     /**
      * Specifies the number of days to keep in the audit logs in the storage account.
      */
-    public readonly retentionDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionDays: pulumi.Output<number | undefined>;
     /**
      * Specifies the state of the audit. If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled are required.
      */
-    public readonly state!: pulumi.Output<string>;
+    declare public readonly state: pulumi.Output<string>;
     /**
      * Specifies the blob storage subscription Id.
      */
-    public readonly storageAccountSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). If state is Enabled, storageEndpoint or isAzureMonitorTargetEnabled is required.
      */
-    public readonly storageEndpoint!: pulumi.Output<string | undefined>;
+    declare public readonly storageEndpoint: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ExtendedDatabaseBlobAuditingPolicy resource with the given unique name, arguments, and options.
@@ -176,33 +176,33 @@ export class ExtendedDatabaseBlobAuditingPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            if ((!args || args.state === undefined) && !opts.urn) {
+            if (args?.state === undefined && !opts.urn) {
                 throw new Error("Missing required property 'state'");
             }
-            resourceInputs["auditActionsAndGroups"] = args ? args.auditActionsAndGroups : undefined;
-            resourceInputs["blobAuditingPolicyName"] = args ? args.blobAuditingPolicyName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["isAzureMonitorTargetEnabled"] = args ? args.isAzureMonitorTargetEnabled : undefined;
-            resourceInputs["isManagedIdentityInUse"] = args ? args.isManagedIdentityInUse : undefined;
-            resourceInputs["isStorageSecondaryKeyInUse"] = args ? args.isStorageSecondaryKeyInUse : undefined;
-            resourceInputs["predicateExpression"] = args ? args.predicateExpression : undefined;
-            resourceInputs["queueDelayMs"] = args ? args.queueDelayMs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionDays"] = args ? args.retentionDays : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
-            resourceInputs["state"] = args ? args.state : undefined;
-            resourceInputs["storageAccountAccessKey"] = args ? args.storageAccountAccessKey : undefined;
-            resourceInputs["storageAccountSubscriptionId"] = args ? args.storageAccountSubscriptionId : undefined;
-            resourceInputs["storageEndpoint"] = args ? args.storageEndpoint : undefined;
+            resourceInputs["auditActionsAndGroups"] = args?.auditActionsAndGroups;
+            resourceInputs["blobAuditingPolicyName"] = args?.blobAuditingPolicyName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["isAzureMonitorTargetEnabled"] = args?.isAzureMonitorTargetEnabled;
+            resourceInputs["isManagedIdentityInUse"] = args?.isManagedIdentityInUse;
+            resourceInputs["isStorageSecondaryKeyInUse"] = args?.isStorageSecondaryKeyInUse;
+            resourceInputs["predicateExpression"] = args?.predicateExpression;
+            resourceInputs["queueDelayMs"] = args?.queueDelayMs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionDays"] = args?.retentionDays;
+            resourceInputs["serverName"] = args?.serverName;
+            resourceInputs["state"] = args?.state;
+            resourceInputs["storageAccountAccessKey"] = args?.storageAccountAccessKey;
+            resourceInputs["storageAccountSubscriptionId"] = args?.storageAccountSubscriptionId;
+            resourceInputs["storageEndpoint"] = args?.storageEndpoint;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

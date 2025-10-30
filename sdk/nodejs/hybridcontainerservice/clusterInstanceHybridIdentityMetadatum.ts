@@ -44,31 +44,31 @@ export class ClusterInstanceHybridIdentityMetadatum extends pulumi.CustomResourc
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Onboarding public key for provisioning the Managed identity for the connected cluster.
      */
-    public readonly publicKey!: pulumi.Output<string | undefined>;
+    declare public readonly publicKey: pulumi.Output<string | undefined>;
     /**
      * Unique id of the parent provisioned cluster resource.
      */
-    public readonly resourceUid!: pulumi.Output<string | undefined>;
+    declare public readonly resourceUid: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ClusterInstanceHybridIdentityMetadatum resource with the given unique name, arguments, and options.
@@ -81,12 +81,12 @@ export class ClusterInstanceHybridIdentityMetadatum extends pulumi.CustomResourc
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectedClusterResourceUri === undefined) && !opts.urn) {
+            if (args?.connectedClusterResourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectedClusterResourceUri'");
             }
-            resourceInputs["connectedClusterResourceUri"] = args ? args.connectedClusterResourceUri : undefined;
-            resourceInputs["publicKey"] = args ? args.publicKey : undefined;
-            resourceInputs["resourceUid"] = args ? args.resourceUid : undefined;
+            resourceInputs["connectedClusterResourceUri"] = args?.connectedClusterResourceUri;
+            resourceInputs["publicKey"] = args?.publicKey;
+            resourceInputs["resourceUid"] = args?.resourceUid;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

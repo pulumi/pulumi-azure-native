@@ -44,39 +44,39 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The private IP address external mapping for NAT.
      */
-    public readonly externalMappings!: pulumi.Output<outputs.network.VpnNatRuleMappingResponse[] | undefined>;
+    declare public readonly externalMappings: pulumi.Output<outputs.network.VpnNatRuleMappingResponse[] | undefined>;
     /**
      * The private IP address internal mapping for NAT.
      */
-    public readonly internalMappings!: pulumi.Output<outputs.network.VpnNatRuleMappingResponse[] | undefined>;
+    declare public readonly internalMappings: pulumi.Output<outputs.network.VpnNatRuleMappingResponse[] | undefined>;
     /**
      * The IP Configuration ID this NAT rule applies to.
      */
-    public readonly ipConfigurationId!: pulumi.Output<string | undefined>;
+    declare public readonly ipConfigurationId: pulumi.Output<string | undefined>;
     /**
      * The Source NAT direction of a VPN NAT.
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * The name of the resource that is unique within a resource group. This name can be used to access the resource.
      */
-    public readonly name!: pulumi.Output<string | undefined>;
+    declare public readonly name: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the NAT Rule resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualNetworkGatewayNatRule resource with the given unique name, arguments, and options.
@@ -89,22 +89,22 @@ export class VirtualNetworkGatewayNatRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetworkGatewayName === undefined) && !opts.urn) {
+            if (args?.virtualNetworkGatewayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetworkGatewayName'");
             }
-            resourceInputs["externalMappings"] = args ? args.externalMappings : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["internalMappings"] = args ? args.internalMappings : undefined;
-            resourceInputs["ipConfigurationId"] = args ? args.ipConfigurationId : undefined;
-            resourceInputs["mode"] = args ? args.mode : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["natRuleName"] = args ? args.natRuleName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["virtualNetworkGatewayName"] = args ? args.virtualNetworkGatewayName : undefined;
+            resourceInputs["externalMappings"] = args?.externalMappings;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["internalMappings"] = args?.internalMappings;
+            resourceInputs["ipConfigurationId"] = args?.ipConfigurationId;
+            resourceInputs["mode"] = args?.mode;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["natRuleName"] = args?.natRuleName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["virtualNetworkGatewayName"] = args?.virtualNetworkGatewayName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

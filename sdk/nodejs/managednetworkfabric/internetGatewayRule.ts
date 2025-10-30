@@ -42,43 +42,43 @@ export class InternetGatewayRule extends pulumi.CustomResource {
     /**
      * Switch configuration description.
      */
-    public readonly annotation!: pulumi.Output<string | undefined>;
+    declare public readonly annotation: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of Internet Gateway resource Id.
      */
-    public /*out*/ readonly internetGatewayIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly internetGatewayIds: pulumi.Output<string[]>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Rules for the InternetGateways
      */
-    public readonly ruleProperties!: pulumi.Output<outputs.managednetworkfabric.RulePropertiesResponse>;
+    declare public readonly ruleProperties: pulumi.Output<outputs.managednetworkfabric.RulePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.managednetworkfabric.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a InternetGatewayRule resource with the given unique name, arguments, and options.
@@ -91,18 +91,18 @@ export class InternetGatewayRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.ruleProperties === undefined) && !opts.urn) {
+            if (args?.ruleProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'ruleProperties'");
             }
-            resourceInputs["annotation"] = args ? args.annotation : undefined;
-            resourceInputs["internetGatewayRuleName"] = args ? args.internetGatewayRuleName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleProperties"] = args ? args.ruleProperties : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["annotation"] = args?.annotation;
+            resourceInputs["internetGatewayRuleName"] = args?.internetGatewayRuleName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleProperties"] = args?.ruleProperties;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["internetGatewayIds"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

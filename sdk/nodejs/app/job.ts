@@ -44,67 +44,67 @@ export class Job extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Container Apps Job configuration properties.
      */
-    public readonly configuration!: pulumi.Output<outputs.app.JobConfigurationResponse | undefined>;
+    declare public readonly configuration: pulumi.Output<outputs.app.JobConfigurationResponse | undefined>;
     /**
      * Resource ID of environment.
      */
-    public readonly environmentId!: pulumi.Output<string | undefined>;
+    declare public readonly environmentId: pulumi.Output<string | undefined>;
     /**
      * The endpoint of the eventstream of the container apps job.
      */
-    public /*out*/ readonly eventStreamEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly eventStreamEndpoint: pulumi.Output<string>;
     /**
      * The complex type of the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.app.ExtendedLocationResponse | undefined>;
     /**
      * Managed identities needed by a container app job to interact with other Azure services to not maintain any secrets or credentials in code.
      */
-    public readonly identity!: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.app.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Outbound IP Addresses of a container apps job.
      */
-    public /*out*/ readonly outboundIpAddresses!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly outboundIpAddresses: pulumi.Output<string[]>;
     /**
      * Provisioning state of the Container Apps Job.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Current running state of the job
      */
-    public /*out*/ readonly runningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly runningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.app.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.app.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Container Apps job definition.
      */
-    public readonly template!: pulumi.Output<outputs.app.JobTemplateResponse | undefined>;
+    declare public readonly template: pulumi.Output<outputs.app.JobTemplateResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Workload profile name to pin for container apps job execution.
      */
-    public readonly workloadProfileName!: pulumi.Output<string | undefined>;
+    declare public readonly workloadProfileName: pulumi.Output<string | undefined>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -117,19 +117,19 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.jobConfigurationArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["environmentId"] = args ? args.environmentId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["template"] = args ? args.template : undefined;
-            resourceInputs["workloadProfileName"] = args ? args.workloadProfileName : undefined;
+            resourceInputs["environmentId"] = args?.environmentId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["template"] = args?.template;
+            resourceInputs["workloadProfileName"] = args?.workloadProfileName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eventStreamEndpoint"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

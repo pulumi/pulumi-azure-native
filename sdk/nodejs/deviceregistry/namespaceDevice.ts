@@ -44,91 +44,91 @@ export class NamespaceDevice extends pulumi.CustomResource {
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    declare public readonly attributes: pulumi.Output<any | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Reference to a device. Populated only if the device had been created from discovery flow. Discovered device name must be provided.
      */
-    public readonly discoveredDeviceRef!: pulumi.Output<string | undefined>;
+    declare public readonly discoveredDeviceRef: pulumi.Output<string | undefined>;
     /**
      * Indicates if the resource is enabled or not.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Property bag containing the device's unassigned and assigned endpoints.
      */
-    public readonly endpoints!: pulumi.Output<outputs.deviceregistry.MessagingEndpointsResponse | undefined>;
+    declare public readonly endpoints: pulumi.Output<outputs.deviceregistry.MessagingEndpointsResponse | undefined>;
     /**
      * Resource Tag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse | undefined>;
     /**
      * The Device ID provided by the customer.
      */
-    public readonly externalDeviceId!: pulumi.Output<string | undefined>;
+    declare public readonly externalDeviceId: pulumi.Output<string | undefined>;
     /**
      * A timestamp (in UTC) that is updated each time the resource is modified.
      */
-    public /*out*/ readonly lastTransitionTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastTransitionTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Device manufacturer.
      */
-    public readonly manufacturer!: pulumi.Output<string | undefined>;
+    declare public readonly manufacturer: pulumi.Output<string | undefined>;
     /**
      * Device model.
      */
-    public readonly model!: pulumi.Output<string | undefined>;
+    declare public readonly model: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Device operating system.
      */
-    public readonly operatingSystem!: pulumi.Output<string | undefined>;
+    declare public readonly operatingSystem: pulumi.Output<string | undefined>;
     /**
      * Device operating system version.
      */
-    public readonly operatingSystemVersion!: pulumi.Output<string | undefined>;
+    declare public readonly operatingSystemVersion: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Device status updates.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.deviceregistry.DeviceStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.deviceregistry.DeviceStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A unique identifier for the device.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * An integer that is incremented each time the resource is modified.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a NamespaceDevice resource with the given unique name, arguments, and options.
@@ -141,27 +141,27 @@ export class NamespaceDevice extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["discoveredDeviceRef"] = args ? args.discoveredDeviceRef : undefined;
-            resourceInputs["enabled"] = (args ? args.enabled : undefined) ?? true;
-            resourceInputs["endpoints"] = args ? args.endpoints : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["externalDeviceId"] = args ? args.externalDeviceId : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["manufacturer"] = args ? args.manufacturer : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["operatingSystem"] = args ? args.operatingSystem : undefined;
-            resourceInputs["operatingSystemVersion"] = args ? args.operatingSystemVersion : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["discoveredDeviceRef"] = args?.discoveredDeviceRef;
+            resourceInputs["enabled"] = (args?.enabled) ?? true;
+            resourceInputs["endpoints"] = args?.endpoints;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["externalDeviceId"] = args?.externalDeviceId;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["manufacturer"] = args?.manufacturer;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["operatingSystem"] = args?.operatingSystem;
+            resourceInputs["operatingSystemVersion"] = args?.operatingSystemVersion;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastTransitionTime"] = undefined /*out*/;

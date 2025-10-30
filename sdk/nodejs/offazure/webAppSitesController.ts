@@ -44,37 +44,37 @@ export class WebAppSitesController extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the discovery scenario.
      */
-    public readonly discoveryScenario!: pulumi.Output<string | undefined>;
+    declare public readonly discoveryScenario: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * provisioning state enum
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets the service endpoint.
      */
-    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceEndpoint: pulumi.Output<string>;
     /**
      * Gets or sets the appliance details used by service to communicate
      *            
      * to the appliance.
      */
-    public readonly siteAppliancePropertiesCollection!: pulumi.Output<outputs.offazure.SiteAppliancePropertiesResponse[] | undefined>;
+    declare public readonly siteAppliancePropertiesCollection: pulumi.Output<outputs.offazure.SiteAppliancePropertiesResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.offazure.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.offazure.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppSitesController resource with the given unique name, arguments, and options.
@@ -87,17 +87,17 @@ export class WebAppSitesController extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.siteName === undefined) && !opts.urn) {
+            if (args?.siteName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'siteName'");
             }
-            resourceInputs["discoveryScenario"] = args ? args.discoveryScenario : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteAppliancePropertiesCollection"] = args ? args.siteAppliancePropertiesCollection : undefined;
-            resourceInputs["siteName"] = args ? args.siteName : undefined;
-            resourceInputs["webAppSiteName"] = args ? args.webAppSiteName : undefined;
+            resourceInputs["discoveryScenario"] = args?.discoveryScenario;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteAppliancePropertiesCollection"] = args?.siteAppliancePropertiesCollection;
+            resourceInputs["siteName"] = args?.siteName;
+            resourceInputs["webAppSiteName"] = args?.webAppSiteName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

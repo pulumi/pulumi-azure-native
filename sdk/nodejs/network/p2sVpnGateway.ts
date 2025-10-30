@@ -44,59 +44,59 @@ export class P2sVpnGateway extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * List of all customer specified DNS servers IP addresses.
      */
-    public readonly customDnsServers!: pulumi.Output<string[] | undefined>;
+    declare public readonly customDnsServers: pulumi.Output<string[] | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Enable Routing Preference property for the Public IP Interface of the P2SVpnGateway.
      */
-    public readonly isRoutingPreferenceInternet!: pulumi.Output<boolean | undefined>;
+    declare public readonly isRoutingPreferenceInternet: pulumi.Output<boolean | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of all p2s connection configurations of the gateway.
      */
-    public readonly p2SConnectionConfigurations!: pulumi.Output<outputs.network.P2SConnectionConfigurationResponse[] | undefined>;
+    declare public readonly p2SConnectionConfigurations: pulumi.Output<outputs.network.P2SConnectionConfigurationResponse[] | undefined>;
     /**
      * The provisioning state of the P2S VPN gateway resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The VirtualHub to which the gateway belongs.
      */
-    public readonly virtualHub!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualHub: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
     /**
      * All P2S VPN clients' connection health status.
      */
-    public /*out*/ readonly vpnClientConnectionHealth!: pulumi.Output<outputs.network.VpnClientConnectionHealthResponse>;
+    declare public /*out*/ readonly vpnClientConnectionHealth: pulumi.Output<outputs.network.VpnClientConnectionHealthResponse>;
     /**
      * The scale unit for this p2s vpn gateway.
      */
-    public readonly vpnGatewayScaleUnit!: pulumi.Output<number | undefined>;
+    declare public readonly vpnGatewayScaleUnit: pulumi.Output<number | undefined>;
     /**
      * The VpnServerConfiguration to which the p2sVpnGateway is attached to.
      */
-    public readonly vpnServerConfiguration!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly vpnServerConfiguration: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
 
     /**
      * Create a P2sVpnGateway resource with the given unique name, arguments, and options.
@@ -109,20 +109,20 @@ export class P2sVpnGateway extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customDnsServers"] = args ? args.customDnsServers : undefined;
-            resourceInputs["gatewayName"] = args ? args.gatewayName : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["isRoutingPreferenceInternet"] = args ? args.isRoutingPreferenceInternet : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["p2SConnectionConfigurations"] = args ? args.p2SConnectionConfigurations : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
-            resourceInputs["vpnGatewayScaleUnit"] = args ? args.vpnGatewayScaleUnit : undefined;
-            resourceInputs["vpnServerConfiguration"] = args ? args.vpnServerConfiguration : undefined;
+            resourceInputs["customDnsServers"] = args?.customDnsServers;
+            resourceInputs["gatewayName"] = args?.gatewayName;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["isRoutingPreferenceInternet"] = args?.isRoutingPreferenceInternet;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["p2SConnectionConfigurations"] = args?.p2SConnectionConfigurations;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualHub"] = args?.virtualHub;
+            resourceInputs["vpnGatewayScaleUnit"] = args?.vpnGatewayScaleUnit;
+            resourceInputs["vpnServerConfiguration"] = args?.vpnServerConfiguration;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

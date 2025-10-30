@@ -44,71 +44,71 @@ export class IotSecuritySolution extends pulumi.CustomResource {
     /**
      * List of additional workspaces
      */
-    public readonly additionalWorkspaces!: pulumi.Output<outputs.security.AdditionalWorkspacesPropertiesResponse[] | undefined>;
+    declare public readonly additionalWorkspaces: pulumi.Output<outputs.security.AdditionalWorkspacesPropertiesResponse[] | undefined>;
     /**
      * List of resources that were automatically discovered as relevant to the security solution.
      */
-    public /*out*/ readonly autoDiscoveredResources!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly autoDiscoveredResources: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Disabled data sources. Disabling these data sources compromises the system.
      */
-    public readonly disabledDataSources!: pulumi.Output<string[] | undefined>;
+    declare public readonly disabledDataSources: pulumi.Output<string[] | undefined>;
     /**
      * Resource display name.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * List of additional options for exporting to workspace data.
      */
-    public readonly export!: pulumi.Output<string[] | undefined>;
+    declare public readonly export: pulumi.Output<string[] | undefined>;
     /**
      * IoT Hub resource IDs
      */
-    public readonly iotHubs!: pulumi.Output<string[]>;
+    declare public readonly iotHubs: pulumi.Output<string[]>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of the configuration status for each recommendation type.
      */
-    public readonly recommendationsConfiguration!: pulumi.Output<outputs.security.RecommendationConfigurationPropertiesResponse[] | undefined>;
+    declare public readonly recommendationsConfiguration: pulumi.Output<outputs.security.RecommendationConfigurationPropertiesResponse[] | undefined>;
     /**
      * Status of the IoT Security solution.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Unmasked IP address logging status
      */
-    public readonly unmaskedIpLoggingStatus!: pulumi.Output<string | undefined>;
+    declare public readonly unmaskedIpLoggingStatus: pulumi.Output<string | undefined>;
     /**
      * Properties of the IoT Security solution's user defined resources.
      */
-    public readonly userDefinedResources!: pulumi.Output<outputs.security.UserDefinedResourcesPropertiesResponse | undefined>;
+    declare public readonly userDefinedResources: pulumi.Output<outputs.security.UserDefinedResourcesPropertiesResponse | undefined>;
     /**
      * Workspace resource ID
      */
-    public readonly workspace!: pulumi.Output<string | undefined>;
+    declare public readonly workspace: pulumi.Output<string | undefined>;
 
     /**
      * Create a IotSecuritySolution resource with the given unique name, arguments, and options.
@@ -121,29 +121,29 @@ export class IotSecuritySolution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.iotHubs === undefined) && !opts.urn) {
+            if (args?.iotHubs === undefined && !opts.urn) {
                 throw new Error("Missing required property 'iotHubs'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalWorkspaces"] = args ? args.additionalWorkspaces : undefined;
-            resourceInputs["disabledDataSources"] = args ? args.disabledDataSources : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["export"] = args ? args.export : undefined;
-            resourceInputs["iotHubs"] = args ? args.iotHubs : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["recommendationsConfiguration"] = args ? args.recommendationsConfiguration : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["solutionName"] = args ? args.solutionName : undefined;
-            resourceInputs["status"] = (args ? args.status : undefined) ?? "Enabled";
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["unmaskedIpLoggingStatus"] = (args ? args.unmaskedIpLoggingStatus : undefined) ?? "Disabled";
-            resourceInputs["userDefinedResources"] = args ? args.userDefinedResources : undefined;
-            resourceInputs["workspace"] = args ? args.workspace : undefined;
+            resourceInputs["additionalWorkspaces"] = args?.additionalWorkspaces;
+            resourceInputs["disabledDataSources"] = args?.disabledDataSources;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["export"] = args?.export;
+            resourceInputs["iotHubs"] = args?.iotHubs;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["recommendationsConfiguration"] = args?.recommendationsConfiguration;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["solutionName"] = args?.solutionName;
+            resourceInputs["status"] = (args?.status) ?? "Enabled";
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["unmaskedIpLoggingStatus"] = (args?.unmaskedIpLoggingStatus) ?? "Disabled";
+            resourceInputs["userDefinedResources"] = args?.userDefinedResources;
+            resourceInputs["workspace"] = args?.workspace;
             resourceInputs["autoDiscoveredResources"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,56 +44,56 @@ export class WorkspaceBackend extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Backend Circuit Breaker Configuration
      */
-    public readonly circuitBreaker!: pulumi.Output<outputs.apimanagement.BackendCircuitBreakerResponse | undefined>;
+    declare public readonly circuitBreaker: pulumi.Output<outputs.apimanagement.BackendCircuitBreakerResponse | undefined>;
     /**
      * Backend Credentials Contract Properties
      */
-    public readonly credentials!: pulumi.Output<outputs.apimanagement.BackendCredentialsContractResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.apimanagement.BackendCredentialsContractResponse | undefined>;
     /**
      * Backend Description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    public readonly pool!: pulumi.Output<outputs.apimanagement.BackendBaseParametersResponsePool | undefined>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
+    declare public readonly pool: pulumi.Output<outputs.apimanagement.BackendBaseParametersResponsePool | undefined>;
     /**
      * Backend Properties contract
      */
-    public readonly properties!: pulumi.Output<outputs.apimanagement.BackendPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.apimanagement.BackendPropertiesResponse>;
     /**
      * Backend communication protocol. Required when backend type is 'Single'.
      */
-    public readonly protocol!: pulumi.Output<string | undefined>;
+    declare public readonly protocol: pulumi.Output<string | undefined>;
     /**
      * Backend gateway Contract Properties
      */
-    public readonly proxy!: pulumi.Output<outputs.apimanagement.BackendProxyContractResponse | undefined>;
+    declare public readonly proxy: pulumi.Output<outputs.apimanagement.BackendProxyContractResponse | undefined>;
     /**
      * Management Uri of the Resource in External System. This URL can be the Arm Resource Id of Logic Apps, Function Apps or API Apps.
      */
-    public readonly resourceId!: pulumi.Output<string | undefined>;
+    declare public readonly resourceId: pulumi.Output<string | undefined>;
     /**
      * Backend Title.
      */
-    public readonly title!: pulumi.Output<string | undefined>;
+    declare public readonly title: pulumi.Output<string | undefined>;
     /**
      * Backend TLS Properties
      */
-    public readonly tls!: pulumi.Output<outputs.apimanagement.BackendTlsPropertiesResponse | undefined>;
+    declare public readonly tls: pulumi.Output<outputs.apimanagement.BackendTlsPropertiesResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
     /**
      * Runtime Url of the Backend. Required when backend type is 'Single'.
      */
-    public readonly url!: pulumi.Output<string | undefined>;
+    declare public readonly url: pulumi.Output<string | undefined>;
 
     /**
      * Create a WorkspaceBackend resource with the given unique name, arguments, and options.
@@ -106,31 +106,31 @@ export class WorkspaceBackend extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            if ((!args || args.workspaceId === undefined) && !opts.urn) {
+            if (args?.workspaceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceId'");
             }
-            resourceInputs["backendId"] = args ? args.backendId : undefined;
-            resourceInputs["circuitBreaker"] = args ? args.circuitBreaker : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["pool"] = args ? args.pool : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["protocol"] = args ? args.protocol : undefined;
-            resourceInputs["proxy"] = args ? args.proxy : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceId"] = args ? args.resourceId : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["title"] = args ? args.title : undefined;
+            resourceInputs["backendId"] = args?.backendId;
+            resourceInputs["circuitBreaker"] = args?.circuitBreaker;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["pool"] = args?.pool;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["protocol"] = args?.protocol;
+            resourceInputs["proxy"] = args?.proxy;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceId"] = args?.resourceId;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["title"] = args?.title;
             resourceInputs["tls"] = args ? (args.tls ? pulumi.output(args.tls).apply(inputs.apimanagement.backendTlsPropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
+            resourceInputs["type"] = args?.type;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["workspaceId"] = args?.workspaceId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

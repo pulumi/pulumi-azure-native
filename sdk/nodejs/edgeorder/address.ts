@@ -44,47 +44,47 @@ export class Address extends pulumi.CustomResource {
     /**
      * Type of address based on its usage context.
      */
-    public readonly addressClassification!: pulumi.Output<string | undefined>;
+    declare public readonly addressClassification: pulumi.Output<string | undefined>;
     /**
      * Status of address validation.
      */
-    public /*out*/ readonly addressValidationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly addressValidationStatus: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Contact details for the address.
      */
-    public readonly contactDetails!: pulumi.Output<outputs.edgeorder.ContactDetailsResponse | undefined>;
+    declare public readonly contactDetails: pulumi.Output<outputs.edgeorder.ContactDetailsResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning state
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Shipping details for the address.
      */
-    public readonly shippingAddress!: pulumi.Output<outputs.edgeorder.ShippingAddressResponse | undefined>;
+    declare public readonly shippingAddress: pulumi.Output<outputs.edgeorder.ShippingAddressResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.edgeorder.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.edgeorder.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Address resource with the given unique name, arguments, and options.
@@ -97,16 +97,16 @@ export class Address extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["addressClassification"] = args ? args.addressClassification : undefined;
-            resourceInputs["addressName"] = args ? args.addressName : undefined;
-            resourceInputs["contactDetails"] = args ? args.contactDetails : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["shippingAddress"] = args ? args.shippingAddress : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["addressClassification"] = args?.addressClassification;
+            resourceInputs["addressName"] = args?.addressName;
+            resourceInputs["contactDetails"] = args?.contactDetails;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["shippingAddress"] = args?.shippingAddress;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["addressValidationStatus"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

@@ -44,107 +44,107 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
     /**
      * Details required for Additional Network Interface.
      */
-    public readonly additionalNics!: pulumi.Output<outputs.network.VirtualApplianceAdditionalNicPropertiesResponse[] | undefined>;
+    declare public readonly additionalNics: pulumi.Output<outputs.network.VirtualApplianceAdditionalNicPropertiesResponse[] | undefined>;
     /**
      * Address Prefix.
      */
-    public /*out*/ readonly addressPrefix!: pulumi.Output<string>;
+    declare public /*out*/ readonly addressPrefix: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * BootStrapConfigurationBlobs storage URLs.
      */
-    public readonly bootStrapConfigurationBlobs!: pulumi.Output<string[] | undefined>;
+    declare public readonly bootStrapConfigurationBlobs: pulumi.Output<string[] | undefined>;
     /**
      * CloudInitConfiguration string in plain text.
      */
-    public readonly cloudInitConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly cloudInitConfiguration: pulumi.Output<string | undefined>;
     /**
      * CloudInitConfigurationBlob storage URLs.
      */
-    public readonly cloudInitConfigurationBlobs!: pulumi.Output<string[] | undefined>;
+    declare public readonly cloudInitConfigurationBlobs: pulumi.Output<string[] | undefined>;
     /**
      * The delegation for the Virtual Appliance
      */
-    public readonly delegation!: pulumi.Output<outputs.network.DelegationPropertiesResponse | undefined>;
+    declare public readonly delegation: pulumi.Output<outputs.network.DelegationPropertiesResponse | undefined>;
     /**
      * The deployment type. PartnerManaged for the SaaS NVA
      */
-    public /*out*/ readonly deploymentType!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentType: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The service principal that has read access to cloud-init and config blob.
      */
-    public readonly identity!: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.network.ManagedServiceIdentityResponse | undefined>;
     /**
      * List of references to InboundSecurityRules.
      */
-    public /*out*/ readonly inboundSecurityRules!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly inboundSecurityRules: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * List of Resource Uri of Public IPs for Internet Ingress Scenario.
      */
-    public readonly internetIngressPublicIps!: pulumi.Output<outputs.network.InternetIngressPublicIpsPropertiesResponse[] | undefined>;
+    declare public readonly internetIngressPublicIps: pulumi.Output<outputs.network.InternetIngressPublicIpsPropertiesResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network Profile containing configurations for Public and Private NIC.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.network.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.network.NetworkVirtualAppliancePropertiesFormatResponseNetworkProfile | undefined>;
     /**
      * Network Virtual Appliance SKU.
      */
-    public readonly nvaSku!: pulumi.Output<outputs.network.VirtualApplianceSkuPropertiesResponse | undefined>;
+    declare public readonly nvaSku: pulumi.Output<outputs.network.VirtualApplianceSkuPropertiesResponse | undefined>;
     /**
      * The delegation for the Virtual Appliance
      */
-    public /*out*/ readonly partnerManagedResource!: pulumi.Output<outputs.network.PartnerManagedResourcePropertiesResponse | undefined>;
+    declare public /*out*/ readonly partnerManagedResource: pulumi.Output<outputs.network.PartnerManagedResourcePropertiesResponse | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Public key for SSH login.
      */
-    public readonly sshPublicKey!: pulumi.Output<string | undefined>;
+    declare public readonly sshPublicKey: pulumi.Output<string | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * VirtualAppliance ASN. Microsoft private, public and IANA reserved ASN are not supported.
      */
-    public readonly virtualApplianceAsn!: pulumi.Output<number | undefined>;
+    declare public readonly virtualApplianceAsn: pulumi.Output<number | undefined>;
     /**
      * List of references to VirtualApplianceConnections.
      */
-    public /*out*/ readonly virtualApplianceConnections!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly virtualApplianceConnections: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * List of Virtual Appliance Network Interfaces.
      */
-    public /*out*/ readonly virtualApplianceNics!: pulumi.Output<outputs.network.VirtualApplianceNicPropertiesResponse[]>;
+    declare public /*out*/ readonly virtualApplianceNics: pulumi.Output<outputs.network.VirtualApplianceNicPropertiesResponse[]>;
     /**
      * List of references to VirtualApplianceSite.
      */
-    public /*out*/ readonly virtualApplianceSites!: pulumi.Output<outputs.network.SubResourceResponse[]>;
+    declare public /*out*/ readonly virtualApplianceSites: pulumi.Output<outputs.network.SubResourceResponse[]>;
     /**
      * The Virtual Hub where Network Virtual Appliance is being deployed.
      */
-    public readonly virtualHub!: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
+    declare public readonly virtualHub: pulumi.Output<outputs.network.SubResourceResponse | undefined>;
 
     /**
      * Create a NetworkVirtualAppliance resource with the given unique name, arguments, and options.
@@ -157,26 +157,26 @@ export class NetworkVirtualAppliance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalNics"] = args ? args.additionalNics : undefined;
-            resourceInputs["bootStrapConfigurationBlobs"] = args ? args.bootStrapConfigurationBlobs : undefined;
-            resourceInputs["cloudInitConfiguration"] = args ? args.cloudInitConfiguration : undefined;
-            resourceInputs["cloudInitConfigurationBlobs"] = args ? args.cloudInitConfigurationBlobs : undefined;
-            resourceInputs["delegation"] = args ? args.delegation : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["internetIngressPublicIps"] = args ? args.internetIngressPublicIps : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["networkVirtualApplianceName"] = args ? args.networkVirtualApplianceName : undefined;
-            resourceInputs["nvaSku"] = args ? args.nvaSku : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sshPublicKey"] = args ? args.sshPublicKey : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["virtualApplianceAsn"] = args ? args.virtualApplianceAsn : undefined;
-            resourceInputs["virtualHub"] = args ? args.virtualHub : undefined;
+            resourceInputs["additionalNics"] = args?.additionalNics;
+            resourceInputs["bootStrapConfigurationBlobs"] = args?.bootStrapConfigurationBlobs;
+            resourceInputs["cloudInitConfiguration"] = args?.cloudInitConfiguration;
+            resourceInputs["cloudInitConfigurationBlobs"] = args?.cloudInitConfigurationBlobs;
+            resourceInputs["delegation"] = args?.delegation;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["internetIngressPublicIps"] = args?.internetIngressPublicIps;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["networkVirtualApplianceName"] = args?.networkVirtualApplianceName;
+            resourceInputs["nvaSku"] = args?.nvaSku;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sshPublicKey"] = args?.sshPublicKey;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["virtualApplianceAsn"] = args?.virtualApplianceAsn;
+            resourceInputs["virtualHub"] = args?.virtualHub;
             resourceInputs["addressPrefix"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentType"] = undefined /*out*/;

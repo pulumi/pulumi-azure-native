@@ -44,63 +44,63 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Datasource for the gallery image when provisioning with cloud-init [NoCloud, Azure]
      */
-    public readonly cloudInitDataSource!: pulumi.Output<string | undefined>;
+    declare public readonly cloudInitDataSource: pulumi.Output<string | undefined>;
     /**
      * Storage ContainerID of the storage container to be used for marketplace gallery image
      */
-    public readonly containerId!: pulumi.Output<string | undefined>;
+    declare public readonly containerId: pulumi.Output<string | undefined>;
     /**
      * The extendedLocation of the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.azurestackhci.ExtendedLocationResponse | undefined>;
     /**
      * The hypervisor generation of the Virtual Machine [V1, V2]
      */
-    public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
+    declare public readonly hyperVGeneration: pulumi.Output<string | undefined>;
     /**
      * This is the gallery image definition identifier.
      */
-    public readonly identifier!: pulumi.Output<outputs.azurestackhci.GalleryImageIdentifierResponse | undefined>;
+    declare public readonly identifier: pulumi.Output<outputs.azurestackhci.GalleryImageIdentifierResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Operating system type that the gallery image uses [Windows, Linux]
      */
-    public readonly osType!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string>;
     /**
      * Provisioning state of the marketplace gallery image.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The observed state of marketplace gallery images
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.azurestackhci.MarketplaceGalleryImageStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.azurestackhci.MarketplaceGalleryImageStatusResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestackhci.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies information about the gallery image version that you want to create or update.
      */
-    public readonly version!: pulumi.Output<outputs.azurestackhci.GalleryImageVersionResponse | undefined>;
+    declare public readonly version: pulumi.Output<outputs.azurestackhci.GalleryImageVersionResponse | undefined>;
 
     /**
      * Create a MarketplaceGalleryImage resource with the given unique name, arguments, and options.
@@ -113,23 +113,23 @@ export class MarketplaceGalleryImage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.osType === undefined) && !opts.urn) {
+            if (args?.osType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'osType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cloudInitDataSource"] = args ? args.cloudInitDataSource : undefined;
-            resourceInputs["containerId"] = args ? args.containerId : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hyperVGeneration"] = args ? args.hyperVGeneration : undefined;
-            resourceInputs["identifier"] = args ? args.identifier : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["marketplaceGalleryImageName"] = args ? args.marketplaceGalleryImageName : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["cloudInitDataSource"] = args?.cloudInitDataSource;
+            resourceInputs["containerId"] = args?.containerId;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hyperVGeneration"] = args?.hyperVGeneration;
+            resourceInputs["identifier"] = args?.identifier;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["marketplaceGalleryImageName"] = args?.marketplaceGalleryImageName;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

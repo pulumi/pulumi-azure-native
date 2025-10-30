@@ -42,75 +42,75 @@ export class ConnectorMapping extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The connector mapping name
      */
-    public /*out*/ readonly connectorMappingName!: pulumi.Output<string>;
+    declare public /*out*/ readonly connectorMappingName: pulumi.Output<string>;
     /**
      * The connector name.
      */
-    public readonly connectorName!: pulumi.Output<string>;
+    declare public readonly connectorName: pulumi.Output<string>;
     /**
      * Type of connector.
      */
-    public readonly connectorType!: pulumi.Output<string | undefined>;
+    declare public readonly connectorType: pulumi.Output<string | undefined>;
     /**
      * The created time.
      */
-    public /*out*/ readonly created!: pulumi.Output<string>;
+    declare public /*out*/ readonly created: pulumi.Output<string>;
     /**
      * The DataFormat ID.
      */
-    public /*out*/ readonly dataFormatId!: pulumi.Output<string>;
+    declare public /*out*/ readonly dataFormatId: pulumi.Output<string>;
     /**
      * The description of the connector mapping.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Display name for the connector mapping.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Defines which entity type the file should map to.
      */
-    public readonly entityType!: pulumi.Output<string>;
+    declare public readonly entityType: pulumi.Output<string>;
     /**
      * The mapping entity name.
      */
-    public readonly entityTypeName!: pulumi.Output<string>;
+    declare public readonly entityTypeName: pulumi.Output<string>;
     /**
      * The last modified time.
      */
-    public /*out*/ readonly lastModified!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModified: pulumi.Output<string>;
     /**
      * The properties of the mapping.
      */
-    public readonly mappingProperties!: pulumi.Output<outputs.customerinsights.ConnectorMappingPropertiesResponse>;
+    declare public readonly mappingProperties: pulumi.Output<outputs.customerinsights.ConnectorMappingPropertiesResponse>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The next run time based on customer's settings.
      */
-    public /*out*/ readonly nextRunTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly nextRunTime: pulumi.Output<string>;
     /**
      * The RunId.
      */
-    public /*out*/ readonly runId!: pulumi.Output<string>;
+    declare public /*out*/ readonly runId: pulumi.Output<string>;
     /**
      * State of connector mapping.
      */
-    public /*out*/ readonly state!: pulumi.Output<string>;
+    declare public /*out*/ readonly state: pulumi.Output<string>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ConnectorMapping resource with the given unique name, arguments, and options.
@@ -123,34 +123,34 @@ export class ConnectorMapping extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.connectorName === undefined) && !opts.urn) {
+            if (args?.connectorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectorName'");
             }
-            if ((!args || args.entityType === undefined) && !opts.urn) {
+            if (args?.entityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityType'");
             }
-            if ((!args || args.entityTypeName === undefined) && !opts.urn) {
+            if (args?.entityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'entityTypeName'");
             }
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.mappingProperties === undefined) && !opts.urn) {
+            if (args?.mappingProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mappingProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["connectorType"] = args ? args.connectorType : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["entityType"] = args ? args.entityType : undefined;
-            resourceInputs["entityTypeName"] = args ? args.entityTypeName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["mappingName"] = args ? args.mappingName : undefined;
-            resourceInputs["mappingProperties"] = args ? args.mappingProperties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["connectorType"] = args?.connectorType;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["entityType"] = args?.entityType;
+            resourceInputs["entityTypeName"] = args?.entityTypeName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["mappingName"] = args?.mappingName;
+            resourceInputs["mappingProperties"] = args?.mappingProperties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["connectorMappingName"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;

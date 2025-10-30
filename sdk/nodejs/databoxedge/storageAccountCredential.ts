@@ -44,51 +44,51 @@ export class StorageAccountCredential extends pulumi.CustomResource {
     /**
      * Encrypted storage key.
      */
-    public readonly accountKey!: pulumi.Output<outputs.databoxedge.AsymmetricEncryptedSecretResponse | undefined>;
+    declare public readonly accountKey: pulumi.Output<outputs.databoxedge.AsymmetricEncryptedSecretResponse | undefined>;
     /**
      * Type of storage accessed on the storage account.
      */
-    public readonly accountType!: pulumi.Output<string>;
+    declare public readonly accountType: pulumi.Output<string>;
     /**
      * Alias for the storage account.
      */
-    public readonly alias!: pulumi.Output<string>;
+    declare public readonly alias: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Blob end point for private clouds.
      */
-    public readonly blobDomainName!: pulumi.Output<string | undefined>;
+    declare public readonly blobDomainName: pulumi.Output<string | undefined>;
     /**
      * Connection string for the storage account. Use this string if username and account key are not specified.
      */
-    public readonly connectionString!: pulumi.Output<string | undefined>;
+    declare public readonly connectionString: pulumi.Output<string | undefined>;
     /**
      * The object name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Signifies whether SSL needs to be enabled or not.
      */
-    public readonly sslStatus!: pulumi.Output<string>;
+    declare public readonly sslStatus: pulumi.Output<string>;
     /**
      * Id of the storage account.
      */
-    public readonly storageAccountId!: pulumi.Output<string | undefined>;
+    declare public readonly storageAccountId: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of StorageAccountCredential
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databoxedge.SystemDataResponse>;
     /**
      * The hierarchical type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Username for the storage account.
      */
-    public readonly userName!: pulumi.Output<string | undefined>;
+    declare public readonly userName: pulumi.Output<string | undefined>;
 
     /**
      * Create a StorageAccountCredential resource with the given unique name, arguments, and options.
@@ -101,32 +101,32 @@ export class StorageAccountCredential extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountType === undefined) && !opts.urn) {
+            if (args?.accountType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountType'");
             }
-            if ((!args || args.alias === undefined) && !opts.urn) {
+            if (args?.alias === undefined && !opts.urn) {
                 throw new Error("Missing required property 'alias'");
             }
-            if ((!args || args.deviceName === undefined) && !opts.urn) {
+            if (args?.deviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sslStatus === undefined) && !opts.urn) {
+            if (args?.sslStatus === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sslStatus'");
             }
-            resourceInputs["accountKey"] = args ? args.accountKey : undefined;
-            resourceInputs["accountType"] = args ? args.accountType : undefined;
-            resourceInputs["alias"] = args ? args.alias : undefined;
-            resourceInputs["blobDomainName"] = args ? args.blobDomainName : undefined;
-            resourceInputs["connectionString"] = args ? args.connectionString : undefined;
-            resourceInputs["deviceName"] = args ? args.deviceName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sslStatus"] = args ? args.sslStatus : undefined;
-            resourceInputs["storageAccountId"] = args ? args.storageAccountId : undefined;
-            resourceInputs["userName"] = args ? args.userName : undefined;
+            resourceInputs["accountKey"] = args?.accountKey;
+            resourceInputs["accountType"] = args?.accountType;
+            resourceInputs["alias"] = args?.alias;
+            resourceInputs["blobDomainName"] = args?.blobDomainName;
+            resourceInputs["connectionString"] = args?.connectionString;
+            resourceInputs["deviceName"] = args?.deviceName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sslStatus"] = args?.sslStatus;
+            resourceInputs["storageAccountId"] = args?.storageAccountId;
+            resourceInputs["userName"] = args?.userName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
