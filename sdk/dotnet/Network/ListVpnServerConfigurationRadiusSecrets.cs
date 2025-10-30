@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Network
         /// List all Radius servers with respective radius secrets from VpnServerConfiguration.
         /// 
         /// Uses Azure REST API version 2024-10-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListVpnServerConfigurationRadiusSecretsResult> InvokeAsync(ListVpnServerConfigurationRadiusSecretsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListVpnServerConfigurationRadiusSecretsResult>("azure-native:network:listVpnServerConfigurationRadiusSecrets", args ?? new ListVpnServerConfigurationRadiusSecretsArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Network
         /// List all Radius servers with respective radius secrets from VpnServerConfiguration.
         /// 
         /// Uses Azure REST API version 2024-10-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListVpnServerConfigurationRadiusSecretsResult> Invoke(ListVpnServerConfigurationRadiusSecretsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListVpnServerConfigurationRadiusSecretsResult>("azure-native:network:listVpnServerConfigurationRadiusSecrets", args ?? new ListVpnServerConfigurationRadiusSecretsInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Network
         /// List all Radius servers with respective radius secrets from VpnServerConfiguration.
         /// 
         /// Uses Azure REST API version 2024-10-01.
+        /// 
+        /// Other available API versions: 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListVpnServerConfigurationRadiusSecretsResult> Invoke(ListVpnServerConfigurationRadiusSecretsInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListVpnServerConfigurationRadiusSecretsResult>("azure-native:network:listVpnServerConfigurationRadiusSecrets", args ?? new ListVpnServerConfigurationRadiusSecretsInvokeArgs(), options.WithDefaults());

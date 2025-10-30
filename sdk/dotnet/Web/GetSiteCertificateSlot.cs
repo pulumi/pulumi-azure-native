@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Web
         /// SSL certificate for an app.
         /// 
         /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSiteCertificateSlotResult> InvokeAsync(GetSiteCertificateSlotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSiteCertificateSlotResult>("azure-native:web:getSiteCertificateSlot", args ?? new GetSiteCertificateSlotArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Web
         /// SSL certificate for an app.
         /// 
         /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSiteCertificateSlotResult> Invoke(GetSiteCertificateSlotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteCertificateSlotResult>("azure-native:web:getSiteCertificateSlot", args ?? new GetSiteCertificateSlotInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Web
         /// SSL certificate for an app.
         /// 
         /// Uses Azure REST API version 2024-11-01.
+        /// 
+        /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSiteCertificateSlotResult> Invoke(GetSiteCertificateSlotInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSiteCertificateSlotResult>("azure-native:web:getSiteCertificateSlot", args ?? new GetSiteCertificateSlotInvokeArgs(), options.WithDefaults());

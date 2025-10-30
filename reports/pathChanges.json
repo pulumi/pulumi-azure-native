@@ -18,6 +18,66 @@
   ],
   "MissingPreviousDefaultVersions": [
     {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "Catalog",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "Deployment",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "Device",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "DeviceGroup",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "Image",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "Product",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "listCatalogDeployments",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "listCatalogDeviceGroups",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "listCatalogDeviceInsights",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
+      "ModuleName": "AzureSphere",
+      "ResourceName": "listCatalogDevices",
+      "Version": "2022-09-01-preview",
+      "IsPrevious": true
+    },
+    {
       "ModuleName": "DBforPostgreSQL",
       "ResourceName": "PrivateEndpointConnection",
       "Version": "2022-11-08",

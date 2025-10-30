@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// 
         /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult> InvokeAsync(ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwOperationProductSerialNumberStatus", args ?? new ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// 
         /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwOperationProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.Cloudngfw
         /// 
         /// Uses Azure REST API version 2025-05-23.
         /// 
-        /// Other available API versions: 2025-07-07-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2025-07-07-preview, 2025-10-08. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cloudngfw [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult> Invoke(InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListPaloAltoNetworksCloudngfwOperationProductSerialNumberStatusResult>("azure-native:cloudngfw:listPaloAltoNetworksCloudngfwOperationProductSerialNumberStatus", InvokeArgs.Empty, options.WithDefaults());

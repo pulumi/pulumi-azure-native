@@ -75,6 +75,11 @@ export const getStorageInsightConfig: typeof import("./getStorageInsightConfig")
 export const getStorageInsightConfigOutput: typeof import("./getStorageInsightConfig").getStorageInsightConfigOutput = null as any;
 utilities.lazyLoad(exports, ["getStorageInsightConfig","getStorageInsightConfigOutput"], () => require("./getStorageInsightConfig"));
 
+export { GetSummaryLogArgs, GetSummaryLogResult, GetSummaryLogOutputArgs } from "./getSummaryLog";
+export const getSummaryLog: typeof import("./getSummaryLog").getSummaryLog = null as any;
+export const getSummaryLogOutput: typeof import("./getSummaryLog").getSummaryLogOutput = null as any;
+utilities.lazyLoad(exports, ["getSummaryLog","getSummaryLogOutput"], () => require("./getSummaryLog"));
+
 export { GetTableArgs, GetTableResult, GetTableOutputArgs } from "./getTable";
 export const getTable: typeof import("./getTable").getTable = null as any;
 export const getTableOutput: typeof import("./getTable").getTableOutput = null as any;
@@ -125,6 +130,11 @@ export type StorageInsightConfig = import("./storageInsightConfig").StorageInsig
 export const StorageInsightConfig: typeof import("./storageInsightConfig").StorageInsightConfig = null as any;
 utilities.lazyLoad(exports, ["StorageInsightConfig"], () => require("./storageInsightConfig"));
 
+export { SummaryLogArgs } from "./summaryLog";
+export type SummaryLog = import("./summaryLog").SummaryLog;
+export const SummaryLog: typeof import("./summaryLog").SummaryLog = null as any;
+utilities.lazyLoad(exports, ["SummaryLog"], () => require("./summaryLog"));
+
 export { TableArgs } from "./table";
 export type Table = import("./table").Table;
 export const Table: typeof import("./table").Table = null as any;
@@ -163,6 +173,8 @@ const _module = {
                 return new SavedSearch(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:StorageInsightConfig":
                 return new StorageInsightConfig(name, <any>undefined, { urn })
+            case "azure-native:operationalinsights:SummaryLog":
+                return new SummaryLog(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Table":
                 return new Table(name, <any>undefined, { urn })
             case "azure-native:operationalinsights:Workspace":

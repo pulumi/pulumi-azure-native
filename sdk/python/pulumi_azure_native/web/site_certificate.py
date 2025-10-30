@@ -274,6 +274,8 @@ class SiteCertificate(pulumi.CustomResource):
 
         Uses Azure REST API version 2024-11-01.
 
+        Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] canonical_name: CNAME of the certificate to be issued via free certificate
@@ -301,6 +303,8 @@ class SiteCertificate(pulumi.CustomResource):
         SSL certificate for an app.
 
         Uses Azure REST API version 2024-11-01.
+
+        Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param SiteCertificateArgs args: The arguments to use to populate this resource's properties.
@@ -373,7 +377,7 @@ class SiteCertificate(pulumi.CustomResource):
             __props__.__dict__["thumbprint"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["valid"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20241101:SiteCertificate")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:web/v20241101:SiteCertificate"), pulumi.Alias(type_="azure-native:web/v20250301:SiteCertificate")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SiteCertificate, __self__).__init__(
             'azure-native:web:SiteCertificate',

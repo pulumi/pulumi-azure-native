@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Security
     /// 
     /// Uses Azure REST API version 2024-04-01. In version 2.x of the Azure Native provider, it used API version 2023-09-01-preview.
     /// 
-    /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-09-01-preview, 2024-05-15-preview, 2025-03-01, 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:DevOpsConfiguration")]
     public partial class DevOpsConfiguration : global::Pulumi.CustomResource
@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Security
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240401:DevOpsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20240515preview:DevOpsConfiguration" },
                     new global::Pulumi.Alias { Type = "azure-native:security/v20250301:DevOpsConfiguration" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20251101preview:DevOpsConfiguration" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

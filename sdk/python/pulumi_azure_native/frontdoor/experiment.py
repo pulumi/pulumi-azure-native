@@ -191,6 +191,8 @@ class Experiment(pulumi.CustomResource):
 
         Uses Azure REST API version 2019-11-01.
 
+        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] description: The description of the details or intents of the Experiment
@@ -213,6 +215,8 @@ class Experiment(pulumi.CustomResource):
         Defines the properties of an Experiment
 
         Uses Azure REST API version 2019-11-01.
+
+        Other available API versions: 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ExperimentArgs args: The arguments to use to populate this resource's properties.
@@ -266,7 +270,7 @@ class Experiment(pulumi.CustomResource):
             __props__.__dict__["script_file_uri"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:Experiment"), pulumi.Alias(type_="azure-native:network/v20191101:Experiment"), pulumi.Alias(type_="azure-native:network:Experiment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:frontdoor/v20191101:Experiment"), pulumi.Alias(type_="azure-native:frontdoor/v20251001:Experiment"), pulumi.Alias(type_="azure-native:network/v20191101:Experiment"), pulumi.Alias(type_="azure-native:network:Experiment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Experiment, __self__).__init__(
             'azure-native:frontdoor:Experiment',

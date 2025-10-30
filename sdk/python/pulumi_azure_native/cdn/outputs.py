@@ -65,6 +65,7 @@ __all__ = [
     'DeliveryRuleUrlFileNameConditionResponse',
     'DeliveryRuleUrlPathConditionResponse',
     'DomainValidationPropertiesResponse',
+    'EdgeActionAttachmentResponse',
     'EndpointPropertiesUpdateParametersDeliveryPolicyResponse',
     'EndpointPropertiesUpdateParametersWebApplicationFirewallPolicyLinkResponse',
     'GeoFilterResponse',
@@ -109,6 +110,7 @@ __all__ = [
     'ServerPortMatchConditionParametersResponse',
     'SharedPrivateLinkResourcePropertiesResponse',
     'SkuResponse',
+    'SkuTypeResponse',
     'SocketAddrMatchConditionParametersResponse',
     'SslProtocolMatchConditionParametersResponse',
     'SystemDataResponse',
@@ -2747,6 +2749,52 @@ class DomainValidationPropertiesResponse(dict):
         Challenge used for DNS TXT record or file based validation
         """
         return pulumi.get(self, "validation_token")
+
+
+@pulumi.output_type
+class EdgeActionAttachmentResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "attachedResourceId":
+            suggest = "attached_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in EdgeActionAttachmentResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        EdgeActionAttachmentResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        EdgeActionAttachmentResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 attached_resource_id: builtins.str,
+                 id: builtins.str):
+        """
+        :param builtins.str attached_resource_id: The attached resource Id
+        :param builtins.str id: The edge action attachment id
+        """
+        pulumi.set(__self__, "attached_resource_id", attached_resource_id)
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter(name="attachedResourceId")
+    def attached_resource_id(self) -> builtins.str:
+        """
+        The attached resource Id
+        """
+        return pulumi.get(self, "attached_resource_id")
+
+    @property
+    @pulumi.getter
+    def id(self) -> builtins.str:
+        """
+        The edge action attachment id
+        """
+        return pulumi.get(self, "id")
 
 
 @pulumi.output_type
@@ -5975,6 +6023,39 @@ class SkuResponse(dict):
         Name of the pricing tier.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class SkuTypeResponse(dict):
+    """
+    Sku of edge actions.
+    """
+    def __init__(__self__, *,
+                 name: builtins.str,
+                 tier: builtins.str):
+        """
+        Sku of edge actions.
+        :param builtins.str name: The name of the SKU for the EdgeAction.
+        :param builtins.str tier: The pricing tier associated with the SKU.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tier", tier)
+
+    @property
+    @pulumi.getter
+    def name(self) -> builtins.str:
+        """
+        The name of the SKU for the EdgeAction.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tier(self) -> builtins.str:
+        """
+        The pricing tier associated with the SKU.
+        """
+        return pulumi.get(self, "tier")
 
 
 @pulumi.output_type

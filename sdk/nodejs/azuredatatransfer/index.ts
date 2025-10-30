@@ -65,6 +65,11 @@ export const listAzureDataTransferApprovedSchemas: typeof import("./listAzureDat
 export const listAzureDataTransferApprovedSchemasOutput: typeof import("./listAzureDataTransferApprovedSchemas").listAzureDataTransferApprovedSchemasOutput = null as any;
 utilities.lazyLoad(exports, ["listAzureDataTransferApprovedSchemas","listAzureDataTransferApprovedSchemasOutput"], () => require("./listAzureDataTransferApprovedSchemas"));
 
+export { ListAzureDataTransferFlowProfilesArgs, ListAzureDataTransferFlowProfilesResult, ListAzureDataTransferFlowProfilesOutputArgs } from "./listAzureDataTransferFlowProfiles";
+export const listAzureDataTransferFlowProfiles: typeof import("./listAzureDataTransferFlowProfiles").listAzureDataTransferFlowProfiles = null as any;
+export const listAzureDataTransferFlowProfilesOutput: typeof import("./listAzureDataTransferFlowProfiles").listAzureDataTransferFlowProfilesOutput = null as any;
+utilities.lazyLoad(exports, ["listAzureDataTransferFlowProfiles","listAzureDataTransferFlowProfilesOutput"], () => require("./listAzureDataTransferFlowProfiles"));
+
 export { ListListFlowsByPipelineArgs, ListListFlowsByPipelineResult, ListListFlowsByPipelineOutputArgs } from "./listListFlowsByPipeline";
 export const listListFlowsByPipeline: typeof import("./listListFlowsByPipeline").listListFlowsByPipeline = null as any;
 export const listListFlowsByPipelineOutput: typeof import("./listListFlowsByPipeline").listListFlowsByPipelineOutput = null as any;
