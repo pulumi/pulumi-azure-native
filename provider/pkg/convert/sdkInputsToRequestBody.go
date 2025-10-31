@@ -15,7 +15,8 @@ import (
 // SdkInputsToRequestBody converts a map of SDK properties to JSON request body to be sent to an HTTP API.
 // Returns a map of request body properties and a map of unmapped values.
 func (k *SdkShapeConverter) SdkInputsToRequestBody(props map[string]resources.AzureAPIProperty,
-	values map[string]interface{}, id string) (map[string]interface{}, error) {
+	values map[string]interface{}, id string,
+) (map[string]interface{}, error) {
 	result := map[string]interface{}{}
 
 	unusedValues := map[string]interface{}{}
@@ -73,6 +74,12 @@ func (k *SdkShapeConverter) convertSdkPropToRequestBodyPropValue(id string, prop
 		converted, _ := k.SdkInputsToRequestBody(props, values, id)
 		// We ignore the error here as we haven't previously handled these errors recursively through convertTypedSdkInputObjectsToRequestBody.
 		// A difficulty is that the error is treated as a warning if we got a valid result, so should only be thrown if `converted` is nil.
+
+		// Temporary workaround for AKS autoscaler profile wire-name mismatch: Azure expects kebab-case keys
+		// but codegen replaced them with camelCase without preserving original wire name. Remap here.
+		if strings.HasSuffix(typeName, "ManagedClusterPropertiesAutoScalerProfile") || strings.HasSuffix(typeName, "ManagedClusterPropertiesResponseAutoScalerProfile") {
+			converted = rewriteAutoScalerProfileKeys(converted)
+		}
 		return converted
 	})
 }
@@ -163,4 +170,46 @@ func (k *SdkShapeConverter) convertTypedSdkInputObjectsToRequestBody(prop *resou
 		return result
 	}
 	return value
+}
+
+// rewriteAutoScalerProfileKeys rewrites AKS autoscaler profile camelCase keys to the kebab-case wire format
+// expected by the Azure ARM API. This is a tactical workaround for a codegen regression which
+// lost the original wire names (kebab-case) and replaced them with camelCase identifiers.
+// Only known autoscaler profile properties are remapped; any other keys are passed through unchanged.
+func rewriteAutoScalerProfileKeys(in map[string]interface{}) map[string]interface{} {
+	if in == nil {
+		return in
+	}
+	// Mapping of camelCase (SDK) -> kebab-case (wire)
+	mappings := map[string]string{
+		"scanInterval":                      "scan-interval",
+		"scaleDownDelayAfterAdd":            "scale-down-delay-after-add",
+		"scaleDownDelayAfterDelete":         "scale-down-delay-after-delete",
+		"scaleDownDelayAfterFailure":        "scale-down-delay-after-failure",
+		"scaleDownUnneededTime":             "scale-down-unneeded-time",
+		"scaleDownUnreadyTime":              "scale-down-unready-time",
+		"ignoreDaemonsetsUtilization":       "ignore-daemonsets-utilization",
+		"daemonsetEvictionForEmptyNodes":    "daemonset-eviction-for-empty-nodes",
+		"daemonsetEvictionForOccupiedNodes": "daemonset-eviction-for-occupied-nodes",
+		"scaleDownUtilizationThreshold":     "scale-down-utilization-threshold",
+		"maxGracefulTerminationSec":         "max-graceful-termination-sec",
+		"balanceSimilarNodeGroups":          "balance-similar-node-groups",
+		"expander":                          "expander",
+		"skipNodesWithLocalStorage":         "skip-nodes-with-local-storage",
+		"skipNodesWithSystemPods":           "skip-nodes-with-system-pods",
+		"maxEmptyBulkDelete":                "max-empty-bulk-delete",
+		"newPodScaleUpDelay":                "new-pod-scale-up-delay",
+		"maxTotalUnreadyPercentage":         "max-total-unready-percentage",
+		"maxNodeProvisionTime":              "max-node-provision-time",
+		"okTotalUnreadyCount":               "ok-total-unready-count",
+	}
+	out := map[string]interface{}{}
+	for k, v := range in {
+		if wire, ok := mappings[k]; ok {
+			out[wire] = v
+		} else {
+			out[k] = v
+		}
+	}
+	return out
 }
