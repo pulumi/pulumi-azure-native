@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.CosmosDB
     /// An Azure Cosmos DB Fleetspace Account
     /// 
     /// Uses Azure REST API version 2025-05-01-preview.
+    /// 
+    /// Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cosmosdb:FleetspaceAccount")]
     public partial class FleetspaceAccount : global::Pulumi.CustomResource
@@ -79,6 +81,7 @@ namespace Pulumi.AzureNative.CosmosDB
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:FleetspaceAccount" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:FleetspaceAccount" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

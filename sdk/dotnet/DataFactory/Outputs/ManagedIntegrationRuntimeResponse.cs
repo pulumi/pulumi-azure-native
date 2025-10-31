@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
+        /// Interactive authoring capability reference.
+        /// </summary>
+        public readonly Outputs.InteractiveQueryPropertiesResponse? InteractiveQuery;
+        /// <summary>
         /// Managed Virtual Network reference.
         /// </summary>
         public readonly Outputs.ManagedVirtualNetworkReferenceResponse? ManagedVirtualNetwork;
@@ -54,6 +58,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             string? description,
 
+            Outputs.InteractiveQueryPropertiesResponse? interactiveQuery,
+
             Outputs.ManagedVirtualNetworkReferenceResponse? managedVirtualNetwork,
 
             Outputs.IntegrationRuntimeSsisPropertiesResponse? ssisProperties,
@@ -65,6 +71,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             ComputeProperties = computeProperties;
             CustomerVirtualNetwork = customerVirtualNetwork;
             Description = description;
+            InteractiveQuery = interactiveQuery;
             ManagedVirtualNetwork = managedVirtualNetwork;
             SsisProperties = ssisProperties;
             State = state;

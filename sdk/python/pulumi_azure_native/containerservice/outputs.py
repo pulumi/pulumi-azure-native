@@ -118,6 +118,7 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse',
     'ManagedServiceIdentityResponse',
     'MemberUpdateStatusResponse',
+    'MeshMembershipPropertiesResponse',
     'NamespacePropertiesResponse',
     'NetworkPoliciesResponse',
     'NetworkProfileForSnapshotResponse',
@@ -6694,6 +6695,58 @@ class MemberUpdateStatusResponse(dict):
         The status of the MemberUpdate operation.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class MeshMembershipPropertiesResponse(dict):
+    """
+    Mesh membership properties of a managed cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "managedMeshID":
+            suggest = "managed_mesh_id"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MeshMembershipPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MeshMembershipPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MeshMembershipPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 managed_mesh_id: builtins.str,
+                 provisioning_state: builtins.str):
+        """
+        Mesh membership properties of a managed cluster.
+        :param builtins.str managed_mesh_id: The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        :param builtins.str provisioning_state: The current provisioning state of the Mesh Membership.
+        """
+        pulumi.set(__self__, "managed_mesh_id", managed_mesh_id)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter(name="managedMeshID")
+    def managed_mesh_id(self) -> builtins.str:
+        """
+        The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+        return pulumi.get(self, "managed_mesh_id")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> builtins.str:
+        """
+        The current provisioning state of the Mesh Membership.
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

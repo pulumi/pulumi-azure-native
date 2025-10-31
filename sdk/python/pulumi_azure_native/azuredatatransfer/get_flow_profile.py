@@ -156,6 +156,8 @@ def get_flow_profile(flow_profile_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-05-30-preview.
 
+    Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.
     :param builtins.str pipeline_name: The name of the pipeline on which to operate.
@@ -186,6 +188,8 @@ def get_flow_profile_output(flow_profile_name: Optional[pulumi.Input[builtins.st
     Retrieves the specified FlowProfile resource.
 
     Uses Azure REST API version 2025-05-30-preview.
+
+    Other available API versions: 2025-10-10-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azuredatatransfer [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str flow_profile_name: The name of the FlowProfile resource to operate on. Must be 3 to 64 characters long and contain only alphanumeric characters or hyphens.

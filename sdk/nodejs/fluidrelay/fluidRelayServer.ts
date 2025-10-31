@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * A FluidRelay Server.
  *
  * Uses Azure REST API version 2022-06-01. In version 2.x of the Azure Native provider, it used API version 2022-06-01.
+ *
+ * Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FluidRelayServer extends pulumi.CustomResource {
     /**
@@ -131,7 +133,7 @@ export class FluidRelayServer extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:fluidrelay/v20210312preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210615preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210830preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210910preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220215:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220421:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220511:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220526:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220601:FluidRelayServer" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:fluidrelay/v20210312preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210615preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210830preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20210910preview:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220215:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220421:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220511:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220526:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20220601:FluidRelayServer" }, { type: "azure-native:fluidrelay/v20250620preview:FluidRelayServer" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FluidRelayServer.__pulumiType, name, resourceInputs, opts);
     }

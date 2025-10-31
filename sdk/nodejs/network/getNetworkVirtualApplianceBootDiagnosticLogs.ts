@@ -9,7 +9,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkVirtualApplianceBootDiagnosticLogs(args: GetNetworkVirtualApplianceBootDiagnosticLogsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkVirtualApplianceBootDiagnosticLogsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,7 +56,7 @@ export interface GetNetworkVirtualApplianceBootDiagnosticLogsResult {
  *
  * Uses Azure REST API version 2024-07-01.
  *
- * Other available API versions: 2024-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2024-10-01, 2025-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native network [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkVirtualApplianceBootDiagnosticLogsOutput(args: GetNetworkVirtualApplianceBootDiagnosticLogsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkVirtualApplianceBootDiagnosticLogsResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

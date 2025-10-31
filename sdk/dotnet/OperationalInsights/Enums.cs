@@ -382,6 +382,39 @@ namespace Pulumi.AzureNative.OperationalInsights
     }
 
     /// <summary>
+    /// SummaryRules rule type: User.
+    /// </summary>
+    [EnumType]
+    public readonly struct RuleTypeEnum : IEquatable<RuleTypeEnum>
+    {
+        private readonly string _value;
+
+        private RuleTypeEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// User defined summary rule. This is the definition for rules created and defined by users.
+        /// </summary>
+        public static RuleTypeEnum User { get; } = new RuleTypeEnum("User");
+
+        public static bool operator ==(RuleTypeEnum left, RuleTypeEnum right) => left.Equals(right);
+        public static bool operator !=(RuleTypeEnum left, RuleTypeEnum right) => !left.Equals(right);
+
+        public static explicit operator string(RuleTypeEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is RuleTypeEnum other && Equals(other);
+        public bool Equals(RuleTypeEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Instruct the system how to handle and charge the logs ingested to this table.
     /// </summary>
     [EnumType]
@@ -411,6 +444,39 @@ namespace Pulumi.AzureNative.OperationalInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is TablePlanEnum other && Equals(other);
         public bool Equals(TablePlanEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+    /// </summary>
+    [EnumType]
+    public readonly struct TimeSelectorEnum : IEquatable<TimeSelectorEnum>
+    {
+        private readonly string _value;
+
+        private TimeSelectorEnum(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// TimeGenerated.
+        /// </summary>
+        public static TimeSelectorEnum TimeGenerated { get; } = new TimeSelectorEnum("TimeGenerated");
+
+        public static bool operator ==(TimeSelectorEnum left, TimeSelectorEnum right) => left.Equals(right);
+        public static bool operator !=(TimeSelectorEnum left, TimeSelectorEnum right) => !left.Equals(right);
+
+        public static explicit operator string(TimeSelectorEnum value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is TimeSelectorEnum other && Equals(other);
+        public bool Equals(TimeSelectorEnum other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

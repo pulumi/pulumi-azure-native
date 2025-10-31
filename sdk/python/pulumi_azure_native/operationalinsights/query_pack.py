@@ -105,7 +105,7 @@ class QueryPack(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
 
-        Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -125,7 +125,7 @@ class QueryPack(pulumi.CustomResource):
 
         Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2019-09-01.
 
-        Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2019-09-01, 2019-09-01-preview, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param QueryPackArgs args: The arguments to use to populate this resource's properties.
@@ -169,7 +169,7 @@ class QueryPack(pulumi.CustomResource):
             __props__.__dict__["time_created"] = None
             __props__.__dict__["time_modified"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:QueryPack")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:operationalinsights/v20190901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20190901preview:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20230901:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20250201:QueryPack"), pulumi.Alias(type_="azure-native:operationalinsights/v20250701:QueryPack")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(QueryPack, __self__).__init__(
             'azure-native:operationalinsights:QueryPack',

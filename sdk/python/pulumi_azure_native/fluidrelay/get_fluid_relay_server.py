@@ -203,6 +203,8 @@ def get_fluid_relay_server(fluid_relay_server_name: Optional[builtins.str] = Non
 
     Uses Azure REST API version 2022-06-01.
 
+    Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str fluid_relay_server_name: The Fluid Relay server resource name.
     :param builtins.str resource_group: The resource group containing the resource.
@@ -234,6 +236,8 @@ def get_fluid_relay_server_output(fluid_relay_server_name: Optional[pulumi.Input
     A FluidRelay Server.
 
     Uses Azure REST API version 2022-06-01.
+
+    Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str fluid_relay_server_name: The Fluid Relay server resource name.

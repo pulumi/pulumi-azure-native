@@ -11,6 +11,12 @@ export const AdministratorType = {
  */
 export type AdministratorType = (typeof AdministratorType)[keyof typeof AdministratorType];
 
+export const BackupType = {
+    FULL: "FULL",
+} as const;
+
+export type BackupType = (typeof BackupType)[keyof typeof BackupType];
+
 export const ConfigurationSource = {
     System_default: "system-default",
     User_override: "user-override",

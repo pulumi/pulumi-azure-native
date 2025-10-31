@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2020-08-01.
  *
- * Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2015-11-01-preview, 2019-08-01-preview, 2020-03-01-preview, 2020-08-01, 2025-02-01, 2025-07-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native operationalinsights [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class LinkedService extends pulumi.CustomResource {
     /**
@@ -107,7 +107,7 @@ export class LinkedService extends pulumi.CustomResource {
             resourceInputs["writeAccessResourceId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }, { type: "azure-native:operationalinsights/v20250201:LinkedService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:operationalinsights/v20151101preview:LinkedService" }, { type: "azure-native:operationalinsights/v20190801preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200301preview:LinkedService" }, { type: "azure-native:operationalinsights/v20200801:LinkedService" }, { type: "azure-native:operationalinsights/v20230901:LinkedService" }, { type: "azure-native:operationalinsights/v20250201:LinkedService" }, { type: "azure-native:operationalinsights/v20250701:LinkedService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(LinkedService.__pulumiType, name, resourceInputs, opts);
     }

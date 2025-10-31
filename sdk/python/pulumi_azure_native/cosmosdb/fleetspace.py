@@ -123,6 +123,8 @@ class Fleetspace(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-05-01-preview.
 
+        Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[builtins.str] fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
@@ -141,6 +143,8 @@ class Fleetspace(pulumi.CustomResource):
         An Azure Cosmos DB Fleetspace.
 
         Uses Azure REST API version 2025-05-01-preview.
+
+        Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param FleetspaceArgs args: The arguments to use to populate this resource's properties.
@@ -185,7 +189,7 @@ class Fleetspace(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:Fleetspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:cosmosdb/v20250501preview:Fleetspace"), pulumi.Alias(type_="azure-native:cosmosdb/v20251015:Fleetspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Fleetspace, __self__).__init__(
             'azure-native:cosmosdb:Fleetspace',

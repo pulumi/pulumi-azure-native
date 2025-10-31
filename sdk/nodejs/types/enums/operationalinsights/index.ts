@@ -166,6 +166,18 @@ export const PublicNetworkAccessType = {
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
+export const RuleTypeEnum = {
+    /**
+     * User defined summary rule. This is the definition for rules created and defined by users.
+     */
+    User: "User",
+} as const;
+
+/**
+ * SummaryRules rule type: User.
+ */
+export type RuleTypeEnum = (typeof RuleTypeEnum)[keyof typeof RuleTypeEnum];
+
 export const TablePlanEnum = {
     /**
      * Logs that are adjusted to support high volume low value verbose logs.
@@ -181,6 +193,18 @@ export const TablePlanEnum = {
  * Instruct the system how to handle and charge the logs ingested to this table.
  */
 export type TablePlanEnum = (typeof TablePlanEnum)[keyof typeof TablePlanEnum];
+
+export const TimeSelectorEnum = {
+    /**
+     * TimeGenerated.
+     */
+    TimeGenerated: "TimeGenerated",
+} as const;
+
+/**
+ * The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+ */
+export type TimeSelectorEnum = (typeof TimeSelectorEnum)[keyof typeof TimeSelectorEnum];
 
 export const WorkspaceSkuNameEnum = {
     Free: "Free",

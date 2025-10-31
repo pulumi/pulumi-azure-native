@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -238,7 +238,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["workspaceUrl"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }, { type: "azure-native:databricks/v20240501:Workspace" }, { type: "azure-native:databricks/v20240901preview:Workspace" }, { type: "azure-native:databricks/v20250301preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20180401:Workspace" }, { type: "azure-native:databricks/v20210401preview:Workspace" }, { type: "azure-native:databricks/v20220401preview:Workspace" }, { type: "azure-native:databricks/v20230201:Workspace" }, { type: "azure-native:databricks/v20230915preview:Workspace" }, { type: "azure-native:databricks/v20240501:Workspace" }, { type: "azure-native:databricks/v20240901preview:Workspace" }, { type: "azure-native:databricks/v20250301preview:Workspace" }, { type: "azure-native:databricks/v20250801preview:Workspace" }, { type: "azure-native:databricks/v20251001preview:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

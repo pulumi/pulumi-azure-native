@@ -143,6 +143,8 @@ def get_fleet(fleet_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-05-01-preview.
 
+    Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
     :param builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -169,6 +171,8 @@ def get_fleet_output(fleet_name: Optional[pulumi.Input[builtins.str]] = None,
     Retrieves the properties of an existing Azure Cosmos DB fleet under a subscription
 
     Uses Azure REST API version 2025-05-01-preview.
+
+    Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.

@@ -20,6 +20,7 @@ from .get_app_service_environment import *
 from .get_app_service_environment_ase_custom_dns_suffix_configuration import *
 from .get_app_service_environment_private_endpoint_connection import *
 from .get_app_service_plan import *
+from .get_app_service_plan_server_farm_rdp_password import *
 from .get_certificate import *
 from .get_connection import *
 from .get_connection_gateway import *
@@ -77,6 +78,7 @@ from .get_web_app_vnet_connection import *
 from .get_web_app_vnet_connection_slot import *
 from .kube_environment import *
 from .list_app_service_plan_hybrid_connection_keys import *
+from .list_app_service_plan_server_farm_instance_details import *
 from .list_connection_consent_links import *
 from .list_connection_keys import *
 from .list_custom_api_wsdl_interfaces import *

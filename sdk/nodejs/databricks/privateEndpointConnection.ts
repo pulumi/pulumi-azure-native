@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2024-05-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  *
- * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-02-01, 2023-09-15-preview, 2024-09-01-preview, 2025-03-01-preview, 2025-08-01-preview, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native databricks [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -92,7 +92,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20220401preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20230201:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20230915preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20240501:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20240901preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20250301preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:databricks/v20210401preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20220401preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20230201:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20230915preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20240501:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20240901preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20250301preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20250801preview:PrivateEndpointConnection" }, { type: "azure-native:databricks/v20251001preview:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

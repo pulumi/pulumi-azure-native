@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * An Azure Cosmos DB Fleetspace Account
  *
  * Uses Azure REST API version 2025-05-01-preview.
+ *
+ * Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class FleetspaceAccount extends pulumi.CustomResource {
     /**
@@ -103,7 +105,7 @@ export class FleetspaceAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:FleetspaceAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:cosmosdb/v20250501preview:FleetspaceAccount" }, { type: "azure-native:cosmosdb/v20251015:FleetspaceAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FleetspaceAccount.__pulumiType, name, resourceInputs, opts);
     }

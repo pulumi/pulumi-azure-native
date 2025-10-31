@@ -144,6 +144,8 @@ def get_fleetspace(fleet_name: Optional[builtins.str] = None,
 
     Uses Azure REST API version 2025-05-01-preview.
 
+    Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+
 
     :param builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.
     :param builtins.str fleetspace_name: Cosmos DB fleetspace name. Needs to be unique under a fleet.
@@ -173,6 +175,8 @@ def get_fleetspace_output(fleet_name: Optional[pulumi.Input[builtins.str]] = Non
     Retrieves the properties of an existing Azure Cosmos DB fleetspace under a fleet
 
     Uses Azure REST API version 2025-05-01-preview.
+
+    Other available API versions: 2025-10-15. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cosmosdb [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param builtins.str fleet_name: Cosmos DB fleet name. Needs to be unique under a subscription.

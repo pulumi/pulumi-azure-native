@@ -8,6 +8,7 @@ from enum import Enum
 
 __all__ = [
     'AdministratorType',
+    'BackupType',
     'ConfigurationSource',
     'CreateMode',
     'DataEncryptionType',
@@ -38,6 +39,11 @@ class AdministratorType(builtins.str, Enum):
     The type of administrator.
     """
     ACTIVE_DIRECTORY = "ActiveDirectory"
+
+
+@pulumi.type_token("azure-native:dbformysql:BackupType")
+class BackupType(builtins.str, Enum):
+    FULL = "FULL"
 
 
 @pulumi.type_token("azure-native:dbformysql:ConfigurationSource")

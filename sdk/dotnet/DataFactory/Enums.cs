@@ -1187,6 +1187,38 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// HDInsight On-demand cluster resource group authentication type.
+    /// </summary>
+    [EnumType]
+    public readonly struct HDInsightOndemandClusterResourceGroupAuthenticationType : IEquatable<HDInsightOndemandClusterResourceGroupAuthenticationType>
+    {
+        private readonly string _value;
+
+        private HDInsightOndemandClusterResourceGroupAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType ServicePrincipalKey { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("ServicePrincipalKey");
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType SystemAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("SystemAssignedManagedIdentity");
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType UserAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(HDInsightOndemandClusterResourceGroupAuthenticationType left, HDInsightOndemandClusterResourceGroupAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(HDInsightOndemandClusterResourceGroupAuthenticationType left, HDInsightOndemandClusterResourceGroupAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(HDInsightOndemandClusterResourceGroupAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HDInsightOndemandClusterResourceGroupAuthenticationType other && Equals(other);
+        public bool Equals(HDInsightOndemandClusterResourceGroupAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication method used to access the Hive server.
     /// </summary>
     [EnumType]

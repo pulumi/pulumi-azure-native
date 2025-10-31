@@ -250,6 +250,27 @@ export const DestinationProtocol = {
  */
 export type DestinationProtocol = (typeof DestinationProtocol)[keyof typeof DestinationProtocol];
 
+export const EdgeActionIsDefaultVersion = {
+    True: "True",
+    False: "False",
+} as const;
+
+/**
+ * The active state
+ */
+export type EdgeActionIsDefaultVersion = (typeof EdgeActionIsDefaultVersion)[keyof typeof EdgeActionIsDefaultVersion];
+
+export const EdgeActionVersionDeploymentType = {
+    Zip: "zip",
+    File: "file",
+    Others: "others",
+} as const;
+
+/**
+ * The deployment type
+ */
+export type EdgeActionVersionDeploymentType = (typeof EdgeActionVersionDeploymentType)[keyof typeof EdgeActionVersionDeploymentType];
+
 export const EnabledState = {
     Enabled: "Enabled",
     Disabled: "Disabled",

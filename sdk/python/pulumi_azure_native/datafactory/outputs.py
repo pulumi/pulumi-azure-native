@@ -317,6 +317,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'InteractiveQueryPropertiesResponse',
     'JiraLinkedServiceResponse',
     'JiraObjectDatasetResponse',
     'JiraSourceResponse',
@@ -40377,6 +40378,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             suggest = "cluster_name_prefix"
         elif key == "clusterPassword":
             suggest = "cluster_password"
+        elif key == "clusterResourceGroupAuthType":
+            suggest = "cluster_resource_group_auth_type"
         elif key == "clusterSshPassword":
             suggest = "cluster_ssh_password"
         elif key == "clusterSshUserName":
@@ -40450,6 +40453,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[Any] = None,
+                 cluster_resource_group_auth_type: Optional[builtins.str] = None,
                  cluster_ssh_password: Optional[Any] = None,
                  cluster_ssh_user_name: Optional[Any] = None,
                  cluster_type: Optional[Any] = None,
@@ -40492,6 +40496,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_password: The password to access the cluster.
+        :param builtins.str cluster_resource_group_auth_type: HDInsight On-demand cluster resource group authentication type.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
@@ -40536,6 +40541,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             pulumi.set(__self__, "cluster_name_prefix", cluster_name_prefix)
         if cluster_password is not None:
             pulumi.set(__self__, "cluster_password", cluster_password)
+        if cluster_resource_group_auth_type is not None:
+            pulumi.set(__self__, "cluster_resource_group_auth_type", cluster_resource_group_auth_type)
         if cluster_ssh_password is not None:
             pulumi.set(__self__, "cluster_ssh_password", cluster_ssh_password)
         if cluster_ssh_user_name is not None:
@@ -40687,6 +40694,14 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         The password to access the cluster.
         """
         return pulumi.get(self, "cluster_password")
+
+    @property
+    @pulumi.getter(name="clusterResourceGroupAuthType")
+    def cluster_resource_group_auth_type(self) -> Optional[builtins.str]:
+        """
+        HDInsight On-demand cluster resource group authentication type.
+        """
+        return pulumi.get(self, "cluster_resource_group_auth_type")
 
     @property
     @pulumi.getter(name="clusterSshPassword")
@@ -46504,6 +46519,56 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryPropertiesResponse(dict):
+    """
+    Interactive authoring capability type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoTerminationMinutes":
+            suggest = "auto_termination_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_termination_minutes: builtins.int,
+                 status: builtins.str):
+        """
+        Interactive authoring capability type properties.
+        :param builtins.int auto_termination_minutes: The allowed idle time for interactive authoring.
+        :param builtins.str status: The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
+        """
+        pulumi.set(__self__, "auto_termination_minutes", auto_termination_minutes)
+        pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="autoTerminationMinutes")
+    def auto_termination_minutes(self) -> builtins.int:
+        """
+        The allowed idle time for interactive authoring.
+        """
+        return pulumi.get(self, "auto_termination_minutes")
+
+    @property
+    @pulumi.getter
+    def status(self) -> builtins.str:
+        """
+        The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class JiraLinkedServiceResponse(dict):
     """
     Jira Service linked service.
@@ -50049,6 +50114,8 @@ class ManagedIntegrationRuntimeResponse(dict):
             suggest = "compute_properties"
         elif key == "customerVirtualNetwork":
             suggest = "customer_virtual_network"
+        elif key == "interactiveQuery":
+            suggest = "interactive_query"
         elif key == "managedVirtualNetwork":
             suggest = "managed_virtual_network"
         elif key == "ssisProperties":
@@ -50071,6 +50138,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
                  customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[builtins.str] = None,
+                 interactive_query: Optional['outputs.InteractiveQueryPropertiesResponse'] = None,
                  managed_virtual_network: Optional['outputs.ManagedVirtualNetworkReferenceResponse'] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
@@ -50081,6 +50149,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param builtins.str description: Integration runtime description.
+        :param 'InteractiveQueryPropertiesResponse' interactive_query: Interactive authoring capability reference.
         :param 'ManagedVirtualNetworkReferenceResponse' managed_virtual_network: Managed Virtual Network reference.
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
@@ -50092,6 +50161,8 @@ class ManagedIntegrationRuntimeResponse(dict):
             pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interactive_query is not None:
+            pulumi.set(__self__, "interactive_query", interactive_query)
         if managed_virtual_network is not None:
             pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
         if ssis_properties is not None:
@@ -50137,6 +50208,14 @@ class ManagedIntegrationRuntimeResponse(dict):
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="interactiveQuery")
+    def interactive_query(self) -> Optional['outputs.InteractiveQueryPropertiesResponse']:
+        """
+        Interactive authoring capability reference.
+        """
+        return pulumi.get(self, "interactive_query")
 
     @property
     @pulumi.getter(name="managedVirtualNetwork")

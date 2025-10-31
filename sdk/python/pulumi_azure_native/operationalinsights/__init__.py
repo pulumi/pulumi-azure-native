@@ -21,6 +21,7 @@ from .get_query_pack import *
 from .get_saved_search import *
 from .get_shared_keys import *
 from .get_storage_insight_config import *
+from .get_summary_log import *
 from .get_table import *
 from .get_workspace import *
 from .get_workspace_shared_keys import *
@@ -31,6 +32,7 @@ from .query import *
 from .query_pack import *
 from .saved_search import *
 from .storage_insight_config import *
+from .summary_log import *
 from .table import *
 from .workspace import *
 from ._inputs import *

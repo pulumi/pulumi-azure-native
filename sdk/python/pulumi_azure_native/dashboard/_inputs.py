@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'AzureMonitorWorkspaceIntegrationArgs',
     'AzureMonitorWorkspaceIntegrationArgsDict',
+    'DashboardDefinitionPropertiesArgs',
+    'DashboardDefinitionPropertiesArgsDict',
     'EnterpriseConfigurationsArgs',
     'EnterpriseConfigurationsArgsDict',
     'GrafanaConfigurationsArgs',
@@ -81,6 +83,42 @@ class AzureMonitorWorkspaceIntegrationArgs:
     @azure_monitor_workspace_resource_id.setter
     def azure_monitor_workspace_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "azure_monitor_workspace_resource_id", value)
+
+
+if not MYPY:
+    class DashboardDefinitionPropertiesArgsDict(TypedDict):
+        """
+        Properties specific to the dashboard definition.
+        """
+        serialized_data: NotRequired[pulumi.Input[builtins.str]]
+        """
+        The dashboard definition data in JSON format.
+        """
+elif False:
+    DashboardDefinitionPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class DashboardDefinitionPropertiesArgs:
+    def __init__(__self__, *,
+                 serialized_data: Optional[pulumi.Input[builtins.str]] = None):
+        """
+        Properties specific to the dashboard definition.
+        :param pulumi.Input[builtins.str] serialized_data: The dashboard definition data in JSON format.
+        """
+        if serialized_data is not None:
+            pulumi.set(__self__, "serialized_data", serialized_data)
+
+    @property
+    @pulumi.getter(name="serializedData")
+    def serialized_data(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The dashboard definition data in JSON format.
+        """
+        return pulumi.get(self, "serialized_data")
+
+    @serialized_data.setter
+    def serialized_data(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "serialized_data", value)
 
 
 if not MYPY:
