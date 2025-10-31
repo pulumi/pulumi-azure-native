@@ -9,7 +9,8 @@ import (
 
 // ResponseBodyToSdkOutputs converts a JSON request- or response body to the SDK shape.
 func (k *SdkShapeConverter) ResponseBodyToSdkOutputs(props map[string]resources.AzureAPIProperty,
-	response map[string]interface{}) map[string]interface{} {
+	response map[string]interface{},
+) map[string]interface{} {
 	result := map[string]interface{}{}
 
 	for name, prop := range props {
@@ -47,8 +48,51 @@ func (k *SdkShapeConverter) ResponseBodyToSdkOutputs(props map[string]resources.
 // convertBodyPropToSdkPropValue converts a value from a request body to an SDK property value.
 func (k *SdkShapeConverter) convertBodyPropToSdkPropValue(prop *resources.AzureAPIProperty, value interface{}) interface{} {
 	return k.convertTypedResponseBodyObjectsToSdkOutputs(prop, value, func(typeName string, props map[string]resources.AzureAPIProperty, values map[string]interface{}) map[string]interface{} {
+		// Reverse of outbound AKS autoscaler profile workaround: convert kebab-case wire keys
+		// back to camelCase expected by generated SDK property names.
+		if strings.HasSuffix(typeName, "ManagedClusterPropertiesAutoScalerProfile") || strings.HasSuffix(typeName, "ManagedClusterPropertiesResponseAutoScalerProfile") {
+			values = restoreAutoScalerProfileKeys(values)
+		}
 		return k.ResponseBodyToSdkOutputs(props, values)
 	})
+}
+
+// restoreAutoScalerProfileKeys performs the inverse mapping of rewriteAutoScalerProfileKeys.
+func restoreAutoScalerProfileKeys(in map[string]interface{}) map[string]interface{} {
+	if in == nil {
+		return in
+	}
+	mappings := map[string]string{
+		"scan-interval":                         "scanInterval",
+		"scale-down-delay-after-add":            "scaleDownDelayAfterAdd",
+		"scale-down-delay-after-delete":         "scaleDownDelayAfterDelete",
+		"scale-down-delay-after-failure":        "scaleDownDelayAfterFailure",
+		"scale-down-unneeded-time":              "scaleDownUnneededTime",
+		"scale-down-unready-time":               "scaleDownUnreadyTime",
+		"ignore-daemonsets-utilization":         "ignoreDaemonsetsUtilization",
+		"daemonset-eviction-for-empty-nodes":    "daemonsetEvictionForEmptyNodes",
+		"daemonset-eviction-for-occupied-nodes": "daemonsetEvictionForOccupiedNodes",
+		"scale-down-utilization-threshold":      "scaleDownUtilizationThreshold",
+		"max-graceful-termination-sec":          "maxGracefulTerminationSec",
+		"balance-similar-node-groups":           "balanceSimilarNodeGroups",
+		"expander":                              "expander",
+		"skip-nodes-with-local-storage":         "skipNodesWithLocalStorage",
+		"skip-nodes-with-system-pods":           "skipNodesWithSystemPods",
+		"max-empty-bulk-delete":                 "maxEmptyBulkDelete",
+		"new-pod-scale-up-delay":                "newPodScaleUpDelay",
+		"max-total-unready-percentage":          "maxTotalUnreadyPercentage",
+		"max-node-provision-time":               "maxNodeProvisionTime",
+		"ok-total-unready-count":                "okTotalUnreadyCount",
+	}
+	out := map[string]interface{}{}
+	for k, v := range in {
+		if sdk, ok := mappings[k]; ok {
+			out[sdk] = v
+		} else {
+			out[k] = v
+		}
+	}
+	return out
 }
 
 // convertTypedResponseBodyObjectsToSdkOutputs recursively finds map types with a known type and calls convertMap on them.
