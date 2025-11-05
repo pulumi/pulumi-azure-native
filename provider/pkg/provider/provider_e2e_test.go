@@ -291,9 +291,11 @@ func TestAzidentity(t *testing.T) {
 		pt := newPulumiTest(t, "azidentity")
 		up := pt.Up(t)
 		clientConfig, clientToken := validate(t, up)
-		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientConfig["clientId"])
-		assert.Equal(t, "04b07795-8ddb-461a-bbee-02f9e1bf7b46", clientToken["appid"])
-		assert.Equal(t, "user", clientToken["idtyp"])
+		// When using service principal authentication, verify we got valid credentials
+		assert.NotEmpty(t, clientConfig["clientId"], "clientId should be present")
+		assert.NotEmpty(t, clientToken["appid"], "appid should be present")
+		// Service principal tokens have idtyp "app" (not "user")
+		assert.Equal(t, "app", clientToken["idtyp"])
 	})
 
 	t.Run("Default Azure Credential", func(t *testing.T) {

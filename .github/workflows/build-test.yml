@@ -223,18 +223,20 @@ jobs:
           echo "${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
           echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> "$GITHUB_ENV"
 
-      - name: Write .azure.tmp folder
-        # We write to .azure.tmp, not directly to .azure, because we want only one test to use
-        # this folder. The test needs to rename it to .azure and then back. This is to avoid other
-        # tests using it unintentionally since CLI is the fallback auth method.
+      - name: Setup Azure CLI authentication for tests
+        # We use a service principal to authenticate the Azure CLI in an isolated directory (.azure.tmp).
+        # This allows testing the provider's CLI authentication path without relying on expiring refresh tokens.
+        # The test uses AZURE_CONFIG_DIR to point to this isolated directory.
         run: |
           set -euxo pipefail
-          echo "${{ steps.esc-secrets.outputs.AZURE_CLI_FOLDER }}" | base64 -d > "${{ runner.temp }}/azure-cli-folder.zip"
-          # Unzip it to a temp folder to avoid other tests using it unintentionally (since CLI auth is the fallback method).
-          # We only want one specific test to use it.
-          unzip -d "$HOME/.azure.tmp" "${{ runner.temp }}/azure-cli-folder.zip"
-          rm "${{ runner.temp }}/azure-cli-folder.zip"
+          mkdir -p "$HOME/.azure.tmp"
+          az login --service-principal
           echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
+        env:
+          AZURE_CONFIG_DIR: ${{ github.workspace }}/.azure.tmp
+          AZURE_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ env.ARM_TENANT_ID }}
 
       - name: Run tests
         if: ${{ ! inputs.short_test }}
@@ -365,18 +367,20 @@ jobs:
           echo "${{ steps.esc-secrets.outputs.ARM_CLIENT_CERTIFICATE }}" | base64 -d > "${{ runner.temp }}/azure-client-certificate.pfx"
           echo "ARM_CLIENT_CERTIFICATE_PATH_FOR_TEST=${{ runner.temp }}/azure-client-certificate.pfx" >> "$GITHUB_ENV"
 
-      - name: Write .azure.tmp folder
-        # We write to .azure.tmp, not directly to .azure, because we want only one test to use
-        # this folder. The test needs to rename it to .azure and then back. This is to avoid other
-        # tests using it unintentionally since CLI is the fallback auth method.
+      - name: Setup Azure CLI authentication for tests
+        # We use a service principal to authenticate the Azure CLI in an isolated directory (.azure.tmp).
+        # This allows testing the provider's CLI authentication path without relying on expiring refresh tokens.
+        # The test uses AZURE_CONFIG_DIR to point to this isolated directory.
         run: |
           set -euxo pipefail
-          echo "${{ steps.esc-secrets.outputs.AZURE_CLI_FOLDER }}" | base64 -d > "${{ runner.temp }}/azure-cli-folder.zip"
-          # Unzip it to a temp folder to avoid other tests using it unintentionally (since CLI auth is the fallback method).
-          # We only want one specific test to use it.
-          unzip -d "$HOME/.azure.tmp" "${{ runner.temp }}/azure-cli-folder.zip"
-          rm "${{ runner.temp }}/azure-cli-folder.zip"
+          mkdir -p "$HOME/.azure.tmp"
+          az login --service-principal
           echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
+        env:
+          AZURE_CONFIG_DIR: ${{ github.workspace }}/.azure.tmp
+          AZURE_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
+          AZURE_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
+          AZURE_TENANT_ID: ${{ env.ARM_TENANT_ID }}
 
       - name: Test Provider Library
         env:
