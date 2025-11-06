@@ -42,24 +42,24 @@ export class WorkloadDeployment extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Workload deployment model properties.
      */
-    public readonly properties!: pulumi.Output<outputs.migrate.WorkloadDeploymentModelPropertiesResponse>;
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.WorkloadDeploymentModelResponseSystemData>;
+    declare public readonly properties: pulumi.Output<outputs.migrate.WorkloadDeploymentModelPropertiesResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.WorkloadDeploymentModelResponseSystemData>;
     /**
      * Gets or sets the resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets or sets the type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WorkloadDeployment resource with the given unique name, arguments, and options.
@@ -72,18 +72,18 @@ export class WorkloadDeployment extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.modernizeProjectName === undefined) && !opts.urn) {
+            if (args?.modernizeProjectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'modernizeProjectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["modernizeProjectName"] = args ? args.modernizeProjectName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workloadDeploymentName"] = args ? args.workloadDeploymentName : undefined;
+            resourceInputs["modernizeProjectName"] = args?.modernizeProjectName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workloadDeploymentName"] = args?.workloadDeploymentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

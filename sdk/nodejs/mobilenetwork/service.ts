@@ -44,43 +44,43 @@ export class Service extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The set of data flow policy rules that make up this service.
      */
-    public readonly pccRules!: pulumi.Output<outputs.mobilenetwork.PccRuleConfigurationResponse[]>;
+    declare public readonly pccRules: pulumi.Output<outputs.mobilenetwork.PccRuleConfigurationResponse[]>;
     /**
      * The provisioning state of the service resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * A precedence value that is used to decide between services when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all services configured in the mobile network.
      */
-    public readonly servicePrecedence!: pulumi.Output<number>;
+    declare public readonly servicePrecedence: pulumi.Output<number>;
     /**
      * The QoS policy to use for packets matching this service. This can be overridden for particular flows using the ruleQosPolicy field in a PccRuleConfiguration. If this field is null then the UE's SIM policy will define the QoS settings.
      */
-    public readonly serviceQosPolicy!: pulumi.Output<outputs.mobilenetwork.QosPolicyResponse | undefined>;
+    declare public readonly serviceQosPolicy: pulumi.Output<outputs.mobilenetwork.QosPolicyResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.mobilenetwork.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -93,26 +93,26 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.mobileNetworkName === undefined) && !opts.urn) {
+            if (args?.mobileNetworkName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mobileNetworkName'");
             }
-            if ((!args || args.pccRules === undefined) && !opts.urn) {
+            if (args?.pccRules === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pccRules'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.servicePrecedence === undefined) && !opts.urn) {
+            if (args?.servicePrecedence === undefined && !opts.urn) {
                 throw new Error("Missing required property 'servicePrecedence'");
             }
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mobileNetworkName"] = args ? args.mobileNetworkName : undefined;
-            resourceInputs["pccRules"] = args ? args.pccRules : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["servicePrecedence"] = args ? args.servicePrecedence : undefined;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mobileNetworkName"] = args?.mobileNetworkName;
+            resourceInputs["pccRules"] = args?.pccRules;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["servicePrecedence"] = args?.servicePrecedence;
             resourceInputs["serviceQosPolicy"] = args ? (args.serviceQosPolicy ? pulumi.output(args.serviceQosPolicy).apply(inputs.mobilenetwork.qosPolicyArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

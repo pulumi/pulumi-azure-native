@@ -42,43 +42,43 @@ export class KnowledgeSource extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Description of the knowledge source.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The last time the knowledge source was updated.
      */
-    public /*out*/ readonly lastRefreshedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastRefreshedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provisioning status of the knowledge source.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Format or origin of the knowledge source.
      */
-    public readonly sourceType!: pulumi.Output<string>;
+    declare public readonly sourceType: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Specifies the units of time for scheduling update intervals for the knowledge source.
      */
-    public readonly updateFrequency!: pulumi.Output<string | undefined>;
+    declare public readonly updateFrequency: pulumi.Output<string | undefined>;
     /**
      * Endpoint or location of the knowledge source.
      */
-    public readonly url!: pulumi.Output<string>;
+    declare public readonly url: pulumi.Output<string>;
 
     /**
      * Create a KnowledgeSource resource with the given unique name, arguments, and options.
@@ -91,25 +91,25 @@ export class KnowledgeSource extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceType === undefined) && !opts.urn) {
+            if (args?.sourceType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceType'");
             }
-            if ((!args || args.url === undefined) && !opts.urn) {
+            if (args?.url === undefined && !opts.urn) {
                 throw new Error("Missing required property 'url'");
             }
-            if ((!args || args.webAgentName === undefined) && !opts.urn) {
+            if (args?.webAgentName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'webAgentName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["knowledgeSourceName"] = args ? args.knowledgeSourceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceType"] = args ? args.sourceType : undefined;
-            resourceInputs["updateFrequency"] = args ? args.updateFrequency : undefined;
-            resourceInputs["url"] = args ? args.url : undefined;
-            resourceInputs["webAgentName"] = args ? args.webAgentName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["knowledgeSourceName"] = args?.knowledgeSourceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceType"] = args?.sourceType;
+            resourceInputs["updateFrequency"] = args?.updateFrequency;
+            resourceInputs["url"] = args?.url;
+            resourceInputs["webAgentName"] = args?.webAgentName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastRefreshedTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

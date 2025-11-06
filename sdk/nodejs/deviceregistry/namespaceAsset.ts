@@ -44,159 +44,159 @@ export class NamespaceAsset extends pulumi.CustomResource {
     /**
      * URIs or type definition IDs.
      */
-    public readonly assetTypeRefs!: pulumi.Output<string[] | undefined>;
+    declare public readonly assetTypeRefs: pulumi.Output<string[] | undefined>;
     /**
      * A set of key-value pairs that contain custom attributes set by the customer.
      */
-    public readonly attributes!: pulumi.Output<any | undefined>;
+    declare public readonly attributes: pulumi.Output<any | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Array of datasets that are part of the asset. Each dataset describes the data points that make up the set.
      */
-    public readonly datasets!: pulumi.Output<outputs.deviceregistry.NamespaceDatasetResponse[] | undefined>;
+    declare public readonly datasets: pulumi.Output<outputs.deviceregistry.NamespaceDatasetResponse[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all datasets. Each dataset can have its own configuration that overrides the default settings here.
      */
-    public readonly defaultDatasetsConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDatasetsConfiguration: pulumi.Output<string | undefined>;
     /**
      * Default destinations for a dataset.
      */
-    public readonly defaultDatasetsDestinations!: pulumi.Output<(outputs.deviceregistry.DatasetBrokerStateStoreDestinationResponse | outputs.deviceregistry.DatasetMqttDestinationResponse | outputs.deviceregistry.DatasetStorageDestinationResponse)[] | undefined>;
+    declare public readonly defaultDatasetsDestinations: pulumi.Output<(outputs.deviceregistry.DatasetBrokerStateStoreDestinationResponse | outputs.deviceregistry.DatasetMqttDestinationResponse | outputs.deviceregistry.DatasetStorageDestinationResponse)[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all events. Each event can have its own configuration that overrides the default settings here.
      */
-    public readonly defaultEventsConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultEventsConfiguration: pulumi.Output<string | undefined>;
     /**
      * Default destinations for an event.
      */
-    public readonly defaultEventsDestinations!: pulumi.Output<(outputs.deviceregistry.EventMqttDestinationResponse | outputs.deviceregistry.EventStorageDestinationResponse)[] | undefined>;
+    declare public readonly defaultEventsDestinations: pulumi.Output<(outputs.deviceregistry.EventMqttDestinationResponse | outputs.deviceregistry.EventStorageDestinationResponse)[] | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all management groups. Each management group can have its own configuration that overrides the default settings here.
      */
-    public readonly defaultManagementGroupsConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultManagementGroupsConfiguration: pulumi.Output<string | undefined>;
     /**
      * Stringified JSON that contains connector-specific default configuration for all streams. Each stream can have its own configuration that overrides the default settings here.
      */
-    public readonly defaultStreamsConfiguration!: pulumi.Output<string | undefined>;
+    declare public readonly defaultStreamsConfiguration: pulumi.Output<string | undefined>;
     /**
      * Default destinations for a stream.
      */
-    public readonly defaultStreamsDestinations!: pulumi.Output<(outputs.deviceregistry.StreamMqttDestinationResponse | outputs.deviceregistry.StreamStorageDestinationResponse)[] | undefined>;
+    declare public readonly defaultStreamsDestinations: pulumi.Output<(outputs.deviceregistry.StreamMqttDestinationResponse | outputs.deviceregistry.StreamStorageDestinationResponse)[] | undefined>;
     /**
      * Human-readable description of the asset.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Reference to the device that provides data for this asset. Must provide device name & endpoint on the device to use.
      */
-    public readonly deviceRef!: pulumi.Output<outputs.deviceregistry.DeviceRefResponse>;
+    declare public readonly deviceRef: pulumi.Output<outputs.deviceregistry.DeviceRefResponse>;
     /**
      * Reference to a list of discovered assets. Populated only if the asset has been created from discovery flow. Discovered asset names must be provided.
      */
-    public readonly discoveredAssetRefs!: pulumi.Output<string[] | undefined>;
+    declare public readonly discoveredAssetRefs: pulumi.Output<string[] | undefined>;
     /**
      * Human-readable display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * Asset documentation reference.
      */
-    public readonly documentationUri!: pulumi.Output<string | undefined>;
+    declare public readonly documentationUri: pulumi.Output<string | undefined>;
     /**
      * Enabled/disabled status of the asset.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Array of events that are part of the asset. Each event can have per-event configuration.
      */
-    public readonly events!: pulumi.Output<outputs.deviceregistry.NamespaceEventResponse[] | undefined>;
+    declare public readonly events: pulumi.Output<outputs.deviceregistry.NamespaceEventResponse[] | undefined>;
     /**
      * The extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.deviceregistry.ExtendedLocationResponse>;
     /**
      * Asset ID provided by the customer.
      */
-    public readonly externalAssetId!: pulumi.Output<string | undefined>;
+    declare public readonly externalAssetId: pulumi.Output<string | undefined>;
     /**
      * Asset hardware revision number.
      */
-    public readonly hardwareRevision!: pulumi.Output<string | undefined>;
+    declare public readonly hardwareRevision: pulumi.Output<string | undefined>;
     /**
      * A timestamp (in UTC) that is updated each time the resource is modified.
      */
-    public /*out*/ readonly lastTransitionTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastTransitionTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Array of management groups that are part of the asset. Each management group can have a per-group configuration.
      */
-    public readonly managementGroups!: pulumi.Output<outputs.deviceregistry.ManagementGroupResponse[] | undefined>;
+    declare public readonly managementGroups: pulumi.Output<outputs.deviceregistry.ManagementGroupResponse[] | undefined>;
     /**
      * Asset manufacturer.
      */
-    public readonly manufacturer!: pulumi.Output<string | undefined>;
+    declare public readonly manufacturer: pulumi.Output<string | undefined>;
     /**
      * Asset manufacturer URI.
      */
-    public readonly manufacturerUri!: pulumi.Output<string | undefined>;
+    declare public readonly manufacturerUri: pulumi.Output<string | undefined>;
     /**
      * Asset model.
      */
-    public readonly model!: pulumi.Output<string | undefined>;
+    declare public readonly model: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Asset product code.
      */
-    public readonly productCode!: pulumi.Output<string | undefined>;
+    declare public readonly productCode: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Asset serial number.
      */
-    public readonly serialNumber!: pulumi.Output<string | undefined>;
+    declare public readonly serialNumber: pulumi.Output<string | undefined>;
     /**
      * Asset software revision number.
      */
-    public readonly softwareRevision!: pulumi.Output<string | undefined>;
+    declare public readonly softwareRevision: pulumi.Output<string | undefined>;
     /**
      * Read only object to reflect changes that have occurred on the Edge. Similar to Kubernetes status property for custom resources.
      */
-    public /*out*/ readonly status!: pulumi.Output<outputs.deviceregistry.NamespaceAssetStatusResponse>;
+    declare public /*out*/ readonly status: pulumi.Output<outputs.deviceregistry.NamespaceAssetStatusResponse>;
     /**
      * Array of streams that are part of the asset. Each stream can have a per-stream configuration.
      */
-    public readonly streams!: pulumi.Output<outputs.deviceregistry.NamespaceStreamResponse[] | undefined>;
+    declare public readonly streams: pulumi.Output<outputs.deviceregistry.NamespaceStreamResponse[] | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Globally unique, immutable, non-reusable ID.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
     /**
      * An integer that is incremented each time the resource is modified.
      */
-    public /*out*/ readonly version!: pulumi.Output<number>;
+    declare public /*out*/ readonly version: pulumi.Output<number>;
 
     /**
      * Create a NamespaceAsset resource with the given unique name, arguments, and options.
@@ -209,51 +209,51 @@ export class NamespaceAsset extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.deviceRef === undefined) && !opts.urn) {
+            if (args?.deviceRef === undefined && !opts.urn) {
                 throw new Error("Missing required property 'deviceRef'");
             }
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.namespaceName === undefined) && !opts.urn) {
+            if (args?.namespaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespaceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assetName"] = args ? args.assetName : undefined;
-            resourceInputs["assetTypeRefs"] = args ? args.assetTypeRefs : undefined;
-            resourceInputs["attributes"] = args ? args.attributes : undefined;
-            resourceInputs["datasets"] = args ? args.datasets : undefined;
-            resourceInputs["defaultDatasetsConfiguration"] = args ? args.defaultDatasetsConfiguration : undefined;
-            resourceInputs["defaultDatasetsDestinations"] = args ? args.defaultDatasetsDestinations : undefined;
-            resourceInputs["defaultEventsConfiguration"] = args ? args.defaultEventsConfiguration : undefined;
-            resourceInputs["defaultEventsDestinations"] = args ? args.defaultEventsDestinations : undefined;
-            resourceInputs["defaultManagementGroupsConfiguration"] = args ? args.defaultManagementGroupsConfiguration : undefined;
-            resourceInputs["defaultStreamsConfiguration"] = args ? args.defaultStreamsConfiguration : undefined;
-            resourceInputs["defaultStreamsDestinations"] = args ? args.defaultStreamsDestinations : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["deviceRef"] = args ? args.deviceRef : undefined;
-            resourceInputs["discoveredAssetRefs"] = args ? args.discoveredAssetRefs : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["documentationUri"] = args ? args.documentationUri : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["externalAssetId"] = args ? args.externalAssetId : undefined;
-            resourceInputs["hardwareRevision"] = args ? args.hardwareRevision : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managementGroups"] = args ? args.managementGroups : undefined;
-            resourceInputs["manufacturer"] = args ? args.manufacturer : undefined;
-            resourceInputs["manufacturerUri"] = args ? args.manufacturerUri : undefined;
-            resourceInputs["model"] = args ? args.model : undefined;
-            resourceInputs["namespaceName"] = args ? args.namespaceName : undefined;
-            resourceInputs["productCode"] = args ? args.productCode : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serialNumber"] = args ? args.serialNumber : undefined;
-            resourceInputs["softwareRevision"] = args ? args.softwareRevision : undefined;
-            resourceInputs["streams"] = args ? args.streams : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assetName"] = args?.assetName;
+            resourceInputs["assetTypeRefs"] = args?.assetTypeRefs;
+            resourceInputs["attributes"] = args?.attributes;
+            resourceInputs["datasets"] = args?.datasets;
+            resourceInputs["defaultDatasetsConfiguration"] = args?.defaultDatasetsConfiguration;
+            resourceInputs["defaultDatasetsDestinations"] = args?.defaultDatasetsDestinations;
+            resourceInputs["defaultEventsConfiguration"] = args?.defaultEventsConfiguration;
+            resourceInputs["defaultEventsDestinations"] = args?.defaultEventsDestinations;
+            resourceInputs["defaultManagementGroupsConfiguration"] = args?.defaultManagementGroupsConfiguration;
+            resourceInputs["defaultStreamsConfiguration"] = args?.defaultStreamsConfiguration;
+            resourceInputs["defaultStreamsDestinations"] = args?.defaultStreamsDestinations;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["deviceRef"] = args?.deviceRef;
+            resourceInputs["discoveredAssetRefs"] = args?.discoveredAssetRefs;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["documentationUri"] = args?.documentationUri;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["externalAssetId"] = args?.externalAssetId;
+            resourceInputs["hardwareRevision"] = args?.hardwareRevision;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managementGroups"] = args?.managementGroups;
+            resourceInputs["manufacturer"] = args?.manufacturer;
+            resourceInputs["manufacturerUri"] = args?.manufacturerUri;
+            resourceInputs["model"] = args?.model;
+            resourceInputs["namespaceName"] = args?.namespaceName;
+            resourceInputs["productCode"] = args?.productCode;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serialNumber"] = args?.serialNumber;
+            resourceInputs["softwareRevision"] = args?.softwareRevision;
+            resourceInputs["streams"] = args?.streams;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["lastTransitionTime"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

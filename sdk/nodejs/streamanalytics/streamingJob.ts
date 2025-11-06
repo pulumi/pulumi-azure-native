@@ -44,119 +44,119 @@ export class StreamingJob extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The cluster which streaming jobs will run on.
      */
-    public readonly cluster!: pulumi.Output<outputs.streamanalytics.ClusterInfoResponse | undefined>;
+    declare public readonly cluster: pulumi.Output<outputs.streamanalytics.ClusterInfoResponse | undefined>;
     /**
      * Controls certain runtime behaviors of the streaming job.
      */
-    public readonly compatibilityLevel!: pulumi.Output<string | undefined>;
+    declare public readonly compatibilityLevel: pulumi.Output<string | undefined>;
     /**
      * Valid values are JobStorageAccount and SystemAccount. If set to JobStorageAccount, this requires the user to also specify jobStorageAccount property. .
      */
-    public readonly contentStoragePolicy!: pulumi.Output<string | undefined>;
+    declare public readonly contentStoragePolicy: pulumi.Output<string | undefined>;
     /**
      * Value is an ISO-8601 formatted UTC timestamp indicating when the streaming job was created.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * The data locale of the stream analytics job. Value should be the name of a supported .NET Culture from the set https://msdn.microsoft.com/en-us/library/system.globalization.culturetypes(v=vs.110).aspx. Defaults to 'en-US' if none specified.
      */
-    public readonly dataLocale!: pulumi.Output<string | undefined>;
+    declare public readonly dataLocale: pulumi.Output<string | undefined>;
     /**
      * The current entity tag for the streaming job. This is an opaque string. You can use it to detect whether the resource has changed between requests. You can also use it in the If-Match or If-None-Match headers for write operations for optimistic concurrency.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The maximum tolerable delay in seconds where events arriving late could be included.  Supported range is -1 to 1814399 (20.23:59:59 days) and -1 is used to specify wait indefinitely. If the property is absent, it is interpreted to have a value of -1.
      */
-    public readonly eventsLateArrivalMaxDelayInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly eventsLateArrivalMaxDelayInSeconds: pulumi.Output<number | undefined>;
     /**
      * The maximum tolerable delay in seconds where out-of-order events can be adjusted to be back in order.
      */
-    public readonly eventsOutOfOrderMaxDelayInSeconds!: pulumi.Output<number | undefined>;
+    declare public readonly eventsOutOfOrderMaxDelayInSeconds: pulumi.Output<number | undefined>;
     /**
      * Indicates the policy to apply to events that arrive out of order in the input event stream.
      */
-    public readonly eventsOutOfOrderPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly eventsOutOfOrderPolicy: pulumi.Output<string | undefined>;
     /**
      * A list of one or more functions for the streaming job. The name property for each function is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    public readonly functions!: pulumi.Output<outputs.streamanalytics.FunctionResponse[] | undefined>;
+    declare public readonly functions: pulumi.Output<outputs.streamanalytics.FunctionResponse[] | undefined>;
     /**
      * Describes the system-assigned managed identity assigned to this job that can be used to authenticate with inputs and outputs.
      */
-    public readonly identity!: pulumi.Output<outputs.streamanalytics.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.streamanalytics.IdentityResponse | undefined>;
     /**
      * A list of one or more inputs to the streaming job. The name property for each input is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual input.
      */
-    public readonly inputs!: pulumi.Output<outputs.streamanalytics.InputResponse[] | undefined>;
+    declare public readonly inputs: pulumi.Output<outputs.streamanalytics.InputResponse[] | undefined>;
     /**
      * A GUID uniquely identifying the streaming job. This GUID is generated upon creation of the streaming job.
      */
-    public /*out*/ readonly jobId!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobId: pulumi.Output<string>;
     /**
      * Describes the state of the streaming job.
      */
-    public /*out*/ readonly jobState!: pulumi.Output<string>;
+    declare public /*out*/ readonly jobState: pulumi.Output<string>;
     /**
      * The properties that are associated with an Azure Storage account with MSI
      */
-    public readonly jobStorageAccount!: pulumi.Output<outputs.streamanalytics.JobStorageAccountResponse | undefined>;
+    declare public readonly jobStorageAccount: pulumi.Output<outputs.streamanalytics.JobStorageAccountResponse | undefined>;
     /**
      * Describes the type of the job. Valid modes are `Cloud` and 'Edge'.
      */
-    public readonly jobType!: pulumi.Output<string | undefined>;
+    declare public readonly jobType: pulumi.Output<string | undefined>;
     /**
      * Value is either an ISO-8601 formatted timestamp indicating the last output event time of the streaming job or null indicating that output has not yet been produced. In case of multiple outputs or multiple streams, this shows the latest value in that set.
      */
-    public /*out*/ readonly lastOutputEventTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastOutputEventTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size).
      */
-    public readonly outputErrorPolicy!: pulumi.Output<string | undefined>;
+    declare public readonly outputErrorPolicy: pulumi.Output<string | undefined>;
     /**
      * This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time.
      */
-    public readonly outputStartMode!: pulumi.Output<string | undefined>;
+    declare public readonly outputStartMode: pulumi.Output<string | undefined>;
     /**
      * Value is either an ISO-8601 formatted time stamp that indicates the starting point of the output event stream, or null to indicate that the output event stream will start whenever the streaming job is started. This property must have a value if outputStartMode is set to CustomTime.
      */
-    public readonly outputStartTime!: pulumi.Output<string | undefined>;
+    declare public readonly outputStartTime: pulumi.Output<string | undefined>;
     /**
      * A list of one or more outputs for the streaming job. The name property for each output is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual output.
      */
-    public readonly outputs!: pulumi.Output<outputs.streamanalytics.OutputResponse[] | undefined>;
+    declare public readonly outputs: pulumi.Output<outputs.streamanalytics.OutputResponse[] | undefined>;
     /**
      * Describes the provisioning status of the streaming job.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests.
      */
-    public readonly sku!: pulumi.Output<outputs.streamanalytics.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.streamanalytics.SkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Indicates the query and the number of streaming units to use for the streaming job. The name property of the transformation is required when specifying this property in a PUT request. This property cannot be modify via a PATCH operation. You must use the PATCH API available for the individual transformation.
      */
-    public readonly transformation!: pulumi.Output<outputs.streamanalytics.TransformationResponse | undefined>;
+    declare public readonly transformation: pulumi.Output<outputs.streamanalytics.TransformationResponse | undefined>;
     /**
      * The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a StreamingJob resource with the given unique name, arguments, and options.
@@ -169,30 +169,30 @@ export class StreamingJob extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cluster"] = args ? args.cluster : undefined;
-            resourceInputs["compatibilityLevel"] = args ? args.compatibilityLevel : undefined;
-            resourceInputs["contentStoragePolicy"] = args ? args.contentStoragePolicy : undefined;
-            resourceInputs["dataLocale"] = args ? args.dataLocale : undefined;
-            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args ? args.eventsLateArrivalMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args ? args.eventsOutOfOrderMaxDelayInSeconds : undefined;
-            resourceInputs["eventsOutOfOrderPolicy"] = args ? args.eventsOutOfOrderPolicy : undefined;
-            resourceInputs["functions"] = args ? args.functions : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["inputs"] = args ? args.inputs : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["jobStorageAccount"] = args ? args.jobStorageAccount : undefined;
-            resourceInputs["jobType"] = args ? args.jobType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["outputErrorPolicy"] = args ? args.outputErrorPolicy : undefined;
-            resourceInputs["outputStartMode"] = args ? args.outputStartMode : undefined;
-            resourceInputs["outputStartTime"] = args ? args.outputStartTime : undefined;
-            resourceInputs["outputs"] = args ? args.outputs : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["cluster"] = args?.cluster;
+            resourceInputs["compatibilityLevel"] = args?.compatibilityLevel;
+            resourceInputs["contentStoragePolicy"] = args?.contentStoragePolicy;
+            resourceInputs["dataLocale"] = args?.dataLocale;
+            resourceInputs["eventsLateArrivalMaxDelayInSeconds"] = args?.eventsLateArrivalMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderMaxDelayInSeconds"] = args?.eventsOutOfOrderMaxDelayInSeconds;
+            resourceInputs["eventsOutOfOrderPolicy"] = args?.eventsOutOfOrderPolicy;
+            resourceInputs["functions"] = args?.functions;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["inputs"] = args?.inputs;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["jobStorageAccount"] = args?.jobStorageAccount;
+            resourceInputs["jobType"] = args?.jobType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["outputErrorPolicy"] = args?.outputErrorPolicy;
+            resourceInputs["outputStartMode"] = args?.outputStartMode;
+            resourceInputs["outputStartTime"] = args?.outputStartTime;
+            resourceInputs["outputs"] = args?.outputs;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["transformation"] = args ? (args.transformation ? pulumi.output(args.transformation).apply(inputs.streamanalytics.transformationArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;

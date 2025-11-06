@@ -44,55 +44,55 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The conflict resolution policy for the graph.
      */
-    public /*out*/ readonly conflictResolutionPolicy!: pulumi.Output<outputs.cosmosdb.ConflictResolutionPolicyResponse | undefined>;
+    declare public /*out*/ readonly conflictResolutionPolicy: pulumi.Output<outputs.cosmosdb.ConflictResolutionPolicyResponse | undefined>;
     /**
      * Default time to live
      */
-    public /*out*/ readonly defaultTtl!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly defaultTtl: pulumi.Output<number | undefined>;
     /**
      * A system generated property representing the resource etag required for optimistic concurrency control.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the graph
      */
-    public /*out*/ readonly indexingPolicy!: pulumi.Output<outputs.cosmosdb.IndexingPolicyResponse | undefined>;
+    declare public /*out*/ readonly indexingPolicy: pulumi.Output<outputs.cosmosdb.IndexingPolicyResponse | undefined>;
     /**
      * The location of the resource group to which the resource belongs.
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the database account.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The configuration of the partition key to be used for partitioning data into multiple partitions
      */
-    public /*out*/ readonly partitionKey!: pulumi.Output<outputs.cosmosdb.ContainerPartitionKeyResponse | undefined>;
+    declare public /*out*/ readonly partitionKey: pulumi.Output<outputs.cosmosdb.ContainerPartitionKeyResponse | undefined>;
     /**
      * A system generated property. A unique identifier.
      */
-    public /*out*/ readonly rid!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly rid: pulumi.Output<string | undefined>;
     /**
      * Tags are a list of key-value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups). A maximum of 15 tags can be provided for a resource. Each tag must have a key no greater than 128 characters and value no greater than 256 characters. For example, the default experience for a template type is set with "defaultExperience": "Cassandra". Current "defaultExperience" values also include "Table", "Graph", "DocumentDB", and "MongoDB".
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * A system generated property that denotes the last updated timestamp of the resource.
      */
-    public /*out*/ readonly ts!: pulumi.Output<any | undefined>;
+    declare public /*out*/ readonly ts: pulumi.Output<any | undefined>;
     /**
      * The type of Azure resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique key policy configuration for specifying uniqueness constraints on documents in the collection in the Azure Cosmos DB service.
      */
-    public /*out*/ readonly uniqueKeyPolicy!: pulumi.Output<outputs.cosmosdb.UniqueKeyPolicyResponse | undefined>;
+    declare public /*out*/ readonly uniqueKeyPolicy: pulumi.Output<outputs.cosmosdb.UniqueKeyPolicyResponse | undefined>;
 
     /**
      * Create a DatabaseAccountGremlinGraph resource with the given unique name, arguments, and options.
@@ -105,27 +105,27 @@ export class DatabaseAccountGremlinGraph extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.options === undefined) && !opts.urn) {
+            if (args?.options === undefined && !opts.urn) {
                 throw new Error("Missing required property 'options'");
             }
-            if ((!args || args.resource === undefined) && !opts.urn) {
+            if (args?.resource === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resource'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["graphName"] = args ? args.graphName : undefined;
-            resourceInputs["options"] = args ? args.options : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["graphName"] = args?.graphName;
+            resourceInputs["options"] = args?.options;
             resourceInputs["resource"] = args ? (args.resource ? pulumi.output(args.resource).apply(inputs.cosmosdb.gremlinGraphResourceArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["conflictResolutionPolicy"] = undefined /*out*/;
             resourceInputs["defaultTtl"] = undefined /*out*/;

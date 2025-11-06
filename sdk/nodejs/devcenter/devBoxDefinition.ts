@@ -44,63 +44,63 @@ export class DevBoxDefinition extends pulumi.CustomResource {
     /**
      * Image reference information for the currently active image (only populated during updates).
      */
-    public /*out*/ readonly activeImageReference!: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
+    declare public /*out*/ readonly activeImageReference: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Indicates whether Dev Boxes created with this definition are capable of hibernation. Not all images are capable of supporting hibernation. To find out more see https://aka.ms/devbox/hibernate
      */
-    public readonly hibernateSupport!: pulumi.Output<string | undefined>;
+    declare public readonly hibernateSupport: pulumi.Output<string | undefined>;
     /**
      * Image reference information.
      */
-    public readonly imageReference!: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
+    declare public readonly imageReference: pulumi.Output<outputs.devcenter.ImageReferenceResponse>;
     /**
      * Details for image validator error. Populated when the image validation is not successful.
      */
-    public /*out*/ readonly imageValidationErrorDetails!: pulumi.Output<outputs.devcenter.ImageValidationErrorDetailsResponse>;
+    declare public /*out*/ readonly imageValidationErrorDetails: pulumi.Output<outputs.devcenter.ImageValidationErrorDetailsResponse>;
     /**
      * Validation status of the configured image.
      */
-    public /*out*/ readonly imageValidationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly imageValidationStatus: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The storage type used for the Operating System disk of Dev Boxes created using this definition.
      */
-    public readonly osStorageType!: pulumi.Output<string | undefined>;
+    declare public readonly osStorageType: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The SKU for Dev Boxes created using this definition.
      */
-    public readonly sku!: pulumi.Output<outputs.devcenter.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.devcenter.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Validation status for the Dev Box Definition.
      */
-    public /*out*/ readonly validationStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly validationStatus: pulumi.Output<string>;
 
     /**
      * Create a DevBoxDefinition resource with the given unique name, arguments, and options.
@@ -113,27 +113,27 @@ export class DevBoxDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.devCenterName === undefined) && !opts.urn) {
+            if (args?.devCenterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'devCenterName'");
             }
-            if ((!args || args.imageReference === undefined) && !opts.urn) {
+            if (args?.imageReference === undefined && !opts.urn) {
                 throw new Error("Missing required property 'imageReference'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["devBoxDefinitionName"] = args ? args.devBoxDefinitionName : undefined;
-            resourceInputs["devCenterName"] = args ? args.devCenterName : undefined;
-            resourceInputs["hibernateSupport"] = args ? args.hibernateSupport : undefined;
-            resourceInputs["imageReference"] = args ? args.imageReference : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["osStorageType"] = args ? args.osStorageType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["devBoxDefinitionName"] = args?.devBoxDefinitionName;
+            resourceInputs["devCenterName"] = args?.devCenterName;
+            resourceInputs["hibernateSupport"] = args?.hibernateSupport;
+            resourceInputs["imageReference"] = args?.imageReference;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["osStorageType"] = args?.osStorageType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activeImageReference"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["imageValidationErrorDetails"] = undefined /*out*/;

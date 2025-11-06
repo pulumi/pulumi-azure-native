@@ -44,31 +44,31 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
     /**
      * Type of the managed instance administrator.
      */
-    public readonly administratorType!: pulumi.Output<string>;
+    declare public readonly administratorType: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Login name of the managed instance administrator.
      */
-    public readonly login!: pulumi.Output<string>;
+    declare public readonly login: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * SID (object ID) of the managed instance administrator.
      */
-    public readonly sid!: pulumi.Output<string>;
+    declare public readonly sid: pulumi.Output<string>;
     /**
      * Tenant ID of the managed instance administrator.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedInstanceAdministrator resource with the given unique name, arguments, and options.
@@ -81,28 +81,28 @@ export class ManagedInstanceAdministrator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.administratorType === undefined) && !opts.urn) {
+            if (args?.administratorType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'administratorType'");
             }
-            if ((!args || args.login === undefined) && !opts.urn) {
+            if (args?.login === undefined && !opts.urn) {
                 throw new Error("Missing required property 'login'");
             }
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sid === undefined) && !opts.urn) {
+            if (args?.sid === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sid'");
             }
-            resourceInputs["administratorName"] = args ? args.administratorName : undefined;
-            resourceInputs["administratorType"] = args ? args.administratorType : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sid"] = args ? args.sid : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["administratorName"] = args?.administratorName;
+            resourceInputs["administratorType"] = args?.administratorType;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sid"] = args?.sid;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

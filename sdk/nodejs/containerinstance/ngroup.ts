@@ -44,55 +44,55 @@ export class NGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Container Group Profiles that could be used in the NGroups resource.
      */
-    public readonly containerGroupProfiles!: pulumi.Output<outputs.containerinstance.ContainerGroupProfileStubResponse[] | undefined>;
+    declare public readonly containerGroupProfiles: pulumi.Output<outputs.containerinstance.ContainerGroupProfileStubResponse[] | undefined>;
     /**
      * The elastic profile.
      */
-    public readonly elasticProfile!: pulumi.Output<outputs.containerinstance.ElasticProfileResponse | undefined>;
+    declare public readonly elasticProfile: pulumi.Output<outputs.containerinstance.ElasticProfileResponse | undefined>;
     /**
      * The identity of the NGroup, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.containerinstance.NGroupIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.containerinstance.NGroupIdentityResponse | undefined>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Provides options w.r.t allocation and management w.r.t certain placement policies. These utilize capabilities provided by the underlying Azure infrastructure. They are typically used for high availability scenarios. E.g., distributing CGs across fault domains.
      */
-    public readonly placementProfile!: pulumi.Output<outputs.containerinstance.PlacementProfileResponse | undefined>;
+    declare public readonly placementProfile: pulumi.Output<outputs.containerinstance.PlacementProfileResponse | undefined>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.containerinstance.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.containerinstance.SystemDataResponse>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Used by the customer to specify the way to update the Container Groups in NGroup.
      */
-    public readonly updateProfile!: pulumi.Output<outputs.containerinstance.UpdateProfileResponse | undefined>;
+    declare public readonly updateProfile: pulumi.Output<outputs.containerinstance.UpdateProfileResponse | undefined>;
     /**
      * The zones for the container group.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a NGroup resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class NGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["containerGroupProfiles"] = args ? args.containerGroupProfiles : undefined;
-            resourceInputs["elasticProfile"] = args ? args.elasticProfile : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["ngroupsName"] = args ? args.ngroupsName : undefined;
-            resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["updateProfile"] = args ? args.updateProfile : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["containerGroupProfiles"] = args?.containerGroupProfiles;
+            resourceInputs["elasticProfile"] = args?.elasticProfile;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["ngroupsName"] = args?.ngroupsName;
+            resourceInputs["placementProfile"] = args?.placementProfile;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["updateProfile"] = args?.updateProfile;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

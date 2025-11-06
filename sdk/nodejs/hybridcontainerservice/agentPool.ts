@@ -42,81 +42,81 @@ export class AgentPool extends pulumi.CustomResource {
     /**
      * AvailabilityZones - The list of Availability zones to use for nodes. Datacenter racks modelled as zones
      */
-    public readonly availabilityZones!: pulumi.Output<string[] | undefined>;
+    declare public readonly availabilityZones: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The underlying cloud infra provider properties.
      */
-    public readonly cloudProviderProfile!: pulumi.Output<outputs.hybridcontainerservice.CloudProviderProfileResponse | undefined>;
+    declare public readonly cloudProviderProfile: pulumi.Output<outputs.hybridcontainerservice.CloudProviderProfileResponse | undefined>;
     /**
      * Count - Number of agents to host docker containers. Allowed values must be in the range of 1 to 100 (inclusive). The default value is 1.
      */
-    public readonly count!: pulumi.Output<number | undefined>;
-    public readonly extendedLocation!: pulumi.Output<outputs.hybridcontainerservice.AgentPoolResponseExtendedLocation | undefined>;
+    declare public readonly count: pulumi.Output<number | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.hybridcontainerservice.AgentPoolResponseExtendedLocation | undefined>;
     /**
      * The resource location
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The maximum number of nodes for auto-scaling
      */
-    public readonly maxCount!: pulumi.Output<number | undefined>;
+    declare public readonly maxCount: pulumi.Output<number | undefined>;
     /**
      * The maximum number of pods that can run on a node.
      */
-    public readonly maxPods!: pulumi.Output<number | undefined>;
+    declare public readonly maxPods: pulumi.Output<number | undefined>;
     /**
      * The minimum number of nodes for auto-scaling
      */
-    public readonly minCount!: pulumi.Output<number | undefined>;
+    declare public readonly minCount: pulumi.Output<number | undefined>;
     /**
      * Mode - AgentPoolMode represents mode of an agent pool. Possible values include: 'System', 'LB', 'User'. Default is 'User'
      */
-    public readonly mode!: pulumi.Output<string | undefined>;
+    declare public readonly mode: pulumi.Output<string | undefined>;
     /**
      * Resource Name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The version of node image
      */
-    public readonly nodeImageVersion!: pulumi.Output<string | undefined>;
+    declare public readonly nodeImageVersion: pulumi.Output<string | undefined>;
     /**
      * NodeLabels - Agent pool node labels to be persisted across all nodes in agent pool.
      */
-    public readonly nodeLabels!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly nodeLabels: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * NodeTaints - Taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
      */
-    public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
+    declare public readonly nodeTaints: pulumi.Output<string[] | undefined>;
     /**
      * OsType - OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux. Possible values include: 'Linux', 'Windows'
      */
-    public readonly osType!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public readonly osType: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * HybridAKSNodePoolStatus defines the observed state of HybridAKSNodePool
      */
-    public readonly status!: pulumi.Output<outputs.hybridcontainerservice.AgentPoolProvisioningStatusResponseStatus | undefined>;
+    declare public readonly status: pulumi.Output<outputs.hybridcontainerservice.AgentPoolProvisioningStatusResponseStatus | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcontainerservice.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource Type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * VmSize - The size of the agent pool VMs.
      */
-    public readonly vmSize!: pulumi.Output<string | undefined>;
+    declare public readonly vmSize: pulumi.Output<string | undefined>;
 
     /**
      * Create a AgentPool resource with the given unique name, arguments, and options.
@@ -129,31 +129,31 @@ export class AgentPool extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["agentPoolName"] = args ? args.agentPoolName : undefined;
-            resourceInputs["availabilityZones"] = args ? args.availabilityZones : undefined;
-            resourceInputs["cloudProviderProfile"] = args ? args.cloudProviderProfile : undefined;
-            resourceInputs["count"] = (args ? args.count : undefined) ?? 1;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["maxCount"] = args ? args.maxCount : undefined;
-            resourceInputs["maxPods"] = args ? args.maxPods : undefined;
-            resourceInputs["minCount"] = args ? args.minCount : undefined;
-            resourceInputs["mode"] = (args ? args.mode : undefined) ?? "User";
-            resourceInputs["nodeImageVersion"] = args ? args.nodeImageVersion : undefined;
-            resourceInputs["nodeLabels"] = args ? args.nodeLabels : undefined;
-            resourceInputs["nodeTaints"] = args ? args.nodeTaints : undefined;
-            resourceInputs["osType"] = args ? args.osType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["vmSize"] = args ? args.vmSize : undefined;
+            resourceInputs["agentPoolName"] = args?.agentPoolName;
+            resourceInputs["availabilityZones"] = args?.availabilityZones;
+            resourceInputs["cloudProviderProfile"] = args?.cloudProviderProfile;
+            resourceInputs["count"] = (args?.count) ?? 1;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["maxCount"] = args?.maxCount;
+            resourceInputs["maxPods"] = args?.maxPods;
+            resourceInputs["minCount"] = args?.minCount;
+            resourceInputs["mode"] = (args?.mode) ?? "User";
+            resourceInputs["nodeImageVersion"] = args?.nodeImageVersion;
+            resourceInputs["nodeLabels"] = args?.nodeLabels;
+            resourceInputs["nodeTaints"] = args?.nodeTaints;
+            resourceInputs["osType"] = args?.osType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["vmSize"] = args?.vmSize;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

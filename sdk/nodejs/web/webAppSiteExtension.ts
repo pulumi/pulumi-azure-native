@@ -41,96 +41,96 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
     /**
      * List of authors.
      */
-    public /*out*/ readonly authors!: pulumi.Output<string[] | undefined>;
+    declare public /*out*/ readonly authors: pulumi.Output<string[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Site Extension comment.
      */
-    public /*out*/ readonly comment!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly comment: pulumi.Output<string | undefined>;
     /**
      * Detailed description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * Count of downloads.
      */
-    public /*out*/ readonly downloadCount!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly downloadCount: pulumi.Output<number | undefined>;
     /**
      * Site extension ID.
      */
-    public /*out*/ readonly extensionId!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly extensionId: pulumi.Output<string | undefined>;
     /**
      * Site extension type.
      */
-    public /*out*/ readonly extensionType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly extensionType: pulumi.Output<string | undefined>;
     /**
      * Extension URL.
      */
-    public /*out*/ readonly extensionUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly extensionUrl: pulumi.Output<string | undefined>;
     /**
      * Feed URL.
      */
-    public /*out*/ readonly feedUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly feedUrl: pulumi.Output<string | undefined>;
     /**
      * Icon URL.
      */
-    public /*out*/ readonly iconUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly iconUrl: pulumi.Output<string | undefined>;
     /**
      * Installed timestamp.
      */
-    public /*out*/ readonly installedDateTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly installedDateTime: pulumi.Output<string | undefined>;
     /**
      * Installer command line parameters.
      */
-    public /*out*/ readonly installerCommandLineParams!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly installerCommandLineParams: pulumi.Output<string | undefined>;
     /**
      * Kind of resource.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly kind: pulumi.Output<string | undefined>;
     /**
      * License URL.
      */
-    public /*out*/ readonly licenseUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly licenseUrl: pulumi.Output<string | undefined>;
     /**
      * <code>true</code> if the local version is the latest version; <code>false</code> otherwise.
      */
-    public /*out*/ readonly localIsLatestVersion!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly localIsLatestVersion: pulumi.Output<boolean | undefined>;
     /**
      * Local path.
      */
-    public /*out*/ readonly localPath!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly localPath: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Project URL.
      */
-    public /*out*/ readonly projectUrl!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly projectUrl: pulumi.Output<string | undefined>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Published timestamp.
      */
-    public /*out*/ readonly publishedDateTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly publishedDateTime: pulumi.Output<string | undefined>;
     /**
      * Summary description.
      */
-    public /*out*/ readonly summary!: pulumi.Output<string | undefined>;
-    public /*out*/ readonly title!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly summary: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly title: pulumi.Output<string | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Version information.
      */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a WebAppSiteExtension resource with the given unique name, arguments, and options.
@@ -143,15 +143,15 @@ export class WebAppSiteExtension extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["siteExtensionId"] = args ? args.siteExtensionId : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["siteExtensionId"] = args?.siteExtensionId;
             resourceInputs["authors"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["comment"] = undefined /*out*/;

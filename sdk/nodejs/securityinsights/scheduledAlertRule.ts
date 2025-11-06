@@ -42,112 +42,112 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
     /**
      * The alert details override settings
      */
-    public readonly alertDetailsOverride!: pulumi.Output<outputs.securityinsights.AlertDetailsOverrideResponse | undefined>;
+    declare public readonly alertDetailsOverride: pulumi.Output<outputs.securityinsights.AlertDetailsOverrideResponse | undefined>;
     /**
      * The Name of the alert rule template used to create this rule.
      */
-    public readonly alertRuleTemplateName!: pulumi.Output<string | undefined>;
+    declare public readonly alertRuleTemplateName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Dictionary of string key-value pairs of columns to be attached to the alert
      */
-    public readonly customDetails!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly customDetails: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The description of the alert rule.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name for alerts created by this alert rule.
      */
-    public readonly displayName!: pulumi.Output<string>;
+    declare public readonly displayName: pulumi.Output<string>;
     /**
      * Determines whether this alert rule is enabled or disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean>;
+    declare public readonly enabled: pulumi.Output<boolean>;
     /**
      * Array of the entity mappings of the alert rule
      */
-    public readonly entityMappings!: pulumi.Output<outputs.securityinsights.EntityMappingResponse[] | undefined>;
+    declare public readonly entityMappings: pulumi.Output<outputs.securityinsights.EntityMappingResponse[] | undefined>;
     /**
      * Etag of the azure resource
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The event grouping settings.
      */
-    public readonly eventGroupingSettings!: pulumi.Output<outputs.securityinsights.EventGroupingSettingsResponse | undefined>;
+    declare public readonly eventGroupingSettings: pulumi.Output<outputs.securityinsights.EventGroupingSettingsResponse | undefined>;
     /**
      * The settings of the incidents that created from alerts triggered by this analytics rule
      */
-    public readonly incidentConfiguration!: pulumi.Output<outputs.securityinsights.IncidentConfigurationResponse | undefined>;
+    declare public readonly incidentConfiguration: pulumi.Output<outputs.securityinsights.IncidentConfigurationResponse | undefined>;
     /**
      * The kind of the alert rule
      * Expected value is 'Scheduled'.
      */
-    public readonly kind!: pulumi.Output<"Scheduled">;
+    declare public readonly kind: pulumi.Output<"Scheduled">;
     /**
      * The last time that this alert rule has been modified.
      */
-    public /*out*/ readonly lastModifiedUtc!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedUtc: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The query that creates alerts for this rule.
      */
-    public readonly query!: pulumi.Output<string>;
+    declare public readonly query: pulumi.Output<string>;
     /**
      * The frequency (in ISO 8601 duration format) for this alert rule to run.
      */
-    public readonly queryFrequency!: pulumi.Output<string>;
+    declare public readonly queryFrequency: pulumi.Output<string>;
     /**
      * The period (in ISO 8601 duration format) that this alert rule looks at.
      */
-    public readonly queryPeriod!: pulumi.Output<string>;
+    declare public readonly queryPeriod: pulumi.Output<string>;
     /**
      * The severity for alerts created by this alert rule.
      */
-    public readonly severity!: pulumi.Output<string>;
+    declare public readonly severity: pulumi.Output<string>;
     /**
      * The suppression (in ISO 8601 duration format) to wait since last time this alert rule been triggered.
      */
-    public readonly suppressionDuration!: pulumi.Output<string>;
+    declare public readonly suppressionDuration: pulumi.Output<string>;
     /**
      * Determines whether the suppression for this alert rule is enabled or disabled.
      */
-    public readonly suppressionEnabled!: pulumi.Output<boolean>;
+    declare public readonly suppressionEnabled: pulumi.Output<boolean>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.securityinsights.SystemDataResponse>;
     /**
      * The tactics of the alert rule
      */
-    public readonly tactics!: pulumi.Output<string[] | undefined>;
+    declare public readonly tactics: pulumi.Output<string[] | undefined>;
     /**
      * The techniques of the alert rule
      */
-    public readonly techniques!: pulumi.Output<string[] | undefined>;
+    declare public readonly techniques: pulumi.Output<string[] | undefined>;
     /**
      * The version of the alert rule template used to create this rule - in format <a.b.c>, where all are numbers, for example 0 <1.0.2>
      */
-    public readonly templateVersion!: pulumi.Output<string | undefined>;
+    declare public readonly templateVersion: pulumi.Output<string | undefined>;
     /**
      * The operation against the threshold that triggers alert rule.
      */
-    public readonly triggerOperator!: pulumi.Output<string>;
+    declare public readonly triggerOperator: pulumi.Output<string>;
     /**
      * The threshold triggers this alert rule.
      */
-    public readonly triggerThreshold!: pulumi.Output<number>;
+    declare public readonly triggerThreshold: pulumi.Output<number>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ScheduledAlertRule resource with the given unique name, arguments, and options.
@@ -160,69 +160,69 @@ export class ScheduledAlertRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.displayName === undefined) && !opts.urn) {
+            if (args?.displayName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
-            if ((!args || args.enabled === undefined) && !opts.urn) {
+            if (args?.enabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'enabled'");
             }
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.query === undefined) && !opts.urn) {
+            if (args?.query === undefined && !opts.urn) {
                 throw new Error("Missing required property 'query'");
             }
-            if ((!args || args.queryFrequency === undefined) && !opts.urn) {
+            if (args?.queryFrequency === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryFrequency'");
             }
-            if ((!args || args.queryPeriod === undefined) && !opts.urn) {
+            if (args?.queryPeriod === undefined && !opts.urn) {
                 throw new Error("Missing required property 'queryPeriod'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.severity === undefined) && !opts.urn) {
+            if (args?.severity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'severity'");
             }
-            if ((!args || args.suppressionDuration === undefined) && !opts.urn) {
+            if (args?.suppressionDuration === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionDuration'");
             }
-            if ((!args || args.suppressionEnabled === undefined) && !opts.urn) {
+            if (args?.suppressionEnabled === undefined && !opts.urn) {
                 throw new Error("Missing required property 'suppressionEnabled'");
             }
-            if ((!args || args.triggerOperator === undefined) && !opts.urn) {
+            if (args?.triggerOperator === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerOperator'");
             }
-            if ((!args || args.triggerThreshold === undefined) && !opts.urn) {
+            if (args?.triggerThreshold === undefined && !opts.urn) {
                 throw new Error("Missing required property 'triggerThreshold'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["alertDetailsOverride"] = args ? args.alertDetailsOverride : undefined;
-            resourceInputs["alertRuleTemplateName"] = args ? args.alertRuleTemplateName : undefined;
-            resourceInputs["customDetails"] = args ? args.customDetails : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["entityMappings"] = args ? args.entityMappings : undefined;
-            resourceInputs["eventGroupingSettings"] = args ? args.eventGroupingSettings : undefined;
-            resourceInputs["incidentConfiguration"] = args ? args.incidentConfiguration : undefined;
+            resourceInputs["alertDetailsOverride"] = args?.alertDetailsOverride;
+            resourceInputs["alertRuleTemplateName"] = args?.alertRuleTemplateName;
+            resourceInputs["customDetails"] = args?.customDetails;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["entityMappings"] = args?.entityMappings;
+            resourceInputs["eventGroupingSettings"] = args?.eventGroupingSettings;
+            resourceInputs["incidentConfiguration"] = args?.incidentConfiguration;
             resourceInputs["kind"] = "Scheduled";
-            resourceInputs["query"] = args ? args.query : undefined;
-            resourceInputs["queryFrequency"] = args ? args.queryFrequency : undefined;
-            resourceInputs["queryPeriod"] = args ? args.queryPeriod : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["ruleId"] = args ? args.ruleId : undefined;
-            resourceInputs["severity"] = args ? args.severity : undefined;
-            resourceInputs["suppressionDuration"] = args ? args.suppressionDuration : undefined;
-            resourceInputs["suppressionEnabled"] = args ? args.suppressionEnabled : undefined;
-            resourceInputs["tactics"] = args ? args.tactics : undefined;
-            resourceInputs["techniques"] = args ? args.techniques : undefined;
-            resourceInputs["templateVersion"] = args ? args.templateVersion : undefined;
-            resourceInputs["triggerOperator"] = args ? args.triggerOperator : undefined;
-            resourceInputs["triggerThreshold"] = args ? args.triggerThreshold : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["query"] = args?.query;
+            resourceInputs["queryFrequency"] = args?.queryFrequency;
+            resourceInputs["queryPeriod"] = args?.queryPeriod;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["ruleId"] = args?.ruleId;
+            resourceInputs["severity"] = args?.severity;
+            resourceInputs["suppressionDuration"] = args?.suppressionDuration;
+            resourceInputs["suppressionEnabled"] = args?.suppressionEnabled;
+            resourceInputs["tactics"] = args?.tactics;
+            resourceInputs["techniques"] = args?.techniques;
+            resourceInputs["templateVersion"] = args?.templateVersion;
+            resourceInputs["triggerOperator"] = args?.triggerOperator;
+            resourceInputs["triggerThreshold"] = args?.triggerThreshold;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["lastModifiedUtc"] = undefined /*out*/;

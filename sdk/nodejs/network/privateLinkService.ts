@@ -44,75 +44,75 @@ export class PrivateLinkService extends pulumi.CustomResource {
     /**
      * The alias of the private link service.
      */
-    public /*out*/ readonly alias!: pulumi.Output<string>;
+    declare public /*out*/ readonly alias: pulumi.Output<string>;
     /**
      * The auto-approval list of the private link service.
      */
-    public readonly autoApproval!: pulumi.Output<outputs.network.PrivateLinkServicePropertiesResponseAutoApproval | undefined>;
+    declare public readonly autoApproval: pulumi.Output<outputs.network.PrivateLinkServicePropertiesResponseAutoApproval | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The destination IP address of the private link service.
      */
-    public readonly destinationIPAddress!: pulumi.Output<string | undefined>;
+    declare public readonly destinationIPAddress: pulumi.Output<string | undefined>;
     /**
      * Whether the private link service is enabled for proxy protocol or not.
      */
-    public readonly enableProxyProtocol!: pulumi.Output<boolean | undefined>;
+    declare public readonly enableProxyProtocol: pulumi.Output<boolean | undefined>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the load balancer.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.network.ExtendedLocationResponse | undefined>;
     /**
      * The list of Fqdn.
      */
-    public readonly fqdns!: pulumi.Output<string[] | undefined>;
+    declare public readonly fqdns: pulumi.Output<string[] | undefined>;
     /**
      * An array of private link service IP configurations.
      */
-    public readonly ipConfigurations!: pulumi.Output<outputs.network.PrivateLinkServiceIpConfigurationResponse[] | undefined>;
+    declare public readonly ipConfigurations: pulumi.Output<outputs.network.PrivateLinkServiceIpConfigurationResponse[] | undefined>;
     /**
      * An array of references to the load balancer IP configurations.
      */
-    public readonly loadBalancerFrontendIpConfigurations!: pulumi.Output<outputs.network.FrontendIPConfigurationResponse[] | undefined>;
+    declare public readonly loadBalancerFrontendIpConfigurations: pulumi.Output<outputs.network.FrontendIPConfigurationResponse[] | undefined>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * An array of references to the network interfaces created for this private link service.
      */
-    public /*out*/ readonly networkInterfaces!: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
+    declare public /*out*/ readonly networkInterfaces: pulumi.Output<outputs.network.NetworkInterfaceResponse[]>;
     /**
      * An array of list about connections to the private endpoint.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.network.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.network.PrivateEndpointConnectionResponse[]>;
     /**
      * The provisioning state of the private link service resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The visibility list of the private link service.
      */
-    public readonly visibility!: pulumi.Output<outputs.network.PrivateLinkServicePropertiesResponseVisibility | undefined>;
+    declare public readonly visibility: pulumi.Output<outputs.network.PrivateLinkServicePropertiesResponseVisibility | undefined>;
 
     /**
      * Create a PrivateLinkService resource with the given unique name, arguments, and options.
@@ -125,22 +125,22 @@ export class PrivateLinkService extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["autoApproval"] = args ? args.autoApproval : undefined;
-            resourceInputs["destinationIPAddress"] = args ? args.destinationIPAddress : undefined;
-            resourceInputs["enableProxyProtocol"] = args ? args.enableProxyProtocol : undefined;
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["fqdns"] = args ? args.fqdns : undefined;
-            resourceInputs["id"] = args ? args.id : undefined;
-            resourceInputs["ipConfigurations"] = args ? args.ipConfigurations : undefined;
-            resourceInputs["loadBalancerFrontendIpConfigurations"] = args ? args.loadBalancerFrontendIpConfigurations : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["visibility"] = args ? args.visibility : undefined;
+            resourceInputs["autoApproval"] = args?.autoApproval;
+            resourceInputs["destinationIPAddress"] = args?.destinationIPAddress;
+            resourceInputs["enableProxyProtocol"] = args?.enableProxyProtocol;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["fqdns"] = args?.fqdns;
+            resourceInputs["id"] = args?.id;
+            resourceInputs["ipConfigurations"] = args?.ipConfigurations;
+            resourceInputs["loadBalancerFrontendIpConfigurations"] = args?.loadBalancerFrontendIpConfigurations;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["visibility"] = args?.visibility;
             resourceInputs["alias"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;

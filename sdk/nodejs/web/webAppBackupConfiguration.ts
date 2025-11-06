@@ -44,39 +44,39 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Name of the backup.
      */
-    public readonly backupName!: pulumi.Output<string | undefined>;
+    declare public readonly backupName: pulumi.Output<string | undefined>;
     /**
      * Schedule for the backup if it is executed periodically.
      */
-    public readonly backupSchedule!: pulumi.Output<outputs.web.BackupScheduleResponse | undefined>;
+    declare public readonly backupSchedule: pulumi.Output<outputs.web.BackupScheduleResponse | undefined>;
     /**
      * Databases included in the backup.
      */
-    public readonly databases!: pulumi.Output<outputs.web.DatabaseBackupSettingResponse[] | undefined>;
+    declare public readonly databases: pulumi.Output<outputs.web.DatabaseBackupSettingResponse[] | undefined>;
     /**
      * True if the backup schedule is enabled (must be included in that case), false if the backup schedule should be disabled.
      */
-    public readonly enabled!: pulumi.Output<boolean | undefined>;
+    declare public readonly enabled: pulumi.Output<boolean | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * SAS URL to the container.
      */
-    public readonly storageAccountUrl!: pulumi.Output<string>;
+    declare public readonly storageAccountUrl: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppBackupConfiguration resource with the given unique name, arguments, and options.
@@ -89,23 +89,23 @@ export class WebAppBackupConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountUrl === undefined) && !opts.urn) {
+            if (args?.storageAccountUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountUrl'");
             }
-            resourceInputs["backupName"] = args ? args.backupName : undefined;
+            resourceInputs["backupName"] = args?.backupName;
             resourceInputs["backupSchedule"] = args ? (args.backupSchedule ? pulumi.output(args.backupSchedule).apply(inputs.web.backupScheduleArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["databases"] = args ? args.databases : undefined;
-            resourceInputs["enabled"] = args ? args.enabled : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["storageAccountUrl"] = args ? args.storageAccountUrl : undefined;
+            resourceInputs["databases"] = args?.databases;
+            resourceInputs["enabled"] = args?.enabled;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["storageAccountUrl"] = args?.storageAccountUrl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

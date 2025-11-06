@@ -44,59 +44,59 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The role definition assigned to the environment creator on backing resources.
      */
-    public readonly creatorRoleAssignment!: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment | undefined>;
+    declare public readonly creatorRoleAssignment: pulumi.Output<outputs.devcenter.ProjectEnvironmentTypeUpdatePropertiesResponseCreatorRoleAssignment | undefined>;
     /**
      * Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription.
      */
-    public readonly deploymentTargetId!: pulumi.Output<string | undefined>;
+    declare public readonly deploymentTargetId: pulumi.Output<string | undefined>;
     /**
      * The display name of the project environment type.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The number of environments of this type.
      */
-    public /*out*/ readonly environmentCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly environmentCount: pulumi.Output<number>;
     /**
      * Managed identity properties
      */
-    public readonly identity!: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.devcenter.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location for the environment type
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Defines whether this Environment Type can be used in this Project.
      */
-    public readonly status!: pulumi.Output<string | undefined>;
+    declare public readonly status: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.devcenter.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.devcenter.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs.
      */
-    public readonly userRoleAssignments!: pulumi.Output<{[key: string]: outputs.devcenter.UserRoleAssignmentResponse} | undefined>;
+    declare public readonly userRoleAssignments: pulumi.Output<{[key: string]: outputs.devcenter.UserRoleAssignmentResponse} | undefined>;
 
     /**
      * Create a ProjectEnvironmentType resource with the given unique name, arguments, and options.
@@ -109,23 +109,23 @@ export class ProjectEnvironmentType extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["creatorRoleAssignment"] = args ? args.creatorRoleAssignment : undefined;
-            resourceInputs["deploymentTargetId"] = args ? args.deploymentTargetId : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["environmentTypeName"] = args ? args.environmentTypeName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["status"] = args ? args.status : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["userRoleAssignments"] = args ? args.userRoleAssignments : undefined;
+            resourceInputs["creatorRoleAssignment"] = args?.creatorRoleAssignment;
+            resourceInputs["deploymentTargetId"] = args?.deploymentTargetId;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["environmentTypeName"] = args?.environmentTypeName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["status"] = args?.status;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["userRoleAssignments"] = args?.userRoleAssignments;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["environmentCount"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

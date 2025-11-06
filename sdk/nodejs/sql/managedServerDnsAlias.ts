@@ -41,23 +41,23 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The fully qualified DNS record for managed server alias
      */
-    public /*out*/ readonly azureDnsRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureDnsRecord: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The fully qualified public DNS record for managed server alias
      */
-    public /*out*/ readonly publicAzureDnsRecord!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicAzureDnsRecord: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a ManagedServerDnsAlias resource with the given unique name, arguments, and options.
@@ -70,16 +70,16 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedInstanceName === undefined) && !opts.urn) {
+            if (args?.managedInstanceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'managedInstanceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["createDnsRecord"] = (args ? args.createDnsRecord : undefined) ?? true;
-            resourceInputs["dnsAliasName"] = args ? args.dnsAliasName : undefined;
-            resourceInputs["managedInstanceName"] = args ? args.managedInstanceName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["createDnsRecord"] = (args?.createDnsRecord) ?? true;
+            resourceInputs["dnsAliasName"] = args?.dnsAliasName;
+            resourceInputs["managedInstanceName"] = args?.managedInstanceName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["azureDnsRecord"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

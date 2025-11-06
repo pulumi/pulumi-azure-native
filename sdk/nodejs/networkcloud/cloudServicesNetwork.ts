@@ -47,79 +47,79 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
     /**
      * The list of egress endpoints. This allows for connection from a Hybrid AKS cluster to the specified endpoint.
      */
-    public readonly additionalEgressEndpoints!: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[] | undefined>;
+    declare public readonly additionalEgressEndpoints: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[] | undefined>;
     /**
      * The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network.
      */
-    public /*out*/ readonly associatedResourceIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly associatedResourceIds: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource ID of the Network Cloud cluster this cloud services network is associated with.
      */
-    public /*out*/ readonly clusterId!: pulumi.Output<string>;
+    declare public /*out*/ readonly clusterId: pulumi.Output<string>;
     /**
      * The more detailed status of the cloud services network.
      */
-    public /*out*/ readonly detailedStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatus: pulumi.Output<string>;
     /**
      * The descriptive message about the current detailed status.
      */
-    public /*out*/ readonly detailedStatusMessage!: pulumi.Output<string>;
+    declare public /*out*/ readonly detailedStatusMessage: pulumi.Output<string>;
     /**
      * The indicator of whether the platform default endpoints are allowed for the egress traffic.
      */
-    public readonly enableDefaultEgressEndpoints!: pulumi.Output<string | undefined>;
+    declare public readonly enableDefaultEgressEndpoints: pulumi.Output<string | undefined>;
     /**
      * The full list of additional and default egress endpoints that are currently enabled.
      */
-    public /*out*/ readonly enabledEgressEndpoints!: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[]>;
+    declare public /*out*/ readonly enabledEgressEndpoints: pulumi.Output<outputs.networkcloud.EgressEndpointResponse[]>;
     /**
      * Resource ETag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The extended location of the cluster associated with the resource.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.networkcloud.ExtendedLocationResponse>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this cloud services network.
      */
-    public /*out*/ readonly hybridAksClustersAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly hybridAksClustersAssociatedIds: pulumi.Output<string[]>;
     /**
      * The name of the interface that will be present in the virtual machine to represent this network.
      */
-    public /*out*/ readonly interfaceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly interfaceName: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the cloud services network.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.networkcloud.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this cloud services network.
      */
-    public /*out*/ readonly virtualMachinesAssociatedIds!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly virtualMachinesAssociatedIds: pulumi.Output<string[]>;
 
     /**
      * Create a CloudServicesNetwork resource with the given unique name, arguments, and options.
@@ -132,19 +132,19 @@ export class CloudServicesNetwork extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.extendedLocation === undefined) && !opts.urn) {
+            if (args?.extendedLocation === undefined && !opts.urn) {
                 throw new Error("Missing required property 'extendedLocation'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["additionalEgressEndpoints"] = args ? args.additionalEgressEndpoints : undefined;
-            resourceInputs["cloudServicesNetworkName"] = args ? args.cloudServicesNetworkName : undefined;
-            resourceInputs["enableDefaultEgressEndpoints"] = (args ? args.enableDefaultEgressEndpoints : undefined) ?? "True";
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["additionalEgressEndpoints"] = args?.additionalEgressEndpoints;
+            resourceInputs["cloudServicesNetworkName"] = args?.cloudServicesNetworkName;
+            resourceInputs["enableDefaultEgressEndpoints"] = (args?.enableDefaultEgressEndpoints) ?? "True";
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["associatedResourceIds"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["clusterId"] = undefined /*out*/;

@@ -44,91 +44,91 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
     /**
      * Indicates whether or not to automatically run the image template build on template creation or update.
      */
-    public readonly autoRun!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateAutoRunResponse | undefined>;
+    declare public readonly autoRun: pulumi.Output<outputs.virtualmachineimages.ImageTemplateAutoRunResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Maximum duration to wait while building the image template (includes all customizations, optimization, validations, and distributions). Omit or specify 0 to use the default (4 hours).
      */
-    public readonly buildTimeoutInMinutes!: pulumi.Output<number | undefined>;
+    declare public readonly buildTimeoutInMinutes: pulumi.Output<number | undefined>;
     /**
      * Specifies the properties used to describe the customization steps of the image, like Image source etc
      */
-    public readonly customize!: pulumi.Output<(outputs.virtualmachineimages.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerResponse)[] | undefined>;
+    declare public readonly customize: pulumi.Output<(outputs.virtualmachineimages.ImageTemplateFileCustomizerResponse | outputs.virtualmachineimages.ImageTemplatePowerShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateRestartCustomizerResponse | outputs.virtualmachineimages.ImageTemplateShellCustomizerResponse | outputs.virtualmachineimages.ImageTemplateWindowsUpdateCustomizerResponse)[] | undefined>;
     /**
      * The distribution targets where the image output needs to go to.
      */
-    public readonly distribute!: pulumi.Output<(outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[]>;
+    declare public readonly distribute: pulumi.Output<(outputs.virtualmachineimages.ImageTemplateManagedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateSharedImageDistributorResponse | outputs.virtualmachineimages.ImageTemplateVhdDistributorResponse)[]>;
     /**
      * Error handling options upon a build failure
      */
-    public readonly errorHandling!: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseErrorHandling | undefined>;
+    declare public readonly errorHandling: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseErrorHandling | undefined>;
     /**
      * The staging resource group id in the same subscription as the image template that will be used to build the image. This read-only field differs from 'stagingResourceGroup' only if the value specified in the 'stagingResourceGroup' field is empty.
      */
-    public /*out*/ readonly exactStagingResourceGroup!: pulumi.Output<string>;
+    declare public /*out*/ readonly exactStagingResourceGroup: pulumi.Output<string>;
     /**
      * The identity of the image template, if configured.
      */
-    public readonly identity!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateIdentityResponse>;
+    declare public readonly identity: pulumi.Output<outputs.virtualmachineimages.ImageTemplateIdentityResponse>;
     /**
      * State of 'run' that is currently executing or was last executed.
      */
-    public /*out*/ readonly lastRunStatus!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateLastRunStatusResponse>;
+    declare public /*out*/ readonly lastRunStatus: pulumi.Output<outputs.virtualmachineimages.ImageTemplateLastRunStatusResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Tags that will be applied to the resource group and/or resources created by the service.
      */
-    public readonly managedResourceTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly managedResourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies optimization to be performed on image.
      */
-    public readonly optimize!: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseOptimize | undefined>;
+    declare public readonly optimize: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseOptimize | undefined>;
     /**
      * Provisioning error, if any
      */
-    public /*out*/ readonly provisioningError!: pulumi.Output<outputs.virtualmachineimages.ProvisioningErrorResponse>;
+    declare public /*out*/ readonly provisioningError: pulumi.Output<outputs.virtualmachineimages.ProvisioningErrorResponse>;
     /**
      * Provisioning state of the resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Specifies the properties used to describe the source image.
      */
-    public readonly source!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceResponse>;
+    declare public readonly source: pulumi.Output<outputs.virtualmachineimages.ImageTemplateManagedImageSourceResponse | outputs.virtualmachineimages.ImageTemplatePlatformImageSourceResponse | outputs.virtualmachineimages.ImageTemplateSharedImageVersionSourceResponse>;
     /**
      * The staging resource group id in the same subscription as the image template that will be used to build the image. If this field is empty, a resource group with a random name will be created. If the resource group specified in this field doesn't exist, it will be created with the same name. If the resource group specified exists, it must be empty and in the same region as the image template. The resource group created will be deleted during template deletion if this field is empty or the resource group specified doesn't exist, but if the resource group specified exists the resources created in the resource group will be deleted during template deletion and the resource group itself will remain.
      */
-    public readonly stagingResourceGroup!: pulumi.Output<string | undefined>;
+    declare public readonly stagingResourceGroup: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.virtualmachineimages.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.virtualmachineimages.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Configuration options and list of validations to be performed on the resulting image.
      */
-    public readonly validate!: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseValidate | undefined>;
+    declare public readonly validate: pulumi.Output<outputs.virtualmachineimages.ImageTemplatePropertiesResponseValidate | undefined>;
     /**
      * Describes how virtual machine is set up to build images
      */
-    public readonly vmProfile!: pulumi.Output<outputs.virtualmachineimages.ImageTemplateVmProfileResponse | undefined>;
+    declare public readonly vmProfile: pulumi.Output<outputs.virtualmachineimages.ImageTemplateVmProfileResponse | undefined>;
 
     /**
      * Create a VirtualMachineImageTemplate resource with the given unique name, arguments, and options.
@@ -141,32 +141,32 @@ export class VirtualMachineImageTemplate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.distribute === undefined) && !opts.urn) {
+            if (args?.distribute === undefined && !opts.urn) {
                 throw new Error("Missing required property 'distribute'");
             }
-            if ((!args || args.identity === undefined) && !opts.urn) {
+            if (args?.identity === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identity'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.source === undefined) && !opts.urn) {
+            if (args?.source === undefined && !opts.urn) {
                 throw new Error("Missing required property 'source'");
             }
-            resourceInputs["autoRun"] = args ? args.autoRun : undefined;
-            resourceInputs["buildTimeoutInMinutes"] = (args ? args.buildTimeoutInMinutes : undefined) ?? 0;
-            resourceInputs["customize"] = args ? args.customize : undefined;
-            resourceInputs["distribute"] = args ? args.distribute : undefined;
+            resourceInputs["autoRun"] = args?.autoRun;
+            resourceInputs["buildTimeoutInMinutes"] = (args?.buildTimeoutInMinutes) ?? 0;
+            resourceInputs["customize"] = args?.customize;
+            resourceInputs["distribute"] = args?.distribute;
             resourceInputs["errorHandling"] = args ? (args.errorHandling ? pulumi.output(args.errorHandling).apply(inputs.virtualmachineimages.imageTemplatePropertiesErrorHandlingArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["imageTemplateName"] = args ? args.imageTemplateName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedResourceTags"] = args ? args.managedResourceTags : undefined;
-            resourceInputs["optimize"] = args ? args.optimize : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["stagingResourceGroup"] = args ? args.stagingResourceGroup : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["imageTemplateName"] = args?.imageTemplateName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedResourceTags"] = args?.managedResourceTags;
+            resourceInputs["optimize"] = args?.optimize;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["stagingResourceGroup"] = args?.stagingResourceGroup;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["validate"] = args ? (args.validate ? pulumi.output(args.validate).apply(inputs.virtualmachineimages.imageTemplatePropertiesValidateArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["vmProfile"] = args ? (args.vmProfile ? pulumi.output(args.vmProfile).apply(inputs.virtualmachineimages.imageTemplateVmProfileArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;

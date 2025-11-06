@@ -44,103 +44,103 @@ export class Job extends pulumi.CustomResource {
     /**
      * Flag to indicate if all devices associated with the job are lost.
      */
-    public /*out*/ readonly allDevicesLost!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly allDevicesLost: pulumi.Output<boolean>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Reason for cancellation.
      */
-    public /*out*/ readonly cancellationReason!: pulumi.Output<string>;
+    declare public /*out*/ readonly cancellationReason: pulumi.Output<string>;
     /**
      * Name of the stage where delay might be present.
      */
-    public /*out*/ readonly delayedStage!: pulumi.Output<string>;
+    declare public /*out*/ readonly delayedStage: pulumi.Output<string>;
     /**
      * Delivery Info of Job.
      */
-    public readonly deliveryInfo!: pulumi.Output<outputs.databox.JobDeliveryInfoResponse | undefined>;
+    declare public readonly deliveryInfo: pulumi.Output<outputs.databox.JobDeliveryInfoResponse | undefined>;
     /**
      * Delivery type of Job.
      */
-    public readonly deliveryType!: pulumi.Output<string | undefined>;
+    declare public readonly deliveryType: pulumi.Output<string | undefined>;
     /**
      * Details of a job run. This field will only be sent for expand details filter.
      */
-    public readonly details!: pulumi.Output<outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
+    declare public readonly details: pulumi.Output<outputs.databox.DataBoxCustomerDiskJobDetailsResponse | outputs.databox.DataBoxDiskJobDetailsResponse | outputs.databox.DataBoxHeavyJobDetailsResponse | outputs.databox.DataBoxJobDetailsResponse | undefined>;
     /**
      * Top level error for the job.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.databox.CloudErrorResponse>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.databox.CloudErrorResponse>;
     /**
      * Msi identity of the resource
      */
-    public readonly identity!: pulumi.Output<outputs.databox.ResourceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.databox.ResourceIdentityResponse | undefined>;
     /**
      * Describes whether the job is cancellable or not.
      */
-    public /*out*/ readonly isCancellable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isCancellable: pulumi.Output<boolean>;
     /**
      * Flag to indicate cancellation of scheduled job.
      */
-    public /*out*/ readonly isCancellableWithoutFee!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isCancellableWithoutFee: pulumi.Output<boolean>;
     /**
      * Describes whether the job is deletable or not.
      */
-    public /*out*/ readonly isDeletable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isDeletable: pulumi.Output<boolean>;
     /**
      * Is Prepare To Ship Enabled on this job
      */
-    public /*out*/ readonly isPrepareToShipEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isPrepareToShipEnabled: pulumi.Output<boolean>;
     /**
      * Describes whether the shipping address is editable or not.
      */
-    public /*out*/ readonly isShippingAddressEditable!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isShippingAddressEditable: pulumi.Output<boolean>;
     /**
      * The location of the resource. This will be one of the supported and registered Azure Regions (e.g. West US, East US, Southeast Asia, etc.). The region of a resource cannot be changed once it is created, but if an identical region is specified on update the request will succeed.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the object.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The Editable status for Reverse Shipping Address and Contact Info
      */
-    public /*out*/ readonly reverseShippingDetailsUpdate!: pulumi.Output<string>;
+    declare public /*out*/ readonly reverseShippingDetailsUpdate: pulumi.Output<string>;
     /**
      * The Editable status for Reverse Transport preferences
      */
-    public /*out*/ readonly reverseTransportPreferenceUpdate!: pulumi.Output<string>;
+    declare public /*out*/ readonly reverseTransportPreferenceUpdate: pulumi.Output<string>;
     /**
      * The sku type.
      */
-    public readonly sku!: pulumi.Output<outputs.databox.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.databox.SkuResponse>;
     /**
      * Time at which the job was started in UTC ISO 8601 format.
      */
-    public /*out*/ readonly startTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly startTime: pulumi.Output<string>;
     /**
      * Name of the stage which is in progress.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.databox.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.databox.SystemDataResponse>;
     /**
      * The list of key value pairs that describe the resource. These tags can be used in viewing and grouping this resource (across resource groups).
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the data transfer.
      */
-    public readonly transferType!: pulumi.Output<string>;
+    declare public readonly transferType: pulumi.Output<string>;
     /**
      * Type of the object.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Job resource with the given unique name, arguments, and options.
@@ -153,25 +153,25 @@ export class Job extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            if ((!args || args.transferType === undefined) && !opts.urn) {
+            if (args?.transferType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'transferType'");
             }
-            resourceInputs["deliveryInfo"] = args ? args.deliveryInfo : undefined;
-            resourceInputs["deliveryType"] = (args ? args.deliveryType : undefined) ?? "NonScheduled";
-            resourceInputs["details"] = args ? args.details : undefined;
+            resourceInputs["deliveryInfo"] = args?.deliveryInfo;
+            resourceInputs["deliveryType"] = (args?.deliveryType) ?? "NonScheduled";
+            resourceInputs["details"] = args?.details;
             resourceInputs["identity"] = args ? (args.identity ? pulumi.output(args.identity).apply(inputs.databox.resourceIdentityArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["jobName"] = args ? args.jobName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["transferType"] = args ? args.transferType : undefined;
+            resourceInputs["jobName"] = args?.jobName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["transferType"] = args?.transferType;
             resourceInputs["allDevicesLost"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cancellationReason"] = undefined /*out*/;

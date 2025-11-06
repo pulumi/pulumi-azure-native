@@ -42,28 +42,28 @@ export class AzureServersSetting extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The kind of the server vulnerability assessments setting
      * Expected value is 'AzureServersSetting'.
      */
-    public readonly kind!: pulumi.Output<"AzureServersSetting">;
+    declare public readonly kind: pulumi.Output<"AzureServersSetting">;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The selected vulnerability assessments provider on Azure servers in the defined scope.
      */
-    public readonly selectedProvider!: pulumi.Output<string>;
+    declare public readonly selectedProvider: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.security.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.security.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AzureServersSetting resource with the given unique name, arguments, and options.
@@ -76,15 +76,15 @@ export class AzureServersSetting extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.kind === undefined) && !opts.urn) {
+            if (args?.kind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'kind'");
             }
-            if ((!args || args.selectedProvider === undefined) && !opts.urn) {
+            if (args?.selectedProvider === undefined && !opts.urn) {
                 throw new Error("Missing required property 'selectedProvider'");
             }
             resourceInputs["kind"] = "AzureServersSetting";
-            resourceInputs["selectedProvider"] = args ? args.selectedProvider : undefined;
-            resourceInputs["settingKind"] = args ? args.settingKind : undefined;
+            resourceInputs["selectedProvider"] = args?.selectedProvider;
+            resourceInputs["settingKind"] = args?.settingKind;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

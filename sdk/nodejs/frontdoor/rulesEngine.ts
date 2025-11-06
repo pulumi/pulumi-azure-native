@@ -44,23 +44,23 @@ export class RulesEngine extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Resource status.
      */
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * A list of rules that define a particular Rules Engine Configuration.
      */
-    public readonly rules!: pulumi.Output<outputs.frontdoor.RulesEngineRuleResponse[] | undefined>;
+    declare public readonly rules: pulumi.Output<outputs.frontdoor.RulesEngineRuleResponse[] | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RulesEngine resource with the given unique name, arguments, and options.
@@ -73,16 +73,16 @@ export class RulesEngine extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.frontDoorName === undefined) && !opts.urn) {
+            if (args?.frontDoorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'frontDoorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["frontDoorName"] = args ? args.frontDoorName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["rulesEngineName"] = args ? args.rulesEngineName : undefined;
+            resourceInputs["frontDoorName"] = args?.frontDoorName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["rulesEngineName"] = args?.rulesEngineName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["resourceState"] = undefined /*out*/;

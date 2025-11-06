@@ -44,51 +44,51 @@ export class Account extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Playwright testing dashboard URI for the account resource.
      */
-    public /*out*/ readonly dashboardUri!: pulumi.Output<string>;
+    declare public /*out*/ readonly dashboardUri: pulumi.Output<string>;
     /**
      * When enabled, this feature allows the workspace to use local auth (through service access token) for executing operations.
      */
-    public readonly localAuth!: pulumi.Output<string | undefined>;
+    declare public readonly localAuth: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the last operation.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This property sets the connection region for Playwright client workers to cloud-hosted browsers. If enabled, workers connect to browsers in the closest Azure region, ensuring lower latency. If disabled, workers connect to browsers in the Azure region in which the workspace was initially created.
      */
-    public readonly regionalAffinity!: pulumi.Output<string | undefined>;
+    declare public readonly regionalAffinity: pulumi.Output<string | undefined>;
     /**
      * When enabled, this feature allows the workspace to upload and display test results, including artifacts like traces and screenshots, in the Playwright portal. This enables faster and more efficient troubleshooting.
      */
-    public readonly reporting!: pulumi.Output<string | undefined>;
+    declare public readonly reporting: pulumi.Output<string | undefined>;
     /**
      * When enabled, Playwright client workers can connect to cloud-hosted browsers. This can increase the number of parallel workers for a test run, significantly minimizing test completion durations.
      */
-    public readonly scalableExecution!: pulumi.Output<string | undefined>;
+    declare public readonly scalableExecution: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azureplaywrightservice.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azureplaywrightservice.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Account resource with the given unique name, arguments, and options.
@@ -101,17 +101,17 @@ export class Account extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["localAuth"] = (args ? args.localAuth : undefined) ?? "Disabled";
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["regionalAffinity"] = (args ? args.regionalAffinity : undefined) ?? "Enabled";
-            resourceInputs["reporting"] = (args ? args.reporting : undefined) ?? "Enabled";
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scalableExecution"] = (args ? args.scalableExecution : undefined) ?? "Enabled";
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["localAuth"] = (args?.localAuth) ?? "Disabled";
+            resourceInputs["location"] = args?.location;
+            resourceInputs["regionalAffinity"] = (args?.regionalAffinity) ?? "Enabled";
+            resourceInputs["reporting"] = (args?.reporting) ?? "Enabled";
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scalableExecution"] = (args?.scalableExecution) ?? "Enabled";
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["dashboardUri"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

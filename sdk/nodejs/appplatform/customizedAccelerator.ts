@@ -44,27 +44,27 @@ export class CustomizedAccelerator extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Customized accelerator properties payload
      */
-    public readonly properties!: pulumi.Output<outputs.appplatform.CustomizedAcceleratorPropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.appplatform.CustomizedAcceleratorPropertiesResponse>;
     /**
      * Sku of the customized accelerator resource
      */
-    public readonly sku!: pulumi.Output<outputs.appplatform.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.appplatform.SkuResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.appplatform.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.appplatform.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CustomizedAccelerator resource with the given unique name, arguments, and options.
@@ -77,20 +77,20 @@ export class CustomizedAccelerator extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationAcceleratorName === undefined) && !opts.urn) {
+            if (args?.applicationAcceleratorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationAcceleratorName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["applicationAcceleratorName"] = args ? args.applicationAcceleratorName : undefined;
-            resourceInputs["customizedAcceleratorName"] = args ? args.customizedAcceleratorName : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
+            resourceInputs["applicationAcceleratorName"] = args?.applicationAcceleratorName;
+            resourceInputs["customizedAcceleratorName"] = args?.customizedAcceleratorName;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
             resourceInputs["sku"] = args ? (args.sku ? pulumi.output(args.sku).apply(inputs.appplatform.skuArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

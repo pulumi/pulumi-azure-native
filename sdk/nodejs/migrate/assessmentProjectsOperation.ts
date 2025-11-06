@@ -44,76 +44,76 @@ export class AssessmentProjectsOperation extends pulumi.CustomResource {
     /**
      * Assessment solution ARM id tracked by Microsoft.Migrate/migrateProjects.
      */
-    public readonly assessmentSolutionId!: pulumi.Output<string | undefined>;
+    declare public readonly assessmentSolutionId: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Time when this project was created. Date-Time represented in ISO-8601 format.
      */
-    public /*out*/ readonly createdTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTimestamp: pulumi.Output<string>;
     /**
      * The ARM id of the storage account used for interactions when public access is
      * disabled.
      */
-    public readonly customerStorageAccountArmId!: pulumi.Output<string | undefined>;
+    declare public readonly customerStorageAccountArmId: pulumi.Output<string | undefined>;
     /**
      * The ARM id of service map workspace created by customer.
      */
-    public readonly customerWorkspaceId!: pulumi.Output<string | undefined>;
+    declare public readonly customerWorkspaceId: pulumi.Output<string | undefined>;
     /**
      * Location of service map workspace created by customer.
      */
-    public readonly customerWorkspaceLocation!: pulumi.Output<string | undefined>;
+    declare public readonly customerWorkspaceLocation: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The list of private endpoint connections to the project.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.migrate.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.migrate.PrivateEndpointConnectionResponse[]>;
     /**
      * Assessment project status.
      */
-    public readonly projectStatus!: pulumi.Output<string | undefined>;
+    declare public readonly projectStatus: pulumi.Output<string | undefined>;
     /**
      * The status of the last operation.
      */
-    public readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * This value can be set to 'enabled' to avoid breaking changes on existing
      * customer resources and templates. If set to 'disabled', traffic over public
      * interface is not allowed, and private endpoint connections would be the
      * exclusive access method.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * Endpoint at which the collector agent can call agent REST API.
      */
-    public /*out*/ readonly serviceEndpoint!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceEndpoint: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Time when this project was last updated. Date-Time represented in ISO-8601
      * format.
      */
-    public /*out*/ readonly updatedTimestamp!: pulumi.Output<string>;
+    declare public /*out*/ readonly updatedTimestamp: pulumi.Output<string>;
 
     /**
      * Create a AssessmentProjectsOperation resource with the given unique name, arguments, and options.
@@ -126,20 +126,20 @@ export class AssessmentProjectsOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["assessmentSolutionId"] = args ? args.assessmentSolutionId : undefined;
-            resourceInputs["customerStorageAccountArmId"] = args ? args.customerStorageAccountArmId : undefined;
-            resourceInputs["customerWorkspaceId"] = args ? args.customerWorkspaceId : undefined;
-            resourceInputs["customerWorkspaceLocation"] = args ? args.customerWorkspaceLocation : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["projectStatus"] = args ? args.projectStatus : undefined;
-            resourceInputs["provisioningState"] = args ? args.provisioningState : undefined;
-            resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["assessmentSolutionId"] = args?.assessmentSolutionId;
+            resourceInputs["customerStorageAccountArmId"] = args?.customerStorageAccountArmId;
+            resourceInputs["customerWorkspaceId"] = args?.customerWorkspaceId;
+            resourceInputs["customerWorkspaceLocation"] = args?.customerWorkspaceLocation;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["projectStatus"] = args?.projectStatus;
+            resourceInputs["provisioningState"] = args?.provisioningState;
+            resourceInputs["publicNetworkAccess"] = args?.publicNetworkAccess;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdTimestamp"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

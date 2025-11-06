@@ -44,55 +44,55 @@ export class CertificateProfile extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Identity validation id used for the certificate subject name.
      */
-    public readonly identityValidationId!: pulumi.Output<string>;
+    declare public readonly identityValidationId: pulumi.Output<string>;
     /**
      * Whether to include L in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    public readonly includeCity!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeCity: pulumi.Output<boolean | undefined>;
     /**
      * Whether to include C in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    public readonly includeCountry!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeCountry: pulumi.Output<boolean | undefined>;
     /**
      * Whether to include PC in the certificate subject name.
      */
-    public readonly includePostalCode!: pulumi.Output<boolean | undefined>;
+    declare public readonly includePostalCode: pulumi.Output<boolean | undefined>;
     /**
      * Whether to include S in the certificate subject name. Applicable only for private trust, private trust ci profile types
      */
-    public readonly includeState!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeState: pulumi.Output<boolean | undefined>;
     /**
      * Whether to include STREET in the certificate subject name.
      */
-    public readonly includeStreetAddress!: pulumi.Output<boolean | undefined>;
+    declare public readonly includeStreetAddress: pulumi.Output<boolean | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Profile type of the certificate.
      */
-    public readonly profileType!: pulumi.Output<string>;
+    declare public readonly profileType: pulumi.Output<string>;
     /**
      * Status of the current operation on certificate profile.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Status of the certificate profile.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.codesigning.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.codesigning.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a CertificateProfile resource with the given unique name, arguments, and options.
@@ -105,28 +105,28 @@ export class CertificateProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.identityValidationId === undefined) && !opts.urn) {
+            if (args?.identityValidationId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'identityValidationId'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["identityValidationId"] = args ? args.identityValidationId : undefined;
-            resourceInputs["includeCity"] = (args ? args.includeCity : undefined) ?? false;
-            resourceInputs["includeCountry"] = (args ? args.includeCountry : undefined) ?? false;
-            resourceInputs["includePostalCode"] = (args ? args.includePostalCode : undefined) ?? false;
-            resourceInputs["includeState"] = (args ? args.includeState : undefined) ?? false;
-            resourceInputs["includeStreetAddress"] = (args ? args.includeStreetAddress : undefined) ?? false;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["identityValidationId"] = args?.identityValidationId;
+            resourceInputs["includeCity"] = (args?.includeCity) ?? false;
+            resourceInputs["includeCountry"] = (args?.includeCountry) ?? false;
+            resourceInputs["includePostalCode"] = (args?.includePostalCode) ?? false;
+            resourceInputs["includeState"] = (args?.includeState) ?? false;
+            resourceInputs["includeStreetAddress"] = (args?.includeStreetAddress) ?? false;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

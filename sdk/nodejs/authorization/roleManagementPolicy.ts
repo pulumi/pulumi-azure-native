@@ -44,51 +44,51 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The role management policy description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The role management policy display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The readonly computed rule applied to the policy.
      */
-    public /*out*/ readonly effectiveRules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
+    declare public /*out*/ readonly effectiveRules: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[]>;
     /**
      * The role management policy is default policy.
      */
-    public readonly isOrganizationDefault!: pulumi.Output<boolean | undefined>;
+    declare public readonly isOrganizationDefault: pulumi.Output<boolean | undefined>;
     /**
      * The name of the entity last modified it
      */
-    public /*out*/ readonly lastModifiedBy!: pulumi.Output<outputs.authorization.PrincipalResponse>;
+    declare public /*out*/ readonly lastModifiedBy: pulumi.Output<outputs.authorization.PrincipalResponse>;
     /**
      * The last modified date time.
      */
-    public /*out*/ readonly lastModifiedDateTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedDateTime: pulumi.Output<string>;
     /**
      * The role management policy name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Additional properties of scope
      */
-    public /*out*/ readonly policyProperties!: pulumi.Output<outputs.authorization.PolicyPropertiesResponse>;
+    declare public /*out*/ readonly policyProperties: pulumi.Output<outputs.authorization.PolicyPropertiesResponse>;
     /**
      * The rule applied to the policy.
      */
-    public readonly rules!: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[] | undefined>;
+    declare public readonly rules: pulumi.Output<(outputs.authorization.RoleManagementPolicyApprovalRuleResponse | outputs.authorization.RoleManagementPolicyAuthenticationContextRuleResponse | outputs.authorization.RoleManagementPolicyEnablementRuleResponse | outputs.authorization.RoleManagementPolicyExpirationRuleResponse | outputs.authorization.RoleManagementPolicyNotificationRuleResponse | outputs.authorization.RoleManagementPolicyPimOnlyModeRuleResponse)[] | undefined>;
     /**
      * The role management policy scope.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * The role management policy type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a RoleManagementPolicy resource with the given unique name, arguments, and options.
@@ -101,15 +101,15 @@ export class RoleManagementPolicy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.scope === undefined) && !opts.urn) {
+            if (args?.scope === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scope'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["isOrganizationDefault"] = args ? args.isOrganizationDefault : undefined;
-            resourceInputs["roleManagementPolicyName"] = args ? args.roleManagementPolicyName : undefined;
-            resourceInputs["rules"] = args ? args.rules : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["isOrganizationDefault"] = args?.isOrganizationDefault;
+            resourceInputs["roleManagementPolicyName"] = args?.roleManagementPolicyName;
+            resourceInputs["rules"] = args?.rules;
+            resourceInputs["scope"] = args?.scope;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["effectiveRules"] = undefined /*out*/;
             resourceInputs["lastModifiedBy"] = undefined /*out*/;

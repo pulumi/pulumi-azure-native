@@ -44,60 +44,60 @@ export class Policy extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes custom rules inside the policy.
      */
-    public readonly customRules!: pulumi.Output<outputs.frontdoor.CustomRuleListResponse | undefined>;
+    declare public readonly customRules: pulumi.Output<outputs.frontdoor.CustomRuleListResponse | undefined>;
     /**
      * Gets a unique read-only string that changes whenever the resource is updated.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Describes Frontend Endpoints associated with this Web Application Firewall policy.
      */
-    public /*out*/ readonly frontendEndpointLinks!: pulumi.Output<outputs.frontdoor.FrontendEndpointLinkResponse[]>;
+    declare public /*out*/ readonly frontendEndpointLinks: pulumi.Output<outputs.frontdoor.FrontendEndpointLinkResponse[]>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * Describes managed rules inside the policy.
      */
-    public readonly managedRules!: pulumi.Output<outputs.frontdoor.ManagedRuleSetListResponse | undefined>;
+    declare public readonly managedRules: pulumi.Output<outputs.frontdoor.ManagedRuleSetListResponse | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Describes settings for the policy.
      */
-    public readonly policySettings!: pulumi.Output<outputs.frontdoor.PolicySettingsResponse | undefined>;
+    declare public readonly policySettings: pulumi.Output<outputs.frontdoor.PolicySettingsResponse | undefined>;
     /**
      * Provisioning state of the policy.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
-    public /*out*/ readonly resourceState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceState: pulumi.Output<string>;
     /**
      * Describes Routing Rules associated with this Web Application Firewall policy.
      */
-    public /*out*/ readonly routingRuleLinks!: pulumi.Output<outputs.frontdoor.RoutingRuleLinkResponse[]>;
+    declare public /*out*/ readonly routingRuleLinks: pulumi.Output<outputs.frontdoor.RoutingRuleLinkResponse[]>;
     /**
      * Describes Security Policy associated with this Web Application Firewall policy.
      */
-    public /*out*/ readonly securityPolicyLinks!: pulumi.Output<outputs.frontdoor.SecurityPolicyLinkResponse[]>;
+    declare public /*out*/ readonly securityPolicyLinks: pulumi.Output<outputs.frontdoor.SecurityPolicyLinkResponse[]>;
     /**
      * The pricing tier of web application firewall policy. Defaults to Classic_AzureFrontDoor if not specified.
      */
-    public readonly sku!: pulumi.Output<outputs.frontdoor.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.frontdoor.SkuResponse | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Policy resource with the given unique name, arguments, and options.
@@ -110,17 +110,17 @@ export class Policy extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["customRules"] = args ? args.customRules : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedRules"] = args ? args.managedRules : undefined;
-            resourceInputs["policyName"] = args ? args.policyName : undefined;
-            resourceInputs["policySettings"] = args ? args.policySettings : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["customRules"] = args?.customRules;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["managedRules"] = args?.managedRules;
+            resourceInputs["policyName"] = args?.policyName;
+            resourceInputs["policySettings"] = args?.policySettings;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["frontendEndpointLinks"] = undefined /*out*/;

@@ -44,67 +44,67 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets or sets the extended location.
      */
-    public readonly extendedLocation!: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
+    declare public readonly extendedLocation: pulumi.Output<outputs.connectedvmwarevsphere.ExtendedLocationResponse | undefined>;
     /**
      * Hardware properties.
      */
-    public readonly hardwareProfile!: pulumi.Output<outputs.connectedvmwarevsphere.HardwareProfileResponse | undefined>;
+    declare public readonly hardwareProfile: pulumi.Output<outputs.connectedvmwarevsphere.HardwareProfileResponse | undefined>;
     /**
      * Gets the infrastructure profile.
      */
-    public readonly infrastructureProfile!: pulumi.Output<outputs.connectedvmwarevsphere.InfrastructureProfileResponse | undefined>;
+    declare public readonly infrastructureProfile: pulumi.Output<outputs.connectedvmwarevsphere.InfrastructureProfileResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network properties.
      */
-    public readonly networkProfile!: pulumi.Output<outputs.connectedvmwarevsphere.NetworkProfileResponse | undefined>;
+    declare public readonly networkProfile: pulumi.Output<outputs.connectedvmwarevsphere.NetworkProfileResponse | undefined>;
     /**
      * OS properties.
      */
-    public readonly osProfile!: pulumi.Output<outputs.connectedvmwarevsphere.OsProfileForVMInstanceResponse | undefined>;
+    declare public readonly osProfile: pulumi.Output<outputs.connectedvmwarevsphere.OsProfileForVMInstanceResponse | undefined>;
     /**
      * Placement properties.
      */
-    public readonly placementProfile!: pulumi.Output<outputs.connectedvmwarevsphere.PlacementProfileResponse | undefined>;
+    declare public readonly placementProfile: pulumi.Output<outputs.connectedvmwarevsphere.PlacementProfileResponse | undefined>;
     /**
      * Gets the power state of the virtual machine.
      */
-    public /*out*/ readonly powerState!: pulumi.Output<string>;
+    declare public /*out*/ readonly powerState: pulumi.Output<string>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets a unique identifier for the vm resource.
      */
-    public /*out*/ readonly resourceUid!: pulumi.Output<string>;
+    declare public /*out*/ readonly resourceUid: pulumi.Output<string>;
     /**
      * Gets the security profile.
      */
-    public readonly securityProfile!: pulumi.Output<outputs.connectedvmwarevsphere.SecurityProfileResponse | undefined>;
+    declare public readonly securityProfile: pulumi.Output<outputs.connectedvmwarevsphere.SecurityProfileResponse | undefined>;
     /**
      * The resource status information.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
     /**
      * Storage properties.
      */
-    public readonly storageProfile!: pulumi.Output<outputs.connectedvmwarevsphere.StorageProfileResponse | undefined>;
+    declare public readonly storageProfile: pulumi.Output<outputs.connectedvmwarevsphere.StorageProfileResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VirtualMachineInstance resource with the given unique name, arguments, and options.
@@ -117,18 +117,18 @@ export class VirtualMachineInstance extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["extendedLocation"] = args ? args.extendedLocation : undefined;
-            resourceInputs["hardwareProfile"] = args ? args.hardwareProfile : undefined;
-            resourceInputs["infrastructureProfile"] = args ? args.infrastructureProfile : undefined;
-            resourceInputs["networkProfile"] = args ? args.networkProfile : undefined;
-            resourceInputs["osProfile"] = args ? args.osProfile : undefined;
-            resourceInputs["placementProfile"] = args ? args.placementProfile : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
-            resourceInputs["securityProfile"] = args ? args.securityProfile : undefined;
-            resourceInputs["storageProfile"] = args ? args.storageProfile : undefined;
+            resourceInputs["extendedLocation"] = args?.extendedLocation;
+            resourceInputs["hardwareProfile"] = args?.hardwareProfile;
+            resourceInputs["infrastructureProfile"] = args?.infrastructureProfile;
+            resourceInputs["networkProfile"] = args?.networkProfile;
+            resourceInputs["osProfile"] = args?.osProfile;
+            resourceInputs["placementProfile"] = args?.placementProfile;
+            resourceInputs["resourceUri"] = args?.resourceUri;
+            resourceInputs["securityProfile"] = args?.securityProfile;
+            resourceInputs["storageProfile"] = args?.storageProfile;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["powerState"] = undefined /*out*/;
