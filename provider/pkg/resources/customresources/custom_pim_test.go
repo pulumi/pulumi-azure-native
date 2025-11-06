@@ -295,4 +295,47 @@ func TestRestoreDefaultsForDeletedRules(t *testing.T) {
 			newsPropertyMap["rules"].ArrayValue(),
 		)
 	})
+
+	t.Run("restores rules never specified by user", func(t *testing.T) {
+		// Original state from Azure has 3 rules, but user only ever specified 1 in their Pulumi program
+		origRules := []map[string]any{
+			{"id": "rule1", "maximumDuration": "P365D"},
+			{"id": "rule2", "isExpirationRequired": false},
+			{"id": "rule3", "notificationLevel": "All"},
+		}
+
+		// User only specified rule1 in their Pulumi program
+		olds := map[string]any{
+			"rules": []map[string]any{
+				{"id": "rule1", "maximumDuration": "P365D"},
+			},
+			OriginalStateKey: map[string]any{
+				"properties": map[string]any{
+					"rules": origRules,
+				},
+			},
+		}
+
+		// User modifies rule1
+		news := map[string]any{
+			"rules": []map[string]any{
+				{"id": "rule1", "maximumDuration": "P90D"},
+			},
+		}
+
+		newsPropertyMap := resource.NewPropertyMapFromMap(news)
+		restoreDefaultsForDeletedRules(resource.NewPropertyMapFromMap(olds), newsPropertyMap)
+
+		// Should include the modified rule1 AND the unspecified rule2 and rule3 from original state
+		rules := newsPropertyMap["rules"].ArrayValue()
+		require.Len(t, rules, 3)
+		assert.Equal(t,
+			[]resource.PropertyValue{
+				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule1", "maximumDuration": "P90D"})),
+				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule2", "isExpirationRequired": false})),
+				resource.NewObjectProperty(resource.NewPropertyMapFromMap(map[string]any{"id": "rule3", "notificationLevel": "All"})),
+			},
+			newsPropertyMap["rules"].ArrayValue(),
+		)
+	})
 }
