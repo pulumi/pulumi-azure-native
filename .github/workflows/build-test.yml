@@ -236,7 +236,7 @@ jobs:
             --tenant "$ARM_TENANT_ID"
           echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
         env:
-          AZURE_CONFIG_DIR: ${{ github.workspace }}/.azure.tmp
+          AZURE_CONFIG_DIR: /home/runner/.azure.tmp
           ARM_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
           ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
@@ -383,7 +383,7 @@ jobs:
             --tenant "$ARM_TENANT_ID"
           echo "AZURE_CONFIG_DIR_FOR_TEST=$HOME/.azure.tmp" >> "$GITHUB_ENV"
         env:
-          AZURE_CONFIG_DIR: ${{ github.workspace }}/.azure.tmp
+          AZURE_CONFIG_DIR: /home/runner/.azure.tmp
           ARM_CLIENT_ID: ${{ env.ARM_CLIENT_ID }}
           ARM_CLIENT_SECRET: ${{ steps.esc-secrets.outputs.ARM_CLIENT_SECRET }}
           ARM_TENANT_ID: ${{ env.ARM_TENANT_ID }}
