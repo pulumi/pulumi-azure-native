@@ -40,6 +40,9 @@ jobs:
     needs: publish
     # not a prerelease
     if: ${{ !contains(github.ref_name,'-') }}
+    permissions:
+      id-token: write
+      contents: read
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
