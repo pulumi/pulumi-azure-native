@@ -382,6 +382,51 @@ func TestInputsToSdk(t *testing.T) {
 		assert.Equal(t, armauthorization.TypeAfterDuration, *sdk.Properties.ScheduleInfo.Expiration.Type)
 	})
 
+	t.Run("scheduleInfo with NoExpiration", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := validRequiredInputs.Copy()
+		now := time.Now()
+		inputs["scheduleInfo"] = resource.NewObjectProperty(resource.PropertyMap{
+			"startDateTime": resource.NewStringProperty(now.Format(time.RFC3339)),
+			"expiration": resource.NewObjectProperty(resource.PropertyMap{
+				"type": resource.NewStringProperty("NoExpiration"),
+			}),
+		})
+
+		sdk, err := inputsToSdk(inputs)
+		require.NoError(t, err)
+		require.NotNil(t, sdk.Properties.ScheduleInfo)
+		assert.WithinDuration(t, now, *sdk.Properties.ScheduleInfo.StartDateTime, 1*time.Second)
+		assert.Nil(t, sdk.Properties.ScheduleInfo.Expiration.Duration)
+		assert.Nil(t, sdk.Properties.ScheduleInfo.Expiration.EndDateTime)
+		assert.Equal(t, armauthorization.TypeNoExpiration, *sdk.Properties.ScheduleInfo.Expiration.Type)
+	})
+
+	t.Run("scheduleInfo with AfterDateTime", func(t *testing.T) {
+		t.Parallel()
+
+		inputs := validRequiredInputs.Copy()
+		now := time.Now()
+		endTime := now.Add(24 * time.Hour)
+		inputs["scheduleInfo"] = resource.NewObjectProperty(resource.PropertyMap{
+			"startDateTime": resource.NewStringProperty(now.Format(time.RFC3339)),
+			"expiration": resource.NewObjectProperty(resource.PropertyMap{
+				"endDateTime": resource.NewStringProperty(endTime.Format(time.RFC3339)),
+				"type":        resource.NewStringProperty("AfterDateTime"),
+			}),
+		})
+
+		sdk, err := inputsToSdk(inputs)
+		require.NoError(t, err)
+		require.NotNil(t, sdk.Properties.ScheduleInfo)
+		assert.WithinDuration(t, now, *sdk.Properties.ScheduleInfo.StartDateTime, 1*time.Second)
+		assert.Nil(t, sdk.Properties.ScheduleInfo.Expiration.Duration)
+		require.NotNil(t, sdk.Properties.ScheduleInfo.Expiration.EndDateTime)
+		assert.WithinDuration(t, endTime, *sdk.Properties.ScheduleInfo.Expiration.EndDateTime, 1*time.Second)
+		assert.Equal(t, armauthorization.TypeAfterDateTime, *sdk.Properties.ScheduleInfo.Expiration.Type)
+	})
+
 	t.Run("misc optional properties", func(t *testing.T) {
 		t.Parallel()
 
