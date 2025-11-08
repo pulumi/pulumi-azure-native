@@ -148,13 +148,8 @@ func pimRoleManagementPolicy(lookupResource resources.ResourceLookupFunc, crudCl
 }
 
 // restoreDefaultsForDeletedRules restores the original values for rules that were deleted from the policy.
-// For each rule in olds that's not in news, it looks up the original rule in olds and adds it to news.
+// For each rule in the original state that's not in news, it adds the original rule to news.
 func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
-	oldRules := mapRulesById(olds)
-	if len(oldRules) == 0 {
-		return
-	}
-
 	newRules := mapRulesById(news)
 
 	origState := olds[OriginalStateKey].ObjectValue()
@@ -163,19 +158,20 @@ func restoreDefaultsForDeletedRules(olds, news resource.PropertyMap) {
 		return
 	}
 	origRules := mapRulesById(origState["properties"].ObjectValue())
+	if len(origRules) == 0 {
+		return
+	}
 
 	newRulesList := []resource.PropertyValue{}
 	if len(newRules) > 0 {
 		newRulesList = news["rules"].ArrayValue()
 	}
 
-	for id := range oldRules {
+	// For each rule in the original state, if it's not in the new rules (i.e., user didn't specify it),
+	// add it back from the original state to preserve it.
+	for id, origRule := range origRules {
 		if _, ok := newRules[id]; !ok {
-			if origRule, ok := origRules[id]; ok {
-				newRulesList = append(newRulesList, origRule)
-			} else {
-				logging.V(3).Infof("Warning: restoreDefaultsForDeletedRules: rule %s not found in original state", id)
-			}
+			newRulesList = append(newRulesList, origRule)
 		}
 	}
 
