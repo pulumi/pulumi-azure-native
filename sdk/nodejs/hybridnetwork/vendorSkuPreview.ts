@@ -42,23 +42,23 @@ export class VendorSkuPreview extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The preview subscription ID.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state of the PreviewSubscription resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridnetwork.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a VendorSkuPreview resource with the given unique name, arguments, and options.
@@ -71,15 +71,15 @@ export class VendorSkuPreview extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.skuName === undefined) && !opts.urn) {
+            if (args?.skuName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'skuName'");
             }
-            if ((!args || args.vendorName === undefined) && !opts.urn) {
+            if (args?.vendorName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'vendorName'");
             }
-            resourceInputs["previewSubscription"] = args ? args.previewSubscription : undefined;
-            resourceInputs["skuName"] = args ? args.skuName : undefined;
-            resourceInputs["vendorName"] = args ? args.vendorName : undefined;
+            resourceInputs["previewSubscription"] = args?.previewSubscription;
+            resourceInputs["skuName"] = args?.skuName;
+            resourceInputs["vendorName"] = args?.vendorName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,127 +42,127 @@ export class DraftPackage extends pulumi.CustomResource {
     /**
      * The name of the app file.
      */
-    public readonly appFileName!: pulumi.Output<string | undefined>;
+    declare public readonly appFileName: pulumi.Output<string | undefined>;
     /**
      * Application name
      */
-    public readonly applicationName!: pulumi.Output<string | undefined>;
+    declare public readonly applicationName: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Comments added by user.
      */
-    public readonly comments!: pulumi.Output<string | undefined>;
+    declare public readonly comments: pulumi.Output<string | undefined>;
     /**
      * The relative path of the folder hosting package files.
      */
-    public /*out*/ readonly draftPackagePath!: pulumi.Output<string>;
+    declare public /*out*/ readonly draftPackagePath: pulumi.Output<string>;
     /**
      * Specifies whether this draft package is used to edit a package.
      */
-    public readonly editPackage!: pulumi.Output<boolean | undefined>;
+    declare public readonly editPackage: pulumi.Output<boolean | undefined>;
     /**
      * The executable launch command for script auto-fill. Will be used to run the application.
      */
-    public readonly executableLaunchCommand!: pulumi.Output<string | undefined>;
+    declare public readonly executableLaunchCommand: pulumi.Output<string | undefined>;
     /**
      * The list of first party applications to test along with user application.
      */
-    public readonly firstPartyApps!: pulumi.Output<outputs.testbase.FirstPartyAppDefinitionResponse[] | undefined>;
+    declare public readonly firstPartyApps: pulumi.Output<outputs.testbase.FirstPartyAppDefinitionResponse[] | undefined>;
     /**
      * The flighting ring for feature update.
      */
-    public readonly flightingRing!: pulumi.Output<string | undefined>;
+    declare public readonly flightingRing: pulumi.Output<string | undefined>;
     /**
      * The list of gallery apps to test along with user application.
      */
-    public readonly galleryApps!: pulumi.Output<outputs.testbase.GalleryAppDefinitionResponse[] | undefined>;
+    declare public readonly galleryApps: pulumi.Output<outputs.testbase.GalleryAppDefinitionResponse[] | undefined>;
     /**
      * The highlight files in the package.
      */
-    public readonly highlightedFiles!: pulumi.Output<outputs.testbase.HighlightedFileResponse[] | undefined>;
+    declare public readonly highlightedFiles: pulumi.Output<outputs.testbase.HighlightedFileResponse[] | undefined>;
     /**
      * Specifies the baseline os and target os for inplace upgrade.
      */
-    public readonly inplaceUpgradeOSPair!: pulumi.Output<outputs.testbase.InplaceUpgradeOSInfoResponse | undefined>;
+    declare public readonly inplaceUpgradeOSPair: pulumi.Output<outputs.testbase.InplaceUpgradeOSInfoResponse | undefined>;
     /**
      * The metadata of Intune enrollment.
      */
-    public readonly intuneEnrollmentMetadata!: pulumi.Output<outputs.testbase.IntuneEnrollmentMetadataResponse | undefined>;
+    declare public readonly intuneEnrollmentMetadata: pulumi.Output<outputs.testbase.IntuneEnrollmentMetadataResponse | undefined>;
     /**
      * Metadata used to generate draft package folder and scripts.
      */
-    public readonly intuneMetadata!: pulumi.Output<outputs.testbase.DraftPackageIntuneAppMetadataResponse | undefined>;
+    declare public readonly intuneMetadata: pulumi.Output<outputs.testbase.DraftPackageIntuneAppMetadataResponse | undefined>;
     /**
      * The UTC timestamp when the package was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the package id from which the draft package copied.
      */
-    public readonly packageId!: pulumi.Output<string | undefined>;
+    declare public readonly packageId: pulumi.Output<string | undefined>;
     /**
      * Tags of the package to be created.
      */
-    public readonly packageTags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly packageTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The process name for script auto-fill. Will be used to identify the application process.
      */
-    public readonly processName!: pulumi.Output<string | undefined>;
+    declare public readonly processName: pulumi.Output<string | undefined>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The source type.
      */
-    public readonly sourceType!: pulumi.Output<string | undefined>;
+    declare public readonly sourceType: pulumi.Output<string | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
      * Tab state.
      */
-    public readonly tabState!: pulumi.Output<outputs.testbase.TabStateResponse | undefined>;
+    declare public readonly tabState: pulumi.Output<outputs.testbase.TabStateResponse | undefined>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    public readonly targetOSList!: pulumi.Output<outputs.testbase.TargetOSInfoResponse[] | undefined>;
+    declare public readonly targetOSList: pulumi.Output<outputs.testbase.TargetOSInfoResponse[] | undefined>;
     /**
      * OOB, functional or flow driven. Mapped to the data in 'tests' property.
      */
-    public readonly testTypes!: pulumi.Output<string[] | undefined>;
+    declare public readonly testTypes: pulumi.Output<string[] | undefined>;
     /**
      * The detailed test information.
      */
-    public readonly tests!: pulumi.Output<outputs.testbase.TestResponse[] | undefined>;
+    declare public readonly tests: pulumi.Output<outputs.testbase.TestResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Indicates whether user choose to enable script auto-fill.
      */
-    public readonly useAutofill!: pulumi.Output<boolean | undefined>;
+    declare public readonly useAutofill: pulumi.Output<boolean | undefined>;
     /**
      * Specifies whether a sample package should be used instead of the one uploaded by the user.
      */
-    public readonly useSample!: pulumi.Output<boolean | undefined>;
+    declare public readonly useSample: pulumi.Output<boolean | undefined>;
     /**
      * Application version
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * The relative path for a temporarily folder for package creation work.
      */
-    public /*out*/ readonly workingPath!: pulumi.Output<string>;
+    declare public /*out*/ readonly workingPath: pulumi.Output<string>;
 
     /**
      * Create a DraftPackage resource with the given unique name, arguments, and options.
@@ -175,38 +175,38 @@ export class DraftPackage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            resourceInputs["appFileName"] = args ? args.appFileName : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["comments"] = args ? args.comments : undefined;
-            resourceInputs["draftPackageName"] = args ? args.draftPackageName : undefined;
-            resourceInputs["editPackage"] = (args ? args.editPackage : undefined) ?? false;
-            resourceInputs["executableLaunchCommand"] = args ? args.executableLaunchCommand : undefined;
-            resourceInputs["firstPartyApps"] = args ? args.firstPartyApps : undefined;
-            resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
-            resourceInputs["galleryApps"] = args ? args.galleryApps : undefined;
-            resourceInputs["highlightedFiles"] = args ? args.highlightedFiles : undefined;
-            resourceInputs["inplaceUpgradeOSPair"] = args ? args.inplaceUpgradeOSPair : undefined;
-            resourceInputs["intuneEnrollmentMetadata"] = args ? args.intuneEnrollmentMetadata : undefined;
-            resourceInputs["intuneMetadata"] = args ? args.intuneMetadata : undefined;
-            resourceInputs["packageId"] = args ? args.packageId : undefined;
-            resourceInputs["packageTags"] = args ? args.packageTags : undefined;
-            resourceInputs["processName"] = args ? args.processName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceType"] = (args ? args.sourceType : undefined) ?? "Native";
-            resourceInputs["tabState"] = args ? args.tabState : undefined;
-            resourceInputs["targetOSList"] = args ? args.targetOSList : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["testTypes"] = args ? args.testTypes : undefined;
-            resourceInputs["tests"] = args ? args.tests : undefined;
-            resourceInputs["useAutofill"] = args ? args.useAutofill : undefined;
-            resourceInputs["useSample"] = args ? args.useSample : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["appFileName"] = args?.appFileName;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["comments"] = args?.comments;
+            resourceInputs["draftPackageName"] = args?.draftPackageName;
+            resourceInputs["editPackage"] = (args?.editPackage) ?? false;
+            resourceInputs["executableLaunchCommand"] = args?.executableLaunchCommand;
+            resourceInputs["firstPartyApps"] = args?.firstPartyApps;
+            resourceInputs["flightingRing"] = args?.flightingRing;
+            resourceInputs["galleryApps"] = args?.galleryApps;
+            resourceInputs["highlightedFiles"] = args?.highlightedFiles;
+            resourceInputs["inplaceUpgradeOSPair"] = args?.inplaceUpgradeOSPair;
+            resourceInputs["intuneEnrollmentMetadata"] = args?.intuneEnrollmentMetadata;
+            resourceInputs["intuneMetadata"] = args?.intuneMetadata;
+            resourceInputs["packageId"] = args?.packageId;
+            resourceInputs["packageTags"] = args?.packageTags;
+            resourceInputs["processName"] = args?.processName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceType"] = (args?.sourceType) ?? "Native";
+            resourceInputs["tabState"] = args?.tabState;
+            resourceInputs["targetOSList"] = args?.targetOSList;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["testTypes"] = args?.testTypes;
+            resourceInputs["tests"] = args?.tests;
+            resourceInputs["useAutofill"] = args?.useAutofill;
+            resourceInputs["useSample"] = args?.useSample;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["draftPackagePath"] = undefined /*out*/;
             resourceInputs["lastModifiedTime"] = undefined /*out*/;

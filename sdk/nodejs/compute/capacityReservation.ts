@@ -44,63 +44,63 @@ export class CapacityReservation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Capacity reservation instance view.
      */
-    public /*out*/ readonly instanceView!: pulumi.Output<outputs.compute.CapacityReservationInstanceViewResponse>;
+    declare public /*out*/ readonly instanceView: pulumi.Output<outputs.compute.CapacityReservationInstanceViewResponse>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Specifies the value of fault domain count that Capacity Reservation supports for requested VM size. **Note:** The fault domain count specified for a resource (like virtual machines scale set) must be less than or equal to this value if it deploys using capacity reservation. Minimum api-version: 2022-08-01.
      */
-    public /*out*/ readonly platformFaultDomainCount!: pulumi.Output<number>;
+    declare public /*out*/ readonly platformFaultDomainCount: pulumi.Output<number>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The date time when the capacity reservation was last updated.
      */
-    public /*out*/ readonly provisioningTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningTime: pulumi.Output<string>;
     /**
      * A unique id generated and assigned to the capacity reservation by the platform which does not change throughout the lifetime of the resource.
      */
-    public /*out*/ readonly reservationId!: pulumi.Output<string>;
+    declare public /*out*/ readonly reservationId: pulumi.Output<string>;
     /**
      * SKU of the resource for which capacity needs be reserved. The SKU name and capacity is required to be set.  For Block capacity reservations, sku.capacity can only accept values 1, 2, 4, 8, 16, 32, 64. Currently VM Skus with the capability called 'CapacityReservationSupported' set to true are supported. When 'CapacityReservationSupported' is true, the SKU capability also specifies the 'SupportedCapacityReservationTypes', which lists the types of capacity reservations (such as Targeted or Block) that the SKU supports. Refer to List Microsoft.Compute SKUs in a region (https://docs.microsoft.com/rest/api/compute/resourceskus/list) for supported values.
      */
-    public readonly sku!: pulumi.Output<outputs.compute.SkuResponse>;
+    declare public readonly sku: pulumi.Output<outputs.compute.SkuResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.compute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.compute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the time at which the Capacity Reservation resource was created. Minimum api-version: 2021-11-01.
      */
-    public /*out*/ readonly timeCreated!: pulumi.Output<string>;
+    declare public /*out*/ readonly timeCreated: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * A list of all virtual machine resource ids that are associated with the capacity reservation.
      */
-    public /*out*/ readonly virtualMachinesAssociated!: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
+    declare public /*out*/ readonly virtualMachinesAssociated: pulumi.Output<outputs.compute.SubResourceReadOnlyResponse[]>;
     /**
      * The availability zones.
      */
-    public readonly zones!: pulumi.Output<string[] | undefined>;
+    declare public readonly zones: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a CapacityReservation resource with the given unique name, arguments, and options.
@@ -113,22 +113,22 @@ export class CapacityReservation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.capacityReservationGroupName === undefined) && !opts.urn) {
+            if (args?.capacityReservationGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'capacityReservationGroupName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sku === undefined) && !opts.urn) {
+            if (args?.sku === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sku'");
             }
-            resourceInputs["capacityReservationGroupName"] = args ? args.capacityReservationGroupName : undefined;
-            resourceInputs["capacityReservationName"] = args ? args.capacityReservationName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["zones"] = args ? args.zones : undefined;
+            resourceInputs["capacityReservationGroupName"] = args?.capacityReservationGroupName;
+            resourceInputs["capacityReservationName"] = args?.capacityReservationName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["zones"] = args?.zones;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["instanceView"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

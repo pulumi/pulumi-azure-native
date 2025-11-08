@@ -42,35 +42,35 @@ export class FlowProfile extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.azuredatatransfer.ManagedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.azuredatatransfer.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The set of configuration properties that define the behavior and rules of the FlowProfile.
      */
-    public readonly properties!: pulumi.Output<outputs.azuredatatransfer.FlowProfilePropertiesResponse>;
+    declare public readonly properties: pulumi.Output<outputs.azuredatatransfer.FlowProfilePropertiesResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azuredatatransfer.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azuredatatransfer.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a FlowProfile resource with the given unique name, arguments, and options.
@@ -83,19 +83,19 @@ export class FlowProfile extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.pipelineName === undefined) && !opts.urn) {
+            if (args?.pipelineName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'pipelineName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["flowProfileName"] = args ? args.flowProfileName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["pipelineName"] = args ? args.pipelineName : undefined;
+            resourceInputs["flowProfileName"] = args?.flowProfileName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["pipelineName"] = args?.pipelineName;
             resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.azuredatatransfer.flowProfilePropertiesArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

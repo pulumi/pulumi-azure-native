@@ -42,63 +42,63 @@ export class Relationship extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The Relationship Cardinality.
      */
-    public readonly cardinality!: pulumi.Output<string | undefined>;
+    declare public readonly cardinality: pulumi.Output<string | undefined>;
     /**
      * Localized descriptions for the Relationship.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Localized display name for the Relationship.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The expiry date time in UTC.
      */
-    public readonly expiryDateTimeUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expiryDateTimeUtc: pulumi.Output<string | undefined>;
     /**
      * The properties of the Relationship.
      */
-    public readonly fields!: pulumi.Output<outputs.customerinsights.PropertyDefinitionResponse[] | undefined>;
+    declare public readonly fields: pulumi.Output<outputs.customerinsights.PropertyDefinitionResponse[] | undefined>;
     /**
      * Optional property to be used to map fields in profile to their strong ids in related profile.
      */
-    public readonly lookupMappings!: pulumi.Output<outputs.customerinsights.RelationshipTypeMappingResponse[] | undefined>;
+    declare public readonly lookupMappings: pulumi.Output<outputs.customerinsights.RelationshipTypeMappingResponse[] | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Profile type.
      */
-    public readonly profileType!: pulumi.Output<string>;
+    declare public readonly profileType: pulumi.Output<string>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Related profile being referenced.
      */
-    public readonly relatedProfileType!: pulumi.Output<string>;
+    declare public readonly relatedProfileType: pulumi.Output<string>;
     /**
      * The relationship guid id.
      */
-    public /*out*/ readonly relationshipGuidId!: pulumi.Output<string>;
+    declare public /*out*/ readonly relationshipGuidId: pulumi.Output<string>;
     /**
      * The Relationship name.
      */
-    public readonly relationshipName!: pulumi.Output<string>;
+    declare public readonly relationshipName: pulumi.Output<string>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Relationship resource with the given unique name, arguments, and options.
@@ -111,29 +111,29 @@ export class Relationship extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.profileType === undefined) && !opts.urn) {
+            if (args?.profileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileType'");
             }
-            if ((!args || args.relatedProfileType === undefined) && !opts.urn) {
+            if (args?.relatedProfileType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'relatedProfileType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["cardinality"] = args ? args.cardinality : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["expiryDateTimeUtc"] = args ? args.expiryDateTimeUtc : undefined;
-            resourceInputs["fields"] = args ? args.fields : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["lookupMappings"] = args ? args.lookupMappings : undefined;
-            resourceInputs["profileType"] = args ? args.profileType : undefined;
-            resourceInputs["relatedProfileType"] = args ? args.relatedProfileType : undefined;
-            resourceInputs["relationshipName"] = args ? args.relationshipName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["cardinality"] = args?.cardinality;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["expiryDateTimeUtc"] = args?.expiryDateTimeUtc;
+            resourceInputs["fields"] = args?.fields;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["lookupMappings"] = args?.lookupMappings;
+            resourceInputs["profileType"] = args?.profileType;
+            resourceInputs["relatedProfileType"] = args?.relatedProfileType;
+            resourceInputs["relationshipName"] = args?.relationshipName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

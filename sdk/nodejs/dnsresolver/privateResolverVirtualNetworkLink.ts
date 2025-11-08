@@ -44,35 +44,35 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * ETag of the virtual network link.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * Metadata attached to the virtual network link.
      */
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly metadata: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.dnsresolver.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The reference to the virtual network. This cannot be changed after creation.
      */
-    public readonly virtualNetwork!: pulumi.Output<outputs.dnsresolver.SubResourceResponse>;
+    declare public readonly virtualNetwork: pulumi.Output<outputs.dnsresolver.SubResourceResponse>;
 
     /**
      * Create a PrivateResolverVirtualNetworkLink resource with the given unique name, arguments, and options.
@@ -85,20 +85,20 @@ export class PrivateResolverVirtualNetworkLink extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.dnsForwardingRulesetName === undefined) && !opts.urn) {
+            if (args?.dnsForwardingRulesetName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'dnsForwardingRulesetName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.virtualNetwork === undefined) && !opts.urn) {
+            if (args?.virtualNetwork === undefined && !opts.urn) {
                 throw new Error("Missing required property 'virtualNetwork'");
             }
-            resourceInputs["dnsForwardingRulesetName"] = args ? args.dnsForwardingRulesetName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["virtualNetwork"] = args ? args.virtualNetwork : undefined;
-            resourceInputs["virtualNetworkLinkName"] = args ? args.virtualNetworkLinkName : undefined;
+            resourceInputs["dnsForwardingRulesetName"] = args?.dnsForwardingRulesetName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["virtualNetwork"] = args?.virtualNetwork;
+            resourceInputs["virtualNetworkLinkName"] = args?.virtualNetworkLinkName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

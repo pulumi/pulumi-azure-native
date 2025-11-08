@@ -44,55 +44,55 @@ export class IdentityProvider extends pulumi.CustomResource {
     /**
      * List of Allowed Tenants when configuring Azure Active Directory login.
      */
-    public readonly allowedTenants!: pulumi.Output<string[] | undefined>;
+    declare public readonly allowedTenants: pulumi.Output<string[] | undefined>;
     /**
      * OpenID Connect discovery endpoint hostname for AAD or AAD B2C.
      */
-    public readonly authority!: pulumi.Output<string | undefined>;
+    declare public readonly authority: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Client Id of the Application in the external Identity Provider. It is App ID for Facebook login, Client ID for Google login, App ID for Microsoft.
      */
-    public readonly clientId!: pulumi.Output<string>;
+    declare public readonly clientId: pulumi.Output<string>;
     /**
      * The client library to be used in the developer portal. Only applies to AAD and AAD B2C Identity Provider.
      */
-    public readonly clientLibrary!: pulumi.Output<string | undefined>;
+    declare public readonly clientLibrary: pulumi.Output<string | undefined>;
     /**
      * Client secret of the Application in external Identity Provider, used to authenticate login request. For example, it is App Secret for Facebook login, API Key for Google login, Public Key for Microsoft. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value.
      */
-    public readonly clientSecret!: pulumi.Output<string | undefined>;
+    declare public readonly clientSecret: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Password Reset Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    public readonly passwordResetPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly passwordResetPolicyName: pulumi.Output<string | undefined>;
     /**
      * Profile Editing Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    public readonly profileEditingPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly profileEditingPolicyName: pulumi.Output<string | undefined>;
     /**
      * Signin Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    public readonly signinPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly signinPolicyName: pulumi.Output<string | undefined>;
     /**
      * The TenantId to use instead of Common when logging into Active Directory
      */
-    public readonly signinTenant!: pulumi.Output<string | undefined>;
+    declare public readonly signinTenant: pulumi.Output<string | undefined>;
     /**
      * Signup Policy Name. Only applies to AAD B2C Identity Provider.
      */
-    public readonly signupPolicyName!: pulumi.Output<string | undefined>;
+    declare public readonly signupPolicyName: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public readonly type!: pulumi.Output<string>;
+    declare public readonly type: pulumi.Output<string>;
 
     /**
      * Create a IdentityProvider resource with the given unique name, arguments, and options.
@@ -105,32 +105,32 @@ export class IdentityProvider extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clientId === undefined) && !opts.urn) {
+            if (args?.clientId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientId'");
             }
-            if ((!args || args.clientSecret === undefined) && !opts.urn) {
+            if (args?.clientSecret === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clientSecret'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serviceName === undefined) && !opts.urn) {
+            if (args?.serviceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serviceName'");
             }
-            resourceInputs["allowedTenants"] = args ? args.allowedTenants : undefined;
-            resourceInputs["authority"] = args ? args.authority : undefined;
-            resourceInputs["clientId"] = args ? args.clientId : undefined;
-            resourceInputs["clientLibrary"] = args ? args.clientLibrary : undefined;
-            resourceInputs["clientSecret"] = args ? args.clientSecret : undefined;
-            resourceInputs["identityProviderName"] = args ? args.identityProviderName : undefined;
-            resourceInputs["passwordResetPolicyName"] = args ? args.passwordResetPolicyName : undefined;
-            resourceInputs["profileEditingPolicyName"] = args ? args.profileEditingPolicyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serviceName"] = args ? args.serviceName : undefined;
-            resourceInputs["signinPolicyName"] = args ? args.signinPolicyName : undefined;
-            resourceInputs["signinTenant"] = args ? args.signinTenant : undefined;
-            resourceInputs["signupPolicyName"] = args ? args.signupPolicyName : undefined;
-            resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["allowedTenants"] = args?.allowedTenants;
+            resourceInputs["authority"] = args?.authority;
+            resourceInputs["clientId"] = args?.clientId;
+            resourceInputs["clientLibrary"] = args?.clientLibrary;
+            resourceInputs["clientSecret"] = args?.clientSecret;
+            resourceInputs["identityProviderName"] = args?.identityProviderName;
+            resourceInputs["passwordResetPolicyName"] = args?.passwordResetPolicyName;
+            resourceInputs["profileEditingPolicyName"] = args?.profileEditingPolicyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serviceName"] = args?.serviceName;
+            resourceInputs["signinPolicyName"] = args?.signinPolicyName;
+            resourceInputs["signinTenant"] = args?.signinTenant;
+            resourceInputs["signupPolicyName"] = args?.signupPolicyName;
+            resourceInputs["type"] = args?.type;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
         } else {

@@ -44,55 +44,55 @@ export class SchemaRegistry extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Human-readable description of the schema registry.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Human-readable display name.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The managed service identities assigned to this resource.
      */
-    public readonly identity!: pulumi.Output<outputs.deviceregistry.SystemAssignedServiceIdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.deviceregistry.SystemAssignedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Schema registry namespace. Uniquely identifies a schema registry within a tenant.
      */
-    public readonly namespace!: pulumi.Output<string>;
+    declare public readonly namespace: pulumi.Output<string>;
     /**
      * Provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The Storage Account's Container URL where schemas will be stored.
      */
-    public readonly storageAccountContainerUrl!: pulumi.Output<string>;
+    declare public readonly storageAccountContainerUrl: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.deviceregistry.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Globally unique, immutable, non-reusable id.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a SchemaRegistry resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class SchemaRegistry extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.namespace === undefined) && !opts.urn) {
+            if (args?.namespace === undefined && !opts.urn) {
                 throw new Error("Missing required property 'namespace'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.storageAccountContainerUrl === undefined) && !opts.urn) {
+            if (args?.storageAccountContainerUrl === undefined && !opts.urn) {
                 throw new Error("Missing required property 'storageAccountContainerUrl'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["namespace"] = args ? args.namespace : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["schemaRegistryName"] = args ? args.schemaRegistryName : undefined;
-            resourceInputs["storageAccountContainerUrl"] = args ? args.storageAccountContainerUrl : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["namespace"] = args?.namespace;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["schemaRegistryName"] = args?.schemaRegistryName;
+            resourceInputs["storageAccountContainerUrl"] = args?.storageAccountContainerUrl;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

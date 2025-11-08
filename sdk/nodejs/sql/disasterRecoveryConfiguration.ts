@@ -39,47 +39,47 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
     /**
      * Whether or not failover can be done automatically.
      */
-    public /*out*/ readonly autoFailover!: pulumi.Output<string>;
+    declare public /*out*/ readonly autoFailover: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * How aggressive the automatic failover should be.
      */
-    public /*out*/ readonly failoverPolicy!: pulumi.Output<string>;
+    declare public /*out*/ readonly failoverPolicy: pulumi.Output<string>;
     /**
      * Location of the server that contains this disaster recovery configuration.
      */
-    public /*out*/ readonly location!: pulumi.Output<string>;
+    declare public /*out*/ readonly location: pulumi.Output<string>;
     /**
      * Logical name of the server.
      */
-    public /*out*/ readonly logicalServerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly logicalServerName: pulumi.Output<string>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Logical name of the partner server.
      */
-    public /*out*/ readonly partnerLogicalServerName!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnerLogicalServerName: pulumi.Output<string>;
     /**
      * Id of the partner server.
      */
-    public /*out*/ readonly partnerServerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly partnerServerId: pulumi.Output<string>;
     /**
      * The role of the current server in the disaster recovery configuration.
      */
-    public /*out*/ readonly role!: pulumi.Output<string>;
+    declare public /*out*/ readonly role: pulumi.Output<string>;
     /**
      * The status of the disaster recovery configuration.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a DisasterRecoveryConfiguration resource with the given unique name, arguments, and options.
@@ -92,15 +92,15 @@ export class DisasterRecoveryConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.serverName === undefined) && !opts.urn) {
+            if (args?.serverName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'serverName'");
             }
-            resourceInputs["disasterRecoveryConfigurationName"] = args ? args.disasterRecoveryConfigurationName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverName"] = args ? args.serverName : undefined;
+            resourceInputs["disasterRecoveryConfigurationName"] = args?.disasterRecoveryConfigurationName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverName"] = args?.serverName;
             resourceInputs["autoFailover"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["failoverPolicy"] = undefined /*out*/;

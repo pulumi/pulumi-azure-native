@@ -44,55 +44,55 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Username / Password Credentials to provision guest agent.
      */
-    public readonly credentials!: pulumi.Output<outputs.connectedvmwarevsphere.GuestCredentialResponse | undefined>;
+    declare public readonly credentials: pulumi.Output<outputs.connectedvmwarevsphere.GuestCredentialResponse | undefined>;
     /**
      * Gets the name of the corresponding resource in Kubernetes.
      */
-    public /*out*/ readonly customResourceName!: pulumi.Output<string>;
+    declare public /*out*/ readonly customResourceName: pulumi.Output<string>;
     /**
      * HTTP Proxy configuration for the VM.
      */
-    public readonly httpProxyConfig!: pulumi.Output<outputs.connectedvmwarevsphere.HttpProxyConfigurationResponse | undefined>;
+    declare public readonly httpProxyConfig: pulumi.Output<outputs.connectedvmwarevsphere.HttpProxyConfigurationResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The resource id of the private link scope this machine is assigned to, if any.
      */
-    public readonly privateLinkScopeResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly privateLinkScopeResourceId: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the guest agent provisioning action.
      */
-    public readonly provisioningAction!: pulumi.Output<string | undefined>;
+    declare public readonly provisioningAction: pulumi.Output<string | undefined>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets the guest agent status.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The resource status information.
      */
-    public /*out*/ readonly statuses!: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
+    declare public /*out*/ readonly statuses: pulumi.Output<outputs.connectedvmwarevsphere.ResourceStatusResponse[]>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.connectedvmwarevsphere.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets or sets a unique identifier for this resource.
      */
-    public /*out*/ readonly uuid!: pulumi.Output<string>;
+    declare public /*out*/ readonly uuid: pulumi.Output<string>;
 
     /**
      * Create a VMInstanceGuestAgent resource with the given unique name, arguments, and options.
@@ -105,14 +105,14 @@ export class VMInstanceGuestAgent extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceUri === undefined) && !opts.urn) {
+            if (args?.resourceUri === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceUri'");
             }
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["httpProxyConfig"] = args ? args.httpProxyConfig : undefined;
-            resourceInputs["privateLinkScopeResourceId"] = args ? args.privateLinkScopeResourceId : undefined;
-            resourceInputs["provisioningAction"] = args ? args.provisioningAction : undefined;
-            resourceInputs["resourceUri"] = args ? args.resourceUri : undefined;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["httpProxyConfig"] = args?.httpProxyConfig;
+            resourceInputs["privateLinkScopeResourceId"] = args?.privateLinkScopeResourceId;
+            resourceInputs["provisioningAction"] = args?.provisioningAction;
+            resourceInputs["resourceUri"] = args?.resourceUri;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["customResourceName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

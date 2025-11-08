@@ -44,35 +44,35 @@ export class VolumeSnapshot extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Data used when creating a volume snapshot.
      */
-    public readonly creationData!: pulumi.Output<outputs.elasticsan.SnapshotCreationDataResponse>;
+    declare public readonly creationData: pulumi.Output<outputs.elasticsan.SnapshotCreationDataResponse>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * State of the operation on the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Size of Source Volume
      */
-    public /*out*/ readonly sourceVolumeSizeGiB!: pulumi.Output<number>;
+    declare public /*out*/ readonly sourceVolumeSizeGiB: pulumi.Output<number>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.elasticsan.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Source Volume Name of a snapshot
      */
-    public /*out*/ readonly volumeName!: pulumi.Output<string>;
+    declare public /*out*/ readonly volumeName: pulumi.Output<string>;
 
     /**
      * Create a VolumeSnapshot resource with the given unique name, arguments, and options.
@@ -85,23 +85,23 @@ export class VolumeSnapshot extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.creationData === undefined) && !opts.urn) {
+            if (args?.creationData === undefined && !opts.urn) {
                 throw new Error("Missing required property 'creationData'");
             }
-            if ((!args || args.elasticSanName === undefined) && !opts.urn) {
+            if (args?.elasticSanName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'elasticSanName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.volumeGroupName === undefined) && !opts.urn) {
+            if (args?.volumeGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'volumeGroupName'");
             }
-            resourceInputs["creationData"] = args ? args.creationData : undefined;
-            resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["snapshotName"] = args ? args.snapshotName : undefined;
-            resourceInputs["volumeGroupName"] = args ? args.volumeGroupName : undefined;
+            resourceInputs["creationData"] = args?.creationData;
+            resourceInputs["elasticSanName"] = args?.elasticSanName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["snapshotName"] = args?.snapshotName;
+            resourceInputs["volumeGroupName"] = args?.volumeGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

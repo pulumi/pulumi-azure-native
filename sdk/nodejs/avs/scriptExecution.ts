@@ -44,81 +44,81 @@ export class ScriptExecution extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Standard error output stream from the powershell execution
      */
-    public /*out*/ readonly errors!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly errors: pulumi.Output<string[]>;
     /**
      * Error message if the script was able to run, but if the script itself had
      * errors or powershell threw an exception
      */
-    public readonly failureReason!: pulumi.Output<string | undefined>;
+    declare public readonly failureReason: pulumi.Output<string | undefined>;
     /**
      * Time the script execution was finished
      */
-    public /*out*/ readonly finishedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly finishedAt: pulumi.Output<string>;
     /**
      * Parameters that will be hidden/not visible to ARM, such as passwords and
      * credentials
      */
-    public readonly hiddenParameters!: pulumi.Output<(outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[] | undefined>;
+    declare public readonly hiddenParameters: pulumi.Output<(outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[] | undefined>;
     /**
      * Standard information out stream from the powershell execution
      */
-    public /*out*/ readonly information!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly information: pulumi.Output<string[]>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * User-defined dictionary.
      */
-    public readonly namedOutputs!: pulumi.Output<{[key: string]: any} | undefined>;
+    declare public readonly namedOutputs: pulumi.Output<{[key: string]: any} | undefined>;
     /**
      * Standard output stream from the powershell execution
      */
-    public readonly output!: pulumi.Output<string[] | undefined>;
+    declare public readonly output: pulumi.Output<string[] | undefined>;
     /**
      * Parameters the script will accept
      */
-    public readonly parameters!: pulumi.Output<(outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[] | undefined>;
+    declare public readonly parameters: pulumi.Output<(outputs.avs.PSCredentialExecutionParameterResponse | outputs.avs.ScriptSecureStringExecutionParameterResponse | outputs.avs.ScriptStringExecutionParameterResponse)[] | undefined>;
     /**
      * The state of the script execution resource
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Time to live for the resource. If not provided, will be available for 60 days
      */
-    public readonly retention!: pulumi.Output<string | undefined>;
+    declare public readonly retention: pulumi.Output<string | undefined>;
     /**
      * A reference to the script cmdlet resource if user is running a AVS script
      */
-    public readonly scriptCmdletId!: pulumi.Output<string | undefined>;
+    declare public readonly scriptCmdletId: pulumi.Output<string | undefined>;
     /**
      * Time the script execution was started
      */
-    public /*out*/ readonly startedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly startedAt: pulumi.Output<string>;
     /**
      * Time the script execution was submitted
      */
-    public /*out*/ readonly submittedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly submittedAt: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.avs.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.avs.SystemDataResponse>;
     /**
      * Time limit for execution
      */
-    public readonly timeout!: pulumi.Output<string>;
+    declare public readonly timeout: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Standard warning out stream from the powershell execution
      */
-    public /*out*/ readonly warnings!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly warnings: pulumi.Output<string[]>;
 
     /**
      * Create a ScriptExecution resource with the given unique name, arguments, and options.
@@ -131,26 +131,26 @@ export class ScriptExecution extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.privateCloudName === undefined) && !opts.urn) {
+            if (args?.privateCloudName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'privateCloudName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.timeout === undefined) && !opts.urn) {
+            if (args?.timeout === undefined && !opts.urn) {
                 throw new Error("Missing required property 'timeout'");
             }
-            resourceInputs["failureReason"] = args ? args.failureReason : undefined;
-            resourceInputs["hiddenParameters"] = args ? args.hiddenParameters : undefined;
-            resourceInputs["namedOutputs"] = args ? args.namedOutputs : undefined;
-            resourceInputs["output"] = args ? args.output : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["privateCloudName"] = args ? args.privateCloudName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retention"] = args ? args.retention : undefined;
-            resourceInputs["scriptCmdletId"] = args ? args.scriptCmdletId : undefined;
-            resourceInputs["scriptExecutionName"] = args ? args.scriptExecutionName : undefined;
-            resourceInputs["timeout"] = args ? args.timeout : undefined;
+            resourceInputs["failureReason"] = args?.failureReason;
+            resourceInputs["hiddenParameters"] = args?.hiddenParameters;
+            resourceInputs["namedOutputs"] = args?.namedOutputs;
+            resourceInputs["output"] = args?.output;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["privateCloudName"] = args?.privateCloudName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retention"] = args?.retention;
+            resourceInputs["scriptCmdletId"] = args?.scriptCmdletId;
+            resourceInputs["scriptExecutionName"] = args?.scriptExecutionName;
+            resourceInputs["timeout"] = args?.timeout;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["errors"] = undefined /*out*/;
             resourceInputs["finishedAt"] = undefined /*out*/;

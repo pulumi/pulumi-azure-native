@@ -44,23 +44,23 @@ export class Schedule extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly scheduleProperties!: pulumi.Output<outputs.machinelearningservices.ScheduleResponse>;
+    declare public readonly scheduleProperties: pulumi.Output<outputs.machinelearningservices.ScheduleResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Schedule resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class Schedule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.scheduleProperties === undefined) && !opts.urn) {
+            if (args?.scheduleProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'scheduleProperties'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["scheduleProperties"] = args ? (args.scheduleProperties ? pulumi.output(args.scheduleProperties).apply(inputs.machinelearningservices.scheduleArgsProvideDefaults) : undefined) : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

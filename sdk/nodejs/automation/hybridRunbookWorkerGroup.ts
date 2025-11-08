@@ -44,27 +44,27 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Sets the credential of a worker group.
      */
-    public readonly credential!: pulumi.Output<outputs.automation.RunAsCredentialAssociationPropertyResponse | undefined>;
+    declare public readonly credential: pulumi.Output<outputs.automation.RunAsCredentialAssociationPropertyResponse | undefined>;
     /**
      * Type of the HybridWorkerGroup.
      */
-    public /*out*/ readonly groupType!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly groupType: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Resource system metadata.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.automation.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.automation.SystemDataResponse>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a HybridRunbookWorkerGroup resource with the given unique name, arguments, and options.
@@ -77,17 +77,17 @@ export class HybridRunbookWorkerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["credential"] = args ? args.credential : undefined;
-            resourceInputs["hybridRunbookWorkerGroupName"] = args ? args.hybridRunbookWorkerGroupName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["credential"] = args?.credential;
+            resourceInputs["hybridRunbookWorkerGroupName"] = args?.hybridRunbookWorkerGroupName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["groupType"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

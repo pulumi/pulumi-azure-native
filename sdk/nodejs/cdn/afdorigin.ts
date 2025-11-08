@@ -44,68 +44,68 @@ export class AFDOrigin extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Resource reference to the Azure origin resource.
      */
-    public readonly azureOrigin!: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
-    public /*out*/ readonly deploymentStatus!: pulumi.Output<string>;
+    declare public readonly azureOrigin: pulumi.Output<outputs.cdn.ResourceReferenceResponse | undefined>;
+    declare public /*out*/ readonly deploymentStatus: pulumi.Output<string>;
     /**
      * Whether to enable health probes to be made against backends defined under backendPools. Health probes can only be disabled if there is a single enabled backend in single enabled backend pool.
      */
-    public readonly enabledState!: pulumi.Output<string | undefined>;
+    declare public readonly enabledState: pulumi.Output<string | undefined>;
     /**
      * Whether to enable certificate name check at origin level
      */
-    public readonly enforceCertificateNameCheck!: pulumi.Output<boolean | undefined>;
+    declare public readonly enforceCertificateNameCheck: pulumi.Output<boolean | undefined>;
     /**
      * The address of the origin. Domain names, IPv4 addresses, and IPv6 addresses are supported.This should be unique across all origins in an endpoint.
      */
-    public readonly hostName!: pulumi.Output<string | undefined>;
+    declare public readonly hostName: pulumi.Output<string | undefined>;
     /**
      * The value of the HTTP port. Must be between 1 and 65535.
      */
-    public readonly httpPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpPort: pulumi.Output<number | undefined>;
     /**
      * The value of the HTTPS port. Must be between 1 and 65535.
      */
-    public readonly httpsPort!: pulumi.Output<number | undefined>;
+    declare public readonly httpsPort: pulumi.Output<number | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The name of the origin group which contains this origin.
      */
-    public readonly originGroupName!: pulumi.Output<string>;
+    declare public readonly originGroupName: pulumi.Output<string>;
     /**
      * The host header value sent to the origin with each request. If you leave this blank, the request hostname determines this value. Azure Front Door origins, such as Web Apps, Blob Storage, and Cloud Services require this host header value to match the origin hostname by default. This overrides the host header defined at Endpoint
      */
-    public readonly originHostHeader!: pulumi.Output<string | undefined>;
+    declare public readonly originHostHeader: pulumi.Output<string | undefined>;
     /**
      * Priority of origin in given origin group for load balancing. Higher priorities will not be used for load balancing if any lower priority origin is healthy.Must be between 1 and 5
      */
-    public readonly priority!: pulumi.Output<number | undefined>;
+    declare public readonly priority: pulumi.Output<number | undefined>;
     /**
      * Provisioning status
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The properties of the private link resource for private origin.
      */
-    public readonly sharedPrivateLinkResource!: pulumi.Output<outputs.cdn.SharedPrivateLinkResourcePropertiesResponse | undefined>;
+    declare public readonly sharedPrivateLinkResource: pulumi.Output<outputs.cdn.SharedPrivateLinkResourcePropertiesResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.cdn.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.cdn.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Weight of the origin in given origin group for load balancing. Must be between 1 and 1000
      */
-    public readonly weight!: pulumi.Output<number | undefined>;
+    declare public readonly weight: pulumi.Output<number | undefined>;
 
     /**
      * Create a AFDOrigin resource with the given unique name, arguments, and options.
@@ -118,29 +118,29 @@ export class AFDOrigin extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.originGroupName === undefined) && !opts.urn) {
+            if (args?.originGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'originGroupName'");
             }
-            if ((!args || args.profileName === undefined) && !opts.urn) {
+            if (args?.profileName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'profileName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["azureOrigin"] = args ? args.azureOrigin : undefined;
-            resourceInputs["enabledState"] = args ? args.enabledState : undefined;
-            resourceInputs["enforceCertificateNameCheck"] = (args ? args.enforceCertificateNameCheck : undefined) ?? true;
-            resourceInputs["hostName"] = args ? args.hostName : undefined;
-            resourceInputs["httpPort"] = (args ? args.httpPort : undefined) ?? 80;
-            resourceInputs["httpsPort"] = (args ? args.httpsPort : undefined) ?? 443;
-            resourceInputs["originGroupName"] = args ? args.originGroupName : undefined;
-            resourceInputs["originHostHeader"] = args ? args.originHostHeader : undefined;
-            resourceInputs["originName"] = args ? args.originName : undefined;
-            resourceInputs["priority"] = args ? args.priority : undefined;
-            resourceInputs["profileName"] = args ? args.profileName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sharedPrivateLinkResource"] = args ? args.sharedPrivateLinkResource : undefined;
-            resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["azureOrigin"] = args?.azureOrigin;
+            resourceInputs["enabledState"] = args?.enabledState;
+            resourceInputs["enforceCertificateNameCheck"] = (args?.enforceCertificateNameCheck) ?? true;
+            resourceInputs["hostName"] = args?.hostName;
+            resourceInputs["httpPort"] = (args?.httpPort) ?? 80;
+            resourceInputs["httpsPort"] = (args?.httpsPort) ?? 443;
+            resourceInputs["originGroupName"] = args?.originGroupName;
+            resourceInputs["originHostHeader"] = args?.originHostHeader;
+            resourceInputs["originName"] = args?.originName;
+            resourceInputs["priority"] = args?.priority;
+            resourceInputs["profileName"] = args?.profileName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sharedPrivateLinkResource"] = args?.sharedPrivateLinkResource;
+            resourceInputs["weight"] = args?.weight;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deploymentStatus"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

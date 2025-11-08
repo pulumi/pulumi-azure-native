@@ -42,55 +42,55 @@ export class NotificationChannel extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The creation date of the notification channel.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * Description of notification.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The email recipient to send notifications to (can be a list of semi-colon separated email addresses).
      */
-    public readonly emailRecipient!: pulumi.Output<string | undefined>;
+    declare public readonly emailRecipient: pulumi.Output<string | undefined>;
     /**
      * The list of event for which this notification is enabled.
      */
-    public readonly events!: pulumi.Output<outputs.devtestlab.EventResponse[] | undefined>;
+    declare public readonly events: pulumi.Output<outputs.devtestlab.EventResponse[] | undefined>;
     /**
      * The location of the resource.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The locale to use when sending a notification (fallback for unsupported languages is EN).
      */
-    public readonly notificationLocale!: pulumi.Output<string | undefined>;
+    declare public readonly notificationLocale: pulumi.Output<string | undefined>;
     /**
      * The provisioning status of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The unique immutable identifier of a resource (Guid).
      */
-    public /*out*/ readonly uniqueIdentifier!: pulumi.Output<string>;
+    declare public /*out*/ readonly uniqueIdentifier: pulumi.Output<string>;
     /**
      * The webhook URL to send notifications to.
      */
-    public readonly webHookUrl!: pulumi.Output<string | undefined>;
+    declare public readonly webHookUrl: pulumi.Output<string | undefined>;
 
     /**
      * Create a NotificationChannel resource with the given unique name, arguments, and options.
@@ -103,22 +103,22 @@ export class NotificationChannel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.labName === undefined) && !opts.urn) {
+            if (args?.labName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'labName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["emailRecipient"] = args ? args.emailRecipient : undefined;
-            resourceInputs["events"] = args ? args.events : undefined;
-            resourceInputs["labName"] = args ? args.labName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["notificationLocale"] = args ? args.notificationLocale : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["webHookUrl"] = args ? args.webHookUrl : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["emailRecipient"] = args?.emailRecipient;
+            resourceInputs["events"] = args?.events;
+            resourceInputs["labName"] = args?.labName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["notificationLocale"] = args?.notificationLocale;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["webHookUrl"] = args?.webHookUrl;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

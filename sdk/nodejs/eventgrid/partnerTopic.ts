@@ -44,65 +44,65 @@ export class PartnerTopic extends pulumi.CustomResource {
     /**
      * Activation state of the partner topic.
      */
-    public readonly activationState!: pulumi.Output<string | undefined>;
+    declare public readonly activationState: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Event Type information from the corresponding event channel.
      */
-    public readonly eventTypeInfo!: pulumi.Output<outputs.eventgrid.EventTypeInfoResponse | undefined>;
+    declare public readonly eventTypeInfo: pulumi.Output<outputs.eventgrid.EventTypeInfoResponse | undefined>;
     /**
      * Expiration time of the partner topic. If this timer expires while the partner topic is still never activated,
      * the partner topic and corresponding event channel are deleted.
      */
-    public readonly expirationTimeIfNotActivatedUtc!: pulumi.Output<string | undefined>;
+    declare public readonly expirationTimeIfNotActivatedUtc: pulumi.Output<string | undefined>;
     /**
      * Identity information for the Partner Topic resource.
      */
-    public readonly identity!: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.eventgrid.IdentityInfoResponse | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Context or helpful message that can be used during the approval process by the subscriber.
      */
-    public readonly messageForActivation!: pulumi.Output<string | undefined>;
+    declare public readonly messageForActivation: pulumi.Output<string | undefined>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The immutableId of the corresponding partner registration.
      */
-    public readonly partnerRegistrationImmutableId!: pulumi.Output<string | undefined>;
+    declare public readonly partnerRegistrationImmutableId: pulumi.Output<string | undefined>;
     /**
      * Friendly description about the topic. This can be set by the publisher/partner to show custom description for the customer partner topic.
      * This will be helpful to remove any ambiguity of the origin of creation of the partner topic for the customer.
      */
-    public readonly partnerTopicFriendlyDescription!: pulumi.Output<string | undefined>;
+    declare public readonly partnerTopicFriendlyDescription: pulumi.Output<string | undefined>;
     /**
      * Provisioning state of the partner topic.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Source associated with this partner topic. This represents a unique partner resource.
      */
-    public readonly source!: pulumi.Output<string | undefined>;
+    declare public readonly source: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to the Event Grid resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.eventgrid.SystemDataResponse>;
     /**
      * Tags of the resource.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a PartnerTopic resource with the given unique name, arguments, and options.
@@ -115,21 +115,21 @@ export class PartnerTopic extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["activationState"] = args ? args.activationState : undefined;
-            resourceInputs["eventTypeInfo"] = args ? args.eventTypeInfo : undefined;
-            resourceInputs["expirationTimeIfNotActivatedUtc"] = args ? args.expirationTimeIfNotActivatedUtc : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["messageForActivation"] = args ? args.messageForActivation : undefined;
-            resourceInputs["partnerRegistrationImmutableId"] = args ? args.partnerRegistrationImmutableId : undefined;
-            resourceInputs["partnerTopicFriendlyDescription"] = args ? args.partnerTopicFriendlyDescription : undefined;
-            resourceInputs["partnerTopicName"] = args ? args.partnerTopicName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["source"] = args ? args.source : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["activationState"] = args?.activationState;
+            resourceInputs["eventTypeInfo"] = args?.eventTypeInfo;
+            resourceInputs["expirationTimeIfNotActivatedUtc"] = args?.expirationTimeIfNotActivatedUtc;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["messageForActivation"] = args?.messageForActivation;
+            resourceInputs["partnerRegistrationImmutableId"] = args?.partnerRegistrationImmutableId;
+            resourceInputs["partnerTopicFriendlyDescription"] = args?.partnerTopicFriendlyDescription;
+            resourceInputs["partnerTopicName"] = args?.partnerTopicName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["source"] = args?.source;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

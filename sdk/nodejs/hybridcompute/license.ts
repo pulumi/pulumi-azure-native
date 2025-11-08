@@ -44,43 +44,43 @@ export class License extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Describes the properties of a License.
      */
-    public readonly licenseDetails!: pulumi.Output<outputs.hybridcompute.LicenseDetailsResponse | undefined>;
+    declare public readonly licenseDetails: pulumi.Output<outputs.hybridcompute.LicenseDetailsResponse | undefined>;
     /**
      * The type of the license resource.
      */
-    public readonly licenseType!: pulumi.Output<string | undefined>;
+    declare public readonly licenseType: pulumi.Output<string | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.hybridcompute.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Describes the tenant id.
      */
-    public readonly tenantId!: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a License resource with the given unique name, arguments, and options.
@@ -93,16 +93,16 @@ export class License extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["licenseDetails"] = args ? args.licenseDetails : undefined;
-            resourceInputs["licenseName"] = args ? args.licenseName : undefined;
-            resourceInputs["licenseType"] = args ? args.licenseType : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["licenseDetails"] = args?.licenseDetails;
+            resourceInputs["licenseName"] = args?.licenseName;
+            resourceInputs["licenseType"] = args?.licenseType;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["tenantId"] = args?.tenantId;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

@@ -42,111 +42,111 @@ export class SiteCertificate extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * CNAME of the certificate to be issued via free certificate
      */
-    public readonly canonicalName!: pulumi.Output<string | undefined>;
+    declare public readonly canonicalName: pulumi.Output<string | undefined>;
     /**
      * Raw bytes of .cer file
      */
-    public /*out*/ readonly cerBlob!: pulumi.Output<string>;
+    declare public /*out*/ readonly cerBlob: pulumi.Output<string>;
     /**
      * Method of domain validation for free cert
      */
-    public readonly domainValidationMethod!: pulumi.Output<string | undefined>;
+    declare public readonly domainValidationMethod: pulumi.Output<string | undefined>;
     /**
      * Certificate expiration date.
      */
-    public /*out*/ readonly expirationDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly expirationDate: pulumi.Output<string>;
     /**
      * Friendly name of the certificate.
      */
-    public /*out*/ readonly friendlyName!: pulumi.Output<string>;
+    declare public /*out*/ readonly friendlyName: pulumi.Output<string>;
     /**
      * Host names the certificate applies to.
      */
-    public readonly hostNames!: pulumi.Output<string[] | undefined>;
+    declare public readonly hostNames: pulumi.Output<string[] | undefined>;
     /**
      * Specification for the App Service Environment to use for the certificate.
      */
-    public /*out*/ readonly hostingEnvironmentProfile!: pulumi.Output<outputs.web.HostingEnvironmentProfileResponse>;
+    declare public /*out*/ readonly hostingEnvironmentProfile: pulumi.Output<outputs.web.HostingEnvironmentProfileResponse>;
     /**
      * Certificate issue Date.
      */
-    public /*out*/ readonly issueDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly issueDate: pulumi.Output<string>;
     /**
      * Certificate issuer.
      */
-    public /*out*/ readonly issuer!: pulumi.Output<string>;
+    declare public /*out*/ readonly issuer: pulumi.Output<string>;
     /**
      * Azure Key Vault Csm resource Id.
      */
-    public readonly keyVaultId!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultId: pulumi.Output<string | undefined>;
     /**
      * Azure Key Vault secret name.
      */
-    public readonly keyVaultSecretName!: pulumi.Output<string | undefined>;
+    declare public readonly keyVaultSecretName: pulumi.Output<string | undefined>;
     /**
      * Status of the Key Vault secret.
      */
-    public /*out*/ readonly keyVaultSecretStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly keyVaultSecretStatus: pulumi.Output<string>;
     /**
      * Kind of resource. If the resource is an app, you can refer to https://github.com/Azure/app-service-linux-docs/blob/master/Things_You_Should_Know/kind_property.md#app-service-resource-kind-reference for details supported values for kind.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * Resource Location.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Certificate password.
      */
-    public readonly password!: pulumi.Output<string | undefined>;
+    declare public readonly password: pulumi.Output<string | undefined>;
     /**
      * Pfx blob.
      */
-    public readonly pfxBlob!: pulumi.Output<string | undefined>;
+    declare public readonly pfxBlob: pulumi.Output<string | undefined>;
     /**
      * Public key hash.
      */
-    public /*out*/ readonly publicKeyHash!: pulumi.Output<string>;
+    declare public /*out*/ readonly publicKeyHash: pulumi.Output<string>;
     /**
      * Self link.
      */
-    public /*out*/ readonly selfLink!: pulumi.Output<string>;
+    declare public /*out*/ readonly selfLink: pulumi.Output<string>;
     /**
      * Resource ID of the associated App Service plan.
      */
-    public readonly serverFarmId!: pulumi.Output<string | undefined>;
+    declare public readonly serverFarmId: pulumi.Output<string | undefined>;
     /**
      * App name.
      */
-    public /*out*/ readonly siteName!: pulumi.Output<string>;
+    declare public /*out*/ readonly siteName: pulumi.Output<string>;
     /**
      * Subject name of the certificate.
      */
-    public /*out*/ readonly subjectName!: pulumi.Output<string>;
+    declare public /*out*/ readonly subjectName: pulumi.Output<string>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Certificate thumbprint.
      */
-    public /*out*/ readonly thumbprint!: pulumi.Output<string>;
+    declare public /*out*/ readonly thumbprint: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Is the certificate valid?.
      */
-    public /*out*/ readonly valid!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly valid: pulumi.Output<boolean>;
 
     /**
      * Create a SiteCertificate resource with the given unique name, arguments, and options.
@@ -159,26 +159,26 @@ export class SiteCertificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["canonicalName"] = args ? args.canonicalName : undefined;
-            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
-            resourceInputs["domainValidationMethod"] = args ? args.domainValidationMethod : undefined;
-            resourceInputs["hostNames"] = args ? args.hostNames : undefined;
-            resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
-            resourceInputs["keyVaultSecretName"] = args ? args.keyVaultSecretName : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["pfxBlob"] = args ? args.pfxBlob : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["serverFarmId"] = args ? args.serverFarmId : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["canonicalName"] = args?.canonicalName;
+            resourceInputs["certificateName"] = args?.certificateName;
+            resourceInputs["domainValidationMethod"] = args?.domainValidationMethod;
+            resourceInputs["hostNames"] = args?.hostNames;
+            resourceInputs["keyVaultId"] = args?.keyVaultId;
+            resourceInputs["keyVaultSecretName"] = args?.keyVaultSecretName;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["pfxBlob"] = args?.pfxBlob;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["serverFarmId"] = args?.serverFarmId;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["cerBlob"] = undefined /*out*/;
             resourceInputs["expirationDate"] = undefined /*out*/;

@@ -44,23 +44,23 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * [Required] Additional attributes of the entity.
      */
-    public readonly marketplaceSubscriptionProperties!: pulumi.Output<outputs.machinelearningservices.MarketplaceSubscriptionResponse>;
+    declare public readonly marketplaceSubscriptionProperties: pulumi.Output<outputs.machinelearningservices.MarketplaceSubscriptionResponse>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.machinelearningservices.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a MarketplaceSubscription resource with the given unique name, arguments, and options.
@@ -73,19 +73,19 @@ export class MarketplaceSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.marketplaceSubscriptionProperties === undefined) && !opts.urn) {
+            if (args?.marketplaceSubscriptionProperties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'marketplaceSubscriptionProperties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.workspaceName === undefined) && !opts.urn) {
+            if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
-            resourceInputs["marketplaceSubscriptionProperties"] = args ? args.marketplaceSubscriptionProperties : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["marketplaceSubscriptionProperties"] = args?.marketplaceSubscriptionProperties;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

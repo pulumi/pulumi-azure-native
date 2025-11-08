@@ -42,67 +42,67 @@ export class PowerShell72Module extends pulumi.CustomResource {
     /**
      * Gets the activity count of the module.
      */
-    public /*out*/ readonly activityCount!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly activityCount: pulumi.Output<number | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets the creation time.
      */
-    public /*out*/ readonly creationTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly creationTime: pulumi.Output<string | undefined>;
     /**
      * Gets or sets the description.
      */
-    public /*out*/ readonly description!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly description: pulumi.Output<string | undefined>;
     /**
      * Gets the error info of the module.
      */
-    public /*out*/ readonly error!: pulumi.Output<outputs.automation.ModuleErrorInfoResponse | undefined>;
+    declare public /*out*/ readonly error: pulumi.Output<outputs.automation.ModuleErrorInfoResponse | undefined>;
     /**
      * Gets the etag of the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Gets type of module, if its composite or not.
      */
-    public /*out*/ readonly isComposite!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly isComposite: pulumi.Output<boolean | undefined>;
     /**
      * Gets the isGlobal flag of the module.
      */
-    public /*out*/ readonly isGlobal!: pulumi.Output<boolean | undefined>;
+    declare public /*out*/ readonly isGlobal: pulumi.Output<boolean | undefined>;
     /**
      * Gets the last modified time.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string | undefined>;
     /**
      * The Azure Region where the resource lives
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * Gets the provisioning state of the module.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string | undefined>;
     /**
      * Gets the size in bytes of the module.
      */
-    public /*out*/ readonly sizeInBytes!: pulumi.Output<number | undefined>;
+    declare public /*out*/ readonly sizeInBytes: pulumi.Output<number | undefined>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Gets the version of the module.
      */
-    public /*out*/ readonly version!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly version: pulumi.Output<string | undefined>;
 
     /**
      * Create a PowerShell72Module resource with the given unique name, arguments, and options.
@@ -115,22 +115,22 @@ export class PowerShell72Module extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.automationAccountName === undefined) && !opts.urn) {
+            if (args?.automationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'automationAccountName'");
             }
-            if ((!args || args.contentLink === undefined) && !opts.urn) {
+            if (args?.contentLink === undefined && !opts.urn) {
                 throw new Error("Missing required property 'contentLink'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["automationAccountName"] = args ? args.automationAccountName : undefined;
-            resourceInputs["contentLink"] = args ? args.contentLink : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["moduleName"] = args ? args.moduleName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["automationAccountName"] = args?.automationAccountName;
+            resourceInputs["contentLink"] = args?.contentLink;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["moduleName"] = args?.moduleName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["activityCount"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["creationTime"] = undefined /*out*/;

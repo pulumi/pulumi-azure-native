@@ -44,95 +44,95 @@ export class Package extends pulumi.CustomResource {
     /**
      * Application name
      */
-    public readonly applicationName!: pulumi.Output<string>;
+    declare public readonly applicationName: pulumi.Output<string>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The file path of the package.
      */
-    public readonly blobPath!: pulumi.Output<string | undefined>;
+    declare public readonly blobPath: pulumi.Output<string | undefined>;
     /**
      * The id of draft package. Used to create or update this package from a draft package.
      */
-    public readonly draftPackageId!: pulumi.Output<string | undefined>;
+    declare public readonly draftPackageId: pulumi.Output<string | undefined>;
     /**
      * The list of first party applications to test along with user application.
      */
-    public readonly firstPartyApps!: pulumi.Output<outputs.testbase.FirstPartyAppDefinitionResponse[] | undefined>;
+    declare public readonly firstPartyApps: pulumi.Output<outputs.testbase.FirstPartyAppDefinitionResponse[] | undefined>;
     /**
      * The flighting ring for feature update.
      */
-    public readonly flightingRing!: pulumi.Output<string | undefined>;
+    declare public readonly flightingRing: pulumi.Output<string | undefined>;
     /**
      * The list of gallery apps to test along with user application.
      */
-    public /*out*/ readonly galleryApps!: pulumi.Output<outputs.testbase.GalleryAppDefinitionResponse[]>;
+    declare public /*out*/ readonly galleryApps: pulumi.Output<outputs.testbase.GalleryAppDefinitionResponse[]>;
     /**
      * Specifies the baseline os and target os for inplace upgrade.
      */
-    public readonly inplaceUpgradeOSPair!: pulumi.Output<outputs.testbase.InplaceUpgradeOSInfoResponse | undefined>;
+    declare public readonly inplaceUpgradeOSPair: pulumi.Output<outputs.testbase.InplaceUpgradeOSInfoResponse | undefined>;
     /**
      * The metadata of Intune enrollment.
      */
-    public readonly intuneEnrollmentMetadata!: pulumi.Output<outputs.testbase.IntuneEnrollmentMetadataResponse | undefined>;
+    declare public readonly intuneEnrollmentMetadata: pulumi.Output<outputs.testbase.IntuneEnrollmentMetadataResponse | undefined>;
     /**
      * Flag showing that whether the package is enabled. It doesn't schedule test for package which is not enabled.
      */
-    public /*out*/ readonly isEnabled!: pulumi.Output<boolean>;
+    declare public /*out*/ readonly isEnabled: pulumi.Output<boolean>;
     /**
      * The UTC timestamp when the package was last modified.
      */
-    public /*out*/ readonly lastModifiedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastModifiedTime: pulumi.Output<string>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The status of the package.
      */
-    public /*out*/ readonly packageStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly packageStatus: pulumi.Output<string>;
     /**
      * The provisioning state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.testbase.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.testbase.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Specifies the target OSs of specific OS Update types.
      */
-    public readonly targetOSList!: pulumi.Output<outputs.testbase.TargetOSInfoResponse[] | undefined>;
+    declare public readonly targetOSList: pulumi.Output<outputs.testbase.TargetOSInfoResponse[] | undefined>;
     /**
      * OOB, functional or flow driven. Mapped to the data in 'tests' property.
      */
-    public /*out*/ readonly testTypes!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly testTypes: pulumi.Output<string[]>;
     /**
      * The detailed test information.
      */
-    public readonly tests!: pulumi.Output<outputs.testbase.TestResponse[] | undefined>;
+    declare public readonly tests: pulumi.Output<outputs.testbase.TestResponse[] | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The validation results. There's validation on package when it's created or updated.
      */
-    public /*out*/ readonly validationResults!: pulumi.Output<outputs.testbase.PackageValidationResultResponse[]>;
+    declare public /*out*/ readonly validationResults: pulumi.Output<outputs.testbase.PackageValidationResultResponse[]>;
     /**
      * Application version
      */
-    public readonly version!: pulumi.Output<string>;
+    declare public readonly version: pulumi.Output<string>;
 
     /**
      * Create a Package resource with the given unique name, arguments, and options.
@@ -145,33 +145,33 @@ export class Package extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationName === undefined) && !opts.urn) {
+            if (args?.applicationName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.testBaseAccountName === undefined) && !opts.urn) {
+            if (args?.testBaseAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'testBaseAccountName'");
             }
-            if ((!args || args.version === undefined) && !opts.urn) {
+            if (args?.version === undefined && !opts.urn) {
                 throw new Error("Missing required property 'version'");
             }
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["blobPath"] = args ? args.blobPath : undefined;
-            resourceInputs["draftPackageId"] = args ? args.draftPackageId : undefined;
-            resourceInputs["firstPartyApps"] = args ? args.firstPartyApps : undefined;
-            resourceInputs["flightingRing"] = args ? args.flightingRing : undefined;
-            resourceInputs["inplaceUpgradeOSPair"] = args ? args.inplaceUpgradeOSPair : undefined;
-            resourceInputs["intuneEnrollmentMetadata"] = args ? args.intuneEnrollmentMetadata : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["packageName"] = args ? args.packageName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["targetOSList"] = args ? args.targetOSList : undefined;
-            resourceInputs["testBaseAccountName"] = args ? args.testBaseAccountName : undefined;
-            resourceInputs["tests"] = args ? args.tests : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["blobPath"] = args?.blobPath;
+            resourceInputs["draftPackageId"] = args?.draftPackageId;
+            resourceInputs["firstPartyApps"] = args?.firstPartyApps;
+            resourceInputs["flightingRing"] = args?.flightingRing;
+            resourceInputs["inplaceUpgradeOSPair"] = args?.inplaceUpgradeOSPair;
+            resourceInputs["intuneEnrollmentMetadata"] = args?.intuneEnrollmentMetadata;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["packageName"] = args?.packageName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["targetOSList"] = args?.targetOSList;
+            resourceInputs["testBaseAccountName"] = args?.testBaseAccountName;
+            resourceInputs["tests"] = args?.tests;
+            resourceInputs["version"] = args?.version;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["galleryApps"] = undefined /*out*/;
             resourceInputs["isEnabled"] = undefined /*out*/;

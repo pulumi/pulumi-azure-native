@@ -44,75 +44,75 @@ export class Application extends pulumi.CustomResource {
     /**
      * Resource Type of Application.
      */
-    public readonly applicationType!: pulumi.Output<string | undefined>;
+    declare public readonly applicationType: pulumi.Output<string | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Command Line Arguments for Application.
      */
-    public readonly commandLineArguments!: pulumi.Output<string | undefined>;
+    declare public readonly commandLineArguments: pulumi.Output<string | undefined>;
     /**
      * Specifies whether this published application can be launched with command line arguments provided by the client, command line arguments specified at publish time, or no command line arguments at all.
      */
-    public readonly commandLineSetting!: pulumi.Output<string>;
+    declare public readonly commandLineSetting: pulumi.Output<string>;
     /**
      * Description of Application.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * Specifies a path for the executable file for the application.
      */
-    public readonly filePath!: pulumi.Output<string | undefined>;
+    declare public readonly filePath: pulumi.Output<string | undefined>;
     /**
      * Friendly name of Application.
      */
-    public readonly friendlyName!: pulumi.Output<string | undefined>;
+    declare public readonly friendlyName: pulumi.Output<string | undefined>;
     /**
      * the icon a 64 bit string as a byte array.
      */
-    public /*out*/ readonly iconContent!: pulumi.Output<string>;
+    declare public /*out*/ readonly iconContent: pulumi.Output<string>;
     /**
      * Hash of the icon.
      */
-    public /*out*/ readonly iconHash!: pulumi.Output<string>;
+    declare public /*out*/ readonly iconHash: pulumi.Output<string>;
     /**
      * Index of the icon.
      */
-    public readonly iconIndex!: pulumi.Output<number | undefined>;
+    declare public readonly iconIndex: pulumi.Output<number | undefined>;
     /**
      * Path to icon.
      */
-    public readonly iconPath!: pulumi.Output<string | undefined>;
+    declare public readonly iconPath: pulumi.Output<string | undefined>;
     /**
      * Specifies the package application Id for MSIX applications
      */
-    public readonly msixPackageApplicationId!: pulumi.Output<string | undefined>;
+    declare public readonly msixPackageApplicationId: pulumi.Output<string | undefined>;
     /**
      * Specifies the package family name for MSIX applications
      */
-    public readonly msixPackageFamilyName!: pulumi.Output<string | undefined>;
+    declare public readonly msixPackageFamilyName: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * ObjectId of Application. (internal use)
      */
-    public /*out*/ readonly objectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly objectId: pulumi.Output<string>;
     /**
      * Specifies whether to show the RemoteApp program in the RD Web Access server.
      */
-    public readonly showInPortal!: pulumi.Output<boolean | undefined>;
+    declare public readonly showInPortal: pulumi.Output<boolean | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.desktopvirtualization.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Application resource with the given unique name, arguments, and options.
@@ -125,29 +125,29 @@ export class Application extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.applicationGroupName === undefined) && !opts.urn) {
+            if (args?.applicationGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'applicationGroupName'");
             }
-            if ((!args || args.commandLineSetting === undefined) && !opts.urn) {
+            if (args?.commandLineSetting === undefined && !opts.urn) {
                 throw new Error("Missing required property 'commandLineSetting'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["applicationGroupName"] = args ? args.applicationGroupName : undefined;
-            resourceInputs["applicationName"] = args ? args.applicationName : undefined;
-            resourceInputs["applicationType"] = args ? args.applicationType : undefined;
-            resourceInputs["commandLineArguments"] = args ? args.commandLineArguments : undefined;
-            resourceInputs["commandLineSetting"] = args ? args.commandLineSetting : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["filePath"] = args ? args.filePath : undefined;
-            resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
-            resourceInputs["iconIndex"] = args ? args.iconIndex : undefined;
-            resourceInputs["iconPath"] = args ? args.iconPath : undefined;
-            resourceInputs["msixPackageApplicationId"] = args ? args.msixPackageApplicationId : undefined;
-            resourceInputs["msixPackageFamilyName"] = args ? args.msixPackageFamilyName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["showInPortal"] = args ? args.showInPortal : undefined;
+            resourceInputs["applicationGroupName"] = args?.applicationGroupName;
+            resourceInputs["applicationName"] = args?.applicationName;
+            resourceInputs["applicationType"] = args?.applicationType;
+            resourceInputs["commandLineArguments"] = args?.commandLineArguments;
+            resourceInputs["commandLineSetting"] = args?.commandLineSetting;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["filePath"] = args?.filePath;
+            resourceInputs["friendlyName"] = args?.friendlyName;
+            resourceInputs["iconIndex"] = args?.iconIndex;
+            resourceInputs["iconPath"] = args?.iconPath;
+            resourceInputs["msixPackageApplicationId"] = args?.msixPackageApplicationId;
+            resourceInputs["msixPackageFamilyName"] = args?.msixPackageFamilyName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["showInPortal"] = args?.showInPortal;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["iconContent"] = undefined /*out*/;
             resourceInputs["iconHash"] = undefined /*out*/;

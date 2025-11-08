@@ -39,27 +39,27 @@ export class Channel extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The functions to be enabled for the channel
      */
-    public readonly channelFunctions!: pulumi.Output<string[] | undefined>;
+    declare public readonly channelFunctions: pulumi.Output<string[] | undefined>;
     /**
      * The channel type
      */
-    public readonly channelType!: pulumi.Output<string>;
+    declare public readonly channelType: pulumi.Output<string>;
     /**
      * The channel credentials
      */
-    public readonly credentials!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly credentials: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The fully qualified type of the resource
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Channel resource with the given unique name, arguments, and options.
@@ -72,21 +72,21 @@ export class Channel extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.accountName === undefined) && !opts.urn) {
+            if (args?.accountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'accountName'");
             }
-            if ((!args || args.channelType === undefined) && !opts.urn) {
+            if (args?.channelType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'channelType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["channelFunctions"] = args ? args.channelFunctions : undefined;
-            resourceInputs["channelName"] = args ? args.channelName : undefined;
-            resourceInputs["channelType"] = args ? args.channelType : undefined;
-            resourceInputs["credentials"] = args ? args.credentials : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["channelFunctions"] = args?.channelFunctions;
+            resourceInputs["channelName"] = args?.channelName;
+            resourceInputs["channelType"] = args?.channelType;
+            resourceInputs["credentials"] = args?.credentials;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;

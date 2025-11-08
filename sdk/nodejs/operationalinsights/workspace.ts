@@ -44,87 +44,87 @@ export class Workspace extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Workspace creation date.
      */
-    public /*out*/ readonly createdDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdDate: pulumi.Output<string>;
     /**
      * This is a read-only property. Represents the ID associated with the workspace.
      */
-    public /*out*/ readonly customerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly customerId: pulumi.Output<string>;
     /**
      * The resource ID of the default Data Collection Rule to use for this workspace. Expected format is - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/dataCollectionRules/{dcrName}.
      */
-    public readonly defaultDataCollectionRuleResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly defaultDataCollectionRuleResourceId: pulumi.Output<string | undefined>;
     /**
      * The etag of the workspace.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Workspace features.
      */
-    public readonly features!: pulumi.Output<outputs.operationalinsights.WorkspaceFeaturesResponse | undefined>;
+    declare public readonly features: pulumi.Output<outputs.operationalinsights.WorkspaceFeaturesResponse | undefined>;
     /**
      * Indicates whether customer managed storage is mandatory for query management.
      */
-    public readonly forceCmkForQuery!: pulumi.Output<boolean | undefined>;
+    declare public readonly forceCmkForQuery: pulumi.Output<boolean | undefined>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.operationalinsights.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.operationalinsights.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Workspace modification date.
      */
-    public /*out*/ readonly modifiedDate!: pulumi.Output<string>;
+    declare public /*out*/ readonly modifiedDate: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * List of linked private link scope resources.
      */
-    public /*out*/ readonly privateLinkScopedResources!: pulumi.Output<outputs.operationalinsights.PrivateLinkScopedResourceResponse[]>;
+    declare public /*out*/ readonly privateLinkScopedResources: pulumi.Output<outputs.operationalinsights.PrivateLinkScopedResourceResponse[]>;
     /**
      * The provisioning state of the workspace.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The network access type for accessing Log Analytics ingestion.
      */
-    public readonly publicNetworkAccessForIngestion!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccessForIngestion: pulumi.Output<string | undefined>;
     /**
      * The network access type for accessing Log Analytics query.
      */
-    public readonly publicNetworkAccessForQuery!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccessForQuery: pulumi.Output<string | undefined>;
     /**
      * The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    declare public readonly retentionInDays: pulumi.Output<number | undefined>;
     /**
      * The SKU of the workspace.
      */
-    public readonly sku!: pulumi.Output<outputs.operationalinsights.WorkspaceSkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.operationalinsights.WorkspaceSkuResponse | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.operationalinsights.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The daily volume cap for ingestion.
      */
-    public readonly workspaceCapping!: pulumi.Output<outputs.operationalinsights.WorkspaceCappingResponse | undefined>;
+    declare public readonly workspaceCapping: pulumi.Output<outputs.operationalinsights.WorkspaceCappingResponse | undefined>;
 
     /**
      * Create a Workspace resource with the given unique name, arguments, and options.
@@ -137,22 +137,22 @@ export class Workspace extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["defaultDataCollectionRuleResourceId"] = args ? args.defaultDataCollectionRuleResourceId : undefined;
-            resourceInputs["features"] = args ? args.features : undefined;
-            resourceInputs["forceCmkForQuery"] = args ? args.forceCmkForQuery : undefined;
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkAccessForIngestion"] = args ? args.publicNetworkAccessForIngestion : undefined;
-            resourceInputs["publicNetworkAccessForQuery"] = args ? args.publicNetworkAccessForQuery : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["workspaceCapping"] = args ? args.workspaceCapping : undefined;
-            resourceInputs["workspaceName"] = args ? args.workspaceName : undefined;
+            resourceInputs["defaultDataCollectionRuleResourceId"] = args?.defaultDataCollectionRuleResourceId;
+            resourceInputs["features"] = args?.features;
+            resourceInputs["forceCmkForQuery"] = args?.forceCmkForQuery;
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkAccessForIngestion"] = args?.publicNetworkAccessForIngestion;
+            resourceInputs["publicNetworkAccessForQuery"] = args?.publicNetworkAccessForQuery;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["retentionInDays"] = args?.retentionInDays;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["workspaceCapping"] = args?.workspaceCapping;
+            resourceInputs["workspaceName"] = args?.workspaceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["createdDate"] = undefined /*out*/;
             resourceInputs["customerId"] = undefined /*out*/;

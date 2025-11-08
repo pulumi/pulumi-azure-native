@@ -44,63 +44,63 @@ export class OuContainer extends pulumi.CustomResource {
     /**
      * The list of container accounts
      */
-    public /*out*/ readonly accounts!: pulumi.Output<outputs.aad.ContainerAccountResponse[] | undefined>;
+    declare public /*out*/ readonly accounts: pulumi.Output<outputs.aad.ContainerAccountResponse[] | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The OuContainer name
      */
-    public /*out*/ readonly containerId!: pulumi.Output<string>;
+    declare public /*out*/ readonly containerId: pulumi.Output<string>;
     /**
      * The Deployment id
      */
-    public /*out*/ readonly deploymentId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deploymentId: pulumi.Output<string>;
     /**
      * Distinguished Name of OuContainer instance
      */
-    public /*out*/ readonly distinguishedName!: pulumi.Output<string>;
+    declare public /*out*/ readonly distinguishedName: pulumi.Output<string>;
     /**
      * The domain name of Domain Services.
      */
-    public /*out*/ readonly domainName!: pulumi.Output<string>;
+    declare public /*out*/ readonly domainName: pulumi.Output<string>;
     /**
      * Resource etag
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * Resource location
      */
-    public /*out*/ readonly location!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly location: pulumi.Output<string | undefined>;
     /**
      * Resource name
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The current deployment or provisioning state, which only appears in the response.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Status of OuContainer instance
      */
-    public /*out*/ readonly serviceStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceStatus: pulumi.Output<string>;
     /**
      * The system meta data relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.aad.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.aad.SystemDataResponse>;
     /**
      * Resource tags
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Azure Active Directory tenant id
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a OuContainer resource with the given unique name, arguments, and options.
@@ -113,18 +113,18 @@ export class OuContainer extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.domainServiceName === undefined) && !opts.urn) {
+            if (args?.domainServiceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'domainServiceName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountName"] = args ? args.accountName : undefined;
-            resourceInputs["domainServiceName"] = args ? args.domainServiceName : undefined;
-            resourceInputs["ouContainerName"] = args ? args.ouContainerName : undefined;
-            resourceInputs["password"] = args ? args.password : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["spn"] = args ? args.spn : undefined;
+            resourceInputs["accountName"] = args?.accountName;
+            resourceInputs["domainServiceName"] = args?.domainServiceName;
+            resourceInputs["ouContainerName"] = args?.ouContainerName;
+            resourceInputs["password"] = args?.password;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["spn"] = args?.spn;
             resourceInputs["accounts"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["containerId"] = undefined /*out*/;

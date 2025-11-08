@@ -44,39 +44,39 @@ export class AksAssessmentOperation extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Gets AKS Assessment Details.
      */
-    public /*out*/ readonly details!: pulumi.Output<outputs.migrate.AKSAssessmentDetailsResponse>;
+    declare public /*out*/ readonly details: pulumi.Output<outputs.migrate.AKSAssessmentDetailsResponse>;
     /**
      * If eTag is provided in the response body, it may also be provided as a header per the normal etag convention.  Entity tags are used for comparing two or more entities from the same requested resource. HTTP/1.1 uses entity tags in the etag (section 14.19), If-Match (section 14.24), If-None-Match (section 14.26), and If-Range (section 14.27) header fields.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Gets the provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Gets or sets scope parameters to identify inventory items for assessment.
      */
-    public readonly scope!: pulumi.Output<outputs.migrate.AssessmentScopeParametersResponse | undefined>;
+    declare public readonly scope: pulumi.Output<outputs.migrate.AssessmentScopeParametersResponse | undefined>;
     /**
      * Gets or sets AKS Assessment Settings.
      */
-    public readonly settings!: pulumi.Output<outputs.migrate.AKSAssessmentSettingsResponse>;
+    declare public readonly settings: pulumi.Output<outputs.migrate.AKSAssessmentSettingsResponse>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.migrate.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.migrate.SystemDataResponse>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AksAssessmentOperation resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class AksAssessmentOperation extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.projectName === undefined) && !opts.urn) {
+            if (args?.projectName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'projectName'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.settings === undefined) && !opts.urn) {
+            if (args?.settings === undefined && !opts.urn) {
                 throw new Error("Missing required property 'settings'");
             }
-            resourceInputs["assessmentName"] = args ? args.assessmentName : undefined;
-            resourceInputs["projectName"] = args ? args.projectName : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["settings"] = args ? args.settings : undefined;
+            resourceInputs["assessmentName"] = args?.assessmentName;
+            resourceInputs["projectName"] = args?.projectName;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["settings"] = args?.settings;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;

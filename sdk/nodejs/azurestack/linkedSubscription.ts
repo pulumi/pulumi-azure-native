@@ -42,63 +42,63 @@ export class LinkedSubscription extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The status of the remote management connection of the Azure Stack device.
      */
-    public /*out*/ readonly deviceConnectionStatus!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceConnectionStatus: pulumi.Output<string>;
     /**
      * The identifier of the Azure Stack device for remote management.
      */
-    public /*out*/ readonly deviceId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceId: pulumi.Output<string>;
     /**
      * The connection state of the Azure Stack device.
      */
-    public /*out*/ readonly deviceLinkState!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceLinkState: pulumi.Output<string>;
     /**
      * The object identifier associated with the Azure Stack device connecting to Azure.
      */
-    public /*out*/ readonly deviceObjectId!: pulumi.Output<string>;
+    declare public /*out*/ readonly deviceObjectId: pulumi.Output<string>;
     /**
      * The entity tag used for optimistic concurrency when modifying the resource.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string | undefined>;
+    declare public /*out*/ readonly etag: pulumi.Output<string | undefined>;
     /**
      * The kind of the resource.
      */
-    public /*out*/ readonly kind!: pulumi.Output<string>;
+    declare public /*out*/ readonly kind: pulumi.Output<string>;
     /**
      * The last remote management connection time for the Azure Stack device connected to the linked subscription resource.
      */
-    public /*out*/ readonly lastConnectedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly lastConnectedTime: pulumi.Output<string>;
     /**
      * The identifier associated with the device subscription.
      */
-    public readonly linkedSubscriptionId!: pulumi.Output<string | undefined>;
+    declare public readonly linkedSubscriptionId: pulumi.Output<string | undefined>;
     /**
      * Location of the resource.
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * Name of the resource.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The identifier associated with the device registration.
      */
-    public readonly registrationResourceId!: pulumi.Output<string | undefined>;
+    declare public readonly registrationResourceId: pulumi.Output<string | undefined>;
     /**
      * Metadata pertaining to creation and last modification of the resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.azurestack.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.azurestack.SystemDataResponse>;
     /**
      * Custom tags for the resource.
      */
-    public /*out*/ readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public /*out*/ readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Type of Resource.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a LinkedSubscription resource with the given unique name, arguments, and options.
@@ -111,20 +111,20 @@ export class LinkedSubscription extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.linkedSubscriptionId === undefined) && !opts.urn) {
+            if (args?.linkedSubscriptionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'linkedSubscriptionId'");
             }
-            if ((!args || args.registrationResourceId === undefined) && !opts.urn) {
+            if (args?.registrationResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'registrationResourceId'");
             }
-            if ((!args || args.resourceGroup === undefined) && !opts.urn) {
+            if (args?.resourceGroup === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroup'");
             }
-            resourceInputs["linkedSubscriptionId"] = args ? args.linkedSubscriptionId : undefined;
-            resourceInputs["linkedSubscriptionName"] = args ? args.linkedSubscriptionName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["registrationResourceId"] = args ? args.registrationResourceId : undefined;
-            resourceInputs["resourceGroup"] = args ? args.resourceGroup : undefined;
+            resourceInputs["linkedSubscriptionId"] = args?.linkedSubscriptionId;
+            resourceInputs["linkedSubscriptionName"] = args?.linkedSubscriptionName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["registrationResourceId"] = args?.registrationResourceId;
+            resourceInputs["resourceGroup"] = args?.resourceGroup;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["deviceConnectionStatus"] = undefined /*out*/;
             resourceInputs["deviceId"] = undefined /*out*/;

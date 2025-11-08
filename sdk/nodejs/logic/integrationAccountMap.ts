@@ -44,55 +44,55 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The changed time.
      */
-    public /*out*/ readonly changedTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly changedTime: pulumi.Output<string>;
     /**
      * The content.
      */
-    public readonly content!: pulumi.Output<string | undefined>;
+    declare public readonly content: pulumi.Output<string | undefined>;
     /**
      * The content link.
      */
-    public /*out*/ readonly contentLink!: pulumi.Output<outputs.logic.ContentLinkResponse>;
+    declare public /*out*/ readonly contentLink: pulumi.Output<outputs.logic.ContentLinkResponse>;
     /**
      * The content type.
      */
-    public readonly contentType!: pulumi.Output<string | undefined>;
+    declare public readonly contentType: pulumi.Output<string | undefined>;
     /**
      * The created time.
      */
-    public /*out*/ readonly createdTime!: pulumi.Output<string>;
+    declare public /*out*/ readonly createdTime: pulumi.Output<string>;
     /**
      * The resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The map type.
      */
-    public readonly mapType!: pulumi.Output<string>;
+    declare public readonly mapType: pulumi.Output<string>;
     /**
      * The metadata.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * Gets the resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The parameters schema of integration account map.
      */
-    public readonly parametersSchema!: pulumi.Output<outputs.logic.IntegrationAccountMapPropertiesResponseParametersSchema | undefined>;
+    declare public readonly parametersSchema: pulumi.Output<outputs.logic.IntegrationAccountMapPropertiesResponseParametersSchema | undefined>;
     /**
      * The resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Gets the resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IntegrationAccountMap resource with the given unique name, arguments, and options.
@@ -105,25 +105,25 @@ export class IntegrationAccountMap extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.integrationAccountName === undefined) && !opts.urn) {
+            if (args?.integrationAccountName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'integrationAccountName'");
             }
-            if ((!args || args.mapType === undefined) && !opts.urn) {
+            if (args?.mapType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'mapType'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["content"] = args ? args.content : undefined;
-            resourceInputs["contentType"] = args ? args.contentType : undefined;
-            resourceInputs["integrationAccountName"] = args ? args.integrationAccountName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["mapName"] = args ? args.mapName : undefined;
-            resourceInputs["mapType"] = args ? args.mapType : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parametersSchema"] = args ? args.parametersSchema : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["content"] = args?.content;
+            resourceInputs["contentType"] = args?.contentType;
+            resourceInputs["integrationAccountName"] = args?.integrationAccountName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["mapName"] = args?.mapName;
+            resourceInputs["mapType"] = args?.mapType;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["parametersSchema"] = args?.parametersSchema;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tags"] = args?.tags;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["changedTime"] = undefined /*out*/;
             resourceInputs["contentLink"] = undefined /*out*/;

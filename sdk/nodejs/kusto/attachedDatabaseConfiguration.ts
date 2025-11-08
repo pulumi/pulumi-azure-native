@@ -44,51 +44,51 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
     /**
      * The list of databases from the clusterResourceId which are currently attached to the cluster.
      */
-    public /*out*/ readonly attachedDatabaseNames!: pulumi.Output<string[]>;
+    declare public /*out*/ readonly attachedDatabaseNames: pulumi.Output<string[]>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The resource id of the cluster where the databases you would like to attach reside.
      */
-    public readonly clusterResourceId!: pulumi.Output<string>;
+    declare public readonly clusterResourceId: pulumi.Output<string>;
     /**
      * The name of the database which you would like to attach, use * if you want to follow all current and future databases.
      */
-    public readonly databaseName!: pulumi.Output<string>;
+    declare public readonly databaseName: pulumi.Output<string>;
     /**
      * Overrides the original database name. Relevant only when attaching to a specific database.
      */
-    public readonly databaseNameOverride!: pulumi.Output<string | undefined>;
+    declare public readonly databaseNameOverride: pulumi.Output<string | undefined>;
     /**
      * Adds a prefix to the attached databases name. When following an entire cluster, that prefix would be added to all of the databases original names from leader cluster.
      */
-    public readonly databaseNamePrefix!: pulumi.Output<string | undefined>;
+    declare public readonly databaseNamePrefix: pulumi.Output<string | undefined>;
     /**
      * The default principals modification kind
      */
-    public readonly defaultPrincipalsModificationKind!: pulumi.Output<string>;
+    declare public readonly defaultPrincipalsModificationKind: pulumi.Output<string>;
     /**
      * Resource location.
      */
-    public readonly location!: pulumi.Output<string | undefined>;
+    declare public readonly location: pulumi.Output<string | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioned state of the resource.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Table level sharing specifications
      */
-    public readonly tableLevelSharingProperties!: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse | undefined>;
+    declare public readonly tableLevelSharingProperties: pulumi.Output<outputs.kusto.TableLevelSharingPropertiesResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a AttachedDatabaseConfiguration resource with the given unique name, arguments, and options.
@@ -101,31 +101,31 @@ export class AttachedDatabaseConfiguration extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.clusterName === undefined) && !opts.urn) {
+            if (args?.clusterName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterName'");
             }
-            if ((!args || args.clusterResourceId === undefined) && !opts.urn) {
+            if (args?.clusterResourceId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'clusterResourceId'");
             }
-            if ((!args || args.databaseName === undefined) && !opts.urn) {
+            if (args?.databaseName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'databaseName'");
             }
-            if ((!args || args.defaultPrincipalsModificationKind === undefined) && !opts.urn) {
+            if (args?.defaultPrincipalsModificationKind === undefined && !opts.urn) {
                 throw new Error("Missing required property 'defaultPrincipalsModificationKind'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["attachedDatabaseConfigurationName"] = args ? args.attachedDatabaseConfigurationName : undefined;
-            resourceInputs["clusterName"] = args ? args.clusterName : undefined;
-            resourceInputs["clusterResourceId"] = args ? args.clusterResourceId : undefined;
-            resourceInputs["databaseName"] = args ? args.databaseName : undefined;
-            resourceInputs["databaseNameOverride"] = args ? args.databaseNameOverride : undefined;
-            resourceInputs["databaseNamePrefix"] = args ? args.databaseNamePrefix : undefined;
-            resourceInputs["defaultPrincipalsModificationKind"] = args ? args.defaultPrincipalsModificationKind : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["tableLevelSharingProperties"] = args ? args.tableLevelSharingProperties : undefined;
+            resourceInputs["attachedDatabaseConfigurationName"] = args?.attachedDatabaseConfigurationName;
+            resourceInputs["clusterName"] = args?.clusterName;
+            resourceInputs["clusterResourceId"] = args?.clusterResourceId;
+            resourceInputs["databaseName"] = args?.databaseName;
+            resourceInputs["databaseNameOverride"] = args?.databaseNameOverride;
+            resourceInputs["databaseNamePrefix"] = args?.databaseNamePrefix;
+            resourceInputs["defaultPrincipalsModificationKind"] = args?.defaultPrincipalsModificationKind;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["tableLevelSharingProperties"] = args?.tableLevelSharingProperties;
             resourceInputs["attachedDatabaseNames"] = undefined /*out*/;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

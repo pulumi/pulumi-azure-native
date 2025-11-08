@@ -42,67 +42,67 @@ export class Link extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Localized descriptions for the Link.
      */
-    public readonly description!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly description: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Localized display name for the Link.
      */
-    public readonly displayName!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly displayName: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The link name.
      */
-    public readonly linkName!: pulumi.Output<string>;
+    declare public readonly linkName: pulumi.Output<string>;
     /**
      * The set of properties mappings between the source and target Types.
      */
-    public readonly mappings!: pulumi.Output<outputs.customerinsights.TypePropertiesMappingResponse[] | undefined>;
+    declare public readonly mappings: pulumi.Output<outputs.customerinsights.TypePropertiesMappingResponse[] | undefined>;
     /**
      * Resource name.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Determines whether this link is supposed to create or delete instances if Link is NOT Reference Only.
      */
-    public readonly operationType!: pulumi.Output<string | undefined>;
+    declare public readonly operationType: pulumi.Output<string | undefined>;
     /**
      * The properties that represent the participating profile.
      */
-    public readonly participantPropertyReferences!: pulumi.Output<outputs.customerinsights.ParticipantPropertyReferenceResponse[]>;
+    declare public readonly participantPropertyReferences: pulumi.Output<outputs.customerinsights.ParticipantPropertyReferenceResponse[]>;
     /**
      * Provisioning state.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * Indicating whether the link is reference only link. This flag is ignored if the Mappings are defined. If the mappings are not defined and it is set to true, links processing will not create or update profiles.
      */
-    public readonly referenceOnly!: pulumi.Output<boolean | undefined>;
+    declare public readonly referenceOnly: pulumi.Output<boolean | undefined>;
     /**
      * Type of source entity.
      */
-    public readonly sourceEntityType!: pulumi.Output<string>;
+    declare public readonly sourceEntityType: pulumi.Output<string>;
     /**
      * Name of the source Entity Type.
      */
-    public readonly sourceEntityTypeName!: pulumi.Output<string>;
+    declare public readonly sourceEntityTypeName: pulumi.Output<string>;
     /**
      * Type of target entity.
      */
-    public readonly targetEntityType!: pulumi.Output<string>;
+    declare public readonly targetEntityType: pulumi.Output<string>;
     /**
      * Name of the target Entity Type.
      */
-    public readonly targetEntityTypeName!: pulumi.Output<string>;
+    declare public readonly targetEntityTypeName: pulumi.Output<string>;
     /**
      * The hub name.
      */
-    public /*out*/ readonly tenantId!: pulumi.Output<string>;
+    declare public /*out*/ readonly tenantId: pulumi.Output<string>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a Link resource with the given unique name, arguments, and options.
@@ -115,40 +115,40 @@ export class Link extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.hubName === undefined) && !opts.urn) {
+            if (args?.hubName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'hubName'");
             }
-            if ((!args || args.participantPropertyReferences === undefined) && !opts.urn) {
+            if (args?.participantPropertyReferences === undefined && !opts.urn) {
                 throw new Error("Missing required property 'participantPropertyReferences'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.sourceEntityType === undefined) && !opts.urn) {
+            if (args?.sourceEntityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityType'");
             }
-            if ((!args || args.sourceEntityTypeName === undefined) && !opts.urn) {
+            if (args?.sourceEntityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'sourceEntityTypeName'");
             }
-            if ((!args || args.targetEntityType === undefined) && !opts.urn) {
+            if (args?.targetEntityType === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityType'");
             }
-            if ((!args || args.targetEntityTypeName === undefined) && !opts.urn) {
+            if (args?.targetEntityTypeName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'targetEntityTypeName'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["hubName"] = args ? args.hubName : undefined;
-            resourceInputs["linkName"] = args ? args.linkName : undefined;
-            resourceInputs["mappings"] = args ? args.mappings : undefined;
-            resourceInputs["operationType"] = args ? args.operationType : undefined;
-            resourceInputs["participantPropertyReferences"] = args ? args.participantPropertyReferences : undefined;
-            resourceInputs["referenceOnly"] = args ? args.referenceOnly : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["sourceEntityType"] = args ? args.sourceEntityType : undefined;
-            resourceInputs["sourceEntityTypeName"] = args ? args.sourceEntityTypeName : undefined;
-            resourceInputs["targetEntityType"] = args ? args.targetEntityType : undefined;
-            resourceInputs["targetEntityTypeName"] = args ? args.targetEntityTypeName : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["hubName"] = args?.hubName;
+            resourceInputs["linkName"] = args?.linkName;
+            resourceInputs["mappings"] = args?.mappings;
+            resourceInputs["operationType"] = args?.operationType;
+            resourceInputs["participantPropertyReferences"] = args?.participantPropertyReferences;
+            resourceInputs["referenceOnly"] = args?.referenceOnly;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["sourceEntityType"] = args?.sourceEntityType;
+            resourceInputs["sourceEntityTypeName"] = args?.sourceEntityTypeName;
+            resourceInputs["targetEntityType"] = args?.targetEntityType;
+            resourceInputs["targetEntityTypeName"] = args?.targetEntityTypeName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

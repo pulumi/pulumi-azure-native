@@ -44,39 +44,39 @@ export class WebAppAuthSettingsV2WithoutSecrets extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The configuration settings that determines the validation flow of users using App Service Authentication/Authorization.
      */
-    public readonly globalValidation!: pulumi.Output<outputs.web.GlobalValidationResponse | undefined>;
+    declare public readonly globalValidation: pulumi.Output<outputs.web.GlobalValidationResponse | undefined>;
     /**
      * The configuration settings of the HTTP requests for authentication and authorization requests made against App Service Authentication/Authorization.
      */
-    public readonly httpSettings!: pulumi.Output<outputs.web.HttpSettingsResponse | undefined>;
+    declare public readonly httpSettings: pulumi.Output<outputs.web.HttpSettingsResponse | undefined>;
     /**
      * The configuration settings of each of the identity providers used to configure App Service Authentication/Authorization.
      */
-    public readonly identityProviders!: pulumi.Output<outputs.web.IdentityProvidersResponse | undefined>;
+    declare public readonly identityProviders: pulumi.Output<outputs.web.IdentityProvidersResponse | undefined>;
     /**
      * Kind of resource.
      */
-    public readonly kind!: pulumi.Output<string | undefined>;
+    declare public readonly kind: pulumi.Output<string | undefined>;
     /**
      * The configuration settings of the login flow of users using App Service Authentication/Authorization.
      */
-    public readonly login!: pulumi.Output<outputs.web.LoginResponse | undefined>;
+    declare public readonly login: pulumi.Output<outputs.web.LoginResponse | undefined>;
     /**
      * Resource Name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The configuration settings of the platform of App Service Authentication/Authorization.
      */
-    public readonly platform!: pulumi.Output<outputs.web.AuthPlatformResponse | undefined>;
+    declare public readonly platform: pulumi.Output<outputs.web.AuthPlatformResponse | undefined>;
     /**
      * Resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a WebAppAuthSettingsV2WithoutSecrets resource with the given unique name, arguments, and options.
@@ -89,20 +89,20 @@ export class WebAppAuthSettingsV2WithoutSecrets extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.name === undefined) && !opts.urn) {
+            if (args?.name === undefined && !opts.urn) {
                 throw new Error("Missing required property 'name'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
-            resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
-            resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
-            resourceInputs["kind"] = args ? args.kind : undefined;
-            resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["platform"] = args ? args.platform : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["globalValidation"] = args?.globalValidation;
+            resourceInputs["httpSettings"] = args?.httpSettings;
+            resourceInputs["identityProviders"] = args?.identityProviders;
+            resourceInputs["kind"] = args?.kind;
+            resourceInputs["login"] = args?.login;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["platform"] = args?.platform;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {

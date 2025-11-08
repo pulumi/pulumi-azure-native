@@ -44,55 +44,55 @@ export class PolicySetDefinition extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The policy set definition description.
      */
-    public readonly description!: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string | undefined>;
     /**
      * The display name of the policy set definition.
      */
-    public readonly displayName!: pulumi.Output<string | undefined>;
+    declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
      * The policy set definition metadata.  Metadata is an open ended object and is typically a collection of key value pairs.
      */
-    public readonly metadata!: pulumi.Output<any | undefined>;
+    declare public readonly metadata: pulumi.Output<any | undefined>;
     /**
      * The name of the policy set definition.
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The policy set definition parameters that can be used in policy definition references.
      */
-    public readonly parameters!: pulumi.Output<{[key: string]: outputs.authorization.ParameterDefinitionsValueResponse} | undefined>;
+    declare public readonly parameters: pulumi.Output<{[key: string]: outputs.authorization.ParameterDefinitionsValueResponse} | undefined>;
     /**
      * The metadata describing groups of policy definition references within the policy set definition.
      */
-    public readonly policyDefinitionGroups!: pulumi.Output<outputs.authorization.PolicyDefinitionGroupResponse[] | undefined>;
+    declare public readonly policyDefinitionGroups: pulumi.Output<outputs.authorization.PolicyDefinitionGroupResponse[] | undefined>;
     /**
      * An array of policy definition references.
      */
-    public readonly policyDefinitions!: pulumi.Output<outputs.authorization.PolicyDefinitionReferenceResponse[]>;
+    declare public readonly policyDefinitions: pulumi.Output<outputs.authorization.PolicyDefinitionReferenceResponse[]>;
     /**
      * The type of policy set definition. Possible values are NotSpecified, BuiltIn, Custom, and Static.
      */
-    public readonly policyType!: pulumi.Output<string | undefined>;
+    declare public readonly policyType: pulumi.Output<string | undefined>;
     /**
      * The system metadata relating to this resource.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.authorization.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.authorization.SystemDataResponse>;
     /**
      * The type of the resource (Microsoft.Authorization/policySetDefinitions).
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The policy set definition version in #.#.# format.
      */
-    public readonly version!: pulumi.Output<string | undefined>;
+    declare public readonly version: pulumi.Output<string | undefined>;
     /**
      * A list of available versions for this policy set definition.
      */
-    public readonly versions!: pulumi.Output<string[] | undefined>;
+    declare public readonly versions: pulumi.Output<string[] | undefined>;
 
     /**
      * Create a PolicySetDefinition resource with the given unique name, arguments, and options.
@@ -105,19 +105,19 @@ export class PolicySetDefinition extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.policyDefinitions === undefined) && !opts.urn) {
+            if (args?.policyDefinitions === undefined && !opts.urn) {
                 throw new Error("Missing required property 'policyDefinitions'");
             }
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["parameters"] = args ? args.parameters : undefined;
-            resourceInputs["policyDefinitionGroups"] = args ? args.policyDefinitionGroups : undefined;
-            resourceInputs["policyDefinitions"] = args ? args.policyDefinitions : undefined;
-            resourceInputs["policySetDefinitionName"] = args ? args.policySetDefinitionName : undefined;
-            resourceInputs["policyType"] = args ? args.policyType : undefined;
-            resourceInputs["version"] = args ? args.version : undefined;
-            resourceInputs["versions"] = args ? args.versions : undefined;
+            resourceInputs["description"] = args?.description;
+            resourceInputs["displayName"] = args?.displayName;
+            resourceInputs["metadata"] = args?.metadata;
+            resourceInputs["parameters"] = args?.parameters;
+            resourceInputs["policyDefinitionGroups"] = args?.policyDefinitionGroups;
+            resourceInputs["policyDefinitions"] = args?.policyDefinitions;
+            resourceInputs["policySetDefinitionName"] = args?.policySetDefinitionName;
+            resourceInputs["policyType"] = args?.policyType;
+            resourceInputs["version"] = args?.version;
+            resourceInputs["versions"] = args?.versions;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

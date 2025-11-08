@@ -44,115 +44,115 @@ export class Service extends pulumi.CustomResource {
     /**
      * Defines the options for how the data plane API of a search service authenticates requests. This cannot be set if 'disableLocalAuth' is set to true.
      */
-    public readonly authOptions!: pulumi.Output<outputs.search.DataPlaneAuthOptionsResponse | undefined>;
+    declare public readonly authOptions: pulumi.Output<outputs.search.DataPlaneAuthOptionsResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * Configure this property to support the search service using either the Default Compute or Azure Confidential Compute.
      */
-    public readonly computeType!: pulumi.Output<string | undefined>;
+    declare public readonly computeType: pulumi.Output<string | undefined>;
     /**
      * A list of data exfiltration scenarios that are explicitly disallowed for the search service. Currently, the only supported value is 'All' to disable all possible data export scenarios with more fine grained controls planned for the future.
      */
-    public readonly dataExfiltrationProtections!: pulumi.Output<string[] | undefined>;
+    declare public readonly dataExfiltrationProtections: pulumi.Output<string[] | undefined>;
     /**
      * When set to true, calls to the search service will not be permitted to utilize API keys for authentication. This cannot be set to true if 'dataPlaneAuthOptions' are defined.
      */
-    public readonly disableLocalAuth!: pulumi.Output<boolean | undefined>;
+    declare public readonly disableLocalAuth: pulumi.Output<boolean | undefined>;
     /**
      * A system generated property representing the service's etag that can be for optimistic concurrency control during updates.
      */
-    public /*out*/ readonly eTag!: pulumi.Output<string>;
+    declare public /*out*/ readonly eTag: pulumi.Output<string>;
     /**
      * Specifies any policy regarding encryption of resources (such as indexes) using customer manager keys within a search service.
      */
-    public readonly encryptionWithCmk!: pulumi.Output<outputs.search.EncryptionWithCmkResponse | undefined>;
+    declare public readonly encryptionWithCmk: pulumi.Output<outputs.search.EncryptionWithCmkResponse | undefined>;
     /**
      * The endpoint of the Azure AI Search service.
      */
-    public readonly endpoint!: pulumi.Output<string | undefined>;
+    declare public readonly endpoint: pulumi.Output<string | undefined>;
     /**
      * Applicable only for the standard3 SKU. You can set this property to enable up to 3 high density partitions that allow up to 1000 indexes, which is much higher than the maximum indexes allowed for any other SKU. For the standard3 SKU, the value is either 'Default' or 'HighDensity'. For all other SKUs, this value must be 'Default'.
      */
-    public readonly hostingMode!: pulumi.Output<string | undefined>;
+    declare public readonly hostingMode: pulumi.Output<string | undefined>;
     /**
      * The identity of the resource.
      */
-    public readonly identity!: pulumi.Output<outputs.search.IdentityResponse | undefined>;
+    declare public readonly identity: pulumi.Output<outputs.search.IdentityResponse | undefined>;
     /**
      * The geo-location where the resource lives
      */
-    public readonly location!: pulumi.Output<string>;
+    declare public readonly location: pulumi.Output<string>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * Network specific rules that determine how the Azure AI Search service may be reached.
      */
-    public readonly networkRuleSet!: pulumi.Output<outputs.search.NetworkRuleSetResponse | undefined>;
+    declare public readonly networkRuleSet: pulumi.Output<outputs.search.NetworkRuleSetResponse | undefined>;
     /**
      * The number of partitions in the search service; if specified, it can be 1, 2, 3, 4, 6, or 12. Values greater than 1 are only valid for standard SKUs. For 'standard3' services with hostingMode set to 'highDensity', the allowed values are between 1 and 3.
      */
-    public readonly partitionCount!: pulumi.Output<number | undefined>;
+    declare public readonly partitionCount: pulumi.Output<number | undefined>;
     /**
      * The list of private endpoint connections to the Azure AI Search service.
      */
-    public /*out*/ readonly privateEndpointConnections!: pulumi.Output<outputs.search.PrivateEndpointConnectionResponse[]>;
+    declare public /*out*/ readonly privateEndpointConnections: pulumi.Output<outputs.search.PrivateEndpointConnectionResponse[]>;
     /**
      * The state of the last provisioning operation performed on the search service. Provisioning is an intermediate state that occurs while service capacity is being established. After capacity is set up, provisioningState changes to either 'Succeeded' or 'Failed'. Client applications can poll provisioning status (the recommended polling interval is from 30 seconds to one minute) by using the Get Search Service operation to see when an operation is completed. If you are using the free service, this value tends to come back as 'Succeeded' directly in the call to Create search service. This is because the free service uses capacity that is already set up.
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * This value can be set to 'Enabled' to avoid breaking changes on existing customer resources and templates. If set to 'Disabled', traffic over public interface is not allowed, and private endpoint connections would be the exclusive access method.
      */
-    public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
+    declare public readonly publicNetworkAccess: pulumi.Output<string | undefined>;
     /**
      * The number of replicas in the search service. If specified, it must be a value between 1 and 12 inclusive for standard SKUs or between 1 and 3 inclusive for basic SKU.
      */
-    public readonly replicaCount!: pulumi.Output<number | undefined>;
+    declare public readonly replicaCount: pulumi.Output<number | undefined>;
     /**
      * Sets options that control the availability of semantic search. This configuration is only possible for certain Azure AI Search SKUs in certain locations.
      */
-    public readonly semanticSearch!: pulumi.Output<string | undefined>;
+    declare public readonly semanticSearch: pulumi.Output<string | undefined>;
     /**
      * The date and time the search service was last upgraded. This field will be null until the service gets upgraded for the first time.
      */
-    public /*out*/ readonly serviceUpgradedAt!: pulumi.Output<string>;
+    declare public /*out*/ readonly serviceUpgradedAt: pulumi.Output<string>;
     /**
      * The list of shared private link resources managed by the Azure AI Search service.
      */
-    public /*out*/ readonly sharedPrivateLinkResources!: pulumi.Output<outputs.search.SharedPrivateLinkResourceResponse[]>;
+    declare public /*out*/ readonly sharedPrivateLinkResources: pulumi.Output<outputs.search.SharedPrivateLinkResourceResponse[]>;
     /**
      * The SKU of the search service, which determines price tier and capacity limits. This property is required when creating a new search service.
      */
-    public readonly sku!: pulumi.Output<outputs.search.SkuResponse | undefined>;
+    declare public readonly sku: pulumi.Output<outputs.search.SkuResponse | undefined>;
     /**
      * The status of the search service. Possible values include: 'running': The search service is running and no provisioning operations are underway. 'provisioning': The search service is being provisioned or scaled up or down. 'deleting': The search service is being deleted. 'degraded': The search service is degraded. This can occur when the underlying search units are not healthy. The search service is most likely operational, but performance might be slow and some requests might be dropped. 'disabled': The search service is disabled. In this state, the service will reject all API requests. 'error': The search service is in an error state. 'stopped': The search service is in a subscription that's disabled. If your service is in the degraded, disabled, or error states, it means the Azure AI Search team is actively investigating the underlying issue. Dedicated services in these states are still chargeable based on the number of search units provisioned.
      */
-    public /*out*/ readonly status!: pulumi.Output<string>;
+    declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
      * The details of the search service status.
      */
-    public /*out*/ readonly statusDetails!: pulumi.Output<string>;
+    declare public /*out*/ readonly statusDetails: pulumi.Output<string>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.search.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.search.SystemDataResponse>;
     /**
      * Resource tags.
      */
-    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * Indicates if the search service has an upgrade available.
      */
-    public readonly upgradeAvailable!: pulumi.Output<string | undefined>;
+    declare public readonly upgradeAvailable: pulumi.Output<string | undefined>;
 
     /**
      * Create a Service resource with the given unique name, arguments, and options.
@@ -165,28 +165,28 @@ export class Service extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authOptions"] = args ? args.authOptions : undefined;
-            resourceInputs["computeType"] = args ? args.computeType : undefined;
-            resourceInputs["dataExfiltrationProtections"] = args ? args.dataExfiltrationProtections : undefined;
-            resourceInputs["disableLocalAuth"] = args ? args.disableLocalAuth : undefined;
-            resourceInputs["encryptionWithCmk"] = args ? args.encryptionWithCmk : undefined;
-            resourceInputs["endpoint"] = args ? args.endpoint : undefined;
-            resourceInputs["hostingMode"] = (args ? args.hostingMode : undefined) ?? "Default";
-            resourceInputs["identity"] = args ? args.identity : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["networkRuleSet"] = args ? args.networkRuleSet : undefined;
-            resourceInputs["partitionCount"] = (args ? args.partitionCount : undefined) ?? 1;
-            resourceInputs["publicNetworkAccess"] = (args ? args.publicNetworkAccess : undefined) ?? "Enabled";
-            resourceInputs["replicaCount"] = (args ? args.replicaCount : undefined) ?? 1;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["searchServiceName"] = args ? args.searchServiceName : undefined;
-            resourceInputs["semanticSearch"] = args ? args.semanticSearch : undefined;
-            resourceInputs["sku"] = args ? args.sku : undefined;
-            resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["upgradeAvailable"] = args ? args.upgradeAvailable : undefined;
+            resourceInputs["authOptions"] = args?.authOptions;
+            resourceInputs["computeType"] = args?.computeType;
+            resourceInputs["dataExfiltrationProtections"] = args?.dataExfiltrationProtections;
+            resourceInputs["disableLocalAuth"] = args?.disableLocalAuth;
+            resourceInputs["encryptionWithCmk"] = args?.encryptionWithCmk;
+            resourceInputs["endpoint"] = args?.endpoint;
+            resourceInputs["hostingMode"] = (args?.hostingMode) ?? "Default";
+            resourceInputs["identity"] = args?.identity;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["networkRuleSet"] = args?.networkRuleSet;
+            resourceInputs["partitionCount"] = (args?.partitionCount) ?? 1;
+            resourceInputs["publicNetworkAccess"] = (args?.publicNetworkAccess) ?? "Enabled";
+            resourceInputs["replicaCount"] = (args?.replicaCount) ?? 1;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["searchServiceName"] = args?.searchServiceName;
+            resourceInputs["semanticSearch"] = args?.semanticSearch;
+            resourceInputs["sku"] = args?.sku;
+            resourceInputs["tags"] = args?.tags;
+            resourceInputs["upgradeAvailable"] = args?.upgradeAvailable;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["eTag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;

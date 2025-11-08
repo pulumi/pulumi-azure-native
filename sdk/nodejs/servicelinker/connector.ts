@@ -44,55 +44,55 @@ export class Connector extends pulumi.CustomResource {
     /**
      * The authentication type.
      */
-    public readonly authInfo!: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
+    declare public readonly authInfo: pulumi.Output<outputs.servicelinker.AccessKeyInfoBaseResponse | outputs.servicelinker.EasyAuthMicrosoftEntraIDAuthInfoResponse | outputs.servicelinker.SecretAuthInfoResponse | outputs.servicelinker.ServicePrincipalCertificateAuthInfoResponse | outputs.servicelinker.ServicePrincipalSecretAuthInfoResponse | outputs.servicelinker.SystemAssignedIdentityAuthInfoResponse | outputs.servicelinker.UserAccountAuthInfoResponse | outputs.servicelinker.UserAssignedIdentityAuthInfoResponse | undefined>;
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The application client type
      */
-    public readonly clientType!: pulumi.Output<string | undefined>;
+    declare public readonly clientType: pulumi.Output<string | undefined>;
     /**
      * The connection information consumed by applications, including secrets, connection strings.
      */
-    public readonly configurationInfo!: pulumi.Output<outputs.servicelinker.ConfigurationInfoResponse | undefined>;
+    declare public readonly configurationInfo: pulumi.Output<outputs.servicelinker.ConfigurationInfoResponse | undefined>;
     /**
      * The name of the resource
      */
-    public /*out*/ readonly name!: pulumi.Output<string>;
+    declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
      * The provisioning state. 
      */
-    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    declare public /*out*/ readonly provisioningState: pulumi.Output<string>;
     /**
      * The network solution.
      */
-    public readonly publicNetworkSolution!: pulumi.Output<outputs.servicelinker.PublicNetworkSolutionResponse | undefined>;
+    declare public readonly publicNetworkSolution: pulumi.Output<outputs.servicelinker.PublicNetworkSolutionResponse | undefined>;
     /**
      * connection scope in source service.
      */
-    public readonly scope!: pulumi.Output<string | undefined>;
+    declare public readonly scope: pulumi.Output<string | undefined>;
     /**
      * An option to store secret value in secure place
      */
-    public readonly secretStore!: pulumi.Output<outputs.servicelinker.SecretStoreResponse | undefined>;
+    declare public readonly secretStore: pulumi.Output<outputs.servicelinker.SecretStoreResponse | undefined>;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.servicelinker.SystemDataResponse>;
     /**
      * The target service properties
      */
-    public readonly targetService!: pulumi.Output<outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | outputs.servicelinker.SelfHostedServerResponse | undefined>;
+    declare public readonly targetService: pulumi.Output<outputs.servicelinker.AzureResourceResponse | outputs.servicelinker.ConfluentBootstrapServerResponse | outputs.servicelinker.ConfluentSchemaRegistryResponse | outputs.servicelinker.SelfHostedServerResponse | undefined>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
      * The VNet solution.
      */
-    public readonly vNetSolution!: pulumi.Output<outputs.servicelinker.VNetSolutionResponse | undefined>;
+    declare public readonly vNetSolution: pulumi.Output<outputs.servicelinker.VNetSolutionResponse | undefined>;
 
     /**
      * Create a Connector resource with the given unique name, arguments, and options.
@@ -105,24 +105,24 @@ export class Connector extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.location === undefined) && !opts.urn) {
+            if (args?.location === undefined && !opts.urn) {
                 throw new Error("Missing required property 'location'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["authInfo"] = args ? args.authInfo : undefined;
-            resourceInputs["clientType"] = args ? args.clientType : undefined;
-            resourceInputs["configurationInfo"] = args ? args.configurationInfo : undefined;
-            resourceInputs["connectorName"] = args ? args.connectorName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["publicNetworkSolution"] = args ? args.publicNetworkSolution : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["scope"] = args ? args.scope : undefined;
-            resourceInputs["secretStore"] = args ? args.secretStore : undefined;
-            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
-            resourceInputs["targetService"] = args ? args.targetService : undefined;
-            resourceInputs["vNetSolution"] = args ? args.vNetSolution : undefined;
+            resourceInputs["authInfo"] = args?.authInfo;
+            resourceInputs["clientType"] = args?.clientType;
+            resourceInputs["configurationInfo"] = args?.configurationInfo;
+            resourceInputs["connectorName"] = args?.connectorName;
+            resourceInputs["location"] = args?.location;
+            resourceInputs["publicNetworkSolution"] = args?.publicNetworkSolution;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["scope"] = args?.scope;
+            resourceInputs["secretStore"] = args?.secretStore;
+            resourceInputs["subscriptionId"] = args?.subscriptionId;
+            resourceInputs["targetService"] = args?.targetService;
+            resourceInputs["vNetSolution"] = args?.vNetSolution;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;

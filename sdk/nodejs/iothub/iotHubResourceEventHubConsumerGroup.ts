@@ -44,23 +44,23 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
     /**
      * The Azure API version of the resource.
      */
-    public /*out*/ readonly azureApiVersion!: pulumi.Output<string>;
+    declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
      * The etag.
      */
-    public /*out*/ readonly etag!: pulumi.Output<string>;
+    declare public /*out*/ readonly etag: pulumi.Output<string>;
     /**
      * The Event Hub-compatible consumer group name.
      */
-    public readonly name!: pulumi.Output<string>;
+    declare public readonly name: pulumi.Output<string>;
     /**
      * The tags.
      */
-    public readonly properties!: pulumi.Output<any>;
+    declare public readonly properties: pulumi.Output<any>;
     /**
      * the resource type.
      */
-    public /*out*/ readonly type!: pulumi.Output<string>;
+    declare public /*out*/ readonly type: pulumi.Output<string>;
 
     /**
      * Create a IotHubResourceEventHubConsumerGroup resource with the given unique name, arguments, and options.
@@ -73,23 +73,23 @@ export class IotHubResourceEventHubConsumerGroup extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.eventHubEndpointName === undefined) && !opts.urn) {
+            if (args?.eventHubEndpointName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'eventHubEndpointName'");
             }
-            if ((!args || args.properties === undefined) && !opts.urn) {
+            if (args?.properties === undefined && !opts.urn) {
                 throw new Error("Missing required property 'properties'");
             }
-            if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
+            if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            if ((!args || args.resourceName === undefined) && !opts.urn) {
+            if (args?.resourceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceName'");
             }
-            resourceInputs["eventHubEndpointName"] = args ? args.eventHubEndpointName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
-            resourceInputs["properties"] = args ? args.properties : undefined;
-            resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
-            resourceInputs["resourceName"] = args ? args.resourceName : undefined;
+            resourceInputs["eventHubEndpointName"] = args?.eventHubEndpointName;
+            resourceInputs["name"] = args?.name;
+            resourceInputs["properties"] = args?.properties;
+            resourceInputs["resourceGroupName"] = args?.resourceGroupName;
+            resourceInputs["resourceName"] = args?.resourceName;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
