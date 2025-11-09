@@ -457,7 +457,22 @@ func inputsToSdk(inputs resource.PropertyMap) (*armauthorization.RoleEligibility
 
 		if expiration, ok := info["expiration"]; ok {
 			exp := expiration.ObjectValue()
-			result.Properties.ScheduleInfo.Expiration.Duration = pulumi.StringRef(exp["duration"].StringValue())
+
+			// duration is optional - only present for AfterDuration type
+			if duration, ok := exp["duration"]; ok {
+				result.Properties.ScheduleInfo.Expiration.Duration = pulumi.StringRef(duration.StringValue())
+			}
+
+			// endDateTime is optional - only present for AfterDateTime type
+			if endDateTime, ok := exp["endDateTime"]; ok {
+				endTime, err := time.Parse(time.RFC3339, endDateTime.StringValue())
+				if err != nil {
+					return nil, fmt.Errorf("invalid end time: %w", err)
+				}
+				result.Properties.ScheduleInfo.Expiration.EndDateTime = &endTime
+			}
+
+			// type is required
 			expirationType := armauthorization.Type(exp["type"].StringValue())
 			result.Properties.ScheduleInfo.Expiration.Type = &expirationType
 		}
