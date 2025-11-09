@@ -59,6 +59,8 @@ __all__ = [
     'FailoverPolicyResponse',
     'FleetspaceAccountPropertiesResponseGlobalDatabaseAccountProperties',
     'FleetspacePropertiesResponseThroughputPoolConfiguration',
+    'FullTextPathResponse',
+    'FullTextPolicyResponse',
     'GraphAPIComputeRegionalServiceResourceResponse',
     'GraphAPIComputeServiceResourcePropertiesResponse',
     'GraphResourceGetPropertiesResponseOptions',
@@ -2878,6 +2880,94 @@ class FleetspacePropertiesResponseThroughputPoolConfiguration(dict):
 
 
 @pulumi.output_type
+class FullTextPathResponse(dict):
+    """
+    Represents the full text path specification.
+    """
+    def __init__(__self__, *,
+                 path: _builtins.str,
+                 language: Optional[_builtins.str] = None):
+        """
+        Represents the full text path specification.
+        :param _builtins.str path: The path to the full text field in the document.
+        :param _builtins.str language: The language of the full text field in the document.
+        """
+        pulumi.set(__self__, "path", path)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> _builtins.str:
+        """
+        The path to the full text field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> Optional[_builtins.str]:
+        """
+        The language of the full text field in the document.
+        """
+        return pulumi.get(self, "language")
+
+
+@pulumi.output_type
+class FullTextPolicyResponse(dict):
+    """
+    Cosmos DB FullText Policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultLanguage":
+            suggest = "default_language"
+        elif key == "fullTextPaths":
+            suggest = "full_text_paths"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FullTextPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FullTextPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FullTextPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_language: Optional[_builtins.str] = None,
+                 full_text_paths: Optional[Sequence['outputs.FullTextPathResponse']] = None):
+        """
+        Cosmos DB FullText Policy
+        :param _builtins.str default_language: The default language for a full text paths.
+        :param Sequence['FullTextPathResponse'] full_text_paths: List of FullText Paths
+        """
+        if default_language is not None:
+            pulumi.set(__self__, "default_language", default_language)
+        if full_text_paths is not None:
+            pulumi.set(__self__, "full_text_paths", full_text_paths)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultLanguage")
+    def default_language(self) -> Optional[_builtins.str]:
+        """
+        The default language for a full text paths.
+        """
+        return pulumi.get(self, "default_language")
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextPaths")
+    def full_text_paths(self) -> Optional[Sequence['outputs.FullTextPathResponse']]:
+        """
+        List of FullText Paths
+        """
+        return pulumi.get(self, "full_text_paths")
+
+
+@pulumi.output_type
 class GraphAPIComputeRegionalServiceResourceResponse(dict):
     """
     Resource for a regional service location.
@@ -5622,6 +5712,8 @@ class SqlContainerGetPropertiesResponseResource(dict):
             suggest = "create_mode"
         elif key == "defaultTtl":
             suggest = "default_ttl"
+        elif key == "fullTextPolicy":
+            suggest = "full_text_policy"
         elif key == "indexingPolicy":
             suggest = "indexing_policy"
         elif key == "partitionKey":
@@ -5655,6 +5747,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
                  conflict_resolution_policy: Optional['outputs.ConflictResolutionPolicyResponse'] = None,
                  create_mode: Optional[_builtins.str] = None,
                  default_ttl: Optional[_builtins.int] = None,
+                 full_text_policy: Optional['outputs.FullTextPolicyResponse'] = None,
                  indexing_policy: Optional['outputs.IndexingPolicyResponse'] = None,
                  partition_key: Optional['outputs.ContainerPartitionKeyResponse'] = None,
                  restore_parameters: Optional['outputs.ResourceRestoreParametersResponse'] = None,
@@ -5671,6 +5764,7 @@ class SqlContainerGetPropertiesResponseResource(dict):
         :param 'ConflictResolutionPolicyResponse' conflict_resolution_policy: The conflict resolution policy for the container.
         :param _builtins.str create_mode: Enum to indicate the mode of resource creation.
         :param _builtins.int default_ttl: Default time to live
+        :param 'FullTextPolicyResponse' full_text_policy: The FullText policy for the container.
         :param 'IndexingPolicyResponse' indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param 'ContainerPartitionKeyResponse' partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param 'ResourceRestoreParametersResponse' restore_parameters: Parameters to indicate the information about the restore
@@ -5693,6 +5787,8 @@ class SqlContainerGetPropertiesResponseResource(dict):
             pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
+        if full_text_policy is not None:
+            pulumi.set(__self__, "full_text_policy", full_text_policy)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
@@ -5783,6 +5879,14 @@ class SqlContainerGetPropertiesResponseResource(dict):
         Default time to live
         """
         return pulumi.get(self, "default_ttl")
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextPolicy")
+    def full_text_policy(self) -> Optional['outputs.FullTextPolicyResponse']:
+        """
+        The FullText policy for the container.
+        """
+        return pulumi.get(self, "full_text_policy")
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
