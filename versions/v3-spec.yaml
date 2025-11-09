@@ -353,7 +353,7 @@ ContainerStorage:
 Contoso:
     tracking: "2021-11-01"
 CosmosDB:
-    tracking: "2024-11-15"
+    tracking: "2025-04-15"
     additions:
         CassandraResourceCassandraRoleAssignment: 2025-05-01-preview
         CassandraResourceCassandraRoleDefinition: 2025-05-01-preview
