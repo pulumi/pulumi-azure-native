@@ -320,7 +320,7 @@ ContainerRegistry:
         listTaskRunDetails: 2019-06-01-preview
         listWebhookEvents: 2024-11-01-preview
 ContainerService:
-    tracking: "2024-10-01"
+    tracking: "2025-09-01"
     additions:
         AutoUpgradeProfile: 2024-05-02-preview
         DeploymentSafeguard: 2025-04-02-preview
