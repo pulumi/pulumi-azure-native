@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
     /// <summary>
-    /// For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
+    /// A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
     /// </summary>
     [OutputType]
     public sealed class TimeSpanResponse

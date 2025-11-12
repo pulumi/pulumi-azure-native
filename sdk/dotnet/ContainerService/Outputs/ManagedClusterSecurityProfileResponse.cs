@@ -21,6 +21,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.AzureKeyVaultKmsResponse? AzureKeyVaultKms;
         /// <summary>
+        /// A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
+        /// </summary>
+        public readonly ImmutableArray<string> CustomCATrustCertificates;
+        /// <summary>
         /// Microsoft Defender settings for the security profile.
         /// </summary>
         public readonly Outputs.ManagedClusterSecurityProfileDefenderResponse? Defender;
@@ -37,6 +41,8 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         private ManagedClusterSecurityProfileResponse(
             Outputs.AzureKeyVaultKmsResponse? azureKeyVaultKms,
 
+            ImmutableArray<string> customCATrustCertificates,
+
             Outputs.ManagedClusterSecurityProfileDefenderResponse? defender,
 
             Outputs.ManagedClusterSecurityProfileImageCleanerResponse? imageCleaner,
@@ -44,6 +50,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             Outputs.ManagedClusterSecurityProfileWorkloadIdentityResponse? workloadIdentity)
         {
             AzureKeyVaultKms = azureKeyVaultKms;
+            CustomCATrustCertificates = customCATrustCertificates;
             Defender = defender;
             ImageCleaner = imageCleaner;
             WorkloadIdentity = workloadIdentity;

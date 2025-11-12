@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<string>? DnsServer { get; set; }
 
         /// <summary>
-        /// Specifies whether to enable Windows gMSA in the managed cluster.
+        /// Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         /// </summary>
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }

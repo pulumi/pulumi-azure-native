@@ -16,121 +16,121 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ManagedClusterPropertiesAutoScalerProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Valid values are 'true' and 'false'
+        /// Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
         /// </summary>
         [Input("balanceSimilarNodeGroups")]
         public Input<string>? BalanceSimilarNodeGroups { get; set; }
 
         /// <summary>
-        /// If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        /// DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         /// </summary>
         [Input("daemonsetEvictionForEmptyNodes")]
         public Input<bool>? DaemonsetEvictionForEmptyNodes { get; set; }
 
         /// <summary>
-        /// If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        /// DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         /// </summary>
         [Input("daemonsetEvictionForOccupiedNodes")]
         public Input<bool>? DaemonsetEvictionForOccupiedNodes { get; set; }
 
         /// <summary>
-        /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        /// The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
         /// </summary>
         [Input("expander")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.Expander>? Expander { get; set; }
 
         /// <summary>
-        /// If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        /// Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         /// </summary>
         [Input("ignoreDaemonsetsUtilization")]
         public Input<bool>? IgnoreDaemonsetsUtilization { get; set; }
 
         /// <summary>
-        /// The default is 10.
+        /// The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
         /// </summary>
         [Input("maxEmptyBulkDelete")]
         public Input<string>? MaxEmptyBulkDelete { get; set; }
 
         /// <summary>
-        /// The default is 600.
+        /// The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
         /// </summary>
         [Input("maxGracefulTerminationSec")]
         public Input<string>? MaxGracefulTerminationSec { get; set; }
 
         /// <summary>
-        /// The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("maxNodeProvisionTime")]
         public Input<string>? MaxNodeProvisionTime { get; set; }
 
         /// <summary>
-        /// The default is 45. The maximum is 100 and the minimum is 0.
+        /// The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
         /// </summary>
         [Input("maxTotalUnreadyPercentage")]
         public Input<string>? MaxTotalUnreadyPercentage { get; set; }
 
         /// <summary>
-        /// For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
+        /// Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
         /// </summary>
         [Input("newPodScaleUpDelay")]
         public Input<string>? NewPodScaleUpDelay { get; set; }
 
         /// <summary>
-        /// This must be an integer. The default is 3.
+        /// The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
         /// </summary>
         [Input("okTotalUnreadyCount")]
         public Input<string>? OkTotalUnreadyCount { get; set; }
 
         /// <summary>
-        /// The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("scaleDownDelayAfterAdd")]
         public Input<string>? ScaleDownDelayAfterAdd { get; set; }
 
         /// <summary>
-        /// The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("scaleDownDelayAfterDelete")]
         public Input<string>? ScaleDownDelayAfterDelete { get; set; }
 
         /// <summary>
-        /// The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("scaleDownDelayAfterFailure")]
         public Input<string>? ScaleDownDelayAfterFailure { get; set; }
 
         /// <summary>
-        /// The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("scaleDownUnneededTime")]
         public Input<string>? ScaleDownUnneededTime { get; set; }
 
         /// <summary>
-        /// The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        /// How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         /// </summary>
         [Input("scaleDownUnreadyTime")]
         public Input<string>? ScaleDownUnreadyTime { get; set; }
 
         /// <summary>
-        /// The default is '0.5'.
+        /// Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
         /// </summary>
         [Input("scaleDownUtilizationThreshold")]
         public Input<string>? ScaleDownUtilizationThreshold { get; set; }
 
         /// <summary>
-        /// The default is '10'. Values must be an integer number of seconds.
+        /// How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
         /// </summary>
         [Input("scanInterval")]
         public Input<string>? ScanInterval { get; set; }
 
         /// <summary>
-        /// The default is true.
+        /// If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
         /// </summary>
         [Input("skipNodesWithLocalStorage")]
         public Input<string>? SkipNodesWithLocalStorage { get; set; }
 
         /// <summary>
-        /// The default is true.
+        /// If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
         /// </summary>
         [Input("skipNodesWithSystemPods")]
         public Input<string>? SkipNodesWithSystemPods { get; set; }

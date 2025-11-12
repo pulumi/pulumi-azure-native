@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int> IntervalMonths { get; set; } = null!;
 
         /// <summary>
-        /// Specifies on which week of the month the dayOfWeek applies.
+        /// The week index. Specifies on which week of the month the dayOfWeek applies.
         /// </summary>
         [Input("weekIndex", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.Type> WeekIndex { get; set; } = null!;

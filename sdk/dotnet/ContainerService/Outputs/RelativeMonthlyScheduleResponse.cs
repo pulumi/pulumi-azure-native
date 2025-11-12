@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly int IntervalMonths;
         /// <summary>
-        /// Specifies on which week of the month the dayOfWeek applies.
+        /// The week index. Specifies on which week of the month the dayOfWeek applies.
         /// </summary>
         public readonly string WeekIndex;
 

@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>>? _ipFamilies;
 
         /// <summary>
-        /// IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        /// The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         /// </summary>
         public InputList<Union<string, Pulumi.AzureNative.ContainerService.IpFamily>> IpFamilies
         {
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.ManagedClusterLoadBalancerProfileArgs>? LoadBalancerProfile { get; set; }
 
         /// <summary>
-        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+        /// The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         [Input("loadBalancerSku")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.LoadBalancerSku>? LoadBalancerSku { get; set; }
@@ -64,7 +64,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkDataplane>? NetworkDataplane { get; set; }
 
         /// <summary>
-        /// This cannot be specified if networkPlugin is anything other than 'azure'.
+        /// The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         [Input("networkMode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkMode>? NetworkMode { get; set; }
@@ -88,7 +88,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NetworkPolicy>? NetworkPolicy { get; set; }
 
         /// <summary>
-        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+        /// The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         [Input("outboundType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OutboundType>? OutboundType { get; set; }
@@ -103,7 +103,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _podCidrs;
 
         /// <summary>
-        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        /// The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         /// </summary>
         public InputList<string> PodCidrs
         {
@@ -121,13 +121,19 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _serviceCidrs;
 
         /// <summary>
-        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        /// The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         /// </summary>
         public InputList<string> ServiceCidrs
         {
             get => _serviceCidrs ?? (_serviceCidrs = new InputList<string>());
             set => _serviceCidrs = value;
         }
+
+        /// <summary>
+        /// The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
+        /// </summary>
+        [Input("staticEgressGatewayProfile")]
+        public Input<Inputs.ManagedClusterStaticEgressGatewayProfileArgs>? StaticEgressGatewayProfile { get; set; }
 
         public ContainerServiceNetworkProfileArgs()
         {

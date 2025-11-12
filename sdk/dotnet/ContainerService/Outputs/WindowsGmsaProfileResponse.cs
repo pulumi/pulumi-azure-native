@@ -21,7 +21,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? DnsServer;
         /// <summary>
-        /// Specifies whether to enable Windows gMSA in the managed cluster.
+        /// Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
