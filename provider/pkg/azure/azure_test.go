@@ -76,34 +76,116 @@ func TestBuildUserAgent(t *testing.T) {
 }
 
 func TestIsNotFound(t *testing.T) {
-	t.Run("autorest", func(t *testing.T) {
-		assert.True(t, IsNotFound(&autorestAzure.RequestError{
-			DetailedError: autorest.DetailedError{
+	t.Run("autorest with valid error code", func(t *testing.T) {
+		// Test all valid "not found" error codes
+		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound"}
+		for _, code := range validCodes {
+			assert.True(t, IsNotFound(&autorestAzure.RequestError{
+				DetailedError: autorest.DetailedError{
+					StatusCode: http.StatusNotFound,
+				},
+				ServiceError: &autorestAzure.ServiceError{
+					Code: code,
+				},
+			}), "Should return true for error code: "+code)
+		}
+	})
 
+	t.Run("autorest with 404 but no error code", func(t *testing.T) {
+		// 404 without ServiceError (e.g., proxy/WAF response)
+		assert.False(t, IsNotFound(&autorestAzure.RequestError{
+			DetailedError: autorest.DetailedError{
 				StatusCode: http.StatusNotFound,
 			},
+			ServiceError: nil,
 		}))
+	})
+
+	t.Run("autorest with 404 but invalid error code", func(t *testing.T) {
+		// 404 with non-matching error code
+		assert.False(t, IsNotFound(&autorestAzure.RequestError{
+			DetailedError: autorest.DetailedError{
+				StatusCode: http.StatusNotFound,
+			},
+			ServiceError: &autorestAzure.ServiceError{
+				Code: "SomeOtherError",
+			},
+		}))
+	})
+
+	t.Run("autorest with non-404 status", func(t *testing.T) {
 		assert.False(t, IsNotFound(&autorestAzure.RequestError{
 			DetailedError: autorest.DetailedError{
 				StatusCode: http.StatusForbidden,
 			},
+			ServiceError: &autorestAzure.ServiceError{
+				Code: "ResourceNotFound",
+			},
 		}))
 	})
 
-	t.Run("azcore", func(t *testing.T) {
-		assert.True(t, IsNotFound(&azcore.ResponseError{
+	t.Run("azcore with valid error code", func(t *testing.T) {
+		// Test all valid "not found" error codes
+		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound"}
+		for _, code := range validCodes {
+			assert.True(t, IsNotFound(&azcore.ResponseError{
+				StatusCode: http.StatusNotFound,
+				ErrorCode:  code,
+			}), "Should return true for error code: "+code)
+		}
+	})
+
+	t.Run("azcore with 404 but no error code", func(t *testing.T) {
+		// 404 without ErrorCode (e.g., proxy/WAF response)
+		assert.False(t, IsNotFound(&azcore.ResponseError{
 			StatusCode: http.StatusNotFound,
+			ErrorCode:  "",
 		}))
+	})
+
+	t.Run("azcore with 404 but invalid error code", func(t *testing.T) {
+		// 404 with non-matching error code
+		assert.False(t, IsNotFound(&azcore.ResponseError{
+			StatusCode: http.StatusNotFound,
+			ErrorCode:  "SomeOtherError",
+		}))
+	})
+
+	t.Run("azcore with non-404 status", func(t *testing.T) {
 		assert.False(t, IsNotFound(&azcore.ResponseError{
 			StatusCode: http.StatusForbidden,
+			ErrorCode:  "ResourceNotFound",
 		}))
 	})
 
-	t.Run("provider", func(t *testing.T) {
-		assert.True(t, IsNotFound(&PulumiAzcoreResponseError{
+	t.Run("provider with valid error code", func(t *testing.T) {
+		// Test all valid "not found" error codes
+		validCodes := []string{"NotFound", "ResourceNotFound", "ResourceGroupNotFound"}
+		for _, code := range validCodes {
+			assert.True(t, IsNotFound(&PulumiAzcoreResponseError{
+				StatusCode: http.StatusNotFound,
+				ErrorCode:  code,
+			}), "Should return true for error code: "+code)
+		}
+	})
+
+	t.Run("provider with 404 but no error code", func(t *testing.T) {
+		// 404 without ErrorCode (e.g., proxy/WAF response)
+		assert.False(t, IsNotFound(&PulumiAzcoreResponseError{
 			StatusCode: http.StatusNotFound,
-			ErrorCode:  "ResourceNotFound",
+			ErrorCode:  "",
 		}))
+	})
+
+	t.Run("provider with 404 but invalid error code", func(t *testing.T) {
+		// 404 with non-matching error code
+		assert.False(t, IsNotFound(&PulumiAzcoreResponseError{
+			StatusCode: http.StatusNotFound,
+			ErrorCode:  "SomeOtherError",
+		}))
+	})
+
+	t.Run("provider with non-404 status", func(t *testing.T) {
 		assert.False(t, IsNotFound(&PulumiAzcoreResponseError{
 			StatusCode: http.StatusForbidden,
 			ErrorCode:  "Unauthorized",
