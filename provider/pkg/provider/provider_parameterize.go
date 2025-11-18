@@ -27,8 +27,9 @@ import (
 // parameterizeArgs is the data that is embedded in the SDK when the provider is parameterized. It will be sent to the
 // provider on subsequent invocations of Parameterize to be deserialized.
 type parameterizeArgs struct {
-	Module  string `json:"module"`
-	Version string `json:"version"`
+	Module           string `json:"module"`
+	Version          string `json:"version"`
+	VersionedModules bool   `json:"versionedModules"` // When true, generate versioned namespaces (e.g., Storage.V20240101)
 }
 
 func serializeParameterizeArgs(args *parameterizeArgs) ([]byte, error) {
@@ -103,7 +104,12 @@ func getParameterizeArgs(req *rpc.ParameterizeRequest) (*parameterizeArgs, error
 	case req.GetArgs() != nil:
 		args := req.GetArgs().Args
 
-		// "aad" "v20221201"
+		// Check for profile mode (single argument: config file path)
+		if len(args) == 1 {
+			return nil, status.Errorf(codes.Unimplemented, "profile-based parameterization not yet implemented")
+		}
+
+		// Adhoc mode: "aad" "v20221201"
 		if len(args) != 2 {
 			return nil, status.Errorf(codes.InvalidArgument, "expected 2 arguments (module and API version), got %d", len(args))
 		}
@@ -112,8 +118,9 @@ func getParameterizeArgs(req *rpc.ParameterizeRequest) (*parameterizeArgs, error
 			return nil, err
 		}
 		return &parameterizeArgs{
-			Module:  args[0],
-			Version: targetApiVersion,
+			Module:           args[0],
+			Version:          targetApiVersion,
+			VersionedModules: false, // Adhoc mode uses unversioned namespaces (backward compatible)
 		}, nil
 
 	// provider has already been parameterized and the arguments were serialized into the SDK
@@ -141,7 +148,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 		return nil, status.Errorf(codes.Internal, "failed to unmarshal schema: %v", err)
 	}
 
-	newSchema, newMetadata, err := createSchema(p, schema, args.Module, args.Version)
+	newSchema, newMetadata, err := createSchema(p, schema, args)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to create parameterized schema: %v", err)
 	}
@@ -164,9 +171,9 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to marshal schema: %v", err)
 	}
-	s = updateRefs(s, newPackageName, args.Module, args.Version)
+	s = updateRefs(s, newPackageName, args.Module, args.Version, args.VersionedModules)
 
-	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version)
+	newMetadata, err = updateMetadataRefs(newMetadata, newPackageName, args.Module, args.Version, args.VersionedModules)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to update metadata $refs: %v", err)
 	}
@@ -198,23 +205,30 @@ func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiV
 	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
 }
 
-// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name and preserve version in
-// module path, e.g., from `"$ref":"#/types/azure-native:resources/v20240101:..."` to
-// `"$ref": "#/types/azure-native-resources-v20240101:resources/v20240101:..."`.
-func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
+// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name.
+// For versioned mode, preserves version in module path: `azure-native:resources/v20240101:...` -> `azure-native-resources-v20240101:resources/v20240101:...`
+// For unversioned mode, removes version from module path: `azure-native:resources/v20240101:...` -> `azure-native-resources-v20240101:resources:...`
+func updateRefs(serialized []byte, newPackageName, module, apiVersion string, versionedModules bool) []byte {
 	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
-	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s/%s`, newPackageName, module, apiVersion)
+	var newRefPrefix string
+	if versionedModules {
+		// Profile mode: preserve version in module path
+		newRefPrefix = fmt.Sprintf(`"$ref": "#/types/%s:%s/%s`, newPackageName, module, apiVersion)
+	} else {
+		// Adhoc mode: remove version from module path
+		newRefPrefix = fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
+	}
 	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 }
 
 // updateMetadataRefs updates all `$ref` pointers in the metadata to use the new package name.
 // This implementation uses a JSON round-trip to update the `$ref`'s via a global string-replacement. Not elegant, but effective.
-func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module, apiVersion string) (*resources.APIMetadata, error) {
+func updateMetadataRefs(metadata *resources.APIMetadata, newPackageName, module, apiVersion string, versionedModules bool) (*resources.APIMetadata, error) {
 	m, err := json.Marshal(metadata)
 	if err != nil {
 		return nil, status.Errorf(codes.Internal, "failed to marshal metadata: %v", err)
 	}
-	updated := updateRefs(m, newPackageName, module, apiVersion)
+	updated := updateRefs(m, newPackageName, module, apiVersion, versionedModules)
 	newMetadata := &resources.APIMetadata{}
 	err = json.Unmarshal(updated, newMetadata)
 	if err != nil {
@@ -249,19 +263,24 @@ func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []
 //
 // To separate concerns, the `Parameterization` of the new schema is NOT populated yet, the caller is responsible for
 // doing that.
-func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
+func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, args *parameterizeArgs) (*pschema.PackageSpec, *resources.APIMetadata, error) {
+	targetModule := args.Module
+	targetApiVersion := args.Version
 	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
 
-	// Build C# namespace mappings for proper hierarchical namespace structure
+	// Build C# namespace mappings
 	csharpNamespaces := map[string]string{
-		newPackageName: "AzureNative",                                                    // azure-native-resources-v20251001 -> AzureNative
-		targetModule:   strings.Title(targetModule),                                      // resources -> Resources
+		newPackageName: "AzureNative",           // azure-native-resources-v20251001 -> AzureNative
+		targetModule:   strings.Title(targetModule), // resources -> Resources
 	}
 
-	// Add versioned module mapping (e.g., resources/v20251001 -> Resources.V20251001)
-	moduleWithVersion := fmt.Sprintf("%s/%s", targetModule, targetApiVersion)
-	csVersion := formatVersionForCSharp(targetApiVersion)
-	csharpNamespaces[moduleWithVersion] = fmt.Sprintf("%s.%s", strings.Title(targetModule), csVersion)
+	if args.VersionedModules {
+		// Profile mode: hierarchical versioned namespaces (e.g., Resources.V20251001)
+		moduleWithVersion := fmt.Sprintf("%s/%s", targetModule, targetApiVersion)
+		csVersion := formatVersionForCSharp(targetApiVersion)
+		csharpNamespaces[moduleWithVersion] = fmt.Sprintf("%s.%s", strings.Title(targetModule), csVersion)
+	}
+	// Adhoc mode: flat namespaces (just module mapping, no version component)
 
 	// Copy language settings from base schema and add C# namespace mappings
 	languageSettings := make(map[string]pschema.RawMessage)
@@ -303,9 +322,18 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 		Functions:   map[string]pschema.FunctionSpec{},
 	}
 
-	// Update makeToken to preserve version in module path for hierarchical namespaces
-	makeToken := func(name string) string {
-		return fmt.Sprintf("%s:%s/%s:%s", newPackageName, targetModule, targetApiVersion, name)
+	// Create token generator based on versioning mode
+	var makeToken func(string) string
+	if args.VersionedModules {
+		// Profile mode: versioned namespaces - include version in module path
+		makeToken = func(name string) string {
+			return fmt.Sprintf("%s:%s/%s:%s", newPackageName, targetModule, targetApiVersion, name)
+		}
+	} else {
+		// Adhoc mode: unversioned namespaces - exclude version from module path
+		makeToken = func(name string) string {
+			return fmt.Sprintf("%s:%s:%s", newPackageName, targetModule, name)
+		}
 	}
 
 	typeNames, err := filterTokens(schema.Types, targetModule, targetApiVersion)

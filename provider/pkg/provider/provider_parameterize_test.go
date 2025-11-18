@@ -148,7 +148,8 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	assert.NotNil(t, metadata.Resources)
 	assert.NotNil(t, metadata.Types)
 	assert.NotNil(t, metadata.Invokes)
-	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad/v20221201:DomainService")
+	// Adhoc mode uses unversioned tokens (no version in module path)
+	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad:DomainService")
 	require.NoError(t, err)
 	assert.True(t, ok)
 	assert.NotNil(t, resource)
@@ -162,14 +163,16 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 	assert.Equal(t, "aad", args.Module)
 	assert.Equal(t, "v20221201", args.Version)
+	assert.False(t, args.VersionedModules, "Adhoc mode should use unversioned namespaces")
 }
 
 func TestRoundtripParameterizeArgs(t *testing.T) {
 	t.Parallel()
 
 	args := parameterizeArgs{
-		Module:  "aad",
-		Version: "v20221201",
+		Module:           "aad",
+		Version:          "v20221201",
+		VersionedModules: false,
 	}
 	serialized, err := serializeParameterizeArgs(&args)
 	require.NoError(t, err)
@@ -248,14 +251,14 @@ func TestUpdateMetadataRefs(t *testing.T) {
 	t.Run("Empty metadata", func(t *testing.T) {
 		t.Parallel()
 		metadata := &resources.APIMetadata{}
-		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", true)
 		require.NoError(t, err)
 		require.Empty(t, updated.Resources)
 		require.Empty(t, updated.Types)
 		require.Empty(t, updated.Invokes)
 	})
 
-	t.Run("Updates refs in types", func(t *testing.T) {
+	t.Run("Updates refs in types - versioned", func(t *testing.T) {
 		t.Parallel()
 		metadata := &resources.APIMetadata{
 			Types: resources.GoMap[resources.AzureAPIType]{
@@ -269,13 +272,36 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", true)
 		require.NoError(t, err)
 
 		prop, ok, err := updated.Types.Get("type1")
 		require.NoError(t, err)
 		require.True(t, ok)
 		assert.Equal(t, "#/types/azure-native-storage-v20240101:storage/v20240101:StorageAccount", prop.Properties["prop1"].Ref)
+	})
+
+	t.Run("Updates refs in types - unversioned", func(t *testing.T) {
+		t.Parallel()
+		metadata := &resources.APIMetadata{
+			Types: resources.GoMap[resources.AzureAPIType]{
+				"type1": {
+					Properties: map[string]resources.AzureAPIProperty{
+						"prop1": {
+							Ref: "#/types/azure-native:storage/v20240101:StorageAccount",
+						},
+					},
+				},
+			},
+		}
+
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", false)
+		require.NoError(t, err)
+
+		prop, ok, err := updated.Types.Get("type1")
+		require.NoError(t, err)
+		require.True(t, ok)
+		assert.Equal(t, "#/types/azure-native-storage-v20240101:storage:StorageAccount", prop.Properties["prop1"].Ref)
 	})
 
 	t.Run("Updates refs in resources", func(t *testing.T) {
@@ -298,7 +324,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", true)
 		require.NoError(t, err)
 
 		resource, ok, err := updated.Resources.Get("resource1")
@@ -322,7 +348,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", true)
 		require.NoError(t, err)
 
 		invoke, ok, err := updated.Invokes.Get("invoke1")
@@ -351,7 +377,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101", true)
 		require.NoError(t, err)
 
 		resource, ok, err := updated.Resources.Get("resource1")
@@ -404,11 +430,10 @@ func pulumiPackageAdd(
 	}
 }
 
-func TestParameterizeCSharpNamespaceMappings(t *testing.T) {
+func TestParameterizeUnversionedCSharpNamespaces(t *testing.T) {
 	t.Parallel()
 
-	// Test that C# namespace mappings are generated correctly for parameterized schemas
-	// This ensures compatibility with v2.89.3 SDK structure
+	// Test that C# namespace mappings are generated correctly for adhoc mode (unversioned)
 	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
 	require.NoError(t, err)
 
@@ -450,13 +475,69 @@ func TestParameterizeCSharpNamespaceMappings(t *testing.T) {
 	namespaces, ok := csharp["namespaces"].(map[string]interface{})
 	require.True(t, ok, "C# namespaces should be a map")
 
-	// Verify namespace mappings match v2.89.3 pattern:
+	// Verify namespace mappings for UNVERSIONED mode (adhoc):
+	// - Package name -> Base namespace (AzureNative)
+	// - Module name -> Module namespace (Storage)
+	// - NO Module/Version mapping (flat namespace)
+	assert.Equal(t, "AzureNative", namespaces["azure-native-storage-v20240101"], "Package should map to AzureNative")
+	assert.Equal(t, "Storage", namespaces["storage"], "Module should map to PascalCase module name")
+	_, hasVersionedMapping := namespaces["storage/v20240101"]
+	assert.False(t, hasVersionedMapping, "Adhoc mode should NOT have versioned namespace mapping")
+}
+
+func TestParameterizeVersionedCSharpNamespaces(t *testing.T) {
+	t.Parallel()
+
+	// Test that C# namespace mappings are generated correctly for profile mode (versioned)
+	// This ensures compatibility with v2.89.3 SDK structure for future profile support
+	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
+	require.NoError(t, err)
+
+	var v schemaWithVersion
+	err = json.Unmarshal(schemaBytes, &v)
+	require.NoError(t, err)
+	providerVersion := v.Version
+
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
+		Types:     resources.GoMap[resources.AzureAPIType]{},
+		Resources: resources.GoMap[resources.AzureAPIResource]{"azure-native:storage/v20240101:StorageAccount": {}},
+		Invokes:   resources.GoMap[resources.AzureAPIInvoke]{},
+	})
+	require.NoError(t, err)
+
+	// Manually set VersionedModules to true to simulate profile mode
+	args := &parameterizeArgs{
+		Module:           "storage",
+		Version:          "v20240101",
+		VersionedModules: true,
+	}
+
+	var schema pschema.PackageSpec
+	err = json.Unmarshal(schemaBytes, &schema)
+	require.NoError(t, err)
+
+	newSchema, _, err := createSchema(provider, schema, args)
+	require.NoError(t, err)
+
+	// Verify C# language settings exist
+	csharpSettings, ok := newSchema.Language["csharp"]
+	require.True(t, ok, "C# language settings should exist")
+
+	// Unmarshal C# settings to check namespaces
+	var csharp map[string]interface{}
+	err = json.Unmarshal(csharpSettings, &csharp)
+	require.NoError(t, err)
+
+	namespaces, ok := csharp["namespaces"].(map[string]interface{})
+	require.True(t, ok, "C# namespaces should be a map")
+
+	// Verify namespace mappings for VERSIONED mode (profile):
 	// - Package name -> Base namespace (AzureNative)
 	// - Module name -> Module namespace (Storage)
 	// - Module/Version -> Hierarchical namespace (Storage.V20240101)
 	assert.Equal(t, "AzureNative", namespaces["azure-native-storage-v20240101"], "Package should map to AzureNative")
 	assert.Equal(t, "Storage", namespaces["storage"], "Module should map to PascalCase module name")
-	assert.Equal(t, "Storage.V20240101", namespaces["storage/v20240101"], "Module/Version should map to hierarchical namespace")
+	assert.Equal(t, "Storage.V20240101", namespaces["storage/v20240101"], "Profile mode should have hierarchical versioned namespace")
 }
 
 func TestCreateSchemaErrorChecking(t *testing.T) {
@@ -471,14 +552,24 @@ func TestCreateSchemaErrorChecking(t *testing.T) {
 	}
 
 	t.Run("No such API version", func(t *testing.T) {
-		_, _, err := createSchema(nil, schema, "storage", "v20240101")
+		args := &parameterizeArgs{
+			Module:           "storage",
+			Version:          "v20240101",
+			VersionedModules: false,
+		}
+		_, _, err := createSchema(nil, schema, args)
 		require.Error(t, err)
 		assert.Equal(t, codes.InvalidArgument, status.Code(err))
 		assert.Contains(t, err.Error(), "no resources found for module storage at API version v20240101. Available API versions: v20220202, v20230303")
 	})
 
 	t.Run("No such module", func(t *testing.T) {
-		_, _, err := createSchema(nil, schema, "compute", "v20240101")
+		args := &parameterizeArgs{
+			Module:           "compute",
+			Version:          "v20240101",
+			VersionedModules: false,
+		}
+		_, _, err := createSchema(nil, schema, args)
 		require.Error(t, err)
 		assert.Equal(t, codes.InvalidArgument, status.Code(err))
 		assert.Contains(t, err.Error(), "module compute not found. Some modules were renamed in v3 of the provider")
