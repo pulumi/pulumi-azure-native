@@ -369,7 +369,7 @@ func TestParameterizePackageAdd(t *testing.T) {
 	pt := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parameterize-storage"))
 	pulumiPackageAdd(t, pt, "../../../bin/pulumi-resource-azure-native", "storage", "v20240101")
 
-	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native-storage-v20240101")
+	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
 	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
 		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
 	}
