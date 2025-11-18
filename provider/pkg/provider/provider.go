@@ -326,7 +326,22 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 }
 
 func (k *azureNativeProvider) isParameterized() bool {
-	return strings.HasPrefix(k.name, "azure-native"+parameterizedNameSeparator)
+	// Check if name follows pattern: azure-native-{module}-v{date}
+	// e.g., azure-native-storage-v20240101
+	prefix := "azure-native" + parameterizedNameSeparator
+	if !strings.HasPrefix(k.name, prefix) {
+		return false
+	}
+	// Remove prefix and check if remaining parts are {module}-v{version}
+	remainder := strings.TrimPrefix(k.name, prefix)
+	// Find the last separator to split module and version
+	lastSep := strings.LastIndex(remainder, parameterizedNameSeparator)
+	if lastSep == -1 {
+		return false
+	}
+	// Version should start with 'v' followed by digits
+	version := remainder[lastSep+1:]
+	return len(version) > 1 && version[0] == 'v' && version[1] >= '0' && version[1] <= '9'
 }
 
 // Invoke dynamically executes a built-in function in the provider.

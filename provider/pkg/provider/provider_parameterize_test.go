@@ -114,7 +114,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	require.NoError(t, err)
 
 	parameterizationArgs := []string{"aad", "v20221201"}
-	expectedProviderName := "azure-native_aad_v20221201"
+	expectedProviderName := "azure-native-aad-v20221201"
 
 	require.NoError(t, err)
 
@@ -148,7 +148,7 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	assert.NotNil(t, metadata.Resources)
 	assert.NotNil(t, metadata.Types)
 	assert.NotNil(t, metadata.Invokes)
-	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad:DomainService")
+	resource, ok, err := metadata.Resources.Get(expectedProviderName + ":aad/v20221201:DomainService")
 	require.NoError(t, err)
 	assert.True(t, ok)
 	assert.NotNil(t, resource)
@@ -248,7 +248,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 	t.Run("Empty metadata", func(t *testing.T) {
 		t.Parallel()
 		metadata := &resources.APIMetadata{}
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 		require.Empty(t, updated.Resources)
 		require.Empty(t, updated.Types)
@@ -269,13 +269,13 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		prop, ok, err := updated.Types.Get("type1")
 		require.NoError(t, err)
 		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", prop.Properties["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native-storage-v20240101:storage/v20240101:StorageAccount", prop.Properties["prop1"].Ref)
 	})
 
 	t.Run("Updates refs in resources", func(t *testing.T) {
@@ -298,14 +298,14 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		resource, ok, err := updated.Resources.Get("resource1")
 		require.NoError(t, err)
 		require.True(t, ok)
 		require.Len(t, resource.PutParameters, 1)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native-storage-v20240101:storage/v20240101:StorageAccount", resource.PutParameters[0].Body.Properties["prop1"].Ref)
 	})
 
 	t.Run("Updates refs in invokes", func(t *testing.T) {
@@ -322,13 +322,13 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		invoke, ok, err := updated.Invokes.Get("invoke1")
 		require.NoError(t, err)
 		require.True(t, ok)
-		assert.Equal(t, "#/types/azure-native_storage_v20240101:storage:StorageAccount", invoke.Response["prop1"].Ref)
+		assert.Equal(t, "#/types/azure-native-storage-v20240101:storage/v20240101:StorageAccount", invoke.Response["prop1"].Ref)
 	})
 
 	t.Run("Does not update refs pointing to a different module", func(t *testing.T) {
@@ -351,7 +351,7 @@ func TestUpdateMetadataRefs(t *testing.T) {
 			},
 		}
 
-		updated, err := updateMetadataRefs(metadata, "azure-native_storage_v20240101", "storage", "v20240101")
+		updated, err := updateMetadataRefs(metadata, "azure-native-storage-v20240101", "storage", "v20240101")
 		require.NoError(t, err)
 
 		resource, ok, err := updated.Resources.Get("resource1")
@@ -369,7 +369,7 @@ func TestParameterizePackageAdd(t *testing.T) {
 	pt := pulumitest.NewPulumiTest(t, filepath.Join("test-programs", "parameterize-storage"))
 	pulumiPackageAdd(t, pt, "../../../bin/pulumi-resource-azure-native", "storage", "v20240101")
 
-	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native_storage_v20240101")
+	sdkPath := filepath.Join(pt.WorkingDir(), "sdks", "azure-native-storage-v20240101")
 	if _, err := os.Stat(sdkPath); os.IsNotExist(err) {
 		t.Fatalf("generated SDK directory not found at path: %s", sdkPath)
 	}
@@ -402,6 +402,61 @@ func pulumiPackageAdd(
 		t.Fatalf("Failed to run pulumi package add\nExit code: %d\nError: %v\n%s\n%s",
 			exitCode, err, stdout, stderr)
 	}
+}
+
+func TestParameterizeCSharpNamespaceMappings(t *testing.T) {
+	t.Parallel()
+
+	// Test that C# namespace mappings are generated correctly for parameterized schemas
+	// This ensures compatibility with v2.89.3 SDK structure
+	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
+	require.NoError(t, err)
+
+	var v schemaWithVersion
+	err = json.Unmarshal(schemaBytes, &v)
+	require.NoError(t, err)
+	providerVersion := v.Version
+
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
+		Types:     resources.GoMap[resources.AzureAPIType]{},
+		Resources: resources.GoMap[resources.AzureAPIResource]{"azure-native:storage/v20240101:StorageAccount": {}},
+		Invokes:   resources.GoMap[resources.AzureAPIInvoke]{},
+	})
+	require.NoError(t, err)
+
+	_, err = provider.Parameterize(context.Background(), &rpc.ParameterizeRequest{
+		Parameters: &rpc.ParameterizeRequest_Args{
+			Args: &rpc.ParameterizeRequest_ParametersArgs{
+				Args: []string{"storage", "v20240101"},
+			},
+		},
+	})
+	require.NoError(t, err)
+
+	// Parse the schema to check C# namespace mappings
+	var schema pschema.PackageSpec
+	err = json.Unmarshal(provider.schemaBytes, &schema)
+	require.NoError(t, err)
+
+	// Verify C# language settings exist
+	csharpSettings, ok := schema.Language["csharp"]
+	require.True(t, ok, "C# language settings should exist")
+
+	// Unmarshal C# settings to check namespaces
+	var csharp map[string]interface{}
+	err = json.Unmarshal(csharpSettings, &csharp)
+	require.NoError(t, err)
+
+	namespaces, ok := csharp["namespaces"].(map[string]interface{})
+	require.True(t, ok, "C# namespaces should be a map")
+
+	// Verify namespace mappings match v2.89.3 pattern:
+	// - Package name -> Base namespace (AzureNative)
+	// - Module name -> Module namespace (Storage)
+	// - Module/Version -> Hierarchical namespace (Storage.V20240101)
+	assert.Equal(t, "AzureNative", namespaces["azure-native-storage-v20240101"], "Package should map to AzureNative")
+	assert.Equal(t, "Storage", namespaces["storage"], "Module should map to PascalCase module name")
+	assert.Equal(t, "Storage.V20240101", namespaces["storage/v20240101"], "Module/Version should map to hierarchical namespace")
 }
 
 func TestCreateSchemaErrorChecking(t *testing.T) {

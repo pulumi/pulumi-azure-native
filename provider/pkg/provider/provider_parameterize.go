@@ -78,6 +78,21 @@ func parseApiVersion(version string) (string, error) {
 	return "", status.Errorf(codes.InvalidArgument, "invalid API version: %s", version)
 }
 
+// formatVersionForCSharp converts an SDK version (e.g., "v20240101" or "v20240101preview") to a C# namespace-friendly
+// format (e.g., "V20240101" or "V20240101Preview").
+func formatVersionForCSharp(sdkVersion string) string {
+	// Remove leading 'v'
+	version := strings.TrimPrefix(sdkVersion, "v")
+
+	// Replace known suffixes with PascalCase versions
+	version = strings.Replace(version, "privatepreview", "PrivatePreview", 1)
+	version = strings.Replace(version, "preview", "Preview", 1)
+	version = strings.Replace(version, "beta", "Beta", 1)
+
+	// Add 'V' prefix for C# namespace
+	return "V" + version
+}
+
 // "When generating an SDK (e.g. using a pulumi package add command), we need to boot up a provider and parameterize it
 // using only information from the command-line invocation. In this case, the parameter is a string array representing
 // the command-line arguments (args)."
@@ -177,17 +192,18 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	return resp, nil
 }
 
-const parameterizedNameSeparator = "_"
+const parameterizedNameSeparator = "-"
 
 func generateNewPackageName(unparameterizedPackageName, targetModule, targetApiVersion string) string {
 	return strings.Join([]string{unparameterizedPackageName, targetModule, targetApiVersion}, parameterizedNameSeparator)
 }
 
-// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name, e.g., from `"$ref":
-// "#/types/azure-native:..."` to `"$ref": "#/types/azure-native_resources_20240101:..."`.
+// updateRefs updates all `$ref` pointers in the serialized schema to use the new package name and preserve version in
+// module path, e.g., from `"$ref":"#/types/azure-native:resources/v20240101:..."` to
+// `"$ref": "#/types/azure-native-resources-v20240101:resources/v20240101:..."`.
 func updateRefs(serialized []byte, newPackageName, module, apiVersion string) []byte {
 	oldRefPrefix := fmt.Sprintf(`"$ref":"#/types/azure-native:%s/%s`, module, apiVersion)
-	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s`, newPackageName, module)
+	newRefPrefix := fmt.Sprintf(`"$ref": "#/types/%s:%s/%s`, newPackageName, module, apiVersion)
 	return bytes.ReplaceAll(serialized, []byte(oldRefPrefix), []byte(newRefPrefix))
 }
 
@@ -236,6 +252,39 @@ func getAvailableApiVersions(schema pschema.PackageSpec, targetModule string) []
 func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModule, targetApiVersion string) (*pschema.PackageSpec, *resources.APIMetadata, error) {
 	newPackageName := generateNewPackageName(schema.Name, targetModule, targetApiVersion)
 
+	// Build C# namespace mappings for proper hierarchical namespace structure
+	csharpNamespaces := map[string]string{
+		newPackageName: "AzureNative",                                                    // azure-native-resources-v20251001 -> AzureNative
+		targetModule:   strings.Title(targetModule),                                      // resources -> Resources
+	}
+
+	// Add versioned module mapping (e.g., resources/v20251001 -> Resources.V20251001)
+	moduleWithVersion := fmt.Sprintf("%s/%s", targetModule, targetApiVersion)
+	csVersion := formatVersionForCSharp(targetApiVersion)
+	csharpNamespaces[moduleWithVersion] = fmt.Sprintf("%s.%s", strings.Title(targetModule), csVersion)
+
+	// Copy language settings from base schema and add C# namespace mappings
+	languageSettings := make(map[string]pschema.RawMessage)
+	if schema.Language != nil {
+		for lang, settings := range schema.Language {
+			languageSettings[lang] = settings
+		}
+	}
+
+	// Override C# namespace mappings by unmarshaling, updating, and remarshaling
+	var csharpSettings map[string]interface{}
+	if existingCsharp, ok := languageSettings["csharp"]; ok {
+		json.Unmarshal(existingCsharp, &csharpSettings)
+	}
+	if csharpSettings == nil {
+		csharpSettings = make(map[string]interface{})
+	}
+	csharpSettings["namespaces"] = csharpNamespaces
+
+	// Serialize updated C# settings back to RawMessage
+	csharpBytes, _ := json.Marshal(csharpSettings)
+	languageSettings["csharp"] = pschema.RawMessage(csharpBytes)
+
 	newSchema := pschema.PackageSpec{
 		Name:        newPackageName,
 		Version:     schema.Version,
@@ -248,14 +297,15 @@ func createSchema(p *azureNativeProvider, schema pschema.PackageSpec, targetModu
 		Repository:  schema.Repository,
 		Config:      schema.Config,
 		Provider:    schema.Provider,
-		Language:    schema.Language,
+		Language:    languageSettings,
 		Types:       map[string]pschema.ComplexTypeSpec{},
 		Resources:   map[string]pschema.ResourceSpec{},
 		Functions:   map[string]pschema.FunctionSpec{},
 	}
 
+	// Update makeToken to preserve version in module path for hierarchical namespaces
 	makeToken := func(name string) string {
-		return fmt.Sprintf("%s:%s:%s", newPackageName, targetModule, name)
+		return fmt.Sprintf("%s:%s/%s:%s", newPackageName, targetModule, targetApiVersion, name)
 	}
 
 	typeNames, err := filterTokens(schema.Types, targetModule, targetApiVersion)
