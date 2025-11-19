@@ -3,11 +3,11 @@ module goaks
 go 1.23
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.0.0
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0
-	github.com/pulumi/pulumi-azuread/sdk/v5 v5.53.2
-	github.com/pulumi/pulumi-random/sdk/v4 v4.16.3
-	github.com/pulumi/pulumi-tls/sdk/v4 v4.11.1
+	github.com/pulumi/pulumi-azure-native-sdk/containerservice/v3 v3.10.1
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
+	github.com/pulumi/pulumi-azuread/sdk/v6 v6.7.0
+	github.com/pulumi/pulumi-random/sdk/v4 v4.18.4
+	github.com/pulumi/pulumi-tls/sdk/v5 v5.2.3
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
