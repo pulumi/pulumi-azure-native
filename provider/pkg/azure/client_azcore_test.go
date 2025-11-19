@@ -790,6 +790,9 @@ func TestShouldRetryConflict(t *testing.T) {
 	t.Run("AnotherOperationInProgress", func(t *testing.T) {
 		assert.True(t, shouldRetry(409, `{"error": {"code": "AnotherOperationInProgress"}}`))
 	})
+	t.Run("ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity", func(t *testing.T) {
+		assert.True(t, shouldRetry(409, `{"error": {"code": "ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity"}}`))
+	})
 }
 
 type errorReadCloser struct{}

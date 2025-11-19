@@ -123,6 +123,11 @@ func shouldRetryConflict(resp *http.Response) bool {
 			if responseErr.ErrorCode == "AnotherOperationInProgress" {
 				return true
 			}
+			// Azure doesn't allow concurrent creation of FederatedIdentityCredential for a given managed identity
+			// https://github.com/pulumi/pulumi-azure-native/issues/4343
+			if responseErr.ErrorCode == "ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity" {
+				return true
+			}
 		}
 	}
 	return false
