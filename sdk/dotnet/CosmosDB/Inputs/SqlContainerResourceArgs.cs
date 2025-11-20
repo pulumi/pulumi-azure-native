@@ -58,6 +58,12 @@ namespace Pulumi.AzureNative.CosmosDB.Inputs
         public Input<int>? DefaultTtl { get; set; }
 
         /// <summary>
+        /// The FullText policy for the container.
+        /// </summary>
+        [Input("fullTextPolicy")]
+        public Input<Inputs.FullTextPolicyArgs>? FullTextPolicy { get; set; }
+
+        /// <summary>
         /// Name of the Cosmos DB SQL container
         /// </summary>
         [Input("id", required: true)]
