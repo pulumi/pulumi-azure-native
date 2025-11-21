@@ -31,6 +31,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -176,53 +177,57 @@ func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resource
 }
 
 // lookupResourceWithAPIVersion attempts to look up resource metadata for a specific API version.
-// It constructs a resource type token with the given API version and looks it up in the resource map.
-// Returns an error if the resource type cannot be found.
+// It finds a resource with the same ARM path as the current resource but with the requested API version.
+// This works because the ARM path is stable across API versions for the same resource type.
 func (k *azureNativeProvider) lookupResourceWithAPIVersion(urn resource.URN, apiVersion string) (*resources.AzureAPIResource, error) {
-	// The URN type format is: azure-native:module/version:ResourceType
-	// We need to replace the version part with the desired API version.
-	currentType := string(urn.Type())
+	// Get current resource to extract its ARM path
+	currentRes, err := k.lookupResourceFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
 
-	// Split the type into parts: azure-native, module/version, ResourceType
+	// Since we can't efficiently iterate the PartialMap, we'll try a different approach:
+	// Convert the API version format and construct a candidate type token, then try to look it up.
+	// If that doesn't work, the resource might not exist for that API version.
+
+	currentType := string(urn.Type())
 	parts := strings.SplitN(currentType, ":", 3)
 	if len(parts) != 3 {
 		return nil, errors.Errorf("Invalid resource type format: %s", currentType)
 	}
 
-	// Split the middle part into module and version
+	// Extract module
 	moduleParts := strings.SplitN(parts[1], "/", 2)
 	if len(moduleParts) != 2 {
 		return nil, errors.Errorf("Invalid module/version format in type: %s", currentType)
 	}
-
 	module := moduleParts[0]
+	resourceName := parts[2]
 
-	// Construct the new resource type with the old API version
-	// Convert API version from ISO format (2024-01-02-preview) to version format (v20240102preview)
-	versionPart := apiVersionToVersionPart(apiVersion)
-	oldResourceType := fmt.Sprintf("%s:%s/%s:%s", parts[0], module, versionPart, parts[2])
+	// Convert API version from ISO format to SDK version format
+	// e.g., "2024-01-02-preview" -> "v20240102preview"
+	// Use the existing, well-tested conversion function
+	sdkVersion := openapi.ApiToSdkVersion(openapi.ApiVersion(apiVersion))
 
-	// Look up the resource with the old API version
-	res, ok, err := k.LookupResource(oldResourceType)
+	// Construct candidate type token
+	candidateType := fmt.Sprintf("%s:%s/%s:%s", parts[0], module, sdkVersion, resourceName)
+
+	// Look up the resource with this type token
+	res, ok, err := k.LookupResource(candidateType)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", oldResourceType)
+		return nil, errors.Errorf("Decoding resource spec %s", candidateType)
 	}
 	if !ok {
-		return nil, errors.Errorf("Resource type %s not found (API version %s)", oldResourceType, apiVersion)
+		return nil, errors.Errorf("Resource type %s not found (API version %s)", candidateType, apiVersion)
 	}
-	return &res, nil
-}
 
-// apiVersionToVersionPart converts an API version string (e.g., "2024-01-02-preview")
-// to a version part for the resource type (e.g., "v20240102preview").
-func apiVersionToVersionPart(apiVersion string) string {
-	// Remove hyphens from the date part
-	versionPart := strings.ReplaceAll(apiVersion, "-", "")
-	// Add 'v' prefix if not present
-	if !strings.HasPrefix(versionPart, "v") {
-		versionPart = "v" + versionPart
+	// Verify this resource has the same path and correct API version
+	if res.Path == currentRes.Path && res.APIVersion == apiVersion {
+		return &res, nil
 	}
-	return versionPart
+
+	return nil, errors.Errorf("Resource with path %s and API version %s not found in metadata",
+		currentRes.Path, apiVersion)
 }
 
 // newCrudClient implements crud.ResourceCrudClientFactory
