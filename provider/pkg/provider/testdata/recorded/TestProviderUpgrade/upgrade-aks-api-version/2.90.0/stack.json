@@ -1,0 +1,363 @@
+{
+  "version": 3,
+  "deployment": {
+    "manifest": {
+      "time": "2025-11-21T09:54:44.508077-08:00",
+      "magic": "c05f62896055775fe69728249e428229a114b6e34ccfe5223a121a721148b89b",
+      "version": "v3.207.0"
+    },
+    "secrets_providers": {
+      "type": "passphrase",
+      "state": {
+        "salt": "v1:+RQnA5wMG7I=:v1:K9qUgJp+ts3gyRLH:NL89NxwTIzfdG1WSTDdRft8LBceRpA=="
+      }
+    },
+    "resources": [
+      {
+        "urn": "urn:pulumi:test::upgrade-aks-api-version::pulumi:pulumi:Stack::upgrade-aks-api-version-test",
+        "custom": false,
+        "type": "pulumi:pulumi:Stack",
+        "outputs": {
+          "clusterId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rga912bcdf/providers/Microsoft.ContainerService/managedClusters/cluster9a479123",
+          "clusterName": "cluster9a479123",
+          "resourceGroupName": "rga912bcdf"
+        },
+        "created": "2025-11-21T17:51:19.14528Z",
+        "modified": "2025-11-21T17:51:19.14528Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#317",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#317"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.206.0/proto/go/language_grpc.pb.go#557"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1405"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1815"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1035"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.24.9/x64/src/runtime/asm_arm64.s#1223"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-aks-api-version::pulumi:providers:azure-native::default",
+        "custom": true,
+        "id": "588e60bb-8096-4dca-a2a2-7150234b2aa5",
+        "type": "pulumi:providers:azure-native",
+        "inputs": {
+          "location": "westus2"
+        },
+        "outputs": {
+          "location": "westus2"
+        },
+        "created": "2025-11-21T17:51:20.743489Z",
+        "modified": "2025-11-21T17:51:20.743489Z"
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-aks-api-version::azure-native:resources:ResourceGroup::rg",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rga912bcdf",
+        "type": "azure-native:resources:ResourceGroup",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "location": "eastus",
+          "resourceGroupName": "rga912bcdf"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "{\"__createBeforeDelete\":true,\"location\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\"}"
+          },
+          "azureApiVersion": "2022-09-01",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/rga912bcdf",
+          "location": "eastus",
+          "name": "rga912bcdf",
+          "properties": {
+            "provisioningState": "Succeeded"
+          },
+          "type": "Microsoft.Resources/resourceGroups"
+        },
+        "parent": "urn:pulumi:test::upgrade-aks-api-version::pulumi:pulumi:Stack::upgrade-aks-api-version-test",
+        "provider": "urn:pulumi:test::upgrade-aks-api-version::pulumi:providers:azure-native::default::588e60bb-8096-4dca-a2a2-7150234b2aa5",
+        "propertyDependencies": {
+          "location": []
+        },
+        "created": "2025-11-21T17:51:25.294096Z",
+        "modified": "2025-11-21T17:51:25.294096Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1391",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1391"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#957"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1171"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1036"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#499"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#319"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.206.0/go/pulumi/run.go#141"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#317"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.206.0/proto/go/language_grpc.pb.go#557"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1405"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1815"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1035"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.24.9/x64/src/runtime/asm_arm64.s#1223"
+          }
+        ]
+      },
+      {
+        "urn": "urn:pulumi:test::upgrade-aks-api-version::azure-native:containerservice/v20240102preview:ManagedCluster::cluster",
+        "custom": true,
+        "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rga912bcdf/providers/Microsoft.ContainerService/managedClusters/cluster9a479123",
+        "type": "azure-native:containerservice/v20240102preview:ManagedCluster",
+        "inputs": {
+          "__createBeforeDelete": true,
+          "agentPoolProfiles": [
+            {
+              "count": 1,
+              "mode": "System",
+              "name": "agentpool",
+              "vmSize": "Standard_DS2_v2"
+            }
+          ],
+          "dnsPrefix": "test-aks-4400",
+          "identity": {
+            "type": "SystemAssigned"
+          },
+          "location": "eastus",
+          "resourceGroupName": "rga912bcdf",
+          "resourceName": "cluster9a479123"
+        },
+        "outputs": {
+          "__inputs": {
+            "4dabf18193072939515e22adb298388d": "1b47061264138c4ac30d75fd1eb44270",
+            "plaintext": "{\"__createBeforeDelete\":true,\"agentPoolProfiles\":[{\"count\":1,\"mode\":\"REDACTED BY PROVIDERTEST\",\"name\":\"REDACTED BY PROVIDERTEST\",\"vmSize\":\"REDACTED BY PROVIDERTEST\"}],\"dnsPrefix\":\"REDACTED BY PROVIDERTEST\",\"identity\":{\"type\":\"REDACTED BY PROVIDERTEST\"},\"location\":\"REDACTED BY PROVIDERTEST\",\"resourceGroupName\":\"REDACTED BY PROVIDERTEST\",\"resourceName\":\"REDACTED BY PROVIDERTEST\"}"
+          },
+          "agentPoolProfiles": [
+            {
+              "count": 1,
+              "currentOrchestratorVersion": "1.32.9",
+              "enableFIPS": false,
+              "enableNodePublicIP": false,
+              "kubeletDiskType": "OS",
+              "maxPods": 250,
+              "mode": "System",
+              "name": "agentpool",
+              "nodeImageVersion": "AKSUbuntu-2204gen2containerd-202511.07.0",
+              "orchestratorVersion": "1.32",
+              "osDiskSizeGB": 128,
+              "osDiskType": "Managed",
+              "osSKU": "Ubuntu",
+              "osType": "Linux",
+              "powerState": {
+                "code": "Running"
+              },
+              "provisioningState": "Succeeded",
+              "scaleDownMode": "Delete",
+              "securityProfile": {
+                "enableSecureBoot": false,
+                "enableVTPM": false,
+                "sshAccess": "LocalUser"
+              },
+              "type": "VirtualMachineScaleSets",
+              "upgradeSettings": {
+                "maxSurge": "10%"
+              },
+              "vmSize": "Standard_DS2_v2"
+            }
+          ],
+          "autoUpgradeProfile": {
+            "nodeOSUpgradeChannel": "NodeImage"
+          },
+          "azureApiVersion": "2024-01-02-preview",
+          "azurePortalFQDN": "test-aks-4400-m5rz0g46.portal.hcp.eastus.azmk8s.io",
+          "bootstrapProfile": {
+            "artifactSource": "Direct"
+          },
+          "currentKubernetesVersion": "1.32.9",
+          "dnsPrefix": "test-aks-4400",
+          "enableRBAC": true,
+          "fqdn": "test-aks-4400-m5rz0g46.hcp.eastus.azmk8s.io",
+          "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/rga912bcdf/providers/Microsoft.ContainerService/managedClusters/cluster9a479123",
+          "identity": {
+            "principalId": "747656b7-3b21-464b-a383-d0479cafeb03",
+            "tenantId": "706143bc-e1d4-4593-aee2-c9dc60ab9be7",
+            "type": "SystemAssigned"
+          },
+          "identityProfile": {
+            "kubeletidentity": {
+              "clientId": "2480209c-d5dc-4173-9ad3-201bdc88581c",
+              "objectId": "64d323ce-aef8-4d31-bf4c-7260af004d61",
+              "resourceId": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourcegroups/MC_rga912bcdf_cluster9a479123_eastus/providers/Microsoft.ManagedIdentity/userAssignedIdentities/cluster9a479123-agentpool"
+            }
+          },
+          "kubernetesVersion": "1.32",
+          "location": "eastus",
+          "maxAgentPools": 100,
+          "metricsProfile": {
+            "costAnalysis": {
+              "enabled": false
+            }
+          },
+          "name": "cluster9a479123",
+          "networkProfile": {
+            "dnsServiceIP": "10.0.0.10",
+            "ipFamilies": [
+              "IPv4"
+            ],
+            "loadBalancerProfile": {
+              "backendPoolType": "nodeIPConfiguration",
+              "effectiveOutboundIPs": [
+                {
+                  "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/resourceGroups/MC_rga912bcdf_cluster9a479123_eastus/providers/Microsoft.Network/publicIPAddresses/085f1ba8-7b7e-4438-a68f-59f5e6e081fc"
+                }
+              ],
+              "managedOutboundIPs": {
+                "count": 1
+              }
+            },
+            "loadBalancerSku": "standard",
+            "networkDataplane": "azure",
+            "networkPlugin": "azure",
+            "networkPluginMode": "overlay",
+            "networkPolicy": "none",
+            "outboundType": "loadBalancer",
+            "podCidr": "10.244.0.0/16",
+            "podCidrs": [
+              "10.244.0.0/16"
+            ],
+            "serviceCidr": "10.0.0.0/16",
+            "serviceCidrs": [
+              "10.0.0.0/16"
+            ]
+          },
+          "nodeProvisioningProfile": {
+            "mode": "Manual"
+          },
+          "nodeResourceGroup": "MC_rga912bcdf_cluster9a479123_eastus",
+          "oidcIssuerProfile": {
+            "enabled": false
+          },
+          "powerState": {
+            "code": "Running"
+          },
+          "provisioningState": "Succeeded",
+          "resourceUID": "6920a6a3bbb7e2000128a92f",
+          "securityProfile": {},
+          "servicePrincipalProfile": {
+            "clientId": "msi"
+          },
+          "sku": {
+            "name": "Base",
+            "tier": "Free"
+          },
+          "storageProfile": {
+            "diskCSIDriver": {
+              "enabled": true,
+              "version": "v1"
+            },
+            "fileCSIDriver": {
+              "enabled": true
+            },
+            "snapshotController": {
+              "enabled": true
+            }
+          },
+          "supportPlan": "KubernetesOfficial",
+          "type": "Microsoft.ContainerService/ManagedClusters",
+          "workloadAutoScalerProfile": {}
+        },
+        "parent": "urn:pulumi:test::upgrade-aks-api-version::pulumi:pulumi:Stack::upgrade-aks-api-version-test",
+        "dependencies": [
+          "urn:pulumi:test::upgrade-aks-api-version::azure-native:resources:ResourceGroup::rg"
+        ],
+        "provider": "urn:pulumi:test::upgrade-aks-api-version::pulumi:providers:azure-native::default::588e60bb-8096-4dca-a2a2-7150234b2aa5",
+        "propertyDependencies": {
+          "agentPoolProfiles": [],
+          "dnsPrefix": [],
+          "identity": [],
+          "location": [
+            "urn:pulumi:test::upgrade-aks-api-version::azure-native:resources:ResourceGroup::rg"
+          ],
+          "resourceGroupName": [
+            "urn:pulumi:test::upgrade-aks-api-version::azure-native:resources:ResourceGroup::rg"
+          ]
+        },
+        "created": "2025-11-21T17:54:44.438188Z",
+        "modified": "2025-11-21T17:54:44.438188Z",
+        "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1391",
+        "stackTrace": [
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1391"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#957"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1171"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#1036"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/pulumiyaml/run.go#499"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#319"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.206.0/go/pulumi/run.go#141"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/work/pulumi-yaml/pulumi-yaml/pkg/server/server.go#317"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/github.com/pulumi/pulumi/sdk/v3@v3.206.0/proto/go/language_grpc.pb.go#557"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1405"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1815"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../home/runner/go/pkg/mod/google.golang.org/grpc@v1.72.1/server.go#1035"
+          },
+          {
+            "sourcePosition": "project:///../../../../../../../../../opt/hostedtoolcache/go/1.24.9/x64/src/runtime/asm_arm64.s#1223"
+          }
+        ]
+      }
+    ],
+    "metadata": {}
+  }
+}
