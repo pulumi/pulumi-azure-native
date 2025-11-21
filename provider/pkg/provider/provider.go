@@ -965,7 +965,7 @@ func (k *azureNativeProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rp
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -1017,6 +1017,22 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
 		return nil, err
+	}
+
+	// Check if API version has changed between state and current provider metadata.
+	// If so, warn the user to run `pulumi refresh` for proper schema alignment.
+	var oldApiVersion string
+	if azureApiVersion, ok := oldState["azureApiVersion"]; ok && azureApiVersion.IsString() {
+		oldApiVersion = azureApiVersion.StringValue()
+		if oldApiVersion != res.APIVersion {
+			logging.V(5).Infof("%s: API version in state (%s) differs from provider metadata (%s)",
+				label, oldApiVersion, res.APIVersion)
+
+			k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf(
+				"Resource API version has changed from %s to %s. "+
+					"Run 'pulumi refresh' to update the resource state with the new API version schema.",
+				oldApiVersion, res.APIVersion))
+		}
 	}
 
 	detailedDiff := diff(k.lookupType, *res, oldInputs, newResInputs)
