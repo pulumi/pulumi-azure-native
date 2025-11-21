@@ -180,54 +180,44 @@ func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resource
 // It finds a resource with the same ARM path as the current resource but with the requested API version.
 // This works because the ARM path is stable across API versions for the same resource type.
 func (k *azureNativeProvider) lookupResourceWithAPIVersion(urn resource.URN, apiVersion string) (*resources.AzureAPIResource, error) {
-	// Get current resource to extract its ARM path
+	// Get current resource to extract its ARM path for verification
 	currentRes, err := k.lookupResourceFromURN(urn)
 	if err != nil {
 		return nil, err
 	}
 
-	// Since we can't efficiently iterate the PartialMap, we'll try a different approach:
-	// Convert the API version format and construct a candidate type token, then try to look it up.
-	// If that doesn't work, the resource might not exist for that API version.
-
+	// Parse the current type token to extract module and resource name
 	currentType := string(urn.Type())
-	parts := strings.SplitN(currentType, ":", 3)
-	if len(parts) != 3 {
-		return nil, errors.Errorf("Invalid resource type format: %s", currentType)
+	module, _, resourceName, err := resources.ParseToken(currentType)
+	if err != nil {
+		return nil, errors.Wrapf(err, "parsing resource type %s", currentType)
 	}
 
-	// Extract module
-	moduleParts := strings.SplitN(parts[1], "/", 2)
-	if len(moduleParts) != 2 {
-		return nil, errors.Errorf("Invalid module/version format in type: %s", currentType)
-	}
-	module := moduleParts[0]
-	resourceName := parts[2]
-
-	// Convert API version from ISO format to SDK version format
-	// e.g., "2024-01-02-preview" -> "v20240102preview"
-	// Use the existing, well-tested conversion function
+	// Convert API version from ISO format (2024-01-02) to SDK version format (v20240102)
 	sdkVersion := openapi.ApiToSdkVersion(openapi.ApiVersion(apiVersion))
 
-	// Construct candidate type token
-	candidateType := fmt.Sprintf("%s:%s/%s:%s", parts[0], module, sdkVersion, resourceName)
+	// Construct candidate type token with the target API version
+	candidateType := resources.BuildToken(module, string(sdkVersion), resourceName)
 
 	// Look up the resource with this type token
 	res, ok, err := k.LookupResource(candidateType)
 	if err != nil {
-		return nil, errors.Errorf("Decoding resource spec %s", candidateType)
+		return nil, errors.Wrapf(err, "looking up resource type %s", candidateType)
 	}
 	if !ok {
-		return nil, errors.Errorf("Resource type %s not found (API version %s)", candidateType, apiVersion)
+		return nil, errors.Errorf("Resource type %s not found (API version %s not available in this provider version)",
+			candidateType, apiVersion)
 	}
 
 	// Verify this resource has the same path and correct API version
-	if res.Path == currentRes.Path && res.APIVersion == apiVersion {
-		return &res, nil
+	if res.Path != currentRes.Path {
+		return nil, errors.Errorf("Resource path mismatch: expected %s, found %s", currentRes.Path, res.Path)
+	}
+	if res.APIVersion != apiVersion {
+		return nil, errors.Errorf("API version mismatch: expected %s, found %s", apiVersion, res.APIVersion)
 	}
 
-	return nil, errors.Errorf("Resource with path %s and API version %s not found in metadata",
-		currentRes.Path, apiVersion)
+	return &res, nil
 }
 
 // newCrudClient implements crud.ResourceCrudClientFactory
