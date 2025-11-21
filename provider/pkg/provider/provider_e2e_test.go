@@ -359,6 +359,12 @@ func TestUpgradeContainerServiceAgentPool_2_90_0(t *testing.T) {
 	upgradeTest(t, "upgrade-containerservice-agentpool", "2.90.0")
 }
 
+func TestUpgradeAksApiVersion_2_90_0(t *testing.T) {
+	upgradeTest(t, "upgrade-aks-api-version", "2.90.0",
+		// v2 uses versioned type (containerservice/v20240102preview), v3 uses unversioned with alias
+		optproviderupgrade.NewSourcePath(filepath.Join("test-programs", "upgrade-aks-api-version", "v3")))
+}
+
 func upgradeTest(t *testing.T, testProgramDir string, upgradeFromVersion string, opts ...optproviderupgrade.PreviewProviderUpgradeOpt) {
 	t.Helper()
 	if testing.Short() {
