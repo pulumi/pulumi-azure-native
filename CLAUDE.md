@@ -208,6 +208,103 @@ This metadata is used by the provider at runtime for constructing API calls.
 - Use `TEST_NAME` to run specific tests
 - Full test suite can take 2+ hours
 
+### Manual Testing for API Version Upgrades
+
+When testing scenarios involving API version changes (e.g., state migration, refresh behavior), it's important to understand how `azureApiVersion` works:
+
+**How `azureApiVersion` is Determined:**
+
+1. **NOT from SDK**: The `azureApiVersion` field is computed by the provider, not supplied as an input from the SDK
+2. **From Provider Metadata**: The API version comes from `metadata-compact.json` baked into the provider binary
+3. **Lookup Process**:
+   - SDK sends URN with type token (e.g., `azure-native:containerservice/v20241002preview:ManagedCluster`)
+   - Provider looks up this token in its embedded metadata
+   - Provider uses `res.APIVersion` from metadata for all operations
+   - Provider sets `azureApiVersion` output after every CRUD operation
+
+**API Version Format Conversion:**
+
+The provider uses two different formats for API versions:
+
+1. **SDK Version Format** (used in type tokens): `v20241002preview`
+   - Example: `azure-native:containerservice/v20241002preview:ManagedCluster`
+   - Format: `v` + `YYYYMMDD` + optional suffix (preview, beta, privatepreview)
+
+2. **API Version Format** (used in Azure ARM API calls and state): `2024-10-02-preview`
+   - Stored in `azureApiVersion` output property
+   - Format: `YYYY-MM-DD` + optional `-suffix`
+
+**Conversion Functions** (in `provider/pkg/openapi/versioner.go`):
+- `openapi.ApiToSdkVersion()` - Converts `2024-10-02-preview` → `v20241002preview`
+- `openapi.SdkToApiVersion()` - Converts `v20241002preview` → `2024-10-02-preview`
+
+When working with API versions in provider code, always use these canonical conversion functions rather than reimplementing the logic.
+
+**Testing Approaches for API Version Changes:**
+
+**Option 1: Modify Version Configuration (Most Realistic)**
+```bash
+# 1. Modify default versions for a resource
+vi versions/v3-config.yaml  # Change StorageAccount default version
+
+# 2. Regenerate schema and metadata
+make schema
+
+# 3. Rebuild provider with new metadata
+make provider
+
+# 4. Deploy resources, then repeat steps 1-3 with different version
+# 5. Run pulumi refresh to test migration behavior
+```
+
+**Option 2: State Manipulation (Quick & Effective)**
+```bash
+# 1. Deploy resources with current provider
+pulumi up
+
+# 2. Export and modify state to simulate old API version
+pulumi stack export > state.json
+jq '(.deployment.resources[] | select(.type == "azure-native:storage:StorageAccount")) |= (.outputs.azureApiVersion = "2023-01-01")' state.json > state-old.json
+
+# 3. Import modified state
+pulumi stack import --file state-old.json
+
+# 4. Run refresh (provider reads with new API, compares with old)
+pulumi refresh --yes
+
+# 5. Verify no spurious changes detected
+```
+
+**Option 3: Two Provider Binaries (Most Thorough)**
+```bash
+# 1. Checkout and build provider at earlier version
+git checkout v3.50.0
+make provider
+cp bin/pulumi-resource-azure-native ~/provider-old
+
+# 2. Deploy resources using old provider
+PATH="$HOME:$PATH" pulumi up
+
+# 3. Checkout and build provider at newer version
+git checkout v3.100.0
+make provider
+cp bin/pulumi-resource-azure-native ~/provider-new
+
+# 4. Run refresh with new provider
+PATH="$HOME:$PATH" pulumi refresh --yes
+
+# 5. Verify no spurious changes or replacements
+```
+
+**Why This Matters:**
+
+- The SDK version does NOT control API versions - the provider binary's metadata does
+- When users upgrade provider versions, default API versions can change
+- The provider must correctly handle state migration when `azureApiVersion` differs between old state and new metadata
+- Test scenarios should validate that refresh operations don't report spurious property changes when only the API version changed
+
+See issue #4400 for an example of a bug that required this type of testing to validate the fix.
+
 ## Submodule Management
 
 ```bash

@@ -1,0 +1,37 @@
+name: upgrade-aks-api-version
+runtime: yaml
+description: |
+  Upgrade test for issue #4400 - v2 program using explicit versioned API.
+
+  This program is used with v2.90.0 to record the initial deployment.
+  Uses containerservice/v20240102preview:ManagedCluster (versioned type).
+
+  During recording, v2.90.0 will:
+  - Create AKS cluster using API version 2024-01-02-preview
+  - Store azureApiVersion: "2024-01-02-preview" in state outputs
+  - Record GRPC interactions for replay
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: eastus
+
+  cluster:
+    type: azure-native:containerservice/v20240102preview:ManagedCluster
+    properties:
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      identity:
+        type: SystemAssigned
+      dnsPrefix: test-aks-4400
+      agentPoolProfiles:
+        - name: agentpool
+          count: 1
+          vmSize: Standard_DS2_v2
+          mode: System
+
+outputs:
+  clusterId: ${cluster.id}
+  clusterName: ${cluster.name}
+  resourceGroupName: ${rg.name}

@@ -1,0 +1,46 @@
+name: upgrade-aks-api-version
+runtime: yaml
+description: |
+  Upgrade test for issue #4400: v2.90.0 → v3 API version transition causing spurious replacements.
+
+  This test validates the v2 → v3 upgrade path:
+  1. Initial deployment with v2.90.0 using versioned API (v20240102preview)
+  2. Upgrade to v3 (master) using unversioned/default API
+  3. The upgrade should NOT cause spurious replacements during refresh
+
+  Note: No explicit alias needed - Pulumi automatically aliases compatible type changes.
+
+  The bug occurred when:
+  - v2 state has: azure-native:containerservice/v20240102preview:ManagedCluster
+  - v3 code uses: azure-native:containerservice:ManagedCluster (default/unversioned)
+  - Pulumi automatically recognizes these as the same resource
+  - Refresh incorrectly used NEW API version instead of OLD version from state
+  - Schema differences between API versions caused false positive diffs
+
+  The fix ensures that during refresh, the provider reads resources using the
+  OLD API version from state, not the NEW API version from provider metadata.
+
+resources:
+  rg:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: eastus
+
+  cluster:
+    type: azure-native:containerservice:ManagedCluster
+    properties:
+      location: ${rg.location}
+      resourceGroupName: ${rg.name}
+      identity:
+        type: SystemAssigned
+      dnsPrefix: test-aks-4400
+      agentPoolProfiles:
+        - name: agentpool
+          count: 1
+          vmSize: Standard_DS2_v2
+          mode: System
+
+outputs:
+  clusterId: ${cluster.id}
+  clusterName: ${cluster.name}
+  resourceGroupName: ${rg.name}
