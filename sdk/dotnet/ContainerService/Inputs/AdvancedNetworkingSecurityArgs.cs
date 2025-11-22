@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class AdvancedNetworkingSecurityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+        /// </summary>
+        [Input("advancedNetworkPolicies")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AdvancedNetworkPolicies>? AdvancedNetworkPolicies { get; set; }
+
+        /// <summary>
         /// This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
         /// </summary>
         [Input("enabled")]

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
-    /// See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+    /// A pod identity exception, which allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
     /// </summary>
     public sealed class ManagedClusterPodIdentityExceptionArgs : global::Pulumi.ResourceArgs
     {

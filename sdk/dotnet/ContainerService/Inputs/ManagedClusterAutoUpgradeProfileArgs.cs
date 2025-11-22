@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ManagedClusterAutoUpgradeProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Manner in which the OS on your nodes is updated. The default is NodeImage.
+        /// Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
         /// </summary>
         [Input("nodeOSUpgradeChannel")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.NodeOSUpgradeChannel>? NodeOSUpgradeChannel { get; set; }
 
         /// <summary>
-        /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+        /// The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         /// </summary>
         [Input("upgradeChannel")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.UpgradeChannel>? UpgradeChannel { get; set; }

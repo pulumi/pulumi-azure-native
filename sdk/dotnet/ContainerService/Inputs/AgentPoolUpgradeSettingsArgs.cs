@@ -16,22 +16,34 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class AgentPoolUpgradeSettingsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        /// The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         /// </summary>
         [Input("drainTimeoutInMinutes")]
         public Input<int>? DrainTimeoutInMinutes { get; set; }
 
         /// <summary>
-        /// This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        /// The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
         /// </summary>
         [Input("maxSurge")]
         public Input<string>? MaxSurge { get; set; }
 
         /// <summary>
-        /// The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        /// The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
+        /// </summary>
+        [Input("maxUnavailable")]
+        public Input<string>? MaxUnavailable { get; set; }
+
+        /// <summary>
+        /// The soak duration for a node. The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         /// </summary>
         [Input("nodeSoakDurationInMinutes")]
         public Input<int>? NodeSoakDurationInMinutes { get; set; }
+
+        /// <summary>
+        /// Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
+        /// </summary>
+        [Input("undrainableNodeBehavior")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.UndrainableNodeBehavior>? UndrainableNodeBehavior { get; set; }
 
         public AgentPoolUpgradeSettingsArgs()
         {
