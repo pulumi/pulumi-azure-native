@@ -790,6 +790,9 @@ func TestShouldRetryConflict(t *testing.T) {
 	t.Run("AnotherOperationInProgress", func(t *testing.T) {
 		assert.True(t, shouldRetry(409, `{"error": {"code": "AnotherOperationInProgress"}}`))
 	})
+	t.Run("ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity", func(t *testing.T) {
+		assert.True(t, shouldRetry(409, `{"error": {"code": "ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity"}}`))
+	})
 }
 
 type errorReadCloser struct{}
@@ -854,11 +857,21 @@ func TestNewResponseError(t *testing.T) {
 		assert.Equal(t, `Status=409 Message="{"foo": "bar"}"`, err.Error())
 	})
 
-	t.Run("404 is recognized by IsNotFound", func(t *testing.T) {
+	t.Run("404 with valid error code is recognized by IsNotFound", func(t *testing.T) {
+		resp := &http.Response{
+			StatusCode: 404,
+			Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound", "message": "not found"}}`)),
+			Header:     http.Header{"X-Ms-Error-Code": []string{"ResourceNotFound"}},
+		}
+		assert.True(t, IsNotFound(newResponseError(resp)))
+	})
+
+	t.Run("404 without error code is NOT recognized by IsNotFound", func(t *testing.T) {
+		// This simulates a proxy/WAF 404 response without Azure error codes
 		resp := &http.Response{
 			StatusCode: 404,
 			Body:       io.NopCloser(strings.NewReader(`not found`)),
 		}
-		assert.True(t, IsNotFound(newResponseError(resp)))
+		assert.False(t, IsNotFound(newResponseError(resp)))
 	})
 }

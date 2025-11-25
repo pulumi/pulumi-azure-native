@@ -48,21 +48,64 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 	return
 }
 
-// IsNotFound returns true if the error is a HTTP 404.
+// IsNotFound returns true if the error is a HTTP 404 with a valid Azure "not found" error code.
+// This helps distinguish legitimate Azure "not found" responses from proxy/WAF 404 responses.
 func IsNotFound(err error) bool {
+	validNotFoundCodes := map[string]bool{
+		"NotFound":           true,
+		"ResourceNotFound":   true,
+		"ResourceGroupNotFound": true,
+	}
+
 	if requestError, ok := err.(azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
+		if requestError.StatusCode == http.StatusNotFound {
+			// Check if ServiceError contains a valid Azure error code
+			if requestError.ServiceError != nil && validNotFoundCodes[requestError.ServiceError.Code] {
+				return true
+			}
+			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ServiceError=%v). "+
+				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
+				requestError.ServiceError)
+			return false
+		}
 	}
 	if requestError, ok := err.(*azure.RequestError); ok {
-		return requestError.StatusCode == http.StatusNotFound
+		if requestError.StatusCode == http.StatusNotFound {
+			// Check if ServiceError contains a valid Azure error code
+			if requestError.ServiceError != nil && validNotFoundCodes[requestError.ServiceError.Code] {
+				return true
+			}
+			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ServiceError=%v). "+
+				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
+				requestError.ServiceError)
+			return false
+		}
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {
-		return responseError.StatusCode == http.StatusNotFound
+		if responseError.StatusCode == http.StatusNotFound {
+			// Check if ErrorCode contains a valid Azure error code
+			if validNotFoundCodes[responseError.ErrorCode] {
+				return true
+			}
+			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ErrorCode=%q). "+
+				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
+				responseError.ErrorCode)
+			return false
+		}
 	}
 
 	if responseError, ok := err.(*PulumiAzcoreResponseError); ok {
-		return responseError.StatusCode == http.StatusNotFound
+		if responseError.StatusCode == http.StatusNotFound {
+			// Check if ErrorCode contains a valid Azure error code
+			if validNotFoundCodes[responseError.ErrorCode] {
+				return true
+			}
+			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ErrorCode=%q). "+
+				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
+				responseError.ErrorCode)
+			return false
+		}
 	}
 
 	return false
