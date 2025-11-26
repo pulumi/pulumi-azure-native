@@ -15,7 +15,7 @@ on:
       short_test:
         type: boolean
         description: Skip longer running tests
-        default: false
+        default: true
 
 jobs:
   version:
@@ -33,26 +33,11 @@ jobs:
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
-      short_test: ${{ inputs.short_test || false }}
+      # v2 maintenance branch: default to short_test for faster CI
+      short_test: ${{ inputs.short_test == '' && true || inputs.short_test }}
       # We cannot run OIDC tests in the release workflow because it's not a PR and we don't have a
       # fixed tag or branch to serve as entity type, and we don't have Github environments
       # configured. See
       # https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#github-actions
       oidc_arm_client_id: ""
       retention_days: 30
-
-  publish:
-    permissions:
-      id-token: write # For ESC secrets.
-    uses: ./.github/workflows/publish.yml
-    secrets: inherit
-    needs:
-      - version
-      - build_test
-    with:
-      ref: ${{ github.ref }}
-      version: ${{ needs.version.outputs.version }}
-      prerelease: true
-      # Skip creating the GH release draft because we never publish these prereleases.
-      # Push a prerelease tag instead if we want something that's publically visible.
-      publishGhRelease: false
