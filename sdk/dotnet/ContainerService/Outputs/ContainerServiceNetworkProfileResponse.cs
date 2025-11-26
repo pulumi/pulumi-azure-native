@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? DnsServiceIP;
         /// <summary>
-        /// IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        /// The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         /// </summary>
         public readonly ImmutableArray<string> IpFamilies;
         /// <summary>
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly Outputs.ManagedClusterLoadBalancerProfileResponse? LoadBalancerProfile;
         /// <summary>
-        /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+        /// The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         /// </summary>
         public readonly string? LoadBalancerSku;
         /// <summary>
@@ -45,7 +45,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkDataplane;
         /// <summary>
-        /// This cannot be specified if networkPlugin is anything other than 'azure'.
+        /// The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
         /// </summary>
         public readonly string? NetworkMode;
         /// <summary>
@@ -61,7 +61,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? NetworkPolicy;
         /// <summary>
-        /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+        /// The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         /// </summary>
         public readonly string? OutboundType;
         /// <summary>
@@ -69,7 +69,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? PodCidr;
         /// <summary>
-        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        /// The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         /// </summary>
         public readonly ImmutableArray<string> PodCidrs;
         /// <summary>
@@ -77,9 +77,13 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? ServiceCidr;
         /// <summary>
-        /// One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        /// The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         /// </summary>
         public readonly ImmutableArray<string> ServiceCidrs;
+        /// <summary>
+        /// The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
+        /// </summary>
+        public readonly Outputs.ManagedClusterStaticEgressGatewayProfileResponse? StaticEgressGatewayProfile;
 
         [OutputConstructor]
         private ContainerServiceNetworkProfileResponse(
@@ -113,7 +117,9 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             string? serviceCidr,
 
-            ImmutableArray<string> serviceCidrs)
+            ImmutableArray<string> serviceCidrs,
+
+            Outputs.ManagedClusterStaticEgressGatewayProfileResponse? staticEgressGatewayProfile)
         {
             AdvancedNetworking = advancedNetworking;
             DnsServiceIP = dnsServiceIP;
@@ -131,6 +137,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
             PodCidrs = podCidrs;
             ServiceCidr = serviceCidr;
             ServiceCidrs = serviceCidrs;
+            StaticEgressGatewayProfile = staticEgressGatewayProfile;
         }
     }
 }

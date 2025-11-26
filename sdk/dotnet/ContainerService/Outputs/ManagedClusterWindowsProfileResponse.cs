@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string AdminUsername;
         /// <summary>
-        /// For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
+        /// Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         /// </summary>
         public readonly bool? EnableCSIProxy;
         /// <summary>

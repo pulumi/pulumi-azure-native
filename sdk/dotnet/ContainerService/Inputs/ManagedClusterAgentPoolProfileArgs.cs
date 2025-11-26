@@ -52,19 +52,19 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? EnableAutoScaling { get; set; }
 
         /// <summary>
-        /// This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        /// Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         /// </summary>
         [Input("enableEncryptionAtHost")]
         public Input<bool>? EnableEncryptionAtHost { get; set; }
 
         /// <summary>
-        /// See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        /// Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         /// </summary>
         [Input("enableFIPS")]
         public Input<bool>? EnableFIPS { get; set; }
 
         /// <summary>
-        /// Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        /// Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         /// </summary>
         [Input("enableNodePublicIP")]
         public Input<bool>? EnableNodePublicIP { get; set; }
@@ -76,13 +76,25 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? EnableUltraSSD { get; set; }
 
         /// <summary>
+        /// Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
+        /// </summary>
+        [Input("gatewayProfile")]
+        public Input<Inputs.AgentPoolGatewayProfileArgs>? GatewayProfile { get; set; }
+
+        /// <summary>
         /// GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
         /// </summary>
         [Input("gpuInstanceProfile")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.GPUInstanceProfile>? GpuInstanceProfile { get; set; }
 
         /// <summary>
-        /// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        /// GPU settings for the Agent Pool.
+        /// </summary>
+        [Input("gpuProfile")]
+        public Input<Inputs.GPUProfileArgs>? GpuProfile { get; set; }
+
+        /// <summary>
+        /// The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
         /// </summary>
         [Input("hostGroupID")]
         public Input<string>? HostGroupID { get; set; }
@@ -118,7 +130,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? MaxPods { get; set; }
 
         /// <summary>
-        /// A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        /// Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         /// </summary>
         [Input("messageOfTheDay")]
         public Input<string>? MessageOfTheDay { get; set; }
@@ -130,13 +142,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? MinCount { get; set; }
 
         /// <summary>
-        /// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        /// The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolMode>? Mode { get; set; }
 
         /// <summary>
-        /// Windows agent pool names must be 6 characters or less.
+        /// Unique name of the agent pool profile in the context of the subscription and resource group. Windows agent pool names must be 6 characters or less.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
@@ -160,7 +172,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         }
 
         /// <summary>
-        /// This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        /// The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         /// </summary>
         [Input("nodePublicIPPrefixID")]
         public Input<string>? NodePublicIPPrefixID { get; set; }
@@ -178,7 +190,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         }
 
         /// <summary>
-        /// Both patch version &lt;major.minor.patch&gt; (e.g. 1.20.13) and &lt;major.minor&gt; (e.g. 1.20) are supported. When &lt;major.minor&gt; is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same &lt;major.minor&gt; once it has been created (e.g. 1.14.x -&gt; 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        /// The version of Kubernetes specified by the user. Both patch version &lt;major.minor.patch&gt; (e.g. 1.20.13) and &lt;major.minor&gt; (e.g. 1.20) are supported. When &lt;major.minor&gt; is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same &lt;major.minor&gt; once it has been created (e.g. 1.14.x -&gt; 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         /// </summary>
         [Input("orchestratorVersion")]
         public Input<string>? OrchestratorVersion { get; set; }
@@ -190,7 +202,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<int>? OsDiskSizeGB { get; set; }
 
         /// <summary>
-        /// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        /// The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         /// </summary>
         [Input("osDiskType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OSDiskType>? OsDiskType { get; set; }
@@ -208,13 +220,19 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.OSType>? OsType { get; set; }
 
         /// <summary>
-        /// If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        /// Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
+        /// </summary>
+        [Input("podIPAllocationMode")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.PodIPAllocationMode>? PodIPAllocationMode { get; set; }
+
+        /// <summary>
+        /// The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         /// </summary>
         [Input("podSubnetID")]
         public Input<string>? PodSubnetID { get; set; }
 
         /// <summary>
-        /// When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+        /// Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         /// </summary>
         [Input("powerState")]
         public Input<Inputs.PowerStateArgs>? PowerState { get; set; }
@@ -226,13 +244,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<string>? ProximityPlacementGroupID { get; set; }
 
         /// <summary>
-        /// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        /// The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         /// </summary>
         [Input("scaleDownMode")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleDownMode>? ScaleDownMode { get; set; }
 
         /// <summary>
-        /// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        /// The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         /// </summary>
         [Input("scaleSetEvictionPolicy")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ScaleSetEvictionPolicy>? ScaleSetEvictionPolicy { get; set; }
@@ -250,7 +268,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.AgentPoolSecurityProfileArgs>? SecurityProfile { get; set; }
 
         /// <summary>
-        /// Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        /// The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         /// </summary>
         [Input("spotMaxPrice")]
         public Input<double>? SpotMaxPrice { get; set; }
@@ -279,14 +297,32 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("upgradeSettings")]
         public Input<Inputs.AgentPoolUpgradeSettingsArgs>? UpgradeSettings { get; set; }
 
+        [Input("virtualMachineNodesStatus")]
+        private InputList<Inputs.VirtualMachineNodesArgs>? _virtualMachineNodesStatus;
+
         /// <summary>
-        /// VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        /// The status of nodes in a VirtualMachines agent pool.
+        /// </summary>
+        public InputList<Inputs.VirtualMachineNodesArgs> VirtualMachineNodesStatus
+        {
+            get => _virtualMachineNodesStatus ?? (_virtualMachineNodesStatus = new InputList<Inputs.VirtualMachineNodesArgs>());
+            set => _virtualMachineNodesStatus = value;
+        }
+
+        /// <summary>
+        /// Specifications on VirtualMachines agent pool.
+        /// </summary>
+        [Input("virtualMachinesProfile")]
+        public Input<Inputs.VirtualMachinesProfileArgs>? VirtualMachinesProfile { get; set; }
+
+        /// <summary>
+        /// The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }
 
         /// <summary>
-        /// If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        /// The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         /// </summary>
         [Input("vnetSubnetID")]
         public Input<string>? VnetSubnetID { get; set; }

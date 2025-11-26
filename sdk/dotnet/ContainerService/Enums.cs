@@ -49,7 +49,48 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+    /// Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+    /// </summary>
+    [EnumType]
+    public readonly struct AdvancedNetworkPolicies : IEquatable<AdvancedNetworkPolicies>
+    {
+        private readonly string _value;
+
+        private AdvancedNetworkPolicies(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Enable Layer7 network policies (FQDN, HTTP/S, Kafka). This option is a superset of the FQDN option.
+        /// </summary>
+        public static AdvancedNetworkPolicies L7 { get; } = new AdvancedNetworkPolicies("L7");
+        /// <summary>
+        /// Enable FQDN based network policies
+        /// </summary>
+        public static AdvancedNetworkPolicies FQDN { get; } = new AdvancedNetworkPolicies("FQDN");
+        /// <summary>
+        /// Disable Layer 7 network policies (FQDN, HTTP/S, Kafka)
+        /// </summary>
+        public static AdvancedNetworkPolicies None { get; } = new AdvancedNetworkPolicies("None");
+
+        public static bool operator ==(AdvancedNetworkPolicies left, AdvancedNetworkPolicies right) => left.Equals(right);
+        public static bool operator !=(AdvancedNetworkPolicies left, AdvancedNetworkPolicies right) => !left.Equals(right);
+
+        public static explicit operator string(AdvancedNetworkPolicies value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AdvancedNetworkPolicies other && Equals(other);
+        public bool Equals(AdvancedNetworkPolicies other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
     /// </summary>
     [EnumType]
     public readonly struct AgentPoolMode : IEquatable<AgentPoolMode>
@@ -69,6 +110,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// User agent pools are primarily for hosting your application pods.
         /// </summary>
         public static AgentPoolMode User { get; } = new AgentPoolMode("User");
+        /// <summary>
+        /// Gateway agent pools are dedicated to providing static egress IPs to pods. For more details, see https://aka.ms/aks/static-egress-gateway.
+        /// </summary>
+        public static AgentPoolMode Gateway { get; } = new AgentPoolMode("Gateway");
 
         public static bool operator ==(AgentPoolMode left, AgentPoolMode right) => left.Equals(right);
         public static bool operator !=(AgentPoolMode left, AgentPoolMode right) => !left.Equals(right);
@@ -78,6 +123,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AgentPoolMode other && Equals(other);
         public bool Equals(AgentPoolMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// SSH access method of an agent pool.
+    /// </summary>
+    [EnumType]
+    public readonly struct AgentPoolSSHAccess : IEquatable<AgentPoolSSHAccess>
+    {
+        private readonly string _value;
+
+        private AgentPoolSSHAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Can SSH onto the node as a local user using private key.
+        /// </summary>
+        public static AgentPoolSSHAccess LocalUser { get; } = new AgentPoolSSHAccess("LocalUser");
+        /// <summary>
+        /// SSH service will be turned off on the node.
+        /// </summary>
+        public static AgentPoolSSHAccess Disabled { get; } = new AgentPoolSSHAccess("Disabled");
+
+        public static bool operator ==(AgentPoolSSHAccess left, AgentPoolSSHAccess right) => left.Equals(right);
+        public static bool operator !=(AgentPoolSSHAccess left, AgentPoolSSHAccess right) => !left.Equals(right);
+
+        public static explicit operator string(AgentPoolSSHAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AgentPoolSSHAccess other && Equals(other);
+        public bool Equals(AgentPoolSSHAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -106,6 +188,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Use of this is strongly discouraged.
         /// </summary>
         public static AgentPoolType AvailabilitySet { get; } = new AgentPoolType("AvailabilitySet");
+        /// <summary>
+        /// Create an Agent Pool backed by a Single Instance VM orchestration mode.
+        /// </summary>
+        public static AgentPoolType VirtualMachines { get; } = new AgentPoolType("VirtualMachines");
 
         public static bool operator ==(AgentPoolType left, AgentPoolType right) => left.Equals(right);
         public static bool operator !=(AgentPoolType left, AgentPoolType right) => !left.Equals(right);
@@ -115,6 +201,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is AgentPoolType other && Equals(other);
         public bool Equals(AgentPoolType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The artifact source. The source where the artifacts are downloaded from.
+    /// </summary>
+    [EnumType]
+    public readonly struct ArtifactSource : IEquatable<ArtifactSource>
+    {
+        private readonly string _value;
+
+        private ArtifactSource(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// pull images from Azure Container Registry with cache
+        /// </summary>
+        public static ArtifactSource Cache { get; } = new ArtifactSource("Cache");
+        /// <summary>
+        /// pull images from Microsoft Artifact Registry
+        /// </summary>
+        public static ArtifactSource Direct { get; } = new ArtifactSource("Direct");
+
+        public static bool operator ==(ArtifactSource left, ArtifactSource right) => left.Equals(right);
+        public static bool operator !=(ArtifactSource left, ArtifactSource right) => !left.Equals(right);
+
+        public static explicit operator string(ArtifactSource value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ArtifactSource other && Equals(other);
+        public bool Equals(ArtifactSource other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -379,7 +502,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+    /// The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
     /// </summary>
     [EnumType]
     public readonly struct Expander : IEquatable<Expander>
@@ -446,6 +569,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ExtendedLocationTypes other && Equals(other);
         public bool Equals(ExtendedLocationTypes other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether to install GPU drivers. When it's not specified, default is Install.
+    /// </summary>
+    [EnumType]
+    public readonly struct GPUDriver : IEquatable<GPUDriver>
+    {
+        private readonly string _value;
+
+        private GPUDriver(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Install driver.
+        /// </summary>
+        public static GPUDriver Install { get; } = new GPUDriver("Install");
+        /// <summary>
+        /// Skip driver install.
+        /// </summary>
+        public static GPUDriver None { get; } = new GPUDriver("None");
+
+        public static bool operator ==(GPUDriver left, GPUDriver right) => left.Equals(right);
+        public static bool operator !=(GPUDriver left, GPUDriver right) => !left.Equals(right);
+
+        public static explicit operator string(GPUDriver value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is GPUDriver other && Equals(other);
+        public bool Equals(GPUDriver other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -556,7 +716,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+    /// Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
     /// </summary>
     [EnumType]
     public readonly struct KeyVaultNetworkAccessTypes : IEquatable<KeyVaultNetworkAccessTypes>
@@ -698,7 +858,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+    /// The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
     /// </summary>
     [EnumType]
     public readonly struct LoadBalancerSku : IEquatable<LoadBalancerSku>
@@ -751,6 +911,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Base option for the AKS control plane.
         /// </summary>
         public static ManagedClusterSKUName Base { get; } = new ManagedClusterSKUName("Base");
+        /// <summary>
+        /// Automatic clusters are optimized to run most production workloads with configuration that follows AKS best practices and recommendations for cluster and workload setup, scalability, and security. For more details about Automatic clusters see aka.ms/aks/automatic.
+        /// </summary>
+        public static ManagedClusterSKUName Automatic { get; } = new ManagedClusterSKUName("Automatic");
 
         public static bool operator ==(ManagedClusterSKUName left, ManagedClusterSKUName right) => left.Equals(right);
         public static bool operator !=(ManagedClusterSKUName left, ManagedClusterSKUName right) => !left.Equals(right);
@@ -768,7 +932,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
+    /// The tier of a managed cluster SKU. If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
     /// </summary>
     [EnumType]
     public readonly struct ManagedClusterSKUTier : IEquatable<ManagedClusterSKUTier>
@@ -920,7 +1084,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// This cannot be specified if networkPlugin is anything other than 'azure'.
+    /// The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
     /// </summary>
     [EnumType]
     public readonly struct NetworkMode : IEquatable<NetworkMode>
@@ -1076,6 +1240,51 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
+    /// Ingress type for the default NginxIngressController custom resource
+    /// </summary>
+    [EnumType]
+    public readonly struct NginxIngressControllerType : IEquatable<NginxIngressControllerType>
+    {
+        private readonly string _value;
+
+        private NginxIngressControllerType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The default NginxIngressController will be created. Users can edit the default NginxIngressController Custom Resource to configure load balancer annotations.
+        /// </summary>
+        public static NginxIngressControllerType AnnotationControlled { get; } = new NginxIngressControllerType("AnnotationControlled");
+        /// <summary>
+        /// The default NginxIngressController will be created and the operator will provision an external loadbalancer with it. Any annotation to make the default loadbalancer internal will be overwritten.
+        /// </summary>
+        public static NginxIngressControllerType External { get; } = new NginxIngressControllerType("External");
+        /// <summary>
+        /// The default NginxIngressController will be created and the operator will provision an internal loadbalancer with it. Any annotation to make the default loadbalancer external will be overwritten.
+        /// </summary>
+        public static NginxIngressControllerType Internal { get; } = new NginxIngressControllerType("Internal");
+        /// <summary>
+        /// The default Ingress Controller will not be created. It will not be deleted by the system if it exists. Users should delete the default NginxIngressController Custom Resource manually if desired.
+        /// </summary>
+        public static NginxIngressControllerType None { get; } = new NginxIngressControllerType("None");
+
+        public static bool operator ==(NginxIngressControllerType left, NginxIngressControllerType right) => left.Equals(right);
+        public static bool operator !=(NginxIngressControllerType left, NginxIngressControllerType right) => !left.Equals(right);
+
+        public static explicit operator string(NginxIngressControllerType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NginxIngressControllerType other && Equals(other);
+        public bool Equals(NginxIngressControllerType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The node image upgrade type.
     /// </summary>
     [EnumType]
@@ -1117,7 +1326,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// Manner in which the OS on your nodes is updated. The default is NodeImage.
+    /// Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
     /// </summary>
     [EnumType]
     public readonly struct NodeOSUpgradeChannel : IEquatable<NodeOSUpgradeChannel>
@@ -1162,7 +1371,81 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+    /// The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeProvisioningDefaultNodePools : IEquatable<NodeProvisioningDefaultNodePools>
+    {
+        private readonly string _value;
+
+        private NodeProvisioningDefaultNodePools(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No Karpenter NodePools are provisioned automatically. Automatic scaling will not happen unless the user creates one or more NodePool CRD instances.
+        /// </summary>
+        public static NodeProvisioningDefaultNodePools None { get; } = new NodeProvisioningDefaultNodePools("None");
+        /// <summary>
+        /// A standard set of Karpenter NodePools are provisioned
+        /// </summary>
+        public static NodeProvisioningDefaultNodePools Auto { get; } = new NodeProvisioningDefaultNodePools("Auto");
+
+        public static bool operator ==(NodeProvisioningDefaultNodePools left, NodeProvisioningDefaultNodePools right) => left.Equals(right);
+        public static bool operator !=(NodeProvisioningDefaultNodePools left, NodeProvisioningDefaultNodePools right) => !left.Equals(right);
+
+        public static explicit operator string(NodeProvisioningDefaultNodePools value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeProvisioningDefaultNodePools other && Equals(other);
+        public bool Equals(NodeProvisioningDefaultNodePools other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The node provisioning mode. If not specified, the default is Manual.
+    /// </summary>
+    [EnumType]
+    public readonly struct NodeProvisioningMode : IEquatable<NodeProvisioningMode>
+    {
+        private readonly string _value;
+
+        private NodeProvisioningMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Nodes are provisioned manually by the user
+        /// </summary>
+        public static NodeProvisioningMode Manual { get; } = new NodeProvisioningMode("Manual");
+        /// <summary>
+        /// Nodes are provisioned automatically by AKS using Karpenter (See aka.ms/aks/nap for more details). Fixed size Node Pools can still be created, but autoscaling Node Pools cannot be. (See aka.ms/aks/nap for more details).
+        /// </summary>
+        public static NodeProvisioningMode Auto { get; } = new NodeProvisioningMode("Auto");
+
+        public static bool operator ==(NodeProvisioningMode left, NodeProvisioningMode right) => left.Equals(right);
+        public static bool operator !=(NodeProvisioningMode left, NodeProvisioningMode right) => !left.Equals(right);
+
+        public static explicit operator string(NodeProvisioningMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NodeProvisioningMode other && Equals(other);
+        public bool Equals(NodeProvisioningMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
     /// </summary>
     [EnumType]
     public readonly struct OSDiskType : IEquatable<OSDiskType>
@@ -1220,6 +1503,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// </summary>
         public static OSSKU AzureLinux { get; } = new OSSKU("AzureLinux");
         /// <summary>
+        /// Use AzureLinux3 as the OS for node images. Azure Linux is a container-optimized Linux distro built by Microsoft, visit https://aka.ms/azurelinux for more information. For limitations, visit https://aka.ms/aks/node-images. For OS migration guidance, see https://aka.ms/aks/upgrade-os-version.
+        /// </summary>
+        public static OSSKU AzureLinux3 { get; } = new OSSKU("AzureLinux3");
+        /// <summary>
         /// Deprecated OSSKU. Microsoft recommends that new deployments choose 'AzureLinux' instead.
         /// </summary>
         public static OSSKU CBLMariner { get; } = new OSSKU("CBLMariner");
@@ -1231,6 +1518,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// Use Windows2022 as the OS for node images. Unsupported for system node pools. Windows2022 only supports Windows2022 containers; it cannot run Windows2019 containers and vice versa.
         /// </summary>
         public static OSSKU Windows2022 { get; } = new OSSKU("Windows2022");
+        /// <summary>
+        /// Use Ubuntu2204 as the OS for node images, however, Ubuntu 22.04 may not be supported for all nodepools. For limitations and supported kubernetes versions, see https://aka.ms/aks/supported-ubuntu-versions
+        /// </summary>
+        public static OSSKU Ubuntu2204 { get; } = new OSSKU("Ubuntu2204");
 
         public static bool operator ==(OSSKU left, OSSKU right) => left.Equals(right);
         public static bool operator !=(OSSKU left, OSSKU right) => !left.Equals(right);
@@ -1330,7 +1621,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+    /// The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
     /// </summary>
     [EnumType]
     public readonly struct OutboundType : IEquatable<OutboundType>
@@ -1358,6 +1649,10 @@ namespace Pulumi.AzureNative.ContainerService
         /// The user-assigned NAT gateway associated to the cluster subnet is used for egress. This is an advanced scenario and requires proper network configuration.
         /// </summary>
         public static OutboundType UserAssignedNATGateway { get; } = new OutboundType("userAssignedNATGateway");
+        /// <summary>
+        /// The AKS cluster is not set with any outbound-type. All AKS nodes follows Azure VM default outbound behavior. Please refer to https://azure.microsoft.com/en-us/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/
+        /// </summary>
+        public static OutboundType None { get; } = new OutboundType("none");
 
         public static bool operator ==(OutboundType left, OutboundType right) => left.Equals(right);
         public static bool operator !=(OutboundType left, OutboundType right) => !left.Equals(right);
@@ -1367,6 +1662,43 @@ namespace Pulumi.AzureNative.ContainerService
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is OutboundType other && Equals(other);
         public bool Equals(OutboundType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
+    /// </summary>
+    [EnumType]
+    public readonly struct PodIPAllocationMode : IEquatable<PodIPAllocationMode>
+    {
+        private readonly string _value;
+
+        private PodIPAllocationMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Each node gets allocated with a non-contiguous list of IP addresses assignable to pods. This is better for maximizing a small to medium subnet of size /16 or smaller. The Azure CNI cluster with dynamic IP allocation defaults to this mode if the customer does not explicitly specify a podIPAllocationMode
+        /// </summary>
+        public static PodIPAllocationMode DynamicIndividual { get; } = new PodIPAllocationMode("DynamicIndividual");
+        /// <summary>
+        /// Each node is statically allocated CIDR block(s) of size /28 = 16 IPs per block to satisfy the maxPods per node. Number of CIDR blocks &gt;= (maxPods / 16). The block, rather than a single IP, counts against the Azure Vnet Private IP limit of 65K. Therefore block mode is suitable for running larger workloads with more than the current limit of 65K pods in a cluster. This mode is better suited to scale with larger subnets of /15 or bigger
+        /// </summary>
+        public static PodIPAllocationMode StaticBlock { get; } = new PodIPAllocationMode("StaticBlock");
+
+        public static bool operator ==(PodIPAllocationMode left, PodIPAllocationMode right) => left.Equals(right);
+        public static bool operator !=(PodIPAllocationMode left, PodIPAllocationMode right) => !left.Equals(right);
+
+        public static explicit operator string(PodIPAllocationMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PodIPAllocationMode other && Equals(other);
+        public bool Equals(PodIPAllocationMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1453,7 +1785,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// Allow or deny public network access for AKS
+    /// PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS
     /// </summary>
     [EnumType]
     public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
@@ -1484,7 +1816,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+    /// The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
     /// </summary>
     [EnumType]
     public readonly struct ResourceIdentityType : IEquatable<ResourceIdentityType>
@@ -1562,7 +1894,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+    /// The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
     /// </summary>
     [EnumType]
     public readonly struct ScaleDownMode : IEquatable<ScaleDownMode>
@@ -1599,7 +1931,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+    /// The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
     /// </summary>
     [EnumType]
     public readonly struct ScaleSetEvictionPolicy : IEquatable<ScaleSetEvictionPolicy>
@@ -1780,7 +2112,7 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// Specifies on which week of the month the dayOfWeek applies.
+    /// The week index. Specifies on which week of the month the dayOfWeek applies.
     /// </summary>
     [EnumType]
     public readonly struct Type : IEquatable<Type>
@@ -1829,7 +2161,44 @@ namespace Pulumi.AzureNative.ContainerService
     }
 
     /// <summary>
-    /// For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+    /// Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
+    /// </summary>
+    [EnumType]
+    public readonly struct UndrainableNodeBehavior : IEquatable<UndrainableNodeBehavior>
+    {
+        private readonly string _value;
+
+        private UndrainableNodeBehavior(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// AKS will cordon the blocked nodes and replace them with surge nodes during upgrade. The blocked nodes will be cordoned and replaced by surge nodes. The blocked nodes will have label 'kubernetes.azure.com/upgrade-status:Quarantined'. A surge node will be retained for each blocked node. A best-effort attempt will be made to delete all other surge nodes. If there are enough surge nodes to replace blocked nodes, then the upgrade operation and the managed cluster will be in failed state. Otherwise, the upgrade operation and the managed cluster will be in canceled state.
+        /// </summary>
+        public static UndrainableNodeBehavior Cordon { get; } = new UndrainableNodeBehavior("Cordon");
+        /// <summary>
+        /// AKS will mark the blocked nodes schedulable, but the blocked nodes are not upgraded. A best-effort attempt will be made to delete all surge nodes. The upgrade operation and the managed cluster will be in failed state if there are any blocked nodes.
+        /// </summary>
+        public static UndrainableNodeBehavior Schedule { get; } = new UndrainableNodeBehavior("Schedule");
+
+        public static bool operator ==(UndrainableNodeBehavior left, UndrainableNodeBehavior right) => left.Equals(right);
+        public static bool operator !=(UndrainableNodeBehavior left, UndrainableNodeBehavior right) => !left.Equals(right);
+
+        public static explicit operator string(UndrainableNodeBehavior value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UndrainableNodeBehavior other && Equals(other);
+        public bool Equals(UndrainableNodeBehavior other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
     /// </summary>
     [EnumType]
     public readonly struct UpgradeChannel : IEquatable<UpgradeChannel>

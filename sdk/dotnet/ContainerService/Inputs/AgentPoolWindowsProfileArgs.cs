@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class AgentPoolWindowsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        /// Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
         /// </summary>
         [Input("disableOutboundNat")]
         public Input<bool>? DisableOutboundNat { get; set; }

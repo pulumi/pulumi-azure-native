@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("enabled")]
         public Input<bool>? Enabled { get; set; }
 
+        /// <summary>
+        /// Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
+        /// </summary>
+        [Input("nginx")]
+        public Input<Inputs.ManagedClusterIngressProfileNginxArgs>? Nginx { get; set; }
+
         public ManagedClusterIngressProfileWebAppRoutingArgs()
         {
         }

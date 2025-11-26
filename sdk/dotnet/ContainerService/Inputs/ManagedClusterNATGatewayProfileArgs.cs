@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     /// </summary>
     public sealed class ManagedClusterNATGatewayProfileArgs : global::Pulumi.ResourceArgs
     {
-        [Input("effectiveOutboundIPs")]
-        private InputList<Inputs.ResourceReferenceArgs>? _effectiveOutboundIPs;
-
-        /// <summary>
-        /// The effective outbound IP resources of the cluster NAT gateway.
-        /// </summary>
-        public InputList<Inputs.ResourceReferenceArgs> EffectiveOutboundIPs
-        {
-            get => _effectiveOutboundIPs ?? (_effectiveOutboundIPs = new InputList<Inputs.ResourceReferenceArgs>());
-            set => _effectiveOutboundIPs = value;
-        }
-
         /// <summary>
         /// Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
         /// </summary>

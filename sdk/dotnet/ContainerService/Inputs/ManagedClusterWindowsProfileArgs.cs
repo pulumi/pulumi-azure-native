@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<string> AdminUsername { get; set; } = null!;
 
         /// <summary>
-        /// For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
+        /// Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         /// </summary>
         [Input("enableCSIProxy")]
         public Input<bool>? EnableCSIProxy { get; set; }

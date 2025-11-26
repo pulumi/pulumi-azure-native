@@ -29,11 +29,11 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+        /// The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         /// </summary>
         public readonly string? Type;
         /// <summary>
-        /// The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        /// The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.ManagedClusterIdentityResponseUserAssignedIdentities>? UserAssignedIdentities;
 

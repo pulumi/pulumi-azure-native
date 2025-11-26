@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUName>? Name { get; set; }
 
         /// <summary>
-        /// If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
+        /// The tier of a managed cluster SKU. If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
         /// </summary>
         [Input("tier")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.ManagedClusterSKUTier>? Tier { get; set; }

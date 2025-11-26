@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
     public sealed class ManagedClusterMetricsProfileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The cost analysis configuration for the cluster
+        /// The configuration for detailed per-Kubernetes resource cost analysis.
         /// </summary>
         [Input("costAnalysis")]
         public Input<Inputs.ManagedClusterCostAnalysisArgs>? CostAnalysis { get; set; }

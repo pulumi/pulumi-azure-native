@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
     /// <summary>
-    /// For example, between '2022-12-23' and '2023-01-05'.
+    /// A date range. For example, between '2022-12-23' and '2023-01-05'.
     /// </summary>
     [OutputType]
     public sealed class DateSpanResponse

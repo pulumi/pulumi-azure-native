@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 {
 
     /// <summary>
-    /// For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
+    /// AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     /// </summary>
     [OutputType]
     public sealed class ManagedClusterAADProfileResponse

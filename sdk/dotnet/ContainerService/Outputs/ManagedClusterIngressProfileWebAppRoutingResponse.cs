@@ -28,6 +28,10 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
         /// </summary>
         public readonly Outputs.UserAssignedIdentityResponse Identity;
+        /// <summary>
+        /// Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
+        /// </summary>
+        public readonly Outputs.ManagedClusterIngressProfileNginxResponse? Nginx;
 
         [OutputConstructor]
         private ManagedClusterIngressProfileWebAppRoutingResponse(
@@ -35,11 +39,14 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
 
             bool? enabled,
 
-            Outputs.UserAssignedIdentityResponse identity)
+            Outputs.UserAssignedIdentityResponse identity,
+
+            Outputs.ManagedClusterIngressProfileNginxResponse? nginx)
         {
             DnsZoneResourceIds = dnsZoneResourceIds;
             Enabled = enabled;
             Identity = identity;
+            Nginx = nginx;
         }
     }
 }

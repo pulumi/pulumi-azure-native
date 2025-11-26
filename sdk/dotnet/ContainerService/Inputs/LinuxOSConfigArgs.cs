@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
 {
 
     /// <summary>
-    /// See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+    /// OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     /// </summary>
     public sealed class LinuxOSConfigArgs : global::Pulumi.ResourceArgs
     {
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<Inputs.SysctlConfigArgs>? Sysctls { get; set; }
 
         /// <summary>
-        /// Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        /// Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         /// </summary>
         [Input("transparentHugePageDefrag")]
         public Input<string>? TransparentHugePageDefrag { get; set; }
 
         /// <summary>
-        /// Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        /// Whether transparent hugepages are enabled. Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         /// </summary>
         [Input("transparentHugePageEnabled")]
         public Input<string>? TransparentHugePageEnabled { get; set; }

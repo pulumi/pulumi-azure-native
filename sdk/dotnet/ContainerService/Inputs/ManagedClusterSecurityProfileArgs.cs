@@ -21,6 +21,18 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("azureKeyVaultKms")]
         public Input<Inputs.AzureKeyVaultKmsArgs>? AzureKeyVaultKms { get; set; }
 
+        [Input("customCATrustCertificates")]
+        private InputList<string>? _customCATrustCertificates;
+
+        /// <summary>
+        /// A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
+        /// </summary>
+        public InputList<string> CustomCATrustCertificates
+        {
+            get => _customCATrustCertificates ?? (_customCATrustCertificates = new InputList<string>());
+            set => _customCATrustCertificates = value;
+        }
+
         /// <summary>
         /// Microsoft Defender settings for the security profile.
         /// </summary>
