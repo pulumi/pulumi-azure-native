@@ -6,16 +6,15 @@ on:
   workflow_dispatch: {}
 
 env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
   PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
   PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  PROVIDER_VERSION: 2.0.0-alpha.0+dev
+  PROVIDER_VERSION: 2.91.0-alpha.0+dev
 
 jobs:
   weekly-pulumi-update:
     # Use a more powerful runner to fix pulumi/pulumi-azure-native#2768
     runs-on: pulumi-ubuntu-8core
+    permissions: write-all
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
@@ -23,6 +22,14 @@ jobs:
           submodules: true
           # We need a full checkout so we can push commits back
           fetch-depth: 0
+      - env:
+          ESC_ACTION_ENVIRONMENT: github-secrets/${{ github.repository_owner }}-${{ github.event.repository.name }}
+          ESC_ACTION_OIDC_AUTH: "true"
+          ESC_ACTION_OIDC_ORGANIZATION: pulumi
+          ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
+        id: esc-secrets
+        name: Fetch secrets from ESC
+        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
       - name: Install Languages & Frameworks
         uses: ./.github/actions/install
       - name: Update Pulumi/Pulumi
@@ -46,6 +53,8 @@ jobs:
           if ! git diff-files --quiet; then 
           	echo "changes=1" >> "$GITHUB_OUTPUT"
           fi
+        env:
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
       - run: make ensure
       - name: Provider with Pulumi Upgrade
         if: steps.gomod.outputs.changes != 0
@@ -70,14 +79,14 @@ jobs:
         uses: repo-sync/pull-request@v2.12.1
         with:
           source_branch: update-pulumi/${{ github.run_id }}-${{ github.run_number }}
-          destination_branch: master
+          destination_branch: v2
           pr_title: Automated Pulumi/Pulumi upgrade
-          github_token: ${{ secrets.PULUMI_BOT_TOKEN }}
+          github_token: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
         env:
-          GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
       - name: Set AutoMerge
         if: steps.create-pr.outputs.has_changed_files
         run: gh pr merge ${{ steps.create-pr.outputs.pr_number }} --squash --auto --repo ${{ github.repository }}
         env:
-          GH_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
+          GH_TOKEN: ${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}
     name: weekly-pulumi-update

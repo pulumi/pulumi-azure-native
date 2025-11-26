@@ -1,49 +1,37 @@
 name: release
 
-# v2 releases: Only stable versions (v2.91.0, v2.92.0, etc.)
-# No prereleases to avoid conflicts with v3
 on:
   push:
     tags:
       - v2.*.*
-      # Explicitly exclude prerelease tags
-      - '!v2.*.*-*'
-
-env:
-  PROVIDER: azure-native
-  PULUMI_LOCAL_NUGET: ${{ github.workspace }}/nuget
-  TRAVIS_OS_NAME: linux
-  PULUMI_GO_DEP_ROOT: ${{ github.workspace }}/..
-  ARM_LOCATION: westus2
-  PULUMI_API: https://api.pulumi-staging.io
 
 jobs:
   version:
     uses: ./.github/workflows/version.yml
     secrets: inherit
 
-  # TODO: When ready for v2 releases, add build_test job here
-  # For now, this is a placeholder - we'll add full build/test/publish
-  # workflow when we're ready to make the first v2.91.0 release
-
-  placeholder:
-    runs-on: ubuntu-latest
+  build_test:
+    uses: ./.github/workflows/build-test.yml
     needs: version
-    name: v2 Release Placeholder
-    steps:
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+    secrets: inherit
+    with:
+      ref: ${{ github.ref }}
+      version: ${{ needs.version.outputs.version }}
+      # We cannot run OIDC tests in the release workflow because it's not a PR and we don't have a
+      # fixed tag or branch to serve as entity type, and we don't have Github environments
+      # configured. See
+      # https://learn.microsoft.com/en-us/azure/active-directory/workload-identities/workload-identity-federation-create-trust?pivots=identity-wif-apps-methods-azp#github-actions
+      oidc_arm_client_id: ""
+      upload_codecov: false
 
-      - name: Release Info
-        run: |
-          echo "v2 Release triggered for tag: ${{ github.ref_name }}"
-          echo "Version: ${{ needs.version.outputs.version }}"
-          echo ""
-          echo "This is a placeholder workflow."
-          echo "Before making v2 releases, we need to:"
-          echo "  1. Add build/test steps (with unit tests only for speed)"
-          echo "  2. Add publish step with:"
-          echo "     - make_latest: false (don't mark as latest)"
-          echo "     - NPM tag: v2 (not 'latest')"
-          echo "     - ESC secrets for publishing"
-          echo "  3. Test the full release process"
+  publish:
+    uses: ./.github/workflows/publish.yml
+    secrets: inherit
+    needs:
+      - build_test
+      - version
+    with:
+      ref: ${{ github.ref }}
+      version: ${{ needs.version.outputs.version }}
+      prerelease: ${{ contains(github.ref_name,'-') }}
+

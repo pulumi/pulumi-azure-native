@@ -7,8 +7,6 @@ on:
         description: Calculated version
         value: ${{ jobs.version.outputs.version }}
 
-env:
-  GITHUB_TOKEN: ${{ secrets.PULUMI_BOT_TOKEN }}
 
 jobs:
   version:
@@ -17,6 +15,8 @@ jobs:
     steps:
       - id: version
         name: Calculate build version
-        uses: pulumi/provider-version-action@v1
+        uses: pulumi/provider-version-action@f96d032a2758fdda7939e5728eff6c0d980ae894 # v1.6.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
       version: ${{ steps.version.outputs.VERSION }}
