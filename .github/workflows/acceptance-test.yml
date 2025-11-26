@@ -9,6 +9,7 @@ on:
       - master
       - main
       - v2.0-pre
+      - v2
     paths-ignore:
       - CHANGELOG.md
   workflow_dispatch:
