@@ -59,7 +59,7 @@ env:
 
 jobs:
   prerequisites:
-    runs-on: ubuntu-latest
+    runs-on: pulumi-ubuntu-8core
     name: Build binaries and schema
     steps:
       - name: Checkout Repo

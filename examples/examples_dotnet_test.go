@@ -80,6 +80,10 @@ func TestDeletePostgresConfiguration(t *testing.T) {
 }
 
 func TestPulumiExamples(t *testing.T) {
+	// Skip on v2 branch: pulumi/examples targets v3 SDK with incompatible namespace changes
+	// (e.g., ApplicationInsights vs Insights)
+	t.Skip("Skipped on v2 branch: pulumi/examples uses v3 SDK namespaces")
+
 	for _, example := range pexamples.GetTestsByTags(pexamples.AzureNativeProvider, pexamples.CS) {
 		t.Run(example.Dir, func(t *testing.T) {
 			test := getCsharpBaseOptions(t).
