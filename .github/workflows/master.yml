@@ -10,12 +10,7 @@ on:
       - v*
       - sdk/*
       - "**"
-  workflow_dispatch:
-    inputs:
-      short_test:
-        type: boolean
-        description: Skip longer running tests
-        default: true
+  workflow_dispatch: {}
 
 jobs:
   version:
@@ -33,8 +28,6 @@ jobs:
     with:
       ref: ${{ github.ref }}
       version: ${{ needs.version.outputs.version }}
-      # v2 maintenance branch: default to short_test for faster CI
-      short_test: ${{ inputs.short_test == '' && true || inputs.short_test }}
       # We cannot run OIDC tests in the release workflow because it's not a PR and we don't have a
       # fixed tag or branch to serve as entity type, and we don't have Github environments
       # configured. See
