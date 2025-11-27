@@ -57,13 +57,9 @@ func keyVaultSecret(cloud cloud.Configuration, tokenCred azcore.TokenCredential)
 			deletedSecret, err := kvClient.GetDeletedSecret(ctx, secretName.StringValue(), nil)
 			if err == nil && deletedSecret.RecoveryID != nil {
 				logging.V(5).Infof("Found soft-deleted secret %s, recovering it before creating", secretName.StringValue())
-				poller, err := kvClient.BeginRecoverDeletedSecret(ctx, secretName.StringValue(), nil)
+				_, err = kvClient.RecoverDeletedSecret(ctx, secretName.StringValue(), nil)
 				if err != nil {
-					return nil, errors.Wrapf(err, "failed to start recovery of soft-deleted secret %s", secretName.StringValue())
-				}
-				_, err = poller.PollUntilDone(ctx, nil)
-				if err != nil {
-					return nil, errors.Wrapf(err, "failed to complete recovery of soft-deleted secret %s", secretName.StringValue())
+					return nil, errors.Wrapf(err, "failed to recover soft-deleted secret %s", secretName.StringValue())
 				}
 				logging.V(5).Infof("Successfully recovered soft-deleted secret %s", secretName.StringValue())
 			} else if err != nil {
@@ -143,13 +139,9 @@ func keyVaultKey(cloud cloud.Configuration, tokenCred azcore.TokenCredential) *C
 			deletedKey, err := kvClient.GetDeletedKey(ctx, keyName.StringValue(), nil)
 			if err == nil && deletedKey.RecoveryID != nil {
 				logging.V(5).Infof("Found soft-deleted key %s, recovering it before creating", keyName.StringValue())
-				poller, err := kvClient.BeginRecoverDeletedKey(ctx, keyName.StringValue(), nil)
+				_, err = kvClient.RecoverDeletedKey(ctx, keyName.StringValue(), nil)
 				if err != nil {
-					return nil, errors.Wrapf(err, "failed to start recovery of soft-deleted key %s", keyName.StringValue())
-				}
-				_, err = poller.PollUntilDone(ctx, nil)
-				if err != nil {
-					return nil, errors.Wrapf(err, "failed to complete recovery of soft-deleted key %s", keyName.StringValue())
+					return nil, errors.Wrapf(err, "failed to recover soft-deleted key %s", keyName.StringValue())
 				}
 				logging.V(5).Infof("Successfully recovered soft-deleted key %s", keyName.StringValue())
 			} else if err != nil {
