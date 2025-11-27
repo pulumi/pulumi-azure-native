@@ -1992,6 +1992,8 @@ Web:
         WebAppAuthSettingsSlot: "2022-09-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
+        WebAppAuthSettingsV2WithoutSecrets: "2024-04-01"
+        WebAppAuthSettingsV2WithoutSecretsSlot: "2024-04-01"
         WebAppAzureStorageAccounts: "2022-09-01"
         WebAppAzureStorageAccountsSlot: "2022-09-01"
         WebAppBackupConfiguration: "2022-09-01"

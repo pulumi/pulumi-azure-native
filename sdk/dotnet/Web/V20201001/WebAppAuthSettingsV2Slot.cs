@@ -82,6 +82,12 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppAuthSettingsV2Slot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppAuthSettingsV2Slot" },
                     new global::Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20220901:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20230101:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20231201:WebAppAuthSettingsV2Slot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20240401:WebAppAuthSettingsV2Slot" },
                     new global::Pulumi.Alias { Type = "azure-native:web:WebAppAuthSettingsV2Slot" },
                 },
             };

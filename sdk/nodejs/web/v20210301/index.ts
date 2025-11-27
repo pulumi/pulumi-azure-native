@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
 // Export members:
+export { GetWebAppAuthSettingsV2WithoutSecretsArgs, GetWebAppAuthSettingsV2WithoutSecretsResult, GetWebAppAuthSettingsV2WithoutSecretsOutputArgs } from "./getWebAppAuthSettingsV2WithoutSecrets";
+export const getWebAppAuthSettingsV2WithoutSecrets: typeof import("./getWebAppAuthSettingsV2WithoutSecrets").getWebAppAuthSettingsV2WithoutSecrets = null as any;
+export const getWebAppAuthSettingsV2WithoutSecretsOutput: typeof import("./getWebAppAuthSettingsV2WithoutSecrets").getWebAppAuthSettingsV2WithoutSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppAuthSettingsV2WithoutSecrets","getWebAppAuthSettingsV2WithoutSecretsOutput"], () => require("./getWebAppAuthSettingsV2WithoutSecrets"));
+
+export { GetWebAppAuthSettingsV2WithoutSecretsSlotArgs, GetWebAppAuthSettingsV2WithoutSecretsSlotResult, GetWebAppAuthSettingsV2WithoutSecretsSlotOutputArgs } from "./getWebAppAuthSettingsV2WithoutSecretsSlot";
+export const getWebAppAuthSettingsV2WithoutSecretsSlot: typeof import("./getWebAppAuthSettingsV2WithoutSecretsSlot").getWebAppAuthSettingsV2WithoutSecretsSlot = null as any;
+export const getWebAppAuthSettingsV2WithoutSecretsSlotOutput: typeof import("./getWebAppAuthSettingsV2WithoutSecretsSlot").getWebAppAuthSettingsV2WithoutSecretsSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppAuthSettingsV2WithoutSecretsSlot","getWebAppAuthSettingsV2WithoutSecretsSlotOutput"], () => require("./getWebAppAuthSettingsV2WithoutSecretsSlot"));
+
 export { GetWebAppDiagnosticLogsConfigurationSlotArgs, GetWebAppDiagnosticLogsConfigurationSlotResult, GetWebAppDiagnosticLogsConfigurationSlotOutputArgs } from "./getWebAppDiagnosticLogsConfigurationSlot";
 export const getWebAppDiagnosticLogsConfigurationSlot: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlot = null as any;
 export const getWebAppDiagnosticLogsConfigurationSlotOutput: typeof import("./getWebAppDiagnosticLogsConfigurationSlot").getWebAppDiagnosticLogsConfigurationSlotOutput = null as any;
@@ -34,6 +44,16 @@ export { ListSiteIdentifiersAssignedToHostNameArgs, ListSiteIdentifiersAssignedT
 export const listSiteIdentifiersAssignedToHostName: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostName = null as any;
 export const listSiteIdentifiersAssignedToHostNameOutput: typeof import("./listSiteIdentifiersAssignedToHostName").listSiteIdentifiersAssignedToHostNameOutput = null as any;
 utilities.lazyLoad(exports, ["listSiteIdentifiersAssignedToHostName","listSiteIdentifiersAssignedToHostNameOutput"], () => require("./listSiteIdentifiersAssignedToHostName"));
+
+export { WebAppAuthSettingsV2WithoutSecretsArgs } from "./webAppAuthSettingsV2WithoutSecrets";
+export type WebAppAuthSettingsV2WithoutSecrets = import("./webAppAuthSettingsV2WithoutSecrets").WebAppAuthSettingsV2WithoutSecrets;
+export const WebAppAuthSettingsV2WithoutSecrets: typeof import("./webAppAuthSettingsV2WithoutSecrets").WebAppAuthSettingsV2WithoutSecrets = null as any;
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2WithoutSecrets"], () => require("./webAppAuthSettingsV2WithoutSecrets"));
+
+export { WebAppAuthSettingsV2WithoutSecretsSlotArgs } from "./webAppAuthSettingsV2WithoutSecretsSlot";
+export type WebAppAuthSettingsV2WithoutSecretsSlot = import("./webAppAuthSettingsV2WithoutSecretsSlot").WebAppAuthSettingsV2WithoutSecretsSlot;
+export const WebAppAuthSettingsV2WithoutSecretsSlot: typeof import("./webAppAuthSettingsV2WithoutSecretsSlot").WebAppAuthSettingsV2WithoutSecretsSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2WithoutSecretsSlot"], () => require("./webAppAuthSettingsV2WithoutSecretsSlot"));
 
 export { WebAppDiagnosticLogsConfigurationSlotArgs } from "./webAppDiagnosticLogsConfigurationSlot";
 export type WebAppDiagnosticLogsConfigurationSlot = import("./webAppDiagnosticLogsConfigurationSlot").WebAppDiagnosticLogsConfigurationSlot;
@@ -68,6 +88,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:web/v20210301:WebAppAuthSettingsV2WithoutSecrets":
+                return new WebAppAuthSettingsV2WithoutSecrets(name, <any>undefined, { urn })
+            case "azure-native:web/v20210301:WebAppAuthSettingsV2WithoutSecretsSlot":
+                return new WebAppAuthSettingsV2WithoutSecretsSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppDiagnosticLogsConfigurationSlot":
                 return new WebAppDiagnosticLogsConfigurationSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20210301:WebAppFtpAllowed":

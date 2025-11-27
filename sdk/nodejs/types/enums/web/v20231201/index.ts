@@ -108,6 +108,15 @@ export const ClientCertMode = {
  */
 export type ClientCertMode = (typeof ClientCertMode)[keyof typeof ClientCertMode];
 
+export const ClientCredentialMethod = {
+    ClientSecretPost: "ClientSecretPost",
+} as const;
+
+/**
+ * The method that should be used to authenticate the user.
+ */
+export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
+
 export const ConnectionStringType = {
     MySql: "MySql",
     SQLServer: "SQLServer",
@@ -126,6 +135,16 @@ export const ConnectionStringType = {
  * Type of database.
  */
 export type ConnectionStringType = (typeof ConnectionStringType)[keyof typeof ConnectionStringType];
+
+export const CookieExpirationConvention = {
+    FixedTime: "FixedTime",
+    IdentityProviderDerived: "IdentityProviderDerived",
+} as const;
+
+/**
+ * The convention used when determining the session cookie's expiration.
+ */
+export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
 
 export const CustomHostNameDnsRecordType = {
     CName: "CName",
@@ -182,6 +201,17 @@ export const EnterpriseGradeCdnStatus = {
  * State indicating the status of the enterprise grade CDN serving traffic to the static web app.
  */
 export type EnterpriseGradeCdnStatus = (typeof EnterpriseGradeCdnStatus)[keyof typeof EnterpriseGradeCdnStatus];
+
+export const ForwardProxyConvention = {
+    NoProxy: "NoProxy",
+    Standard: "Standard",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The convention used to determine the url of the request made.
+ */
+export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
 
 export const FrequencyUnit = {
     Day: "Day",
@@ -473,6 +503,18 @@ export const UnauthenticatedClientAction = {
  * The action to take when an unauthenticated client attempts to access the app.
  */
 export type UnauthenticatedClientAction = (typeof UnauthenticatedClientAction)[keyof typeof UnauthenticatedClientAction];
+
+export const UnauthenticatedClientActionV2 = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+    Return401: "Return401",
+    Return403: "Return403",
+} as const;
+
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];
 
 export const UpgradePreference = {
     /**

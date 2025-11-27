@@ -12634,6 +12634,16 @@ Web:
         SpecFilePath: specification/web/resource-manager/Microsoft.Web/stable/2021-02-01/WebApps.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2
         RpNamespace: Microsoft.Web
+    WebAppAuthSettingsV2WithoutSecrets:
+        ApiVersion: "2024-04-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/stable/2024-04-01/WebApps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/config/authsettingsV2
+        RpNamespace: Microsoft.Web
+    WebAppAuthSettingsV2WithoutSecretsSlot:
+        ApiVersion: "2024-04-01"
+        SpecFilePath: specification/web/resource-manager/Microsoft.Web/stable/2024-04-01/WebApps.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{name}/slots/{slot}/config/authsettingsV2
+        RpNamespace: Microsoft.Web
     WebAppAzureStorageAccounts:
         ApiVersion: "2022-09-01"
         SpecFilePath: specification/web/resource-manager/Microsoft.Web/stable/2022-09-01/WebApps.json

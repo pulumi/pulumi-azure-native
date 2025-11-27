@@ -2,6 +2,36 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const ClientCredentialMethod = {
+    ClientSecretPost: "ClientSecretPost",
+} as const;
+
+/**
+ * The method that should be used to authenticate the user.
+ */
+export type ClientCredentialMethod = (typeof ClientCredentialMethod)[keyof typeof ClientCredentialMethod];
+
+export const CookieExpirationConvention = {
+    FixedTime: "FixedTime",
+    IdentityProviderDerived: "IdentityProviderDerived",
+} as const;
+
+/**
+ * The convention used when determining the session cookie's expiration.
+ */
+export type CookieExpirationConvention = (typeof CookieExpirationConvention)[keyof typeof CookieExpirationConvention];
+
+export const ForwardProxyConvention = {
+    NoProxy: "NoProxy",
+    Standard: "Standard",
+    Custom: "Custom",
+} as const;
+
+/**
+ * The convention used to determine the url of the request made.
+ */
+export type ForwardProxyConvention = (typeof ForwardProxyConvention)[keyof typeof ForwardProxyConvention];
+
 export const LogLevel = {
     Off: "Off",
     Verbose: "Verbose",
@@ -14,3 +44,15 @@ export const LogLevel = {
  * Log level.
  */
 export type LogLevel = (typeof LogLevel)[keyof typeof LogLevel];
+
+export const UnauthenticatedClientActionV2 = {
+    RedirectToLoginPage: "RedirectToLoginPage",
+    AllowAnonymous: "AllowAnonymous",
+    Return401: "Return401",
+    Return403: "Return403",
+} as const;
+
+/**
+ * The action to take when an unauthenticated client attempts to access the app.
+ */
+export type UnauthenticatedClientActionV2 = (typeof UnauthenticatedClientActionV2)[keyof typeof UnauthenticatedClientActionV2];

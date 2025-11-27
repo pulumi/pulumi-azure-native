@@ -36,6 +36,8 @@ from .get_static_site_private_endpoint_connection import *
 from .get_static_site_user_provided_function_app_for_static_site import *
 from .get_static_site_user_provided_function_app_for_static_site_build import *
 from .get_web_app import *
+from .get_web_app_auth_settings_v2_without_secrets import *
+from .get_web_app_auth_settings_v2_without_secrets_slot import *
 from .get_web_app_deployment import *
 from .get_web_app_deployment_slot import *
 from .get_web_app_diagnostic_logs_configuration import *
@@ -137,6 +139,8 @@ from .web_app_auth_settings import *
 from .web_app_auth_settings_slot import *
 from .web_app_auth_settings_v2 import *
 from .web_app_auth_settings_v2_slot import *
+from .web_app_auth_settings_v2_without_secrets import *
+from .web_app_auth_settings_v2_without_secrets_slot import *
 from .web_app_azure_storage_accounts import *
 from .web_app_azure_storage_accounts_slot import *
 from .web_app_backup_configuration import *

@@ -206,6 +206,36 @@ namespace Pulumi.AzureNative.Web.V20230101
     }
 
     /// <summary>
+    /// The method that should be used to authenticate the user.
+    /// </summary>
+    [EnumType]
+    public readonly struct ClientCredentialMethod : IEquatable<ClientCredentialMethod>
+    {
+        private readonly string _value;
+
+        private ClientCredentialMethod(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ClientCredentialMethod ClientSecretPost { get; } = new ClientCredentialMethod("ClientSecretPost");
+
+        public static bool operator ==(ClientCredentialMethod left, ClientCredentialMethod right) => left.Equals(right);
+        public static bool operator !=(ClientCredentialMethod left, ClientCredentialMethod right) => !left.Equals(right);
+
+        public static explicit operator string(ClientCredentialMethod value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ClientCredentialMethod other && Equals(other);
+        public bool Equals(ClientCredentialMethod other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Type of database.
     /// </summary>
     [EnumType]
@@ -238,6 +268,37 @@ namespace Pulumi.AzureNative.Web.V20230101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ConnectionStringType other && Equals(other);
         public bool Equals(ConnectionStringType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The convention used when determining the session cookie's expiration.
+    /// </summary>
+    [EnumType]
+    public readonly struct CookieExpirationConvention : IEquatable<CookieExpirationConvention>
+    {
+        private readonly string _value;
+
+        private CookieExpirationConvention(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CookieExpirationConvention FixedTime { get; } = new CookieExpirationConvention("FixedTime");
+        public static CookieExpirationConvention IdentityProviderDerived { get; } = new CookieExpirationConvention("IdentityProviderDerived");
+
+        public static bool operator ==(CookieExpirationConvention left, CookieExpirationConvention right) => left.Equals(right);
+        public static bool operator !=(CookieExpirationConvention left, CookieExpirationConvention right) => !left.Equals(right);
+
+        public static explicit operator string(CookieExpirationConvention value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CookieExpirationConvention other && Equals(other);
+        public bool Equals(CookieExpirationConvention other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -399,6 +460,38 @@ namespace Pulumi.AzureNative.Web.V20230101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is EnterpriseGradeCdnStatus other && Equals(other);
         public bool Equals(EnterpriseGradeCdnStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The convention used to determine the url of the request made.
+    /// </summary>
+    [EnumType]
+    public readonly struct ForwardProxyConvention : IEquatable<ForwardProxyConvention>
+    {
+        private readonly string _value;
+
+        private ForwardProxyConvention(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ForwardProxyConvention NoProxy { get; } = new ForwardProxyConvention("NoProxy");
+        public static ForwardProxyConvention Standard { get; } = new ForwardProxyConvention("Standard");
+        public static ForwardProxyConvention Custom { get; } = new ForwardProxyConvention("Custom");
+
+        public static bool operator ==(ForwardProxyConvention left, ForwardProxyConvention right) => left.Equals(right);
+        public static bool operator !=(ForwardProxyConvention left, ForwardProxyConvention right) => !left.Equals(right);
+
+        public static explicit operator string(ForwardProxyConvention value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ForwardProxyConvention other && Equals(other);
+        public bool Equals(ForwardProxyConvention other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1128,6 +1221,39 @@ namespace Pulumi.AzureNative.Web.V20230101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is UnauthenticatedClientAction other && Equals(other);
         public bool Equals(UnauthenticatedClientAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The action to take when an unauthenticated client attempts to access the app.
+    /// </summary>
+    [EnumType]
+    public readonly struct UnauthenticatedClientActionV2 : IEquatable<UnauthenticatedClientActionV2>
+    {
+        private readonly string _value;
+
+        private UnauthenticatedClientActionV2(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UnauthenticatedClientActionV2 RedirectToLoginPage { get; } = new UnauthenticatedClientActionV2("RedirectToLoginPage");
+        public static UnauthenticatedClientActionV2 AllowAnonymous { get; } = new UnauthenticatedClientActionV2("AllowAnonymous");
+        public static UnauthenticatedClientActionV2 Return401 { get; } = new UnauthenticatedClientActionV2("Return401");
+        public static UnauthenticatedClientActionV2 Return403 { get; } = new UnauthenticatedClientActionV2("Return403");
+
+        public static bool operator ==(UnauthenticatedClientActionV2 left, UnauthenticatedClientActionV2 right) => left.Equals(right);
+        public static bool operator !=(UnauthenticatedClientActionV2 left, UnauthenticatedClientActionV2 right) => !left.Equals(right);
+
+        public static explicit operator string(UnauthenticatedClientActionV2 value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UnauthenticatedClientActionV2 other && Equals(other);
+        public bool Equals(UnauthenticatedClientActionV2 other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

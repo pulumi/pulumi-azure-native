@@ -125,6 +125,16 @@ export const getWebApp: typeof import("./getWebApp").getWebApp = null as any;
 export const getWebAppOutput: typeof import("./getWebApp").getWebAppOutput = null as any;
 utilities.lazyLoad(exports, ["getWebApp","getWebAppOutput"], () => require("./getWebApp"));
 
+export { GetWebAppAuthSettingsV2WithoutSecretsArgs, GetWebAppAuthSettingsV2WithoutSecretsResult, GetWebAppAuthSettingsV2WithoutSecretsOutputArgs } from "./getWebAppAuthSettingsV2WithoutSecrets";
+export const getWebAppAuthSettingsV2WithoutSecrets: typeof import("./getWebAppAuthSettingsV2WithoutSecrets").getWebAppAuthSettingsV2WithoutSecrets = null as any;
+export const getWebAppAuthSettingsV2WithoutSecretsOutput: typeof import("./getWebAppAuthSettingsV2WithoutSecrets").getWebAppAuthSettingsV2WithoutSecretsOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppAuthSettingsV2WithoutSecrets","getWebAppAuthSettingsV2WithoutSecretsOutput"], () => require("./getWebAppAuthSettingsV2WithoutSecrets"));
+
+export { GetWebAppAuthSettingsV2WithoutSecretsSlotArgs, GetWebAppAuthSettingsV2WithoutSecretsSlotResult, GetWebAppAuthSettingsV2WithoutSecretsSlotOutputArgs } from "./getWebAppAuthSettingsV2WithoutSecretsSlot";
+export const getWebAppAuthSettingsV2WithoutSecretsSlot: typeof import("./getWebAppAuthSettingsV2WithoutSecretsSlot").getWebAppAuthSettingsV2WithoutSecretsSlot = null as any;
+export const getWebAppAuthSettingsV2WithoutSecretsSlotOutput: typeof import("./getWebAppAuthSettingsV2WithoutSecretsSlot").getWebAppAuthSettingsV2WithoutSecretsSlotOutput = null as any;
+utilities.lazyLoad(exports, ["getWebAppAuthSettingsV2WithoutSecretsSlot","getWebAppAuthSettingsV2WithoutSecretsSlotOutput"], () => require("./getWebAppAuthSettingsV2WithoutSecretsSlot"));
+
 export { GetWebAppDeploymentArgs, GetWebAppDeploymentResult, GetWebAppDeploymentOutputArgs } from "./getWebAppDeployment";
 export const getWebAppDeployment: typeof import("./getWebAppDeployment").getWebAppDeployment = null as any;
 export const getWebAppDeploymentOutput: typeof import("./getWebAppDeployment").getWebAppDeploymentOutput = null as any;
@@ -595,6 +605,16 @@ export type WebAppAuthSettingsSlot = import("./webAppAuthSettingsSlot").WebAppAu
 export const WebAppAuthSettingsSlot: typeof import("./webAppAuthSettingsSlot").WebAppAuthSettingsSlot = null as any;
 utilities.lazyLoad(exports, ["WebAppAuthSettingsSlot"], () => require("./webAppAuthSettingsSlot"));
 
+export { WebAppAuthSettingsV2WithoutSecretsArgs } from "./webAppAuthSettingsV2WithoutSecrets";
+export type WebAppAuthSettingsV2WithoutSecrets = import("./webAppAuthSettingsV2WithoutSecrets").WebAppAuthSettingsV2WithoutSecrets;
+export const WebAppAuthSettingsV2WithoutSecrets: typeof import("./webAppAuthSettingsV2WithoutSecrets").WebAppAuthSettingsV2WithoutSecrets = null as any;
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2WithoutSecrets"], () => require("./webAppAuthSettingsV2WithoutSecrets"));
+
+export { WebAppAuthSettingsV2WithoutSecretsSlotArgs } from "./webAppAuthSettingsV2WithoutSecretsSlot";
+export type WebAppAuthSettingsV2WithoutSecretsSlot = import("./webAppAuthSettingsV2WithoutSecretsSlot").WebAppAuthSettingsV2WithoutSecretsSlot;
+export const WebAppAuthSettingsV2WithoutSecretsSlot: typeof import("./webAppAuthSettingsV2WithoutSecretsSlot").WebAppAuthSettingsV2WithoutSecretsSlot = null as any;
+utilities.lazyLoad(exports, ["WebAppAuthSettingsV2WithoutSecretsSlot"], () => require("./webAppAuthSettingsV2WithoutSecretsSlot"));
+
 export { WebAppAzureStorageAccountsArgs } from "./webAppAzureStorageAccounts";
 export type WebAppAzureStorageAccounts = import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts;
 export const WebAppAzureStorageAccounts: typeof import("./webAppAzureStorageAccounts").WebAppAzureStorageAccounts = null as any;
@@ -877,6 +897,10 @@ const _module = {
                 return new WebAppAuthSettings(name, <any>undefined, { urn })
             case "azure-native:web/v20231201:WebAppAuthSettingsSlot":
                 return new WebAppAuthSettingsSlot(name, <any>undefined, { urn })
+            case "azure-native:web/v20231201:WebAppAuthSettingsV2WithoutSecrets":
+                return new WebAppAuthSettingsV2WithoutSecrets(name, <any>undefined, { urn })
+            case "azure-native:web/v20231201:WebAppAuthSettingsV2WithoutSecretsSlot":
+                return new WebAppAuthSettingsV2WithoutSecretsSlot(name, <any>undefined, { urn })
             case "azure-native:web/v20231201:WebAppAzureStorageAccounts":
                 return new WebAppAzureStorageAccounts(name, <any>undefined, { urn })
             case "azure-native:web/v20231201:WebAppAzureStorageAccountsSlot":
