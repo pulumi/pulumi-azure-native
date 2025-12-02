@@ -22,8 +22,10 @@ __all__ = [
     'AdvancedNetworkingObservabilityResponse',
     'AdvancedNetworkingResponse',
     'AdvancedNetworkingSecurityResponse',
+    'AgentPoolGatewayProfileResponse',
     'AgentPoolNetworkProfileResponse',
     'AgentPoolSecurityProfileResponse',
+    'AgentPoolStatusResponse',
     'AgentPoolUpgradeSettingsResponse',
     'AgentPoolWindowsProfileResponse',
     'AgentProfileResponse',
@@ -44,6 +46,7 @@ __all__ = [
     'ExtendedLocationResponse',
     'FleetCredentialResultResponse',
     'FleetHubProfileResponse',
+    'GPUProfileResponse',
     'IPTagResponse',
     'IdentityBindingManagedIdentityProfileResponse',
     'IdentityBindingOidcIssuerProfileResponse',
@@ -66,6 +69,7 @@ __all__ = [
     'LinuxOSConfigResponse',
     'MaintenanceWindowResponse',
     'ManagedClusterAADProfileResponse',
+    'ManagedClusterAIToolchainOperatorProfileResponse',
     'ManagedClusterAPIServerAccessProfileResponse',
     'ManagedClusterAddonProfileResponse',
     'ManagedClusterAddonProfileResponseIdentity',
@@ -74,10 +78,12 @@ __all__ = [
     'ManagedClusterAzureMonitorProfileKubeStateMetricsResponse',
     'ManagedClusterAzureMonitorProfileMetricsResponse',
     'ManagedClusterAzureMonitorProfileResponse',
+    'ManagedClusterBootstrapProfileResponse',
     'ManagedClusterCostAnalysisResponse',
     'ManagedClusterHTTPProxyConfigResponse',
     'ManagedClusterIdentityResponse',
     'ManagedClusterIdentityResponseUserAssignedIdentities',
+    'ManagedClusterIngressProfileNginxResponse',
     'ManagedClusterIngressProfileResponse',
     'ManagedClusterIngressProfileWebAppRoutingResponse',
     'ManagedClusterLoadBalancerProfileResponse',
@@ -87,6 +93,7 @@ __all__ = [
     'ManagedClusterManagedOutboundIPProfileResponse',
     'ManagedClusterMetricsProfileResponse',
     'ManagedClusterNATGatewayProfileResponse',
+    'ManagedClusterNodeProvisioningProfileResponse',
     'ManagedClusterNodeResourceGroupProfileResponse',
     'ManagedClusterOIDCIssuerProfileResponse',
     'ManagedClusterPodIdentityExceptionResponse',
@@ -104,6 +111,8 @@ __all__ = [
     'ManagedClusterSecurityProfileResponse',
     'ManagedClusterSecurityProfileWorkloadIdentityResponse',
     'ManagedClusterServicePrincipalProfileResponse',
+    'ManagedClusterStaticEgressGatewayProfileResponse',
+    'ManagedClusterStatusResponse',
     'ManagedClusterStorageProfileBlobCSIDriverResponse',
     'ManagedClusterStorageProfileDiskCSIDriverResponse',
     'ManagedClusterStorageProfileFileCSIDriverResponse',
@@ -116,6 +125,7 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileResponse',
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerResponse',
     'ManagedServiceIdentityResponse',
+    'ManualScaleProfileResponse',
     'MemberUpdateStatusResponse',
     'NamespacePropertiesResponse',
     'NetworkPoliciesResponse',
@@ -133,6 +143,7 @@ __all__ = [
     'RelativeMonthlyScheduleResponse',
     'ResourceQuotaResponse',
     'ResourceReferenceResponse',
+    'ScaleProfileResponse',
     'ScheduleResponse',
     'ServiceMeshProfileResponse',
     'SysctlConfigResponse',
@@ -148,6 +159,8 @@ __all__ = [
     'UpdateStatusResponse',
     'UpgradeOverrideSettingsResponse',
     'UserAssignedIdentityResponse',
+    'VirtualMachineNodesResponse',
+    'VirtualMachinesProfileResponse',
     'WaitStatusResponse',
     'WeeklyScheduleResponse',
     'WindowsGmsaProfileResponse',
@@ -348,14 +361,43 @@ class AdvancedNetworkingSecurityResponse(dict):
     """
     Security profile to enable security features on cilium based cluster.
     """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "advancedNetworkPolicies":
+            suggest = "advanced_network_policies"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AdvancedNetworkingSecurityResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AdvancedNetworkingSecurityResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AdvancedNetworkingSecurityResponse.__key_warning(key)
+        return super().get(key, default)
+
     def __init__(__self__, *,
+                 advanced_network_policies: Optional[_builtins.str] = None,
                  enabled: Optional[_builtins.bool] = None):
         """
         Security profile to enable security features on cilium based cluster.
+        :param _builtins.str advanced_network_policies: Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
         :param _builtins.bool enabled: This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
         """
+        if advanced_network_policies is not None:
+            pulumi.set(__self__, "advanced_network_policies", advanced_network_policies)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter(name="advancedNetworkPolicies")
+    def advanced_network_policies(self) -> Optional[_builtins.str]:
+        """
+        Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+        """
+        return pulumi.get(self, "advanced_network_policies")
 
     @_builtins.property
     @pulumi.getter
@@ -364,6 +406,48 @@ class AdvancedNetworkingSecurityResponse(dict):
         This feature allows user to configure network policy based on DNS (FQDN) names. It can be enabled only on cilium based clusters. If not specified, the default is false.
         """
         return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class AgentPoolGatewayProfileResponse(dict):
+    """
+    Profile of the managed cluster gateway agent pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "publicIPPrefixSize":
+            suggest = "public_ip_prefix_size"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolGatewayProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolGatewayProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolGatewayProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 public_ip_prefix_size: Optional[_builtins.int] = None):
+        """
+        Profile of the managed cluster gateway agent pool.
+        :param _builtins.int public_ip_prefix_size: The Gateway agent pool associates one public IPPrefix for each static egress gateway to provide public egress. The size of Public IPPrefix should be selected by the user. Each node in the agent pool is assigned with one IP from the IPPrefix. The IPPrefix size thus serves as a cap on the size of the Gateway agent pool. Due to Azure public IPPrefix size limitation, the valid value range is [28, 31] (/31 = 2 nodes/IPs, /30 = 4 nodes/IPs, /29 = 8 nodes/IPs, /28 = 16 nodes/IPs). The default value is 31.
+        """
+        if public_ip_prefix_size is None:
+            public_ip_prefix_size = 31
+        if public_ip_prefix_size is not None:
+            pulumi.set(__self__, "public_ip_prefix_size", public_ip_prefix_size)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPPrefixSize")
+    def public_ip_prefix_size(self) -> Optional[_builtins.int]:
+        """
+        The Gateway agent pool associates one public IPPrefix for each static egress gateway to provide public egress. The size of Public IPPrefix should be selected by the user. Each node in the agent pool is assigned with one IP from the IPPrefix. The IPPrefix size thus serves as a cap on the size of the Gateway agent pool. Due to Azure public IPPrefix size limitation, the valid value range is [28, 31] (/31 = 2 nodes/IPs, /30 = 4 nodes/IPs, /29 = 8 nodes/IPs, /28 = 16 nodes/IPs). The default value is 31.
+        """
+        return pulumi.get(self, "public_ip_prefix_size")
 
 
 @pulumi.output_type
@@ -446,6 +530,8 @@ class AgentPoolSecurityProfileResponse(dict):
             suggest = "enable_secure_boot"
         elif key == "enableVTPM":
             suggest = "enable_vtpm"
+        elif key == "sshAccess":
+            suggest = "ssh_access"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentPoolSecurityProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -460,16 +546,20 @@ class AgentPoolSecurityProfileResponse(dict):
 
     def __init__(__self__, *,
                  enable_secure_boot: Optional[_builtins.bool] = None,
-                 enable_vtpm: Optional[_builtins.bool] = None):
+                 enable_vtpm: Optional[_builtins.bool] = None,
+                 ssh_access: Optional[_builtins.str] = None):
         """
         The security settings of an agent pool.
         :param _builtins.bool enable_secure_boot: Secure Boot is a feature of Trusted Launch which ensures that only signed operating systems and drivers can boot. For more details, see aka.ms/aks/trustedlaunch.  If not specified, the default is false.
         :param _builtins.bool enable_vtpm: vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
+        :param _builtins.str ssh_access: SSH access method of an agent pool.
         """
         if enable_secure_boot is not None:
             pulumi.set(__self__, "enable_secure_boot", enable_secure_boot)
         if enable_vtpm is not None:
             pulumi.set(__self__, "enable_vtpm", enable_vtpm)
+        if ssh_access is not None:
+            pulumi.set(__self__, "ssh_access", ssh_access)
 
     @_builtins.property
     @pulumi.getter(name="enableSecureBoot")
@@ -487,6 +577,53 @@ class AgentPoolSecurityProfileResponse(dict):
         """
         return pulumi.get(self, "enable_vtpm")
 
+    @_builtins.property
+    @pulumi.getter(name="sshAccess")
+    def ssh_access(self) -> Optional[_builtins.str]:
+        """
+        SSH access method of an agent pool.
+        """
+        return pulumi.get(self, "ssh_access")
+
+
+@pulumi.output_type
+class AgentPoolStatusResponse(dict):
+    """
+    Contains read-only information about the Agent Pool.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningError":
+            suggest = "provisioning_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AgentPoolStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AgentPoolStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AgentPoolStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_error: 'outputs.ErrorDetailResponse'):
+        """
+        Contains read-only information about the Agent Pool.
+        :param 'ErrorDetailResponse' provisioning_error: The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
+        """
+        pulumi.set(__self__, "provisioning_error", provisioning_error)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error detail information of the agent pool. Preserves the detailed info of failure. If there was no error, this field is omitted.
+        """
+        return pulumi.get(self, "provisioning_error")
+
 
 @pulumi.output_type
 class AgentPoolUpgradeSettingsResponse(dict):
@@ -500,8 +637,12 @@ class AgentPoolUpgradeSettingsResponse(dict):
             suggest = "drain_timeout_in_minutes"
         elif key == "maxSurge":
             suggest = "max_surge"
+        elif key == "maxUnavailable":
+            suggest = "max_unavailable"
         elif key == "nodeSoakDurationInMinutes":
             suggest = "node_soak_duration_in_minutes"
+        elif key == "undrainableNodeBehavior":
+            suggest = "undrainable_node_behavior"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in AgentPoolUpgradeSettingsResponse. Access the value via the '{suggest}' property getter instead.")
@@ -517,25 +658,33 @@ class AgentPoolUpgradeSettingsResponse(dict):
     def __init__(__self__, *,
                  drain_timeout_in_minutes: Optional[_builtins.int] = None,
                  max_surge: Optional[_builtins.str] = None,
-                 node_soak_duration_in_minutes: Optional[_builtins.int] = None):
+                 max_unavailable: Optional[_builtins.str] = None,
+                 node_soak_duration_in_minutes: Optional[_builtins.int] = None,
+                 undrainable_node_behavior: Optional[_builtins.str] = None):
         """
         Settings for upgrading an agentpool
-        :param _builtins.int drain_timeout_in_minutes: The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
-        :param _builtins.str max_surge: This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
-        :param _builtins.int node_soak_duration_in_minutes: The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        :param _builtins.int drain_timeout_in_minutes: The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        :param _builtins.str max_surge: The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
+        :param _builtins.str max_unavailable: The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
+        :param _builtins.int node_soak_duration_in_minutes: The soak duration for a node. The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        :param _builtins.str undrainable_node_behavior: Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
         """
         if drain_timeout_in_minutes is not None:
             pulumi.set(__self__, "drain_timeout_in_minutes", drain_timeout_in_minutes)
         if max_surge is not None:
             pulumi.set(__self__, "max_surge", max_surge)
+        if max_unavailable is not None:
+            pulumi.set(__self__, "max_unavailable", max_unavailable)
         if node_soak_duration_in_minutes is not None:
             pulumi.set(__self__, "node_soak_duration_in_minutes", node_soak_duration_in_minutes)
+        if undrainable_node_behavior is not None:
+            pulumi.set(__self__, "undrainable_node_behavior", undrainable_node_behavior)
 
     @_builtins.property
     @pulumi.getter(name="drainTimeoutInMinutes")
     def drain_timeout_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
+        The drain timeout for a node. The amount of time (in minutes) to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. If not specified, the default is 30 minutes.
         """
         return pulumi.get(self, "drain_timeout_in_minutes")
 
@@ -543,17 +692,33 @@ class AgentPoolUpgradeSettingsResponse(dict):
     @pulumi.getter(name="maxSurge")
     def max_surge(self) -> Optional[_builtins.str]:
         """
-        This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade
+        The maximum number or percentage of nodes that are surged during upgrade. This can either be set to an integer (e.g. '5') or a percentage (e.g. '50%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 10%. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
         """
         return pulumi.get(self, "max_surge")
+
+    @_builtins.property
+    @pulumi.getter(name="maxUnavailable")
+    def max_unavailable(self) -> Optional[_builtins.str]:
+        """
+        The maximum number or percentage of nodes that can be simultaneously unavailable during upgrade. This can either be set to an integer (e.g. '1') or a percentage (e.g. '5%'). If a percentage is specified, it is the percentage of the total agent pool size at the time of the upgrade. For percentages, fractional nodes are rounded up. If not specified, the default is 0. For more information, including best practices, see: https://learn.microsoft.com/en-us/azure/aks/upgrade-cluster
+        """
+        return pulumi.get(self, "max_unavailable")
 
     @_builtins.property
     @pulumi.getter(name="nodeSoakDurationInMinutes")
     def node_soak_duration_in_minutes(self) -> Optional[_builtins.int]:
         """
-        The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
+        The soak duration for a node. The amount of time (in minutes) to wait after draining a node and before reimaging it and moving on to next node. If not specified, the default is 0 minutes.
         """
         return pulumi.get(self, "node_soak_duration_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="undrainableNodeBehavior")
+    def undrainable_node_behavior(self) -> Optional[_builtins.str]:
+        """
+        Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
+        """
+        return pulumi.get(self, "undrainable_node_behavior")
 
 
 @pulumi.output_type
@@ -582,7 +747,7 @@ class AgentPoolWindowsProfileResponse(dict):
                  disable_outbound_nat: Optional[_builtins.bool] = None):
         """
         The Windows agent pool's specific profile.
-        :param _builtins.bool disable_outbound_nat: The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        :param _builtins.bool disable_outbound_nat: Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
         """
         if disable_outbound_nat is not None:
             pulumi.set(__self__, "disable_outbound_nat", disable_outbound_nat)
@@ -591,7 +756,7 @@ class AgentPoolWindowsProfileResponse(dict):
     @pulumi.getter(name="disableOutboundNat")
     def disable_outbound_nat(self) -> Optional[_builtins.bool]:
         """
-        The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
+        Whether to disable OutboundNAT in windows nodes. The default value is false. Outbound NAT can only be disabled if the cluster outboundType is NAT Gateway and the Windows agent pool does not have node public IP enabled.
         """
         return pulumi.get(self, "disable_outbound_nat")
 
@@ -707,7 +872,7 @@ class AzureKeyVaultKmsResponse(dict):
         Azure Key Vault key management service settings for the security profile.
         :param _builtins.bool enabled: Whether to enable Azure Key Vault key management service. The default is false.
         :param _builtins.str key_id: Identifier of Azure Key Vault key. See [key identifier format](https://docs.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When Azure Key Vault key management service is disabled, leave the field empty.
-        :param _builtins.str key_vault_network_access: Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        :param _builtins.str key_vault_network_access: Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         :param _builtins.str key_vault_resource_id: Resource ID of key vault. When keyVaultNetworkAccess is `Private`, this field is required and must be a valid resource ID. When keyVaultNetworkAccess is `Public`, leave the field empty.
         """
         if enabled is not None:
@@ -741,7 +906,7 @@ class AzureKeyVaultKmsResponse(dict):
     @pulumi.getter(name="keyVaultNetworkAccess")
     def key_vault_network_access(self) -> Optional[_builtins.str]:
         """
-        Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+        Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
         """
         return pulumi.get(self, "key_vault_network_access")
 
@@ -884,6 +1049,8 @@ class ContainerServiceNetworkProfileResponse(dict):
             suggest = "service_cidr"
         elif key == "serviceCidrs":
             suggest = "service_cidrs"
+        elif key == "staticEgressGatewayProfile":
+            suggest = "static_egress_gateway_profile"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ContainerServiceNetworkProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -912,25 +1079,27 @@ class ContainerServiceNetworkProfileResponse(dict):
                  pod_cidr: Optional[_builtins.str] = None,
                  pod_cidrs: Optional[Sequence[_builtins.str]] = None,
                  service_cidr: Optional[_builtins.str] = None,
-                 service_cidrs: Optional[Sequence[_builtins.str]] = None):
+                 service_cidrs: Optional[Sequence[_builtins.str]] = None,
+                 static_egress_gateway_profile: Optional['outputs.ManagedClusterStaticEgressGatewayProfileResponse'] = None):
         """
         Profile of network configuration.
         :param 'AdvancedNetworkingResponse' advanced_networking: Advanced Networking profile for enabling observability and security feature suite on a cluster. For more information see aka.ms/aksadvancednetworking.
         :param _builtins.str dns_service_ip: An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr.
-        :param Sequence[_builtins.str] ip_families: IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        :param Sequence[_builtins.str] ip_families: The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         :param 'ManagedClusterLoadBalancerProfileResponse' load_balancer_profile: Profile of the cluster load balancer.
-        :param _builtins.str load_balancer_sku: The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+        :param _builtins.str load_balancer_sku: The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         :param 'ManagedClusterNATGatewayProfileResponse' nat_gateway_profile: Profile of the cluster NAT gateway.
         :param _builtins.str network_dataplane: Network dataplane used in the Kubernetes cluster.
-        :param _builtins.str network_mode: This cannot be specified if networkPlugin is anything other than 'azure'.
+        :param _builtins.str network_mode: The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
         :param _builtins.str network_plugin: Network plugin used for building the Kubernetes network.
         :param _builtins.str network_plugin_mode: The mode the network plugin should use.
         :param _builtins.str network_policy: Network policy used for building the Kubernetes network.
-        :param _builtins.str outbound_type: This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+        :param _builtins.str outbound_type: The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         :param _builtins.str pod_cidr: A CIDR notation IP range from which to assign pod IPs when kubenet is used.
-        :param Sequence[_builtins.str] pod_cidrs: One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        :param Sequence[_builtins.str] pod_cidrs: The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         :param _builtins.str service_cidr: A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges.
-        :param Sequence[_builtins.str] service_cidrs: One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        :param Sequence[_builtins.str] service_cidrs: The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        :param 'ManagedClusterStaticEgressGatewayProfileResponse' static_egress_gateway_profile: The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
         """
         if advanced_networking is not None:
             pulumi.set(__self__, "advanced_networking", advanced_networking)
@@ -972,6 +1141,8 @@ class ContainerServiceNetworkProfileResponse(dict):
             pulumi.set(__self__, "service_cidr", service_cidr)
         if service_cidrs is not None:
             pulumi.set(__self__, "service_cidrs", service_cidrs)
+        if static_egress_gateway_profile is not None:
+            pulumi.set(__self__, "static_egress_gateway_profile", static_egress_gateway_profile)
 
     @_builtins.property
     @pulumi.getter(name="advancedNetworking")
@@ -993,7 +1164,7 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="ipFamilies")
     def ip_families(self) -> Optional[Sequence[_builtins.str]]:
         """
-        IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
+        The IP families used to specify IP versions available to the cluster. IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6.
         """
         return pulumi.get(self, "ip_families")
 
@@ -1009,7 +1180,7 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="loadBalancerSku")
     def load_balancer_sku(self) -> Optional[_builtins.str]:
         """
-        The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+        The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
         """
         return pulumi.get(self, "load_balancer_sku")
 
@@ -1033,7 +1204,7 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="networkMode")
     def network_mode(self) -> Optional[_builtins.str]:
         """
-        This cannot be specified if networkPlugin is anything other than 'azure'.
+        The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
         """
         return pulumi.get(self, "network_mode")
 
@@ -1065,7 +1236,7 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="outboundType")
     def outbound_type(self) -> Optional[_builtins.str]:
         """
-        This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+        The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
         """
         return pulumi.get(self, "outbound_type")
 
@@ -1081,7 +1252,7 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="podCidrs")
     def pod_cidrs(self) -> Optional[Sequence[_builtins.str]]:
         """
-        One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
+        The CIDR notation IP ranges from which to assign pod IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking.
         """
         return pulumi.get(self, "pod_cidrs")
 
@@ -1097,9 +1268,17 @@ class ContainerServiceNetworkProfileResponse(dict):
     @pulumi.getter(name="serviceCidrs")
     def service_cidrs(self) -> Optional[Sequence[_builtins.str]]:
         """
-        One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
+        The CIDR notation IP ranges from which to assign service cluster IPs. One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges.
         """
         return pulumi.get(self, "service_cidrs")
+
+    @_builtins.property
+    @pulumi.getter(name="staticEgressGatewayProfile")
+    def static_egress_gateway_profile(self) -> Optional['outputs.ManagedClusterStaticEgressGatewayProfileResponse']:
+        """
+        The profile for Static Egress Gateway addon. For more details about Static Egress Gateway, see https://aka.ms/aks/static-egress-gateway.
+        """
+        return pulumi.get(self, "static_egress_gateway_profile")
 
 
 @pulumi.output_type
@@ -1295,13 +1474,13 @@ class DailyScheduleResponse(dict):
 @pulumi.output_type
 class DateSpanResponse(dict):
     """
-    For example, between '2022-12-23' and '2023-01-05'.
+    A date range. For example, between '2022-12-23' and '2023-01-05'.
     """
     def __init__(__self__, *,
                  end: _builtins.str,
                  start: _builtins.str):
         """
-        For example, between '2022-12-23' and '2023-01-05'.
+        A date range. For example, between '2022-12-23' and '2023-01-05'.
         :param _builtins.str end: The end date of the date span.
         :param _builtins.str start: The start date of the date span.
         """
@@ -1692,6 +1871,29 @@ class FleetHubProfileResponse(dict):
         DNS prefix used to create the FQDN for the Fleet hub.
         """
         return pulumi.get(self, "dns_prefix")
+
+
+@pulumi.output_type
+class GPUProfileResponse(dict):
+    """
+    GPU settings for the Agent Pool.
+    """
+    def __init__(__self__, *,
+                 driver: Optional[_builtins.str] = None):
+        """
+        GPU settings for the Agent Pool.
+        :param _builtins.str driver: Whether to install GPU drivers. When it's not specified, default is Install.
+        """
+        if driver is not None:
+            pulumi.set(__self__, "driver", driver)
+
+    @_builtins.property
+    @pulumi.getter
+    def driver(self) -> Optional[_builtins.str]:
+        """
+        Whether to install GPU drivers. When it's not specified, default is Install.
+        """
+        return pulumi.get(self, "driver")
 
 
 @pulumi.output_type
@@ -2511,7 +2713,7 @@ class JWTAuthenticatorValidationRuleResponse(dict):
 @pulumi.output_type
 class KubeletConfigResponse(dict):
     """
-    See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+    Kubelet configurations of agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2563,18 +2765,18 @@ class KubeletConfigResponse(dict):
                  pod_max_pids: Optional[_builtins.int] = None,
                  topology_manager_policy: Optional[_builtins.str] = None):
         """
-        See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+        Kubelet configurations of agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
         :param Sequence[_builtins.str] allowed_unsafe_sysctls: Allowed list of unsafe sysctls or unsafe sysctl patterns (ending in `*`).
         :param _builtins.int container_log_max_files: The maximum number of container log files that can be present for a container. The number must be ≥ 2.
         :param _builtins.int container_log_max_size_mb: The maximum size (e.g. 10Mi) of container log file before it is rotated.
-        :param _builtins.bool cpu_cfs_quota: The default is true.
-        :param _builtins.str cpu_cfs_quota_period: The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
-        :param _builtins.str cpu_manager_policy: The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
+        :param _builtins.bool cpu_cfs_quota: If CPU CFS quota enforcement is enabled for containers that specify CPU limits. The default is true.
+        :param _builtins.str cpu_cfs_quota_period: The CPU CFS quota period value. The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
+        :param _builtins.str cpu_manager_policy: The CPU Manager policy to use. The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
         :param _builtins.bool fail_swap_on: If set to true it will make the Kubelet fail to start if swap is enabled on the node.
-        :param _builtins.int image_gc_high_threshold: To disable image garbage collection, set to 100. The default is 85%
-        :param _builtins.int image_gc_low_threshold: This cannot be set higher than imageGcHighThreshold. The default is 80%
+        :param _builtins.int image_gc_high_threshold: The percent of disk usage after which image garbage collection is always run. To disable image garbage collection, set to 100. The default is 85%
+        :param _builtins.int image_gc_low_threshold: The percent of disk usage before which image garbage collection is never run. This cannot be set higher than imageGcHighThreshold. The default is 80%
         :param _builtins.int pod_max_pids: The maximum number of processes per pod.
-        :param _builtins.str topology_manager_policy: For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
+        :param _builtins.str topology_manager_policy: The Topology Manager policy to use. For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         """
         if allowed_unsafe_sysctls is not None:
             pulumi.set(__self__, "allowed_unsafe_sysctls", allowed_unsafe_sysctls)
@@ -2627,7 +2829,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="cpuCfsQuota")
     def cpu_cfs_quota(self) -> Optional[_builtins.bool]:
         """
-        The default is true.
+        If CPU CFS quota enforcement is enabled for containers that specify CPU limits. The default is true.
         """
         return pulumi.get(self, "cpu_cfs_quota")
 
@@ -2635,7 +2837,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="cpuCfsQuotaPeriod")
     def cpu_cfs_quota_period(self) -> Optional[_builtins.str]:
         """
-        The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
+        The CPU CFS quota period value. The default is '100ms.' Valid values are a sequence of decimal numbers with an optional fraction and a unit suffix. For example: '300ms', '2h45m'. Supported units are 'ns', 'us', 'ms', 's', 'm', and 'h'.
         """
         return pulumi.get(self, "cpu_cfs_quota_period")
 
@@ -2643,7 +2845,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="cpuManagerPolicy")
     def cpu_manager_policy(self) -> Optional[_builtins.str]:
         """
-        The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
+        The CPU Manager policy to use. The default is 'none'. See [Kubernetes CPU management policies](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/#cpu-management-policies) for more information. Allowed values are 'none' and 'static'.
         """
         return pulumi.get(self, "cpu_manager_policy")
 
@@ -2659,7 +2861,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="imageGcHighThreshold")
     def image_gc_high_threshold(self) -> Optional[_builtins.int]:
         """
-        To disable image garbage collection, set to 100. The default is 85%
+        The percent of disk usage after which image garbage collection is always run. To disable image garbage collection, set to 100. The default is 85%
         """
         return pulumi.get(self, "image_gc_high_threshold")
 
@@ -2667,7 +2869,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="imageGcLowThreshold")
     def image_gc_low_threshold(self) -> Optional[_builtins.int]:
         """
-        This cannot be set higher than imageGcHighThreshold. The default is 80%
+        The percent of disk usage before which image garbage collection is never run. This cannot be set higher than imageGcHighThreshold. The default is 80%
         """
         return pulumi.get(self, "image_gc_low_threshold")
 
@@ -2683,7 +2885,7 @@ class KubeletConfigResponse(dict):
     @pulumi.getter(name="topologyManagerPolicy")
     def topology_manager_policy(self) -> Optional[_builtins.str]:
         """
-        For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
+        The Topology Manager policy to use. For more information see [Kubernetes Topology Manager](https://kubernetes.io/docs/tasks/administer-cluster/topology-manager). The default is 'none'. Allowed values are 'none', 'best-effort', 'restricted', and 'single-numa-node'.
         """
         return pulumi.get(self, "topology_manager_policy")
 
@@ -2792,7 +2994,7 @@ class LabelSelectorResponse(dict):
 @pulumi.output_type
 class LinuxOSConfigResponse(dict):
     """
-    See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+    OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2821,11 +3023,11 @@ class LinuxOSConfigResponse(dict):
                  transparent_huge_page_defrag: Optional[_builtins.str] = None,
                  transparent_huge_page_enabled: Optional[_builtins.str] = None):
         """
-        See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
+        OS configurations of Linux agent nodes. See [AKS custom node configuration](https://docs.microsoft.com/azure/aks/custom-node-configuration) for more details.
         :param _builtins.int swap_file_size_mb: The size in MB of a swap file that will be created on each node.
         :param 'SysctlConfigResponse' sysctls: Sysctl settings for Linux agent nodes.
-        :param _builtins.str transparent_huge_page_defrag: Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
-        :param _builtins.str transparent_huge_page_enabled: Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        :param _builtins.str transparent_huge_page_defrag: Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        :param _builtins.str transparent_huge_page_enabled: Whether transparent hugepages are enabled. Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         if swap_file_size_mb is not None:
             pulumi.set(__self__, "swap_file_size_mb", swap_file_size_mb)
@@ -2856,7 +3058,7 @@ class LinuxOSConfigResponse(dict):
     @pulumi.getter(name="transparentHugePageDefrag")
     def transparent_huge_page_defrag(self) -> Optional[_builtins.str]:
         """
-        Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        Whether the kernel should make aggressive use of memory compaction to make more hugepages available. Valid values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. The default is 'madvise'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         return pulumi.get(self, "transparent_huge_page_defrag")
 
@@ -2864,7 +3066,7 @@ class LinuxOSConfigResponse(dict):
     @pulumi.getter(name="transparentHugePageEnabled")
     def transparent_huge_page_enabled(self) -> Optional[_builtins.str]:
         """
-        Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
+        Whether transparent hugepages are enabled. Valid values are 'always', 'madvise', and 'never'. The default is 'always'. For more information see [Transparent Hugepages](https://www.kernel.org/doc/html/latest/admin-guide/mm/transhuge.html#admin-guide-transhuge).
         """
         return pulumi.get(self, "transparent_huge_page_enabled")
 
@@ -2979,7 +3181,7 @@ class MaintenanceWindowResponse(dict):
 @pulumi.output_type
 class ManagedClusterAADProfileResponse(dict):
     """
-    For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
+    AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
     """
     @staticmethod
     def __key_warning(key: str):
@@ -3017,7 +3219,7 @@ class ManagedClusterAADProfileResponse(dict):
                  server_app_secret: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
+        AADProfile specifies attributes for Azure Active Directory integration. For more details see [managed AAD on AKS](https://docs.microsoft.com/azure/aks/managed-aad).
         :param Sequence[_builtins.str] admin_group_object_ids: The list of AAD group object IDs that will have admin role of the cluster.
         :param _builtins.str client_app_id: (DEPRECATED) The client AAD application ID. Learn more at https://aka.ms/aks/aad-legacy.
         :param _builtins.bool enable_azure_rbac: Whether to enable Azure RBAC for Kubernetes authorization.
@@ -3099,6 +3301,29 @@ class ManagedClusterAADProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterAIToolchainOperatorProfileResponse(dict):
+    """
+    When enabling the operator, a set of AKS managed CRDs and controllers will be installed in the cluster. The operator automates the deployment of OSS models for inference and/or training purposes. It provides a set of preset models and enables distributed inference against them.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        When enabling the operator, a set of AKS managed CRDs and controllers will be installed in the cluster. The operator automates the deployment of OSS models for inference and/or training purposes. It provides a set of preset models and enables distributed inference against them.
+        :param _builtins.bool enabled: Whether to enable AI toolchain operator to the cluster. Indicates if AI toolchain operator  enabled or not.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable AI toolchain operator to the cluster. Indicates if AI toolchain operator  enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
 class ManagedClusterAPIServerAccessProfileResponse(dict):
     """
     Access profile for managed cluster API server.
@@ -3114,8 +3339,12 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
             suggest = "enable_private_cluster"
         elif key == "enablePrivateClusterPublicFQDN":
             suggest = "enable_private_cluster_public_fqdn"
+        elif key == "enableVnetIntegration":
+            suggest = "enable_vnet_integration"
         elif key == "privateDNSZone":
             suggest = "private_dns_zone"
+        elif key == "subnetId":
+            suggest = "subnet_id"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in ManagedClusterAPIServerAccessProfileResponse. Access the value via the '{suggest}' property getter instead.")
@@ -3133,14 +3362,18 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
                  disable_run_command: Optional[_builtins.bool] = None,
                  enable_private_cluster: Optional[_builtins.bool] = None,
                  enable_private_cluster_public_fqdn: Optional[_builtins.bool] = None,
-                 private_dns_zone: Optional[_builtins.str] = None):
+                 enable_vnet_integration: Optional[_builtins.bool] = None,
+                 private_dns_zone: Optional[_builtins.str] = None,
+                 subnet_id: Optional[_builtins.str] = None):
         """
         Access profile for managed cluster API server.
-        :param Sequence[_builtins.str] authorized_ip_ranges: IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
+        :param Sequence[_builtins.str] authorized_ip_ranges: The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         :param _builtins.bool disable_run_command: Whether to disable run command for the cluster or not.
-        :param _builtins.bool enable_private_cluster: For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
+        :param _builtins.bool enable_private_cluster: Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         :param _builtins.bool enable_private_cluster_public_fqdn: Whether to create additional public FQDN for private cluster or not.
-        :param _builtins.str private_dns_zone: The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
+        :param _builtins.bool enable_vnet_integration: Whether to enable apiserver vnet integration for the cluster or not. See aka.ms/AksVnetIntegration for more details.
+        :param _builtins.str private_dns_zone: The private DNS zone mode for the cluster. The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
+        :param _builtins.str subnet_id: The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new cluster with BYO Vnet, or when updating an existing cluster to enable apiserver vnet integration.
         """
         if authorized_ip_ranges is not None:
             pulumi.set(__self__, "authorized_ip_ranges", authorized_ip_ranges)
@@ -3150,14 +3383,18 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
             pulumi.set(__self__, "enable_private_cluster", enable_private_cluster)
         if enable_private_cluster_public_fqdn is not None:
             pulumi.set(__self__, "enable_private_cluster_public_fqdn", enable_private_cluster_public_fqdn)
+        if enable_vnet_integration is not None:
+            pulumi.set(__self__, "enable_vnet_integration", enable_vnet_integration)
         if private_dns_zone is not None:
             pulumi.set(__self__, "private_dns_zone", private_dns_zone)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
 
     @_builtins.property
     @pulumi.getter(name="authorizedIPRanges")
     def authorized_ip_ranges(self) -> Optional[Sequence[_builtins.str]]:
         """
-        IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
+        The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         """
         return pulumi.get(self, "authorized_ip_ranges")
 
@@ -3173,7 +3410,7 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
     @pulumi.getter(name="enablePrivateCluster")
     def enable_private_cluster(self) -> Optional[_builtins.bool]:
         """
-        For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
+        Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         """
         return pulumi.get(self, "enable_private_cluster")
 
@@ -3186,12 +3423,28 @@ class ManagedClusterAPIServerAccessProfileResponse(dict):
         return pulumi.get(self, "enable_private_cluster_public_fqdn")
 
     @_builtins.property
+    @pulumi.getter(name="enableVnetIntegration")
+    def enable_vnet_integration(self) -> Optional[_builtins.bool]:
+        """
+        Whether to enable apiserver vnet integration for the cluster or not. See aka.ms/AksVnetIntegration for more details.
+        """
+        return pulumi.get(self, "enable_vnet_integration")
+
+    @_builtins.property
     @pulumi.getter(name="privateDNSZone")
     def private_dns_zone(self) -> Optional[_builtins.str]:
         """
-        The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
+        The private DNS zone mode for the cluster. The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
         """
         return pulumi.get(self, "private_dns_zone")
+
+    @_builtins.property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[_builtins.str]:
+        """
+        The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new cluster with BYO Vnet, or when updating an existing cluster to enable apiserver vnet integration.
+        """
+        return pulumi.get(self, "subnet_id")
 
 
 @pulumi.output_type
@@ -3339,8 +3592,12 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "enable_node_public_ip"
         elif key == "enableUltraSSD":
             suggest = "enable_ultra_ssd"
+        elif key == "gatewayProfile":
+            suggest = "gateway_profile"
         elif key == "gpuInstanceProfile":
             suggest = "gpu_instance_profile"
+        elif key == "gpuProfile":
+            suggest = "gpu_profile"
         elif key == "hostGroupID":
             suggest = "host_group_id"
         elif key == "kubeletConfig":
@@ -3375,6 +3632,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "os_sku"
         elif key == "osType":
             suggest = "os_type"
+        elif key == "podIPAllocationMode":
+            suggest = "pod_ip_allocation_mode"
         elif key == "podSubnetID":
             suggest = "pod_subnet_id"
         elif key == "powerState":
@@ -3393,6 +3652,10 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             suggest = "spot_max_price"
         elif key == "upgradeSettings":
             suggest = "upgrade_settings"
+        elif key == "virtualMachineNodesStatus":
+            suggest = "virtual_machine_nodes_status"
+        elif key == "virtualMachinesProfile":
+            suggest = "virtual_machines_profile"
         elif key == "vmSize":
             suggest = "vm_size"
         elif key == "vnetSubnetID":
@@ -3428,7 +3691,9 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  enable_fips: Optional[_builtins.bool] = None,
                  enable_node_public_ip: Optional[_builtins.bool] = None,
                  enable_ultra_ssd: Optional[_builtins.bool] = None,
+                 gateway_profile: Optional['outputs.AgentPoolGatewayProfileResponse'] = None,
                  gpu_instance_profile: Optional[_builtins.str] = None,
+                 gpu_profile: Optional['outputs.GPUProfileResponse'] = None,
                  host_group_id: Optional[_builtins.str] = None,
                  kubelet_config: Optional['outputs.KubeletConfigResponse'] = None,
                  kubelet_disk_type: Optional[_builtins.str] = None,
@@ -3447,6 +3712,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  os_disk_type: Optional[_builtins.str] = None,
                  os_sku: Optional[_builtins.str] = None,
                  os_type: Optional[_builtins.str] = None,
+                 pod_ip_allocation_mode: Optional[_builtins.str] = None,
                  pod_subnet_id: Optional[_builtins.str] = None,
                  power_state: Optional['outputs.PowerStateResponse'] = None,
                  proximity_placement_group_id: Optional[_builtins.str] = None,
@@ -3455,18 +3721,21 @@ class ManagedClusterAgentPoolProfileResponse(dict):
                  scale_set_priority: Optional[_builtins.str] = None,
                  security_profile: Optional['outputs.AgentPoolSecurityProfileResponse'] = None,
                  spot_max_price: Optional[_builtins.float] = None,
+                 status: Optional['outputs.AgentPoolStatusResponse'] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  type: Optional[_builtins.str] = None,
                  upgrade_settings: Optional['outputs.AgentPoolUpgradeSettingsResponse'] = None,
+                 virtual_machine_nodes_status: Optional[Sequence['outputs.VirtualMachineNodesResponse']] = None,
+                 virtual_machines_profile: Optional['outputs.VirtualMachinesProfileResponse'] = None,
                  vm_size: Optional[_builtins.str] = None,
                  vnet_subnet_id: Optional[_builtins.str] = None,
                  windows_profile: Optional['outputs.AgentPoolWindowsProfileResponse'] = None,
                  workload_runtime: Optional[_builtins.str] = None):
         """
         Profile for the container service agent pool.
-        :param _builtins.str current_orchestrator_version: If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+        :param _builtins.str current_orchestrator_version: The version of Kubernetes the Agent Pool is running. If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         :param _builtins.str e_tag: Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
-        :param _builtins.str name: Windows agent pool names must be 6 characters or less.
+        :param _builtins.str name: Unique name of the agent pool profile in the context of the subscription and resource group. Windows agent pool names must be 6 characters or less.
         :param _builtins.str node_image_version: The version of node image
         :param _builtins.str provisioning_state: The current deployment or provisioning state.
         :param Sequence[_builtins.str] availability_zones: The list of Availability zones to use for nodes. This can only be specified if the AgentPoolType property is 'VirtualMachineScaleSets'.
@@ -3474,42 +3743,48 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         :param _builtins.int count: Number of agents (VMs) to host docker containers. Allowed values must be in the range of 0 to 1000 (inclusive) for user pools and in the range of 1 to 1000 (inclusive) for system pools. The default value is 1.
         :param 'CreationDataResponse' creation_data: CreationData to be used to specify the source Snapshot ID if the node pool will be created/upgraded using a snapshot.
         :param _builtins.bool enable_auto_scaling: Whether to enable auto-scaler
-        :param _builtins.bool enable_encryption_at_host: This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
-        :param _builtins.bool enable_fips: See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
-        :param _builtins.bool enable_node_public_ip: Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        :param _builtins.bool enable_encryption_at_host: Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        :param _builtins.bool enable_fips: Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        :param _builtins.bool enable_node_public_ip: Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         :param _builtins.bool enable_ultra_ssd: Whether to enable UltraSSD
+        :param 'AgentPoolGatewayProfileResponse' gateway_profile: Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
         :param _builtins.str gpu_instance_profile: GPUInstanceProfile to be used to specify GPU MIG instance profile for supported GPU VM SKU.
-        :param _builtins.str host_group_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        :param 'GPUProfileResponse' gpu_profile: GPU settings for the Agent Pool.
+        :param _builtins.str host_group_id: The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
         :param 'KubeletConfigResponse' kubelet_config: The Kubelet configuration on the agent pool nodes.
         :param _builtins.str kubelet_disk_type: Determines the placement of emptyDir volumes, container runtime data root, and Kubelet ephemeral storage.
         :param 'LinuxOSConfigResponse' linux_os_config: The OS configuration of Linux agent nodes.
         :param _builtins.int max_count: The maximum number of nodes for auto-scaling
         :param _builtins.int max_pods: The maximum number of pods that can run on a node.
-        :param _builtins.str message_of_the_day: A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        :param _builtins.str message_of_the_day: Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         :param _builtins.int min_count: The minimum number of nodes for auto-scaling
-        :param _builtins.str mode: A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        :param _builtins.str mode: The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         :param 'AgentPoolNetworkProfileResponse' network_profile: Network-related settings of an agent pool.
         :param Mapping[str, _builtins.str] node_labels: The node labels to be persisted across all nodes in agent pool.
-        :param _builtins.str node_public_ip_prefix_id: This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        :param _builtins.str node_public_ip_prefix_id: The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         :param Sequence[_builtins.str] node_taints: The taints added to new nodes during node pool create and scale. For example, key=value:NoSchedule.
-        :param _builtins.str orchestrator_version: Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        :param _builtins.str orchestrator_version: The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         :param _builtins.int os_disk_size_gb: OS Disk Size in GB to be used to specify the disk size for every machine in the master/agent pool. If you specify 0, it will apply the default osDisk size according to the vmSize specified.
-        :param _builtins.str os_disk_type: The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        :param _builtins.str os_disk_type: The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         :param _builtins.str os_sku: Specifies the OS SKU used by the agent pool. The default is Ubuntu if OSType is Linux. The default is Windows2019 when Kubernetes <= 1.24 or Windows2022 when Kubernetes >= 1.25 if OSType is Windows.
         :param _builtins.str os_type: The operating system type. The default is Linux.
-        :param _builtins.str pod_subnet_id: If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
-        :param 'PowerStateResponse' power_state: When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+        :param _builtins.str pod_ip_allocation_mode: Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
+        :param _builtins.str pod_subnet_id: The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param 'PowerStateResponse' power_state: Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         :param _builtins.str proximity_placement_group_id: The ID for Proximity Placement Group.
-        :param _builtins.str scale_down_mode: This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
-        :param _builtins.str scale_set_eviction_policy: This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        :param _builtins.str scale_down_mode: The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        :param _builtins.str scale_set_eviction_policy: The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         :param _builtins.str scale_set_priority: The Virtual Machine Scale Set priority. If not specified, the default is 'Regular'.
         :param 'AgentPoolSecurityProfileResponse' security_profile: The security settings of an agent pool.
-        :param _builtins.float spot_max_price: Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        :param _builtins.float spot_max_price: The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        :param 'AgentPoolStatusResponse' status: Contains read-only information about the Agent Pool.
         :param Mapping[str, _builtins.str] tags: The tags to be persisted on the agent pool virtual machine scale set.
         :param _builtins.str type: The type of Agent Pool.
         :param 'AgentPoolUpgradeSettingsResponse' upgrade_settings: Settings for upgrading the agentpool
-        :param _builtins.str vm_size: VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
-        :param _builtins.str vnet_subnet_id: If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        :param Sequence['VirtualMachineNodesResponse'] virtual_machine_nodes_status: The status of nodes in a VirtualMachines agent pool.
+        :param 'VirtualMachinesProfileResponse' virtual_machines_profile: Specifications on VirtualMachines agent pool.
+        :param _builtins.str vm_size: The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        :param _builtins.str vnet_subnet_id: The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         :param 'AgentPoolWindowsProfileResponse' windows_profile: The Windows agent pool's specific profile.
         :param _builtins.str workload_runtime: Determines the type of workload a node can run.
         """
@@ -3536,8 +3811,12 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "enable_node_public_ip", enable_node_public_ip)
         if enable_ultra_ssd is not None:
             pulumi.set(__self__, "enable_ultra_ssd", enable_ultra_ssd)
+        if gateway_profile is not None:
+            pulumi.set(__self__, "gateway_profile", gateway_profile)
         if gpu_instance_profile is not None:
             pulumi.set(__self__, "gpu_instance_profile", gpu_instance_profile)
+        if gpu_profile is not None:
+            pulumi.set(__self__, "gpu_profile", gpu_profile)
         if host_group_id is not None:
             pulumi.set(__self__, "host_group_id", host_group_id)
         if kubelet_config is not None:
@@ -3574,6 +3853,8 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "os_sku", os_sku)
         if os_type is not None:
             pulumi.set(__self__, "os_type", os_type)
+        if pod_ip_allocation_mode is not None:
+            pulumi.set(__self__, "pod_ip_allocation_mode", pod_ip_allocation_mode)
         if pod_subnet_id is not None:
             pulumi.set(__self__, "pod_subnet_id", pod_subnet_id)
         if power_state is not None:
@@ -3590,12 +3871,18 @@ class ManagedClusterAgentPoolProfileResponse(dict):
             pulumi.set(__self__, "security_profile", security_profile)
         if spot_max_price is not None:
             pulumi.set(__self__, "spot_max_price", spot_max_price)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if upgrade_settings is not None:
             pulumi.set(__self__, "upgrade_settings", upgrade_settings)
+        if virtual_machine_nodes_status is not None:
+            pulumi.set(__self__, "virtual_machine_nodes_status", virtual_machine_nodes_status)
+        if virtual_machines_profile is not None:
+            pulumi.set(__self__, "virtual_machines_profile", virtual_machines_profile)
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
         if vnet_subnet_id is not None:
@@ -3609,7 +3896,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="currentOrchestratorVersion")
     def current_orchestrator_version(self) -> _builtins.str:
         """
-        If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
+        The version of Kubernetes the Agent Pool is running. If orchestratorVersion is a fully specified version <major.minor.patch>, this field will be exactly equal to it. If orchestratorVersion is <major.minor>, this field will contain the full <major.minor.patch> version being used.
         """
         return pulumi.get(self, "current_orchestrator_version")
 
@@ -3625,7 +3912,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Windows agent pool names must be 6 characters or less.
+        Unique name of the agent pool profile in the context of the subscription and resource group. Windows agent pool names must be 6 characters or less.
         """
         return pulumi.get(self, "name")
 
@@ -3689,7 +3976,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="enableEncryptionAtHost")
     def enable_encryption_at_host(self) -> Optional[_builtins.bool]:
         """
-        This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
+        Whether to enable host based OS and data drive encryption. This is only supported on certain VM sizes and in certain Azure regions. For more information, see: https://docs.microsoft.com/azure/aks/enable-host-encryption
         """
         return pulumi.get(self, "enable_encryption_at_host")
 
@@ -3697,7 +3984,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="enableFIPS")
     def enable_fips(self) -> Optional[_builtins.bool]:
         """
-        See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
+        Whether to use a FIPS-enabled OS. See [Add a FIPS-enabled node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview) for more details.
         """
         return pulumi.get(self, "enable_fips")
 
@@ -3705,7 +3992,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="enableNodePublicIP")
     def enable_node_public_ip(self) -> Optional[_builtins.bool]:
         """
-        Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
+        Whether each node is allocated its own public IP. Some scenarios may require nodes in a node pool to receive their own dedicated public IP addresses. A common scenario is for gaming workloads, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. For more information see [assigning a public IP per node](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#assign-a-public-ip-per-node-for-your-node-pools). The default is false.
         """
         return pulumi.get(self, "enable_node_public_ip")
 
@@ -3718,6 +4005,14 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "enable_ultra_ssd")
 
     @_builtins.property
+    @pulumi.getter(name="gatewayProfile")
+    def gateway_profile(self) -> Optional['outputs.AgentPoolGatewayProfileResponse']:
+        """
+        Profile specific to a managed agent pool in Gateway mode. This field cannot be set if agent pool mode is not Gateway.
+        """
+        return pulumi.get(self, "gateway_profile")
+
+    @_builtins.property
     @pulumi.getter(name="gpuInstanceProfile")
     def gpu_instance_profile(self) -> Optional[_builtins.str]:
         """
@@ -3726,10 +4021,18 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "gpu_instance_profile")
 
     @_builtins.property
+    @pulumi.getter(name="gpuProfile")
+    def gpu_profile(self) -> Optional['outputs.GPUProfileResponse']:
+        """
+        GPU settings for the Agent Pool.
+        """
+        return pulumi.get(self, "gpu_profile")
+
+    @_builtins.property
     @pulumi.getter(name="hostGroupID")
     def host_group_id(self) -> Optional[_builtins.str]:
         """
-        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
+        The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from, used only in creation scenario and not allowed to changed once set. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/hostGroups/{hostGroupName}. For more information see [Azure dedicated hosts](https://docs.microsoft.com/azure/virtual-machines/dedicated-hosts).
         """
         return pulumi.get(self, "host_group_id")
 
@@ -3777,7 +4080,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="messageOfTheDay")
     def message_of_the_day(self) -> Optional[_builtins.str]:
         """
-        A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
+        Message of the day for Linux nodes, base64-encoded. A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It must not be specified for Windows nodes. It must be a static string (i.e., will be printed raw and not be executed as a script).
         """
         return pulumi.get(self, "message_of_the_day")
 
@@ -3793,7 +4096,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+        The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
         """
         return pulumi.get(self, "mode")
 
@@ -3817,7 +4120,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="nodePublicIPPrefixID")
     def node_public_ip_prefix_id(self) -> Optional[_builtins.str]:
         """
-        This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
+        The public IP prefix ID which VM nodes should use IPs from. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/publicIPPrefixes/{publicIPPrefixName}
         """
         return pulumi.get(self, "node_public_ip_prefix_id")
 
@@ -3833,7 +4136,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="orchestratorVersion")
     def orchestrator_version(self) -> Optional[_builtins.str]:
         """
-        Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
+        The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The node pool version must have the same major version as the control plane. The node pool minor version must be within two minor versions of the control plane version. The node pool version cannot be greater than the control plane version. For more information see [upgrading a node pool](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#upgrade-a-node-pool).
         """
         return pulumi.get(self, "orchestrator_version")
 
@@ -3849,7 +4152,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="osDiskType")
     def os_disk_type(self) -> Optional[_builtins.str]:
         """
-        The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+        The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
         """
         return pulumi.get(self, "os_disk_type")
 
@@ -3870,10 +4173,18 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "os_type")
 
     @_builtins.property
+    @pulumi.getter(name="podIPAllocationMode")
+    def pod_ip_allocation_mode(self) -> Optional[_builtins.str]:
+        """
+        Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
+        """
+        return pulumi.get(self, "pod_ip_allocation_mode")
+
+    @_builtins.property
     @pulumi.getter(name="podSubnetID")
     def pod_subnet_id(self) -> Optional[_builtins.str]:
         """
-        If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        The ID of the subnet which pods will join when launched. If omitted, pod IPs are statically assigned on the node subnet (see vnetSubnetID for more details). This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "pod_subnet_id")
 
@@ -3881,7 +4192,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="powerState")
     def power_state(self) -> Optional['outputs.PowerStateResponse']:
         """
-        When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
+        Whether the Agent Pool is running or stopped. When an Agent Pool is first created it is initially Running. The Agent Pool can be stopped by setting this field to Stopped. A stopped Agent Pool stops all of its VMs and does not accrue billing charges. An Agent Pool can only be stopped if it is Running and provisioning state is Succeeded
         """
         return pulumi.get(self, "power_state")
 
@@ -3897,7 +4208,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="scaleDownMode")
     def scale_down_mode(self) -> Optional[_builtins.str]:
         """
-        This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+        The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
         """
         return pulumi.get(self, "scale_down_mode")
 
@@ -3905,7 +4216,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="scaleSetEvictionPolicy")
     def scale_set_eviction_policy(self) -> Optional[_builtins.str]:
         """
-        This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+        The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
         """
         return pulumi.get(self, "scale_set_eviction_policy")
 
@@ -3929,9 +4240,17 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="spotMaxPrice")
     def spot_max_price(self) -> Optional[_builtins.float]:
         """
-        Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
+        The max price (in US Dollars) you are willing to pay for spot instances. Possible values are any decimal value greater than zero or -1 which indicates default price to be up-to on-demand. Possible values are any decimal value greater than zero or -1 which indicates the willingness to pay any on-demand price. For more details on spot pricing, see [spot VMs pricing](https://docs.microsoft.com/azure/virtual-machines/spot-vms#pricing)
         """
         return pulumi.get(self, "spot_max_price")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.AgentPoolStatusResponse']:
+        """
+        Contains read-only information about the Agent Pool.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter
@@ -3958,10 +4277,26 @@ class ManagedClusterAgentPoolProfileResponse(dict):
         return pulumi.get(self, "upgrade_settings")
 
     @_builtins.property
+    @pulumi.getter(name="virtualMachineNodesStatus")
+    def virtual_machine_nodes_status(self) -> Optional[Sequence['outputs.VirtualMachineNodesResponse']]:
+        """
+        The status of nodes in a VirtualMachines agent pool.
+        """
+        return pulumi.get(self, "virtual_machine_nodes_status")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualMachinesProfile")
+    def virtual_machines_profile(self) -> Optional['outputs.VirtualMachinesProfileResponse']:
+        """
+        Specifications on VirtualMachines agent pool.
+        """
+        return pulumi.get(self, "virtual_machines_profile")
+
+    @_builtins.property
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[_builtins.str]:
         """
-        VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. If this field is not specified, AKS will attempt to find an appropriate VM SKU for your pool, based on quota and capacity. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
+        The size of the agent pool VMs. VM size availability varies by region. If a node contains insufficient compute resources (memory, cpu, etc) pods might fail to run correctly. For more details on restricted VM sizes, see: https://docs.microsoft.com/azure/aks/quotas-skus-regions
         """
         return pulumi.get(self, "vm_size")
 
@@ -3969,7 +4304,7 @@ class ManagedClusterAgentPoolProfileResponse(dict):
     @pulumi.getter(name="vnetSubnetID")
     def vnet_subnet_id(self) -> Optional[_builtins.str]:
         """
-        If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
+        The ID of the subnet which agent pool nodes and optionally pods will join on startup. If this is not specified, a VNET and subnet will be generated and used. If no podSubnetID is specified, this applies to nodes and pods, otherwise it applies to just nodes. This is of the form: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}/subnets/{subnetName}
         """
         return pulumi.get(self, "vnet_subnet_id")
 
@@ -4019,8 +4354,8 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
                  upgrade_channel: Optional[_builtins.str] = None):
         """
         Auto upgrade profile for a managed cluster.
-        :param _builtins.str node_os_upgrade_channel: Manner in which the OS on your nodes is updated. The default is NodeImage.
-        :param _builtins.str upgrade_channel: For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+        :param _builtins.str node_os_upgrade_channel: Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
+        :param _builtins.str upgrade_channel: The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
         if node_os_upgrade_channel is not None:
             pulumi.set(__self__, "node_os_upgrade_channel", node_os_upgrade_channel)
@@ -4031,7 +4366,7 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
     @pulumi.getter(name="nodeOSUpgradeChannel")
     def node_os_upgrade_channel(self) -> Optional[_builtins.str]:
         """
-        Manner in which the OS on your nodes is updated. The default is NodeImage.
+        Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
         """
         return pulumi.get(self, "node_os_upgrade_channel")
 
@@ -4039,7 +4374,7 @@ class ManagedClusterAutoUpgradeProfileResponse(dict):
     @pulumi.getter(name="upgradeChannel")
     def upgrade_channel(self) -> Optional[_builtins.str]:
         """
-        For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+        The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
         """
         return pulumi.get(self, "upgrade_channel")
 
@@ -4173,6 +4508,62 @@ class ManagedClusterAzureMonitorProfileResponse(dict):
 
 
 @pulumi.output_type
+class ManagedClusterBootstrapProfileResponse(dict):
+    """
+    The bootstrap profile.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "artifactSource":
+            suggest = "artifact_source"
+        elif key == "containerRegistryId":
+            suggest = "container_registry_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterBootstrapProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterBootstrapProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterBootstrapProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 artifact_source: Optional[_builtins.str] = None,
+                 container_registry_id: Optional[_builtins.str] = None):
+        """
+        The bootstrap profile.
+        :param _builtins.str artifact_source: The artifact source. The source where the artifacts are downloaded from.
+        :param _builtins.str container_registry_id: The resource Id of Azure Container Registry. The registry must have private network access, premium SKU and zone redundancy.
+        """
+        if artifact_source is None:
+            artifact_source = 'Direct'
+        if artifact_source is not None:
+            pulumi.set(__self__, "artifact_source", artifact_source)
+        if container_registry_id is not None:
+            pulumi.set(__self__, "container_registry_id", container_registry_id)
+
+    @_builtins.property
+    @pulumi.getter(name="artifactSource")
+    def artifact_source(self) -> Optional[_builtins.str]:
+        """
+        The artifact source. The source where the artifacts are downloaded from.
+        """
+        return pulumi.get(self, "artifact_source")
+
+    @_builtins.property
+    @pulumi.getter(name="containerRegistryId")
+    def container_registry_id(self) -> Optional[_builtins.str]:
+        """
+        The resource Id of Azure Container Registry. The registry must have private network access, premium SKU and zone redundancy.
+        """
+        return pulumi.get(self, "container_registry_id")
+
+
+@pulumi.output_type
 class ManagedClusterCostAnalysisResponse(dict):
     """
     The cost analysis configuration for the cluster
@@ -4181,7 +4572,7 @@ class ManagedClusterCostAnalysisResponse(dict):
                  enabled: Optional[_builtins.bool] = None):
         """
         The cost analysis configuration for the cluster
-        :param _builtins.bool enabled: The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        :param _builtins.bool enabled: Whether to enable cost analysis. The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -4190,7 +4581,7 @@ class ManagedClusterCostAnalysisResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         """
-        The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
+        Whether to enable cost analysis. The Managed Cluster sku.tier must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal. If not specified, the default is false. For more information see aka.ms/aks/docs/cost-analysis.
         """
         return pulumi.get(self, "enabled")
 
@@ -4316,8 +4707,8 @@ class ManagedClusterIdentityResponse(dict):
         :param _builtins.str principal_id: The principal id of the system assigned identity which is used by master components.
         :param _builtins.str tenant_id: The tenant id of the system assigned identity which is used by master components.
         :param Mapping[str, 'DelegatedResourceResponse'] delegated_resources: The delegated identity resources assigned to this managed cluster. This can only be set by another Azure Resource Provider, and managed cluster only accept one delegated identity resource. Internal use only.
-        :param _builtins.str type: For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
-        :param Mapping[str, 'ManagedClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        :param _builtins.str type: The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+        :param Mapping[str, 'ManagedClusterIdentityResponseUserAssignedIdentities'] user_assigned_identities: The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         pulumi.set(__self__, "principal_id", principal_id)
         pulumi.set(__self__, "tenant_id", tenant_id)
@@ -4356,7 +4747,7 @@ class ManagedClusterIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+        The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
         """
         return pulumi.get(self, "type")
 
@@ -4364,7 +4755,7 @@ class ManagedClusterIdentityResponse(dict):
     @pulumi.getter(name="userAssignedIdentities")
     def user_assigned_identities(self) -> Optional[Mapping[str, 'outputs.ManagedClusterIdentityResponseUserAssignedIdentities']]:
         """
-        The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
+        The user identity associated with the managed cluster. This identity will be used in control plane. Only one user assigned identity is allowed. The keys must be ARM resource IDs in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}'.
         """
         return pulumi.get(self, "user_assigned_identities")
 
@@ -4415,6 +4806,42 @@ class ManagedClusterIdentityResponseUserAssignedIdentities(dict):
         The principal id of user assigned identity.
         """
         return pulumi.get(self, "principal_id")
+
+
+@pulumi.output_type
+class ManagedClusterIngressProfileNginxResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultIngressControllerType":
+            suggest = "default_ingress_controller_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterIngressProfileNginxResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterIngressProfileNginxResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterIngressProfileNginxResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_ingress_controller_type: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str default_ingress_controller_type: Ingress type for the default NginxIngressController custom resource
+        """
+        if default_ingress_controller_type is not None:
+            pulumi.set(__self__, "default_ingress_controller_type", default_ingress_controller_type)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultIngressControllerType")
+    def default_ingress_controller_type(self) -> Optional[_builtins.str]:
+        """
+        Ingress type for the default NginxIngressController custom resource
+        """
+        return pulumi.get(self, "default_ingress_controller_type")
 
 
 @pulumi.output_type
@@ -4482,18 +4909,22 @@ class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
     def __init__(__self__, *,
                  identity: 'outputs.UserAssignedIdentityResponse',
                  dns_zone_resource_ids: Optional[Sequence[_builtins.str]] = None,
-                 enabled: Optional[_builtins.bool] = None):
+                 enabled: Optional[_builtins.bool] = None,
+                 nginx: Optional['outputs.ManagedClusterIngressProfileNginxResponse'] = None):
         """
         Application Routing add-on settings for the ingress profile.
         :param 'UserAssignedIdentityResponse' identity: Managed identity of the Application Routing add-on. This is the identity that should be granted permissions, for example, to manage the associated Azure DNS resource and get certificates from Azure Key Vault. See [this overview of the add-on](https://learn.microsoft.com/en-us/azure/aks/web-app-routing?tabs=with-osm) for more instructions.
         :param Sequence[_builtins.str] dns_zone_resource_ids: Resource IDs of the DNS zones to be associated with the Application Routing add-on. Used only when Application Routing add-on is enabled. Public and private DNS zones can be in different resource groups, but all public DNS zones must be in the same resource group and all private DNS zones must be in the same resource group.
         :param _builtins.bool enabled: Whether to enable the Application Routing add-on.
+        :param 'ManagedClusterIngressProfileNginxResponse' nginx: Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
         """
         pulumi.set(__self__, "identity", identity)
         if dns_zone_resource_ids is not None:
             pulumi.set(__self__, "dns_zone_resource_ids", dns_zone_resource_ids)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
+        if nginx is not None:
+            pulumi.set(__self__, "nginx", nginx)
 
     @_builtins.property
     @pulumi.getter
@@ -4519,6 +4950,14 @@ class ManagedClusterIngressProfileWebAppRoutingResponse(dict):
         """
         return pulumi.get(self, "enabled")
 
+    @_builtins.property
+    @pulumi.getter
+    def nginx(self) -> Optional['outputs.ManagedClusterIngressProfileNginxResponse']:
+        """
+        Configuration for the default NginxIngressController. See more at https://learn.microsoft.com/en-us/azure/aks/app-routing-nginx-configuration#the-default-nginx-ingress-controller.
+        """
+        return pulumi.get(self, "nginx")
+
 
 @pulumi.output_type
 class ManagedClusterLoadBalancerProfileResponse(dict):
@@ -4528,12 +4967,12 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "allocatedOutboundPorts":
+        if key == "effectiveOutboundIPs":
+            suggest = "effective_outbound_ips"
+        elif key == "allocatedOutboundPorts":
             suggest = "allocated_outbound_ports"
         elif key == "backendPoolType":
             suggest = "backend_pool_type"
-        elif key == "effectiveOutboundIPs":
-            suggest = "effective_outbound_ips"
         elif key == "enableMultipleStandardLoadBalancers":
             suggest = "enable_multiple_standard_load_balancers"
         elif key == "idleTimeoutInMinutes":
@@ -4557,9 +4996,9 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 effective_outbound_ips: Sequence['outputs.ResourceReferenceResponse'],
                  allocated_outbound_ports: Optional[_builtins.int] = None,
                  backend_pool_type: Optional[_builtins.str] = None,
-                 effective_outbound_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
                  enable_multiple_standard_load_balancers: Optional[_builtins.bool] = None,
                  idle_timeout_in_minutes: Optional[_builtins.int] = None,
                  managed_outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs'] = None,
@@ -4567,15 +5006,16 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
                  outbound_ips: Optional['outputs.ManagedClusterLoadBalancerProfileResponseOutboundIPs'] = None):
         """
         Profile of the managed cluster load balancer.
+        :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param _builtins.int allocated_outbound_ports: The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports.
         :param _builtins.str backend_pool_type: The type of the managed inbound Load Balancer BackendPool.
-        :param Sequence['ResourceReferenceResponse'] effective_outbound_ips: The effective outbound IP resources of the cluster load balancer.
         :param _builtins.bool enable_multiple_standard_load_balancers: Enable multiple standard load balancers per AKS cluster or not.
         :param _builtins.int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes.
         :param 'ManagedClusterLoadBalancerProfileResponseManagedOutboundIPs' managed_outbound_ips: Desired managed outbound IPs for the cluster load balancer.
         :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPPrefixes' outbound_ip_prefixes: Desired outbound IP Prefix resources for the cluster load balancer.
         :param 'ManagedClusterLoadBalancerProfileResponseOutboundIPs' outbound_ips: Desired outbound IP resources for the cluster load balancer.
         """
+        pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if allocated_outbound_ports is None:
             allocated_outbound_ports = 0
         if allocated_outbound_ports is not None:
@@ -4584,8 +5024,6 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
             backend_pool_type = 'NodeIPConfiguration'
         if backend_pool_type is not None:
             pulumi.set(__self__, "backend_pool_type", backend_pool_type)
-        if effective_outbound_ips is not None:
-            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if enable_multiple_standard_load_balancers is not None:
             pulumi.set(__self__, "enable_multiple_standard_load_balancers", enable_multiple_standard_load_balancers)
         if idle_timeout_in_minutes is None:
@@ -4598,6 +5036,14 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
             pulumi.set(__self__, "outbound_ip_prefixes", outbound_ip_prefixes)
         if outbound_ips is not None:
             pulumi.set(__self__, "outbound_ips", outbound_ips)
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveOutboundIPs")
+    def effective_outbound_ips(self) -> Sequence['outputs.ResourceReferenceResponse']:
+        """
+        The effective outbound IP resources of the cluster load balancer.
+        """
+        return pulumi.get(self, "effective_outbound_ips")
 
     @_builtins.property
     @pulumi.getter(name="allocatedOutboundPorts")
@@ -4614,14 +5060,6 @@ class ManagedClusterLoadBalancerProfileResponse(dict):
         The type of the managed inbound Load Balancer BackendPool.
         """
         return pulumi.get(self, "backend_pool_type")
-
-    @_builtins.property
-    @pulumi.getter(name="effectiveOutboundIPs")
-    def effective_outbound_ips(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
-        """
-        The effective outbound IP resources of the cluster load balancer.
-        """
-        return pulumi.get(self, "effective_outbound_ips")
 
     @_builtins.property
     @pulumi.getter(name="enableMultipleStandardLoadBalancers")
@@ -4851,7 +5289,7 @@ class ManagedClusterMetricsProfileResponse(dict):
                  cost_analysis: Optional['outputs.ManagedClusterCostAnalysisResponse'] = None):
         """
         The metrics profile for the ManagedCluster.
-        :param 'ManagedClusterCostAnalysisResponse' cost_analysis: The cost analysis configuration for the cluster
+        :param 'ManagedClusterCostAnalysisResponse' cost_analysis: The configuration for detailed per-Kubernetes resource cost analysis.
         """
         if cost_analysis is not None:
             pulumi.set(__self__, "cost_analysis", cost_analysis)
@@ -4860,7 +5298,7 @@ class ManagedClusterMetricsProfileResponse(dict):
     @pulumi.getter(name="costAnalysis")
     def cost_analysis(self) -> Optional['outputs.ManagedClusterCostAnalysisResponse']:
         """
-        The cost analysis configuration for the cluster
+        The configuration for detailed per-Kubernetes resource cost analysis.
         """
         return pulumi.get(self, "cost_analysis")
 
@@ -4892,7 +5330,7 @@ class ManagedClusterNATGatewayProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 effective_outbound_ips: Optional[Sequence['outputs.ResourceReferenceResponse']] = None,
+                 effective_outbound_ips: Sequence['outputs.ResourceReferenceResponse'],
                  idle_timeout_in_minutes: Optional[_builtins.int] = None,
                  managed_outbound_ip_profile: Optional['outputs.ManagedClusterManagedOutboundIPProfileResponse'] = None):
         """
@@ -4901,8 +5339,7 @@ class ManagedClusterNATGatewayProfileResponse(dict):
         :param _builtins.int idle_timeout_in_minutes: Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes.
         :param 'ManagedClusterManagedOutboundIPProfileResponse' managed_outbound_ip_profile: Profile of the managed outbound IP resources of the cluster NAT gateway.
         """
-        if effective_outbound_ips is not None:
-            pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
+        pulumi.set(__self__, "effective_outbound_ips", effective_outbound_ips)
         if idle_timeout_in_minutes is None:
             idle_timeout_in_minutes = 4
         if idle_timeout_in_minutes is not None:
@@ -4912,7 +5349,7 @@ class ManagedClusterNATGatewayProfileResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="effectiveOutboundIPs")
-    def effective_outbound_ips(self) -> Optional[Sequence['outputs.ResourceReferenceResponse']]:
+    def effective_outbound_ips(self) -> Sequence['outputs.ResourceReferenceResponse']:
         """
         The effective outbound IP resources of the cluster NAT gateway.
         """
@@ -4933,6 +5370,56 @@ class ManagedClusterNATGatewayProfileResponse(dict):
         Profile of the managed outbound IP resources of the cluster NAT gateway.
         """
         return pulumi.get(self, "managed_outbound_ip_profile")
+
+
+@pulumi.output_type
+class ManagedClusterNodeProvisioningProfileResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultNodePools":
+            suggest = "default_node_pools"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterNodeProvisioningProfileResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterNodeProvisioningProfileResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterNodeProvisioningProfileResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_node_pools: Optional[_builtins.str] = None,
+                 mode: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str default_node_pools: The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
+        :param _builtins.str mode: The node provisioning mode. If not specified, the default is Manual.
+        """
+        if default_node_pools is None:
+            default_node_pools = 'Auto'
+        if default_node_pools is not None:
+            pulumi.set(__self__, "default_node_pools", default_node_pools)
+        if mode is not None:
+            pulumi.set(__self__, "mode", mode)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNodePools")
+    def default_node_pools(self) -> Optional[_builtins.str]:
+        """
+        The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
+        """
+        return pulumi.get(self, "default_node_pools")
+
+    @_builtins.property
+    @pulumi.getter
+    def mode(self) -> Optional[_builtins.str]:
+        """
+        The node provisioning mode. If not specified, the default is Manual.
+        """
+        return pulumi.get(self, "mode")
 
 
 @pulumi.output_type
@@ -5029,7 +5516,7 @@ class ManagedClusterOIDCIssuerProfileResponse(dict):
 @pulumi.output_type
 class ManagedClusterPodIdentityExceptionResponse(dict):
     """
-    See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+    A pod identity exception, which allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5053,7 +5540,7 @@ class ManagedClusterPodIdentityExceptionResponse(dict):
                  namespace: _builtins.str,
                  pod_labels: Mapping[str, _builtins.str]):
         """
-        See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
+        A pod identity exception, which allows pods with certain labels to access the Azure Instance Metadata Service (IMDS) endpoint without being intercepted by the node-managed identity (NMI) server. See [disable AAD Pod Identity for a specific Pod/Application](https://azure.github.io/aad-pod-identity/docs/configure/application_exception/) for more details.
         :param _builtins.str name: The name of the pod identity exception.
         :param _builtins.str namespace: The namespace of the pod identity exception.
         :param Mapping[str, _builtins.str] pod_labels: The pod labels to match.
@@ -5090,7 +5577,7 @@ class ManagedClusterPodIdentityExceptionResponse(dict):
 @pulumi.output_type
 class ManagedClusterPodIdentityProfileResponse(dict):
     """
-    See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+    The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -5119,8 +5606,8 @@ class ManagedClusterPodIdentityProfileResponse(dict):
                  user_assigned_identities: Optional[Sequence['outputs.ManagedClusterPodIdentityResponse']] = None,
                  user_assigned_identity_exceptions: Optional[Sequence['outputs.ManagedClusterPodIdentityExceptionResponse']] = None):
         """
-        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
-        :param _builtins.bool allow_network_plugin_kubenet: Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
+        The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on pod identity integration.
+        :param _builtins.bool allow_network_plugin_kubenet: Whether pod identity is allowed to run on clusters with Kubenet networking. Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
         :param _builtins.bool enabled: Whether the pod identity addon is enabled.
         :param Sequence['ManagedClusterPodIdentityResponse'] user_assigned_identities: The pod identities to use in the cluster.
         :param Sequence['ManagedClusterPodIdentityExceptionResponse'] user_assigned_identity_exceptions: The pod identity exceptions to allow.
@@ -5138,7 +5625,7 @@ class ManagedClusterPodIdentityProfileResponse(dict):
     @pulumi.getter(name="allowNetworkPluginKubenet")
     def allow_network_plugin_kubenet(self) -> Optional[_builtins.bool]:
         """
-        Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
+        Whether pod identity is allowed to run on clusters with Kubenet networking. Running in Kubenet is disabled by default due to the security related nature of AAD Pod Identity and the risks of IP spoofing. See [using Kubenet network plugin with AAD Pod Identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity#using-kubenet-network-plugin-with-azure-active-directory-pod-managed-identities) for more information.
         """
         return pulumi.get(self, "allow_network_plugin_kubenet")
 
@@ -5523,26 +6010,26 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
                  skip_nodes_with_system_pods: Optional[_builtins.str] = None):
         """
         Parameters to be applied to the cluster-autoscaler when enabled
-        :param _builtins.str balance_similar_node_groups: Valid values are 'true' and 'false'
-        :param _builtins.bool daemonset_eviction_for_empty_nodes: If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
-        :param _builtins.bool daemonset_eviction_for_occupied_nodes: If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
-        :param _builtins.str expander: If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
-        :param _builtins.bool ignore_daemonsets_utilization: If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
-        :param _builtins.str max_empty_bulk_delete: The default is 10.
-        :param _builtins.str max_graceful_termination_sec: The default is 600.
-        :param _builtins.str max_node_provision_time: The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str max_total_unready_percentage: The default is 45. The maximum is 100 and the minimum is 0.
-        :param _builtins.str new_pod_scale_up_delay: For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
-        :param _builtins.str ok_total_unready_count: This must be an integer. The default is 3.
-        :param _builtins.str scale_down_delay_after_add: The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str scale_down_delay_after_delete: The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str scale_down_delay_after_failure: The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str scale_down_unneeded_time: The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str scale_down_unready_time: The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
-        :param _builtins.str scale_down_utilization_threshold: The default is '0.5'.
-        :param _builtins.str scan_interval: The default is '10'. Values must be an integer number of seconds.
-        :param _builtins.str skip_nodes_with_local_storage: The default is true.
-        :param _builtins.str skip_nodes_with_system_pods: The default is true.
+        :param _builtins.str balance_similar_node_groups: Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
+        :param _builtins.bool daemonset_eviction_for_empty_nodes: DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        :param _builtins.bool daemonset_eviction_for_occupied_nodes: DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        :param _builtins.str expander: The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        :param _builtins.bool ignore_daemonsets_utilization: Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        :param _builtins.str max_empty_bulk_delete: The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
+        :param _builtins.str max_graceful_termination_sec: The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
+        :param _builtins.str max_node_provision_time: The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str max_total_unready_percentage: The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
+        :param _builtins.str new_pod_scale_up_delay: Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
+        :param _builtins.str ok_total_unready_count: The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
+        :param _builtins.str scale_down_delay_after_add: How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str scale_down_delay_after_delete: How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str scale_down_delay_after_failure: How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str scale_down_unneeded_time: How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str scale_down_unready_time: How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        :param _builtins.str scale_down_utilization_threshold: Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
+        :param _builtins.str scan_interval: How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
+        :param _builtins.str skip_nodes_with_local_storage: If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
+        :param _builtins.str skip_nodes_with_system_pods: If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
         """
         if balance_similar_node_groups is not None:
             pulumi.set(__self__, "balance_similar_node_groups", balance_similar_node_groups)
@@ -5589,7 +6076,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="balanceSimilarNodeGroups")
     def balance_similar_node_groups(self) -> Optional[_builtins.str]:
         """
-        Valid values are 'true' and 'false'
+        Detects similar node pools and balances the number of nodes between them. Valid values are 'true' and 'false'
         """
         return pulumi.get(self, "balance_similar_node_groups")
 
@@ -5597,7 +6084,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="daemonsetEvictionForEmptyNodes")
     def daemonset_eviction_for_empty_nodes(self) -> Optional[_builtins.bool]:
         """
-        If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        DaemonSet pods will be gracefully terminated from empty nodes. If set to true, all daemonset pods on empty nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         """
         return pulumi.get(self, "daemonset_eviction_for_empty_nodes")
 
@@ -5605,7 +6092,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="daemonsetEvictionForOccupiedNodes")
     def daemonset_eviction_for_occupied_nodes(self) -> Optional[_builtins.bool]:
         """
-        If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
+        DaemonSet pods will be gracefully terminated from non-empty nodes. If set to true, all daemonset pods on occupied nodes will be evicted before deletion of the node. If the daemonset pod cannot be evicted another node will be chosen for scaling. If set to false, the node will be deleted without ensuring that daemonset pods are deleted or evicted.
         """
         return pulumi.get(self, "daemonset_eviction_for_occupied_nodes")
 
@@ -5613,7 +6100,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter
     def expander(self) -> Optional[_builtins.str]:
         """
-        If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+        The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
         """
         return pulumi.get(self, "expander")
 
@@ -5621,7 +6108,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="ignoreDaemonsetsUtilization")
     def ignore_daemonsets_utilization(self) -> Optional[_builtins.bool]:
         """
-        If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
+        Should CA ignore DaemonSet pods when calculating resource utilization for scaling down. If set to true, the resources used by daemonset will be taken into account when making scaling down decisions.
         """
         return pulumi.get(self, "ignore_daemonsets_utilization")
 
@@ -5629,7 +6116,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="maxEmptyBulkDelete")
     def max_empty_bulk_delete(self) -> Optional[_builtins.str]:
         """
-        The default is 10.
+        The maximum number of empty nodes that can be deleted at the same time. This must be a positive integer. The default is 10.
         """
         return pulumi.get(self, "max_empty_bulk_delete")
 
@@ -5637,7 +6124,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="maxGracefulTerminationSec")
     def max_graceful_termination_sec(self) -> Optional[_builtins.str]:
         """
-        The default is 600.
+        The maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node. The default is 600.
         """
         return pulumi.get(self, "max_graceful_termination_sec")
 
@@ -5645,7 +6132,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="maxNodeProvisionTime")
     def max_node_provision_time(self) -> Optional[_builtins.str]:
         """
-        The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        The maximum time the autoscaler waits for a node to be provisioned. The default is '15m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "max_node_provision_time")
 
@@ -5653,7 +6140,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="maxTotalUnreadyPercentage")
     def max_total_unready_percentage(self) -> Optional[_builtins.str]:
         """
-        The default is 45. The maximum is 100 and the minimum is 0.
+        The maximum percentage of unready nodes in the cluster. After this percentage is exceeded, cluster autoscaler halts operations. The default is 45. The maximum is 100 and the minimum is 0.
         """
         return pulumi.get(self, "max_total_unready_percentage")
 
@@ -5661,7 +6148,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="newPodScaleUpDelay")
     def new_pod_scale_up_delay(self) -> Optional[_builtins.str]:
         """
-        For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
+        Ignore unscheduled pods before they're a certain age. For scenarios like burst/batch scale where you don't want CA to act before the kubernetes scheduler could schedule all the pods, you can tell CA to ignore unscheduled pods before they're a certain age. The default is '0s'. Values must be an integer followed by a unit ('s' for seconds, 'm' for minutes, 'h' for hours, etc).
         """
         return pulumi.get(self, "new_pod_scale_up_delay")
 
@@ -5669,7 +6156,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="okTotalUnreadyCount")
     def ok_total_unready_count(self) -> Optional[_builtins.str]:
         """
-        This must be an integer. The default is 3.
+        The number of allowed unready nodes, irrespective of max-total-unready-percentage. This must be an integer. The default is 3.
         """
         return pulumi.get(self, "ok_total_unready_count")
 
@@ -5677,7 +6164,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownDelayAfterAdd")
     def scale_down_delay_after_add(self) -> Optional[_builtins.str]:
         """
-        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        How long after scale up that scale down evaluation resumes. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_add")
 
@@ -5685,7 +6172,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownDelayAfterDelete")
     def scale_down_delay_after_delete(self) -> Optional[_builtins.str]:
         """
-        The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        How long after node deletion that scale down evaluation resumes. The default is the scan-interval. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_delete")
 
@@ -5693,7 +6180,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownDelayAfterFailure")
     def scale_down_delay_after_failure(self) -> Optional[_builtins.str]:
         """
-        The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        How long after scale down failure that scale down evaluation resumes. The default is '3m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_delay_after_failure")
 
@@ -5701,7 +6188,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownUnneededTime")
     def scale_down_unneeded_time(self) -> Optional[_builtins.str]:
         """
-        The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        How long a node should be unneeded before it is eligible for scale down. The default is '10m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_unneeded_time")
 
@@ -5709,7 +6196,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownUnreadyTime")
     def scale_down_unready_time(self) -> Optional[_builtins.str]:
         """
-        The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
+        How long an unready node should be unneeded before it is eligible for scale down. The default is '20m'. Values must be an integer followed by an 'm'. No unit of time other than minutes (m) is supported.
         """
         return pulumi.get(self, "scale_down_unready_time")
 
@@ -5717,7 +6204,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scaleDownUtilizationThreshold")
     def scale_down_utilization_threshold(self) -> Optional[_builtins.str]:
         """
-        The default is '0.5'.
+        Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. The default is '0.5'.
         """
         return pulumi.get(self, "scale_down_utilization_threshold")
 
@@ -5725,7 +6212,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="scanInterval")
     def scan_interval(self) -> Optional[_builtins.str]:
         """
-        The default is '10'. Values must be an integer number of seconds.
+        How often cluster is reevaluated for scale up or down. The default is '10'. Values must be an integer number of seconds.
         """
         return pulumi.get(self, "scan_interval")
 
@@ -5733,7 +6220,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="skipNodesWithLocalStorage")
     def skip_nodes_with_local_storage(self) -> Optional[_builtins.str]:
         """
-        The default is true.
+        If cluster autoscaler will skip deleting nodes with pods with local storage, for example, EmptyDir or HostPath. The default is true.
         """
         return pulumi.get(self, "skip_nodes_with_local_storage")
 
@@ -5741,7 +6228,7 @@ class ManagedClusterPropertiesResponseAutoScalerProfile(dict):
     @pulumi.getter(name="skipNodesWithSystemPods")
     def skip_nodes_with_system_pods(self) -> Optional[_builtins.str]:
         """
-        The default is true.
+        If cluster autoscaler will skip deleting nodes with pods from kube-system (except for DaemonSet or mirror pods). The default is true.
         """
         return pulumi.get(self, "skip_nodes_with_system_pods")
 
@@ -5920,6 +6407,8 @@ class ManagedClusterSecurityProfileResponse(dict):
         suggest = None
         if key == "azureKeyVaultKms":
             suggest = "azure_key_vault_kms"
+        elif key == "customCATrustCertificates":
+            suggest = "custom_ca_trust_certificates"
         elif key == "imageCleaner":
             suggest = "image_cleaner"
         elif key == "workloadIdentity":
@@ -5938,18 +6427,22 @@ class ManagedClusterSecurityProfileResponse(dict):
 
     def __init__(__self__, *,
                  azure_key_vault_kms: Optional['outputs.AzureKeyVaultKmsResponse'] = None,
+                 custom_ca_trust_certificates: Optional[Sequence[_builtins.str]] = None,
                  defender: Optional['outputs.ManagedClusterSecurityProfileDefenderResponse'] = None,
                  image_cleaner: Optional['outputs.ManagedClusterSecurityProfileImageCleanerResponse'] = None,
                  workload_identity: Optional['outputs.ManagedClusterSecurityProfileWorkloadIdentityResponse'] = None):
         """
         Security profile for the container service cluster.
         :param 'AzureKeyVaultKmsResponse' azure_key_vault_kms: Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
+        :param Sequence[_builtins.str] custom_ca_trust_certificates: A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
         :param 'ManagedClusterSecurityProfileDefenderResponse' defender: Microsoft Defender settings for the security profile.
         :param 'ManagedClusterSecurityProfileImageCleanerResponse' image_cleaner: Image Cleaner settings for the security profile.
         :param 'ManagedClusterSecurityProfileWorkloadIdentityResponse' workload_identity: Workload identity settings for the security profile. Workload identity enables Kubernetes applications to access Azure cloud resources securely with Azure AD. See https://aka.ms/aks/wi for more details.
         """
         if azure_key_vault_kms is not None:
             pulumi.set(__self__, "azure_key_vault_kms", azure_key_vault_kms)
+        if custom_ca_trust_certificates is not None:
+            pulumi.set(__self__, "custom_ca_trust_certificates", custom_ca_trust_certificates)
         if defender is not None:
             pulumi.set(__self__, "defender", defender)
         if image_cleaner is not None:
@@ -5964,6 +6457,14 @@ class ManagedClusterSecurityProfileResponse(dict):
         Azure Key Vault [key management service](https://kubernetes.io/docs/tasks/administer-cluster/kms-provider/) settings for the security profile.
         """
         return pulumi.get(self, "azure_key_vault_kms")
+
+    @_builtins.property
+    @pulumi.getter(name="customCATrustCertificates")
+    def custom_ca_trust_certificates(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        A list of up to 10 base64 encoded CAs that will be added to the trust store on all nodes in the cluster. For more information see [Custom CA Trust Certificates](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority).
+        """
+        return pulumi.get(self, "custom_ca_trust_certificates")
 
     @_builtins.property
     @pulumi.getter
@@ -6062,6 +6563,68 @@ class ManagedClusterServicePrincipalProfileResponse(dict):
         The secret password associated with the service principal in plain text.
         """
         return pulumi.get(self, "secret")
+
+
+@pulumi.output_type
+class ManagedClusterStaticEgressGatewayProfileResponse(dict):
+    """
+    The Static Egress Gateway addon configuration for the cluster.
+    """
+    def __init__(__self__, *,
+                 enabled: Optional[_builtins.bool] = None):
+        """
+        The Static Egress Gateway addon configuration for the cluster.
+        :param _builtins.bool enabled: Enable Static Egress Gateway addon. Indicates if Static Egress Gateway addon is enabled or not.
+        """
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+
+    @_builtins.property
+    @pulumi.getter
+    def enabled(self) -> Optional[_builtins.bool]:
+        """
+        Enable Static Egress Gateway addon. Indicates if Static Egress Gateway addon is enabled or not.
+        """
+        return pulumi.get(self, "enabled")
+
+
+@pulumi.output_type
+class ManagedClusterStatusResponse(dict):
+    """
+    Contains read-only information about the Managed Cluster.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningError":
+            suggest = "provisioning_error"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ManagedClusterStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ManagedClusterStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ManagedClusterStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_error: 'outputs.ErrorDetailResponse'):
+        """
+        Contains read-only information about the Managed Cluster.
+        :param 'ErrorDetailResponse' provisioning_error: The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
+        """
+        pulumi.set(__self__, "provisioning_error", provisioning_error)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningError")
+    def provisioning_error(self) -> 'outputs.ErrorDetailResponse':
+        """
+        The error details information of the managed cluster. Preserves the detailed info of failure. If there was no error, this field is omitted.
+        """
+        return pulumi.get(self, "provisioning_error")
 
 
 @pulumi.output_type
@@ -6380,7 +6943,7 @@ class ManagedClusterWindowsProfileResponse(dict):
         Profile for Windows VMs in the managed cluster.
         :param _builtins.str admin_username: Specifies the name of the administrator account. <br><br> **Restriction:** Cannot end in "." <br><br> **Disallowed values:** "administrator", "admin", "user", "user1", "test", "user2", "test1", "user3", "admin1", "1", "123", "a", "actuser", "adm", "admin2", "aspnet", "backup", "console", "david", "guest", "john", "owner", "root", "server", "sql", "support", "support_388945a0", "sys", "test2", "test3", "user4", "user5". <br><br> **Minimum-length:** 1 character <br><br> **Max-length:** 20 characters
         :param _builtins.str admin_password: Specifies the password of the administrator account. <br><br> **Minimum-length:** 8 characters <br><br> **Max-length:** 123 characters <br><br> **Complexity requirements:** 3 out of 4 conditions below need to be fulfilled <br> Has lower characters <br>Has upper characters <br> Has a digit <br> Has a special character (Regex match [\\W_]) <br><br> **Disallowed values:** "abc@123", "P@$$w0rd", "P@ssw0rd", "P@ssword123", "Pa$$word", "pass@word1", "Password!", "Password1", "Password22", "iloveyou!"
-        :param _builtins.bool enable_csi_proxy: For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
+        :param _builtins.bool enable_csi_proxy: Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         :param 'WindowsGmsaProfileResponse' gmsa_profile: The Windows gMSA Profile in the Managed Cluster.
         :param _builtins.str license_type: The license type to use for Windows VMs. See [Azure Hybrid User Benefits](https://azure.microsoft.com/pricing/hybrid-benefit/faq/) for more details.
         """
@@ -6414,7 +6977,7 @@ class ManagedClusterWindowsProfileResponse(dict):
     @pulumi.getter(name="enableCSIProxy")
     def enable_csi_proxy(self) -> Optional[_builtins.bool]:
         """
-        For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
+        Whether to enable CSI proxy. For more details on CSI proxy, see the [CSI proxy GitHub repo](https://github.com/kubernetes-csi/csi-proxy).
         """
         return pulumi.get(self, "enable_csi_proxy")
 
@@ -6608,6 +7171,41 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class ManualScaleProfileResponse(dict):
+    """
+    Specifications on number of machines.
+    """
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 size: Optional[_builtins.str] = None):
+        """
+        Specifications on number of machines.
+        :param _builtins.int count: Number of nodes.
+        :param _builtins.str size: VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Number of nodes.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[_builtins.str]:
+        """
+        VM size that AKS will use when creating and scaling e.g. 'Standard_E4s_v3', 'Standard_E16s_v3' or 'Standard_D16s_v5'.
+        """
+        return pulumi.get(self, "size")
 
 
 @pulumi.output_type
@@ -7536,7 +8134,7 @@ class RelativeMonthlyScheduleResponse(dict):
         For schedules like: 'recur every month on the first Monday' or 'recur every 3 months on last Friday'.
         :param _builtins.str day_of_week: Specifies on which day of the week the maintenance occurs.
         :param _builtins.int interval_months: Specifies the number of months between each set of occurrences.
-        :param _builtins.str week_index: Specifies on which week of the month the dayOfWeek applies.
+        :param _builtins.str week_index: The week index. Specifies on which week of the month the dayOfWeek applies.
         """
         pulumi.set(__self__, "day_of_week", day_of_week)
         pulumi.set(__self__, "interval_months", interval_months)
@@ -7562,7 +8160,7 @@ class RelativeMonthlyScheduleResponse(dict):
     @pulumi.getter(name="weekIndex")
     def week_index(self) -> _builtins.str:
         """
-        Specifies on which week of the month the dayOfWeek applies.
+        The week index. Specifies on which week of the month the dayOfWeek applies.
         """
         return pulumi.get(self, "week_index")
 
@@ -7670,6 +8268,29 @@ class ResourceReferenceResponse(dict):
         The fully qualified Azure resource id.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class ScaleProfileResponse(dict):
+    """
+    Specifications on how to scale a VirtualMachines agent pool.
+    """
+    def __init__(__self__, *,
+                 manual: Optional[Sequence['outputs.ManualScaleProfileResponse']] = None):
+        """
+        Specifications on how to scale a VirtualMachines agent pool.
+        :param Sequence['ManualScaleProfileResponse'] manual: Specifications on how to scale the VirtualMachines agent pool to a fixed size.
+        """
+        if manual is not None:
+            pulumi.set(__self__, "manual", manual)
+
+    @_builtins.property
+    @pulumi.getter
+    def manual(self) -> Optional[Sequence['outputs.ManualScaleProfileResponse']]:
+        """
+        Specifications on how to scale the VirtualMachines agent pool to a fixed size.
+        """
+        return pulumi.get(self, "manual")
 
 
 @pulumi.output_type
@@ -8340,7 +8961,7 @@ class TimeInWeekResponse(dict):
         """
         Time in a week.
         :param _builtins.str day: The day of the week.
-        :param Sequence[_builtins.int] hour_slots: Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
+        :param Sequence[_builtins.int] hour_slots: A list of hours in the day used to identify a time range. Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         """
         if day is not None:
             pulumi.set(__self__, "day", day)
@@ -8359,7 +8980,7 @@ class TimeInWeekResponse(dict):
     @pulumi.getter(name="hourSlots")
     def hour_slots(self) -> Optional[Sequence[_builtins.int]]:
         """
-        Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
+        A list of hours in the day used to identify a time range. Each integer hour represents a time range beginning at 0m after the hour ending at the next hour (non-inclusive). 0 corresponds to 00:00 UTC, 23 corresponds to 23:00 UTC. Specifying [0, 1] means the 00:00 - 02:00 UTC time range.
         """
         return pulumi.get(self, "hour_slots")
 
@@ -8367,13 +8988,13 @@ class TimeInWeekResponse(dict):
 @pulumi.output_type
 class TimeSpanResponse(dict):
     """
-    For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
+    A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
     """
     def __init__(__self__, *,
                  end: Optional[_builtins.str] = None,
                  start: Optional[_builtins.str] = None):
         """
-        For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
+        A time range. For example, between 2021-05-25T13:00:00Z and 2021-05-25T14:00:00Z.
         :param _builtins.str end: The end of a time span
         :param _builtins.str start: The start of a time span
         """
@@ -8904,6 +9525,64 @@ class UserAssignedIdentityResponse(dict):
 
 
 @pulumi.output_type
+class VirtualMachineNodesResponse(dict):
+    """
+    Current status on a group of nodes of the same vm size.
+    """
+    def __init__(__self__, *,
+                 count: Optional[_builtins.int] = None,
+                 size: Optional[_builtins.str] = None):
+        """
+        Current status on a group of nodes of the same vm size.
+        :param _builtins.int count: Number of nodes.
+        :param _builtins.str size: The VM size of the agents used to host this group of nodes.
+        """
+        if count is not None:
+            pulumi.set(__self__, "count", count)
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+
+    @_builtins.property
+    @pulumi.getter
+    def count(self) -> Optional[_builtins.int]:
+        """
+        Number of nodes.
+        """
+        return pulumi.get(self, "count")
+
+    @_builtins.property
+    @pulumi.getter
+    def size(self) -> Optional[_builtins.str]:
+        """
+        The VM size of the agents used to host this group of nodes.
+        """
+        return pulumi.get(self, "size")
+
+
+@pulumi.output_type
+class VirtualMachinesProfileResponse(dict):
+    """
+    Specifications on VirtualMachines agent pool.
+    """
+    def __init__(__self__, *,
+                 scale: Optional['outputs.ScaleProfileResponse'] = None):
+        """
+        Specifications on VirtualMachines agent pool.
+        :param 'ScaleProfileResponse' scale: Specifications on how to scale a VirtualMachines agent pool.
+        """
+        if scale is not None:
+            pulumi.set(__self__, "scale", scale)
+
+    @_builtins.property
+    @pulumi.getter
+    def scale(self) -> Optional['outputs.ScaleProfileResponse']:
+        """
+        Specifications on how to scale a VirtualMachines agent pool.
+        """
+        return pulumi.get(self, "scale")
+
+
+@pulumi.output_type
 class WaitStatusResponse(dict):
     """
     The status of the wait duration.
@@ -9036,7 +9715,7 @@ class WindowsGmsaProfileResponse(dict):
         """
         Windows gMSA Profile in the managed cluster.
         :param _builtins.str dns_server: Specifies the DNS server for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
-        :param _builtins.bool enabled: Specifies whether to enable Windows gMSA in the managed cluster.
+        :param _builtins.bool enabled: Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         :param _builtins.str root_domain_name: Specifies the root domain name for Windows gMSA. <br><br> Set it to empty if you have configured the DNS server in the vnet which is used to create the managed cluster.
         """
         if dns_server is not None:
@@ -9058,7 +9737,7 @@ class WindowsGmsaProfileResponse(dict):
     @pulumi.getter
     def enabled(self) -> Optional[_builtins.bool]:
         """
-        Specifies whether to enable Windows gMSA in the managed cluster.
+        Whether to enable Windows gMSA. Specifies whether to enable Windows gMSA in the managed cluster.
         """
         return pulumi.get(self, "enabled")
 

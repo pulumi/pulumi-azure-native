@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class ManagedClusterMetricsProfileResponse
     {
         /// <summary>
-        /// The cost analysis configuration for the cluster
+        /// The configuration for detailed per-Kubernetes resource cost analysis.
         /// </summary>
         public readonly Outputs.ManagedClusterCostAnalysisResponse? CostAnalysis;
 

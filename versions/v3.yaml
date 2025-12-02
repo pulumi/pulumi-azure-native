@@ -3878,8 +3878,8 @@ ContainerRegistry:
         RpNamespace: Microsoft.ContainerRegistry
 ContainerService:
     AgentPool:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/agentPools/{agentPoolName}
         RpNamespace: Microsoft.ContainerService
     AutoUpgradeProfile:
@@ -3923,13 +3923,13 @@ ContainerService:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/loadBalancers/{loadBalancerName}
         RpNamespace: Microsoft.ContainerService
     MaintenanceConfiguration:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/maintenanceConfigurations/{configName}
         RpNamespace: Microsoft.ContainerService
     ManagedCluster:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}
         RpNamespace: Microsoft.ContainerService
     ManagedClusterSnapshot:
@@ -3953,18 +3953,18 @@ ContainerService:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/nodeCustomizations/{nodeCustomizationName}
         RpNamespace: Microsoft.ContainerService
     PrivateEndpointConnection:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.ContainerService
     Snapshot:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/snapshots/{resourceName}
         RpNamespace: Microsoft.ContainerService
     TrustedAccessRoleBinding:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}
         RpNamespace: Microsoft.ContainerService
     UpdateRun:
@@ -3983,18 +3983,18 @@ ContainerService:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/accessProfiles/{roleName}/listCredential
         RpNamespace: Microsoft.ContainerService
     listManagedClusterAdminCredentials:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterAdminCredential
         RpNamespace: Microsoft.ContainerService
     listManagedClusterMonitoringUserCredentials:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterMonitoringUserCredential
         RpNamespace: Microsoft.ContainerService
     listManagedClusterUserCredentials:
-        ApiVersion: "2024-10-01"
-        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2024-10-01/managedClusters.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/containerservice/resource-manager/Microsoft.ContainerService/aks/stable/2025-08-01/managedClusters.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{resourceName}/listClusterUserCredential
         RpNamespace: Microsoft.ContainerService
     listManagedNamespaceCredential:

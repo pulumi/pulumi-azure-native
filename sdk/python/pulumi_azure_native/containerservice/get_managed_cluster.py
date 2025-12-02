@@ -27,7 +27,7 @@ class GetManagedClusterResult:
     """
     Managed cluster.
     """
-    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_api_version=None, azure_monitor_profile=None, azure_portal_fqdn=None, current_kubernetes_version=None, disable_local_accounts=None, disk_encryption_set_id=None, dns_prefix=None, e_tag=None, enable_pod_security_policy=None, enable_rbac=None, extended_location=None, fqdn=None, fqdn_subdomain=None, http_proxy_config=None, id=None, identity=None, identity_profile=None, ingress_profile=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, metrics_profile=None, name=None, network_profile=None, node_resource_group=None, node_resource_group_profile=None, oidc_issuer_profile=None, pod_identity_profile=None, power_state=None, private_fqdn=None, private_link_resources=None, provisioning_state=None, public_network_access=None, resource_uid=None, security_profile=None, service_mesh_profile=None, service_principal_profile=None, sku=None, storage_profile=None, support_plan=None, system_data=None, tags=None, type=None, upgrade_settings=None, windows_profile=None, workload_auto_scaler_profile=None):
+    def __init__(__self__, aad_profile=None, addon_profiles=None, agent_pool_profiles=None, ai_toolchain_operator_profile=None, api_server_access_profile=None, auto_scaler_profile=None, auto_upgrade_profile=None, azure_api_version=None, azure_monitor_profile=None, azure_portal_fqdn=None, bootstrap_profile=None, current_kubernetes_version=None, disable_local_accounts=None, disk_encryption_set_id=None, dns_prefix=None, e_tag=None, enable_rbac=None, extended_location=None, fqdn=None, fqdn_subdomain=None, http_proxy_config=None, id=None, identity=None, identity_profile=None, ingress_profile=None, kind=None, kubernetes_version=None, linux_profile=None, location=None, max_agent_pools=None, metrics_profile=None, name=None, network_profile=None, node_provisioning_profile=None, node_resource_group=None, node_resource_group_profile=None, oidc_issuer_profile=None, pod_identity_profile=None, power_state=None, private_fqdn=None, private_link_resources=None, provisioning_state=None, public_network_access=None, resource_uid=None, security_profile=None, service_mesh_profile=None, service_principal_profile=None, sku=None, status=None, storage_profile=None, support_plan=None, system_data=None, tags=None, type=None, upgrade_settings=None, windows_profile=None, workload_auto_scaler_profile=None):
         if aad_profile and not isinstance(aad_profile, dict):
             raise TypeError("Expected argument 'aad_profile' to be a dict")
         pulumi.set(__self__, "aad_profile", aad_profile)
@@ -37,6 +37,9 @@ class GetManagedClusterResult:
         if agent_pool_profiles and not isinstance(agent_pool_profiles, list):
             raise TypeError("Expected argument 'agent_pool_profiles' to be a list")
         pulumi.set(__self__, "agent_pool_profiles", agent_pool_profiles)
+        if ai_toolchain_operator_profile and not isinstance(ai_toolchain_operator_profile, dict):
+            raise TypeError("Expected argument 'ai_toolchain_operator_profile' to be a dict")
+        pulumi.set(__self__, "ai_toolchain_operator_profile", ai_toolchain_operator_profile)
         if api_server_access_profile and not isinstance(api_server_access_profile, dict):
             raise TypeError("Expected argument 'api_server_access_profile' to be a dict")
         pulumi.set(__self__, "api_server_access_profile", api_server_access_profile)
@@ -55,6 +58,9 @@ class GetManagedClusterResult:
         if azure_portal_fqdn and not isinstance(azure_portal_fqdn, str):
             raise TypeError("Expected argument 'azure_portal_fqdn' to be a str")
         pulumi.set(__self__, "azure_portal_fqdn", azure_portal_fqdn)
+        if bootstrap_profile and not isinstance(bootstrap_profile, dict):
+            raise TypeError("Expected argument 'bootstrap_profile' to be a dict")
+        pulumi.set(__self__, "bootstrap_profile", bootstrap_profile)
         if current_kubernetes_version and not isinstance(current_kubernetes_version, str):
             raise TypeError("Expected argument 'current_kubernetes_version' to be a str")
         pulumi.set(__self__, "current_kubernetes_version", current_kubernetes_version)
@@ -70,9 +76,6 @@ class GetManagedClusterResult:
         if e_tag and not isinstance(e_tag, str):
             raise TypeError("Expected argument 'e_tag' to be a str")
         pulumi.set(__self__, "e_tag", e_tag)
-        if enable_pod_security_policy and not isinstance(enable_pod_security_policy, bool):
-            raise TypeError("Expected argument 'enable_pod_security_policy' to be a bool")
-        pulumi.set(__self__, "enable_pod_security_policy", enable_pod_security_policy)
         if enable_rbac and not isinstance(enable_rbac, bool):
             raise TypeError("Expected argument 'enable_rbac' to be a bool")
         pulumi.set(__self__, "enable_rbac", enable_rbac)
@@ -100,6 +103,9 @@ class GetManagedClusterResult:
         if ingress_profile and not isinstance(ingress_profile, dict):
             raise TypeError("Expected argument 'ingress_profile' to be a dict")
         pulumi.set(__self__, "ingress_profile", ingress_profile)
+        if kind and not isinstance(kind, str):
+            raise TypeError("Expected argument 'kind' to be a str")
+        pulumi.set(__self__, "kind", kind)
         if kubernetes_version and not isinstance(kubernetes_version, str):
             raise TypeError("Expected argument 'kubernetes_version' to be a str")
         pulumi.set(__self__, "kubernetes_version", kubernetes_version)
@@ -121,6 +127,9 @@ class GetManagedClusterResult:
         if network_profile and not isinstance(network_profile, dict):
             raise TypeError("Expected argument 'network_profile' to be a dict")
         pulumi.set(__self__, "network_profile", network_profile)
+        if node_provisioning_profile and not isinstance(node_provisioning_profile, dict):
+            raise TypeError("Expected argument 'node_provisioning_profile' to be a dict")
+        pulumi.set(__self__, "node_provisioning_profile", node_provisioning_profile)
         if node_resource_group and not isinstance(node_resource_group, str):
             raise TypeError("Expected argument 'node_resource_group' to be a str")
         pulumi.set(__self__, "node_resource_group", node_resource_group)
@@ -163,6 +172,9 @@ class GetManagedClusterResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if status and not isinstance(status, dict):
+            raise TypeError("Expected argument 'status' to be a dict")
+        pulumi.set(__self__, "status", status)
         if storage_profile and not isinstance(storage_profile, dict):
             raise TypeError("Expected argument 'storage_profile' to be a dict")
         pulumi.set(__self__, "storage_profile", storage_profile)
@@ -213,6 +225,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "agent_pool_profiles")
 
     @_builtins.property
+    @pulumi.getter(name="aiToolchainOperatorProfile")
+    def ai_toolchain_operator_profile(self) -> Optional['outputs.ManagedClusterAIToolchainOperatorProfileResponse']:
+        """
+        AI toolchain operator settings that apply to the whole cluster.
+        """
+        return pulumi.get(self, "ai_toolchain_operator_profile")
+
+    @_builtins.property
     @pulumi.getter(name="apiServerAccessProfile")
     def api_server_access_profile(self) -> Optional['outputs.ManagedClusterAPIServerAccessProfileResponse']:
         """
@@ -256,15 +276,23 @@ class GetManagedClusterResult:
     @pulumi.getter(name="azurePortalFQDN")
     def azure_portal_fqdn(self) -> _builtins.str:
         """
-        The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
+        The special FQDN used by the Azure Portal to access the Managed Cluster. This FQDN is for use only by the Azure Portal and should not be used by other clients. The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly.
         """
         return pulumi.get(self, "azure_portal_fqdn")
+
+    @_builtins.property
+    @pulumi.getter(name="bootstrapProfile")
+    def bootstrap_profile(self) -> Optional['outputs.ManagedClusterBootstrapProfileResponse']:
+        """
+        Profile of the cluster bootstrap configuration.
+        """
+        return pulumi.get(self, "bootstrap_profile")
 
     @_builtins.property
     @pulumi.getter(name="currentKubernetesVersion")
     def current_kubernetes_version(self) -> _builtins.str:
         """
-        If kubernetesVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If kubernetesVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used.
+        The version of Kubernetes the Managed Cluster is running. If kubernetesVersion was a fully specified version <major.minor.patch>, this field will be exactly equal to it. If kubernetesVersion was <major.minor>, this field will contain the full <major.minor.patch> version being used.
         """
         return pulumi.get(self, "current_kubernetes_version")
 
@@ -272,7 +300,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="disableLocalAccounts")
     def disable_local_accounts(self) -> Optional[_builtins.bool]:
         """
-        If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
+        If local accounts should be disabled on the Managed Cluster. If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview).
         """
         return pulumi.get(self, "disable_local_accounts")
 
@@ -280,7 +308,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="diskEncryptionSetID")
     def disk_encryption_set_id(self) -> Optional[_builtins.str]:
         """
-        This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
+        The Resource ID of the disk encryption set to use for enabling encryption at rest. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'
         """
         return pulumi.get(self, "disk_encryption_set_id")
 
@@ -288,7 +316,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="dnsPrefix")
     def dns_prefix(self) -> Optional[_builtins.str]:
         """
-        This cannot be updated once the Managed Cluster has been created.
+        The DNS prefix of the Managed Cluster. This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "dns_prefix")
 
@@ -299,14 +327,6 @@ class GetManagedClusterResult:
         Unique read-only string used to implement optimistic concurrency. The eTag value will change when the resource is updated. Specify an if-match or if-none-match header with the eTag value for a subsequent request to enable optimistic concurrency per the normal etag convention.
         """
         return pulumi.get(self, "e_tag")
-
-    @_builtins.property
-    @pulumi.getter(name="enablePodSecurityPolicy")
-    def enable_pod_security_policy(self) -> Optional[_builtins.bool]:
-        """
-        (DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp.
-        """
-        return pulumi.get(self, "enable_pod_security_policy")
 
     @_builtins.property
     @pulumi.getter(name="enableRBAC")
@@ -336,7 +356,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="fqdnSubdomain")
     def fqdn_subdomain(self) -> Optional[_builtins.str]:
         """
-        This cannot be updated once the Managed Cluster has been created.
+        The FQDN subdomain of the private cluster with custom private dns zone. This cannot be updated once the Managed Cluster has been created.
         """
         return pulumi.get(self, "fqdn_subdomain")
 
@@ -381,10 +401,18 @@ class GetManagedClusterResult:
         return pulumi.get(self, "ingress_profile")
 
     @_builtins.property
+    @pulumi.getter
+    def kind(self) -> Optional[_builtins.str]:
+        """
+        This is primarily used to expose different UI experiences in the portal for different kinds
+        """
+        return pulumi.get(self, "kind")
+
+    @_builtins.property
     @pulumi.getter(name="kubernetesVersion")
     def kubernetes_version(self) -> Optional[_builtins.str]:
         """
-        Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
+        The version of Kubernetes specified by the user. Both patch version <major.minor.patch> (e.g. 1.20.13) and <major.minor> (e.g. 1.20) are supported. When <major.minor> is specified, the latest supported GA patch version is chosen automatically. Updating the cluster with the same <major.minor> once it has been created (e.g. 1.14.x -> 1.14) will not trigger an upgrade, even if a newer patch version is available. When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -> 1.15.x or 1.15.x -> 1.16.x are allowed, however 1.14.x -> 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details.
         """
         return pulumi.get(self, "kubernetes_version")
 
@@ -437,6 +465,14 @@ class GetManagedClusterResult:
         return pulumi.get(self, "network_profile")
 
     @_builtins.property
+    @pulumi.getter(name="nodeProvisioningProfile")
+    def node_provisioning_profile(self) -> Optional['outputs.ManagedClusterNodeProvisioningProfileResponse']:
+        """
+        Node provisioning settings that apply to the whole cluster.
+        """
+        return pulumi.get(self, "node_provisioning_profile")
+
+    @_builtins.property
     @pulumi.getter(name="nodeResourceGroup")
     def node_resource_group(self) -> Optional[_builtins.str]:
         """
@@ -464,7 +500,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="podIdentityProfile")
     def pod_identity_profile(self) -> Optional['outputs.ManagedClusterPodIdentityProfileResponse']:
         """
-        See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
+        The pod identity profile of the Managed Cluster. See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration.
         """
         return pulumi.get(self, "pod_identity_profile")
 
@@ -504,7 +540,7 @@ class GetManagedClusterResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[_builtins.str]:
         """
-        Allow or deny public network access for AKS
+        PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS
         """
         return pulumi.get(self, "public_network_access")
 
@@ -547,6 +583,14 @@ class GetManagedClusterResult:
         The managed cluster SKU.
         """
         return pulumi.get(self, "sku")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional['outputs.ManagedClusterStatusResponse']:
+        """
+        Contains read-only information about the Managed Cluster.
+        """
+        return pulumi.get(self, "status")
 
     @_builtins.property
     @pulumi.getter(name="storageProfile")
@@ -622,18 +666,19 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             aad_profile=self.aad_profile,
             addon_profiles=self.addon_profiles,
             agent_pool_profiles=self.agent_pool_profiles,
+            ai_toolchain_operator_profile=self.ai_toolchain_operator_profile,
             api_server_access_profile=self.api_server_access_profile,
             auto_scaler_profile=self.auto_scaler_profile,
             auto_upgrade_profile=self.auto_upgrade_profile,
             azure_api_version=self.azure_api_version,
             azure_monitor_profile=self.azure_monitor_profile,
             azure_portal_fqdn=self.azure_portal_fqdn,
+            bootstrap_profile=self.bootstrap_profile,
             current_kubernetes_version=self.current_kubernetes_version,
             disable_local_accounts=self.disable_local_accounts,
             disk_encryption_set_id=self.disk_encryption_set_id,
             dns_prefix=self.dns_prefix,
             e_tag=self.e_tag,
-            enable_pod_security_policy=self.enable_pod_security_policy,
             enable_rbac=self.enable_rbac,
             extended_location=self.extended_location,
             fqdn=self.fqdn,
@@ -643,6 +688,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             identity=self.identity,
             identity_profile=self.identity_profile,
             ingress_profile=self.ingress_profile,
+            kind=self.kind,
             kubernetes_version=self.kubernetes_version,
             linux_profile=self.linux_profile,
             location=self.location,
@@ -650,6 +696,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             metrics_profile=self.metrics_profile,
             name=self.name,
             network_profile=self.network_profile,
+            node_provisioning_profile=self.node_provisioning_profile,
             node_resource_group=self.node_resource_group,
             node_resource_group_profile=self.node_resource_group_profile,
             oidc_issuer_profile=self.oidc_issuer_profile,
@@ -664,6 +711,7 @@ class AwaitableGetManagedClusterResult(GetManagedClusterResult):
             service_mesh_profile=self.service_mesh_profile,
             service_principal_profile=self.service_principal_profile,
             sku=self.sku,
+            status=self.status,
             storage_profile=self.storage_profile,
             support_plan=self.support_plan,
             system_data=self.system_data,
@@ -680,9 +728,9 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
     """
     Managed cluster.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -698,18 +746,19 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
         aad_profile=pulumi.get(__ret__, 'aad_profile'),
         addon_profiles=pulumi.get(__ret__, 'addon_profiles'),
         agent_pool_profiles=pulumi.get(__ret__, 'agent_pool_profiles'),
+        ai_toolchain_operator_profile=pulumi.get(__ret__, 'ai_toolchain_operator_profile'),
         api_server_access_profile=pulumi.get(__ret__, 'api_server_access_profile'),
         auto_scaler_profile=pulumi.get(__ret__, 'auto_scaler_profile'),
         auto_upgrade_profile=pulumi.get(__ret__, 'auto_upgrade_profile'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         azure_monitor_profile=pulumi.get(__ret__, 'azure_monitor_profile'),
         azure_portal_fqdn=pulumi.get(__ret__, 'azure_portal_fqdn'),
+        bootstrap_profile=pulumi.get(__ret__, 'bootstrap_profile'),
         current_kubernetes_version=pulumi.get(__ret__, 'current_kubernetes_version'),
         disable_local_accounts=pulumi.get(__ret__, 'disable_local_accounts'),
         disk_encryption_set_id=pulumi.get(__ret__, 'disk_encryption_set_id'),
         dns_prefix=pulumi.get(__ret__, 'dns_prefix'),
         e_tag=pulumi.get(__ret__, 'e_tag'),
-        enable_pod_security_policy=pulumi.get(__ret__, 'enable_pod_security_policy'),
         enable_rbac=pulumi.get(__ret__, 'enable_rbac'),
         extended_location=pulumi.get(__ret__, 'extended_location'),
         fqdn=pulumi.get(__ret__, 'fqdn'),
@@ -719,6 +768,7 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
         identity=pulumi.get(__ret__, 'identity'),
         identity_profile=pulumi.get(__ret__, 'identity_profile'),
         ingress_profile=pulumi.get(__ret__, 'ingress_profile'),
+        kind=pulumi.get(__ret__, 'kind'),
         kubernetes_version=pulumi.get(__ret__, 'kubernetes_version'),
         linux_profile=pulumi.get(__ret__, 'linux_profile'),
         location=pulumi.get(__ret__, 'location'),
@@ -726,6 +776,7 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
         metrics_profile=pulumi.get(__ret__, 'metrics_profile'),
         name=pulumi.get(__ret__, 'name'),
         network_profile=pulumi.get(__ret__, 'network_profile'),
+        node_provisioning_profile=pulumi.get(__ret__, 'node_provisioning_profile'),
         node_resource_group=pulumi.get(__ret__, 'node_resource_group'),
         node_resource_group_profile=pulumi.get(__ret__, 'node_resource_group_profile'),
         oidc_issuer_profile=pulumi.get(__ret__, 'oidc_issuer_profile'),
@@ -740,6 +791,7 @@ def get_managed_cluster(resource_group_name: Optional[_builtins.str] = None,
         service_mesh_profile=pulumi.get(__ret__, 'service_mesh_profile'),
         service_principal_profile=pulumi.get(__ret__, 'service_principal_profile'),
         sku=pulumi.get(__ret__, 'sku'),
+        status=pulumi.get(__ret__, 'status'),
         storage_profile=pulumi.get(__ret__, 'storage_profile'),
         support_plan=pulumi.get(__ret__, 'support_plan'),
         system_data=pulumi.get(__ret__, 'system_data'),
@@ -754,9 +806,9 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[_built
     """
     Managed cluster.
 
-    Uses Azure REST API version 2024-10-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2019-11-01, 2020-01-01, 2020-02-01, 2020-03-01, 2020-04-01, 2020-06-01, 2020-07-01, 2020-09-01, 2020-11-01, 2020-12-01, 2021-02-01, 2021-03-01, 2021-05-01, 2021-07-01, 2021-08-01, 2021-09-01, 2021-10-01, 2021-11-01-preview, 2022-01-01, 2022-01-02-preview, 2022-02-01, 2022-02-02-preview, 2022-03-01, 2022-03-02-preview, 2022-04-01, 2022-04-02-preview, 2022-05-02-preview, 2022-06-01, 2022-06-02-preview, 2022-07-01, 2022-07-02-preview, 2022-08-02-preview, 2022-08-03-preview, 2022-09-01, 2022-09-02-preview, 2022-10-02-preview, 2022-11-01, 2022-11-02-preview, 2023-01-01, 2023-01-02-preview, 2023-02-01, 2023-02-02-preview, 2023-03-01, 2023-03-02-preview, 2023-04-01, 2023-04-02-preview, 2023-05-01, 2023-05-02-preview, 2023-06-01, 2023-06-02-preview, 2023-07-01, 2023-07-02-preview, 2023-08-01, 2023-08-02-preview, 2023-09-01, 2023-09-02-preview, 2023-10-01, 2023-10-02-preview, 2023-11-01, 2023-11-02-preview, 2024-01-01, 2024-01-02-preview, 2024-02-01, 2024-02-02-preview, 2024-03-02-preview, 2024-04-02-preview, 2024-05-01, 2024-05-02-preview, 2024-06-02-preview, 2024-07-01, 2024-07-02-preview, 2024-08-01, 2024-09-01, 2024-09-02-preview, 2024-10-01, 2024-10-02-preview, 2025-01-01, 2025-01-02-preview, 2025-02-01, 2025-02-02-preview, 2025-03-01, 2025-03-02-preview, 2025-04-01, 2025-04-02-preview, 2025-05-01, 2025-05-02-preview, 2025-06-02-preview, 2025-07-01, 2025-07-02-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native containerservice [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -771,18 +823,19 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[_built
         aad_profile=pulumi.get(__response__, 'aad_profile'),
         addon_profiles=pulumi.get(__response__, 'addon_profiles'),
         agent_pool_profiles=pulumi.get(__response__, 'agent_pool_profiles'),
+        ai_toolchain_operator_profile=pulumi.get(__response__, 'ai_toolchain_operator_profile'),
         api_server_access_profile=pulumi.get(__response__, 'api_server_access_profile'),
         auto_scaler_profile=pulumi.get(__response__, 'auto_scaler_profile'),
         auto_upgrade_profile=pulumi.get(__response__, 'auto_upgrade_profile'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         azure_monitor_profile=pulumi.get(__response__, 'azure_monitor_profile'),
         azure_portal_fqdn=pulumi.get(__response__, 'azure_portal_fqdn'),
+        bootstrap_profile=pulumi.get(__response__, 'bootstrap_profile'),
         current_kubernetes_version=pulumi.get(__response__, 'current_kubernetes_version'),
         disable_local_accounts=pulumi.get(__response__, 'disable_local_accounts'),
         disk_encryption_set_id=pulumi.get(__response__, 'disk_encryption_set_id'),
         dns_prefix=pulumi.get(__response__, 'dns_prefix'),
         e_tag=pulumi.get(__response__, 'e_tag'),
-        enable_pod_security_policy=pulumi.get(__response__, 'enable_pod_security_policy'),
         enable_rbac=pulumi.get(__response__, 'enable_rbac'),
         extended_location=pulumi.get(__response__, 'extended_location'),
         fqdn=pulumi.get(__response__, 'fqdn'),
@@ -792,6 +845,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[_built
         identity=pulumi.get(__response__, 'identity'),
         identity_profile=pulumi.get(__response__, 'identity_profile'),
         ingress_profile=pulumi.get(__response__, 'ingress_profile'),
+        kind=pulumi.get(__response__, 'kind'),
         kubernetes_version=pulumi.get(__response__, 'kubernetes_version'),
         linux_profile=pulumi.get(__response__, 'linux_profile'),
         location=pulumi.get(__response__, 'location'),
@@ -799,6 +853,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[_built
         metrics_profile=pulumi.get(__response__, 'metrics_profile'),
         name=pulumi.get(__response__, 'name'),
         network_profile=pulumi.get(__response__, 'network_profile'),
+        node_provisioning_profile=pulumi.get(__response__, 'node_provisioning_profile'),
         node_resource_group=pulumi.get(__response__, 'node_resource_group'),
         node_resource_group_profile=pulumi.get(__response__, 'node_resource_group_profile'),
         oidc_issuer_profile=pulumi.get(__response__, 'oidc_issuer_profile'),
@@ -813,6 +868,7 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[_built
         service_mesh_profile=pulumi.get(__response__, 'service_mesh_profile'),
         service_principal_profile=pulumi.get(__response__, 'service_principal_profile'),
         sku=pulumi.get(__response__, 'sku'),
+        status=pulumi.get(__response__, 'status'),
         storage_profile=pulumi.get(__response__, 'storage_profile'),
         support_plan=pulumi.get(__response__, 'support_plan'),
         system_data=pulumi.get(__response__, 'system_data'),

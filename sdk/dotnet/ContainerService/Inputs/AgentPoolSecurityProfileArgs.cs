@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("enableVTPM")]
         public Input<bool>? EnableVTPM { get; set; }
 
+        /// <summary>
+        /// SSH access method of an agent pool.
+        /// </summary>
+        [Input("sshAccess")]
+        public InputUnion<string, Pulumi.AzureNative.ContainerService.AgentPoolSSHAccess>? SshAccess { get; set; }
+
         public AgentPoolSecurityProfileArgs()
         {
         }
