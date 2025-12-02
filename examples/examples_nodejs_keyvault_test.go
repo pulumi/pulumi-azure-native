@@ -92,6 +92,7 @@ func TestAccKeyVaultTs_ClientCert(t *testing.T) {
 }
 
 func TestAccKeyVaultTs_CLI(t *testing.T) {
+	t.Skip("Skipping CLI auth test - requires user authentication which is not available in CI with service principal")
 	skipIfShort(t)
 
 	usr, err := user.Current()
