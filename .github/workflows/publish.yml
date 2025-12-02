@@ -276,14 +276,10 @@ jobs:
         run: tar -zxf ${{github.workspace}}/sdk/nodejs.tar.gz -C
           ${{github.workspace}}/sdk/nodejs
 
-      - name: Calculate tag
-        id: tag
-        # v2 maintenance branch: always use "v2" tag for NPM
-        run: echo "tag=v2" >> "$GITHUB_OUTPUT"
-
       - name: Publish Node.JS SDK
         working-directory: sdk/nodejs/bin
-        run: npm publish --tag "${{ steps.tag.outputs.tag }}"
+        # v2 maintenance branch: publish without dist-tag, users install by version
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
 
