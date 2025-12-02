@@ -278,8 +278,8 @@ jobs:
 
       - name: Publish Node.JS SDK
         working-directory: sdk/nodejs/bin
-        # v2 maintenance branch: publish without dist-tag, users install by version
-        run: npm publish
+        # v2 maintenance branch: use latest-v2 tag to avoid overwriting 'latest' (which is v3)
+        run: npm publish --tag latest-v2
         env:
           NODE_AUTH_TOKEN: ${{ steps.esc-secrets.outputs.NPM_TOKEN }}
 
