@@ -86,8 +86,20 @@ jobs:
         id: schema-summary
         shell: bash
         run: |
-          # Get latest stable release. Return only first column from result (tag).
-          LAST_VERSION=$(gh release view --repo pulumi/pulumi-azure-native --json tagName -q .tagName)
+          # v2 branch: find previous v2 release (not the overall latest which is v3)
+          LAST_VERSION=$(gh release list --repo pulumi/pulumi-azure-native --limit 100 \
+            | grep -E "^v2\.[0-9]+\.[0-9]+\s" \
+            | grep -v "v${{ inputs.version }}" \
+            | head -1 \
+            | awk '{print $1}')
+
+          if [ -z "$LAST_VERSION" ]; then
+            echo "No previous v2 release found, skipping schema comparison"
+            echo "summary=No previous v2 release found for comparison." >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Comparing against previous v2 release: $LAST_VERSION"
           {
             echo 'summary<<EOF'
             schema-tools compare --provider="azure-native" --old-commit="$LAST_VERSION" --new-commit="--local-path=provider/cmd/pulumi-resource-azure-native/schema.json"
@@ -112,7 +124,9 @@ jobs:
         run: aws s3 cp dist s3://get.pulumi.com/releases/plugins/ --recursive
 
       - name: Create GH Release
-        uses: softprops/action-gh-release@v2
+        # Pin to v2.4.2 to avoid bug in v2.5.0 where make_latest is not passed during finalizeRelease
+        # See: https://github.com/softprops/action-gh-release/pull/692
+        uses: softprops/action-gh-release@v2.4.2
         if: inputs.publishGhRelease
         with:
           tag_name: v${{ inputs.version }}
