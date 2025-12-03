@@ -15,7 +15,7 @@ jobs:
     steps:
       - id: version
         name: Calculate build version
-        uses: pulumi/provider-version-action@f96d032a2758fdda7939e5728eff6c0d980ae894 # v1.6.0
+        uses: pulumi/provider-version-action@3a647064cf4697c7c6352b9a1d9e554450cbe957 # v1.6.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     outputs:
