@@ -331,6 +331,13 @@ export FAKE_MODULE
 	@mkdir -p sdk/java
 	rm -rf $$(find sdk/java -mindepth 1 -maxdepth 1)
 	bin/$(JAVA_GEN) generate --schema provider/cmd/$(PROVIDER)/schema.json --out sdk/java --build gradle-nexus
+	# Patch build.gradle for Maven Central Portal API (v2 maintenance branch)
+	perl -i -pe 's|def publishRepoURL = System.getenv\("PUBLISH_REPO_URL"\) \?: "https://s01.oss.sonatype.org"|def publishRepoURL = System.getenv("PUBLISH_REPO_URL") ?: "https://central.sonatype.com/repository/maven-snapshots/"\ndef publishStagingURL = System.getenv("PUBLISH_STAGING_URL") ?: "https://ossrh-staging-api.central.sonatype.com/service/local/"|' sdk/java/build.gradle
+	sed -i.bak \
+		-e 's|nexusUrl.set(uri(publishRepoURL + "/service/local/"))|nexusUrl.set(uri(publishStagingURL))|' \
+		-e 's|snapshotRepositoryUrl.set(uri(publishRepoURL + "/content/repositories/snapshots/"))|snapshotRepositoryUrl.set(uri(publishRepoURL))|' \
+		sdk/java/build.gradle
+	rm -f sdk/java/build.gradle.bak
 	echo "$$FAKE_MODULE" | sed 's/fake_module/fake_java_module/g' > sdk/java/go.mod
 	@touch $@
 
