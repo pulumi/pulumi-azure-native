@@ -84,6 +84,10 @@ __all__ = [
     'FleetspaceAccountPropertiesGlobalDatabaseAccountPropertiesArgsDict',
     'FleetspacePropertiesThroughputPoolConfigurationArgs',
     'FleetspacePropertiesThroughputPoolConfigurationArgsDict',
+    'FullTextPathArgs',
+    'FullTextPathArgsDict',
+    'FullTextPolicyArgs',
+    'FullTextPolicyArgsDict',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgs',
     'GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict',
     'GraphResourceArgs',
@@ -2888,6 +2892,117 @@ class FleetspacePropertiesThroughputPoolConfigurationArgs:
 
 
 if not MYPY:
+    class FullTextPathArgsDict(TypedDict):
+        """
+        Represents the full text path specification.
+        """
+        path: pulumi.Input[_builtins.str]
+        """
+        The path to the full text field in the document.
+        """
+        language: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The language of the full text field in the document.
+        """
+elif False:
+    FullTextPathArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FullTextPathArgs:
+    def __init__(__self__, *,
+                 path: pulumi.Input[_builtins.str],
+                 language: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Represents the full text path specification.
+        :param pulumi.Input[_builtins.str] path: The path to the full text field in the document.
+        :param pulumi.Input[_builtins.str] language: The language of the full text field in the document.
+        """
+        pulumi.set(__self__, "path", path)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+
+    @_builtins.property
+    @pulumi.getter
+    def path(self) -> pulumi.Input[_builtins.str]:
+        """
+        The path to the full text field in the document.
+        """
+        return pulumi.get(self, "path")
+
+    @path.setter
+    def path(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "path", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def language(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The language of the full text field in the document.
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "language", value)
+
+
+if not MYPY:
+    class FullTextPolicyArgsDict(TypedDict):
+        """
+        Cosmos DB FullText Policy
+        """
+        default_language: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The default language for a full text paths.
+        """
+        full_text_paths: NotRequired[pulumi.Input[Sequence[pulumi.Input['FullTextPathArgsDict']]]]
+        """
+        List of FullText Paths
+        """
+elif False:
+    FullTextPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FullTextPolicyArgs:
+    def __init__(__self__, *,
+                 default_language: Optional[pulumi.Input[_builtins.str]] = None,
+                 full_text_paths: Optional[pulumi.Input[Sequence[pulumi.Input['FullTextPathArgs']]]] = None):
+        """
+        Cosmos DB FullText Policy
+        :param pulumi.Input[_builtins.str] default_language: The default language for a full text paths.
+        :param pulumi.Input[Sequence[pulumi.Input['FullTextPathArgs']]] full_text_paths: List of FullText Paths
+        """
+        if default_language is not None:
+            pulumi.set(__self__, "default_language", default_language)
+        if full_text_paths is not None:
+            pulumi.set(__self__, "full_text_paths", full_text_paths)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultLanguage")
+    def default_language(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The default language for a full text paths.
+        """
+        return pulumi.get(self, "default_language")
+
+    @default_language.setter
+    def default_language(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_language", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextPaths")
+    def full_text_paths(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FullTextPathArgs']]]]:
+        """
+        List of FullText Paths
+        """
+        return pulumi.get(self, "full_text_paths")
+
+    @full_text_paths.setter
+    def full_text_paths(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['FullTextPathArgs']]]]):
+        pulumi.set(self, "full_text_paths", value)
+
+
+if not MYPY:
     class GraphAPIComputeServiceResourceCreateUpdatePropertiesArgsDict(TypedDict):
         """
         Properties for Create or Update request for GraphAPIComputeServiceResource
@@ -5271,6 +5386,10 @@ if not MYPY:
         """
         Default time to live
         """
+        full_text_policy: NotRequired[pulumi.Input['FullTextPolicyArgsDict']]
+        """
+        The FullText policy for the container.
+        """
         indexing_policy: NotRequired[pulumi.Input['IndexingPolicyArgsDict']]
         """
         The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
@@ -5304,6 +5423,7 @@ class SqlContainerResourceArgs:
                  conflict_resolution_policy: Optional[pulumi.Input['ConflictResolutionPolicyArgs']] = None,
                  create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
                  default_ttl: Optional[pulumi.Input[_builtins.int]] = None,
+                 full_text_policy: Optional[pulumi.Input['FullTextPolicyArgs']] = None,
                  indexing_policy: Optional[pulumi.Input['IndexingPolicyArgs']] = None,
                  partition_key: Optional[pulumi.Input['ContainerPartitionKeyArgs']] = None,
                  restore_parameters: Optional[pulumi.Input['ResourceRestoreParametersArgs']] = None,
@@ -5318,6 +5438,7 @@ class SqlContainerResourceArgs:
         :param pulumi.Input['ConflictResolutionPolicyArgs'] conflict_resolution_policy: The conflict resolution policy for the container.
         :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Enum to indicate the mode of resource creation.
         :param pulumi.Input[_builtins.int] default_ttl: Default time to live
+        :param pulumi.Input['FullTextPolicyArgs'] full_text_policy: The FullText policy for the container.
         :param pulumi.Input['IndexingPolicyArgs'] indexing_policy: The configuration of the indexing policy. By default, the indexing is automatic for all document paths within the container
         :param pulumi.Input['ContainerPartitionKeyArgs'] partition_key: The configuration of the partition key to be used for partitioning data into multiple partitions
         :param pulumi.Input['ResourceRestoreParametersArgs'] restore_parameters: Parameters to indicate the information about the restore
@@ -5337,6 +5458,8 @@ class SqlContainerResourceArgs:
             pulumi.set(__self__, "create_mode", create_mode)
         if default_ttl is not None:
             pulumi.set(__self__, "default_ttl", default_ttl)
+        if full_text_policy is not None:
+            pulumi.set(__self__, "full_text_policy", full_text_policy)
         if indexing_policy is not None:
             pulumi.set(__self__, "indexing_policy", indexing_policy)
         if partition_key is not None:
@@ -5431,6 +5554,18 @@ class SqlContainerResourceArgs:
     @default_ttl.setter
     def default_ttl(self, value: Optional[pulumi.Input[_builtins.int]]):
         pulumi.set(self, "default_ttl", value)
+
+    @_builtins.property
+    @pulumi.getter(name="fullTextPolicy")
+    def full_text_policy(self) -> Optional[pulumi.Input['FullTextPolicyArgs']]:
+        """
+        The FullText policy for the container.
+        """
+        return pulumi.get(self, "full_text_policy")
+
+    @full_text_policy.setter
+    def full_text_policy(self, value: Optional[pulumi.Input['FullTextPolicyArgs']]):
+        pulumi.set(self, "full_text_policy", value)
 
     @_builtins.property
     @pulumi.getter(name="indexingPolicy")
