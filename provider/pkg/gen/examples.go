@@ -257,7 +257,7 @@ func generateExamplePrograms(example resources.AzureAPIExample, body *model.Body
 		return nil, fmt.Errorf("failed to parse IR - file: %s: %v", example.Location, err)
 	}
 	if parser.Diagnostics.HasErrors() {
-		debug.Log(programBody)
+		debug.Log("%s", programBody)
 		err := parser.NewDiagnosticWriter(os.Stderr, 0, true).WriteDiagnostics(parser.Diagnostics)
 		if err != nil {
 			log.Printf("failed to write diagnostics: %v", err)
@@ -400,7 +400,7 @@ func recoverableProgramGen(name string, program *hcl2.Program, fn programGenFn) 
 	case <-time.After(timeout):
 		msg := fmt.Sprintf("%s timed out after %v", name, timeout)
 		log.Println(msg) // caller doesn't print error due to verbosity
-		err = fmt.Errorf(msg)
+		err = fmt.Errorf("%s", msg)
 		break
 	}
 
