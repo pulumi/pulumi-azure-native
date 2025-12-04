@@ -31,6 +31,7 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/openapi/defaults"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
@@ -172,6 +173,50 @@ func (k *azureNativeProvider) lookupResourceFromURN(urn resource.URN) (*resource
 	if !ok {
 		return nil, errors.Errorf("Resource type %s not found", resourceKey)
 	}
+	return &res, nil
+}
+
+// lookupResourceWithAPIVersion attempts to look up resource metadata for a specific API version.
+// It finds a resource with the same ARM path as the current resource but with the requested API version.
+// This works because the ARM path is stable across API versions for the same resource type.
+func (k *azureNativeProvider) lookupResourceWithAPIVersion(urn resource.URN, apiVersion string) (*resources.AzureAPIResource, error) {
+	// Get current resource to extract its ARM path for verification
+	currentRes, err := k.lookupResourceFromURN(urn)
+	if err != nil {
+		return nil, err
+	}
+
+	// Parse the current type token to extract module and resource name
+	currentType := string(urn.Type())
+	module, _, resourceName, err := resources.ParseToken(currentType)
+	if err != nil {
+		return nil, errors.Wrapf(err, "parsing resource type %s", currentType)
+	}
+
+	// Convert API version from ISO format (2024-01-02) to SDK version format (v20240102)
+	sdkVersion := openapi.ApiToSdkVersion(openapi.ApiVersion(apiVersion))
+
+	// Construct candidate type token with the target API version
+	candidateType := resources.BuildToken(module, string(sdkVersion), resourceName)
+
+	// Look up the resource with this type token
+	res, ok, err := k.LookupResource(candidateType)
+	if err != nil {
+		return nil, errors.Wrapf(err, "looking up resource type %s", candidateType)
+	}
+	if !ok {
+		return nil, errors.Errorf("Resource type %s not found (API version %s not available in this provider version)",
+			candidateType, apiVersion)
+	}
+
+	// Verify this resource has the same path and correct API version
+	if res.Path != currentRes.Path {
+		return nil, errors.Errorf("Resource path mismatch: expected %s, found %s", currentRes.Path, res.Path)
+	}
+	if res.APIVersion != apiVersion {
+		return nil, errors.Errorf("API version mismatch: expected %s, found %s", apiVersion, res.APIVersion)
+	}
+
 	return &res, nil
 }
 
@@ -920,7 +965,7 @@ func (k *azureNativeProvider) DiffConfig(context.Context, *rpc.DiffRequest) (*rp
 }
 
 // Diff checks what impacts a hypothetical update will have on the resource's properties.
-func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
+func (k *azureNativeProvider) Diff(ctx context.Context, req *rpc.DiffRequest) (*rpc.DiffResponse, error) {
 	urn := resource.URN(req.GetUrn())
 	label := fmt.Sprintf("%s.Diff(%s)", k.name, urn)
 
@@ -972,6 +1017,22 @@ func (k *azureNativeProvider) Diff(_ context.Context, req *rpc.DiffRequest) (*rp
 	res, err := k.lookupResourceFromURN(urn)
 	if err != nil {
 		return nil, err
+	}
+
+	// Check if API version has changed between state and current provider metadata.
+	// If so, warn the user to run `pulumi refresh` for proper schema alignment.
+	var oldApiVersion string
+	if azureApiVersion, ok := oldState["azureApiVersion"]; ok && azureApiVersion.IsString() {
+		oldApiVersion = azureApiVersion.StringValue()
+		if oldApiVersion != res.APIVersion {
+			logging.V(5).Infof("%s: API version in state (%s) differs from provider metadata (%s)",
+				label, oldApiVersion, res.APIVersion)
+
+			k.host.Log(ctx, diag.Warning, urn, fmt.Sprintf(
+				"Resource API version has changed from %s to %s. "+
+					"Run 'pulumi refresh' to update the resource state with the new API version schema.",
+				oldApiVersion, res.APIVersion))
+		}
 	}
 
 	detailedDiff := diff(k.lookupType, *res, oldInputs, newResInputs)
@@ -1312,6 +1373,24 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 		return nil, err
 	}
 
+	// Check if API version has changed (e.g., via alias during upgrade).
+	// If so, we need to use the old API version's schema for normalizing old state.
+	var oldApiVersion string
+	var oldRes *resources.AzureAPIResource
+	if azureApiVersion, ok := oldState["azureApiVersion"]; ok && azureApiVersion.IsString() {
+		oldApiVersion = azureApiVersion.StringValue()
+		if oldApiVersion != res.APIVersion {
+			// API version has changed. Try to look up the old resource metadata.
+			logging.V(5).Infof("%s: API version changed from %s to %s", label, oldApiVersion, res.APIVersion)
+			oldRes, err = k.lookupResourceWithAPIVersion(urn, oldApiVersion)
+			if err != nil {
+				logging.V(5).Infof("%s: could not look up old resource metadata for API version %s: %v", label, oldApiVersion, err)
+				// Continue with current resource metadata but log the issue
+				oldRes = nil
+			}
+		}
+	}
+
 	crudClient := crud.NewResourceCrudClient(k.azureClient, k.lookupType, k.converter, k.subscriptionID, res)
 
 	var outputs map[string]interface{}
@@ -1379,21 +1458,45 @@ func (k *azureNativeProvider) Read(ctx context.Context, req *rpc.ReadRequest) (*
 
 		// 1. If we previously reset inputs to their default value, remove them so we don't get them in
 		// the projected output. This would cause unnecessary changes on refresh.
-		removeDefaults(*res, plainOldState, previousInputs.Mappable())
+		// Use old resource metadata if API version changed to ensure we use the correct defaults.
+		resForDefaults := res
+		if oldRes != nil {
+			resForDefaults = oldRes
+		}
+		removeDefaults(*resForDefaults, plainOldState, previousInputs.Mappable())
+
 		// 2. Project old outputs to their corresponding input shape (exclude read-only properties).
-		oldInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
+		// Use old resource metadata if API version changed to ensure schema-correct conversion.
+		var oldInputProjection map[string]interface{}
+		if oldRes != nil {
+			// API version changed: use old schema for converting old state
+			oldInputProjection = k.converter.SdkOutputsToSdkInputs(oldRes.PutParameters, plainOldState)
+		} else {
+			// Same API version: use current schema
+			oldInputProjection = k.converter.SdkOutputsToSdkInputs(res.PutParameters, plainOldState)
+		}
+
 		// 3a. Remove sub-resource properties from new outputs which weren't set in the old inputs.
 		// If the user didn't specify them inline originally, we don't want to push them into the inputs now.
 		outputsWithoutIgnores := k.removeUnsetSubResourceProperties(ctx, urn, outputs, inputs, res)
 		// 3b. Project new outputs to their corresponding input shape (exclude read-only properties).
+		// Always use new schema for new outputs from Azure.
 		newInputProjection := k.converter.SdkOutputsToSdkInputs(res.PutParameters, outputsWithoutIgnores)
+
 		// 4. Calculate the difference between two projections. This should give us actual significant changes
 		// that happened in Azure between the last resource update and its current state.
 		oldInputPropertyMap := resource.NewPropertyMapFromMap(oldInputProjection)
 		newInputPropertyMap := resource.NewPropertyMapFromMap(newInputProjection)
 		diff := oldInputPropertyMap.Diff(newInputPropertyMap)
+
 		// 5. Apply this difference to the actual inputs (not a projection) that we have in state.
-		inputs = applyDiff(inputs, diff)
+		// If API version changed and we couldn't find old metadata, preserve old inputs to avoid spurious diffs.
+		if oldApiVersion != "" && oldApiVersion != res.APIVersion && oldRes == nil {
+			logging.V(5).Infof("%s: API version changed but old metadata not found, preserving old inputs", label)
+			// Don't apply the diff - keep old inputs as-is since we can't reliably calculate changes
+		} else {
+			inputs = applyDiff(inputs, diff)
+		}
 	}
 
 	// Store both outputs and inputs into the state.

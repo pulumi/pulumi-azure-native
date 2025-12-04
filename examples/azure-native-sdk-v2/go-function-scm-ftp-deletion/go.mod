@@ -5,9 +5,9 @@ go 1.23.1
 toolchain go1.24.1
 
 require (
-	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.0.0
-	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 v3.0.0
-	github.com/pulumi/pulumi-azure-native-sdk/web/v3 v3.0.0
+	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
+	github.com/pulumi/pulumi-azure-native-sdk/storage/v3 v3.11.0-alpha.1763062140
+	github.com/pulumi/pulumi-azure-native-sdk/web/v3 v3.11.0-alpha.1763062140
 	github.com/pulumi/pulumi/sdk/v3 v3.160.0
 )
 
@@ -36,7 +36,7 @@ require (
 	github.com/charmbracelet/x/cellbuf v0.0.13 // indirect
 	github.com/charmbracelet/x/term v0.2.1 // indirect
 	github.com/cheggaaa/pb v1.0.29 // indirect
-	github.com/cloudflare/circl v1.6.0 // indirect
+	github.com/cloudflare/circl v1.6.1 // indirect
 	github.com/cyphar/filepath-securejoin v0.4.1 // indirect
 	github.com/djherbis/times v1.6.0 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
@@ -72,8 +72,8 @@ require (
 	github.com/pkg/errors v0.9.1 // indirect
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.13.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.0.0-alpha.dev // indirect
+	github.com/pulumi/esc v0.20.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.11.0-alpha.1763062140 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.14.1 // indirect
 	github.com/sabhiram/go-gitignore v0.0.0-20210923224102-525f6e181f06 // indirect
@@ -89,10 +89,10 @@ require (
 	github.com/xo/terminfo v0.0.0-20220910002029-abceb7e1c41e // indirect
 	github.com/zclconf/go-cty v1.16.2 // indirect
 	go.uber.org/atomic v1.11.0 // indirect
-	golang.org/x/crypto v0.36.0 // indirect
+	golang.org/x/crypto v0.45.0 // indirect
 	golang.org/x/exp v0.0.0-20250305212735-054e65f0b394 // indirect
 	golang.org/x/mod v0.24.0 // indirect
-	golang.org/x/net v0.37.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
 	golang.org/x/sync v0.12.0 // indirect
 	golang.org/x/sys v0.31.0 // indirect
 	golang.org/x/term v0.30.0 // indirect

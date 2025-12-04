@@ -24,15 +24,22 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// vTPM is a Trusted Launch feature for configuring a dedicated secure vault for keys and measurements held locally on the node. For more details, see aka.ms/aks/trustedlaunch. If not specified, the default is false.
         /// </summary>
         public readonly bool? EnableVTPM;
+        /// <summary>
+        /// SSH access method of an agent pool.
+        /// </summary>
+        public readonly string? SshAccess;
 
         [OutputConstructor]
         private AgentPoolSecurityProfileResponse(
             bool? enableSecureBoot,
 
-            bool? enableVTPM)
+            bool? enableVTPM,
+
+            string? sshAccess)
         {
             EnableSecureBoot = enableSecureBoot;
             EnableVTPM = enableVTPM;
+            SshAccess = sshAccess;
         }
     }
 }

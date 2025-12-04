@@ -22,6 +22,26 @@ export const AdoptionPolicy = {
  */
 export type AdoptionPolicy = (typeof AdoptionPolicy)[keyof typeof AdoptionPolicy];
 
+export const AdvancedNetworkPolicies = {
+    /**
+     * Enable Layer7 network policies (FQDN, HTTP/S, Kafka). This option is a superset of the FQDN option.
+     */
+    L7: "L7",
+    /**
+     * Enable FQDN based network policies
+     */
+    FQDN: "FQDN",
+    /**
+     * Disable Layer 7 network policies (FQDN, HTTP/S, Kafka)
+     */
+    None: "None",
+} as const;
+
+/**
+ * Enable advanced network policies. This allows users to configure Layer 7 network policies (FQDN, HTTP, Kafka). Policies themselves must be configured via the Cilium Network Policy resources, see https://docs.cilium.io/en/latest/security/policy/index.html. This can be enabled only on cilium-based clusters. If not specified, the default value is FQDN if security.enabled is set to true.
+ */
+export type AdvancedNetworkPolicies = (typeof AdvancedNetworkPolicies)[keyof typeof AdvancedNetworkPolicies];
+
 export const AgentPoolMode = {
     /**
      * System agent pools are primarily for hosting critical system pods such as CoreDNS and metrics-server. System agent pools osType must be Linux. System agent pools VM SKU must have at least 2vCPUs and 4GB of memory.
@@ -31,12 +51,32 @@ export const AgentPoolMode = {
      * User agent pools are primarily for hosting your application pods.
      */
     User: "User",
+    /**
+     * Gateway agent pools are dedicated to providing static egress IPs to pods. For more details, see https://aka.ms/aks/static-egress-gateway.
+     */
+    Gateway: "Gateway",
 } as const;
 
 /**
- * A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
+ * The mode of an agent pool. A cluster must have at least one 'System' Agent Pool at all times. For additional information on agent pool restrictions and best practices, see: https://docs.microsoft.com/azure/aks/use-system-pools
  */
 export type AgentPoolMode = (typeof AgentPoolMode)[keyof typeof AgentPoolMode];
+
+export const AgentPoolSSHAccess = {
+    /**
+     * Can SSH onto the node as a local user using private key.
+     */
+    LocalUser: "LocalUser",
+    /**
+     * SSH service will be turned off on the node.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * SSH access method of an agent pool.
+ */
+export type AgentPoolSSHAccess = (typeof AgentPoolSSHAccess)[keyof typeof AgentPoolSSHAccess];
 
 export const AgentPoolType = {
     /**
@@ -47,12 +87,32 @@ export const AgentPoolType = {
      * Use of this is strongly discouraged.
      */
     AvailabilitySet: "AvailabilitySet",
+    /**
+     * Create an Agent Pool backed by a Single Instance VM orchestration mode.
+     */
+    VirtualMachines: "VirtualMachines",
 } as const;
 
 /**
  * The type of Agent Pool.
  */
 export type AgentPoolType = (typeof AgentPoolType)[keyof typeof AgentPoolType];
+
+export const ArtifactSource = {
+    /**
+     * pull images from Azure Container Registry with cache
+     */
+    Cache: "Cache",
+    /**
+     * pull images from Microsoft Artifact Registry
+     */
+    Direct: "Direct",
+} as const;
+
+/**
+ * The artifact source. The source where the artifacts are downloaded from.
+ */
+export type ArtifactSource = (typeof ArtifactSource)[keyof typeof ArtifactSource];
 
 export const AutoUpgradeNodeImageSelectionType = {
     /**
@@ -183,7 +243,7 @@ export const Expander = {
 } as const;
 
 /**
- * If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
+ * The expander to use when scaling up. If not specified, the default is 'random'. See [expanders](https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders) for more information.
  */
 export type Expander = (typeof Expander)[keyof typeof Expander];
 
@@ -195,6 +255,22 @@ export const ExtendedLocationTypes = {
  * The type of the extended location.
  */
 export type ExtendedLocationTypes = (typeof ExtendedLocationTypes)[keyof typeof ExtendedLocationTypes];
+
+export const GPUDriver = {
+    /**
+     * Install driver.
+     */
+    Install: "Install",
+    /**
+     * Skip driver install.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Whether to install GPU drivers. When it's not specified, default is Install.
+ */
+export type GPUDriver = (typeof GPUDriver)[keyof typeof GPUDriver];
 
 export const GPUInstanceProfile = {
     MIG1g: "MIG1g",
@@ -241,7 +317,7 @@ export const KeyVaultNetworkAccessTypes = {
 } as const;
 
 /**
- * Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
+ * Network access of the key vault. Network access of key vault. The possible values are `Public` and `Private`. `Public` means the key vault allows public access from all networks. `Private` means the key vault disables public access and enables private link. The default value is `Public`.
  */
 export type KeyVaultNetworkAccessTypes = (typeof KeyVaultNetworkAccessTypes)[keyof typeof KeyVaultNetworkAccessTypes];
 
@@ -305,7 +381,7 @@ export const LoadBalancerSku = {
 } as const;
 
 /**
- * The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
+ * The load balancer sku for the managed cluster. The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs.
  */
 export type LoadBalancerSku = (typeof LoadBalancerSku)[keyof typeof LoadBalancerSku];
 
@@ -314,6 +390,10 @@ export const ManagedClusterSKUName = {
      * Base option for the AKS control plane.
      */
     Base: "Base",
+    /**
+     * Automatic clusters are optimized to run most production workloads with configuration that follows AKS best practices and recommendations for cluster and workload setup, scalability, and security. For more details about Automatic clusters see aka.ms/aks/automatic.
+     */
+    Automatic: "Automatic",
 } as const;
 
 /**
@@ -337,7 +417,7 @@ export const ManagedClusterSKUTier = {
 } as const;
 
 /**
- * If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
+ * The tier of a managed cluster SKU. If not specified, the default is 'Free'. See [AKS Pricing Tier](https://learn.microsoft.com/azure/aks/free-standard-pricing-tiers) for more details.
  */
 export type ManagedClusterSKUTier = (typeof ManagedClusterSKUTier)[keyof typeof ManagedClusterSKUTier];
 
@@ -401,7 +481,7 @@ export const NetworkMode = {
 } as const;
 
 /**
- * This cannot be specified if networkPlugin is anything other than 'azure'.
+ * The network mode Azure CNI is configured with. This cannot be specified if networkPlugin is anything other than 'azure'.
  */
 export type NetworkMode = (typeof NetworkMode)[keyof typeof NetworkMode];
 
@@ -461,6 +541,30 @@ export const NetworkPolicy = {
  */
 export type NetworkPolicy = (typeof NetworkPolicy)[keyof typeof NetworkPolicy];
 
+export const NginxIngressControllerType = {
+    /**
+     * The default NginxIngressController will be created. Users can edit the default NginxIngressController Custom Resource to configure load balancer annotations.
+     */
+    AnnotationControlled: "AnnotationControlled",
+    /**
+     * The default NginxIngressController will be created and the operator will provision an external loadbalancer with it. Any annotation to make the default loadbalancer internal will be overwritten.
+     */
+    External: "External",
+    /**
+     * The default NginxIngressController will be created and the operator will provision an internal loadbalancer with it. Any annotation to make the default loadbalancer external will be overwritten.
+     */
+    Internal: "Internal",
+    /**
+     * The default Ingress Controller will not be created. It will not be deleted by the system if it exists. Users should delete the default NginxIngressController Custom Resource manually if desired.
+     */
+    None: "None",
+} as const;
+
+/**
+ * Ingress type for the default NginxIngressController custom resource
+ */
+export type NginxIngressControllerType = (typeof NginxIngressControllerType)[keyof typeof NginxIngressControllerType];
+
 export const NodeImageSelectionType = {
     /**
      * Use the latest image version when upgrading nodes. Clusters may use different image versions (e.g., 'AKSUbuntu-1804gen2containerd-2021.10.12' and 'AKSUbuntu-1804gen2containerd-2021.10.19') because, for example, the latest available version is different in different regions.
@@ -501,9 +605,41 @@ export const NodeOSUpgradeChannel = {
 } as const;
 
 /**
- * Manner in which the OS on your nodes is updated. The default is NodeImage.
+ * Node OS Upgrade Channel. Manner in which the OS on your nodes is updated. The default is NodeImage.
  */
 export type NodeOSUpgradeChannel = (typeof NodeOSUpgradeChannel)[keyof typeof NodeOSUpgradeChannel];
+
+export const NodeProvisioningDefaultNodePools = {
+    /**
+     * No Karpenter NodePools are provisioned automatically. Automatic scaling will not happen unless the user creates one or more NodePool CRD instances.
+     */
+    None: "None",
+    /**
+     * A standard set of Karpenter NodePools are provisioned
+     */
+    Auto: "Auto",
+} as const;
+
+/**
+ * The set of default Karpenter NodePools (CRDs) configured for node provisioning. This field has no effect unless mode is 'Auto'. Warning: Changing this from Auto to None on an existing cluster will cause the default Karpenter NodePools to be deleted, which will drain and delete the nodes associated with those pools. It is strongly recommended to not do this unless there are idle nodes ready to take the pods evicted by that action. If not specified, the default is Auto. For more information see aka.ms/aks/nap#node-pools.
+ */
+export type NodeProvisioningDefaultNodePools = (typeof NodeProvisioningDefaultNodePools)[keyof typeof NodeProvisioningDefaultNodePools];
+
+export const NodeProvisioningMode = {
+    /**
+     * Nodes are provisioned manually by the user
+     */
+    Manual: "Manual",
+    /**
+     * Nodes are provisioned automatically by AKS using Karpenter (See aka.ms/aks/nap for more details). Fixed size Node Pools can still be created, but autoscaling Node Pools cannot be. (See aka.ms/aks/nap for more details).
+     */
+    Auto: "Auto",
+} as const;
+
+/**
+ * The node provisioning mode. If not specified, the default is Manual.
+ */
+export type NodeProvisioningMode = (typeof NodeProvisioningMode)[keyof typeof NodeProvisioningMode];
 
 export const OSDiskType = {
     /**
@@ -517,7 +653,7 @@ export const OSDiskType = {
 } as const;
 
 /**
- * The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
+ * The OS disk type to be used for machines in the agent pool. The default is 'Ephemeral' if the VM supports it and has a cache disk larger than the requested OSDiskSizeGB. Otherwise, defaults to 'Managed'. May not be changed after creation. For more information see [Ephemeral OS](https://docs.microsoft.com/azure/aks/cluster-configuration#ephemeral-os).
  */
 export type OSDiskType = (typeof OSDiskType)[keyof typeof OSDiskType];
 
@@ -531,6 +667,10 @@ export const OSSKU = {
      */
     AzureLinux: "AzureLinux",
     /**
+     * Use AzureLinux3 as the OS for node images. Azure Linux is a container-optimized Linux distro built by Microsoft, visit https://aka.ms/azurelinux for more information. For limitations, visit https://aka.ms/aks/node-images. For OS migration guidance, see https://aka.ms/aks/upgrade-os-version.
+     */
+    AzureLinux3: "AzureLinux3",
+    /**
      * Deprecated OSSKU. Microsoft recommends that new deployments choose 'AzureLinux' instead.
      */
     CBLMariner: "CBLMariner",
@@ -542,6 +682,10 @@ export const OSSKU = {
      * Use Windows2022 as the OS for node images. Unsupported for system node pools. Windows2022 only supports Windows2022 containers; it cannot run Windows2019 containers and vice versa.
      */
     Windows2022: "Windows2022",
+    /**
+     * Use Ubuntu2204 as the OS for node images, however, Ubuntu 22.04 may not be supported for all nodepools. For limitations and supported kubernetes versions, see https://aka.ms/aks/supported-ubuntu-versions
+     */
+    Ubuntu2204: "Ubuntu2204",
 } as const;
 
 /**
@@ -606,12 +750,32 @@ export const OutboundType = {
      * The user-assigned NAT gateway associated to the cluster subnet is used for egress. This is an advanced scenario and requires proper network configuration.
      */
     UserAssignedNATGateway: "userAssignedNATGateway",
+    /**
+     * The AKS cluster is not set with any outbound-type. All AKS nodes follows Azure VM default outbound behavior. Please refer to https://azure.microsoft.com/en-us/updates/default-outbound-access-for-vms-in-azure-will-be-retired-transition-to-a-new-method-of-internet-access/
+     */
+    None: "none",
 } as const;
 
 /**
- * This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
+ * The outbound (egress) routing method. This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype).
  */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
+
+export const PodIPAllocationMode = {
+    /**
+     * Each node gets allocated with a non-contiguous list of IP addresses assignable to pods. This is better for maximizing a small to medium subnet of size /16 or smaller. The Azure CNI cluster with dynamic IP allocation defaults to this mode if the customer does not explicitly specify a podIPAllocationMode
+     */
+    DynamicIndividual: "DynamicIndividual",
+    /**
+     * Each node is statically allocated CIDR block(s) of size /28 = 16 IPs per block to satisfy the maxPods per node. Number of CIDR blocks >= (maxPods / 16). The block, rather than a single IP, counts against the Azure Vnet Private IP limit of 65K. Therefore block mode is suitable for running larger workloads with more than the current limit of 65K pods in a cluster. This mode is better suited to scale with larger subnets of /15 or bigger
+     */
+    StaticBlock: "StaticBlock",
+} as const;
+
+/**
+ * Pod IP Allocation Mode. The IP allocation mode for pods in the agent pool. Must be used with podSubnetId. The default is 'DynamicIndividual'.
+ */
+export type PodIPAllocationMode = (typeof PodIPAllocationMode)[keyof typeof PodIPAllocationMode];
 
 export const PolicyRule = {
     /**
@@ -655,7 +819,7 @@ export const PublicNetworkAccess = {
 } as const;
 
 /**
- * Allow or deny public network access for AKS
+ * PublicNetworkAccess of the managedCluster. Allow or deny public network access for AKS
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
@@ -675,7 +839,7 @@ export const ResourceIdentityType = {
 } as const;
 
 /**
- * For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
+ * The type of identity used for the managed cluster. For more information see [use managed identities in AKS](https://docs.microsoft.com/azure/aks/use-managed-identity).
  */
 export type ResourceIdentityType = (typeof ResourceIdentityType)[keyof typeof ResourceIdentityType];
 
@@ -707,7 +871,7 @@ export const ScaleDownMode = {
 } as const;
 
 /**
- * This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
+ * The scale down mode to use when scaling the Agent Pool. This also effects the cluster autoscaler behavior. If not specified, it defaults to Delete.
  */
 export type ScaleDownMode = (typeof ScaleDownMode)[keyof typeof ScaleDownMode];
 
@@ -723,7 +887,7 @@ export const ScaleSetEvictionPolicy = {
 } as const;
 
 /**
- * This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
+ * The Virtual Machine Scale Set eviction policy to use. This cannot be specified unless the scaleSetPriority is 'Spot'. If not specified, the default is 'Delete'.
  */
 export type ScaleSetEvictionPolicy = (typeof ScaleSetEvictionPolicy)[keyof typeof ScaleSetEvictionPolicy];
 
@@ -811,9 +975,25 @@ export const Type = {
 } as const;
 
 /**
- * Specifies on which week of the month the dayOfWeek applies.
+ * The week index. Specifies on which week of the month the dayOfWeek applies.
  */
 export type Type = (typeof Type)[keyof typeof Type];
+
+export const UndrainableNodeBehavior = {
+    /**
+     * AKS will cordon the blocked nodes and replace them with surge nodes during upgrade. The blocked nodes will be cordoned and replaced by surge nodes. The blocked nodes will have label 'kubernetes.azure.com/upgrade-status:Quarantined'. A surge node will be retained for each blocked node. A best-effort attempt will be made to delete all other surge nodes. If there are enough surge nodes to replace blocked nodes, then the upgrade operation and the managed cluster will be in failed state. Otherwise, the upgrade operation and the managed cluster will be in canceled state.
+     */
+    Cordon: "Cordon",
+    /**
+     * AKS will mark the blocked nodes schedulable, but the blocked nodes are not upgraded. A best-effort attempt will be made to delete all surge nodes. The upgrade operation and the managed cluster will be in failed state if there are any blocked nodes.
+     */
+    Schedule: "Schedule",
+} as const;
+
+/**
+ * Defines the behavior for undrainable nodes during upgrade. The most common cause of undrainable nodes is Pod Disruption Budgets (PDBs), but other issues, such as pod termination grace period is exceeding the remaining per-node drain timeout or pod is still being in a running state, can also cause undrainable nodes.
+ */
+export type UndrainableNodeBehavior = (typeof UndrainableNodeBehavior)[keyof typeof UndrainableNodeBehavior];
 
 export const UpgradeChannel = {
     /**
@@ -839,7 +1019,7 @@ export const UpgradeChannel = {
 } as const;
 
 /**
- * For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
+ * The upgrade channel for auto upgrade. The default is 'none'. For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel).
  */
 export type UpgradeChannel = (typeof UpgradeChannel)[keyof typeof UpgradeChannel];
 

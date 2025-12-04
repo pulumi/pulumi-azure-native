@@ -27,18 +27,6 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         [Input("backendPoolType")]
         public InputUnion<string, Pulumi.AzureNative.ContainerService.BackendPoolType>? BackendPoolType { get; set; }
 
-        [Input("effectiveOutboundIPs")]
-        private InputList<Inputs.ResourceReferenceArgs>? _effectiveOutboundIPs;
-
-        /// <summary>
-        /// The effective outbound IP resources of the cluster load balancer.
-        /// </summary>
-        public InputList<Inputs.ResourceReferenceArgs> EffectiveOutboundIPs
-        {
-            get => _effectiveOutboundIPs ?? (_effectiveOutboundIPs = new InputList<Inputs.ResourceReferenceArgs>());
-            set => _effectiveOutboundIPs = value;
-        }
-
         /// <summary>
         /// Enable multiple standard load balancers per AKS cluster or not.
         /// </summary>

@@ -320,8 +320,9 @@ ContainerRegistry:
         listTaskRunDetails: 2019-06-01-preview
         listWebhookEvents: 2024-11-01-preview
 ContainerService:
-    tracking: "2024-10-01"
+    tracking: "2025-09-01"
     additions:
+        AgentPool: "2025-08-01"
         AutoUpgradeProfile: 2024-05-02-preview
         DeploymentSafeguard: 2025-04-02-preview
         Fleet: 2024-05-02-preview
@@ -330,13 +331,21 @@ ContainerService:
         IdentityBinding: 2025-06-02-preview
         JWTAuthenticator: 2025-07-02-preview
         LoadBalancer: 2024-10-02-preview
+        MaintenanceConfiguration: "2025-08-01"
+        ManagedCluster: "2025-08-01"
         ManagedClusterSnapshot: 2024-10-02-preview
         ManagedNamespace: 2025-04-02-preview
         Namespace: 2025-02-02-preview
         NodeCustomization: 2025-08-02-preview
+        PrivateEndpointConnection: "2025-08-01"
+        Snapshot: "2025-08-01"
+        TrustedAccessRoleBinding: "2025-08-01"
         UpdateRun: 2024-05-02-preview
         listFleetCredentials: 2024-05-02-preview
         listManagedClusterAccessProfile: "2020-03-01"
+        listManagedClusterAdminCredentials: "2025-08-01"
+        listManagedClusterMonitoringUserCredentials: "2025-08-01"
+        listManagedClusterUserCredentials: "2025-08-01"
         listManagedNamespaceCredential: 2025-04-02-preview
         listNamespaceCredential: 2025-02-02-preview
 ContainerStorage:
@@ -344,7 +353,7 @@ ContainerStorage:
 Contoso:
     tracking: "2021-11-01"
 CosmosDB:
-    tracking: "2024-11-15"
+    tracking: "2025-04-15"
     additions:
         CassandraResourceCassandraRoleAssignment: 2025-05-01-preview
         CassandraResourceCassandraRoleDefinition: 2025-05-01-preview

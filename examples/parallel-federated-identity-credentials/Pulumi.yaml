@@ -1,0 +1,82 @@
+name: parallel-federated-identity-credentials
+runtime: yaml
+description: Test creating federated identity credentials in parallel, which should trigger concurrent write conflicts that are automatically retried
+
+resources:
+  resourceGroup:
+    type: azure-native:resources:ResourceGroup
+    properties:
+      location: eastus
+
+  managedIdentity:
+    type: azure-native:managedidentity:UserAssignedIdentity
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      location: eastus
+
+  # Create 5 federated identity credentials in parallel
+  # This will trigger ConcurrentFederatedIdentityCredentialsWritesForSingleManagedIdentity errors
+  # which should be automatically retried by the provider
+
+  credential1:
+    type: azure-native:managedidentity:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      resourceName: ${managedIdentity.name}
+      federatedIdentityCredentialResourceName: credential1
+      audiences:
+        - api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure-native:ref:refs/heads/main
+
+  credential2:
+    type: azure-native:managedidentity:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      resourceName: ${managedIdentity.name}
+      federatedIdentityCredentialResourceName: credential2
+      audiences:
+        - api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure-native:ref:refs/heads/develop
+
+  credential3:
+    type: azure-native:managedidentity:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      resourceName: ${managedIdentity.name}
+      federatedIdentityCredentialResourceName: credential3
+      audiences:
+        - api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure-native:environment:production
+
+  credential4:
+    type: azure-native:managedidentity:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      resourceName: ${managedIdentity.name}
+      federatedIdentityCredentialResourceName: credential4
+      audiences:
+        - api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure-native:environment:staging
+
+  credential5:
+    type: azure-native:managedidentity:FederatedIdentityCredential
+    properties:
+      resourceGroupName: ${resourceGroup.name}
+      resourceName: ${managedIdentity.name}
+      federatedIdentityCredentialResourceName: credential5
+      audiences:
+        - api://AzureADTokenExchange
+      issuer: https://token.actions.githubusercontent.com
+      subject: repo:pulumi/pulumi-azure-native:pull_request
+
+outputs:
+  managedIdentityId: ${managedIdentity.id}
+  credential1Id: ${credential1.id}
+  credential2Id: ${credential2.id}
+  credential3Id: ${credential3.id}
+  credential4Id: ${credential4.id}
+  credential5Id: ${credential5.id}

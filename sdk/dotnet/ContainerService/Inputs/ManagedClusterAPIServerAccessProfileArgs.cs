@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         private InputList<string>? _authorizedIPRanges;
 
         /// <summary>
-        /// IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
+        /// The IP ranges authorized to access the Kubernetes API server. IP ranges are specified in CIDR format, e.g. 137.117.106.88/29. This feature is not compatible with clusters that use Public IP Per Node, or clusters that are using a Basic Load Balancer. For more information see [API server authorized IP ranges](https://docs.microsoft.com/azure/aks/api-server-authorized-ip-ranges).
         /// </summary>
         public InputList<string> AuthorizedIPRanges
         {
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? DisableRunCommand { get; set; }
 
         /// <summary>
-        /// For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
+        /// Whether to create the cluster as a private cluster or not. For more details, see [Creating a private AKS cluster](https://docs.microsoft.com/azure/aks/private-clusters).
         /// </summary>
         [Input("enablePrivateCluster")]
         public Input<bool>? EnablePrivateCluster { get; set; }
@@ -46,10 +46,22 @@ namespace Pulumi.AzureNative.ContainerService.Inputs
         public Input<bool>? EnablePrivateClusterPublicFQDN { get; set; }
 
         /// <summary>
-        /// The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
+        /// Whether to enable apiserver vnet integration for the cluster or not. See aka.ms/AksVnetIntegration for more details.
+        /// </summary>
+        [Input("enableVnetIntegration")]
+        public Input<bool>? EnableVnetIntegration { get; set; }
+
+        /// <summary>
+        /// The private DNS zone mode for the cluster. The default is System. For more details see [configure private DNS zone](https://docs.microsoft.com/azure/aks/private-clusters#configure-private-dns-zone). Allowed values are 'system' and 'none'.
         /// </summary>
         [Input("privateDNSZone")]
         public Input<string>? PrivateDNSZone { get; set; }
+
+        /// <summary>
+        /// The subnet to be used when apiserver vnet integration is enabled. It is required when creating a new cluster with BYO Vnet, or when updating an existing cluster to enable apiserver vnet integration.
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         public ManagedClusterAPIServerAccessProfileArgs()
         {
