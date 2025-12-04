@@ -9,6 +9,35 @@ Guide the user through upgrading Azure API versions for a specific service/names
 2. Check that the current branch is clean or prompt user to stash changes
 3. Ensure azure-rest-api-specs submodule is initialized
 
+## Submodule Management
+
+**Important**: The `azure-rest-api-specs` submodule contains OpenAPI specs for ALL Azure services. Updating it pulls in changes across potentially hundreds of services, which can:
+- Introduce unrelated breaking changes
+- Cause merge conflicts in version files
+- Make PRs harder to review (mixing your changes with unrelated updates)
+
+**Default recommendation**: Do NOT update the submodule unless necessary. Most API versions are already available in the current submodule.
+
+**How to check if a version is available without updating**:
+```bash
+# Check for stable versions
+ls azure-rest-api-specs/specification/{service}/resource-manager/Microsoft.{Service}/stable/
+
+# Check for preview versions
+ls azure-rest-api-specs/specification/{service}/resource-manager/Microsoft.{Service}/preview/
+```
+
+**When to update the submodule**:
+- The target API version doesn't exist in the current submodule
+- You're doing a bulk update of multiple services
+- You explicitly want to pull in the latest specs
+
+**If you must update**:
+```bash
+make update_submodules
+```
+Be prepared for a larger PR that may require additional testing and review.
+
 ## Workflow
 
 ### 1. Gather Information
@@ -23,10 +52,11 @@ Ask the user:
 - If user didn't specify target version, proceed to step 3; otherwise skip to step 4
 
 ### 3. Identify Available Versions
-- Run `make update_submodules` to update azure-rest-api-specs and az-provider-list.json
+- First, check if the target version already exists in the current submodule (see "Submodule Management" above)
 - Check `azure-rest-api-specs/specification/{service-name}/resource-manager/*/stable/` for available stable versions
 - Check `azure-rest-api-specs/specification/{service-name}/resource-manager/*/preview/` for preview versions
 - Present options to user and ask which version to use
+- **Only if needed**: Run `make update_submodules` if the target version isn't available
 - **Note**: Prefer stable versions over preview unless specifically needed
 
 ### 4. Update Version Configuration
@@ -51,17 +81,28 @@ Ask the user:
 - Review the changes to `versions/v3.yaml` (auto-generated)
 
 ### 8. Generate SDKs
-- Run `make` to build all SDKs and the provider binary
+- Run `make generate` to regenerate all SDKs (Node.js, Python, .NET, Go, Java)
 - **Warning**: This takes 5-10 minutes and generates ~150 files for affected services
 - Monitor for build errors
 
-### 9. Commit Generated Code
-- Stage all changes: `git add -A` (includes both modified and new files)
-- **Important**: Use `-A` not `-u` to catch new type files
-- Review staged files to ensure no unintended changes
+### 9. Generate Docs Schema
+- Run `make generate_docs` to regenerate the docs schema with examples
+- This updates `provider/cmd/pulumi-resource-azure-native/schema.json` (committed to repo)
+- **Critical**: This step is often forgotten but required for complete PRs
+
+### 10. Build Provider (Optional Verification)
+- Run `make provider` to build the provider binary
+- Verifies that the generated code compiles correctly
+
+### 11. Commit Generated Code
+- Stage specific paths to avoid committing untracked files:
+  ```bash
+  git add versions/ sdk/ provider/cmd/pulumi-resource-azure-native/schema.json
+  ```
+- Review staged files: `git diff --cached --stat`
 - Commit: `git commit -m "Regenerate SDKs with {Service} API version {version}"`
 
-### 10. Create Pull Request
+### 12. Create Pull Request
 - Push branch: `git push -u origin {branch-name}`
 - Create PR with title: "Add support for {Service} {feature-description} (API version {version})"
 - Use PR body template:
@@ -87,6 +128,20 @@ Ask the user:
   ```
 
 ## Common Issues & Troubleshooting
+
+**Stale PR / Rebasing**
+- If master has moved forward with other API updates while your PR was in review:
+  ```bash
+  git fetch origin
+  git rebase origin/master
+  ```
+- After rebasing, re-run ALL generation steps:
+  ```bash
+  make schema
+  make generate
+  make generate_docs
+  ```
+- This ensures your PR doesn't accidentally revert other changes
 
 **API Merge Conflicts**
 - See `playbooks/Resolving-api-merge-conflicts.md` for type reconciliation issues
