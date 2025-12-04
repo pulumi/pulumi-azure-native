@@ -9,10 +9,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/keyvault/armkeyvault"
-	"github.com/Azure/azure-sdk-for-go/services/keyvault/2016-10-01/keyvault"
-	"github.com/Azure/azure-sdk-for-go/services/storage/mgmt/2019-04-01/storage"
-	"github.com/Azure/go-autorest/autorest"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
@@ -201,17 +197,15 @@ func (r *CustomResource) ApplySchema(pkg *schema.PackageSpec, meta *AzureAPIMeta
 }
 
 // BuildCustomResources creates a map of custom resources for given environment parameters.
-func BuildCustomResources(env *azureEnv.Environment,
+func BuildCustomResources(
 	azureClient azure.AzureClient,
 	lookupResource ResourceLookupFunc,
 	crudClientFactory crud.ResourceCrudClientFactory,
 	subscriptionID string,
-	bearerAuth autorest.Authorizer, // autorest
-	tokenAuth autorest.Authorizer, // autorest
-	kvBearerAuth autorest.Authorizer, // autorest
-	userAgent string, // autorest
 	cloud cloud.Configuration,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
+
+	logging.V(9).Infof("building custom resources for cloud %q", cloud.Name)
 
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {
@@ -267,29 +261,11 @@ func BuildCustomResources(env *azureEnv.Environment,
 		customRoleAssignment,
 	}
 
-	// For Key Vault, we need to use separate token sources for azidentity and for the legacy auth. The
-	// `azCoreTokenCredential` adapter that we use elsewhere to translate legacy token sources to azidentity doesn't
-	// work here because KV needs a different token source for the KV endpoint.
-	if util.EnableAzcoreBackend() {
-		resources = append(resources, keyVaultSecret(cloud, tokenCred))
-		resources = append(resources, keyVaultKey(cloud, tokenCred))
+	resources = append(resources, keyVaultSecret(cloud, tokenCred))
+	resources = append(resources, keyVaultKey(cloud, tokenCred))
 
-		resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
-		resources = append(resources, newBlob_azidentity(cloud, tokenCred))
-	} else {
-		kvClient := keyvault.New()
-		kvClient.Authorizer = kvBearerAuth
-		kvClient.UserAgent = userAgent
-		resources = append(resources, keyVaultSecret_autorest(env.KeyVaultDNSSuffix, &kvClient))
-		resources = append(resources, keyVaultKey_autorest(env.KeyVaultDNSSuffix, &kvClient))
-
-		// Storage resources.
-		storageAccountsClient := storage.NewAccountsClientWithBaseURI(env.ResourceManagerEndpoint, subscriptionID)
-		storageAccountsClient.Authorizer = tokenAuth
-		storageAccountsClient.UserAgent = userAgent
-		resources = append(resources, newStorageAccountStaticWebsite(env, &storageAccountsClient))
-		resources = append(resources, newBlob(env, &storageAccountsClient))
-	}
+	resources = append(resources, storageAccountStaticWebsite_azidentity(cloud, tokenCred))
+	resources = append(resources, newBlob_azidentity(cloud, tokenCred))
 
 	result := map[string]*CustomResource{}
 	for _, r := range resources {
@@ -299,7 +275,7 @@ func BuildCustomResources(env *azureEnv.Environment,
 }
 
 // featureLookup is a map of custom resource to lookup their capabilities.
-var featureLookup, _ = BuildCustomResources(&azureEnv.Environment{}, nil, nil, nil, "", nil, nil, nil, "", cloud.Configuration{}, nil)
+var featureLookup, _ = BuildCustomResources(nil, nil, nil, "", cloud.Configuration{}, nil)
 
 // IncludeCustomResource returns isCustom=true if a custom resource is defined for the given path, and include=true if
 // the given API version should be included.

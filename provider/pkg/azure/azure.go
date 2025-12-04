@@ -14,21 +14,12 @@ import (
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	_ "github.com/Azure/azure-sdk-for-go/sdk/azcore/arm/runtime"
-	"github.com/Azure/go-autorest/autorest"
-	"github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // BuildUserAgent composes a User Agent string with the provided partner ID.
 // see: https://azure.github.io/azure-sdk/general_azurecore.html#telemetry-policy
 func BuildUserAgent(partnerID string) (userAgent string) {
-	if !util.EnableAzcoreBackend() {
-		userAgent = strings.TrimSpace(fmt.Sprintf("%s pulumi-azure-native/%s",
-			autorest.UserAgent(), version.GetVersion()))
-	}
-
 	// azure-sdk-for-go sets a user agent string as per the telemetry policy, resembling:
 	//   pulumi-azure-native/3.0.0 azsdk-go-azcore/1.0.0 go/1.16.5 (darwin; amd64)
 	// Anything we add here will be appended to that.
@@ -52,34 +43,9 @@ func BuildUserAgent(partnerID string) (userAgent string) {
 // This helps distinguish legitimate Azure "not found" responses from proxy/WAF 404 responses.
 func IsNotFound(err error) bool {
 	validNotFoundCodes := map[string]bool{
-		"NotFound":           true,
-		"ResourceNotFound":   true,
+		"NotFound":              true,
+		"ResourceNotFound":      true,
 		"ResourceGroupNotFound": true,
-	}
-
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.StatusCode == http.StatusNotFound {
-			// Check if ServiceError contains a valid Azure error code
-			if requestError.ServiceError != nil && validNotFoundCodes[requestError.ServiceError.Code] {
-				return true
-			}
-			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ServiceError=%v). "+
-				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
-				requestError.ServiceError)
-			return false
-		}
-	}
-	if requestError, ok := err.(*azure.RequestError); ok {
-		if requestError.StatusCode == http.StatusNotFound {
-			// Check if ServiceError contains a valid Azure error code
-			if requestError.ServiceError != nil && validNotFoundCodes[requestError.ServiceError.Code] {
-				return true
-			}
-			logging.V(3).Infof("Received HTTP 404 without valid Azure error code (ServiceError=%v). "+
-				"This may indicate a proxy/WAF response rather than a legitimate Azure resource not found error.",
-				requestError.ServiceError)
-			return false
-		}
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {
@@ -115,11 +81,6 @@ func IsNotFound(err error) bool {
 func AzureError(err error) error {
 	if errors.Is(err, context.DeadlineExceeded) {
 		return errors.New("operation timed out")
-	}
-	if requestError, ok := err.(azure.RequestError); ok {
-		if requestError.DetailedError.Message != "" {
-			return fmt.Errorf("%w. %s", err, requestError.DetailedError.Message)
-		}
 	}
 	return err
 }

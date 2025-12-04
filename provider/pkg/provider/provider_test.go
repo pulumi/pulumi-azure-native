@@ -3,24 +3,19 @@ package provider
 import (
 	"context"
 	"fmt"
-	"os"
 	"reflect"
 	"testing"
 
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
-
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
 
 	az "github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure"
+	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/convert"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource/plugin"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
@@ -605,42 +600,13 @@ func TestReadAfterWrite(t *testing.T) {
 	}
 }
 
-func TestUsesCorrectAzureClient(t *testing.T) {
-	t.Run("default", func(t *testing.T) {
-		_, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND")
-		if ok {
-			t.Skip("PULUMI_ENABLE_AZCORE_BACKEND is set, cannot test default behavior")
-		}
-		assert.True(t, util.EnableAzcoreBackend(), "azcore backend should be enabled by default")
-	})
-
-	t.Run("azcore backend disabled explicitly", func(t *testing.T) {
-		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "")
-		assert.False(t, util.EnableAzcoreBackend())
-	})
-
-	t.Run("azcore backend disabled explicitly", func(t *testing.T) {
-		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
-		assert.False(t, util.EnableAzcoreBackend())
-	})
-
-	t.Run("Azcore enabled", func(t *testing.T) {
-		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "true")
-		assert.True(t, util.EnableAzcoreBackend())
-	})
-}
-
 func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
-	if !util.EnableAzcoreBackend() {
-		t.Skip()
-	}
-
 	for expectedHost, cloudInstance := range map[string]cloud.Configuration{
 		"https://management.azure.com":         cloud.AzurePublic,
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
 		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
 	} {
-		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance.Configuration, nil)
+		client, err := az.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance.Configuration, nil)
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
@@ -650,26 +616,6 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		require.True(t, hostField.IsValid(), "host field should be valid (%s)", expectedHost)
 
 		assert.Equal(t, expectedHost, hostField.String())
-	}
-}
-
-func TestAutorestAzureClientUsesCorrectCloud(t *testing.T) {
-	for expectedEnv, environment := range map[string]azureEnv.Environment{
-		azureEnv.PublicCloud.Name:       azureEnv.PublicCloud,
-		azureEnv.ChinaCloud.Name:        azureEnv.ChinaCloud,
-		azureEnv.USGovernmentCloud.Name: azureEnv.USGovernmentCloud,
-	} {
-		client := azure.NewAzureClient(environment, nil, "pulumi")
-		require.NotNil(t, client)
-
-		// Use reflection to get the value of the private 'environment' field
-		clientValue := reflect.ValueOf(client).Elem()
-		environmentField := clientValue.FieldByName("environment")
-		require.True(t, environmentField.IsValid(), "environment field should be valid")
-		nameField := environmentField.FieldByName("Name")
-		require.True(t, nameField.IsValid(), "environment.name field should be valid")
-
-		assert.Equal(t, expectedEnv, nameField.String())
 	}
 }
 
@@ -1079,4 +1025,38 @@ func TestGetApiVersion(t *testing.T) {
 		}
 		assert.Equal(t, "v20220202", getApiVersion(res, inputs))
 	})
+}
+
+func TestConfigureRejectsDisabledAzcoreBackend(t *testing.T) {
+	provider := &azureNativeProvider{
+		name:    "azure-native",
+		version: "3.0.0",
+		config:  make(map[string]string),
+	}
+
+	req := &rpc.ConfigureRequest{
+		Variables:            map[string]string{},
+		AcceptSecrets:        true,
+		SendsOldInputs:       true,
+		SendsOldInputsToDelete: true,
+	}
+
+	t.Run("PULUMI_ENABLE_AZCORE_BACKEND=false returns error", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
+		_, err := provider.Configure(context.Background(), req)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported")
+	})
+
+	t.Run("PULUMI_ENABLE_AZCORE_BACKEND=0 returns error", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "0")
+		_, err := provider.Configure(context.Background(), req)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported")
+	})
+
+	// Note: We don't test PULUMI_ENABLE_AZCORE_BACKEND=true here because
+	// the provider requires full initialization to proceed past the safeguard.
+	// The safeguard passes when set to "true" - this is implicitly tested by
+	// all other Configure tests that run without setting this env var.
 }
