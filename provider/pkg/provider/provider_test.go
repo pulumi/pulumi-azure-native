@@ -606,7 +606,7 @@ func TestAzcoreAzureClientUsesCorrectCloud(t *testing.T) {
 		"https://management.chinacloudapi.cn":  cloud.AzureChina,
 		"https://management.usgovcloudapi.net": cloud.AzureGovernment,
 	} {
-		client, err := azure.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance.Configuration, nil)
+		client, err := az.NewAzCoreClient(&fake.TokenCredential{}, "", cloudInstance.Configuration, nil)
 		require.NoError(t, err)
 		require.NotNil(t, client)
 
@@ -1025,4 +1025,38 @@ func TestGetApiVersion(t *testing.T) {
 		}
 		assert.Equal(t, "v20220202", getApiVersion(res, inputs))
 	})
+}
+
+func TestConfigureRejectsDisabledAzcoreBackend(t *testing.T) {
+	provider := &azureNativeProvider{
+		name:    "azure-native",
+		version: "3.0.0",
+		config:  make(map[string]string),
+	}
+
+	req := &rpc.ConfigureRequest{
+		Variables:            map[string]string{},
+		AcceptSecrets:        true,
+		SendsOldInputs:       true,
+		SendsOldInputsToDelete: true,
+	}
+
+	t.Run("PULUMI_ENABLE_AZCORE_BACKEND=false returns error", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "false")
+		_, err := provider.Configure(context.Background(), req)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported")
+	})
+
+	t.Run("PULUMI_ENABLE_AZCORE_BACKEND=0 returns error", func(t *testing.T) {
+		t.Setenv("PULUMI_ENABLE_AZCORE_BACKEND", "0")
+		_, err := provider.Configure(context.Background(), req)
+		require.Error(t, err)
+		assert.Contains(t, err.Error(), "PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported")
+	})
+
+	// Note: We don't test PULUMI_ENABLE_AZCORE_BACKEND=true here because
+	// the provider requires full initialization to proceed past the safeguard.
+	// The safeguard passes when set to "true" - this is implicitly tested by
+	// all other Configure tests that run without setting this env var.
 }

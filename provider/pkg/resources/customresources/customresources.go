@@ -205,7 +205,7 @@ func BuildCustomResources(
 	cloud cloud.Configuration,
 	tokenCred azcore.TokenCredential) (map[string]*CustomResource, error) {
 
-	logging.V(9).Infof("building custom resources for cloud %q", azure.GetCloudName(cloud))
+	logging.V(9).Infof("building custom resources for cloud %q", cloud.Name)
 
 	armKVClient, err := armkeyvault.NewVaultsClient(subscriptionID, tokenCred, &arm.ClientOptions{})
 	if err != nil {

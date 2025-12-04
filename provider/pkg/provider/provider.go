@@ -239,6 +239,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, errors.New("Azure Native provider requires Pulumi CLI v3.74.0 or later")
 	}
 
+	// Check if legacy backend was explicitly disabled - error since it's no longer supported
+	// https://github.com/pulumi/pulumi-azure-native/issues/4047
+	if enable, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND"); ok && enable != "true" {
+		return nil, errors.New("PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported. " +
+			"The legacy autorest authentication backend has been removed. " +
+			"Please remove this environment variable or set it to 'true'.")
+	}
+
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
 	}
