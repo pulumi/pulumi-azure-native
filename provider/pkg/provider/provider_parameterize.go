@@ -159,6 +159,7 @@ func (p *azureNativeProvider) Parameterize(ctx context.Context, req *rpc.Paramet
 	p.schemaBytes = s
 	p.resourceMap = newMetadata
 	p.name = newPackageName
+	p.converter.Types = newMetadata.Types
 
 	if _, found := os.LookupEnv("PULUMI_DEBUG_PARAMETERIZE"); found {
 		tmpPath := filepath.Join(os.TempDir(), newPackageName+".json")
