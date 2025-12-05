@@ -164,6 +164,64 @@ func TestParameterizeCreatesSchemaAndMetadata(t *testing.T) {
 	assert.Equal(t, "v20221201", args.Version)
 }
 
+func TestParameterizeUpdatesConverterTypes(t *testing.T) {
+	t.Parallel()
+
+	schemaBytes, err := os.ReadFile("../../../bin/schema-full.json")
+	require.NoError(t, err)
+
+	var v schemaWithVersion
+	err = json.Unmarshal(schemaBytes, &v)
+	require.NoError(t, err)
+	providerVersion := v.Version
+
+	// Use a type that exists in the schema: DomainSecuritySettings
+	// This type has properties with kebab-case wire names and camelCase sdkNames
+	originalTypeToken := "azure-native:aad/v20221201:DomainSecuritySettings"
+	provider, err := makeProviderInternal(nil, "azure-native", providerVersion, schemaBytes, &resources.APIMetadata{
+		Types: resources.GoMap[resources.AzureAPIType]{
+			originalTypeToken: {
+				Properties: map[string]resources.AzureAPIProperty{
+					"ntlm-v1": {SdkName: "ntlmV1", Type: "string"},
+				},
+			},
+		},
+		Resources: resources.GoMap[resources.AzureAPIResource]{
+			"azure-native:aad/v20221201:DomainService": {},
+		},
+		Invokes: resources.GoMap[resources.AzureAPIInvoke]{},
+	})
+	require.NoError(t, err)
+
+	// Before parameterization, the converter should find the type by original token
+	typ, ok, err := provider.converter.GetType(originalTypeToken)
+	require.NoError(t, err)
+	assert.True(t, ok, "converter should find type by original token before parameterization")
+	assert.Equal(t, "ntlmV1", typ.Properties["ntlm-v1"].SdkName)
+
+	// Parameterize the provider
+	_, err = provider.Parameterize(context.Background(), &rpc.ParameterizeRequest{
+		Parameters: &rpc.ParameterizeRequest_Args{
+			Args: &rpc.ParameterizeRequest_ParametersArgs{
+				Args: []string{"aad", "v20221201"},
+			},
+		},
+	})
+	require.NoError(t, err)
+
+	// After parameterization, the converter should find the type by the NEW token
+	newTypeToken := "azure-native_aad_v20221201:aad:DomainSecuritySettings"
+	typ, ok, err = provider.converter.GetType(newTypeToken)
+	require.NoError(t, err)
+	assert.True(t, ok, "converter should find type by new token after parameterization")
+	assert.Equal(t, "ntlmV1", typ.Properties["ntlm-v1"].SdkName)
+
+	// The old token should no longer be found
+	_, ok, err = provider.converter.GetType(originalTypeToken)
+	require.NoError(t, err)
+	assert.False(t, ok, "converter should NOT find type by original token after parameterization")
+}
+
 func TestRoundtripParameterizeArgs(t *testing.T) {
 	t.Parallel()
 
