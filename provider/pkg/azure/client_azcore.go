@@ -10,7 +10,10 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
+	"regexp"
+	"strconv"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -25,6 +28,14 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
+	"github.com/ryboe/q"
+)
+
+// Global map to track resource groups that need serialization due to exclusive lock errors.
+// This is shared across all azCoreClient instances.
+var (
+	serializedResourceGroups   = make(map[string]bool)
+	serializedResourceGroupsMu sync.RWMutex
 )
 
 type azCoreClient struct {
@@ -35,9 +46,15 @@ type azCoreClient struct {
 	// Exposed internally for tests, to set it at the minimum value for fast tests.
 	deletePollingIntervalSeconds int64
 	updatePollingIntervalSeconds int64
+
+	// Serialization for resource groups that have hit "exclusive lock" 429 errors.
+	// Maps resource group name to a mutex that serializes operations.
+	rgMutexes   map[string]*sync.Mutex
+	rgMutexesMu sync.Mutex
 }
 
 func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
+	q.Q("calling initPipelinOpts")
 	if opts == nil {
 		opts = &arm.ClientOptions{
 			ClientOptions: policy.ClientOptions{
@@ -72,15 +89,58 @@ func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *
 	}
 	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
 		if err != nil {
+			q.Q("[RETRY] ShouldRetry: err != nil, returning true (will retry)", err)
 			return true
 		}
+		if resp == nil {
+			q.Q("[RETRY] ShouldRetry: resp == nil, returning false (will not retry)")
+			return false
+		}
+
+		statusCode := resp.StatusCode
+		requestURL := resp.Request.URL.String()
+		q.Q("[RETRY] ShouldRetry: statusCode=", statusCode, "requestURL=", requestURL)
+
+		// For 429 errors, try to parse the retry time from the response body
+		if statusCode == http.StatusTooManyRequests {
+			q.Q("[RETRY] Got 429 status code, reading body...")
+			bodyBytes, readErr := io.ReadAll(resp.Body)
+			q.Q("[RETRY] Body read result: len=", len(bodyBytes), "err=", readErr)
+			if len(bodyBytes) > 0 {
+				// Restore the body for the retry policy to read
+				resp.Body = io.NopCloser(strings.NewReader(string(bodyBytes)))
+				bodyStr := string(bodyBytes)
+				q.Q("[RETRY] 429 response body:", bodyStr)
+
+				// Check if this is an exclusive lock error that requires serialization
+				if isExclusiveLock429ErrorFromBody(bodyStr) {
+					// Extract resource group from the request URL and mark it for serialization
+					resourceGroup := extractResourceGroupFromID(resp.Request.URL.Path)
+					if resourceGroup != "" {
+						serializedResourceGroupsMu.Lock()
+						serializedResourceGroups[resourceGroup] = true
+						serializedResourceGroupsMu.Unlock()
+						q.Q("[RETRY] Detected exclusive lock 429 error for resource group:", resourceGroup, "- will serialize subsequent operations")
+					}
+				}
+
+				// Try to parse retry time from the message
+				if retrySeconds := parseRetryTimeFromMessage(bodyStr); retrySeconds > 0 {
+					q.Q("[RETRY] Parsed retry time from 429 error:", retrySeconds, "seconds")
+				}
+			}
+		}
+
 		// Replicate default retry behaviour first.
 		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
+			q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is in retryable list, returning true (will retry)")
 			return true
 		}
 		if shouldRetryConflict(resp) {
+			q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is a retryable conflict, returning true (will retry)")
 			return true
 		}
+		q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is not retryable, returning false (will not retry)")
 		return false
 	}
 
@@ -113,6 +173,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
+		rgMutexes:                    make(map[string]*sync.Mutex),
 	}, nil
 }
 
@@ -205,12 +266,35 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
+	// Extract resource group for potential serialization
+	resourceGroup := extractResourceGroupFromID(id)
+
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
 		return err
 	}
 
+	// Wrap pipeline.Do to check serialization dynamically (including on retries)
 	err = func() error {
+		// Re-check serialization before each HTTP request (including retries)
+		// This allows reactive serialization to kick in even after operations have started
+		needsSerializationNow := false
+		if resourceGroup != "" {
+			serializedResourceGroupsMu.RLock()
+			needsSerializationNow = serializedResourceGroups[resourceGroup]
+			serializedResourceGroupsMu.RUnlock()
+		}
+
+		var mutex *sync.Mutex
+		if needsSerializationNow {
+			mutex = c.getResourceGroupMutex(resourceGroup)
+			if mutex != nil {
+				mutex.Lock()
+				defer mutex.Unlock()
+				q.Q("[SERIALIZE] Serializing delete HTTP request for resource group:", resourceGroup, "id:", id)
+			}
+		}
+
 		resp, err := c.pipeline.Do(req)
 		if err != nil {
 			return err
@@ -262,6 +346,9 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
+	// Extract resource group for potential serialization
+	resourceGroup := extractResourceGroupFromID(id)
+
 	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
 		return nil, false, err
@@ -271,6 +358,24 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		err = runtime.MarshalAsJSON(req, bodyProps)
 		if err != nil {
 			return nil, false, err
+		}
+	}
+
+	// Re-check serialization before HTTP request (allows reactive serialization to kick in)
+	needsSerializationNow := false
+	if resourceGroup != "" {
+		serializedResourceGroupsMu.RLock()
+		needsSerializationNow = serializedResourceGroups[resourceGroup]
+		serializedResourceGroupsMu.RUnlock()
+	}
+
+	var mutex *sync.Mutex
+	if needsSerializationNow {
+		mutex = c.getResourceGroupMutex(resourceGroup)
+		if mutex != nil {
+			mutex.Lock()
+			defer mutex.Unlock()
+			q.Q("[SERIALIZE] Serializing", method, "HTTP request for resource group:", resourceGroup, "id:", id)
 		}
 	}
 
@@ -539,6 +644,95 @@ type requestAssertingTransporter struct {
 func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
 	r.assertions(r.t, req)
 	return nil, nil
+}
+
+// parseRetryTimeFromMessage attempts to extract the retry time (in seconds) from an Azure error message.
+// It looks for patterns like "The call can be retried in 14 seconds." or "retry in 14 seconds".
+// Returns the default retry delay (20 seconds) if no retry time is found in the message.
+func parseRetryTimeFromMessage(message string) int {
+	// Pattern: "retried in X seconds" or "retry in X seconds"
+	re := regexp.MustCompile(`(?i)retry(?:ed)?\s+in\s+(\d+)\s+second`)
+	matches := re.FindStringSubmatch(message)
+	if len(matches) >= 2 {
+		if seconds, err := strconv.Atoi(matches[1]); err == nil {
+			return seconds
+		}
+	}
+	// Default to 20 seconds if we can't parse a retry time from the message
+	return 20
+}
+
+// isExclusiveLock429ErrorFromBody checks if a 429 error body indicates the "exclusive lock" type that requires serialization.
+// This error occurs when Azure can't acquire an exclusive lock on resources (like App Service Plans)
+// that have "webspace affinity" and can only process one operation at a time.
+func isExclusiveLock429ErrorFromBody(bodyStr string) bool {
+	q.Q("isExclusiveLock429ErrorFromBody")
+	// Check for the specific error message or error code
+	// Error message: "Cannot acquire exclusive lock to create, update or delete this site. Retry the request later."
+	// Error code: 59206 (ExtendedCode)
+	if strings.Contains(bodyStr, "Cannot acquire exclusive lock") ||
+		strings.Contains(bodyStr, "exclusive lock") {
+		q.Q("isExclusiveLock429ErrorFromBody: true")
+		return true
+	}
+
+	// Also check structured error response
+	var payload map[string]any
+	if err := json.Unmarshal([]byte(bodyStr), &payload); err == nil {
+		q.Q("Checking structured error response")
+		if _, ok := payload["Code"].(string); ok {
+			if msg, ok := payload["Message"].(string); ok {
+				if strings.Contains(msg, "Cannot acquire exclusive lock") {
+					return true
+				}
+			}
+		}
+	}
+	q.Q("did not find exclusive lock 429 error")
+
+	return false
+}
+
+// extractResourceGroupFromID extracts the resource group name from an Azure resource ID.
+// Azure resource IDs follow the pattern:
+// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/...
+func extractResourceGroupFromID(resourceID string) string {
+	parts := strings.Split(resourceID, "/")
+	for i, part := range parts {
+		if part == "resourceGroups" && i+1 < len(parts) {
+			return parts[i+1]
+		}
+	}
+	return ""
+}
+
+// needsSerializationForWebResources checks if a resource ID is for a web resource that requires serialization.
+// Web resources (App Service Plans, Web Apps) have "webspace affinity" and can only process one operation at a time.
+func needsSerializationForWebResources(resourceID string) bool {
+	// Check if this is a Microsoft.Web resource
+	if strings.Contains(resourceID, "/providers/Microsoft.Web/") {
+		return true
+	}
+	return false
+}
+
+// getResourceGroupMutex returns a mutex for the given resource group, creating it if needed.
+// This mutex is used to serialize operations for resource groups that have hit "exclusive lock" 429 errors.
+func (c *azCoreClient) getResourceGroupMutex(resourceGroup string) *sync.Mutex {
+	if resourceGroup == "" {
+		return nil
+	}
+
+	c.rgMutexesMu.Lock()
+	defer c.rgMutexesMu.Unlock()
+
+	if mutex, ok := c.rgMutexes[resourceGroup]; ok {
+		return mutex
+	}
+
+	mutex := &sync.Mutex{}
+	c.rgMutexes[resourceGroup] = mutex
+	return mutex
 }
 
 // newResponseError replaces an azcore.ResponseError, created from the given response, with a more concise error type (#3778).
