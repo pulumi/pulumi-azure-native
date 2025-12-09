@@ -10,8 +10,6 @@ import (
 	"net/http"
 	"net/url"
 	"reflect"
-	"regexp"
-	"strconv"
 	"strings"
 	"sync"
 	"testing"
@@ -34,8 +32,8 @@ import (
 // Global map to track resource groups that need serialization due to exclusive lock errors.
 // This is shared across all azCoreClient instances.
 var (
-	serializedResourceGroups   = make(map[string]bool)
-	serializedResourceGroupsMu sync.RWMutex
+	serializedAppServicePlans   = make(map[string]bool)
+	serializedAppServicePlansMu sync.RWMutex
 )
 
 type azCoreClient struct {
@@ -49,8 +47,8 @@ type azCoreClient struct {
 
 	// Serialization for resource groups that have hit "exclusive lock" 429 errors.
 	// Maps resource group name to a mutex that serializes operations.
-	rgMutexes   map[string]*sync.Mutex
-	rgMutexesMu sync.Mutex
+	aspMutexes   map[string]*sync.Mutex // App Service Plan mutexes
+	aspMutexesMu sync.Mutex
 }
 
 func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
@@ -101,36 +99,6 @@ func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *
 		requestURL := resp.Request.URL.String()
 		q.Q("[RETRY] ShouldRetry: statusCode=", statusCode, "requestURL=", requestURL)
 
-		// For 429 errors, try to parse the retry time from the response body
-		if statusCode == http.StatusTooManyRequests {
-			q.Q("[RETRY] Got 429 status code, reading body...")
-			bodyBytes, readErr := io.ReadAll(resp.Body)
-			q.Q("[RETRY] Body read result: len=", len(bodyBytes), "err=", readErr)
-			if len(bodyBytes) > 0 {
-				// Restore the body for the retry policy to read
-				resp.Body = io.NopCloser(strings.NewReader(string(bodyBytes)))
-				bodyStr := string(bodyBytes)
-				q.Q("[RETRY] 429 response body:", bodyStr)
-
-				// Check if this is an exclusive lock error that requires serialization
-				if isExclusiveLock429ErrorFromBody(bodyStr) {
-					// Extract resource group from the request URL and mark it for serialization
-					resourceGroup := extractResourceGroupFromID(resp.Request.URL.Path)
-					if resourceGroup != "" {
-						serializedResourceGroupsMu.Lock()
-						serializedResourceGroups[resourceGroup] = true
-						serializedResourceGroupsMu.Unlock()
-						q.Q("[RETRY] Detected exclusive lock 429 error for resource group:", resourceGroup, "- will serialize subsequent operations")
-					}
-				}
-
-				// Try to parse retry time from the message
-				if retrySeconds := parseRetryTimeFromMessage(bodyStr); retrySeconds > 0 {
-					q.Q("[RETRY] Parsed retry time from 429 error:", retrySeconds, "seconds")
-				}
-			}
-		}
-
 		// Replicate default retry behaviour first.
 		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
 			q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is in retryable list, returning true (will retry)")
@@ -173,7 +141,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
-		rgMutexes:                    make(map[string]*sync.Mutex),
+		aspMutexes:                   make(map[string]*sync.Mutex),
 	}, nil
 }
 
@@ -266,35 +234,54 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
-	// Extract resource group for potential serialization
-	resourceGroup := extractResourceGroupFromID(id)
+	// Proactively serialize Web App DELETE operations
+	var mutex *sync.Mutex
+	appServicePlanID := ""
+
+	if strings.Contains(id, "/providers/Microsoft.Web/sites/") {
+		// For Web Apps, fetch the App Service Plan ID first so we can serialize at App Service Plan level
+		webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
+		if err == nil && webAppProps != nil {
+			// Try to extract App Service Plan ID from the Web App properties
+			if serverFarmId, ok := webAppProps["serverFarmId"].(string); ok && serverFarmId != "" {
+				appServicePlanID = serverFarmId
+			} else if properties, ok := webAppProps["properties"].(map[string]any); ok {
+				if serverFarmId, ok := properties["serverFarmId"].(string); ok && serverFarmId != "" {
+					appServicePlanID = serverFarmId
+				}
+			}
+		}
+
+		// If we couldn't get the App Service Plan ID, fall back to resource group
+		if appServicePlanID == "" {
+			resourceGroup := extractResourceGroupFromID(id)
+			if resourceGroup != "" {
+				appServicePlanID = resourceGroup
+			}
+		}
+
+		// Proactively mark for serialization and get mutex
+		if appServicePlanID != "" {
+			serializedAppServicePlansMu.Lock()
+			serializedAppServicePlans[appServicePlanID] = true
+			serializedAppServicePlansMu.Unlock()
+			mutex = c.getAppServicePlanMutex(appServicePlanID)
+		}
+	}
 
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
 		return err
 	}
 
-	// Wrap pipeline.Do to check serialization dynamically (including on retries)
+	// If we have a mutex (from proactive serialization), use it for the DELETE request
+	if mutex != nil {
+		mutex.Lock()
+		defer mutex.Unlock()
+	}
+
+	// Wrap pipeline.Do - mutex is already held if needed
 	err = func() error {
-		// Re-check serialization before each HTTP request (including retries)
-		// This allows reactive serialization to kick in even after operations have started
-		needsSerializationNow := false
-		if resourceGroup != "" {
-			serializedResourceGroupsMu.RLock()
-			needsSerializationNow = serializedResourceGroups[resourceGroup]
-			serializedResourceGroupsMu.RUnlock()
-		}
-
-		var mutex *sync.Mutex
-		if needsSerializationNow {
-			mutex = c.getResourceGroupMutex(resourceGroup)
-			if mutex != nil {
-				mutex.Lock()
-				defer mutex.Unlock()
-				q.Q("[SERIALIZE] Serializing delete HTTP request for resource group:", resourceGroup, "id:", id)
-			}
-		}
-
 		resp, err := c.pipeline.Do(req)
 		if err != nil {
 			return err
@@ -346,8 +333,8 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
-	// Extract resource group for potential serialization
-	resourceGroup := extractResourceGroupFromID(id)
+	// Extract App Service Plan ID for potential serialization
+	appServicePlanID := extractAppServicePlanID(id, bodyProps)
 
 	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
@@ -363,19 +350,19 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 
 	// Re-check serialization before HTTP request (allows reactive serialization to kick in)
 	needsSerializationNow := false
-	if resourceGroup != "" {
-		serializedResourceGroupsMu.RLock()
-		needsSerializationNow = serializedResourceGroups[resourceGroup]
-		serializedResourceGroupsMu.RUnlock()
+	if appServicePlanID != "" {
+		serializedAppServicePlansMu.RLock()
+		needsSerializationNow = serializedAppServicePlans[appServicePlanID]
+		serializedAppServicePlansMu.RUnlock()
 	}
 
 	var mutex *sync.Mutex
 	if needsSerializationNow {
-		mutex = c.getResourceGroupMutex(resourceGroup)
+		mutex = c.getAppServicePlanMutex(appServicePlanID)
 		if mutex != nil {
 			mutex.Lock()
 			defer mutex.Unlock()
-			q.Q("[SERIALIZE] Serializing", method, "HTTP request for resource group:", resourceGroup, "id:", id)
+			q.Q("[SERIALIZE] Serializing", method, "HTTP request for App Service Plan:", appServicePlanID, "id:", id)
 		}
 	}
 
@@ -646,22 +633,6 @@ func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, err
 	return nil, nil
 }
 
-// parseRetryTimeFromMessage attempts to extract the retry time (in seconds) from an Azure error message.
-// It looks for patterns like "The call can be retried in 14 seconds." or "retry in 14 seconds".
-// Returns the default retry delay (20 seconds) if no retry time is found in the message.
-func parseRetryTimeFromMessage(message string) int {
-	// Pattern: "retried in X seconds" or "retry in X seconds"
-	re := regexp.MustCompile(`(?i)retry(?:ed)?\s+in\s+(\d+)\s+second`)
-	matches := re.FindStringSubmatch(message)
-	if len(matches) >= 2 {
-		if seconds, err := strconv.Atoi(matches[1]); err == nil {
-			return seconds
-		}
-	}
-	// Default to 20 seconds if we can't parse a retry time from the message
-	return 20
-}
-
 // isExclusiveLock429ErrorFromBody checks if a 429 error body indicates the "exclusive lock" type that requires serialization.
 // This error occurs when Azure can't acquire an exclusive lock on resources (like App Service Plans)
 // that have "webspace affinity" and can only process one operation at a time.
@@ -706,6 +677,37 @@ func extractResourceGroupFromID(resourceID string) string {
 	return ""
 }
 
+// extractAppServicePlanID extracts the App Service Plan ID from a resource ID or request body.
+// For App Service Plans (serverfarms), it extracts the full resource ID.
+// For Web Apps (sites), it extracts the App Service Plan ID from the request body if available.
+func extractAppServicePlanID(resourceID string, bodyProps map[string]any) string {
+	// Check if this is an App Service Plan (serverfarm) resource
+	if strings.Contains(resourceID, "/providers/Microsoft.Web/serverfarms/") {
+		// Extract the full App Service Plan resource ID
+		// Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Web/serverfarms/{name}
+		return resourceID
+	}
+
+	// For Web Apps (sites), try to extract App Service Plan ID from body
+	if strings.Contains(resourceID, "/providers/Microsoft.Web/sites/") && bodyProps != nil {
+		// Try common property names for App Service Plan ID
+		if serverFarmId, ok := bodyProps["serverFarmId"].(string); ok && serverFarmId != "" {
+			return serverFarmId
+		}
+		if appServicePlanId, ok := bodyProps["appServicePlanId"].(string); ok && appServicePlanId != "" {
+			return appServicePlanId
+		}
+		// Also check nested properties
+		if siteConfig, ok := bodyProps["siteConfig"].(map[string]any); ok {
+			if serverFarmId, ok := siteConfig["serverFarmId"].(string); ok && serverFarmId != "" {
+				return serverFarmId
+			}
+		}
+	}
+
+	return ""
+}
+
 // needsSerializationForWebResources checks if a resource ID is for a web resource that requires serialization.
 // Web resources (App Service Plans, Web Apps) have "webspace affinity" and can only process one operation at a time.
 func needsSerializationForWebResources(resourceID string) bool {
@@ -716,22 +718,22 @@ func needsSerializationForWebResources(resourceID string) bool {
 	return false
 }
 
-// getResourceGroupMutex returns a mutex for the given resource group, creating it if needed.
-// This mutex is used to serialize operations for resource groups that have hit "exclusive lock" 429 errors.
-func (c *azCoreClient) getResourceGroupMutex(resourceGroup string) *sync.Mutex {
-	if resourceGroup == "" {
+// getAppServicePlanMutex returns a mutex for the given App Service Plan ID, creating it if needed.
+// This mutex is used to serialize operations for App Service Plans that have hit "exclusive lock" 429 errors.
+func (c *azCoreClient) getAppServicePlanMutex(appServicePlanID string) *sync.Mutex {
+	if appServicePlanID == "" {
 		return nil
 	}
 
-	c.rgMutexesMu.Lock()
-	defer c.rgMutexesMu.Unlock()
+	c.aspMutexesMu.Lock()
+	defer c.aspMutexesMu.Unlock()
 
-	if mutex, ok := c.rgMutexes[resourceGroup]; ok {
+	if mutex, ok := c.aspMutexes[appServicePlanID]; ok {
 		return mutex
 	}
 
 	mutex := &sync.Mutex{}
-	c.rgMutexes[resourceGroup] = mutex
+	c.aspMutexes[appServicePlanID] = mutex
 	return mutex
 }
 
