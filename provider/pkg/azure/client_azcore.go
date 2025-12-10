@@ -26,7 +26,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
-	"github.com/ryboe/q"
 )
 
 type azCoreClient struct {
@@ -38,14 +37,15 @@ type azCoreClient struct {
 	deletePollingIntervalSeconds int64
 	updatePollingIntervalSeconds int64
 
-	// Serialization for resource groups that have hit "exclusive lock" 429 errors.
-	// Maps resource group name to a mutex that serializes operations.
-	aspMutexes   map[string]*sync.Mutex // App Service Plan mutexes
-	aspMutexesMu sync.Mutex
+	// Serialization for resources that have hit "exclusive lock" 429 errors.
+	// Maps serialization key (e.g., App Service Plan ID) to a mutex that serializes operations.
+	// This allows parallel operations across different App Service Plans while serializing
+	// operations within the same App Service Plan.
+	serializationsMap      map[string]*sync.Mutex
+	serializationsMapMutex sync.Mutex
 }
 
 func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
-	q.Q("calling initPipelinOpts")
 	if opts == nil {
 		opts = &arm.ClientOptions{
 			ClientOptions: policy.ClientOptions{
@@ -80,28 +80,15 @@ func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *
 	}
 	opts.Retry.ShouldRetry = func(resp *http.Response, err error) bool {
 		if err != nil {
-			q.Q("[RETRY] ShouldRetry: err != nil, returning true (will retry)", err)
 			return true
 		}
-		if resp == nil {
-			q.Q("[RETRY] ShouldRetry: resp == nil, returning false (will not retry)")
-			return false
-		}
-
-		statusCode := resp.StatusCode
-		requestURL := resp.Request.URL.String()
-		q.Q("[RETRY] ShouldRetry: statusCode=", statusCode, "requestURL=", requestURL)
-
 		// Replicate default retry behaviour first.
 		if runtime.HasStatusCode(resp, retryableStatusCodes...) {
-			q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is in retryable list, returning true (will retry)")
 			return true
 		}
 		if shouldRetryConflict(resp) {
-			q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is a retryable conflict, returning true (will retry)")
 			return true
 		}
-		q.Q("[RETRY] ShouldRetry: statusCode", statusCode, "is not retryable, returning false (will not retry)")
 		return false
 	}
 
@@ -134,7 +121,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
-		aspMutexes:                   make(map[string]*sync.Mutex),
+		serializationsMap:            make(map[string]*sync.Mutex),
 	}, nil
 }
 
@@ -227,18 +214,17 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
-	serializationMutex := c.checkForSerialization(ctx, id, apiVersion, queryParameters)
+	// See if we need to serialize requests due to parallelization limitations in the AZ Core SDK.
+	serializationMutex := c.checkForSerializationDelete(ctx, id, apiVersion, queryParameters)
 
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
 		return err
 	}
 
-	// If we have a mutex (from proactive serialization), use it for the DELETE request
 	if serializationMutex != nil {
 		serializationMutex.Lock()
 		defer serializationMutex.Unlock()
-		q.Q("[SERIALIZE] Serializing delete operation (as in, this resource is part of a serialized thing) for id:", id)
 	}
 
 	err = func() error {
@@ -293,7 +279,8 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
-	serializationMutex := c.checkForSerializationPutOrPatch(ctx, id, bodyProps)
+	// See if we need to serialize requests due to parallelization limitations in the AZ Core SDK.
+	serializationMutex := c.checkForSerializationPutOrPatch(id, bodyProps)
 
 	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
@@ -307,7 +294,6 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		}
 	}
 
-	// If we have a mutex (from proactive serialization), use it for the HTTP request
 	if serializationMutex != nil {
 		serializationMutex.Lock()
 		defer serializationMutex.Unlock()
