@@ -14,13 +14,6 @@ var (
 	// otherResourcePattern = "/providers/Microsoft.Other/..."
 )
 
-// Global map to track resource groups that need serialization due to exclusive lock errors.
-// This is shared across all azCoreClient instances.
-var (
-	serializedAppServicePlans   = make(map[string]bool)
-	serializedAppServicePlansMu sync.RWMutex
-)
-
 // needsSerialization checks if a resource type requires serialization.
 // Returns true if the resource type is known to require serialization.
 func needsSerialization(resourceID string) bool {
@@ -45,7 +38,7 @@ func (c *azCoreClient) extractSerializationKeyForDelete(ctx context.Context, id,
 		// Web Apps: fetch resource to get App Service Plan ID
 		webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
 		if err == nil && webAppProps != nil {
-			appServicePlanID := extractAppServicePlanID(id, webAppProps)
+			appServicePlanID := extractAppServicePlanID(webAppProps)
 			if appServicePlanID != "" {
 				return appServicePlanID
 			}
@@ -67,7 +60,7 @@ func extractSerializationKeyForPutOrPatch(id string, bodyProps map[string]any) s
 	switch {
 	case strings.Contains(id, webAppResourcePattern):
 		// Web Apps: extract App Service Plan ID from bodyProps
-		return extractAppServicePlanID(id, bodyProps)
+		return extractAppServicePlanID(bodyProps)
 	// Add more resource types here as needed
 	// case strings.Contains(id, "/providers/Microsoft.Other/..."):
 	//     return extractOtherResourceKeyForPutOrPatch(id, bodyProps)
@@ -88,11 +81,8 @@ func (c *azCoreClient) checkForSerialization(ctx context.Context, id, apiVersion
 		return nil
 	}
 
-	// Mark for serialization and get mutex
-	serializedAppServicePlansMu.Lock()
-	serializedAppServicePlans[serializationKey] = true
-	serializedAppServicePlansMu.Unlock()
-	return c.getAppServicePlanMutex(serializationKey)
+	// Get mutex for serialization
+	return c.getSerializationMutex(serializationKey)
 }
 
 // checkForSerializationPutOrPatch returns a mutex if the resource requires serialization.
@@ -107,11 +97,8 @@ func (c *azCoreClient) checkForSerializationPutOrPatch(ctx context.Context, id s
 		return nil
 	}
 
-	// Mark for serialization and get mutex
-	serializedAppServicePlansMu.Lock()
-	serializedAppServicePlans[serializationKey] = true
-	serializedAppServicePlansMu.Unlock()
-	return c.getAppServicePlanMutex(serializationKey)
+	// Get mutex for serialization
+	return c.getSerializationMutex(serializationKey)
 }
 
 // extractResourceGroupFromID extracts the resource group name from an Azure resource ID.
@@ -127,52 +114,35 @@ func extractResourceGroupFromID(resourceID string) string {
 	return ""
 }
 
-// extractAppServicePlanID extracts the App Service Plan ID from a resource ID or request body.
-// For App Service Plans (serverfarms), it extracts the full resource ID.
+// extractAppServicePlanID extracts the App Service Plan ID from a request body.
 // For Web Apps (sites), it extracts the App Service Plan ID from the request body if available.
-func extractAppServicePlanID(resourceID string, bodyProps map[string]any) string {
-	// Check if this is an App Service Plan (serverfarm) resource
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/serverfarms/") {
-		// Extract the full App Service Plan resource ID
-		// Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Web/serverfarms/{name}
-		return resourceID
-	}
-
+func extractAppServicePlanID(bodyProps map[string]any) string {
 	// For Web Apps (sites), try to extract App Service Plan ID from body
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/sites/") && bodyProps != nil {
+	if bodyProps != nil {
 		// Try common property names for App Service Plan ID
-		if serverFarmId, ok := bodyProps["serverFarmId"].(string); ok && serverFarmId != "" {
-			return serverFarmId
-		}
 		if appServicePlanId, ok := bodyProps["appServicePlanId"].(string); ok && appServicePlanId != "" {
 			return appServicePlanId
 		}
-		// Also check nested properties
-		if siteConfig, ok := bodyProps["siteConfig"].(map[string]any); ok {
-			if serverFarmId, ok := siteConfig["serverFarmId"].(string); ok && serverFarmId != "" {
-				return serverFarmId
-			}
-		}
 	}
-
 	return ""
 }
 
-// getAppServicePlanMutex returns a mutex for the given App Service Plan ID, creating it if needed.
-// This mutex is used to serialize operations for App Service Plans that have hit "exclusive lock" 429 errors.
-func (c *azCoreClient) getAppServicePlanMutex(appServicePlanID string) *sync.Mutex {
-	if appServicePlanID == "" {
+// getSerializationMutex returns a mutex for the given serialization key, creating it if needed.
+// This mutex is used to serialize operations for resources that require serialization (e.g., due to "exclusive lock" 429 errors).
+// The serializationKey can be an App Service Plan ID, resource group, or any other identifier that groups resources requiring serialization.
+func (c *azCoreClient) getSerializationMutex(serializationKey string) *sync.Mutex {
+	if serializationKey == "" {
 		return nil
 	}
 
 	c.aspMutexesMu.Lock()
 	defer c.aspMutexesMu.Unlock()
 
-	if mutex, ok := c.aspMutexes[appServicePlanID]; ok {
+	if mutex, ok := c.aspMutexes[serializationKey]; ok {
 		return mutex
 	}
 
 	mutex := &sync.Mutex{}
-	c.aspMutexes[appServicePlanID] = mutex
+	c.aspMutexes[serializationKey] = mutex
 	return mutex
 }
