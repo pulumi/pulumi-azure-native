@@ -6,6 +6,14 @@ import (
 	"sync"
 )
 
+// Resource type patterns that require serialization due to exclusive lock constraints
+var (
+	// Web Apps require serialization due to "webspace affinity"
+	webAppResourcePattern = "/providers/Microsoft.Web/sites/"
+	// Add more resource type patterns here as needed
+	// otherResourcePattern = "/providers/Microsoft.Other/..."
+)
+
 // Global map to track resource groups that need serialization due to exclusive lock errors.
 // This is shared across all azCoreClient instances.
 var (
@@ -17,11 +25,11 @@ var (
 // Returns true if the resource type is known to require serialization.
 func needsSerialization(resourceID string) bool {
 	switch {
-	case strings.Contains(resourceID, "/providers/Microsoft.Web/sites/"):
+	case strings.Contains(resourceID, webAppResourcePattern):
 		// Web Apps require serialization due to "webspace affinity"
 		return true
 	// Add more resource types here as needed
-	// case strings.Contains(resourceID, "/providers/Microsoft.Other/..."):
+	// case strings.Contains(resourceID, otherResourcePattern):
 	//     return true
 	default:
 		return false
@@ -33,7 +41,7 @@ func needsSerialization(resourceID string) bool {
 // Returns the serialization key (e.g., App Service Plan ID) or empty string.
 func (c *azCoreClient) extractSerializationKeyForDelete(ctx context.Context, id, apiVersion string, queryParams map[string]any) string {
 	switch {
-	case strings.Contains(id, "/providers/Microsoft.Web/sites/"):
+	case strings.Contains(id, webAppResourcePattern):
 		// Web Apps: fetch resource to get App Service Plan ID
 		webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
 		if err == nil && webAppProps != nil {
@@ -57,7 +65,7 @@ func (c *azCoreClient) extractSerializationKeyForDelete(ctx context.Context, id,
 // Returns the serialization key (e.g., App Service Plan ID) or empty string.
 func extractSerializationKeyForPutOrPatch(id string, bodyProps map[string]any) string {
 	switch {
-	case strings.Contains(id, "/providers/Microsoft.Web/sites/"):
+	case strings.Contains(id, webAppResourcePattern):
 		// Web Apps: extract App Service Plan ID from bodyProps
 		return extractAppServicePlanID(id, bodyProps)
 	// Add more resource types here as needed
