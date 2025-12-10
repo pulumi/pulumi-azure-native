@@ -227,35 +227,7 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
-	mutex := c.checkForSerialization(ctx, id, apiVersion, queryParameters)
-
-	// Proactively serialize Web App DELETE operations
-	//var mutex *sync.Mutex
-	//appServicePlanID := ""
-	//
-	//if strings.Contains(id, "/providers/Microsoft.Web/sites/") {
-	//	// For Web Apps, fetch the resource first to get the App Service Plan ID
-	//	webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
-	//	if err == nil && webAppProps != nil {
-	//		appServicePlanID = extractAppServicePlanID(id, webAppProps)
-	//	}
-	//
-	//	// If we couldn't get the App Service Plan ID, fall back to resource group
-	//	if appServicePlanID == "" {
-	//		resourceGroup := extractResourceGroupFromID(id)
-	//		if resourceGroup != "" {
-	//			appServicePlanID = resourceGroup
-	//		}
-	//	}
-	//
-	//	// Proactively mark for serialization and get mutex
-	//	if appServicePlanID != "" {
-	//		serializedAppServicePlansMu.Lock()
-	//		serializedAppServicePlans[appServicePlanID] = true
-	//		serializedAppServicePlansMu.Unlock()
-	//		mutex = c.getAppServicePlanMutex(appServicePlanID)
-	//	}
-	//}
+	serializationMutex := c.checkForSerialization(ctx, id, apiVersion, queryParameters)
 
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
@@ -263,9 +235,9 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	}
 
 	// If we have a mutex (from proactive serialization), use it for the DELETE request
-	if mutex != nil {
-		mutex.Lock()
-		defer mutex.Unlock()
+	if serializationMutex != nil {
+		serializationMutex.Lock()
+		defer serializationMutex.Unlock()
 		q.Q("[SERIALIZE] Serializing delete operation (as in, this resource is part of a serialized thing) for id:", id)
 	}
 
@@ -321,8 +293,7 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
-	// Extract App Service Plan ID for potential serialization
-	appServicePlanID := extractAppServicePlanID(id, bodyProps)
+	serializationMutex := c.checkForSerializationPutOrPatch(ctx, id, bodyProps)
 
 	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
@@ -336,22 +307,10 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		}
 	}
 
-	// Re-check serialization before HTTP request (allows reactive serialization to kick in)
-	needsSerializationNow := false
-	if appServicePlanID != "" {
-		serializedAppServicePlansMu.RLock()
-		needsSerializationNow = serializedAppServicePlans[appServicePlanID]
-		serializedAppServicePlansMu.RUnlock()
-	}
-
-	var mutex *sync.Mutex
-	if needsSerializationNow {
-		mutex = c.getAppServicePlanMutex(appServicePlanID)
-		if mutex != nil {
-			mutex.Lock()
-			defer mutex.Unlock()
-			q.Q("[SERIALIZE] Serializing", method, "HTTP request for App Service Plan:", appServicePlanID, "id:", id)
-		}
+	// If we have a mutex (from proactive serialization), use it for the HTTP request
+	if serializationMutex != nil {
+		serializationMutex.Lock()
+		defer serializationMutex.Unlock()
 	}
 
 	resp, err := c.pipeline.Do(req)

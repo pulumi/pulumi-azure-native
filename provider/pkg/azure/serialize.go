@@ -13,33 +13,97 @@ var (
 	serializedAppServicePlansMu sync.RWMutex
 )
 
-func (c *azCoreClient) checkForSerialization(ctx context.Context, id, apiVersion string, queryParams map[string]any) sync.Mutex {
-	appServicePlanID := ""
-	var mutex *sync.Mutex
-	if strings.Contains(id, "/providers/Microsoft.Web/sites/") {
-		// For Web Apps, fetch the resource first to get the App Service Plan ID
+// needsSerialization checks if a resource type requires serialization.
+// Returns true if the resource type is known to require serialization.
+func needsSerialization(resourceID string) bool {
+	switch {
+	case strings.Contains(resourceID, "/providers/Microsoft.Web/sites/"):
+		// Web Apps require serialization due to "webspace affinity"
+		return true
+	// Add more resource types here as needed
+	// case strings.Contains(resourceID, "/providers/Microsoft.Other/..."):
+	//     return true
+	default:
+		return false
+	}
+}
+
+// extractSerializationKeyForDelete extracts the serialization key for DELETE operations.
+// Fetches resource properties via GET if needed.
+// Returns the serialization key (e.g., App Service Plan ID) or empty string.
+func (c *azCoreClient) extractSerializationKeyForDelete(ctx context.Context, id, apiVersion string, queryParams map[string]any) string {
+	switch {
+	case strings.Contains(id, "/providers/Microsoft.Web/sites/"):
+		// Web Apps: fetch resource to get App Service Plan ID
 		webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
 		if err == nil && webAppProps != nil {
-			appServicePlanID = extractAppServicePlanID(id, webAppProps)
-		}
-
-		// If we couldn't get the App Service Plan ID, fall back to resource group
-		if appServicePlanID == "" {
-			resourceGroup := extractResourceGroupFromID(id)
-			if resourceGroup != "" {
-				appServicePlanID = resourceGroup
+			appServicePlanID := extractAppServicePlanID(id, webAppProps)
+			if appServicePlanID != "" {
+				return appServicePlanID
 			}
 		}
-
-		// Proactively mark for serialization and get mutex
-		if appServicePlanID != "" {
-			serializedAppServicePlansMu.Lock()
-			serializedAppServicePlans[appServicePlanID] = true
-			serializedAppServicePlansMu.Unlock()
-			mutex = c.getAppServicePlanMutex(appServicePlanID)
-		}
+		// Fall back to resource group if we can't get App Service Plan ID
+		return extractResourceGroupFromID(id)
+	// Add more resource types here as needed
+	// case strings.Contains(id, "/providers/Microsoft.Other/..."):
+	//     return extractOtherResourceKeyForDelete(ctx, id, apiVersion, queryParams)
+	default:
+		return ""
 	}
-	return *mutex
+}
+
+// extractSerializationKeyForPutOrPatch extracts the serialization key for PUT/PATCH operations.
+// Uses bodyProps if available.
+// Returns the serialization key (e.g., App Service Plan ID) or empty string.
+func extractSerializationKeyForPutOrPatch(id string, bodyProps map[string]any) string {
+	switch {
+	case strings.Contains(id, "/providers/Microsoft.Web/sites/"):
+		// Web Apps: extract App Service Plan ID from bodyProps
+		return extractAppServicePlanID(id, bodyProps)
+	// Add more resource types here as needed
+	// case strings.Contains(id, "/providers/Microsoft.Other/..."):
+	//     return extractOtherResourceKeyForPutOrPatch(id, bodyProps)
+	default:
+		return ""
+	}
+}
+
+// checkForSerialization returns a mutex if the resource requires serialization.
+// Used for DELETE operations where we may need to fetch resource properties.
+func (c *azCoreClient) checkForSerialization(ctx context.Context, id, apiVersion string, queryParams map[string]any) *sync.Mutex {
+	if !needsSerialization(id) {
+		return nil
+	}
+
+	serializationKey := c.extractSerializationKeyForDelete(ctx, id, apiVersion, queryParams)
+	if serializationKey == "" {
+		return nil
+	}
+
+	// Mark for serialization and get mutex
+	serializedAppServicePlansMu.Lock()
+	serializedAppServicePlans[serializationKey] = true
+	serializedAppServicePlansMu.Unlock()
+	return c.getAppServicePlanMutex(serializationKey)
+}
+
+// checkForSerializationPutOrPatch returns a mutex if the resource requires serialization.
+// Used for PUT/PATCH operations where bodyProps are available.
+func (c *azCoreClient) checkForSerializationPutOrPatch(ctx context.Context, id string, bodyProps map[string]any) *sync.Mutex {
+	if !needsSerialization(id) {
+		return nil
+	}
+
+	serializationKey := extractSerializationKeyForPutOrPatch(id, bodyProps)
+	if serializationKey == "" {
+		return nil
+	}
+
+	// Mark for serialization and get mutex
+	serializedAppServicePlansMu.Lock()
+	serializedAppServicePlans[serializationKey] = true
+	serializedAppServicePlansMu.Unlock()
+	return c.getAppServicePlanMutex(serializationKey)
 }
 
 // extractResourceGroupFromID extracts the resource group name from an Azure resource ID.
@@ -84,16 +148,6 @@ func extractAppServicePlanID(resourceID string, bodyProps map[string]any) string
 	}
 
 	return ""
-}
-
-// needsSerializationForWebResources checks if a resource ID is for a web resource that requires serialization.
-// Web resources (App Service Plans, Web Apps) have "webspace affinity" and can only process one operation at a time.
-func needsSerializationForWebResources(resourceID string) bool {
-	// Check if this is a Microsoft.Web resource
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/") {
-		return true
-	}
-	return false
 }
 
 // getAppServicePlanMutex returns a mutex for the given App Service Plan ID, creating it if needed.
