@@ -29,13 +29,6 @@ import (
 	"github.com/ryboe/q"
 )
 
-// Global map to track resource groups that need serialization due to exclusive lock errors.
-// This is shared across all azCoreClient instances.
-var (
-	serializedAppServicePlans   = make(map[string]bool)
-	serializedAppServicePlansMu sync.RWMutex
-)
-
 type azCoreClient struct {
 	host           string
 	pipeline       runtime.Pipeline
@@ -234,40 +227,35 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
+	mutex := c.checkForSerialization(ctx, id, apiVersion, queryParameters)
+
 	// Proactively serialize Web App DELETE operations
-	var mutex *sync.Mutex
-	appServicePlanID := ""
-
-	if strings.Contains(id, "/providers/Microsoft.Web/sites/") {
-		// For Web Apps, fetch the App Service Plan ID first so we can serialize at App Service Plan level
-		webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
-		if err == nil && webAppProps != nil {
-			// Try to extract App Service Plan ID from the Web App properties
-			if serverFarmId, ok := webAppProps["serverFarmId"].(string); ok && serverFarmId != "" {
-				appServicePlanID = serverFarmId
-			} else if properties, ok := webAppProps["properties"].(map[string]any); ok {
-				if serverFarmId, ok := properties["serverFarmId"].(string); ok && serverFarmId != "" {
-					appServicePlanID = serverFarmId
-				}
-			}
-		}
-
-		// If we couldn't get the App Service Plan ID, fall back to resource group
-		if appServicePlanID == "" {
-			resourceGroup := extractResourceGroupFromID(id)
-			if resourceGroup != "" {
-				appServicePlanID = resourceGroup
-			}
-		}
-
-		// Proactively mark for serialization and get mutex
-		if appServicePlanID != "" {
-			serializedAppServicePlansMu.Lock()
-			serializedAppServicePlans[appServicePlanID] = true
-			serializedAppServicePlansMu.Unlock()
-			mutex = c.getAppServicePlanMutex(appServicePlanID)
-		}
-	}
+	//var mutex *sync.Mutex
+	//appServicePlanID := ""
+	//
+	//if strings.Contains(id, "/providers/Microsoft.Web/sites/") {
+	//	// For Web Apps, fetch the resource first to get the App Service Plan ID
+	//	webAppProps, err := c.Get(ctx, id, apiVersion, queryParams)
+	//	if err == nil && webAppProps != nil {
+	//		appServicePlanID = extractAppServicePlanID(id, webAppProps)
+	//	}
+	//
+	//	// If we couldn't get the App Service Plan ID, fall back to resource group
+	//	if appServicePlanID == "" {
+	//		resourceGroup := extractResourceGroupFromID(id)
+	//		if resourceGroup != "" {
+	//			appServicePlanID = resourceGroup
+	//		}
+	//	}
+	//
+	//	// Proactively mark for serialization and get mutex
+	//	if appServicePlanID != "" {
+	//		serializedAppServicePlansMu.Lock()
+	//		serializedAppServicePlans[appServicePlanID] = true
+	//		serializedAppServicePlansMu.Unlock()
+	//		mutex = c.getAppServicePlanMutex(appServicePlanID)
+	//	}
+	//}
 
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
@@ -278,9 +266,9 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 	if mutex != nil {
 		mutex.Lock()
 		defer mutex.Unlock()
+		q.Q("[SERIALIZE] Serializing delete operation (as in, this resource is part of a serialized thing) for id:", id)
 	}
 
-	// Wrap pipeline.Do - mutex is already held if needed
 	err = func() error {
 		resp, err := c.pipeline.Do(req)
 		if err != nil {
@@ -631,110 +619,6 @@ type requestAssertingTransporter struct {
 func (r *requestAssertingTransporter) Do(req *http.Request) (*http.Response, error) {
 	r.assertions(r.t, req)
 	return nil, nil
-}
-
-// isExclusiveLock429ErrorFromBody checks if a 429 error body indicates the "exclusive lock" type that requires serialization.
-// This error occurs when Azure can't acquire an exclusive lock on resources (like App Service Plans)
-// that have "webspace affinity" and can only process one operation at a time.
-func isExclusiveLock429ErrorFromBody(bodyStr string) bool {
-	q.Q("isExclusiveLock429ErrorFromBody")
-	// Check for the specific error message or error code
-	// Error message: "Cannot acquire exclusive lock to create, update or delete this site. Retry the request later."
-	// Error code: 59206 (ExtendedCode)
-	if strings.Contains(bodyStr, "Cannot acquire exclusive lock") ||
-		strings.Contains(bodyStr, "exclusive lock") {
-		q.Q("isExclusiveLock429ErrorFromBody: true")
-		return true
-	}
-
-	// Also check structured error response
-	var payload map[string]any
-	if err := json.Unmarshal([]byte(bodyStr), &payload); err == nil {
-		q.Q("Checking structured error response")
-		if _, ok := payload["Code"].(string); ok {
-			if msg, ok := payload["Message"].(string); ok {
-				if strings.Contains(msg, "Cannot acquire exclusive lock") {
-					return true
-				}
-			}
-		}
-	}
-	q.Q("did not find exclusive lock 429 error")
-
-	return false
-}
-
-// extractResourceGroupFromID extracts the resource group name from an Azure resource ID.
-// Azure resource IDs follow the pattern:
-// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/...
-func extractResourceGroupFromID(resourceID string) string {
-	parts := strings.Split(resourceID, "/")
-	for i, part := range parts {
-		if part == "resourceGroups" && i+1 < len(parts) {
-			return parts[i+1]
-		}
-	}
-	return ""
-}
-
-// extractAppServicePlanID extracts the App Service Plan ID from a resource ID or request body.
-// For App Service Plans (serverfarms), it extracts the full resource ID.
-// For Web Apps (sites), it extracts the App Service Plan ID from the request body if available.
-func extractAppServicePlanID(resourceID string, bodyProps map[string]any) string {
-	// Check if this is an App Service Plan (serverfarm) resource
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/serverfarms/") {
-		// Extract the full App Service Plan resource ID
-		// Format: /subscriptions/{sub}/resourceGroups/{rg}/providers/Microsoft.Web/serverfarms/{name}
-		return resourceID
-	}
-
-	// For Web Apps (sites), try to extract App Service Plan ID from body
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/sites/") && bodyProps != nil {
-		// Try common property names for App Service Plan ID
-		if serverFarmId, ok := bodyProps["serverFarmId"].(string); ok && serverFarmId != "" {
-			return serverFarmId
-		}
-		if appServicePlanId, ok := bodyProps["appServicePlanId"].(string); ok && appServicePlanId != "" {
-			return appServicePlanId
-		}
-		// Also check nested properties
-		if siteConfig, ok := bodyProps["siteConfig"].(map[string]any); ok {
-			if serverFarmId, ok := siteConfig["serverFarmId"].(string); ok && serverFarmId != "" {
-				return serverFarmId
-			}
-		}
-	}
-
-	return ""
-}
-
-// needsSerializationForWebResources checks if a resource ID is for a web resource that requires serialization.
-// Web resources (App Service Plans, Web Apps) have "webspace affinity" and can only process one operation at a time.
-func needsSerializationForWebResources(resourceID string) bool {
-	// Check if this is a Microsoft.Web resource
-	if strings.Contains(resourceID, "/providers/Microsoft.Web/") {
-		return true
-	}
-	return false
-}
-
-// getAppServicePlanMutex returns a mutex for the given App Service Plan ID, creating it if needed.
-// This mutex is used to serialize operations for App Service Plans that have hit "exclusive lock" 429 errors.
-func (c *azCoreClient) getAppServicePlanMutex(appServicePlanID string) *sync.Mutex {
-	if appServicePlanID == "" {
-		return nil
-	}
-
-	c.aspMutexesMu.Lock()
-	defer c.aspMutexesMu.Unlock()
-
-	if mutex, ok := c.aspMutexes[appServicePlanID]; ok {
-		return mutex
-	}
-
-	mutex := &sync.Mutex{}
-	c.aspMutexes[appServicePlanID] = mutex
-	return mutex
 }
 
 // newResponseError replaces an azcore.ResponseError, created from the given response, with a more concise error type (#3778).
