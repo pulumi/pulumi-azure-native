@@ -42,6 +42,10 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
         /// </summary>
         public readonly string Etag;
         /// <summary>
+        /// The FullText policy for the container.
+        /// </summary>
+        public readonly Outputs.FullTextPolicyResponse? FullTextPolicy;
+        /// <summary>
         /// Name of the Cosmos DB SQL container
         /// </summary>
         public readonly string Id;
@@ -90,6 +94,8 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
 
             string etag,
 
+            Outputs.FullTextPolicyResponse? fullTextPolicy,
+
             string id,
 
             Outputs.IndexingPolicyResponse? indexingPolicy,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNative.CosmosDB.Outputs
             CreateMode = createMode;
             DefaultTtl = defaultTtl;
             Etag = etag;
+            FullTextPolicy = fullTextPolicy;
             Id = id;
             IndexingPolicy = indexingPolicy;
             PartitionKey = partitionKey;

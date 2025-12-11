@@ -15,7 +15,6 @@ import (
 
 	"github.com/blang/semver"
 	structpb "github.com/golang/protobuf/ptypes/struct"
-	"github.com/manicminer/hamilton/environments"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/diag"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/deepcopy"
 	"github.com/segmentio/encoding/json"
@@ -24,7 +23,6 @@ import (
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	azcloud "github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/policy"
-	azureEnv "github.com/Azure/go-autorest/autorest/azure"
 	pbempty "github.com/golang/protobuf/ptypes/empty"
 	"github.com/google/uuid"
 	"github.com/pkg/errors"
@@ -36,7 +34,6 @@ import (
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/provider/crud"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/resources/customresources"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/pulumi/pulumi/pkg/v3/resource/provider"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
@@ -66,7 +63,6 @@ type azureNativeProvider struct {
 	name           string
 	version        string
 	subscriptionID string
-	environment    azureEnv.Environment
 	cloud          cloud.Configuration
 	config         map[string]string
 
@@ -243,6 +239,14 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 		return nil, errors.New("Azure Native provider requires Pulumi CLI v3.74.0 or later")
 	}
 
+	// Check if legacy backend was explicitly disabled - error since it's no longer supported
+	// https://github.com/pulumi/pulumi-azure-native/issues/4047
+	if enable, ok := os.LookupEnv("PULUMI_ENABLE_AZCORE_BACKEND"); ok && enable != "true" {
+		return nil, errors.New("PULUMI_ENABLE_AZCORE_BACKEND=false is no longer supported. " +
+			"The legacy autorest authentication backend has been removed. " +
+			"Please remove this environment variable or set it to 'true'.")
+	}
+
 	for key, val := range req.GetVariables() {
 		k.config[strings.TrimPrefix(key, "azure-native:config:")] = val
 	}
@@ -251,84 +255,6 @@ func (k *azureNativeProvider) Configure(ctx context.Context,
 
 	k.skipReadOnUpdate = k.getConfig("skipReadOnUpdate", "ARM_SKIP_READ_ON_UPDATE") == "true"
 
-	if util.EnableAzcoreBackend() {
-		_, err := k.configureAzidentity(ctx)
-		if err != nil {
-			return nil, err
-		}
-
-		return &rpc.ConfigureResponse{
-			SupportsPreview:                 true,
-			SupportsAutonamingConfiguration: true,
-		}, nil
-	}
-
-	authConfig, err := k.getAuthConfig()
-	if err != nil {
-		return nil, err
-	}
-
-	k.environment, err = authConfig.autorestEnvironment()
-	if err != nil {
-		return nil, err
-	}
-
-	k.cloud = authConfig.cloud()
-
-	hamiltonEnv := k.autorestEnvToHamiltonEnv()
-
-	// The ctx Context given by gRPC is request-scoped and will be canceled after this request. We
-	// need the authorizers to function across requests.
-	authCtx := context.Background()
-
-	tokenAuth, bearerAuth, err := k.makeAuthorizerFactories(authCtx, authConfig)
-	if err != nil {
-		return nil, fmt.Errorf("auth setup: %w", err)
-	}
-
-	resourceManagerAuth, err := tokenAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	resourceManagerBearerAuth, err := bearerAuth(hamiltonEnv.ResourceManager)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.ResourceManager.Endpoint, err)
-	}
-
-	keyVaultBearerAuth, err := bearerAuth(hamiltonEnv.KeyVault)
-	if err != nil {
-		return nil, fmt.Errorf("building bearer authorizer for %s: %w", hamiltonEnv.KeyVault.Endpoint, err)
-	}
-
-	k.subscriptionID = authConfig.SubscriptionID
-
-	userAgent := k.getUserAgent()
-
-	logging.V(9).Infof("Using legacy authentication")
-	credential := azCoreTokenCredential{p: k}
-
-	k.azureClient, err = azure.NewAzureClient(k.environment, resourceManagerAuth, userAgent), nil
-	if err != nil {
-		return nil, fmt.Errorf("creating Azure client: %w", err)
-	}
-
-	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
-	if !k.isParameterized() {
-		k.customResources, err = customresources.BuildCustomResources(&k.environment, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			resourceManagerBearerAuth, resourceManagerAuth, keyVaultBearerAuth, userAgent, k.cloud, credential)
-		if err != nil {
-			return nil, fmt.Errorf("initializing custom resources: %w", err)
-		}
-	}
-
-	return &rpc.ConfigureResponse{
-		SupportsPreview:                 true,
-		SupportsAutonamingConfiguration: true,
-	}, nil
-}
-
-func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.ConfigureResponse, error) {
 	logging.V(9).Infof("Using azcore authentication")
 
 	userAgent := k.getUserAgent()
@@ -360,14 +286,18 @@ func (k *azureNativeProvider) configureAzidentity(ctx context.Context) (*rpc.Con
 	// When the provider is parameterized, resources and types that custom resources are built on will probably not be available.
 	if !k.isParameterized() {
 		var err error
-		k.customResources, err = customresources.BuildCustomResources(nil, k.azureClient, k.LookupResource, k.newCrudClient, k.subscriptionID,
-			nil, nil, nil, "", k.cloud, credential)
+		k.customResources, err = customresources.BuildCustomResources(
+			k.azureClient, k.LookupResource, k.newCrudClient,
+			k.subscriptionID, k.cloud, credential)
 		if err != nil {
 			return nil, fmt.Errorf("initializing custom resources: %w", err)
 		}
 	}
 
-	return nil, nil
+	return &rpc.ConfigureResponse{
+		SupportsPreview:                 true,
+		SupportsAutonamingConfiguration: true,
+	}, nil
 }
 
 func (k *azureNativeProvider) isParameterized() bool {
@@ -469,31 +399,6 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 }
 
 func (k *azureNativeProvider) getClientConfig(ctx context.Context) (config *ClientConfig, err error) {
-	if !util.EnableAzcoreBackend() {
-		auth, err := k.getAuthConfig()
-		if err != nil {
-			return nil, fmt.Errorf("getting auth config: %w", err)
-		}
-		objectId := ""
-		if auth.GetAuthenticatedObjectID != nil {
-			objectIdPtr, err := auth.GetAuthenticatedObjectID(ctx)
-			if err != nil {
-				return nil, fmt.Errorf("getting authenticated object ID: %w", err)
-			}
-			if objectIdPtr == nil {
-				return nil, fmt.Errorf("getting authenticated object ID")
-			}
-			objectId = *objectIdPtr
-		}
-
-		return &ClientConfig{
-			ClientID:       auth.ClientID,
-			ObjectID:       objectId,
-			SubscriptionID: auth.SubscriptionID,
-			TenantID:       auth.TenantID,
-		}, nil
-	}
-
 	return GetClientConfig(ctx, &k.authConfig, k.credential)
 }
 
@@ -501,20 +406,11 @@ func (k *azureNativeProvider) getClientToken(ctx context.Context, endpointArg re
 	endpoint := k.tokenEndpoint(endpointArg)
 	logging.V(9).Infof("getting a token credential for %s", endpoint)
 
-	if util.EnableAzcoreBackend() {
-		t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
-		if err != nil {
-			return "", err
-		}
-		return t.Token, nil
-	}
-
-	// legacy autorest/go-azure-helpers auth
-	authConfig, err := k.getAuthConfig()
+	t, err := k.credential.GetToken(ctx, tokenRequestOpts(endpoint))
 	if err != nil {
-		return "", fmt.Errorf("getting auth config: %w", err)
+		return "", err
 	}
-	return k.getOAuthToken(ctx, authConfig, endpoint)
+	return t.Token, nil
 }
 
 // Returns the endpoint to be used as the resource (scope) of the token request.
@@ -1929,17 +1825,6 @@ func parseCheckpointObject(reqOldInputs *structpb.Struct, obj resource.PropertyM
 	}
 
 	return nil, nil
-}
-
-func (k *azureNativeProvider) autorestEnvToHamiltonEnv() environments.Environment {
-	switch k.environment.Name {
-	case azureEnv.USGovernmentCloud.Name:
-		return environments.USGovernmentL4
-	case azureEnv.ChinaCloud.Name:
-		return environments.China
-	default:
-		return environments.Global
-	}
 }
 
 // getApiVersion usually returns the API version set on `resource` (from metadata). For resources where the user

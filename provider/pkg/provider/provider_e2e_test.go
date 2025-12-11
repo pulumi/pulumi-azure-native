@@ -15,7 +15,6 @@ import (
 	"testing"
 
 	"github.com/golang-jwt/jwt"
-	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/util"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/version"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
@@ -103,9 +102,6 @@ func TestSubResources(t *testing.T) {
 
 func TestParallelSubnetCreation(t *testing.T) {
 	t.Parallel()
-	if !util.EnableAzcoreBackend() {
-		t.Skip("Skipping test because it requires the AZCore backend")
-	}
 	pt := newPulumiTest(t, "parallel-subnet-creation")
 	pt.Preview(t)
 	pt.Up(t)

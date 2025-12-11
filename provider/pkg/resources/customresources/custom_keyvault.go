@@ -14,6 +14,7 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/v2/provider/pkg/azure/cloud"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
+	"github.com/pulumi/pulumi/sdk/v3/go/common/util/logging"
 )
 
 // Note: These are "hybrid" resources: schema, create, update, read use default implementation, while DELETE is overridden.
@@ -42,6 +43,8 @@ func keyVaultSecret(cloud cloud.Configuration, tokenCred azcore.TokenCredential)
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteSecret(ctx, secretName.StringValue(), nil)
 			return reportDeletionError(err)
 		},
@@ -71,6 +74,8 @@ func keyVaultKey(cloud cloud.Configuration, tokenCred azcore.TokenCredential) *C
 			if err != nil {
 				return err
 			}
+			logging.V(9).Infof("connecting to vault: %s", vaultUrl)
+
 			_, err = kvClient.DeleteKey(ctx, keyName.StringValue(), nil)
 			return reportDeletionError(err)
 		},
