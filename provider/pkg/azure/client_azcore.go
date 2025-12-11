@@ -11,6 +11,7 @@ import (
 	"net/url"
 	"reflect"
 	"strings"
+	"sync"
 	"testing"
 	"time"
 
@@ -35,6 +36,13 @@ type azCoreClient struct {
 	// Exposed internally for tests, to set it at the minimum value for fast tests.
 	deletePollingIntervalSeconds int64
 	updatePollingIntervalSeconds int64
+
+	// Serialization for resources that have hit "exclusive lock" 429 errors.
+	// Maps serialization key (e.g., App Service Plan ID) to a mutex that serializes operations.
+	// This allows parallel operations across different App Service Plans while serializing
+	// operations within the same App Service Plan.
+	serializationsMap      map[string]*sync.Mutex
+	serializationsMapMutex sync.Mutex
 }
 
 func initPipelineOpts(azureCloud cloud.Configuration, opts *arm.ClientOptions) *arm.ClientOptions {
@@ -113,6 +121,7 @@ func NewAzCoreClient(tokenCredential azcore.TokenCredential, extraUserAgent stri
 		extraUserAgent:               extraUserAgent,
 		deletePollingIntervalSeconds: 30, // same as autorest.DefaultPollingDelay
 		updatePollingIntervalSeconds: 10,
+		serializationsMap:            make(map[string]*sync.Mutex),
 	}, nil
 }
 
@@ -205,9 +214,17 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		queryParameters[k] = v
 	}
 
+	// See if we need to serialize requests due to parallelization limitations in the AZ Core SDK.
+	serializationMutex := c.checkForSerializationDelete(ctx, id, apiVersion, queryParameters)
+
 	req, err := c.initRequest(ctx, http.MethodDelete, id, queryParameters)
 	if err != nil {
 		return err
+	}
+
+	if serializationMutex != nil {
+		serializationMutex.Lock()
+		defer serializationMutex.Unlock()
 	}
 
 	err = func() error {
@@ -262,6 +279,9 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		return nil, false, fmt.Errorf("method must be PUT or PATCH, got %s. Please report this issue", method)
 	}
 
+	// See if we need to serialize requests due to parallelization limitations in the AZ Core SDK.
+	serializationMutex := c.checkForSerializationPutOrPatch(id, bodyProps)
+
 	req, err := c.initRequest(ctx, method, id, queryParameters)
 	if err != nil {
 		return nil, false, err
@@ -272,6 +292,11 @@ func (c *azCoreClient) putOrPatch(ctx context.Context, method string, id string,
 		if err != nil {
 			return nil, false, err
 		}
+	}
+
+	if serializationMutex != nil {
+		serializationMutex.Lock()
+		defer serializationMutex.Unlock()
 	}
 
 	resp, err := c.pipeline.Do(req)

@@ -1,0 +1,4 @@
+name: webapp-429-serialization
+runtime: nodejs
+description: Integration test for Web App serialization to prevent 429 errors
+
