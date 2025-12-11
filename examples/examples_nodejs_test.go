@@ -37,6 +37,16 @@ func TestAccAppServiceTs(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestAccWebApp429SerializationTs(t *testing.T) {
+	skipIfShort(t)
+	test := getJSBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			Dir: filepath.Join(getCwd(t), "webapp-429-serialization"),
+		})
+
+	integration.ProgramTest(t, &test)
+}
+
 func TestAccCosmosDBTs(t *testing.T) {
 	t.Skip("Skipping due to CosmosDB failing with ServiceUnavailable due to high demand")
 	skipIfShort(t)

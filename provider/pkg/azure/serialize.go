@@ -8,10 +8,11 @@ import (
 
 // Resource type patterns that require serialization due to exclusive lock constraints
 var (
-	// Web Apps require serialization due to limitations on handling hardware infrastucture in the AZ Core SDK.
+	// Web Apps require serialization due to limitations on handling hardware infrastructure in the AZ Core SDK.
 	webAppResourcePattern = "/providers/Microsoft.Web/sites/"
 )
 
+// needsSerialization returns true for any resource that needs to be serialized.
 func needsSerialization(resourceID string) bool {
 	switch {
 	case strings.Contains(resourceID, webAppResourcePattern):

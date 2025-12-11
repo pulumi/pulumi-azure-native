@@ -1,0 +1,15 @@
+{
+  "name": "webapp-429-serialization",
+  "version": "1.0.0",
+  "description": "Integration test for Web App serialization to prevent 429 errors",
+  "main": "index.ts",
+  "dependencies": {
+    "@pulumi/pulumi": "^3.0.0",
+    "@pulumi/azure-native": "*"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.9.0"
+  }
+}
+
