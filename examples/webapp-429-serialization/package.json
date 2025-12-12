@@ -4,7 +4,7 @@
   "description": "Integration test for Web App serialization to prevent 429 errors",
   "main": "index.ts",
   "dependencies": {
-    "@pulumi/pulumi": "3.211.0",
+    "@pulumi/pulumi": "3.212.0",
     "@pulumi/azure-native": "3.11.0"
   },
   "devDependencies": {
