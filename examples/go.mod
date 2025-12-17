@@ -6,7 +6,7 @@ require (
 	github.com/Azure/azure-sdk-for-go/sdk/azidentity v1.13.1
 	github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/authorization/armauthorization/v2 v2.2.0
 	github.com/pulumi/examples/misc/test v0.0.0-20251014192008-e2ef52d8b5ce
-	github.com/pulumi/providertest v0.4.1
+	github.com/pulumi/providertest v0.5.1
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.11.0-alpha.1763062140
 	github.com/pulumi/pulumi/pkg/v3 v3.207.0
