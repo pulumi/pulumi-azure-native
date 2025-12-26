@@ -94,7 +94,7 @@ require (
 	github.com/pjbgf/sha1cd v0.3.2 // indirect
 	github.com/pkg/browser v0.0.0-20240102092130-5ac0b6a4141c // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.20.0 // indirect
+	github.com/pulumi/esc v0.21.0 // indirect
 	github.com/pulumi/inflector v0.2.1 // indirect
 	github.com/skeema/knownhosts v1.3.1 // indirect
 	github.com/spf13/afero v1.9.5 // indirect
