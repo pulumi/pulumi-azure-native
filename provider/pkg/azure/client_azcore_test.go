@@ -13,6 +13,7 @@ import (
 	"testing"
 	"time"
 
+	"github.com/Azure/azure-sdk-for-go/sdk/azcore"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/arm"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/cloud"
 	"github.com/Azure/azure-sdk-for-go/sdk/azcore/fake"
@@ -874,4 +875,159 @@ func TestNewResponseError(t *testing.T) {
 		}
 		assert.False(t, IsNotFound(newResponseError(resp)))
 	})
+}
+
+// TestIsDeleteAlreadyInProgressError tests the detection of delete-already-in-progress errors.
+// This is used to handle the case where CosmosDB and other long-running delete operations
+// return a 412 PreconditionFailed error when a delete is retried while already in progress.
+// See https://github.com/pulumi/pulumi-azure-native/issues/1266
+func TestIsDeleteAlreadyInProgressError(t *testing.T) {
+	makeAzureError := func(statusCode int, errorCode, message string) *azcore.ResponseError {
+		body := fmt.Sprintf(`{"error": {"code": "%s", "message": "%s"}}`, errorCode, message)
+		resp := &http.Response{
+			StatusCode: statusCode,
+			Body:       io.NopCloser(strings.NewReader(body)),
+			Header:     http.Header{"X-Ms-Error-Code": []string{errorCode}},
+		}
+		err := runtime.NewResponseError(resp)
+		return err.(*azcore.ResponseError)
+	}
+
+	t.Run("412 with operation in progress message", func(t *testing.T) {
+		err := makeAzureError(http.StatusPreconditionFailed, "PreconditionFailed",
+			"There is already an operation in progress which requires exclusive lock on this service")
+		assert.True(t, isDeleteAlreadyInProgressError(err))
+	})
+
+	t.Run("412 with exclusive lock message", func(t *testing.T) {
+		err := makeAzureError(http.StatusPreconditionFailed, "PreconditionFailed",
+			"Resource has exclusive lock due to ongoing operation")
+		assert.True(t, isDeleteAlreadyInProgressError(err))
+	})
+
+	t.Run("412 with unrelated message", func(t *testing.T) {
+		err := makeAzureError(http.StatusPreconditionFailed, "PreconditionFailed",
+			"ETag mismatch")
+		assert.False(t, isDeleteAlreadyInProgressError(err))
+	})
+
+	t.Run("409 conflict is not detected", func(t *testing.T) {
+		err := makeAzureError(http.StatusConflict, "AnotherOperationInProgress",
+			"There is already an operation in progress")
+		assert.False(t, isDeleteAlreadyInProgressError(err))
+	})
+
+	t.Run("404 not found is not detected", func(t *testing.T) {
+		err := makeAzureError(http.StatusNotFound, "ResourceNotFound",
+			"Resource not found")
+		assert.False(t, isDeleteAlreadyInProgressError(err))
+	})
+}
+
+// TestPollUntilDeleted tests the polling mechanism for waiting until a resource is deleted.
+func TestPollUntilDeleted(t *testing.T) {
+	const resourceId = "/subscriptions/123/resourceGroups/rg/providers/Microsoft.DocumentDB/databaseAccounts/mycosmosdb"
+	const apiVersion = "2022-08-15"
+
+	// Helper to create a mock client with custom response handlers
+	createMockClient := func(responses []mockResponse) *azCoreClient {
+		callCount := 0
+		transp := &mockTransport{
+			handler: func(req *http.Request) (*http.Response, error) {
+				if callCount >= len(responses) {
+					t.Fatalf("Unexpected request #%d", callCount)
+				}
+				resp := responses[callCount]
+				callCount++
+				return resp.response, resp.err
+			},
+		}
+
+		opts := arm.ClientOptions{
+			ClientOptions: policy.ClientOptions{
+				Retry:     policy.RetryOptions{MaxRetries: -1},
+				Telemetry: policy.TelemetryOptions{Disabled: true},
+				Transport: transp,
+			},
+			DisableRPRegistration: true,
+		}
+		pipeline, _ := runtime.NewPipeline("test", "v1", runtime.PipelineOptions{}, &opts.ClientOptions)
+		return &azCoreClient{
+			host:                         "https://management.azure.com",
+			pipeline:                     pipeline,
+			deletePollingIntervalSeconds: 1, // Fast polling for tests
+		}
+	}
+
+	t.Run("resource deleted immediately", func(t *testing.T) {
+		client := createMockClient([]mockResponse{
+			{response: &http.Response{
+				StatusCode: http.StatusNotFound,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound"}}`)),
+				Header:     http.Header{"X-Ms-Error-Code": []string{"ResourceNotFound"}},
+			}},
+		})
+
+		ctx, cancel := context.WithTimeout(context.Background(), 5*time.Second)
+		defer cancel()
+
+		err := client.pollUntilDeleted(ctx, resourceId, apiVersion, nil)
+		assert.NoError(t, err)
+	})
+
+	t.Run("resource deleted after polling", func(t *testing.T) {
+		client := createMockClient([]mockResponse{
+			// First poll: resource still exists
+			{response: &http.Response{
+				StatusCode: http.StatusOK,
+				Body:       io.NopCloser(strings.NewReader(`{"id": "` + resourceId + `", "properties": {"provisioningState": "Deleting"}}`)),
+			}},
+			// Second poll: resource deleted
+			{response: &http.Response{
+				StatusCode: http.StatusNotFound,
+				Body:       io.NopCloser(strings.NewReader(`{"error": {"code": "ResourceNotFound"}}`)),
+				Header:     http.Header{"X-Ms-Error-Code": []string{"ResourceNotFound"}},
+			}},
+		})
+
+		ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
+		defer cancel()
+
+		err := client.pollUntilDeleted(ctx, resourceId, apiVersion, nil)
+		assert.NoError(t, err)
+	})
+
+	t.Run("timeout waiting for deletion", func(t *testing.T) {
+		client := createMockClient([]mockResponse{
+			// Resource never gets deleted (keeps returning OK)
+			{response: &http.Response{
+				StatusCode: http.StatusOK,
+				Body:       io.NopCloser(strings.NewReader(`{"id": "` + resourceId + `"}`)),
+			}},
+			{response: &http.Response{
+				StatusCode: http.StatusOK,
+				Body:       io.NopCloser(strings.NewReader(`{"id": "` + resourceId + `"}`)),
+			}},
+		})
+
+		ctx, cancel := context.WithTimeout(context.Background(), 500*time.Millisecond)
+		defer cancel()
+
+		err := client.pollUntilDeleted(ctx, resourceId, apiVersion, nil)
+		assert.Error(t, err)
+		assert.Contains(t, err.Error(), "timed out")
+	})
+}
+
+type mockResponse struct {
+	response *http.Response
+	err      error
+}
+
+type mockTransport struct {
+	handler func(req *http.Request) (*http.Response, error)
+}
+
+func (m *mockTransport) Do(req *http.Request) (*http.Response, error) {
+	return m.handler(req)
 }

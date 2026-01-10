@@ -250,14 +250,72 @@ func (c *azCoreClient) Delete(ctx context.Context, id, apiVersion, asyncStyle st
 		}
 		return nil
 	}()
-	if err, ok := err.(*azcore.ResponseError); ok {
-		if err.StatusCode == http.StatusNotFound {
+	if responseErr, ok := err.(*azcore.ResponseError); ok {
+		if responseErr.StatusCode == http.StatusNotFound {
 			// If the resource is already deleted, we don't want to return an error.
 			return nil
 		}
-		return newResponseError(err.RawResponse)
+		// Handle 412 PreconditionFailed with "operation in progress" message.
+		// This can happen when a delete operation is already in progress (e.g., CosmosDB resources
+		// which take a long time to delete). In this case, we should poll until the resource is deleted.
+		// See https://github.com/pulumi/pulumi-azure-native/issues/1266
+		if isDeleteAlreadyInProgressError(responseErr) {
+			logging.V(9).Infof("Delete operation already in progress for %s, polling until deleted", id)
+			return c.pollUntilDeleted(ctx, id, apiVersion, queryParameters)
+		}
+		return newResponseError(responseErr.RawResponse)
 	}
 	return err
+}
+
+// isDeleteAlreadyInProgressError checks if the error indicates that a delete operation
+// is already in progress for the resource. This can happen with resources that take a long time
+// to delete (like CosmosDB), where a retry of the delete request returns a 412 PreconditionFailed
+// error with a message indicating an operation is already in progress.
+func isDeleteAlreadyInProgressError(err *azcore.ResponseError) bool {
+	if err.StatusCode != http.StatusPreconditionFailed {
+		return false
+	}
+	// Check for common error messages indicating an operation is in progress.
+	// Azure CosmosDB returns: "There is already an operation in progress which requires exclusive lock on this service"
+	errMsg := strings.ToLower(err.Error())
+	return strings.Contains(errMsg, "operation in progress") ||
+		strings.Contains(errMsg, "exclusive lock")
+}
+
+// pollUntilDeleted polls the resource until it returns 404 (deleted) or the context times out.
+// This is used when we detect that a delete operation is already in progress.
+func (c *azCoreClient) pollUntilDeleted(ctx context.Context, id, apiVersion string, queryParams map[string]any) error {
+	ticker := time.NewTicker(time.Duration(c.deletePollingIntervalSeconds) * time.Second)
+	defer ticker.Stop()
+
+	for {
+		select {
+		case <-ctx.Done():
+			return fmt.Errorf("timed out waiting for resource %s to be deleted: %w", id, ctx.Err())
+		case <-ticker.C:
+			_, err := c.Get(ctx, id, apiVersion, queryParams)
+			if err != nil {
+				// Check if we got a 404, which means the resource is deleted
+				if responseErr, ok := err.(*PulumiAzcoreResponseError); ok {
+					if responseErr.StatusCode == http.StatusNotFound {
+						logging.V(9).Infof("Resource %s has been deleted", id)
+						return nil
+					}
+				}
+				if responseErr, ok := err.(*azcore.ResponseError); ok {
+					if responseErr.StatusCode == http.StatusNotFound {
+						logging.V(9).Infof("Resource %s has been deleted", id)
+						return nil
+					}
+				}
+				// For other errors, continue polling (the resource might still be deleting)
+				logging.V(9).Infof("Error checking if resource %s is deleted, continuing to poll: %v", id, err)
+			}
+			// Resource still exists, continue polling
+			logging.V(9).Infof("Resource %s still exists, continuing to poll for deletion", id)
+		}
+	}
 }
 
 func (c *azCoreClient) Put(ctx context.Context, id string, bodyProps map[string]interface{},
