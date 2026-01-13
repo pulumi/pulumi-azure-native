@@ -46,6 +46,9 @@ func IsNotFound(err error) bool {
 		"NotFound":              true,
 		"ResourceNotFound":      true,
 		"ResourceGroupNotFound": true,
+		// recognize "not found" errors for resources of type:
+		// azure-native.authorization.ManagementLockByScope
+		"LockNotFound": true,
 	}
 
 	if responseError, ok := err.(*azcore.ResponseError); ok {
