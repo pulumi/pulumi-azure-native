@@ -1,0 +1,11 @@
+[tools]
+
+go = '1.24.7'
+pulumi = '3.207'
+nodejs = '20'
+python = "3.10.11"
+dotnet = '9'
+yarn = '1.22.22'
+gradle = '8.13'
+java = "temurin-11"
+azure-cli = "latest"
