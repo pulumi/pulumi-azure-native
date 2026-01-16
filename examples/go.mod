@@ -9,7 +9,7 @@ require (
 	github.com/pulumi/providertest v0.4.1
 	github.com/pulumi/pulumi-azure-native-sdk/resources/v3 v3.11.0-alpha.1763062140
 	github.com/pulumi/pulumi-azure-native-sdk/servicebus/v3 v3.11.0-alpha.1763062140
-	github.com/pulumi/pulumi/pkg/v3 v3.213.0
+	github.com/pulumi/pulumi/pkg/v3 v3.216.0
 	github.com/pulumi/pulumi/sdk/v3 v3.213.0
 	github.com/stretchr/testify v1.11.1
 )
@@ -131,8 +131,8 @@ require (
 	github.com/pkg/term v1.1.0 // indirect
 	github.com/pmezard/go-difflib v1.0.1-0.20181226105442-5d4384ee4fb2 // indirect
 	github.com/pulumi/appdash v0.0.0-20231130102222-75f619a67231 // indirect
-	github.com/pulumi/esc v0.20.0 // indirect
-	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.11.0 // indirect
+	github.com/pulumi/esc v0.21.0 // indirect
+	github.com/pulumi/pulumi-azure-native-sdk/v3 v3.12.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/rogpeppe/go-internal v1.13.1 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
