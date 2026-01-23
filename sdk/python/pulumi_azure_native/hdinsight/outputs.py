@@ -28,6 +28,8 @@ __all__ = [
     'AutoscaleResponse',
     'AutoscaleScheduleResponse',
     'AutoscaleTimeAndCapacityResponse',
+    'AzureMonitorSelectedConfigurationsResponse',
+    'AzureMonitorTableConfigurationResponse',
     'CatalogOptionsResponse',
     'ClientGroupInfoResponse',
     'ClusterAccessProfileResponse',
@@ -968,6 +970,97 @@ class AutoscaleTimeAndCapacityResponse(dict):
         24-hour time in the form xx:xx
         """
         return pulumi.get(self, "time")
+
+
+@pulumi.output_type
+class AzureMonitorSelectedConfigurationsResponse(dict):
+    """
+    The selected configurations for azure monitor.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "configurationVersion":
+            suggest = "configuration_version"
+        elif key == "globalConfigurations":
+            suggest = "global_configurations"
+        elif key == "tableList":
+            suggest = "table_list"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in AzureMonitorSelectedConfigurationsResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        AzureMonitorSelectedConfigurationsResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        AzureMonitorSelectedConfigurationsResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 configuration_version: Optional[_builtins.str] = None,
+                 global_configurations: Optional[Mapping[str, _builtins.str]] = None,
+                 table_list: Optional[Sequence['outputs.AzureMonitorTableConfigurationResponse']] = None):
+        """
+        The selected configurations for azure monitor.
+        :param _builtins.str configuration_version: The configuration version.
+        :param Mapping[str, _builtins.str] global_configurations: The global configurations of selected configurations.
+        :param Sequence['AzureMonitorTableConfigurationResponse'] table_list: The table list.
+        """
+        if configuration_version is not None:
+            pulumi.set(__self__, "configuration_version", configuration_version)
+        if global_configurations is not None:
+            pulumi.set(__self__, "global_configurations", global_configurations)
+        if table_list is not None:
+            pulumi.set(__self__, "table_list", table_list)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationVersion")
+    def configuration_version(self) -> Optional[_builtins.str]:
+        """
+        The configuration version.
+        """
+        return pulumi.get(self, "configuration_version")
+
+    @_builtins.property
+    @pulumi.getter(name="globalConfigurations")
+    def global_configurations(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The global configurations of selected configurations.
+        """
+        return pulumi.get(self, "global_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="tableList")
+    def table_list(self) -> Optional[Sequence['outputs.AzureMonitorTableConfigurationResponse']]:
+        """
+        The table list.
+        """
+        return pulumi.get(self, "table_list")
+
+
+@pulumi.output_type
+class AzureMonitorTableConfigurationResponse(dict):
+    """
+    The table configuration for the Log Analytics integration.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None):
+        """
+        The table configuration for the Log Analytics integration.
+        :param _builtins.str name: The name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

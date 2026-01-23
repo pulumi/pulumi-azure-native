@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Maintenance window properties of a flexible server.
+    /// Maintenance window properties of a server.
     /// </summary>
     [OutputType]
     public sealed class MaintenanceWindowResponse

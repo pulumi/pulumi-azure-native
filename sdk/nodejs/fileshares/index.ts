@@ -10,6 +10,11 @@ export type FileShare = import("./fileShare").FileShare;
 export const FileShare: typeof import("./fileShare").FileShare = null as any;
 utilities.lazyLoad(exports, ["FileShare"], () => require("./fileShare"));
 
+export { FileShareSnapshotArgs } from "./fileShareSnapshot";
+export type FileShareSnapshot = import("./fileShareSnapshot").FileShareSnapshot;
+export const FileShareSnapshot: typeof import("./fileShareSnapshot").FileShareSnapshot = null as any;
+utilities.lazyLoad(exports, ["FileShareSnapshot"], () => require("./fileShareSnapshot"));
+
 export { GetFileShareArgs, GetFileShareResult, GetFileShareOutputArgs } from "./getFileShare";
 export const getFileShare: typeof import("./getFileShare").getFileShare = null as any;
 export const getFileShareOutput: typeof import("./getFileShare").getFileShareOutput = null as any;
@@ -24,6 +29,11 @@ export { GetFileShareProvisioningRecommendationArgs, GetFileShareProvisioningRec
 export const getFileShareProvisioningRecommendation: typeof import("./getFileShareProvisioningRecommendation").getFileShareProvisioningRecommendation = null as any;
 export const getFileShareProvisioningRecommendationOutput: typeof import("./getFileShareProvisioningRecommendation").getFileShareProvisioningRecommendationOutput = null as any;
 utilities.lazyLoad(exports, ["getFileShareProvisioningRecommendation","getFileShareProvisioningRecommendationOutput"], () => require("./getFileShareProvisioningRecommendation"));
+
+export { GetFileShareSnapshotArgs, GetFileShareSnapshotResult, GetFileShareSnapshotOutputArgs } from "./getFileShareSnapshot";
+export const getFileShareSnapshot: typeof import("./getFileShareSnapshot").getFileShareSnapshot = null as any;
+export const getFileShareSnapshotOutput: typeof import("./getFileShareSnapshot").getFileShareSnapshotOutput = null as any;
+utilities.lazyLoad(exports, ["getFileShareSnapshot","getFileShareSnapshotOutput"], () => require("./getFileShareSnapshot"));
 
 export { GetFileShareUsageDataArgs, GetFileShareUsageDataResult, GetFileShareUsageDataOutputArgs } from "./getFileShareUsageData";
 export const getFileShareUsageData: typeof import("./getFileShareUsageData").getFileShareUsageData = null as any;
@@ -40,6 +50,8 @@ const _module = {
         switch (type) {
             case "azure-native:fileshares:FileShare":
                 return new FileShare(name, <any>undefined, { urn })
+            case "azure-native:fileshares:FileShareSnapshot":
+                return new FileShareSnapshot(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

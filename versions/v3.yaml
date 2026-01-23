@@ -4568,53 +4568,53 @@ DBforMySQL:
         RpNamespace: Microsoft.DBforMySQL
 DBforPostgreSQL:
     Administrator:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/Administrators.json
+        ApiVersion: 2025-01-01-preview
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-01-01-preview/Administrators.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId}
         RpNamespace: Microsoft.DBforPostgreSQL
     AdministratorsMicrosoftEntra:
-        ApiVersion: 2025-06-01-preview
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-06-01-preview/AdministratorsMicrosoftEntra.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/AdministratorsMicrosoftEntra.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/administrators/{objectId}
         RpNamespace: Microsoft.DBforPostgreSQL
     Backup:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/Backups.json
+        ApiVersion: 2025-01-01-preview
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-01-01-preview/Backups.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/backups/{backupName}
         RpNamespace: Microsoft.DBforPostgreSQL
     BackupsAutomaticAndOnDemand:
-        ApiVersion: 2025-06-01-preview
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-06-01-preview/BackupsAutomaticAndOnDemand.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/BackupsAutomaticAndOnDemand.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/backups/{backupName}
         RpNamespace: Microsoft.DBforPostgreSQL
     Configuration:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/Configuration.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/Configurations.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/configurations/{configurationName}
         RpNamespace: Microsoft.DBforPostgreSQL
     Database:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/Databases.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/Databases.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/databases/{databaseName}
         RpNamespace: Microsoft.DBforPostgreSQL
     FirewallRule:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/FirewallRules.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/FirewallRules.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/firewallRules/{firewallRuleName}
         RpNamespace: Microsoft.DBforPostgreSQL
     Migration:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/Migrations.json
-        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{targetDbServerName}/migrations/{migrationName}
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/Migrations.json
+        ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/migrations/{migrationName}
         RpNamespace: Microsoft.DBforPostgreSQL
     PrivateEndpointConnection:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/PrivateEndpointConnections.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/PrivateEndpointConnections.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/privateEndpointConnections/{privateEndpointConnectionName}
         RpNamespace: Microsoft.DBforPostgreSQL
     Server:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/FlexibleServers.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/Servers.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}
         RpNamespace: Microsoft.DBforPostgreSQL
     ServerGroupCluster:
@@ -4673,18 +4673,18 @@ DBforPostgreSQL:
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}
         RpNamespace: Microsoft.DBforPostgreSQL
     VirtualEndpoint:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/VirtualEndpoints.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/VirtualEndpoints.json
         ResourceUri: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforPostgreSQL/flexibleServers/{serverName}/virtualendpoints/{virtualEndpointName}
         RpNamespace: Microsoft.DBforPostgreSQL
     getGetPrivateDnsZoneSuffixExecute:
-        ApiVersion: "2024-08-01"
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2024-08-01/PrivateDnsZone.json
+        ApiVersion: 2025-01-01-preview
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-01-01-preview/PrivateDnsZone.json
         ResourceUri: /providers/Microsoft.DBforPostgreSQL/getPrivateDnsZoneSuffix
         RpNamespace: Microsoft.DBforPostgreSQL
     getPrivateDnsZoneSuffix:
-        ApiVersion: 2025-06-01-preview
-        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2025-06-01-preview/PrivateDnsZoneSuffix.json
+        ApiVersion: "2025-08-01"
+        SpecFilePath: specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2025-08-01/PrivateDnsZoneSuffix.json
         ResourceUri: /providers/Microsoft.DBforPostgreSQL/getPrivateDnsZoneSuffix
         RpNamespace: Microsoft.DBforPostgreSQL
 Dashboard:

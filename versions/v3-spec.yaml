@@ -517,10 +517,10 @@ DBforMySQL:
           resourcename: Server
           detail: version 2024-12-30 is greater than 2017-12-01
 DBforPostgreSQL:
-    tracking: "2024-08-01"
+    tracking: "2025-08-01"
     additions:
-        AdministratorsMicrosoftEntra: 2025-06-01-preview
-        BackupsAutomaticAndOnDemand: 2025-06-01-preview
+        Administrator: 2025-01-01-preview
+        Backup: 2025-01-01-preview
         ServerGroupCluster: 2023-03-02-preview
         ServerGroupFirewallRule: 2023-03-02-preview
         ServerGroupPrivateEndpointConnection: 2023-03-02-preview
@@ -532,7 +532,7 @@ DBforPostgreSQL:
         SingleServerServerAdministrator: "2017-12-01"
         SingleServerServerSecurityAlertPolicy: "2017-12-01"
         SingleServerVirtualNetworkRule: "2017-12-01"
-        getPrivateDnsZoneSuffix: 2025-06-01-preview
+        getGetPrivateDnsZoneSuffixExecute: 2025-01-01-preview
     exclusionErrors:
         - modulename: DBforPostgreSQL
           resourcename: Configuration
@@ -605,6 +605,21 @@ DBforPostgreSQL:
           detail: version 2024-03-01-preview is greater than 2017-12-01
         - modulename: DBforPostgreSQL
           resourcename: Configuration
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Database
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: FirewallRule
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: PrivateEndpointConnection
+          detail: version 2024-08-01 is greater than 2018-06-01
+        - modulename: DBforPostgreSQL
+          resourcename: Server
+          detail: version 2024-08-01 is greater than 2017-12-01
+        - modulename: DBforPostgreSQL
+          resourcename: Configuration
           detail: version 2024-11-01-preview is greater than 2017-12-01
         - modulename: DBforPostgreSQL
           resourcename: Database
@@ -648,21 +663,6 @@ DBforPostgreSQL:
         - modulename: DBforPostgreSQL
           resourcename: Server
           detail: version 2025-06-01-preview is greater than 2017-12-01
-        - modulename: DBforPostgreSQL
-          resourcename: Configuration
-          detail: version 2025-08-01 is greater than 2017-12-01
-        - modulename: DBforPostgreSQL
-          resourcename: Database
-          detail: version 2025-08-01 is greater than 2017-12-01
-        - modulename: DBforPostgreSQL
-          resourcename: FirewallRule
-          detail: version 2025-08-01 is greater than 2017-12-01
-        - modulename: DBforPostgreSQL
-          resourcename: PrivateEndpointConnection
-          detail: version 2025-08-01 is greater than 2018-06-01
-        - modulename: DBforPostgreSQL
-          resourcename: Server
-          detail: version 2025-08-01 is greater than 2017-12-01
 Dashboard:
     tracking: "2024-10-01"
     additions:

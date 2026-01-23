@@ -10,17 +10,17 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Server parameter.
+    /// Configuration (also known as server parameter).
     /// 
-    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+    /// Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
-    /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Configuration")]
     public partial class Configuration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Allowed values of the server parameter.
+        /// Allowed values of the configuration (also known as server parameter).
         /// </summary>
         [Output("allowedValues")]
         public Output<string> AllowedValues { get; private set; } = null!;
@@ -32,43 +32,43 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Data type of the server parameter.
+        /// Data type of the configuration (also known as server parameter).
         /// </summary>
         [Output("dataType")]
         public Output<string> DataType { get; private set; } = null!;
 
         /// <summary>
-        /// Value assigned by default to the server parameter.
+        /// Value assigned by default to the configuration (also known as server parameter).
         /// </summary>
         [Output("defaultValue")]
         public Output<string> DefaultValue { get; private set; } = null!;
 
         /// <summary>
-        /// Description of the server parameter.
+        /// Description of the configuration (also known as server parameter).
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Link pointing to the documentation of the server parameter.
+        /// Link pointing to the documentation of the configuration (also known as server parameter).
         /// </summary>
         [Output("documentationLink")]
         public Output<string> DocumentationLink { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
+        /// Indicates if the value assigned to the configuration (also known as server parameter) is pending a server restart for it to take effect.
         /// </summary>
         [Output("isConfigPendingRestart")]
         public Output<bool> IsConfigPendingRestart { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
+        /// Indicates if it's a dynamic (true) or static (false) configuration (also known as server parameter). Static server parameters require a server restart after changing the value assigned to them, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to them, for the change to take effect.
         /// </summary>
         [Output("isDynamicConfig")]
         public Output<bool> IsDynamicConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates if it's a read-only (true) or modifiable (false) server parameter.
+        /// Indicates if it's a read-only (true) or modifiable (false) configuration (also known as server parameter).
         /// </summary>
         [Output("isReadOnly")]
         public Output<bool> IsReadOnly { get; private set; } = null!;
@@ -80,7 +80,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+        /// Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         [Output("source")]
         public Output<string?> Source { get; private set; } = null!;
@@ -98,13 +98,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Type { get; private set; } = null!;
 
         /// <summary>
-        /// Units in which the server parameter value is expressed.
+        /// Units in which the configuration (also known as server parameter) value is expressed.
         /// </summary>
         [Output("unit")]
         public Output<string> Unit { get; private set; } = null!;
 
         /// <summary>
-        /// Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+        /// Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         [Output("value")]
         public Output<string?> Value { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class ConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name of the server parameter.
+        /// Name of the configuration (also known as server parameter).
         /// </summary>
         [Input("configurationName")]
         public Input<string>? ConfigurationName { get; set; }
@@ -192,13 +192,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> ServerName { get; set; } = null!;
 
         /// <summary>
-        /// Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+        /// Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
 
         /// <summary>
-        /// Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+        /// Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         [Input("value")]
         public Input<string>? Value { get; set; }

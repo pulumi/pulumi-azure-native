@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Flexible server.
+    /// Properties of a server.
     /// 
-    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+    /// Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
     /// 
-    /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Server")]
     public partial class Server : global::Pulumi.CustomResource
@@ -26,13 +26,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> AdministratorLogin { get; private set; } = null!;
 
         /// <summary>
-        /// Authentication configuration properties of a flexible server.
+        /// Authentication configuration properties of a server.
         /// </summary>
         [Output("authConfig")]
         public Output<Outputs.AuthConfigResponse?> AuthConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Availability zone of a flexible server.
+        /// Availability zone of a server.
         /// </summary>
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -44,31 +44,37 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Backup properties of a flexible server.
+        /// Backup properties of a server.
         /// </summary>
         [Output("backup")]
         public Output<Outputs.BackupResponse?> Backup { get; private set; } = null!;
 
         /// <summary>
-        /// Data encryption properties of a flexible server.
+        /// Cluster properties of a server.
+        /// </summary>
+        [Output("cluster")]
+        public Output<Outputs.ClusterResponse?> Cluster { get; private set; } = null!;
+
+        /// <summary>
+        /// Data encryption properties of a server.
         /// </summary>
         [Output("dataEncryption")]
         public Output<Outputs.DataEncryptionResponse?> DataEncryption { get; private set; } = null!;
 
         /// <summary>
-        /// Fully qualified domain name of a flexible server.
+        /// Fully qualified domain name of a server.
         /// </summary>
         [Output("fullyQualifiedDomainName")]
         public Output<string> FullyQualifiedDomainName { get; private set; } = null!;
 
         /// <summary>
-        /// High availability properties of a flexible server.
+        /// High availability properties of a server.
         /// </summary>
         [Output("highAvailability")]
         public Output<Outputs.HighAvailabilityResponse?> HighAvailability { get; private set; } = null!;
 
         /// <summary>
-        /// User assigned managed identities assigned to the flexible server.
+        /// User assigned managed identities assigned to the server.
         /// </summary>
         [Output("identity")]
         public Output<Outputs.UserAssignedIdentityResponse?> Identity { get; private set; } = null!;
@@ -80,7 +86,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Maintenance window properties of a flexible server.
+        /// Maintenance window properties of a server.
         /// </summary>
         [Output("maintenanceWindow")]
         public Output<Outputs.MaintenanceWindowResponse?> MaintenanceWindow { get; private set; } = null!;
@@ -98,25 +104,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        /// Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         /// </summary>
         [Output("network")]
         public Output<Outputs.NetworkResponse?> Network { get; private set; } = null!;
 
         /// <summary>
-        /// List of private endpoint connections associated with the specified flexible server.
+        /// List of private endpoint connections associated with the specified server.
         /// </summary>
         [Output("privateEndpointConnections")]
         public Output<ImmutableArray<Outputs.PrivateEndpointConnectionResponse>> PrivateEndpointConnections { get; private set; } = null!;
 
         /// <summary>
-        /// Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        /// Read replica properties of a server. Required only in case that you want to promote a server.
         /// </summary>
         [Output("replica")]
         public Output<Outputs.ReplicaResponse?> Replica { get; private set; } = null!;
 
         /// <summary>
-        /// Maximum number of read replicas allowed for a flexible server.
+        /// Maximum number of read replicas allowed for a server.
         /// </summary>
         [Output("replicaCapacity")]
         public Output<int> ReplicaCapacity { get; private set; } = null!;
@@ -128,25 +134,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> ReplicationRole { get; private set; } = null!;
 
         /// <summary>
-        /// Compute tier and size of a flexible server.
+        /// Compute tier and size of a server.
         /// </summary>
         [Output("sku")]
         public Output<Outputs.SkuResponse?> Sku { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        /// Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         /// </summary>
         [Output("sourceServerResourceId")]
         public Output<string?> SourceServerResourceId { get; private set; } = null!;
 
         /// <summary>
-        /// Possible states of a flexible server.
+        /// Possible states of a server.
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
 
         /// <summary>
-        /// Storage properties of a flexible server.
+        /// Storage properties of a server.
         /// </summary>
         [Output("storage")]
         public Output<Outputs.StorageResponse?> Storage { get; private set; } = null!;
@@ -256,43 +262,49 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? AdministratorLoginPassword { get; set; }
 
         /// <summary>
-        /// Authentication configuration properties of a flexible server.
+        /// Authentication configuration properties of a server.
         /// </summary>
         [Input("authConfig")]
         public Input<Inputs.AuthConfigArgs>? AuthConfig { get; set; }
 
         /// <summary>
-        /// Availability zone of a flexible server.
+        /// Availability zone of a server.
         /// </summary>
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
         /// <summary>
-        /// Backup properties of a flexible server.
+        /// Backup properties of a server.
         /// </summary>
         [Input("backup")]
         public Input<Inputs.BackupArgs>? Backup { get; set; }
 
         /// <summary>
-        /// Creation mode of a new flexible server.
+        /// Cluster properties of a server.
+        /// </summary>
+        [Input("cluster")]
+        public Input<Inputs.ClusterArgs>? Cluster { get; set; }
+
+        /// <summary>
+        /// Creation mode of a new server.
         /// </summary>
         [Input("createMode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.CreateMode>? CreateMode { get; set; }
 
         /// <summary>
-        /// Data encryption properties of a flexible server.
+        /// Data encryption properties of a server.
         /// </summary>
         [Input("dataEncryption")]
         public Input<Inputs.DataEncryptionArgs>? DataEncryption { get; set; }
 
         /// <summary>
-        /// High availability properties of a flexible server.
+        /// High availability properties of a server.
         /// </summary>
         [Input("highAvailability")]
         public Input<Inputs.HighAvailabilityArgs>? HighAvailability { get; set; }
 
         /// <summary>
-        /// User assigned managed identities assigned to the flexible server.
+        /// User assigned managed identities assigned to the server.
         /// </summary>
         [Input("identity")]
         public Input<Inputs.UserAssignedIdentityArgs>? Identity { get; set; }
@@ -304,25 +316,25 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Maintenance window properties of a flexible server.
+        /// Maintenance window properties of a server.
         /// </summary>
         [Input("maintenanceWindow")]
         public Input<Inputs.MaintenanceWindowArgs>? MaintenanceWindow { get; set; }
 
         /// <summary>
-        /// Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        /// Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         /// </summary>
         [Input("network")]
         public Input<Inputs.NetworkArgs>? Network { get; set; }
 
         /// <summary>
-        /// Creation time (in ISO8601 format) of the backup which you want to restore in the new flexible server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
+        /// Creation time (in ISO8601 format) of the backup which you want to restore in the new server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
         /// </summary>
         [Input("pointInTimeUTC")]
         public Input<string>? PointInTimeUTC { get; set; }
 
         /// <summary>
-        /// Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        /// Read replica properties of a server. Required only in case that you want to promote a server.
         /// </summary>
         [Input("replica")]
         public Input<Inputs.ReplicaArgs>? Replica { get; set; }
@@ -346,19 +358,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? ServerName { get; set; }
 
         /// <summary>
-        /// Compute tier and size of a flexible server.
+        /// Compute tier and size of a server.
         /// </summary>
         [Input("sku")]
         public Input<Inputs.SkuArgs>? Sku { get; set; }
 
         /// <summary>
-        /// Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        /// Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         /// </summary>
         [Input("sourceServerResourceId")]
         public Input<string>? SourceServerResourceId { get; set; }
 
         /// <summary>
-        /// Storage properties of a flexible server.
+        /// Storage properties of a server.
         /// </summary>
         [Input("storage")]
         public Input<Inputs.StorageArgs>? Storage { get; set; }
@@ -379,7 +391,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Major version of PostgreSQL database engine.
         /// </summary>
         [Input("version")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerVersion>? Version { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PostgresMajorVersion>? Version { get; set; }
 
         public ServerArgs()
         {

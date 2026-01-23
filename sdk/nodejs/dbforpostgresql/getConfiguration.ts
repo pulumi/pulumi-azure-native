@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about a specific server parameter of a flexible server.
+ * Gets information about a specific configuration (also known as server parameter) of a server.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.Invok
 
 export interface GetConfigurationArgs {
     /**
-     * Name of the server parameter.
+     * Name of the configuration (also known as server parameter).
      */
     configurationName: string;
     /**
@@ -39,11 +39,11 @@ export interface GetConfigurationArgs {
 }
 
 /**
- * Server parameter.
+ * Configuration (also known as server parameter).
  */
 export interface GetConfigurationResult {
     /**
-     * Allowed values of the server parameter.
+     * Allowed values of the configuration (also known as server parameter).
      */
     readonly allowedValues: string;
     /**
@@ -51,19 +51,19 @@ export interface GetConfigurationResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Data type of the server parameter.
+     * Data type of the configuration (also known as server parameter).
      */
     readonly dataType: string;
     /**
-     * Value assigned by default to the server parameter.
+     * Value assigned by default to the configuration (also known as server parameter).
      */
     readonly defaultValue: string;
     /**
-     * Description of the server parameter.
+     * Description of the configuration (also known as server parameter).
      */
     readonly description: string;
     /**
-     * Link pointing to the documentation of the server parameter.
+     * Link pointing to the documentation of the configuration (also known as server parameter).
      */
     readonly documentationLink: string;
     /**
@@ -71,15 +71,15 @@ export interface GetConfigurationResult {
      */
     readonly id: string;
     /**
-     * Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
+     * Indicates if the value assigned to the configuration (also known as server parameter) is pending a server restart for it to take effect.
      */
     readonly isConfigPendingRestart: boolean;
     /**
-     * Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
+     * Indicates if it's a dynamic (true) or static (false) configuration (also known as server parameter). Static server parameters require a server restart after changing the value assigned to them, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to them, for the change to take effect.
      */
     readonly isDynamicConfig: boolean;
     /**
-     * Indicates if it's a read-only (true) or modifiable (false) server parameter.
+     * Indicates if it's a read-only (true) or modifiable (false) configuration (also known as server parameter).
      */
     readonly isReadOnly: boolean;
     /**
@@ -87,7 +87,7 @@ export interface GetConfigurationResult {
      */
     readonly name: string;
     /**
-     * Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+     * Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     readonly source?: string;
     /**
@@ -99,20 +99,20 @@ export interface GetConfigurationResult {
      */
     readonly type: string;
     /**
-     * Units in which the server parameter value is expressed.
+     * Units in which the configuration (also known as server parameter) value is expressed.
      */
     readonly unit: string;
     /**
-     * Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+     * Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     readonly value?: string;
 }
 /**
- * Gets information about a specific server parameter of a flexible server.
+ * Gets information about a specific configuration (also known as server parameter) of a server.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetConfigurationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -125,7 +125,7 @@ export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: 
 
 export interface GetConfigurationOutputArgs {
     /**
-     * Name of the server parameter.
+     * Name of the configuration (also known as server parameter).
      */
     configurationName: pulumi.Input<string>;
     /**

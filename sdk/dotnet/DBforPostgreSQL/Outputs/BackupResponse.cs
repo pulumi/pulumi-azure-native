@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Backup properties of a flexible server.
+    /// Backup properties of a server.
     /// </summary>
     [OutputType]
     public sealed class BackupResponse
     {
         /// <summary>
-        /// Backup retention days for the flexible server.
+        /// Backup retention days for the server.
         /// </summary>
         public readonly int? BackupRetentionDays;
         /// <summary>
-        /// Earliest restore point time (ISO8601 format) for a flexible server.
+        /// Earliest restore point time (ISO8601 format) for a server.
         /// </summary>
         public readonly string EarliestRestoreDate;
         /// <summary>

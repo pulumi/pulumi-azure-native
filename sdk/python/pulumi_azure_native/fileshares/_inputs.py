@@ -20,6 +20,8 @@ __all__ = [
     'FileSharePropertiesArgsDict',
     'FileShareProvisioningRecommendationInput',
     'FileShareProvisioningRecommendationInputDict',
+    'FileShareSnapshotPropertiesArgs',
+    'FileShareSnapshotPropertiesArgsDict',
     'NfsProtocolPropertiesArgs',
     'NfsProtocolPropertiesArgsDict',
     'PublicAccessPropertiesArgs',
@@ -277,6 +279,42 @@ class FileShareProvisioningRecommendationInput:
     @provisioned_storage_gi_b.setter
     def provisioned_storage_gi_b(self, value: _builtins.int):
         pulumi.set(self, "provisioned_storage_gi_b", value)
+
+
+if not MYPY:
+    class FileShareSnapshotPropertiesArgsDict(TypedDict):
+        """
+        FileShareSnapshot properties
+        """
+        metadata: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        The metadata
+        """
+elif False:
+    FileShareSnapshotPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FileShareSnapshotPropertiesArgs:
+    def __init__(__self__, *,
+                 metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        FileShareSnapshot properties
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] metadata: The metadata
+        """
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The metadata
+        """
+        return pulumi.get(self, "metadata")
+
+    @metadata.setter
+    def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "metadata", value)
 
 
 if not MYPY:

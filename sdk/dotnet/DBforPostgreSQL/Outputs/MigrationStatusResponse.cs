@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// <summary>
         /// Current migration sub state details.
         /// </summary>
-        public readonly Outputs.MigrationSubStateDetailsResponse CurrentSubStateDetails;
+        public readonly Outputs.MigrationSubstateDetailsResponse CurrentSubStateDetails;
         /// <summary>
         /// Error message, if any, for the migration state.
         /// </summary>
@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 
         [OutputConstructor]
         private MigrationStatusResponse(
-            Outputs.MigrationSubStateDetailsResponse currentSubStateDetails,
+            Outputs.MigrationSubstateDetailsResponse currentSubStateDetails,
 
             string error,
 

@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// High availability properties of a flexible server.
+    /// High availability properties of a server.
     /// </summary>
     [OutputType]
     public sealed class HighAvailabilityResponse
     {
         /// <summary>
-        /// High availability mode for a flexible server.
+        /// High availability mode for a server.
         /// </summary>
         public readonly string? Mode;
         /// <summary>

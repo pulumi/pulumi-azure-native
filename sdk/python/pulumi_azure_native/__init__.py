@@ -2192,7 +2192,9 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dbforpostgresql",
   "classes": {
    "azure-native:dbforpostgresql:Administrator": "Administrator",
+   "azure-native:dbforpostgresql:AdministratorsMicrosoftEntra": "AdministratorsMicrosoftEntra",
    "azure-native:dbforpostgresql:Backup": "Backup",
+   "azure-native:dbforpostgresql:BackupsAutomaticAndOnDemand": "BackupsAutomaticAndOnDemand",
    "azure-native:dbforpostgresql:Configuration": "Configuration",
    "azure-native:dbforpostgresql:Database": "Database",
    "azure-native:dbforpostgresql:FirewallRule": "FirewallRule",
@@ -2609,7 +2611,8 @@ _utilities.register(
   "mod": "fileshares",
   "fqn": "pulumi_azure_native.fileshares",
   "classes": {
-   "azure-native:fileshares:FileShare": "FileShare"
+   "azure-native:fileshares:FileShare": "FileShare",
+   "azure-native:fileshares:FileShareSnapshot": "FileShareSnapshot"
   }
  },
  {
@@ -2670,6 +2673,10 @@ _utilities.register(
    "azure-native:hdinsight:Cluster": "Cluster",
    "azure-native:hdinsight:ClusterPool": "ClusterPool",
    "azure-native:hdinsight:ClusterPoolCluster": "ClusterPoolCluster",
+   "azure-native:hdinsight:Extension": "Extension",
+   "azure-native:hdinsight:ExtensionAzureMonitorAgentStatus": "ExtensionAzureMonitorAgentStatus",
+   "azure-native:hdinsight:ExtensionAzureMonitorStatus": "ExtensionAzureMonitorStatus",
+   "azure-native:hdinsight:ExtensionMonitoringStatus": "ExtensionMonitoringStatus",
    "azure-native:hdinsight:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },

@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Backup properties of a flexible server.
+    /// Backup properties of a server.
     /// </summary>
     public sealed class BackupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Backup retention days for the flexible server.
+        /// Backup retention days for the server.
         /// </summary>
         [Input("backupRetentionDays")]
         public Input<int>? BackupRetentionDays { get; set; }
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// Indicates if the server is configured to create geographically redundant backups.
         /// </summary>
         [Input("geoRedundantBackup")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.GeoRedundantBackupEnum>? GeoRedundantBackup { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.GeographicallyRedundantBackup>? GeoRedundantBackup { get; set; }
 
         public BackupArgs()
         {

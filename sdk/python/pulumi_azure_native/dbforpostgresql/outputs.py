@@ -19,15 +19,16 @@ from ._enums import *
 __all__ = [
     'AuthConfigResponse',
     'BackupResponse',
+    'ClusterResponse',
     'DataEncryptionResponse',
+    'DatabaseMigrationStateResponse',
     'DbLevelValidationStatusResponse',
-    'DbMigrationStatusResponse',
     'DbServerMetadataResponse',
     'HighAvailabilityResponse',
     'IdentityPropertiesResponse',
     'MaintenanceWindowResponse',
     'MigrationStatusResponse',
-    'MigrationSubStateDetailsResponse',
+    'MigrationSubstateDetailsResponse',
     'NetworkResponse',
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointPropertyResponse',
@@ -59,7 +60,7 @@ __all__ = [
 @pulumi.output_type
 class AuthConfigResponse(dict):
     """
-    Authentication configuration properties of a flexible server.
+    Authentication configuration properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -87,7 +88,7 @@ class AuthConfigResponse(dict):
                  password_auth: Optional[_builtins.str] = None,
                  tenant_id: Optional[_builtins.str] = None):
         """
-        Authentication configuration properties of a flexible server.
+        Authentication configuration properties of a server.
         :param _builtins.str active_directory_auth: Indicates if the server supports Microsoft Entra authentication.
         :param _builtins.str password_auth: Indicates if the server supports password based authentication.
         :param _builtins.str tenant_id: Identifier of the tenant of the delegated resource.
@@ -131,7 +132,7 @@ class AuthConfigResponse(dict):
 @pulumi.output_type
 class BackupResponse(dict):
     """
-    Backup properties of a flexible server.
+    Backup properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -159,9 +160,9 @@ class BackupResponse(dict):
                  backup_retention_days: Optional[_builtins.int] = None,
                  geo_redundant_backup: Optional[_builtins.str] = None):
         """
-        Backup properties of a flexible server.
-        :param _builtins.str earliest_restore_date: Earliest restore point time (ISO8601 format) for a flexible server.
-        :param _builtins.int backup_retention_days: Backup retention days for the flexible server.
+        Backup properties of a server.
+        :param _builtins.str earliest_restore_date: Earliest restore point time (ISO8601 format) for a server.
+        :param _builtins.int backup_retention_days: Backup retention days for the server.
         :param _builtins.str geo_redundant_backup: Indicates if the server is configured to create geographically redundant backups.
         """
         pulumi.set(__self__, "earliest_restore_date", earliest_restore_date)
@@ -178,7 +179,7 @@ class BackupResponse(dict):
     @pulumi.getter(name="earliestRestoreDate")
     def earliest_restore_date(self) -> _builtins.str:
         """
-        Earliest restore point time (ISO8601 format) for a flexible server.
+        Earliest restore point time (ISO8601 format) for a server.
         """
         return pulumi.get(self, "earliest_restore_date")
 
@@ -186,7 +187,7 @@ class BackupResponse(dict):
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> Optional[_builtins.int]:
         """
-        Backup retention days for the flexible server.
+        Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
 
@@ -200,9 +201,65 @@ class BackupResponse(dict):
 
 
 @pulumi.output_type
+class ClusterResponse(dict):
+    """
+    Cluster properties of a server.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clusterSize":
+            suggest = "cluster_size"
+        elif key == "defaultDatabaseName":
+            suggest = "default_database_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ClusterResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ClusterResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ClusterResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 cluster_size: Optional[_builtins.int] = None,
+                 default_database_name: Optional[_builtins.str] = None):
+        """
+        Cluster properties of a server.
+        :param _builtins.int cluster_size: Number of nodes assigned to the elastic cluster.
+        :param _builtins.str default_database_name: Default database name for the elastic cluster.
+        """
+        if cluster_size is None:
+            cluster_size = 0
+        if cluster_size is not None:
+            pulumi.set(__self__, "cluster_size", cluster_size)
+        if default_database_name is not None:
+            pulumi.set(__self__, "default_database_name", default_database_name)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> Optional[_builtins.int]:
+        """
+        Number of nodes assigned to the elastic cluster.
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDatabaseName")
+    def default_database_name(self) -> Optional[_builtins.str]:
+        """
+        Default database name for the elastic cluster.
+        """
+        return pulumi.get(self, "default_database_name")
+
+
+@pulumi.output_type
 class DataEncryptionResponse(dict):
     """
-    Data encryption properties of a flexible server.
+    Data encryption properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -240,14 +297,14 @@ class DataEncryptionResponse(dict):
                  primary_user_assigned_identity_id: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        Data encryption properties of a flexible server.
-        :param _builtins.str geo_backup_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-        :param _builtins.str geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
-        :param _builtins.str geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
-        :param _builtins.str primary_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-        :param _builtins.str primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
-        :param _builtins.str primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
-        :param _builtins.str type: Data encryption type used by a flexible server.
+        Data encryption properties of a server.
+        :param _builtins.str geo_backup_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        :param _builtins.str geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+        :param _builtins.str geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+        :param _builtins.str primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        :param _builtins.str primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
+        :param _builtins.str primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
+        :param _builtins.str type: Data encryption type used by a server.
         """
         if geo_backup_encryption_key_status is not None:
             pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
@@ -268,7 +325,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupEncryptionKeyStatus")
     def geo_backup_encryption_key_status(self) -> Optional[_builtins.str]:
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_encryption_key_status")
 
@@ -276,7 +333,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupKeyURI")
     def geo_backup_key_uri(self) -> Optional[_builtins.str]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_key_uri")
 
@@ -284,7 +341,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
     def geo_backup_user_assigned_identity_id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
@@ -292,7 +349,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryEncryptionKeyStatus")
     def primary_encryption_key_status(self) -> Optional[_builtins.str]:
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         """
         return pulumi.get(self, "primary_encryption_key_status")
 
@@ -300,7 +357,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryKeyURI")
     def primary_key_uri(self) -> Optional[_builtins.str]:
         """
-        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
+        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_key_uri")
 
@@ -308,7 +365,7 @@ class DataEncryptionResponse(dict):
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -316,95 +373,15 @@ class DataEncryptionResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        Data encryption type used by a flexible server.
+        Data encryption type used by a server.
         """
         return pulumi.get(self, "type")
 
 
 @pulumi.output_type
-class DbLevelValidationStatusResponse(dict):
+class DatabaseMigrationStateResponse(dict):
     """
-    Validation status summary for a database.
-    """
-    @staticmethod
-    def __key_warning(key: str):
-        suggest = None
-        if key == "databaseName":
-            suggest = "database_name"
-        elif key == "endedOn":
-            suggest = "ended_on"
-        elif key == "startedOn":
-            suggest = "started_on"
-
-        if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DbLevelValidationStatusResponse. Access the value via the '{suggest}' property getter instead.")
-
-    def __getitem__(self, key: str) -> Any:
-        DbLevelValidationStatusResponse.__key_warning(key)
-        return super().__getitem__(key)
-
-    def get(self, key: str, default = None) -> Any:
-        DbLevelValidationStatusResponse.__key_warning(key)
-        return super().get(key, default)
-
-    def __init__(__self__, *,
-                 database_name: Optional[_builtins.str] = None,
-                 ended_on: Optional[_builtins.str] = None,
-                 started_on: Optional[_builtins.str] = None,
-                 summary: Optional[Sequence['outputs.ValidationSummaryItemResponse']] = None):
-        """
-        Validation status summary for a database.
-        :param _builtins.str database_name: Name of database.
-        :param _builtins.str ended_on: End time of a database level validation.
-        :param _builtins.str started_on: Start time of a database level validation.
-        :param Sequence['ValidationSummaryItemResponse'] summary: Summary of database level validations.
-        """
-        if database_name is not None:
-            pulumi.set(__self__, "database_name", database_name)
-        if ended_on is not None:
-            pulumi.set(__self__, "ended_on", ended_on)
-        if started_on is not None:
-            pulumi.set(__self__, "started_on", started_on)
-        if summary is not None:
-            pulumi.set(__self__, "summary", summary)
-
-    @_builtins.property
-    @pulumi.getter(name="databaseName")
-    def database_name(self) -> Optional[_builtins.str]:
-        """
-        Name of database.
-        """
-        return pulumi.get(self, "database_name")
-
-    @_builtins.property
-    @pulumi.getter(name="endedOn")
-    def ended_on(self) -> Optional[_builtins.str]:
-        """
-        End time of a database level validation.
-        """
-        return pulumi.get(self, "ended_on")
-
-    @_builtins.property
-    @pulumi.getter(name="startedOn")
-    def started_on(self) -> Optional[_builtins.str]:
-        """
-        Start time of a database level validation.
-        """
-        return pulumi.get(self, "started_on")
-
-    @_builtins.property
-    @pulumi.getter
-    def summary(self) -> Optional[Sequence['outputs.ValidationSummaryItemResponse']]:
-        """
-        Summary of database level validations.
-        """
-        return pulumi.get(self, "summary")
-
-
-@pulumi.output_type
-class DbMigrationStatusResponse(dict):
-    """
-    Migration status of a database.
+    Migration state of a database.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -439,14 +416,14 @@ class DbMigrationStatusResponse(dict):
             suggest = "started_on"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in DbMigrationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in DatabaseMigrationStateResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        DbMigrationStatusResponse.__key_warning(key)
+        DatabaseMigrationStateResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        DbMigrationStatusResponse.__key_warning(key)
+        DatabaseMigrationStateResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
@@ -467,7 +444,7 @@ class DbMigrationStatusResponse(dict):
                  migration_state: Optional[_builtins.str] = None,
                  started_on: Optional[_builtins.str] = None):
         """
-        Migration status of a database.
+        Migration state of a database.
         :param _builtins.int applied_changes: Change Data Capture applied changes counter.
         :param _builtins.int cdc_delete_counter: Change Data Capture delete counter.
         :param _builtins.int cdc_insert_counter: Change Data Capture insert counter.
@@ -648,6 +625,86 @@ class DbMigrationStatusResponse(dict):
 
 
 @pulumi.output_type
+class DbLevelValidationStatusResponse(dict):
+    """
+    Validation status summary for a database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "databaseName":
+            suggest = "database_name"
+        elif key == "endedOn":
+            suggest = "ended_on"
+        elif key == "startedOn":
+            suggest = "started_on"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in DbLevelValidationStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        DbLevelValidationStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        DbLevelValidationStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 database_name: Optional[_builtins.str] = None,
+                 ended_on: Optional[_builtins.str] = None,
+                 started_on: Optional[_builtins.str] = None,
+                 summary: Optional[Sequence['outputs.ValidationSummaryItemResponse']] = None):
+        """
+        Validation status summary for a database.
+        :param _builtins.str database_name: Name of database.
+        :param _builtins.str ended_on: End time of a database level validation.
+        :param _builtins.str started_on: Start time of a database level validation.
+        :param Sequence['ValidationSummaryItemResponse'] summary: Summary of database level validations.
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if ended_on is not None:
+            pulumi.set(__self__, "ended_on", ended_on)
+        if started_on is not None:
+            pulumi.set(__self__, "started_on", started_on)
+        if summary is not None:
+            pulumi.set(__self__, "summary", summary)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> Optional[_builtins.str]:
+        """
+        Name of database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @_builtins.property
+    @pulumi.getter(name="endedOn")
+    def ended_on(self) -> Optional[_builtins.str]:
+        """
+        End time of a database level validation.
+        """
+        return pulumi.get(self, "ended_on")
+
+    @_builtins.property
+    @pulumi.getter(name="startedOn")
+    def started_on(self) -> Optional[_builtins.str]:
+        """
+        Start time of a database level validation.
+        """
+        return pulumi.get(self, "started_on")
+
+    @_builtins.property
+    @pulumi.getter
+    def summary(self) -> Optional[Sequence['outputs.ValidationSummaryItemResponse']]:
+        """
+        Summary of database level validations.
+        """
+        return pulumi.get(self, "summary")
+
+
+@pulumi.output_type
 class DbServerMetadataResponse(dict):
     """
     Database server metadata.
@@ -725,7 +782,7 @@ class DbServerMetadataResponse(dict):
 @pulumi.output_type
 class HighAvailabilityResponse(dict):
     """
-    High availability properties of a flexible server.
+    High availability properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -749,9 +806,9 @@ class HighAvailabilityResponse(dict):
                  mode: Optional[_builtins.str] = None,
                  standby_availability_zone: Optional[_builtins.str] = None):
         """
-        High availability properties of a flexible server.
+        High availability properties of a server.
         :param _builtins.str state: Possible states of the standby server created when high availability is set to SameZone or ZoneRedundant.
-        :param _builtins.str mode: High availability mode for a flexible server.
+        :param _builtins.str mode: High availability mode for a server.
         :param _builtins.str standby_availability_zone: Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         pulumi.set(__self__, "state", state)
@@ -776,7 +833,7 @@ class HighAvailabilityResponse(dict):
     @pulumi.getter
     def mode(self) -> Optional[_builtins.str]:
         """
-        High availability mode for a flexible server.
+        High availability mode for a server.
         """
         return pulumi.get(self, "mode")
 
@@ -840,7 +897,7 @@ class IdentityPropertiesResponse(dict):
 @pulumi.output_type
 class MaintenanceWindowResponse(dict):
     """
-    Maintenance window properties of a flexible server.
+    Maintenance window properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -871,7 +928,7 @@ class MaintenanceWindowResponse(dict):
                  start_hour: Optional[_builtins.int] = None,
                  start_minute: Optional[_builtins.int] = None):
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         :param _builtins.str custom_window: Indicates whether custom window is enabled or disabled.
         :param _builtins.int day_of_week: Day of the week to be used for maintenance window.
         :param _builtins.int start_hour: Start hour to be used for maintenance window.
@@ -950,12 +1007,12 @@ class MigrationStatusResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 current_sub_state_details: 'outputs.MigrationSubStateDetailsResponse',
+                 current_sub_state_details: 'outputs.MigrationSubstateDetailsResponse',
                  error: _builtins.str,
                  state: _builtins.str):
         """
         State of migration.
-        :param 'MigrationSubStateDetailsResponse' current_sub_state_details: Current migration sub state details.
+        :param 'MigrationSubstateDetailsResponse' current_sub_state_details: Current migration sub state details.
         :param _builtins.str error: Error message, if any, for the migration state.
         :param _builtins.str state: State of migration.
         """
@@ -965,7 +1022,7 @@ class MigrationStatusResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="currentSubStateDetails")
-    def current_sub_state_details(self) -> 'outputs.MigrationSubStateDetailsResponse':
+    def current_sub_state_details(self) -> 'outputs.MigrationSubstateDetailsResponse':
         """
         Current migration sub state details.
         """
@@ -989,7 +1046,7 @@ class MigrationStatusResponse(dict):
 
 
 @pulumi.output_type
-class MigrationSubStateDetailsResponse(dict):
+class MigrationSubstateDetailsResponse(dict):
     """
     Details of migration substate.
     """
@@ -1004,19 +1061,19 @@ class MigrationSubStateDetailsResponse(dict):
             suggest = "validation_details"
 
         if suggest:
-            pulumi.log.warn(f"Key '{key}' not found in MigrationSubStateDetailsResponse. Access the value via the '{suggest}' property getter instead.")
+            pulumi.log.warn(f"Key '{key}' not found in MigrationSubstateDetailsResponse. Access the value via the '{suggest}' property getter instead.")
 
     def __getitem__(self, key: str) -> Any:
-        MigrationSubStateDetailsResponse.__key_warning(key)
+        MigrationSubstateDetailsResponse.__key_warning(key)
         return super().__getitem__(key)
 
     def get(self, key: str, default = None) -> Any:
-        MigrationSubStateDetailsResponse.__key_warning(key)
+        MigrationSubstateDetailsResponse.__key_warning(key)
         return super().get(key, default)
 
     def __init__(__self__, *,
                  current_sub_state: _builtins.str,
-                 db_details: Optional[Mapping[str, 'outputs.DbMigrationStatusResponse']] = None,
+                 db_details: Optional[Mapping[str, 'outputs.DatabaseMigrationStateResponse']] = None,
                  validation_details: Optional['outputs.ValidationDetailsResponse'] = None):
         """
         Details of migration substate.
@@ -1039,7 +1096,7 @@ class MigrationSubStateDetailsResponse(dict):
 
     @_builtins.property
     @pulumi.getter(name="dbDetails")
-    def db_details(self) -> Optional[Mapping[str, 'outputs.DbMigrationStatusResponse']]:
+    def db_details(self) -> Optional[Mapping[str, 'outputs.DatabaseMigrationStateResponse']]:
         return pulumi.get(self, "db_details")
 
     @_builtins.property
@@ -1054,7 +1111,7 @@ class MigrationSubStateDetailsResponse(dict):
 @pulumi.output_type
 class NetworkResponse(dict):
     """
-    Network properties of a flexible server.
+    Network properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1082,10 +1139,10 @@ class NetworkResponse(dict):
                  private_dns_zone_arm_resource_id: Optional[_builtins.str] = None,
                  public_network_access: Optional[_builtins.str] = None):
         """
-        Network properties of a flexible server.
+        Network properties of a server.
         :param _builtins.str delegated_subnet_resource_id: Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         :param _builtins.str private_dns_zone_arm_resource_id: Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
-        :param _builtins.str public_network_access: Indicates if public network access is enabled or not.
+        :param _builtins.str public_network_access: Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
@@ -1114,7 +1171,7 @@ class NetworkResponse(dict):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[_builtins.str]:
         """
-        Indicates if public network access is enabled or not.
+        Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -1352,7 +1409,7 @@ class PrivateLinkServiceConnectionStateResponse(dict):
 @pulumi.output_type
 class ReplicaResponse(dict):
     """
-    Replica properties of a flexible server.
+    Replica properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -1376,9 +1433,9 @@ class ReplicaResponse(dict):
                  replication_state: _builtins.str,
                  role: Optional[_builtins.str] = None):
         """
-        Replica properties of a flexible server.
-        :param _builtins.int capacity: Maximum number of read replicas allowed for a flexible server.
-        :param _builtins.str replication_state: Indicates the replication state of a read replica. This property is returned only when the target flexible server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
+        Replica properties of a server.
+        :param _builtins.int capacity: Maximum number of read replicas allowed for a server.
+        :param _builtins.str replication_state: Indicates the replication state of a read replica. This property is returned only when the target server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
         :param _builtins.str role: Role of the server in a replication set.
         """
         pulumi.set(__self__, "capacity", capacity)
@@ -1390,7 +1447,7 @@ class ReplicaResponse(dict):
     @pulumi.getter
     def capacity(self) -> _builtins.int:
         """
-        Maximum number of read replicas allowed for a flexible server.
+        Maximum number of read replicas allowed for a server.
         """
         return pulumi.get(self, "capacity")
 
@@ -1398,7 +1455,7 @@ class ReplicaResponse(dict):
     @pulumi.getter(name="replicationState")
     def replication_state(self) -> _builtins.str:
         """
-        Indicates the replication state of a read replica. This property is returned only when the target flexible server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
+        Indicates the replication state of a read replica. This property is returned only when the target server is a read replica. Possible  values are Active, Broken, Catchup, Provisioning, Reconfiguring, and Updating
         """
         return pulumi.get(self, "replication_state")
 
@@ -1876,15 +1933,15 @@ class ServerPrivateLinkServiceConnectionStatePropertyResponse(dict):
 @pulumi.output_type
 class ServerSkuResponse(dict):
     """
-    Compute information of a flexible server.
+    Compute information of a server.
     """
     def __init__(__self__, *,
                  name: Optional[_builtins.str] = None,
                  tier: Optional[_builtins.str] = None):
         """
-        Compute information of a flexible server.
+        Compute information of a server.
         :param _builtins.str name: Compute tier and size of the database server. This object is empty for an Azure Database for PostgreSQL single server.
-        :param _builtins.str tier: Tier of the compute assigned to a flexible server.
+        :param _builtins.str tier: Tier of the compute assigned to a server.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -1903,7 +1960,7 @@ class ServerSkuResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
         """
-        Tier of the compute assigned to a flexible server.
+        Tier of the compute assigned to a server.
         """
         return pulumi.get(self, "tier")
 
@@ -2095,15 +2152,15 @@ class SingleServerSkuResponse(dict):
 @pulumi.output_type
 class SkuResponse(dict):
     """
-    Compute information of a flexible server.
+    Compute information of a server.
     """
     def __init__(__self__, *,
                  name: _builtins.str,
                  tier: _builtins.str):
         """
-        Compute information of a flexible server.
-        :param _builtins.str name: Name by which is known a given compute size assigned to a flexible server.
-        :param _builtins.str tier: Tier of the compute assigned to a flexible server.
+        Compute information of a server.
+        :param _builtins.str name: Name by which is known a given compute size assigned to a server.
+        :param _builtins.str tier: Tier of the compute assigned to a server.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -2112,7 +2169,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        Name by which is known a given compute size assigned to a flexible server.
+        Name by which is known a given compute size assigned to a server.
         """
         return pulumi.get(self, "name")
 
@@ -2120,7 +2177,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def tier(self) -> _builtins.str:
         """
-        Tier of the compute assigned to a flexible server.
+        Tier of the compute assigned to a server.
         """
         return pulumi.get(self, "tier")
 
@@ -2210,7 +2267,7 @@ class StorageProfileResponse(dict):
 @pulumi.output_type
 class StorageResponse(dict):
     """
-    Storage properties of a flexible server.
+    Storage properties of a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2239,13 +2296,13 @@ class StorageResponse(dict):
                  tier: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
-        Storage properties of a flexible server.
-        :param _builtins.str auto_grow: Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
-        :param _builtins.int iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
-        :param _builtins.int storage_size_gb: Size of storage assigned to a flexible server.
-        :param _builtins.int throughput: Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
-        :param _builtins.str tier: Storage tier of a flexible server.
-        :param _builtins.str type: Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        Storage properties of a server.
+        :param _builtins.str auto_grow: Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
+        :param _builtins.int iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+        :param _builtins.int storage_size_gb: Size of storage assigned to a server.
+        :param _builtins.int throughput: Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+        :param _builtins.str tier: Storage tier of a server.
+        :param _builtins.str type: Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
@@ -2264,7 +2321,7 @@ class StorageResponse(dict):
     @pulumi.getter(name="autoGrow")
     def auto_grow(self) -> Optional[_builtins.str]:
         """
-        Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+        Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         """
         return pulumi.get(self, "auto_grow")
 
@@ -2272,7 +2329,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def iops(self) -> Optional[_builtins.int]:
         """
-        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "iops")
 
@@ -2280,7 +2337,7 @@ class StorageResponse(dict):
     @pulumi.getter(name="storageSizeGB")
     def storage_size_gb(self) -> Optional[_builtins.int]:
         """
-        Size of storage assigned to a flexible server.
+        Size of storage assigned to a server.
         """
         return pulumi.get(self, "storage_size_gb")
 
@@ -2288,7 +2345,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def throughput(self) -> Optional[_builtins.int]:
         """
-        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "throughput")
 
@@ -2296,7 +2353,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def tier(self) -> Optional[_builtins.str]:
         """
-        Storage tier of a flexible server.
+        Storage tier of a server.
         """
         return pulumi.get(self, "tier")
 
@@ -2304,7 +2361,7 @@ class StorageResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
         return pulumi.get(self, "type")
 
@@ -2457,8 +2514,8 @@ class UserAssignedIdentityResponse(dict):
         User assigned identity properties
         :param _builtins.str client_id: The client ID of the assigned identity.
         :param _builtins.str principal_id: The principal ID of the assigned identity.
-        :param _builtins.str tenant_id: Identifier of the tenant of a flexible server.
-        :param _builtins.str type: Types of identities associated with a flexible server.
+        :param _builtins.str tenant_id: Identifier of the tenant of a server.
+        :param _builtins.str type: Types of identities associated with a server.
         :param Mapping[str, 'UserIdentityResponse'] user_assigned_identities: Map of user assigned managed identities.
         """
         pulumi.set(__self__, "client_id", client_id)
@@ -2490,7 +2547,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the tenant of a flexible server.
+        Identifier of the tenant of a server.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -2498,7 +2555,7 @@ class UserAssignedIdentityResponse(dict):
     @pulumi.getter
     def type(self) -> Optional[_builtins.str]:
         """
-        Types of identities associated with a flexible server.
+        Types of identities associated with a server.
         """
         return pulumi.get(self, "type")
 
@@ -2514,7 +2571,7 @@ class UserAssignedIdentityResponse(dict):
 @pulumi.output_type
 class UserIdentityResponse(dict):
     """
-    User assigned managed identity associated with a flexible server.
+    User assigned managed identity associated with a server.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -2539,7 +2596,7 @@ class UserIdentityResponse(dict):
                  client_id: Optional[_builtins.str] = None,
                  principal_id: Optional[_builtins.str] = None):
         """
-        User assigned managed identity associated with a flexible server.
+        User assigned managed identity associated with a server.
         :param _builtins.str client_id: Identifier of the client of the service principal associated to the user assigned managed identity.
         :param _builtins.str principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
         """

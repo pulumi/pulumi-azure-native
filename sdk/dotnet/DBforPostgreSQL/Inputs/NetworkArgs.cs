@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Network properties of a flexible server.
+    /// Network properties of a server.
     /// </summary>
     public sealed class NetworkArgs : global::Pulumi.ResourceArgs
     {
@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         public Input<string>? PrivateDnsZoneArmResourceId { get; set; }
 
         /// <summary>
-        /// Indicates if public network access is enabled or not.
+        /// Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ServerPublicNetworkAccessState>? PublicNetworkAccess { get; set; }

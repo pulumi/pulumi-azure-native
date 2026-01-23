@@ -14,9 +14,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a migration.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetMigrationResult> InvokeAsync(GetMigrationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationArgs(), options.WithDefaults());
@@ -24,9 +24,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a migration.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());
@@ -34,9 +34,9 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// <summary>
         /// Gets information about a migration.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetMigrationResult> Invoke(GetMigrationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetMigrationResult>("azure-native:dbforpostgresql:getMigration", args ?? new GetMigrationInvokeArgs(), options.WithDefaults());
@@ -52,22 +52,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public string MigrationName { get; set; } = null!;
 
         /// <summary>
-        /// Name of resource group of target database server.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of subscription of target database server.
+        /// The name of the server.
         /// </summary>
-        [Input("subscriptionId")]
-        public string? SubscriptionId { get; set; }
-
-        /// <summary>
-        /// Name of target database server.
-        /// </summary>
-        [Input("targetDbServerName", required: true)]
-        public string TargetDbServerName { get; set; } = null!;
+        [Input("serverName", required: true)]
+        public string ServerName { get; set; } = null!;
 
         public GetMigrationArgs()
         {
@@ -84,22 +78,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string> MigrationName { get; set; } = null!;
 
         /// <summary>
-        /// Name of resource group of target database server.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Identifier of subscription of target database server.
+        /// The name of the server.
         /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
-
-        /// <summary>
-        /// Name of target database server.
-        /// </summary>
-        [Input("targetDbServerName", required: true)]
-        public Input<string> TargetDbServerName { get; set; } = null!;
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
 
         public GetMigrationInvokeArgs()
         {
@@ -180,7 +168,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? OverwriteDbsInTarget;
         /// <summary>
-        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        /// Indicates whether to setup logical replication on source server, if needed.
         /// </summary>
         public readonly string? SetupLogicalReplicationOnSourceDbIfNeeded;
         /// <summary>

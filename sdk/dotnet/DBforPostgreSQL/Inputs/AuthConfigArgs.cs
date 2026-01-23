@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Authentication configuration properties of a flexible server.
+    /// Authentication configuration properties of a server.
     /// </summary>
     public sealed class AuthConfigArgs : global::Pulumi.ResourceArgs
     {
@@ -19,13 +19,13 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         /// Indicates if the server supports Microsoft Entra authentication.
         /// </summary>
         [Input("activeDirectoryAuth")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ActiveDirectoryAuthEnum>? ActiveDirectoryAuth { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MicrosoftEntraAuth>? ActiveDirectoryAuth { get; set; }
 
         /// <summary>
         /// Indicates if the server supports password based authentication.
         /// </summary>
         [Input("passwordAuth")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PasswordAuthEnum>? PasswordAuth { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.PasswordBasedAuth>? PasswordAuth { get; set; }
 
         /// <summary>
         /// Identifier of the tenant of the delegated resource.

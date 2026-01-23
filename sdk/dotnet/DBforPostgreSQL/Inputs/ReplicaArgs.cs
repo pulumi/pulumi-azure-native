@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Replica properties of a flexible server.
+    /// Replica properties of a server.
     /// </summary>
     public sealed class ReplicaArgs : global::Pulumi.ResourceArgs
     {
@@ -22,10 +22,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReadReplicaPromoteMode>? PromoteMode { get; set; }
 
         /// <summary>
-        /// Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
+        /// Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
         /// </summary>
         [Input("promoteOption")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReplicationPromoteOption>? PromoteOption { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.ReadReplicaPromoteOption>? PromoteOption { get; set; }
 
         /// <summary>
         /// Role of the server in a replication set.

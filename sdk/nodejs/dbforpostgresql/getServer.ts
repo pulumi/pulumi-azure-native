@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Gets information about an existing flexible server.
+ * Gets information about an existing server.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServer(args: GetServerArgs, opts?: pulumi.InvokeOptions): Promise<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -34,7 +34,7 @@ export interface GetServerArgs {
 }
 
 /**
- * Flexible server.
+ * Properties of a server.
  */
 export interface GetServerResult {
     /**
@@ -42,11 +42,11 @@ export interface GetServerResult {
      */
     readonly administratorLogin?: string;
     /**
-     * Authentication configuration properties of a flexible server.
+     * Authentication configuration properties of a server.
      */
     readonly authConfig?: outputs.dbforpostgresql.AuthConfigResponse;
     /**
-     * Availability zone of a flexible server.
+     * Availability zone of a server.
      */
     readonly availabilityZone?: string;
     /**
@@ -54,19 +54,23 @@ export interface GetServerResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Backup properties of a flexible server.
+     * Backup properties of a server.
      */
     readonly backup?: outputs.dbforpostgresql.BackupResponse;
     /**
-     * Data encryption properties of a flexible server.
+     * Cluster properties of a server.
+     */
+    readonly cluster?: outputs.dbforpostgresql.ClusterResponse;
+    /**
+     * Data encryption properties of a server.
      */
     readonly dataEncryption?: outputs.dbforpostgresql.DataEncryptionResponse;
     /**
-     * Fully qualified domain name of a flexible server.
+     * Fully qualified domain name of a server.
      */
     readonly fullyQualifiedDomainName: string;
     /**
-     * High availability properties of a flexible server.
+     * High availability properties of a server.
      */
     readonly highAvailability?: outputs.dbforpostgresql.HighAvailabilityResponse;
     /**
@@ -74,7 +78,7 @@ export interface GetServerResult {
      */
     readonly id: string;
     /**
-     * User assigned managed identities assigned to the flexible server.
+     * User assigned managed identities assigned to the server.
      */
     readonly identity?: outputs.dbforpostgresql.UserAssignedIdentityResponse;
     /**
@@ -82,7 +86,7 @@ export interface GetServerResult {
      */
     readonly location: string;
     /**
-     * Maintenance window properties of a flexible server.
+     * Maintenance window properties of a server.
      */
     readonly maintenanceWindow?: outputs.dbforpostgresql.MaintenanceWindowResponse;
     /**
@@ -94,19 +98,19 @@ export interface GetServerResult {
      */
     readonly name: string;
     /**
-     * Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+     * Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
      */
     readonly network?: outputs.dbforpostgresql.NetworkResponse;
     /**
-     * List of private endpoint connections associated with the specified flexible server.
+     * List of private endpoint connections associated with the specified server.
      */
     readonly privateEndpointConnections: outputs.dbforpostgresql.PrivateEndpointConnectionResponse[];
     /**
-     * Read replica properties of a flexible server. Required only in case that you want to promote a server.
+     * Read replica properties of a server. Required only in case that you want to promote a server.
      */
     readonly replica?: outputs.dbforpostgresql.ReplicaResponse;
     /**
-     * Maximum number of read replicas allowed for a flexible server.
+     * Maximum number of read replicas allowed for a server.
      */
     readonly replicaCapacity: number;
     /**
@@ -114,19 +118,19 @@ export interface GetServerResult {
      */
     readonly replicationRole?: string;
     /**
-     * Compute tier and size of a flexible server.
+     * Compute tier and size of a server.
      */
     readonly sku?: outputs.dbforpostgresql.SkuResponse;
     /**
-     * Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+     * Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
      */
     readonly sourceServerResourceId?: string;
     /**
-     * Possible states of a flexible server.
+     * Possible states of a server.
      */
     readonly state: string;
     /**
-     * Storage properties of a flexible server.
+     * Storage properties of a server.
      */
     readonly storage?: outputs.dbforpostgresql.StorageResponse;
     /**
@@ -147,11 +151,11 @@ export interface GetServerResult {
     readonly version?: string;
 }
 /**
- * Gets information about an existing flexible server.
+ * Gets information about an existing server.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getServerOutput(args: GetServerOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetServerResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

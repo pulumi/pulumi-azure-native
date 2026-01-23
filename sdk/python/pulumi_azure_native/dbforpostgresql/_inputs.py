@@ -22,6 +22,8 @@ __all__ = [
     'AuthConfigArgsDict',
     'BackupArgs',
     'BackupArgsDict',
+    'ClusterArgs',
+    'ClusterArgsDict',
     'DataEncryptionArgs',
     'DataEncryptionArgsDict',
     'HighAvailabilityArgs',
@@ -127,13 +129,13 @@ class AdminCredentialsArgs:
 if not MYPY:
     class AuthConfigArgsDict(TypedDict):
         """
-        Authentication configuration properties of a flexible server.
+        Authentication configuration properties of a server.
         """
-        active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuthEnum']]]
+        active_directory_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]
         """
         Indicates if the server supports Microsoft Entra authentication.
         """
-        password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordAuthEnum']]]
+        password_auth: NotRequired[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]
         """
         Indicates if the server supports password based authentication.
         """
@@ -147,13 +149,13 @@ elif False:
 @pulumi.input_type
 class AuthConfigArgs:
     def __init__(__self__, *,
-                 active_directory_auth: Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuthEnum']]] = None,
-                 password_auth: Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuthEnum']]] = None,
+                 active_directory_auth: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]] = None,
+                 password_auth: Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]] = None,
                  tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        Authentication configuration properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuthEnum']] active_directory_auth: Indicates if the server supports Microsoft Entra authentication.
-        :param pulumi.Input[Union[_builtins.str, 'PasswordAuthEnum']] password_auth: Indicates if the server supports password based authentication.
+        Authentication configuration properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']] active_directory_auth: Indicates if the server supports Microsoft Entra authentication.
+        :param pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']] password_auth: Indicates if the server supports password based authentication.
         :param pulumi.Input[_builtins.str] tenant_id: Identifier of the tenant of the delegated resource.
         """
         if active_directory_auth is not None:
@@ -169,26 +171,26 @@ class AuthConfigArgs:
 
     @_builtins.property
     @pulumi.getter(name="activeDirectoryAuth")
-    def active_directory_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuthEnum']]]:
+    def active_directory_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]:
         """
         Indicates if the server supports Microsoft Entra authentication.
         """
         return pulumi.get(self, "active_directory_auth")
 
     @active_directory_auth.setter
-    def active_directory_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ActiveDirectoryAuthEnum']]]):
+    def active_directory_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MicrosoftEntraAuth']]]):
         pulumi.set(self, "active_directory_auth", value)
 
     @_builtins.property
     @pulumi.getter(name="passwordAuth")
-    def password_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuthEnum']]]:
+    def password_auth(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]:
         """
         Indicates if the server supports password based authentication.
         """
         return pulumi.get(self, "password_auth")
 
     @password_auth.setter
-    def password_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PasswordAuthEnum']]]):
+    def password_auth(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PasswordBasedAuth']]]):
         pulumi.set(self, "password_auth", value)
 
     @_builtins.property
@@ -207,13 +209,13 @@ class AuthConfigArgs:
 if not MYPY:
     class BackupArgsDict(TypedDict):
         """
-        Backup properties of a flexible server.
+        Backup properties of a server.
         """
         backup_retention_days: NotRequired[pulumi.Input[_builtins.int]]
         """
-        Backup retention days for the flexible server.
+        Backup retention days for the server.
         """
-        geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackupEnum']]]
+        geo_redundant_backup: NotRequired[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]
         """
         Indicates if the server is configured to create geographically redundant backups.
         """
@@ -224,11 +226,11 @@ elif False:
 class BackupArgs:
     def __init__(__self__, *,
                  backup_retention_days: Optional[pulumi.Input[_builtins.int]] = None,
-                 geo_redundant_backup: Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackupEnum']]] = None):
+                 geo_redundant_backup: Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]] = None):
         """
-        Backup properties of a flexible server.
-        :param pulumi.Input[_builtins.int] backup_retention_days: Backup retention days for the flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'GeoRedundantBackupEnum']] geo_redundant_backup: Indicates if the server is configured to create geographically redundant backups.
+        Backup properties of a server.
+        :param pulumi.Input[_builtins.int] backup_retention_days: Backup retention days for the server.
+        :param pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']] geo_redundant_backup: Indicates if the server is configured to create geographically redundant backups.
         """
         if backup_retention_days is None:
             backup_retention_days = 7
@@ -243,7 +245,7 @@ class BackupArgs:
     @pulumi.getter(name="backupRetentionDays")
     def backup_retention_days(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Backup retention days for the flexible server.
+        Backup retention days for the server.
         """
         return pulumi.get(self, "backup_retention_days")
 
@@ -253,49 +255,107 @@ class BackupArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoRedundantBackup")
-    def geo_redundant_backup(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackupEnum']]]:
+    def geo_redundant_backup(self) -> Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]:
         """
         Indicates if the server is configured to create geographically redundant backups.
         """
         return pulumi.get(self, "geo_redundant_backup")
 
     @geo_redundant_backup.setter
-    def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GeoRedundantBackupEnum']]]):
+    def geo_redundant_backup(self, value: Optional[pulumi.Input[Union[_builtins.str, 'GeographicallyRedundantBackup']]]):
         pulumi.set(self, "geo_redundant_backup", value)
+
+
+if not MYPY:
+    class ClusterArgsDict(TypedDict):
+        """
+        Cluster properties of a server.
+        """
+        cluster_size: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Number of nodes assigned to the elastic cluster.
+        """
+        default_database_name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Default database name for the elastic cluster.
+        """
+elif False:
+    ClusterArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ClusterArgs:
+    def __init__(__self__, *,
+                 cluster_size: Optional[pulumi.Input[_builtins.int]] = None,
+                 default_database_name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Cluster properties of a server.
+        :param pulumi.Input[_builtins.int] cluster_size: Number of nodes assigned to the elastic cluster.
+        :param pulumi.Input[_builtins.str] default_database_name: Default database name for the elastic cluster.
+        """
+        if cluster_size is None:
+            cluster_size = 0
+        if cluster_size is not None:
+            pulumi.set(__self__, "cluster_size", cluster_size)
+        if default_database_name is not None:
+            pulumi.set(__self__, "default_database_name", default_database_name)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterSize")
+    def cluster_size(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Number of nodes assigned to the elastic cluster.
+        """
+        return pulumi.get(self, "cluster_size")
+
+    @cluster_size.setter
+    def cluster_size(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "cluster_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultDatabaseName")
+    def default_database_name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Default database name for the elastic cluster.
+        """
+        return pulumi.get(self, "default_database_name")
+
+    @default_database_name.setter
+    def default_database_name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "default_database_name", value)
 
 
 if not MYPY:
     class DataEncryptionArgsDict(TypedDict):
         """
-        Data encryption properties of a flexible server.
+        Data encryption properties of a server.
         """
-        geo_backup_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]
+        geo_backup_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         """
         geo_backup_key_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         geo_backup_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
-        primary_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]
+        primary_encryption_key_status: NotRequired[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         """
         primary_key_uri: NotRequired[pulumi.Input[_builtins.str]]
         """
-        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
+        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         """
         primary_user_assigned_identity_id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         """
-        type: NotRequired[pulumi.Input[Union[_builtins.str, 'ArmServerKeyType']]]
+        type: NotRequired[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]
         """
-        Data encryption type used by a flexible server.
+        Data encryption type used by a server.
         """
 elif False:
     DataEncryptionArgsDict: TypeAlias = Mapping[str, Any]
@@ -303,22 +363,22 @@ elif False:
 @pulumi.input_type
 class DataEncryptionArgs:
     def __init__(__self__, *,
-                 geo_backup_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]] = None,
+                 geo_backup_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]] = None,
                  geo_backup_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  geo_backup_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 primary_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]] = None,
+                 primary_encryption_key_status: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]] = None,
                  primary_key_uri: Optional[pulumi.Input[_builtins.str]] = None,
                  primary_user_assigned_identity_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 type: Optional[pulumi.Input[Union[_builtins.str, 'ArmServerKeyType']]] = None):
+                 type: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]] = None):
         """
-        Data encryption properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']] geo_backup_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
-        :param pulumi.Input[_builtins.str] geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
-        :param pulumi.Input[_builtins.str] geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
-        :param pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']] primary_encryption_key_status: Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-        :param pulumi.Input[_builtins.str] primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
-        :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'ArmServerKeyType']] type: Data encryption type used by a flexible server.
+        Data encryption properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']] geo_backup_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        :param pulumi.Input[_builtins.str] geo_backup_key_uri: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+        :param pulumi.Input[_builtins.str] geo_backup_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+        :param pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']] primary_encryption_key_status: Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        :param pulumi.Input[_builtins.str] primary_key_uri: URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
+        :param pulumi.Input[_builtins.str] primary_user_assigned_identity_id: Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
+        :param pulumi.Input[Union[_builtins.str, 'DataEncryptionType']] type: Data encryption type used by a server.
         """
         if geo_backup_encryption_key_status is not None:
             pulumi.set(__self__, "geo_backup_encryption_key_status", geo_backup_encryption_key_status)
@@ -337,21 +397,21 @@ class DataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="geoBackupEncryptionKeyStatus")
-    def geo_backup_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]:
+    def geo_backup_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]:
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_encryption_key_status")
 
     @geo_backup_encryption_key_status.setter
-    def geo_backup_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]):
+    def geo_backup_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]):
         pulumi.set(self, "geo_backup_encryption_key_status", value)
 
     @_builtins.property
     @pulumi.getter(name="geoBackupKeyURI")
     def geo_backup_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_key_uri")
 
@@ -363,7 +423,7 @@ class DataEncryptionArgs:
     @pulumi.getter(name="geoBackupUserAssignedIdentityId")
     def geo_backup_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
         """
         return pulumi.get(self, "geo_backup_user_assigned_identity_id")
 
@@ -373,21 +433,21 @@ class DataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter(name="primaryEncryptionKeyStatus")
-    def primary_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]:
+    def primary_encryption_key_status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]:
         """
-        Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+        Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
         """
         return pulumi.get(self, "primary_encryption_key_status")
 
     @primary_encryption_key_status.setter
-    def primary_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'KeyStatusEnum']]]):
+    def primary_encryption_key_status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EncryptionKeyStatus']]]):
         pulumi.set(self, "primary_encryption_key_status", value)
 
     @_builtins.property
     @pulumi.getter(name="primaryKeyURI")
     def primary_key_uri(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
+        URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_key_uri")
 
@@ -399,7 +459,7 @@ class DataEncryptionArgs:
     @pulumi.getter(name="primaryUserAssignedIdentityId")
     def primary_user_assigned_identity_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
+        Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
         """
         return pulumi.get(self, "primary_user_assigned_identity_id")
 
@@ -409,25 +469,25 @@ class DataEncryptionArgs:
 
     @_builtins.property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ArmServerKeyType']]]:
+    def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]:
         """
-        Data encryption type used by a flexible server.
+        Data encryption type used by a server.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ArmServerKeyType']]]):
+    def type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'DataEncryptionType']]]):
         pulumi.set(self, "type", value)
 
 
 if not MYPY:
     class HighAvailabilityArgsDict(TypedDict):
         """
-        High availability properties of a flexible server.
+        High availability properties of a server.
         """
         mode: NotRequired[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]
         """
-        High availability mode for a flexible server.
+        High availability mode for a server.
         """
         standby_availability_zone: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -442,8 +502,8 @@ class HighAvailabilityArgs:
                  mode: Optional[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]] = None,
                  standby_availability_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        High availability properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']] mode: High availability mode for a flexible server.
+        High availability properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']] mode: High availability mode for a server.
         :param pulumi.Input[_builtins.str] standby_availability_zone: Availability zone associated to the standby server created when high availability is set to SameZone or ZoneRedundant.
         """
         if mode is None:
@@ -459,7 +519,7 @@ class HighAvailabilityArgs:
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HighAvailabilityMode']]]:
         """
-        High availability mode for a flexible server.
+        High availability mode for a server.
         """
         return pulumi.get(self, "mode")
 
@@ -532,7 +592,7 @@ class IdentityPropertiesArgs:
 if not MYPY:
     class MaintenanceWindowArgsDict(TypedDict):
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         """
         custom_window: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -561,7 +621,7 @@ class MaintenanceWindowArgs:
                  start_hour: Optional[pulumi.Input[_builtins.int]] = None,
                  start_minute: Optional[pulumi.Input[_builtins.int]] = None):
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         :param pulumi.Input[_builtins.str] custom_window: Indicates whether custom window is enabled or disabled.
         :param pulumi.Input[_builtins.int] day_of_week: Day of the week to be used for maintenance window.
         :param pulumi.Input[_builtins.int] start_hour: Start hour to be used for maintenance window.
@@ -711,7 +771,7 @@ class MigrationSecretParametersArgs:
 if not MYPY:
     class NetworkArgsDict(TypedDict):
         """
-        Network properties of a flexible server.
+        Network properties of a server.
         """
         delegated_subnet_resource_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -723,7 +783,7 @@ if not MYPY:
         """
         public_network_access: NotRequired[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]
         """
-        Indicates if public network access is enabled or not.
+        Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
 elif False:
     NetworkArgsDict: TypeAlias = Mapping[str, Any]
@@ -735,10 +795,10 @@ class NetworkArgs:
                  private_dns_zone_arm_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]] = None):
         """
-        Network properties of a flexible server.
+        Network properties of a server.
         :param pulumi.Input[_builtins.str] delegated_subnet_resource_id: Resource identifier of the delegated subnet. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
         :param pulumi.Input[_builtins.str] private_dns_zone_arm_resource_id: Identifier of the private DNS zone. Required during creation of a new server, in case you want the server to be integrated into your own virtual network. For an update operation, you only have to provide this property if you want to change the value assigned for the private DNS zone.
-        :param pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']] public_network_access: Indicates if public network access is enabled or not.
+        :param pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']] public_network_access: Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
         if delegated_subnet_resource_id is not None:
             pulumi.set(__self__, "delegated_subnet_resource_id", delegated_subnet_resource_id)
@@ -775,7 +835,7 @@ class NetworkArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerPublicNetworkAccessState']]]:
         """
-        Indicates if public network access is enabled or not.
+        Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -863,15 +923,15 @@ class PrivateLinkServiceConnectionStateArgs:
 if not MYPY:
     class ReplicaArgsDict(TypedDict):
         """
-        Replica properties of a flexible server.
+        Replica properties of a server.
         """
         promote_mode: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]]
         """
         Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
         """
-        promote_option: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationPromoteOption']]]
+        promote_option: NotRequired[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]
         """
-        Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
+        Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
         """
         role: NotRequired[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]]
         """
@@ -884,12 +944,12 @@ elif False:
 class ReplicaArgs:
     def __init__(__self__, *,
                  promote_mode: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']]] = None,
-                 promote_option: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationPromoteOption']]] = None,
+                 promote_option: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]] = None,
                  role: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationRole']]] = None):
         """
-        Replica properties of a flexible server.
+        Replica properties of a server.
         :param pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteMode']] promote_mode: Type of operation to apply on the read replica. This property is write only. Standalone means that the read replica will be promoted to a standalone server, and will become a completely independent entity from the replication set. Switchover means that the read replica will roles with the primary server.
-        :param pulumi.Input[Union[_builtins.str, 'ReplicationPromoteOption']] promote_option: Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
+        :param pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']] promote_option: Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationRole']] role: Role of the server in a replication set.
         """
         if promote_mode is not None:
@@ -913,14 +973,14 @@ class ReplicaArgs:
 
     @_builtins.property
     @pulumi.getter(name="promoteOption")
-    def promote_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReplicationPromoteOption']]]:
+    def promote_option(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]:
         """
-        Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
+        Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
         """
         return pulumi.get(self, "promote_option")
 
     @promote_option.setter
-    def promote_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReplicationPromoteOption']]]):
+    def promote_option(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ReadReplicaPromoteOption']]]):
         pulumi.set(self, "promote_option", value)
 
     @_builtins.property
@@ -2043,15 +2103,15 @@ class SingleServerSkuArgs:
 if not MYPY:
     class SkuArgsDict(TypedDict):
         """
-        Compute information of a flexible server.
+        Compute information of a server.
         """
         name: pulumi.Input[_builtins.str]
         """
-        Name by which is known a given compute size assigned to a flexible server.
+        Name by which is known a given compute size assigned to a server.
         """
         tier: pulumi.Input[Union[_builtins.str, 'SkuTier']]
         """
-        Tier of the compute assigned to a flexible server.
+        Tier of the compute assigned to a server.
         """
 elif False:
     SkuArgsDict: TypeAlias = Mapping[str, Any]
@@ -2062,9 +2122,9 @@ class SkuArgs:
                  name: pulumi.Input[_builtins.str],
                  tier: pulumi.Input[Union[_builtins.str, 'SkuTier']]):
         """
-        Compute information of a flexible server.
-        :param pulumi.Input[_builtins.str] name: Name by which is known a given compute size assigned to a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'SkuTier']] tier: Tier of the compute assigned to a flexible server.
+        Compute information of a server.
+        :param pulumi.Input[_builtins.str] name: Name by which is known a given compute size assigned to a server.
+        :param pulumi.Input[Union[_builtins.str, 'SkuTier']] tier: Tier of the compute assigned to a server.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "tier", tier)
@@ -2073,7 +2133,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name by which is known a given compute size assigned to a flexible server.
+        Name by which is known a given compute size assigned to a server.
         """
         return pulumi.get(self, "name")
 
@@ -2085,7 +2145,7 @@ class SkuArgs:
     @pulumi.getter
     def tier(self) -> pulumi.Input[Union[_builtins.str, 'SkuTier']]:
         """
-        Tier of the compute assigned to a flexible server.
+        Tier of the compute assigned to a server.
         """
         return pulumi.get(self, "tier")
 
@@ -2193,31 +2253,31 @@ class StorageProfileArgs:
 if not MYPY:
     class StorageArgsDict(TypedDict):
         """
-        Storage properties of a flexible server.
+        Storage properties of a server.
         """
         auto_grow: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]
         """
-        Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+        Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         """
         iops: NotRequired[pulumi.Input[_builtins.int]]
         """
-        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         storage_size_gb: NotRequired[pulumi.Input[_builtins.int]]
         """
-        Size of storage assigned to a flexible server.
+        Size of storage assigned to a server.
         """
         throughput: NotRequired[pulumi.Input[_builtins.int]]
         """
-        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
-        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTiers']]]
+        tier: NotRequired[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]
         """
-        Storage tier of a flexible server.
+        Storage tier of a server.
         """
         type: NotRequired[pulumi.Input[Union[_builtins.str, 'StorageType']]]
         """
-        Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
 elif False:
     StorageArgsDict: TypeAlias = Mapping[str, Any]
@@ -2229,16 +2289,16 @@ class StorageArgs:
                  iops: Optional[pulumi.Input[_builtins.int]] = None,
                  storage_size_gb: Optional[pulumi.Input[_builtins.int]] = None,
                  throughput: Optional[pulumi.Input[_builtins.int]] = None,
-                 tier: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTiers']]] = None,
+                 tier: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]] = None,
                  type: Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]] = None):
         """
-        Storage properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']] auto_grow: Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
-        :param pulumi.Input[_builtins.int] iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
-        :param pulumi.Input[_builtins.int] storage_size_gb: Size of storage assigned to a flexible server.
-        :param pulumi.Input[_builtins.int] throughput: Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
-        :param pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTiers']] tier: Storage tier of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'StorageType']] type: Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        Storage properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']] auto_grow: Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
+        :param pulumi.Input[_builtins.int] iops: Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+        :param pulumi.Input[_builtins.int] storage_size_gb: Size of storage assigned to a server.
+        :param pulumi.Input[_builtins.int] throughput: Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
+        :param pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']] tier: Storage tier of a server.
+        :param pulumi.Input[Union[_builtins.str, 'StorageType']] type: Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
         if auto_grow is not None:
             pulumi.set(__self__, "auto_grow", auto_grow)
@@ -2257,7 +2317,7 @@ class StorageArgs:
     @pulumi.getter(name="autoGrow")
     def auto_grow(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageAutoGrow']]]:
         """
-        Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+        Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         """
         return pulumi.get(self, "auto_grow")
 
@@ -2269,7 +2329,7 @@ class StorageArgs:
     @pulumi.getter
     def iops(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "iops")
 
@@ -2281,7 +2341,7 @@ class StorageArgs:
     @pulumi.getter(name="storageSizeGB")
     def storage_size_gb(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Size of storage assigned to a flexible server.
+        Size of storage assigned to a server.
         """
         return pulumi.get(self, "storage_size_gb")
 
@@ -2293,7 +2353,7 @@ class StorageArgs:
     @pulumi.getter
     def throughput(self) -> Optional[pulumi.Input[_builtins.int]]:
         """
-        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+        Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         """
         return pulumi.get(self, "throughput")
 
@@ -2303,21 +2363,21 @@ class StorageArgs:
 
     @_builtins.property
     @pulumi.getter
-    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTiers']]]:
+    def tier(self) -> Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]:
         """
-        Storage tier of a flexible server.
+        Storage tier of a server.
         """
         return pulumi.get(self, "tier")
 
     @tier.setter
-    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTiers']]]):
+    def tier(self, value: Optional[pulumi.Input[Union[_builtins.str, 'AzureManagedDiskPerformanceTier']]]):
         pulumi.set(self, "tier", value)
 
     @_builtins.property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StorageType']]]:
         """
-        Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         """
         return pulumi.get(self, "type")
 
@@ -2329,11 +2389,11 @@ class StorageArgs:
 if not MYPY:
     class UserAssignedIdentityArgsDict(TypedDict):
         """
-        Identities associated with a flexible server.
+        Identities associated with a server.
         """
         type: pulumi.Input[Union[_builtins.str, 'IdentityType']]
         """
-        Types of identities associated with a flexible server.
+        Types of identities associated with a server.
         """
         principal_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -2353,8 +2413,8 @@ class UserAssignedIdentityArgs:
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]]] = None):
         """
-        Identities associated with a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'IdentityType']] type: Types of identities associated with a flexible server.
+        Identities associated with a server.
+        :param pulumi.Input[Union[_builtins.str, 'IdentityType']] type: Types of identities associated with a server.
         :param pulumi.Input[_builtins.str] principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
         :param pulumi.Input[Mapping[str, pulumi.Input['UserIdentityArgs']]] user_assigned_identities: Map of user assigned managed identities.
         """
@@ -2368,7 +2428,7 @@ class UserAssignedIdentityArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[Union[_builtins.str, 'IdentityType']]:
         """
-        Types of identities associated with a flexible server.
+        Types of identities associated with a server.
         """
         return pulumi.get(self, "type")
 
@@ -2404,7 +2464,7 @@ class UserAssignedIdentityArgs:
 if not MYPY:
     class UserIdentityArgsDict(TypedDict):
         """
-        User assigned managed identity associated with a flexible server.
+        User assigned managed identity associated with a server.
         """
         client_id: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -2423,7 +2483,7 @@ class UserIdentityArgs:
                  client_id: Optional[pulumi.Input[_builtins.str]] = None,
                  principal_id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        User assigned managed identity associated with a flexible server.
+        User assigned managed identity associated with a server.
         :param pulumi.Input[_builtins.str] client_id: Identifier of the client of the service principal associated to the user assigned managed identity.
         :param pulumi.Input[_builtins.str] principal_id: Identifier of the object of the service principal associated to the user assigned managed identity.
         """

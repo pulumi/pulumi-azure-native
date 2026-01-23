@@ -10,17 +10,16 @@ import * as utilities from "../utilities";
 /**
  * Gets information about a migration.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMigration(args: GetMigrationArgs, opts?: pulumi.InvokeOptions): Promise<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:dbforpostgresql:getMigration", {
         "migrationName": args.migrationName,
         "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-        "targetDbServerName": args.targetDbServerName,
+        "serverName": args.serverName,
     }, opts);
 }
 
@@ -30,21 +29,17 @@ export interface GetMigrationArgs {
      */
     migrationName: string;
     /**
-     * Name of resource group of target database server.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
     /**
-     * Identifier of subscription of target database server.
+     * The name of the server.
      */
-    subscriptionId?: string;
-    /**
-     * Name of target database server.
-     */
-    targetDbServerName: string;
+    serverName: string;
 }
 
 /**
- * Migration.
+ * Properties of a migration.
  */
 export interface GetMigrationResult {
     /**
@@ -116,7 +111,7 @@ export interface GetMigrationResult {
      */
     readonly overwriteDbsInTarget?: string;
     /**
-     * Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+     * Indicates whether to setup logical replication on source server, if needed.
      */
     readonly setupLogicalReplicationOnSourceDbIfNeeded?: string;
     /**
@@ -175,17 +170,16 @@ export interface GetMigrationResult {
 /**
  * Gets information about a migration.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getMigrationOutput(args: GetMigrationOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetMigrationResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:dbforpostgresql:getMigration", {
         "migrationName": args.migrationName,
         "resourceGroupName": args.resourceGroupName,
-        "subscriptionId": args.subscriptionId,
-        "targetDbServerName": args.targetDbServerName,
+        "serverName": args.serverName,
     }, opts);
 }
 
@@ -195,15 +189,11 @@ export interface GetMigrationOutputArgs {
      */
     migrationName: pulumi.Input<string>;
     /**
-     * Name of resource group of target database server.
+     * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Identifier of subscription of target database server.
+     * The name of the server.
      */
-    subscriptionId?: pulumi.Input<string>;
-    /**
-     * Name of target database server.
-     */
-    targetDbServerName: pulumi.Input<string>;
+    serverName: pulumi.Input<string>;
 }

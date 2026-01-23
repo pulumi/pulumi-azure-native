@@ -6482,6 +6482,20 @@
     "Property": "geoRedundantBackup"
   },
   {
+    "VersionedModule": "dbforpostgresql/v20250601preview",
+    "Module": "DBforPostgreSQL",
+    "ResourceName": "Server",
+    "ReferenceName": "Backup",
+    "Property": "geoRedundantBackup"
+  },
+  {
+    "VersionedModule": "dbforpostgresql/v20250801",
+    "Module": "DBforPostgreSQL",
+    "ResourceName": "Server",
+    "ReferenceName": "Backup",
+    "Property": "geoRedundantBackup"
+  },
+  {
     "VersionedModule": "dashboard",
     "Module": "Dashboard",
     "ResourceName": "Grafana",

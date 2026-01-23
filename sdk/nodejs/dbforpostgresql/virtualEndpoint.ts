@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Pair of virtual endpoints for a flexible server.
+ * Pair of virtual endpoints for a server.
  *
- * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
+ * Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2023-06-01-preview.
  *
- * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class VirtualEndpoint extends pulumi.CustomResource {
     /**
@@ -50,7 +50,7 @@ export class VirtualEndpoint extends pulumi.CustomResource {
      */
     declare public readonly endpointType: pulumi.Output<string | undefined>;
     /**
-     * List of flexible servers that one of the virtual endpoints can refer to.
+     * List of servers that one of the virtual endpoints can refer to.
      */
     declare public readonly members: pulumi.Output<string[] | undefined>;
     /**
@@ -66,7 +66,7 @@ export class VirtualEndpoint extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * List of virtual endpoints for a flexible server.
+     * List of virtual endpoints for a server.
      */
     declare public /*out*/ readonly virtualEndpoints: pulumi.Output<string[]>;
 
@@ -122,7 +122,7 @@ export interface VirtualEndpointArgs {
      */
     endpointType?: pulumi.Input<string | enums.dbforpostgresql.VirtualEndpointType>;
     /**
-     * List of flexible servers that one of the virtual endpoints can refer to.
+     * List of servers that one of the virtual endpoints can refer to.
      */
     members?: pulumi.Input<pulumi.Input<string>[]>;
     /**

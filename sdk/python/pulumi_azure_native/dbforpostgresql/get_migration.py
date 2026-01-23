@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetMigrationResult:
     """
-    Migration.
+    Properties of a migration.
     """
     def __init__(__self__, azure_api_version=None, cancel=None, current_status=None, dbs_to_cancel_migration_on=None, dbs_to_migrate=None, dbs_to_trigger_cutover_on=None, id=None, location=None, migrate_roles=None, migration_id=None, migration_instance_resource_id=None, migration_mode=None, migration_option=None, migration_window_end_time_in_utc=None, migration_window_start_time_in_utc=None, name=None, overwrite_dbs_in_target=None, setup_logical_replication_on_source_db_if_needed=None, source_db_server_fully_qualified_domain_name=None, source_db_server_metadata=None, source_db_server_resource_id=None, source_type=None, ssl_mode=None, start_data_migration=None, system_data=None, tags=None, target_db_server_fully_qualified_domain_name=None, target_db_server_metadata=None, target_db_server_resource_id=None, trigger_cutover=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -262,7 +262,7 @@ class GetMigrationResult:
     @pulumi.getter(name="setupLogicalReplicationOnSourceDbIfNeeded")
     def setup_logical_replication_on_source_db_if_needed(self) -> Optional[_builtins.str]:
         """
-        Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        Indicates whether to setup logical replication on source server, if needed.
         """
         return pulumi.get(self, "setup_logical_replication_on_source_db_if_needed")
 
@@ -412,27 +412,24 @@ class AwaitableGetMigrationResult(GetMigrationResult):
 
 def get_migration(migration_name: Optional[_builtins.str] = None,
                   resource_group_name: Optional[_builtins.str] = None,
-                  subscription_id: Optional[_builtins.str] = None,
-                  target_db_server_name: Optional[_builtins.str] = None,
+                  server_name: Optional[_builtins.str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetMigrationResult:
     """
     Gets information about a migration.
 
-    Uses Azure REST API version 2024-08-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str migration_name: Name of migration.
-    :param _builtins.str resource_group_name: Name of resource group of target database server.
-    :param _builtins.str subscription_id: Identifier of subscription of target database server.
-    :param _builtins.str target_db_server_name: Name of target database server.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param _builtins.str server_name: The name of the server.
     """
     __args__ = dict()
     __args__['migrationName'] = migration_name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['subscriptionId'] = subscription_id
-    __args__['targetDbServerName'] = target_db_server_name
+    __args__['serverName'] = server_name
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('azure-native:dbforpostgresql:getMigration', __args__, opts=opts, typ=GetMigrationResult).value
 
@@ -470,27 +467,24 @@ def get_migration(migration_name: Optional[_builtins.str] = None,
         type=pulumi.get(__ret__, 'type'))
 def get_migration_output(migration_name: Optional[pulumi.Input[_builtins.str]] = None,
                          resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                         subscription_id: Optional[pulumi.Input[Optional[_builtins.str]]] = None,
-                         target_db_server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                         server_name: Optional[pulumi.Input[_builtins.str]] = None,
                          opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetMigrationResult]:
     """
     Gets information about a migration.
 
-    Uses Azure REST API version 2024-08-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str migration_name: Name of migration.
-    :param _builtins.str resource_group_name: Name of resource group of target database server.
-    :param _builtins.str subscription_id: Identifier of subscription of target database server.
-    :param _builtins.str target_db_server_name: Name of target database server.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param _builtins.str server_name: The name of the server.
     """
     __args__ = dict()
     __args__['migrationName'] = migration_name
     __args__['resourceGroupName'] = resource_group_name
-    __args__['subscriptionId'] = subscription_id
-    __args__['targetDbServerName'] = target_db_server_name
+    __args__['serverName'] = server_name
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('azure-native:dbforpostgresql:getMigration', __args__, opts=opts, typ=GetMigrationResult)
     return __ret__.apply(lambda __response__: GetMigrationResult(

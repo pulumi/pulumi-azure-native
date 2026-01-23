@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Compute information of a flexible server.
+    /// Compute information of a server.
     /// </summary>
     [OutputType]
     public sealed class SkuResponse
     {
         /// <summary>
-        /// Name by which is known a given compute size assigned to a flexible server.
+        /// Name by which is known a given compute size assigned to a server.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Tier of the compute assigned to a flexible server.
+        /// Tier of the compute assigned to a server.
         /// </summary>
         public readonly string Tier;
 

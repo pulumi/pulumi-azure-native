@@ -8,12 +8,16 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .administrator import *
+from .administrators_microsoft_entra import *
 from .backup import *
+from .backups_automatic_and_on_demand import *
 from .configuration import *
 from .database import *
 from .firewall_rule import *
 from .get_administrator import *
+from .get_administrators_microsoft_entra import *
 from .get_backup import *
+from .get_backups_automatic_and_on_demand import *
 from .get_configuration import *
 from .get_database import *
 from .get_firewall_rule import *

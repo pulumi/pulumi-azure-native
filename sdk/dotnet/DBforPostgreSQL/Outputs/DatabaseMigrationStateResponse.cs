@@ -11,10 +11,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Migration status of a database.
+    /// Migration state of a database.
     /// </summary>
     [OutputType]
-    public sealed class DbMigrationStatusResponse
+    public sealed class DatabaseMigrationStateResponse
     {
         /// <summary>
         /// Change Data Capture applied changes counter.
@@ -82,7 +82,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         public readonly string? StartedOn;
 
         [OutputConstructor]
-        private DbMigrationStatusResponse(
+        private DatabaseMigrationStateResponse(
             int? appliedChanges,
 
             int? cdcDeleteCounter,

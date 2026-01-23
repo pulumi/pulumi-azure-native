@@ -10,10 +10,20 @@ export type Administrator = import("./administrator").Administrator;
 export const Administrator: typeof import("./administrator").Administrator = null as any;
 utilities.lazyLoad(exports, ["Administrator"], () => require("./administrator"));
 
+export { AdministratorsMicrosoftEntraArgs } from "./administratorsMicrosoftEntra";
+export type AdministratorsMicrosoftEntra = import("./administratorsMicrosoftEntra").AdministratorsMicrosoftEntra;
+export const AdministratorsMicrosoftEntra: typeof import("./administratorsMicrosoftEntra").AdministratorsMicrosoftEntra = null as any;
+utilities.lazyLoad(exports, ["AdministratorsMicrosoftEntra"], () => require("./administratorsMicrosoftEntra"));
+
 export { BackupArgs } from "./backup";
 export type Backup = import("./backup").Backup;
 export const Backup: typeof import("./backup").Backup = null as any;
 utilities.lazyLoad(exports, ["Backup"], () => require("./backup"));
+
+export { BackupsAutomaticAndOnDemandArgs } from "./backupsAutomaticAndOnDemand";
+export type BackupsAutomaticAndOnDemand = import("./backupsAutomaticAndOnDemand").BackupsAutomaticAndOnDemand;
+export const BackupsAutomaticAndOnDemand: typeof import("./backupsAutomaticAndOnDemand").BackupsAutomaticAndOnDemand = null as any;
+utilities.lazyLoad(exports, ["BackupsAutomaticAndOnDemand"], () => require("./backupsAutomaticAndOnDemand"));
 
 export { ConfigurationArgs } from "./configuration";
 export type Configuration = import("./configuration").Configuration;
@@ -35,10 +45,20 @@ export const getAdministrator: typeof import("./getAdministrator").getAdministra
 export const getAdministratorOutput: typeof import("./getAdministrator").getAdministratorOutput = null as any;
 utilities.lazyLoad(exports, ["getAdministrator","getAdministratorOutput"], () => require("./getAdministrator"));
 
+export { GetAdministratorsMicrosoftEntraArgs, GetAdministratorsMicrosoftEntraResult, GetAdministratorsMicrosoftEntraOutputArgs } from "./getAdministratorsMicrosoftEntra";
+export const getAdministratorsMicrosoftEntra: typeof import("./getAdministratorsMicrosoftEntra").getAdministratorsMicrosoftEntra = null as any;
+export const getAdministratorsMicrosoftEntraOutput: typeof import("./getAdministratorsMicrosoftEntra").getAdministratorsMicrosoftEntraOutput = null as any;
+utilities.lazyLoad(exports, ["getAdministratorsMicrosoftEntra","getAdministratorsMicrosoftEntraOutput"], () => require("./getAdministratorsMicrosoftEntra"));
+
 export { GetBackupArgs, GetBackupResult, GetBackupOutputArgs } from "./getBackup";
 export const getBackup: typeof import("./getBackup").getBackup = null as any;
 export const getBackupOutput: typeof import("./getBackup").getBackupOutput = null as any;
 utilities.lazyLoad(exports, ["getBackup","getBackupOutput"], () => require("./getBackup"));
+
+export { GetBackupsAutomaticAndOnDemandArgs, GetBackupsAutomaticAndOnDemandResult, GetBackupsAutomaticAndOnDemandOutputArgs } from "./getBackupsAutomaticAndOnDemand";
+export const getBackupsAutomaticAndOnDemand: typeof import("./getBackupsAutomaticAndOnDemand").getBackupsAutomaticAndOnDemand = null as any;
+export const getBackupsAutomaticAndOnDemandOutput: typeof import("./getBackupsAutomaticAndOnDemand").getBackupsAutomaticAndOnDemandOutput = null as any;
+utilities.lazyLoad(exports, ["getBackupsAutomaticAndOnDemand","getBackupsAutomaticAndOnDemandOutput"], () => require("./getBackupsAutomaticAndOnDemand"));
 
 export { GetConfigurationArgs, GetConfigurationResult, GetConfigurationOutputArgs } from "./getConfiguration";
 export const getConfiguration: typeof import("./getConfiguration").getConfiguration = null as any;
@@ -225,8 +245,12 @@ const _module = {
         switch (type) {
             case "azure-native:dbforpostgresql:Administrator":
                 return new Administrator(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:AdministratorsMicrosoftEntra":
+                return new AdministratorsMicrosoftEntra(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Backup":
                 return new Backup(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql:BackupsAutomaticAndOnDemand":
+                return new BackupsAutomaticAndOnDemand(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql:Database":
