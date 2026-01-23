@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Link to an application package inside the batch account
+    /// </summary>
     public sealed class ApplicationPackageReferenceArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The ID of the application package to install. This must be inside the same batch account as the pool. This can either be a reference to a specific version or the default version if one exists.
+        /// </summary>
         [Input("id", required: true)]
         public Input<string> Id { get; set; } = null!;
 

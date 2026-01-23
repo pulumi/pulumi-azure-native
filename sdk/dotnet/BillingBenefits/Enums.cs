@@ -40,6 +40,250 @@ namespace Pulumi.AzureNative.BillingBenefits
     }
 
     /// <summary>
+    /// The grain of the commitment.
+    /// </summary>
+    [EnumType]
+    public readonly struct CommitmentGrain : IEquatable<CommitmentGrain>
+    {
+        private readonly string _value;
+
+        private CommitmentGrain(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static CommitmentGrain Unknown { get; } = new CommitmentGrain("Unknown");
+        public static CommitmentGrain Hourly { get; } = new CommitmentGrain("Hourly");
+        public static CommitmentGrain FullTerm { get; } = new CommitmentGrain("FullTerm");
+
+        public static bool operator ==(CommitmentGrain left, CommitmentGrain right) => left.Equals(right);
+        public static bool operator !=(CommitmentGrain left, CommitmentGrain right) => !left.Equals(right);
+
+        public static explicit operator string(CommitmentGrain value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CommitmentGrain other && Equals(other);
+        public bool Equals(CommitmentGrain other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of conditional credit entity
+    /// </summary>
+    [EnumType]
+    public readonly struct ConditionalCreditEntityType : IEquatable<ConditionalCreditEntityType>
+    {
+        private readonly string _value;
+
+        private ConditionalCreditEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConditionalCreditEntityType Primary { get; } = new ConditionalCreditEntityType("Primary");
+        public static ConditionalCreditEntityType Contributor { get; } = new ConditionalCreditEntityType("Contributor");
+
+        public static bool operator ==(ConditionalCreditEntityType left, ConditionalCreditEntityType right) => left.Equals(right);
+        public static bool operator !=(ConditionalCreditEntityType left, ConditionalCreditEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(ConditionalCreditEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConditionalCreditEntityType other && Equals(other);
+        public bool Equals(ConditionalCreditEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The status of the conditional credit
+    /// </summary>
+    [EnumType]
+    public readonly struct ConditionalCreditStatus : IEquatable<ConditionalCreditStatus>
+    {
+        private readonly string _value;
+
+        private ConditionalCreditStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ConditionalCreditStatus Unknown { get; } = new ConditionalCreditStatus("Unknown");
+        public static ConditionalCreditStatus Scheduled { get; } = new ConditionalCreditStatus("Scheduled");
+        public static ConditionalCreditStatus Active { get; } = new ConditionalCreditStatus("Active");
+        public static ConditionalCreditStatus Pending { get; } = new ConditionalCreditStatus("Pending");
+        public static ConditionalCreditStatus Failed { get; } = new ConditionalCreditStatus("Failed");
+        public static ConditionalCreditStatus Canceled { get; } = new ConditionalCreditStatus("Canceled");
+        public static ConditionalCreditStatus Completed { get; } = new ConditionalCreditStatus("Completed");
+        public static ConditionalCreditStatus Stopped { get; } = new ConditionalCreditStatus("Stopped");
+        public static ConditionalCreditStatus PendingSettlement { get; } = new ConditionalCreditStatus("PendingSettlement");
+
+        public static bool operator ==(ConditionalCreditStatus left, ConditionalCreditStatus right) => left.Equals(right);
+        public static bool operator !=(ConditionalCreditStatus left, ConditionalCreditStatus right) => !left.Equals(right);
+
+        public static explicit operator string(ConditionalCreditStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ConditionalCreditStatus other && Equals(other);
+        public bool Equals(ConditionalCreditStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Expiration policy of the Credit
+    /// </summary>
+    [EnumType]
+    public readonly struct CreditExpirationPolicy : IEquatable<CreditExpirationPolicy>
+    {
+        private readonly string _value;
+
+        private CreditExpirationPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// No policy applied to the expiration of this credit
+        /// </summary>
+        public static CreditExpirationPolicy None { get; } = new CreditExpirationPolicy("None");
+        /// <summary>
+        /// Billing profile is suspended when the credit expires
+        /// </summary>
+        public static CreditExpirationPolicy SuspendBillingProfile { get; } = new CreditExpirationPolicy("SuspendBillingProfile");
+
+        public static bool operator ==(CreditExpirationPolicy left, CreditExpirationPolicy right) => left.Equals(right);
+        public static bool operator !=(CreditExpirationPolicy left, CreditExpirationPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CreditExpirationPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreditExpirationPolicy other && Equals(other);
+        public bool Equals(CreditExpirationPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Redemption policy of the Credit
+    /// </summary>
+    [EnumType]
+    public readonly struct CreditRedemptionPolicy : IEquatable<CreditRedemptionPolicy>
+    {
+        private readonly string _value;
+
+        private CreditRedemptionPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Redemption policy is not applicable for this credit
+        /// </summary>
+        public static CreditRedemptionPolicy NotApplicable { get; } = new CreditRedemptionPolicy("NotApplicable");
+        /// <summary>
+        /// Credit is automatically redeemed
+        /// </summary>
+        public static CreditRedemptionPolicy AutoRedeem { get; } = new CreditRedemptionPolicy("AutoRedeem");
+        /// <summary>
+        /// Credit is manually redeemed
+        /// </summary>
+        public static CreditRedemptionPolicy ManualRedeem { get; } = new CreditRedemptionPolicy("ManualRedeem");
+
+        public static bool operator ==(CreditRedemptionPolicy left, CreditRedemptionPolicy right) => left.Equals(right);
+        public static bool operator !=(CreditRedemptionPolicy left, CreditRedemptionPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(CreditRedemptionPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreditRedemptionPolicy other && Equals(other);
+        public bool Equals(CreditRedemptionPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the credit
+    /// </summary>
+    [EnumType]
+    public readonly struct CreditStatus : IEquatable<CreditStatus>
+    {
+        private readonly string _value;
+
+        private CreditStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Credit status is unknown
+        /// </summary>
+        public static CreditStatus Unknown { get; } = new CreditStatus("Unknown");
+        /// <summary>
+        /// Credit is pending activation
+        /// </summary>
+        public static CreditStatus Pending { get; } = new CreditStatus("Pending");
+        /// <summary>
+        /// Credit is active and available for use
+        /// </summary>
+        public static CreditStatus Active { get; } = new CreditStatus("Active");
+        /// <summary>
+        /// Credit operation succeeded
+        /// </summary>
+        public static CreditStatus Succeeded { get; } = new CreditStatus("Succeeded");
+        /// <summary>
+        /// Credit has been cancelled
+        /// </summary>
+        public static CreditStatus Canceled { get; } = new CreditStatus("Canceled");
+        /// <summary>
+        /// Credit operation failed
+        /// </summary>
+        public static CreditStatus Failed { get; } = new CreditStatus("Failed");
+        /// <summary>
+        /// Credit has expired
+        /// </summary>
+        public static CreditStatus Expired { get; } = new CreditStatus("Expired");
+        /// <summary>
+        /// Credit has been fully consumed
+        /// </summary>
+        public static CreditStatus Exhausted { get; } = new CreditStatus("Exhausted");
+        /// <summary>
+        /// Credit application has not started yet
+        /// </summary>
+        public static CreditStatus NotStarted { get; } = new CreditStatus("NotStarted");
+
+        public static bool operator ==(CreditStatus left, CreditStatus right) => left.Equals(right);
+        public static bool operator !=(CreditStatus left, CreditStatus right) => !left.Equals(right);
+
+        public static explicit operator string(CreditStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is CreditStatus other && Equals(other);
+        public bool Equals(CreditStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// List of applied scopes supported for discounts.
     /// </summary>
     [EnumType]
@@ -192,6 +436,149 @@ namespace Pulumi.AzureNative.BillingBenefits
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DiscountType other && Equals(other);
         public bool Equals(DiscountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+    /// </summary>
+    [EnumType]
+    public readonly struct EnablementMode : IEquatable<EnablementMode>
+    {
+        private readonly string _value;
+
+        private EnablementMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static EnablementMode Unknown { get; } = new EnablementMode("Unknown");
+        public static EnablementMode Enabled { get; } = new EnablementMode("Enabled");
+        public static EnablementMode Disabled { get; } = new EnablementMode("Disabled");
+
+        public static bool operator ==(EnablementMode left, EnablementMode right) => left.Equals(right);
+        public static bool operator !=(EnablementMode left, EnablementMode right) => !left.Equals(right);
+
+        public static explicit operator string(EnablementMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is EnablementMode other && Equals(other);
+        public bool Equals(EnablementMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents type of the object being operated on. Possible values are primary or contributor.
+    /// </summary>
+    [EnumType]
+    public readonly struct MaccEntityType : IEquatable<MaccEntityType>
+    {
+        private readonly string _value;
+
+        private MaccEntityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MaccEntityType Primary { get; } = new MaccEntityType("Primary");
+        public static MaccEntityType Contributor { get; } = new MaccEntityType("Contributor");
+
+        public static bool operator ==(MaccEntityType left, MaccEntityType right) => left.Equals(right);
+        public static bool operator !=(MaccEntityType left, MaccEntityType right) => !left.Equals(right);
+
+        public static explicit operator string(MaccEntityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MaccEntityType other && Equals(other);
+        public bool Equals(MaccEntityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents the current status of the Milestone.
+    /// </summary>
+    [EnumType]
+    public readonly struct MaccMilestoneStatus : IEquatable<MaccMilestoneStatus>
+    {
+        private readonly string _value;
+
+        private MaccMilestoneStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MaccMilestoneStatus Unknown { get; } = new MaccMilestoneStatus("Unknown");
+        public static MaccMilestoneStatus Scheduled { get; } = new MaccMilestoneStatus("Scheduled");
+        public static MaccMilestoneStatus Active { get; } = new MaccMilestoneStatus("Active");
+        public static MaccMilestoneStatus Pending { get; } = new MaccMilestoneStatus("Pending");
+        public static MaccMilestoneStatus Failed { get; } = new MaccMilestoneStatus("Failed");
+        public static MaccMilestoneStatus Completed { get; } = new MaccMilestoneStatus("Completed");
+        public static MaccMilestoneStatus Canceled { get; } = new MaccMilestoneStatus("Canceled");
+        public static MaccMilestoneStatus Removed { get; } = new MaccMilestoneStatus("Removed");
+        public static MaccMilestoneStatus PendingSettlement { get; } = new MaccMilestoneStatus("PendingSettlement");
+        public static MaccMilestoneStatus ShortfallCharged { get; } = new MaccMilestoneStatus("ShortfallCharged");
+        public static MaccMilestoneStatus ShortfallWaived { get; } = new MaccMilestoneStatus("ShortfallWaived");
+
+        public static bool operator ==(MaccMilestoneStatus left, MaccMilestoneStatus right) => left.Equals(right);
+        public static bool operator !=(MaccMilestoneStatus left, MaccMilestoneStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MaccMilestoneStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MaccMilestoneStatus other && Equals(other);
+        public bool Equals(MaccMilestoneStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Represents the current status of the MACC.
+    /// </summary>
+    [EnumType]
+    public readonly struct MaccStatus : IEquatable<MaccStatus>
+    {
+        private readonly string _value;
+
+        private MaccStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MaccStatus Unknown { get; } = new MaccStatus("Unknown");
+        public static MaccStatus Scheduled { get; } = new MaccStatus("Scheduled");
+        public static MaccStatus Active { get; } = new MaccStatus("Active");
+        public static MaccStatus Pending { get; } = new MaccStatus("Pending");
+        public static MaccStatus Failed { get; } = new MaccStatus("Failed");
+        public static MaccStatus Canceled { get; } = new MaccStatus("Canceled");
+        public static MaccStatus Completed { get; } = new MaccStatus("Completed");
+        public static MaccStatus Stopped { get; } = new MaccStatus("Stopped");
+        public static MaccStatus PendingSettlement { get; } = new MaccStatus("PendingSettlement");
+        public static MaccStatus ShortfallCharged { get; } = new MaccStatus("ShortfallCharged");
+        public static MaccStatus ShortfallWaived { get; } = new MaccStatus("ShortfallWaived");
+
+        public static bool operator ==(MaccStatus left, MaccStatus right) => left.Equals(right);
+        public static bool operator !=(MaccStatus left, MaccStatus right) => !left.Equals(right);
+
+        public static explicit operator string(MaccStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MaccStatus other && Equals(other);
+        public bool Equals(MaccStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

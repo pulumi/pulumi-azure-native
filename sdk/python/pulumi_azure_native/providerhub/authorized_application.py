@@ -81,6 +81,8 @@ class AuthorizedApplication(pulumi.CustomResource):
                  provider_namespace: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2024-09-01.
 
         :param str resource_name: The name of the resource.
@@ -95,6 +97,8 @@ class AuthorizedApplication(pulumi.CustomResource):
                  args: AuthorizedApplicationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
+        Concrete proxy resource types can be created by aliasing this type using a specific property type.
+
         Uses Azure REST API version 2024-09-01.
 
         :param str resource_name: The name of the resource.

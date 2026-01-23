@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The hidden property paths.
         /// </summary>
-        public readonly Outputs.LoggingRuleResponseHiddenPropertyPaths? HiddenPropertyPaths;
+        public readonly Outputs.LoggingRuleHiddenPropertyPathsResponse? HiddenPropertyPaths;
 
         [OutputConstructor]
         private LoggingRuleResponse(
@@ -38,7 +38,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string direction,
 
-            Outputs.LoggingRuleResponseHiddenPropertyPaths? hiddenPropertyPaths)
+            Outputs.LoggingRuleHiddenPropertyPathsResponse? hiddenPropertyPaths)
         {
             Action = action;
             DetailLevel = detailLevel;

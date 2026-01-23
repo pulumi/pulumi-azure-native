@@ -7,7 +7,15 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
+from .conditional_credit import *
+from .credit import *
 from .discount import *
+from .get_conditional_credit import *
+from .get_credit import *
 from .get_discount import *
+from .get_macc import *
+from .get_source import *
+from .macc import *
+from .source import *
 from ._inputs import *
 from . import outputs

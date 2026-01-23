@@ -27,7 +27,7 @@ class GetBatchAccountResult:
     """
     Contains information about an Azure Batch account.
     """
-    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, allowed_authentication_modes=None, auto_storage=None, azure_api_version=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, network_profile=None, node_management_endpoint=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
+    def __init__(__self__, account_endpoint=None, active_job_and_job_schedule_quota=None, allowed_authentication_modes=None, auto_storage=None, azure_api_version=None, dedicated_core_quota=None, dedicated_core_quota_per_vm_family=None, dedicated_core_quota_per_vm_family_enforced=None, encryption=None, id=None, identity=None, key_vault_reference=None, location=None, low_priority_core_quota=None, name=None, network_profile=None, node_management_endpoint=None, pool_allocation_mode=None, pool_quota=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
         if account_endpoint and not isinstance(account_endpoint, str):
             raise TypeError("Expected argument 'account_endpoint' to be a str")
         pulumi.set(__self__, "account_endpoint", account_endpoint)
@@ -94,6 +94,9 @@ class GetBatchAccountResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -112,6 +115,9 @@ class GetBatchAccountResult:
     @_builtins.property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
     def active_job_and_job_schedule_quota(self) -> _builtins.int:
+        """
+        The active job and job schedule quota for the Batch account.
+        """
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @_builtins.property
@@ -174,7 +180,7 @@ class GetBatchAccountResult:
     @pulumi.getter
     def id(self) -> _builtins.str:
         """
-        The ID of the resource.
+        Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         """
         return pulumi.get(self, "id")
 
@@ -198,7 +204,7 @@ class GetBatchAccountResult:
     @pulumi.getter
     def location(self) -> _builtins.str:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -214,7 +220,7 @@ class GetBatchAccountResult:
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -245,6 +251,9 @@ class GetBatchAccountResult:
     @_builtins.property
     @pulumi.getter(name="poolQuota")
     def pool_quota(self) -> _builtins.int:
+        """
+        The pool quota for the Batch account.
+        """
         return pulumi.get(self, "pool_quota")
 
     @_builtins.property
@@ -267,15 +276,23 @@ class GetBatchAccountResult:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[_builtins.str]:
         """
-        If not specified, the default value is 'enabled'.
+        The network access type for operating on the resources in the Batch account.
         """
         return pulumi.get(self, "public_network_access")
 
     @_builtins.property
-    @pulumi.getter
-    def tags(self) -> Mapping[str, _builtins.str]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
-        The tags of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -283,7 +300,7 @@ class GetBatchAccountResult:
     @pulumi.getter
     def type(self) -> _builtins.str:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -316,6 +333,7 @@ class AwaitableGetBatchAccountResult(GetBatchAccountResult):
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -331,8 +349,8 @@ def get_batch_account(account_name: Optional[_builtins.str] = None,
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -363,6 +381,7 @@ def get_batch_account(account_name: Optional[_builtins.str] = None,
         private_endpoint_connections=pulumi.get(__ret__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__ret__, 'provisioning_state'),
         public_network_access=pulumi.get(__ret__, 'public_network_access'),
+        system_data=pulumi.get(__ret__, 'system_data'),
         tags=pulumi.get(__ret__, 'tags'),
         type=pulumi.get(__ret__, 'type'))
 def get_batch_account_output(account_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -376,8 +395,8 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[_builtins.str]]
     Other available API versions: 2023-05-01, 2023-11-01, 2024-02-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native batch [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
-    :param _builtins.str account_name: The name of the Batch account.
-    :param _builtins.str resource_group_name: The name of the resource group that contains the Batch account.
+    :param _builtins.str account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+    :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
     __args__['accountName'] = account_name
@@ -407,5 +426,6 @@ def get_batch_account_output(account_name: Optional[pulumi.Input[_builtins.str]]
         private_endpoint_connections=pulumi.get(__response__, 'private_endpoint_connections'),
         provisioning_state=pulumi.get(__response__, 'provisioning_state'),
         public_network_access=pulumi.get(__response__, 'public_network_access'),
+        system_data=pulumi.get(__response__, 'system_data'),
         tags=pulumi.get(__response__, 'tags'),
         type=pulumi.get(__response__, 'type')))

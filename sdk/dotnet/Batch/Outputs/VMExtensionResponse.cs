@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The configuration for virtual machine extensions.
+    /// </summary>
     [OutputType]
     public sealed class VMExtensionResponse
     {
@@ -21,18 +24,33 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// Indicates whether the extension should be automatically upgraded by the platform if there is a newer version of the extension available.
         /// </summary>
         public readonly bool? EnableAutomaticUpgrade;
+        /// <summary>
+        /// The name of the virtual machine extension.
+        /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all. 
+        /// The extension can contain either protectedSettings or protectedSettingsFromKeyVault or no protected settings at all.
         /// </summary>
         public readonly object? ProtectedSettings;
         /// <summary>
         /// Collection of extension names after which this extension needs to be provisioned.
         /// </summary>
         public readonly ImmutableArray<string> ProvisionAfterExtensions;
+        /// <summary>
+        /// The name of the extension handler publisher.
+        /// </summary>
         public readonly string Publisher;
+        /// <summary>
+        /// JSON formatted public settings for the extension.
+        /// </summary>
         public readonly object? Settings;
+        /// <summary>
+        /// The type of the extensions.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The version of script handler.
+        /// </summary>
         public readonly string? TypeHandlerVersion;
 
         [OutputConstructor]

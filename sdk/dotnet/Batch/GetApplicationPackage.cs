@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetApplicationPackageArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public string AccountName { get; set; } = null!;
@@ -58,7 +58,7 @@ namespace Pulumi.AzureNative.Batch
         public string ApplicationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
@@ -78,7 +78,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class GetApplicationPackageInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -90,7 +90,7 @@ namespace Pulumi.AzureNative.Batch
         public Input<string> ApplicationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string Format;
         /// <summary>
-        /// The ID of the resource.
+        /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string LastActivationTime;
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -148,11 +148,15 @@ namespace Pulumi.AzureNative.Batch
         /// </summary>
         public readonly string StorageUrlExpiry;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
 
@@ -176,6 +180,8 @@ namespace Pulumi.AzureNative.Batch
 
             string storageUrlExpiry,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -189,6 +195,7 @@ namespace Pulumi.AzureNative.Batch
             State = state;
             StorageUrl = storageUrl;
             StorageUrlExpiry = storageUrlExpiry;
+            SystemData = systemData;
             Tags = tags;
             Type = type;
         }

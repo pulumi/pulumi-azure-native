@@ -58,15 +58,19 @@ export class ManagementGroup extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * The name of the management group. For example, 00000000-0000-0000-0000-000000000000
+     * The name of the resource
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    declare public /*out*/ readonly systemData: pulumi.Output<outputs.management.SystemDataResponse>;
     /**
      * The AAD Tenant ID associated with the management group. For example, 00000000-0000-0000-0000-000000000000
      */
     declare public /*out*/ readonly tenantId: pulumi.Output<string | undefined>;
     /**
-     * The type of the resource.  For example, Microsoft.Management/managementGroups
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
 
@@ -87,6 +91,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["name"] = args?.name;
             resourceInputs["azureApiVersion"] = undefined /*out*/;
             resourceInputs["children"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -95,6 +100,7 @@ export class ManagementGroup extends pulumi.CustomResource {
             resourceInputs["details"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tenantId"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }

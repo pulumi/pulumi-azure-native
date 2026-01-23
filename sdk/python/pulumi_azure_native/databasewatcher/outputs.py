@@ -19,6 +19,10 @@ from ._enums import *
 __all__ = [
     'DatastoreResponse',
     'ManagedServiceIdentityResponse',
+    'SqlDbElasticPoolTargetPropertiesResponse',
+    'SqlDbSingleDatabaseTargetPropertiesResponse',
+    'SqlMiTargetPropertiesResponse',
+    'SqlVmTargetPropertiesResponse',
     'SystemDataResponse',
     'UserAssignedIdentityResponse',
     'VaultSecretResponse',
@@ -218,6 +222,541 @@ class ManagedServiceIdentityResponse(dict):
         The set of user assigned identities associated with the resource. The userAssignedIdentities dictionary keys will be ARM resource ids in the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName}. The dictionary values can be empty objects ({}) in requests.
         """
         return pulumi.get(self, "user_assigned_identities")
+
+
+@pulumi.output_type
+class SqlDbElasticPoolTargetPropertiesResponse(dict):
+    """
+    The properties specific to an elastic pool in Azure SQL Database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "anchorDatabaseResourceId":
+            suggest = "anchor_database_resource_id"
+        elif key == "connectionServerName":
+            suggest = "connection_server_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sqlEpResourceId":
+            suggest = "sql_ep_resource_id"
+        elif key == "targetAuthenticationType":
+            suggest = "target_authentication_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "readIntent":
+            suggest = "read_intent"
+        elif key == "targetVault":
+            suggest = "target_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDbElasticPoolTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDbElasticPoolTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDbElasticPoolTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 anchor_database_resource_id: _builtins.str,
+                 connection_server_name: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 sql_ep_resource_id: _builtins.str,
+                 target_authentication_type: _builtins.str,
+                 target_type: _builtins.str,
+                 read_intent: Optional[_builtins.bool] = None,
+                 target_vault: Optional['outputs.VaultSecretResponse'] = None):
+        """
+        The properties specific to an elastic pool in Azure SQL Database.
+        :param _builtins.str anchor_database_resource_id: The Azure resource ID of the anchor database used to connect to an elastic pool.
+        :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param _builtins.str provisioning_state: The provisioning state of the resource.
+        :param _builtins.str sql_ep_resource_id: The Azure resource ID of an Azure SQL DB elastic pool target.
+        :param _builtins.str target_authentication_type: The type of authentication to use when connecting to a target.
+        :param _builtins.str target_type: Discriminator property for TargetProperties.
+               Expected value is 'SqlEp'.
+        :param _builtins.bool read_intent: Set to true to monitor a high availability replica of specified target, if any.
+        :param 'VaultSecretResponse' target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        pulumi.set(__self__, "anchor_database_resource_id", anchor_database_resource_id)
+        pulumi.set(__self__, "connection_server_name", connection_server_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sql_ep_resource_id", sql_ep_resource_id)
+        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
+        pulumi.set(__self__, "target_type", 'SqlEp')
+        if read_intent is None:
+            read_intent = False
+        if read_intent is not None:
+            pulumi.set(__self__, "read_intent", read_intent)
+        if target_vault is not None:
+            pulumi.set(__self__, "target_vault", target_vault)
+
+    @_builtins.property
+    @pulumi.getter(name="anchorDatabaseResourceId")
+    def anchor_database_resource_id(self) -> _builtins.str:
+        """
+        The Azure resource ID of the anchor database used to connect to an elastic pool.
+        """
+        return pulumi.get(self, "anchor_database_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionServerName")
+    def connection_server_name(self) -> _builtins.str:
+        """
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        """
+        return pulumi.get(self, "connection_server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlEpResourceId")
+    def sql_ep_resource_id(self) -> _builtins.str:
+        """
+        The Azure resource ID of an Azure SQL DB elastic pool target.
+        """
+        return pulumi.get(self, "sql_ep_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAuthenticationType")
+    def target_authentication_type(self) -> _builtins.str:
+        """
+        The type of authentication to use when connecting to a target.
+        """
+        return pulumi.get(self, "target_authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> _builtins.str:
+        """
+        Discriminator property for TargetProperties.
+        Expected value is 'SqlEp'.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
+    @pulumi.getter(name="readIntent")
+    def read_intent(self) -> Optional[_builtins.bool]:
+        """
+        Set to true to monitor a high availability replica of specified target, if any.
+        """
+        return pulumi.get(self, "read_intent")
+
+    @_builtins.property
+    @pulumi.getter(name="targetVault")
+    def target_vault(self) -> Optional['outputs.VaultSecretResponse']:
+        """
+        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        return pulumi.get(self, "target_vault")
+
+
+@pulumi.output_type
+class SqlDbSingleDatabaseTargetPropertiesResponse(dict):
+    """
+    The properties specific to a database in Azure SQL Database.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionServerName":
+            suggest = "connection_server_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sqlDbResourceId":
+            suggest = "sql_db_resource_id"
+        elif key == "targetAuthenticationType":
+            suggest = "target_authentication_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "readIntent":
+            suggest = "read_intent"
+        elif key == "targetVault":
+            suggest = "target_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlDbSingleDatabaseTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlDbSingleDatabaseTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlDbSingleDatabaseTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_server_name: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 sql_db_resource_id: _builtins.str,
+                 target_authentication_type: _builtins.str,
+                 target_type: _builtins.str,
+                 read_intent: Optional[_builtins.bool] = None,
+                 target_vault: Optional['outputs.VaultSecretResponse'] = None):
+        """
+        The properties specific to a database in Azure SQL Database.
+        :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param _builtins.str provisioning_state: The provisioning state of the resource.
+        :param _builtins.str sql_db_resource_id: The Azure resource ID of an Azure SQL DB database target.
+        :param _builtins.str target_authentication_type: The type of authentication to use when connecting to a target.
+        :param _builtins.str target_type: Discriminator property for TargetProperties.
+               Expected value is 'SqlDb'.
+        :param _builtins.bool read_intent: Set to true to monitor a high availability replica of specified target, if any.
+        :param 'VaultSecretResponse' target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        pulumi.set(__self__, "connection_server_name", connection_server_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sql_db_resource_id", sql_db_resource_id)
+        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
+        pulumi.set(__self__, "target_type", 'SqlDb')
+        if read_intent is None:
+            read_intent = False
+        if read_intent is not None:
+            pulumi.set(__self__, "read_intent", read_intent)
+        if target_vault is not None:
+            pulumi.set(__self__, "target_vault", target_vault)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionServerName")
+    def connection_server_name(self) -> _builtins.str:
+        """
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        """
+        return pulumi.get(self, "connection_server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlDbResourceId")
+    def sql_db_resource_id(self) -> _builtins.str:
+        """
+        The Azure resource ID of an Azure SQL DB database target.
+        """
+        return pulumi.get(self, "sql_db_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAuthenticationType")
+    def target_authentication_type(self) -> _builtins.str:
+        """
+        The type of authentication to use when connecting to a target.
+        """
+        return pulumi.get(self, "target_authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> _builtins.str:
+        """
+        Discriminator property for TargetProperties.
+        Expected value is 'SqlDb'.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
+    @pulumi.getter(name="readIntent")
+    def read_intent(self) -> Optional[_builtins.bool]:
+        """
+        Set to true to monitor a high availability replica of specified target, if any.
+        """
+        return pulumi.get(self, "read_intent")
+
+    @_builtins.property
+    @pulumi.getter(name="targetVault")
+    def target_vault(self) -> Optional['outputs.VaultSecretResponse']:
+        """
+        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        return pulumi.get(self, "target_vault")
+
+
+@pulumi.output_type
+class SqlMiTargetPropertiesResponse(dict):
+    """
+    The properties specific to Azure SQL Managed Instance targets.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionServerName":
+            suggest = "connection_server_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sqlMiResourceId":
+            suggest = "sql_mi_resource_id"
+        elif key == "targetAuthenticationType":
+            suggest = "target_authentication_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "connectionTcpPort":
+            suggest = "connection_tcp_port"
+        elif key == "readIntent":
+            suggest = "read_intent"
+        elif key == "targetVault":
+            suggest = "target_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlMiTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlMiTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlMiTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_server_name: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 sql_mi_resource_id: _builtins.str,
+                 target_authentication_type: _builtins.str,
+                 target_type: _builtins.str,
+                 connection_tcp_port: Optional[_builtins.int] = None,
+                 read_intent: Optional[_builtins.bool] = None,
+                 target_vault: Optional['outputs.VaultSecretResponse'] = None):
+        """
+        The properties specific to Azure SQL Managed Instance targets.
+        :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param _builtins.str provisioning_state: The provisioning state of the resource.
+        :param _builtins.str sql_mi_resource_id: The Azure resource ID of an Azure SQL Managed Instance target.
+        :param _builtins.str target_authentication_type: The type of authentication to use when connecting to a target.
+        :param _builtins.str target_type: Discriminator property for TargetProperties.
+               Expected value is 'SqlMi'.
+        :param _builtins.int connection_tcp_port: The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
+        :param _builtins.bool read_intent: Set to true to monitor a high availability replica of specified target, if any.
+        :param 'VaultSecretResponse' target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        pulumi.set(__self__, "connection_server_name", connection_server_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sql_mi_resource_id", sql_mi_resource_id)
+        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
+        pulumi.set(__self__, "target_type", 'SqlMi')
+        if connection_tcp_port is None:
+            connection_tcp_port = 1433
+        if connection_tcp_port is not None:
+            pulumi.set(__self__, "connection_tcp_port", connection_tcp_port)
+        if read_intent is None:
+            read_intent = False
+        if read_intent is not None:
+            pulumi.set(__self__, "read_intent", read_intent)
+        if target_vault is not None:
+            pulumi.set(__self__, "target_vault", target_vault)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionServerName")
+    def connection_server_name(self) -> _builtins.str:
+        """
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        """
+        return pulumi.get(self, "connection_server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlMiResourceId")
+    def sql_mi_resource_id(self) -> _builtins.str:
+        """
+        The Azure resource ID of an Azure SQL Managed Instance target.
+        """
+        return pulumi.get(self, "sql_mi_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAuthenticationType")
+    def target_authentication_type(self) -> _builtins.str:
+        """
+        The type of authentication to use when connecting to a target.
+        """
+        return pulumi.get(self, "target_authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> _builtins.str:
+        """
+        Discriminator property for TargetProperties.
+        Expected value is 'SqlMi'.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionTcpPort")
+    def connection_tcp_port(self) -> Optional[_builtins.int]:
+        """
+        The TCP port number to optionally use in the connection string when connecting to an Azure SQL Managed Instance target.
+        """
+        return pulumi.get(self, "connection_tcp_port")
+
+    @_builtins.property
+    @pulumi.getter(name="readIntent")
+    def read_intent(self) -> Optional[_builtins.bool]:
+        """
+        Set to true to monitor a high availability replica of specified target, if any.
+        """
+        return pulumi.get(self, "read_intent")
+
+    @_builtins.property
+    @pulumi.getter(name="targetVault")
+    def target_vault(self) -> Optional['outputs.VaultSecretResponse']:
+        """
+        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        return pulumi.get(self, "target_vault")
+
+
+@pulumi.output_type
+class SqlVmTargetPropertiesResponse(dict):
+    """
+    The properties specific to Azure SQL VM targets.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectionServerName":
+            suggest = "connection_server_name"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "sqlVmResourceId":
+            suggest = "sql_vm_resource_id"
+        elif key == "targetAuthenticationType":
+            suggest = "target_authentication_type"
+        elif key == "targetType":
+            suggest = "target_type"
+        elif key == "connectionTcpPort":
+            suggest = "connection_tcp_port"
+        elif key == "sqlNamedInstanceName":
+            suggest = "sql_named_instance_name"
+        elif key == "targetVault":
+            suggest = "target_vault"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SqlVmTargetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SqlVmTargetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SqlVmTargetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connection_server_name: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 sql_vm_resource_id: _builtins.str,
+                 target_authentication_type: _builtins.str,
+                 target_type: _builtins.str,
+                 connection_tcp_port: Optional[_builtins.int] = None,
+                 sql_named_instance_name: Optional[_builtins.str] = None,
+                 target_vault: Optional['outputs.VaultSecretResponse'] = None):
+        """
+        The properties specific to Azure SQL VM targets.
+        :param _builtins.str connection_server_name: The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        :param _builtins.str provisioning_state: The provisioning state of the resource.
+        :param _builtins.str sql_vm_resource_id: The Azure resource ID of an Azure SQL VM target.
+        :param _builtins.str target_authentication_type: The type of authentication to use when connecting to a target.
+        :param _builtins.str target_type: Discriminator property for TargetProperties.
+               Expected value is 'SqlVm'.
+        :param _builtins.int connection_tcp_port: The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
+        :param _builtins.str sql_named_instance_name: The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
+        :param 'VaultSecretResponse' target_vault: To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        pulumi.set(__self__, "connection_server_name", connection_server_name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "sql_vm_resource_id", sql_vm_resource_id)
+        pulumi.set(__self__, "target_authentication_type", target_authentication_type)
+        pulumi.set(__self__, "target_type", 'SqlVm')
+        if connection_tcp_port is None:
+            connection_tcp_port = 1433
+        if connection_tcp_port is not None:
+            pulumi.set(__self__, "connection_tcp_port", connection_tcp_port)
+        if sql_named_instance_name is not None:
+            pulumi.set(__self__, "sql_named_instance_name", sql_named_instance_name)
+        if target_vault is not None:
+            pulumi.set(__self__, "target_vault", target_vault)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionServerName")
+    def connection_server_name(self) -> _builtins.str:
+        """
+        The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
+        """
+        return pulumi.get(self, "connection_server_name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlVmResourceId")
+    def sql_vm_resource_id(self) -> _builtins.str:
+        """
+        The Azure resource ID of an Azure SQL VM target.
+        """
+        return pulumi.get(self, "sql_vm_resource_id")
+
+    @_builtins.property
+    @pulumi.getter(name="targetAuthenticationType")
+    def target_authentication_type(self) -> _builtins.str:
+        """
+        The type of authentication to use when connecting to a target.
+        """
+        return pulumi.get(self, "target_authentication_type")
+
+    @_builtins.property
+    @pulumi.getter(name="targetType")
+    def target_type(self) -> _builtins.str:
+        """
+        Discriminator property for TargetProperties.
+        Expected value is 'SqlVm'.
+        """
+        return pulumi.get(self, "target_type")
+
+    @_builtins.property
+    @pulumi.getter(name="connectionTcpPort")
+    def connection_tcp_port(self) -> Optional[_builtins.int]:
+        """
+        The TCP port number to optionally use in the connection string when connecting to an Azure SQL VM target.
+        """
+        return pulumi.get(self, "connection_tcp_port")
+
+    @_builtins.property
+    @pulumi.getter(name="sqlNamedInstanceName")
+    def sql_named_instance_name(self) -> Optional[_builtins.str]:
+        """
+        The SQL instance name to optionally use in the connection string when connecting to an Azure SQL VM target.
+        """
+        return pulumi.get(self, "sql_named_instance_name")
+
+    @_builtins.property
+    @pulumi.getter(name="targetVault")
+    def target_vault(self) -> Optional['outputs.VaultSecretResponse']:
+        """
+        To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
+        """
+        return pulumi.get(self, "target_vault")
 
 
 @pulumi.output_type

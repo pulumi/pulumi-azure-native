@@ -465,6 +465,34 @@ export const GalleryExtendedLocationType = {
  */
 export type GalleryExtendedLocationType = (typeof GalleryExtendedLocationType)[keyof typeof GalleryExtendedLocationType];
 
+export const GalleryScriptParameterType = {
+    /**
+     * String gallery script parameter type
+     */
+    String: "String",
+    /**
+     * Int gallery script parameter type
+     */
+    Int: "Int",
+    /**
+     * Double gallery script parameter type
+     */
+    Double: "Double",
+    /**
+     * Boolean gallery script parameter type
+     */
+    Boolean: "Boolean",
+    /**
+     * Enum gallery script parameter type
+     */
+    Enum: "Enum",
+} as const;
+
+/**
+ * Specifies the type of the Gallery Script parameter. Possible values are: String, Int, Double, Boolean, Enum
+ */
+export type GalleryScriptParameterType = (typeof GalleryScriptParameterType)[keyof typeof GalleryScriptParameterType];
+
 export const GallerySharingPermissionTypes = {
     Private: "Private",
     Groups: "Groups",
@@ -922,6 +950,22 @@ export const StatusLevelTypes = {
  * The level code.
  */
 export type StatusLevelTypes = (typeof StatusLevelTypes)[keyof typeof StatusLevelTypes];
+
+export const StorageAccountStrategy = {
+    /**
+     * Choose Standard_ZRS storage if the region supports it, else choose Standard_LRS storage, unless overridden by specifying regional storageAccountType. If no storageAccountStrategy is specified, this is the default strategy (from API version 2025-03-03 onwards).
+     */
+    PreferStandard_ZRS: "PreferStandard_ZRS",
+    /**
+     * Choose Standard_LRS storage unless overridden by specifying regional storageAccountType.
+     */
+    DefaultStandard_LRS: "DefaultStandard_LRS",
+} as const;
+
+/**
+ * Specifies the strategy to be used when selecting the storage account type. Cannot be specified along with storageAccountType, but can be overridden per region by specifying targetRegions[].storageAccountType. This property is not updatable.
+ */
+export type StorageAccountStrategy = (typeof StorageAccountStrategy)[keyof typeof StorageAccountStrategy];
 
 export const StorageAccountType = {
     Standard_LRS: "Standard_LRS",

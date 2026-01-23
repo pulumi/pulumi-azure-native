@@ -21,13 +21,19 @@ __all__ = [
     'HciEdgeDeviceJobType',
     'HyperVGeneration',
     'IPPoolTypeEnum',
+    'InboundNATRuleProtocol',
     'IpAllocationMethodEnum',
+    'LoadBalancerBackendAddressAdminState',
+    'LoadBalancerProbeProtocol',
+    'LoadBalancerRuleSessionPersistenceType',
+    'LoadBalancerRuleTransportProtocol',
     'ManagedServiceIdentityType',
     'NetworkTypeEnum',
     'OperatingSystemTypes',
     'OperationType',
     'OsTypeEnum',
     'ProvisioningAction',
+    'PublicIPAddressType',
     'RemoteSupportAccessLevel',
     'RemoteSupportType',
     'ResourceIdentityType',
@@ -177,6 +183,9 @@ class ExtendedLocationTypes(_builtins.str, Enum):
     The type of the extended location.
     """
     CUSTOM_LOCATION = "CustomLocation"
+    """
+    Custom extended location type
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:GpuAssignmentTypeEnum")
@@ -239,6 +248,21 @@ class IPPoolTypeEnum(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:azurestackhci:InboundNATRuleProtocol")
+class InboundNATRuleProtocol(_builtins.str, Enum):
+    """
+    Protocol for the NAT rule
+    """
+    TCP = "Tcp"
+    """
+    TCP - load balance only tcp traffic
+    """
+    UDP = "Udp"
+    """
+    Udp - load balance only UDP traffic
+    """
+
+
 @pulumi.type_token("azure-native:azurestackhci:IpAllocationMethodEnum")
 class IpAllocationMethodEnum(_builtins.str, Enum):
     """
@@ -246,6 +270,74 @@ class IpAllocationMethodEnum(_builtins.str, Enum):
     """
     DYNAMIC = "Dynamic"
     STATIC = "Static"
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerBackendAddressAdminState")
+class LoadBalancerBackendAddressAdminState(_builtins.str, Enum):
+    """
+    admin state - if set to false, the address is removed from the pool
+    """
+    UP = "Up"
+    """
+    Up - forced admin state up
+    """
+    DOWN = "Down"
+    """
+    Down - forced admin state down
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerProbeProtocol")
+class LoadBalancerProbeProtocol(_builtins.str, Enum):
+    """
+    Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+    """
+    TCP = "Tcp"
+    """
+    TCP - TCP port checking
+    """
+    HTTP = "Http"
+    """
+    HTTP - HTTP request
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerRuleSessionPersistenceType")
+class LoadBalancerRuleSessionPersistenceType(_builtins.str, Enum):
+    """
+    SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+    """
+    DEFAULT = "Default"
+    """
+    Default - 5-tuple hashing
+    """
+    SOURCE_IP = "SourceIP"
+    """
+    Source IP - 2-tuple hashing looking at src-dst ip
+    """
+    SOURCE_IP_PROTOCOL = "SourceIPProtocol"
+    """
+    SourceIPProtocol - 3-tuple hashing looking at src-dst ip and ip protocol
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:LoadBalancerRuleTransportProtocol")
+class LoadBalancerRuleTransportProtocol(_builtins.str, Enum):
+    """
+    IP Protocol that the rule must load-balance
+    """
+    TCP = "Tcp"
+    """
+    TCP - load balance only tcp traffic
+    """
+    UDP = "Udp"
+    """
+    Udp - load balance only UDP traffic
+    """
+    ALL = "All"
+    """
+    All - load balance all UDP and TCP traffic
+    """
 
 
 @pulumi.type_token("azure-native:azurestackhci:ManagedServiceIdentityType")
@@ -330,6 +422,21 @@ class ProvisioningAction(_builtins.str, Enum):
     REPAIR = "repair"
     """
     Repair guest agent
+    """
+
+
+@pulumi.type_token("azure-native:azurestackhci:PublicIPAddressType")
+class PublicIPAddressType(_builtins.str, Enum):
+    """
+    Whether the public IP is v4 or v6. Defaults to IPv4
+    """
+    I_PV4 = "IPv4"
+    """
+    IPv4 IP Address
+    """
+    I_PV6 = "IPv6"
+    """
+    IPv6 IP Address
     """
 
 

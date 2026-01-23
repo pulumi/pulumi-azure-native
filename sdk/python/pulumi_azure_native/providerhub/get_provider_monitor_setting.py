@@ -24,6 +24,9 @@ __all__ = [
 
 @pulumi.output_type
 class GetProviderMonitorSettingResult:
+    """
+    Concrete tracked resource types can be created by aliasing this type using a specific property type.
+    """
     def __init__(__self__, azure_api_version=None, id=None, location=None, name=None, properties=None, system_data=None, tags=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
             raise TypeError("Expected argument 'azure_api_version' to be a str")

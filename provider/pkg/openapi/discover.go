@@ -525,6 +525,18 @@ var excludeRegexes = []*regexp.Regexp{
 	regexp.MustCompile(".*cdn/resource-manager/Microsoft.Cdn/Cdn/preview/2025-05-01-preview.*"),
 	// Includes a type with an invalid reference.
 	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/preview/2025-06-01-preview.*"),
+	// 2026-01-01 has broken type reference (SkuRecommendationResultsMonthlyCostOptionItem).
+	regexp.MustCompile(".*azurearcdata/resource-manager/Microsoft.AzureArcData/stable/2026-01-01.*"),
+	// 2025-11-01-preview and 2025-12-01-preview have invalid OpenAPI with Pattern as sibling to $ref.
+	regexp.MustCompile(".*azurestackhci/resource-manager/Microsoft.AzureStackHCI/StackHCI/preview/2025-(11|12)-01-preview.*"),
+	// 2025-11-01-preview has type incompatibility (ErrorDetailResponse vs CassandraErrorResponse).
+	regexp.MustCompile(".*cosmos-db/resource-manager/Microsoft.DocumentDB/DocumentDB/preview/2025-11-01-preview.*"),
+	// 2025-03-01 has invalid OpenAPI with Pattern as sibling to $ref.
+	regexp.MustCompile(".*cost-management/resource-manager/Microsoft.CostManagement/CostManagement/stable/2025-03-01.*"),
+	// 2023-12-01 has invalid OpenAPI with Pattern as sibling to $ref.
+	regexp.MustCompile(".*databoxedge/resource-manager/Microsoft.DataBoxEdge/DataBoxEdge/stable/2023-12-01.*"),
+	// 2025-05-01 has invalid OpenAPI with MinLength as sibling to $ref.
+	regexp.MustCompile(".*keyvault/resource-manager/Microsoft.KeyVault/stable/2025-05-01.*"),
 }
 
 func exclude(filePath string) bool {

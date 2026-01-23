@@ -36,7 +36,7 @@ class BatchAccountArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a BatchAccount resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[Sequence[pulumi.Input['AuthenticationMode']]] allowed_authentication_modes: List of allowed authentication modes for the Batch account that can be used to authenticate with the data plane. This does not affect authentication with the control plane.
         :param pulumi.Input['AutoStorageBasePropertiesArgs'] auto_storage: The properties related to the auto-storage account.
@@ -46,7 +46,7 @@ class BatchAccountArgs:
         :param pulumi.Input[_builtins.str] location: The region in which to create the account.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
         :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
-        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
+        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: The network access type for operating on the resources in the Batch account.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The user-specified tags associated with the account.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -68,6 +68,8 @@ class BatchAccountArgs:
             pulumi.set(__self__, "network_profile", network_profile)
         if pool_allocation_mode is not None:
             pulumi.set(__self__, "pool_allocation_mode", pool_allocation_mode)
+        if public_network_access is None:
+            public_network_access = 'Enabled'
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
         if tags is not None:
@@ -77,7 +79,7 @@ class BatchAccountArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group that contains the Batch account.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -197,7 +199,7 @@ class BatchAccountArgs:
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> Optional[pulumi.Input['PublicNetworkAccessType']]:
         """
-        If not specified, the default value is 'enabled'.
+        The network access type for operating on the resources in the Batch account.
         """
         return pulumi.get(self, "public_network_access")
 
@@ -255,8 +257,8 @@ class BatchAccount(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] location: The region in which to create the account.
         :param pulumi.Input[Union['NetworkProfileArgs', 'NetworkProfileArgsDict']] network_profile: The network profile only takes effect when publicNetworkAccess is enabled.
         :param pulumi.Input['PoolAllocationMode'] pool_allocation_mode: The pool allocation mode also affects how clients may authenticate to the Batch Service API. If the mode is BatchService, clients may authenticate using access keys or Microsoft Entra ID. If the mode is UserSubscription, clients must use Microsoft Entra ID. The default is BatchService.
-        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: If not specified, the default value is 'enabled'.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input['PublicNetworkAccessType'] public_network_access: The network access type for operating on the resources in the Batch account.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: The user-specified tags associated with the account.
         """
         ...
@@ -317,6 +319,8 @@ class BatchAccount(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["network_profile"] = network_profile
             __props__.__dict__["pool_allocation_mode"] = pool_allocation_mode
+            if public_network_access is None:
+                public_network_access = 'Enabled'
             __props__.__dict__["public_network_access"] = public_network_access
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -334,6 +338,7 @@ class BatchAccount(pulumi.CustomResource):
             __props__.__dict__["pool_quota"] = None
             __props__.__dict__["private_endpoint_connections"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20151201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20170901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20181201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190401:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20190801:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200301:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20200901:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20210601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20220601:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20221001:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20230501:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20231101:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20240201:BatchAccount"), pulumi.Alias(type_="azure-native:batch/v20240701:BatchAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -380,6 +385,7 @@ class BatchAccount(pulumi.CustomResource):
         __props__.__dict__["private_endpoint_connections"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return BatchAccount(resource_name, opts=opts, __props__=__props__)
@@ -395,6 +401,9 @@ class BatchAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="activeJobAndJobScheduleQuota")
     def active_job_and_job_schedule_quota(self) -> pulumi.Output[_builtins.int]:
+        """
+        The active job and job schedule quota for the Batch account.
+        """
         return pulumi.get(self, "active_job_and_job_schedule_quota")
 
     @_builtins.property
@@ -473,7 +482,7 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[_builtins.str]:
         """
-        The location of the resource.
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -489,7 +498,7 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -520,6 +529,9 @@ class BatchAccount(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="poolQuota")
     def pool_quota(self) -> pulumi.Output[_builtins.int]:
+        """
+        The pool quota for the Batch account.
+        """
         return pulumi.get(self, "pool_quota")
 
     @_builtins.property
@@ -542,15 +554,23 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter(name="publicNetworkAccess")
     def public_network_access(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        If not specified, the default value is 'enabled'.
+        The network access type for operating on the resources in the Batch account.
         """
         return pulumi.get(self, "public_network_access")
 
     @_builtins.property
-    @pulumi.getter
-    def tags(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The tags of the resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
+        """
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -558,7 +578,7 @@ class BatchAccount(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

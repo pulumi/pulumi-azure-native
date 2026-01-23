@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.CosmosDB
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20241201preview:DatabaseAccountCassandraKeyspace" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250415:DatabaseAccountCassandraKeyspace" },
                     new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20250501preview:DatabaseAccountCassandraKeyspace" },
+                    new global::Pulumi.Alias { Type = "azure-native:cosmosdb/v20251015:DatabaseAccountCassandraKeyspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230315preview:CassandraResourceCassandraKeyspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230415:CassandraResourceCassandraKeyspace" },
                     new global::Pulumi.Alias { Type = "azure-native:documentdb/v20230915:CassandraResourceCassandraKeyspace" },

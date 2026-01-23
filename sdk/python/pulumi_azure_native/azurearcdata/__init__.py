@@ -17,7 +17,6 @@ from .get_postgres_instance import *
 from .get_sql_managed_instance import *
 from .get_sql_server_availability_group import *
 from .get_sql_server_availability_group_detail_view import *
-from .get_sql_server_database import *
 from .get_sql_server_esu_license import *
 from .get_sql_server_instance import *
 from .get_sql_server_instance_jobs_status import *
@@ -26,7 +25,6 @@ from .get_sql_server_license import *
 from .postgres_instance import *
 from .sql_managed_instance import *
 from .sql_server_availability_group import *
-from .sql_server_database import *
 from .sql_server_esu_license import *
 from .sql_server_instance import *
 from .sql_server_license import *

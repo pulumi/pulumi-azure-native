@@ -34,8 +34,7 @@ class GalleryImageArgs:
                  location: Optional[pulumi.Input[_builtins.str]] = None,
                  source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']] = None):
+                 version: Optional[pulumi.Input['GalleryImageVersionArgs']] = None):
         """
         The set of arguments for constructing a GalleryImage resource.
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: Operating system type that the gallery image uses [Windows, Linux]
@@ -51,7 +50,6 @@ class GalleryImageArgs:
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: Resource ID of the source virtual machine from whose OS disk the gallery image is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input['GalleryImageVersionArgs'] version: Specifies information about the gallery image version that you want to create or update.
-        :param pulumi.Input['VmImageRepositoryCredentialsArgs'] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image
         """
         pulumi.set(__self__, "os_type", os_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -77,8 +75,6 @@ class GalleryImageArgs:
             pulumi.set(__self__, "tags", tags)
         if version is not None:
             pulumi.set(__self__, "version", version)
-        if vm_image_repository_credentials is not None:
-            pulumi.set(__self__, "vm_image_repository_credentials", vm_image_repository_credentials)
 
     @_builtins.property
     @pulumi.getter(name="osType")
@@ -236,18 +232,6 @@ class GalleryImageArgs:
     def version(self, value: Optional[pulumi.Input['GalleryImageVersionArgs']]):
         pulumi.set(self, "version", value)
 
-    @_builtins.property
-    @pulumi.getter(name="vmImageRepositoryCredentials")
-    def vm_image_repository_credentials(self) -> Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']]:
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        """
-        return pulumi.get(self, "vm_image_repository_credentials")
-
-    @vm_image_repository_credentials.setter
-    def vm_image_repository_credentials(self, value: Optional[pulumi.Input['VmImageRepositoryCredentialsArgs']]):
-        pulumi.set(self, "vm_image_repository_credentials", value)
-
 
 @pulumi.type_token("azure-native:azurestackhci:GalleryImage")
 class GalleryImage(pulumi.CustomResource):
@@ -268,14 +252,13 @@ class GalleryImage(pulumi.CustomResource):
                  source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         """
         The gallery images resource definition.
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
-        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -292,7 +275,6 @@ class GalleryImage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] source_virtual_machine_id: Resource ID of the source virtual machine from whose OS disk the gallery image is created.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']] version: Specifies information about the gallery image version that you want to create or update.
-        :param pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']] vm_image_repository_credentials: The credentials used to login to the image repository that has access to the specified image
         """
         ...
     @overload
@@ -305,7 +287,7 @@ class GalleryImage(pulumi.CustomResource):
 
         Uses Azure REST API version 2025-02-01-preview. In version 2.x of the Azure Native provider, it used API version 2022-12-15-preview.
 
-        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-15-preview, 2023-07-01-preview, 2023-09-01-preview, 2024-01-01, 2024-02-01-preview, 2024-05-01-preview, 2024-07-15-preview, 2024-08-01-preview, 2024-10-01-preview, 2025-04-01-preview, 2025-06-01-preview, 2025-09-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native azurestackhci [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param GalleryImageArgs args: The arguments to use to populate this resource's properties.
@@ -335,7 +317,6 @@ class GalleryImage(pulumi.CustomResource):
                  source_virtual_machine_id: Optional[pulumi.Input[_builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  version: Optional[pulumi.Input[Union['GalleryImageVersionArgs', 'GalleryImageVersionArgsDict']]] = None,
-                 vm_image_repository_credentials: Optional[pulumi.Input[Union['VmImageRepositoryCredentialsArgs', 'VmImageRepositoryCredentialsArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -362,14 +343,13 @@ class GalleryImage(pulumi.CustomResource):
             __props__.__dict__["source_virtual_machine_id"] = source_virtual_machine_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["version"] = version
-            __props__.__dict__["vm_image_repository_credentials"] = vm_image_repository_credentials
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["status"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250401preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250601preview:GalleryImage")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:azurestackhci/v20210701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20210901preview:GalleryimageRetrieve"), pulumi.Alias(type_="azure-native:azurestackhci/v20221215preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230701preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20230901preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240101:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240501preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240715preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20240801preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20241001preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250201preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250401preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250601preview:GalleryImage"), pulumi.Alias(type_="azure-native:azurestackhci/v20250901preview:GalleryImage")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GalleryImage, __self__).__init__(
             'azure-native:azurestackhci:GalleryImage',
@@ -410,7 +390,6 @@ class GalleryImage(pulumi.CustomResource):
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["version"] = None
-        __props__.__dict__["vm_image_repository_credentials"] = None
         return GalleryImage(resource_name, opts=opts, __props__=__props__)
 
     @_builtins.property
@@ -548,12 +527,4 @@ class GalleryImage(pulumi.CustomResource):
         Specifies information about the gallery image version that you want to create or update.
         """
         return pulumi.get(self, "version")
-
-    @_builtins.property
-    @pulumi.getter(name="vmImageRepositoryCredentials")
-    def vm_image_repository_credentials(self) -> pulumi.Output[Optional['outputs.VmImageRepositoryCredentialsResponse']]:
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        """
-        return pulumi.get(self, "vm_image_repository_credentials")
 

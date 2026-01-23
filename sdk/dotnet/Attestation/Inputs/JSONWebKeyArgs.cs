@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Attestation.Inputs
 {
 
-    public sealed class JSONWebKeyArgs : global::Pulumi.ResourceArgs
+    public sealed class JsonWebKeyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
         /// The "alg" (algorithm) parameter identifies the algorithm intended for
@@ -121,8 +121,8 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         [Input("x")]
         public Input<string>? X { get; set; }
 
-        [Input("x5c")]
-        private InputList<string>? _x5c;
+        [Input("x5C")]
+        private InputList<string>? _x5C;
 
         /// <summary>
         /// The "x5c" (X.509 certificate chain) parameter contains a chain of one
@@ -133,10 +133,10 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         /// The PKIX certificate containing the key value MUST be the first
         /// certificate.
         /// </summary>
-        public InputList<string> X5c
+        public InputList<string> X5C
         {
-            get => _x5c ?? (_x5c = new InputList<string>());
-            set => _x5c = value;
+            get => _x5C ?? (_x5C = new InputList<string>());
+            set => _x5C = value;
         }
 
         /// <summary>
@@ -145,9 +145,9 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         [Input("y")]
         public Input<string>? Y { get; set; }
 
-        public JSONWebKeyArgs()
+        public JsonWebKeyArgs()
         {
         }
-        public static new JSONWebKeyArgs Empty => new JSONWebKeyArgs();
+        public static new JsonWebKeyArgs Empty => new JsonWebKeyArgs();
     }
 }

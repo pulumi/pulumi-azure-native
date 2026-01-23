@@ -15,8 +15,6 @@ __all__ = [
     'ArcSqlServerFailoverMode',
     'BillingPlan',
     'ConnectionAuth',
-    'DatabaseCreateMode',
-    'DatabaseState',
     'EditionType',
     'ExtendedLocationTypes',
     'FailoverGroupPartnerSyncMode',
@@ -28,7 +26,6 @@ __all__ = [
     'Mode',
     'PostgresInstanceSkuTier',
     'PrimaryAllowConnections',
-    'RecoveryMode',
     'ScopeType',
     'SecondaryAllowConnections',
     'SeedingMode',
@@ -125,31 +122,6 @@ class ConnectionAuth(_builtins.str, Enum):
     CERTIFICATE_WINDOWS_NTLM = "Certificate_Windows_NTLM"
     CERTIFICATE_WINDOWS_KERBEROS = "Certificate_Windows_Kerberos"
     CERTIFICATE_WINDOWS_NEGOTIATE = "Certificate_Windows_Negotiate"
-
-
-@pulumi.type_token("azure-native:azurearcdata:DatabaseCreateMode")
-class DatabaseCreateMode(_builtins.str, Enum):
-    """
-    Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
-    """
-    DEFAULT = "Default"
-    POINT_IN_TIME_RESTORE = "PointInTimeRestore"
-
-
-@pulumi.type_token("azure-native:azurearcdata:DatabaseState")
-class DatabaseState(_builtins.str, Enum):
-    """
-    State of the database.
-    """
-    ONLINE = "Online"
-    RESTORING = "Restoring"
-    RECOVERING = "Recovering"
-    RECOVERY_PENDING = "RecoveryPending"
-    SUSPECT = "Suspect"
-    EMERGENCY = "Emergency"
-    OFFLINE = "Offline"
-    COPYING = "Copying"
-    OFFLINE_SECONDARY = "OfflineSecondary"
 
 
 @pulumi.type_token("azure-native:azurearcdata:EditionType")
@@ -284,16 +256,6 @@ class PrimaryAllowConnections(_builtins.str, Enum):
     """
     ALL = "ALL"
     REA_D_WRITE = "READ_WRITE"
-
-
-@pulumi.type_token("azure-native:azurearcdata:RecoveryMode")
-class RecoveryMode(_builtins.str, Enum):
-    """
-    Status of the database.
-    """
-    FULL = "Full"
-    BULK_LOGGED = "Bulk-logged"
-    SIMPLE = "Simple"
 
 
 @pulumi.type_token("azure-native:azurearcdata:ScopeType")

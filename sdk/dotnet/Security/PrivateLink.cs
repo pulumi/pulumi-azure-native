@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Security
     /// A private link resource that enables secure, private connectivity to Microsoft Defender for Cloud services. This resource manages the lifecycle of private endpoint connections and provides the necessary infrastructure for private connectivity.
     /// 
     /// Uses Azure REST API version 2025-09-01-preview.
+    /// 
+    /// Other available API versions: 2026-01-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native security [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:security:PrivateLink")]
     public partial class PrivateLink : global::Pulumi.CustomResource
@@ -97,6 +99,7 @@ namespace Pulumi.AzureNative.Security
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:security/v20250901preview:PrivateLink" },
+                    new global::Pulumi.Alias { Type = "azure-native:security/v20260101:PrivateLink" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

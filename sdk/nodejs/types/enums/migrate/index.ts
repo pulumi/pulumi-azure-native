@@ -1594,6 +1594,15 @@ export const LoadBalancerType = {
  */
 export type LoadBalancerType = (typeof LoadBalancerType)[keyof typeof LoadBalancerType];
 
+export const MigrationSpecificPropertiesInstanceType = {
+    ServerMigration: "ServerMigration",
+} as const;
+
+/**
+ * Discriminator for migration specific properties.
+ */
+export type MigrationSpecificPropertiesInstanceType = (typeof MigrationSpecificPropertiesInstanceType)[keyof typeof MigrationSpecificPropertiesInstanceType];
+
 export const MigrationStrategy = {
     /**
      * Unknown Migration Strategy.
@@ -1993,6 +2002,26 @@ export const TargetStorageProjectionType = {
  * Gets or sets the target projection type.
  */
 export type TargetStorageProjectionType = (typeof TargetStorageProjectionType)[keyof typeof TargetStorageProjectionType];
+
+export const TaskScope = {
+    /**
+     * Wave task - typically related to a specific wave of migration
+     */
+    Wave: "Wave",
+    /**
+     * Migration Entity task - typically related to a specific migration entity
+     */
+    MigrationEntity: "MigrationEntity",
+    /**
+     * Migration Entity Group task - typically related to a specific migration entity group
+     */
+    MigrationEntityGroup: "MigrationEntityGroup",
+} as const;
+
+/**
+ * Task Scope
+ */
+export type TaskScope = (typeof TaskScope)[keyof typeof TaskScope];
 
 export const TimeRange = {
     /**

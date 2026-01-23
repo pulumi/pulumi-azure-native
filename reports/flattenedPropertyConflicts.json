@@ -289,6 +289,27 @@
     "properties.etag": {},
     "properties.name": {}
   },
+  "azure-native:network/v20250101:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20250101:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20250301:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20250301:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
+  "azure-native:network/v20250501:NetworkVirtualApplianceConnection": {
+    "properties.name": {}
+  },
+  "azure-native:network/v20250501:VpnServerConfiguration": {
+    "properties.etag": {},
+    "properties.name": {}
+  },
   "azure-native:network:NetworkVirtualApplianceConnection": {
     "properties.name": {}
   },

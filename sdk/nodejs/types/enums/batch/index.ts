@@ -69,6 +69,9 @@ export const CachingType = {
     ReadWrite: "ReadWrite",
 } as const;
 
+/**
+ * The type of caching to enable for the disk.
+ */
 export type CachingType = (typeof CachingType)[keyof typeof CachingType];
 
 export const CertificateStoreLocation = {
@@ -139,6 +142,9 @@ export const ComputeNodeFillType = {
     Pack: "Pack",
 } as const;
 
+/**
+ * How tasks should be distributed across compute nodes.
+ */
 export type ComputeNodeFillType = (typeof ComputeNodeFillType)[keyof typeof ComputeNodeFillType];
 
 export const ContainerHostDataPath = {
@@ -168,6 +174,9 @@ export const ContainerHostDataPath = {
     Applications: "Applications",
 } as const;
 
+/**
+ * The paths which will be mounted to container task's container.
+ */
 export type ContainerHostDataPath = (typeof ContainerHostDataPath)[keyof typeof ContainerHostDataPath];
 
 export const ContainerType = {
@@ -181,6 +190,9 @@ export const ContainerType = {
     CriCompatible: "CriCompatible",
 } as const;
 
+/**
+ * The container technology to be used.
+ */
 export type ContainerType = (typeof ContainerType)[keyof typeof ContainerType];
 
 export const ContainerWorkingDirectory = {
@@ -194,11 +206,14 @@ export const ContainerWorkingDirectory = {
     ContainerImageDefault: "ContainerImageDefault",
 } as const;
 
+/**
+ * A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+ */
 export type ContainerWorkingDirectory = (typeof ContainerWorkingDirectory)[keyof typeof ContainerWorkingDirectory];
 
 export const DiffDiskPlacement = {
     /**
-     * The Ephemeral OS Disk is stored on the VM cache.
+     * The OS disk will be placed on the cache disk of the VM.
      */
     CacheDisk: "CacheDisk",
 } as const;
@@ -235,6 +250,9 @@ export const DynamicVNetAssignmentScope = {
     Job: "job",
 } as const;
 
+/**
+ * The scope of dynamic vnet assignment.
+ */
 export type DynamicVNetAssignmentScope = (typeof DynamicVNetAssignmentScope)[keyof typeof DynamicVNetAssignmentScope];
 
 export const ElevationLevel = {
@@ -312,6 +330,9 @@ export const InboundEndpointProtocol = {
     UDP: "UDP",
 } as const;
 
+/**
+ * The protocol of the endpoint.
+ */
 export type InboundEndpointProtocol = (typeof InboundEndpointProtocol)[keyof typeof InboundEndpointProtocol];
 
 export const InterNodeCommunicationState = {
@@ -373,6 +394,9 @@ export const NetworkSecurityGroupRuleAccess = {
     Deny: "Deny",
 } as const;
 
+/**
+ * The action that should be taken for a specified IP address, subnet range or tag.
+ */
 export type NetworkSecurityGroupRuleAccess = (typeof NetworkSecurityGroupRuleAccess)[keyof typeof NetworkSecurityGroupRuleAccess];
 
 export const NodeCommunicationMode = {
@@ -459,7 +483,7 @@ export const PublicNetworkAccessType = {
 } as const;
 
 /**
- * If not specified, the default value is 'enabled'.
+ * The network access type for operating on the resources in the Batch account.
  */
 export type PublicNetworkAccessType = (typeof PublicNetworkAccessType)[keyof typeof PublicNetworkAccessType];
 
@@ -488,6 +512,9 @@ export const SecurityEncryptionTypes = {
     VMGuestStateOnly: "VMGuestStateOnly",
 } as const;
 
+/**
+ * Specifies the EncryptionType of the managed disk. It is set to VMGuestStateOnly for encryption of just the VMGuestState blob, and NonPersistedTPM for not persisting firmware state in the VMGuestState blob. **Note**: It can be set for only Confidential VMs and required when using Confidential VMs.
+ */
 export type SecurityEncryptionTypes = (typeof SecurityEncryptionTypes)[keyof typeof SecurityEncryptionTypes];
 
 export const SecurityTypes = {
@@ -501,6 +528,9 @@ export const SecurityTypes = {
     ConfidentialVM: "confidentialVM",
 } as const;
 
+/**
+ * Specifies the SecurityType of the virtual machine. It has to be set to any specified value to enable UefiSettings.
+ */
 export type SecurityTypes = (typeof SecurityTypes)[keyof typeof SecurityTypes];
 
 export const StorageAccountType = {
@@ -518,6 +548,9 @@ export const StorageAccountType = {
     StandardSSD_LRS: "StandardSSD_LRS",
 } as const;
 
+/**
+ * The storage account type for use in creating data disks or OS disk.
+ */
 export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
 
 export const UpgradeMode = {
@@ -535,4 +568,7 @@ export const UpgradeMode = {
     Rolling: "rolling",
 } as const;
 
+/**
+ * Specifies the mode of an upgrade to virtual machines in the scale set.<br /><br /> Possible values are:<br /><br /> **Manual** - You  control the application of updates to virtual machines in the scale set. You do this by using the manualUpgrade action.<br /><br /> **Automatic** - All virtual machines in the scale set are automatically updated at the same time.<br /><br /> **Rolling** - Scale set performs updates in batches with an optional pause time in between.
+ */
 export type UpgradeMode = (typeof UpgradeMode)[keyof typeof UpgradeMode];

@@ -14,7 +14,7 @@ namespace Pulumi.AzureNative.Datadog
     /// 
     /// Uses Azure REST API version 2023-10-20. In version 2.x of the Azure Native provider, it used API version 2023-01-01.
     /// 
-    /// Other available API versions: 2023-01-01, 2023-07-07. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-01-01, 2023-07-07, 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:datadog:MonitoredSubscription")]
     public partial class MonitoredSubscription : global::Pulumi.CustomResource
@@ -71,6 +71,10 @@ namespace Pulumi.AzureNative.Datadog
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20230101:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20230707:MonitoredSubscription" },
                     new global::Pulumi.Alias { Type = "azure-native:datadog/v20231020:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20240301:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20250107:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20250611:MonitoredSubscription" },
+                    new global::Pulumi.Alias { Type = "azure-native:datadog/v20251103preview:MonitoredSubscription" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

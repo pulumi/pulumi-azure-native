@@ -29,6 +29,7 @@ __all__ = [
     'KeyVaultNetworkAccessTypes',
     'KubeletDiskType',
     'KubernetesSupportPlan',
+    'LabelSelectorOperator',
     'LicenseType',
     'LoadBalancerSku',
     'ManagedClusterSKUName',
@@ -50,8 +51,11 @@ __all__ = [
     'OSType',
     'Operator',
     'OutboundType',
+    'PlacementType',
     'PodIPAllocationMode',
     'PolicyRule',
+    'PropagationType',
+    'PropertySelectorOperator',
     'Protocol',
     'PublicNetworkAccess',
     'ResourceIdentityType',
@@ -62,6 +66,8 @@ __all__ = [
     'ScriptType',
     'ServiceMeshMode',
     'SnapshotType',
+    'TaintEffect',
+    'TolerationOperator',
     'Type',
     'UndrainableNodeBehavior',
     'UpgradeChannel',
@@ -396,6 +402,29 @@ class KubernetesSupportPlan(_builtins.str, Enum):
     AKS_LONG_TERM_SUPPORT = "AKSLongTermSupport"
     """
     Support for the version extended past the KubernetesOfficial support of 1 year. AKS continues to patch CVEs for another 1 year, for a total of 2 years of support.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:LabelSelectorOperator")
+class LabelSelectorOperator(_builtins.str, Enum):
+    """
+    operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+    """
+    IN_ = "In"
+    """
+    Label Selector Operator In
+    """
+    NOT_IN = "NotIn"
+    """
+    Label Selector Operator NotIn
+    """
+    EXISTS = "Exists"
+    """
+    Label Selector Operator Exists
+    """
+    DOES_NOT_EXIST = "DoesNotExist"
+    """
+    Label Selector Operator DoesNotExist
     """
 
 
@@ -786,6 +815,21 @@ class OutboundType(_builtins.str, Enum):
     """
 
 
+@pulumi.type_token("azure-native:containerservice:PlacementType")
+class PlacementType(_builtins.str, Enum):
+    """
+    Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+    """
+    PICK_ALL = "PickAll"
+    """
+    PickAll picks all clusters that satisfy the rules.
+    """
+    PICK_FIXED = "PickFixed"
+    """
+    PickFixed picks a fixed set of clusters.
+    """
+
+
 @pulumi.type_token("azure-native:containerservice:PodIPAllocationMode")
 class PodIPAllocationMode(_builtins.str, Enum):
     """
@@ -817,6 +861,48 @@ class PolicyRule(_builtins.str, Enum):
     ALLOW_SAME_NAMESPACE = "AllowSameNamespace"
     """
     Allow traffic within the same namespace.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:PropagationType")
+class PropagationType(_builtins.str, Enum):
+    """
+    The type of the policy to be used. Default is Placement.
+    """
+    PLACEMENT = "Placement"
+    """
+    Using ClusterResourcePlacement.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:PropertySelectorOperator")
+class PropertySelectorOperator(_builtins.str, Enum):
+    """
+    Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+    """
+    GT = "Gt"
+    """
+    Gt dictates Fleet to select cluster if its observed value of a given property is greater than the value specified in the requirement.
+    """
+    GE = "Ge"
+    """
+    Ge dictates Fleet to select cluster if its observed value of a given property is greater than or equal to the value specified in the requirement.
+    """
+    EQ = "Eq"
+    """
+    Eq dictates Fleet to select cluster if its observed value of a given property is equal to the values specified in the requirement.
+    """
+    NE = "Ne"
+    """
+    Ne dictates Fleet to select cluster if its observed value of a given property is not equal to the values specified in the requirement.
+    """
+    LT = "Lt"
+    """
+    Lt dictates Fleet to select cluster if its observed value of a given property is less than the value specified in the requirement.
+    """
+    LE = "Le"
+    """
+    Le dictates Fleet to select cluster if its observed value of a given property is less than or equal to the value specified in the requirement.
     """
 
 
@@ -961,6 +1047,32 @@ class SnapshotType(_builtins.str, Enum):
     NODE_POOL = "NodePool"
     """
     The snapshot is a snapshot of a node pool.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:TaintEffect")
+class TaintEffect(_builtins.str, Enum):
+    """
+    Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+    """
+    NO_SCHEDULE = "NoSchedule"
+    """
+    Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+    """
+
+
+@pulumi.type_token("azure-native:containerservice:TolerationOperator")
+class TolerationOperator(_builtins.str, Enum):
+    """
+    Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+    """
+    EXISTS = "Exists"
+    """
+    Toleration Operator Exists
+    """
+    EQUAL = "Equal"
+    """
+    Toleration Operator Equal
     """
 
 

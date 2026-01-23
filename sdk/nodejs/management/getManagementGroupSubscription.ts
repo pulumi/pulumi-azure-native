@@ -18,7 +18,6 @@ export function getManagementGroupSubscription(args: GetManagementGroupSubscript
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("azure-native:management:getManagementGroupSubscription", {
         "groupId": args.groupId,
-        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -27,10 +26,6 @@ export interface GetManagementGroupSubscriptionArgs {
      * Management Group ID.
      */
     groupId: string;
-    /**
-     * Subscription ID.
-     */
-    subscriptionId?: string;
 }
 
 /**
@@ -46,11 +41,11 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly displayName?: string;
     /**
-     * The fully qualified ID for the subscription.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000/subscriptions/0000000-0000-0000-0000-000000000001
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
-     * The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -62,11 +57,15 @@ export interface GetManagementGroupSubscriptionResult {
      */
     readonly state?: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.management.SystemDataResponse;
+    /**
      * The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
      */
     readonly tenant?: string;
     /**
-     * The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
 }
@@ -81,7 +80,6 @@ export function getManagementGroupSubscriptionOutput(args: GetManagementGroupSub
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("azure-native:management:getManagementGroupSubscription", {
         "groupId": args.groupId,
-        "subscriptionId": args.subscriptionId,
     }, opts);
 }
 
@@ -90,8 +88,4 @@ export interface GetManagementGroupSubscriptionOutputArgs {
      * Management Group ID.
      */
     groupId: pulumi.Input<string>;
-    /**
-     * Subscription ID.
-     */
-    subscriptionId?: pulumi.Input<string>;
 }

@@ -55,11 +55,6 @@ export const getSqlServerAvailabilityGroupDetailView: typeof import("./getSqlSer
 export const getSqlServerAvailabilityGroupDetailViewOutput: typeof import("./getSqlServerAvailabilityGroupDetailView").getSqlServerAvailabilityGroupDetailViewOutput = null as any;
 utilities.lazyLoad(exports, ["getSqlServerAvailabilityGroupDetailView","getSqlServerAvailabilityGroupDetailViewOutput"], () => require("./getSqlServerAvailabilityGroupDetailView"));
 
-export { GetSqlServerDatabaseArgs, GetSqlServerDatabaseResult, GetSqlServerDatabaseOutputArgs } from "./getSqlServerDatabase";
-export const getSqlServerDatabase: typeof import("./getSqlServerDatabase").getSqlServerDatabase = null as any;
-export const getSqlServerDatabaseOutput: typeof import("./getSqlServerDatabase").getSqlServerDatabaseOutput = null as any;
-utilities.lazyLoad(exports, ["getSqlServerDatabase","getSqlServerDatabaseOutput"], () => require("./getSqlServerDatabase"));
-
 export { GetSqlServerEsuLicenseArgs, GetSqlServerEsuLicenseResult, GetSqlServerEsuLicenseOutputArgs } from "./getSqlServerEsuLicense";
 export const getSqlServerEsuLicense: typeof import("./getSqlServerEsuLicense").getSqlServerEsuLicense = null as any;
 export const getSqlServerEsuLicenseOutput: typeof import("./getSqlServerEsuLicense").getSqlServerEsuLicenseOutput = null as any;
@@ -100,11 +95,6 @@ export type SqlServerAvailabilityGroup = import("./sqlServerAvailabilityGroup").
 export const SqlServerAvailabilityGroup: typeof import("./sqlServerAvailabilityGroup").SqlServerAvailabilityGroup = null as any;
 utilities.lazyLoad(exports, ["SqlServerAvailabilityGroup"], () => require("./sqlServerAvailabilityGroup"));
 
-export { SqlServerDatabaseArgs } from "./sqlServerDatabase";
-export type SqlServerDatabase = import("./sqlServerDatabase").SqlServerDatabase;
-export const SqlServerDatabase: typeof import("./sqlServerDatabase").SqlServerDatabase = null as any;
-utilities.lazyLoad(exports, ["SqlServerDatabase"], () => require("./sqlServerDatabase"));
-
 export { SqlServerEsuLicenseArgs } from "./sqlServerEsuLicense";
 export type SqlServerEsuLicense = import("./sqlServerEsuLicense").SqlServerEsuLicense;
 export const SqlServerEsuLicense: typeof import("./sqlServerEsuLicense").SqlServerEsuLicense = null as any;
@@ -140,8 +130,6 @@ const _module = {
                 return new SqlManagedInstance(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerAvailabilityGroup":
                 return new SqlServerAvailabilityGroup(name, <any>undefined, { urn })
-            case "azure-native:azurearcdata:SqlServerDatabase":
-                return new SqlServerDatabase(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerEsuLicense":
                 return new SqlServerEsuLicense(name, <any>undefined, { urn })
             case "azure-native:azurearcdata:SqlServerInstance":

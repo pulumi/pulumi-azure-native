@@ -68,7 +68,7 @@ export class AttestationProvider extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly status: pulumi.Output<string | undefined>;
     /**
-     * The system metadata relating to this resource
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     declare public /*out*/ readonly systemData: pulumi.Output<outputs.attestation.SystemDataResponse>;
     /**
@@ -106,7 +106,7 @@ export class AttestationProvider extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["location"] = args?.location;
-            resourceInputs["properties"] = args?.properties;
+            resourceInputs["properties"] = args ? (args.properties ? pulumi.output(args.properties).apply(inputs.attestation.attestationServiceCreationSpecificParamsArgsProvideDefaults) : undefined) : undefined;
             resourceInputs["providerName"] = args?.providerName;
             resourceInputs["resourceGroupName"] = args?.resourceGroupName;
             resourceInputs["tags"] = args?.tags;

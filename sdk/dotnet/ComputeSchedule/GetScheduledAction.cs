@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.ComputeSchedule
         /// Get a ScheduledAction
         /// 
         /// Uses Azure REST API version 2025-04-15-preview.
+        /// 
+        /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetScheduledActionResult> InvokeAsync(GetScheduledActionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetScheduledActionResult>("azure-native:computeschedule:getScheduledAction", args ?? new GetScheduledActionArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.ComputeSchedule
         /// Get a ScheduledAction
         /// 
         /// Uses Azure REST API version 2025-04-15-preview.
+        /// 
+        /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:computeschedule:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.ComputeSchedule
         /// Get a ScheduledAction
         /// 
         /// Uses Azure REST API version 2025-04-15-preview.
+        /// 
+        /// Other available API versions: 2026-01-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native computeschedule [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetScheduledActionResult> Invoke(GetScheduledActionInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetScheduledActionResult>("azure-native:computeschedule:getScheduledAction", args ?? new GetScheduledActionInvokeArgs(), options.WithDefaults());

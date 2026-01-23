@@ -16,11 +16,17 @@ namespace Pulumi.AzureNative.Batch.Outputs
     [OutputType]
     public sealed class NetworkConfigurationResponse
     {
+        /// <summary>
+        /// The scope of dynamic vnet assignment.
+        /// </summary>
         public readonly string? DynamicVnetAssignmentScope;
         /// <summary>
         /// Accelerated networking enables single root I/O virtualization (SR-IOV) to a VM, which may lead to improved networking performance. For more details, see: https://learn.microsoft.com/azure/virtual-network/accelerated-networking-overview.
         /// </summary>
         public readonly bool? EnableAcceleratedNetworking;
+        /// <summary>
+        /// The endpoint configuration for a pool.
+        /// </summary>
         public readonly Outputs.PoolEndpointConfigurationResponse? EndpointConfiguration;
         /// <summary>
         /// The public IP Address configuration of the networking configuration of a Pool.

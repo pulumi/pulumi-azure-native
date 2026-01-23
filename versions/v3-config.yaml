@@ -106,7 +106,11 @@ AVS:
 AzureActiveDirectory:
 AzureArcData:
   expectTracking: preview
-  notes: 2025-06-01-preview is exluded in openapi/discover.go due to an invalid reference.
+  exclusions:
+    SqlServerDatabase: "2026-01-01"
+  notes: |
+    2025-06-01-preview is exluded in openapi/discover.go due to an invalid reference.
+    2026-01-01 has broken type reference (SkuRecommendationResultsMonthlyCostOptionItem) in SqlServerDatabase
 AzureData:
   expectTracking: preview
   notes: Only preview versions

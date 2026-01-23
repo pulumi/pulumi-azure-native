@@ -40,6 +40,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<object>? ConnectionString { get; set; }
 
         /// <summary>
+        /// Database name for connection. Type: string.
+        /// </summary>
+        [Input("database")]
+        public Input<object>? Database { get; set; }
+
+        /// <summary>
         /// Linked service description.
         /// </summary>
         [Input("description")]
@@ -64,10 +70,28 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// The port for the connection. Type: integer.
+        /// </summary>
+        [Input("port")]
+        public Input<object>? Port { get; set; }
+
+        /// <summary>
         /// The Azure key vault secret reference of password in connection string.
         /// </summary>
         [Input("pwd")]
         public Input<Inputs.AzureKeyVaultSecretReferenceArgs>? Pwd { get; set; }
+
+        /// <summary>
+        /// Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        /// </summary>
+        [Input("securityLevel")]
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.NetezzaSecurityLevelType>? SecurityLevel { get; set; }
+
+        /// <summary>
+        /// Server name for connection. Type: string.
+        /// </summary>
+        [Input("server")]
+        public Input<object>? Server { get; set; }
 
         /// <summary>
         /// Type of linked service.
@@ -75,6 +99,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// Username for authentication. Type: string.
+        /// </summary>
+        [Input("uid")]
+        public Input<object>? Uid { get; set; }
 
         /// <summary>
         /// Version of the linked service.

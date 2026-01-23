@@ -15,6 +15,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// </summary>
     public sealed class NetworkConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The scope of dynamic vnet assignment.
+        /// </summary>
         [Input("dynamicVnetAssignmentScope")]
         public Input<Pulumi.AzureNative.Batch.DynamicVNetAssignmentScope>? DynamicVnetAssignmentScope { get; set; }
 
@@ -24,6 +27,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }
 
+        /// <summary>
+        /// The endpoint configuration for a pool.
+        /// </summary>
         [Input("endpointConfiguration")]
         public Input<Inputs.PoolEndpointConfigurationArgs>? EndpointConfiguration { get; set; }
 

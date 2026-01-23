@@ -24,29 +24,28 @@ class AADDataConnectorArgs:
     def __init__(__self__, *,
                  kind: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
+                 tenant_id: pulumi.Input[_builtins.str],
                  workspace_name: pulumi.Input[_builtins.str],
                  data_connector_id: Optional[pulumi.Input[_builtins.str]] = None,
-                 data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None,
-                 tenant_id: Optional[pulumi.Input[_builtins.str]] = None):
+                 data_types: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']] = None):
         """
         The set of arguments for constructing a AADDataConnector resource.
         :param pulumi.Input[_builtins.str] kind: The kind of the data connector
                Expected value is 'AzureActiveDirectory'.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         :param pulumi.Input[_builtins.str] workspace_name: The name of the workspace.
         :param pulumi.Input[_builtins.str] data_connector_id: Connector ID
         :param pulumi.Input['AlertsDataTypeOfDataConnectorArgs'] data_types: The available data types for the connector.
-        :param pulumi.Input[_builtins.str] tenant_id: The tenant id to connect to, and get the data from.
         """
         pulumi.set(__self__, "kind", 'AzureActiveDirectory')
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        pulumi.set(__self__, "tenant_id", tenant_id)
         pulumi.set(__self__, "workspace_name", workspace_name)
         if data_connector_id is not None:
             pulumi.set(__self__, "data_connector_id", data_connector_id)
         if data_types is not None:
             pulumi.set(__self__, "data_types", data_types)
-        if tenant_id is not None:
-            pulumi.set(__self__, "tenant_id", tenant_id)
 
     @_builtins.property
     @pulumi.getter
@@ -72,6 +71,18 @@ class AADDataConnectorArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tenantId")
+    def tenant_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The tenant id to connect to, and get the data from.
+        """
+        return pulumi.get(self, "tenant_id")
+
+    @tenant_id.setter
+    def tenant_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "tenant_id", value)
 
     @_builtins.property
     @pulumi.getter(name="workspaceName")
@@ -109,18 +120,6 @@ class AADDataConnectorArgs:
     def data_types(self, value: Optional[pulumi.Input['AlertsDataTypeOfDataConnectorArgs']]):
         pulumi.set(self, "data_types", value)
 
-    @_builtins.property
-    @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        The tenant id to connect to, and get the data from.
-        """
-        return pulumi.get(self, "tenant_id")
-
-    @tenant_id.setter
-    def tenant_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "tenant_id", value)
-
 
 @pulumi.type_token("azure-native:securityinsights:AADDataConnector")
 class AADDataConnector(pulumi.CustomResource):
@@ -136,7 +135,7 @@ class AADDataConnector(pulumi.CustomResource):
                  workspace_name: Optional[pulumi.Input[_builtins.str]] = None,
                  __props__=None):
         """
-        Represents AAD (Azure Active Directory) data connector.
+        Represents Microsoft Entra ID data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
@@ -157,7 +156,7 @@ class AADDataConnector(pulumi.CustomResource):
                  args: AADDataConnectorArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Represents AAD (Azure Active Directory) data connector.
+        Represents Microsoft Entra ID data connector.
 
         Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
 
@@ -199,6 +198,8 @@ class AADDataConnector(pulumi.CustomResource):
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            if tenant_id is None and not opts.urn:
+                raise TypeError("Missing required property 'tenant_id'")
             __props__.__dict__["tenant_id"] = tenant_id
             if workspace_name is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_name'")
@@ -293,7 +294,7 @@ class AADDataConnector(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def tenant_id(self) -> pulumi.Output[_builtins.str]:
         """
         The tenant id to connect to, and get the data from.
         """

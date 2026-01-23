@@ -72,6 +72,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "BillingBenefits",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "BotService",
     "Detail": "expected tracking stable but found preview"
   },
@@ -252,6 +256,10 @@
     "Detail": "expected tracking stable but found preview"
   },
   {
+    "ModuleName": "FluidRelay",
+    "Detail": "expected no additions but found some"
+  },
+  {
     "ModuleName": "FrontDoor",
     "Detail": "expected no additions but found some"
   },
@@ -262,10 +270,6 @@
   {
     "ModuleName": "HDInsight",
     "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "ModuleName": "HDInsight",
-    "Detail": "expected no additions but found some"
   },
   {
     "ModuleName": "HanaOnAzure",
@@ -372,6 +376,10 @@
     "Detail": "expected no additions but found some"
   },
   {
+    "ModuleName": "ManagedOps",
+    "Detail": "expected tracking stable but found preview"
+  },
+  {
     "ModuleName": "Management",
     "Detail": "expected no additions but found some"
   },
@@ -385,10 +393,6 @@
   },
   {
     "ModuleName": "Mission",
-    "Detail": "expected tracking stable but found preview"
-  },
-  {
-    "ModuleName": "MixedReality",
     "Detail": "expected tracking stable but found preview"
   },
   {

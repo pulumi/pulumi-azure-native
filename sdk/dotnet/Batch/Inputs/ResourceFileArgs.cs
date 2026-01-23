@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// A single file or multiple files to be downloaded to a compute node.
+    /// </summary>
     public sealed class ResourceFileArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

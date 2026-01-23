@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// 
         /// Uses Azure REST API version 2022-10-27.
         /// 
-        /// Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetApplianceResult> InvokeAsync(GetApplianceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// 
         /// Uses Azure REST API version 2022-10-27.
         /// 
-        /// Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// 
         /// Uses Azure REST API version 2022-10-27.
         /// 
-        /// Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetApplianceResult> Invoke(GetApplianceInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplianceResult>("azure-native:resourceconnector:getAppliance", args ?? new GetApplianceInvokeArgs(), options.WithDefaults());
@@ -106,7 +106,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// <summary>
         /// Contains infrastructure information about the Appliance
         /// </summary>
-        public readonly Outputs.AppliancePropertiesResponseInfrastructureConfig? InfrastructureConfig;
+        public readonly Outputs.AppliancePropertiesInfrastructureConfigResponse? InfrastructureConfig;
         /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
@@ -124,7 +124,7 @@ namespace Pulumi.AzureNative.ResourceConnector
         /// </summary>
         public readonly string? PublicKey;
         /// <summary>
-        /// Appliance’s health and state of connection to on-prem
+        /// Appliance’s health and state of connection to on-prem. This list of values is not exhaustive.
         /// </summary>
         public readonly string Status;
         /// <summary>
@@ -154,7 +154,7 @@ namespace Pulumi.AzureNative.ResourceConnector
 
             Outputs.IdentityResponse? identity,
 
-            Outputs.AppliancePropertiesResponseInfrastructureConfig? infrastructureConfig,
+            Outputs.AppliancePropertiesInfrastructureConfigResponse? infrastructureConfig,
 
             string location,
 

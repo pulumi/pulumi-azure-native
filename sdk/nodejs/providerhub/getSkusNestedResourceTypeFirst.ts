@@ -43,6 +43,9 @@ export interface GetSkusNestedResourceTypeFirstArgs {
     sku: string;
 }
 
+/**
+ * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ */
 export interface GetSkusNestedResourceTypeFirstResult {
     /**
      * The Azure API version of the resource.
@@ -56,7 +59,7 @@ export interface GetSkusNestedResourceTypeFirstResult {
      * The name of the resource
      */
     readonly name: string;
-    readonly properties: outputs.providerhub.SkuResourceResponseProperties;
+    readonly properties: outputs.providerhub.SkuResourcePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

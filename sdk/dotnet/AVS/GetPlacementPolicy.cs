@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPlacementPolicyResult> InvokeAsync(GetPlacementPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyArgs(), options.WithDefaults());
@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
@@ -36,7 +36,7 @@ namespace Pulumi.AzureNative.AVS
         /// 
         /// Uses Azure REST API version 2023-09-01.
         /// 
-        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPlacementPolicyResult> Invoke(GetPlacementPolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPlacementPolicyResult>("azure-native:avs:getPlacementPolicy", args ?? new GetPlacementPolicyInvokeArgs(), options.WithDefaults());
@@ -116,10 +116,6 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Display name of the placement policy
-        /// </summary>
-        public readonly string? DisplayName;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -128,13 +124,9 @@ namespace Pulumi.AzureNative.AVS
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
-        /// <summary>
-        /// Whether the placement policy is enabled or disabled
-        /// </summary>
-        public readonly string? State;
+        public readonly Union<Outputs.VmHostPlacementPolicyPropertiesResponse, Outputs.VmVmPlacementPolicyPropertiesResponse> Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
@@ -148,26 +140,20 @@ namespace Pulumi.AzureNative.AVS
         private GetPlacementPolicyResult(
             string azureApiVersion,
 
-            string? displayName,
-
             string id,
 
             string name,
 
-            string provisioningState,
-
-            string? state,
+            Union<Outputs.VmHostPlacementPolicyPropertiesResponse, Outputs.VmVmPlacementPolicyPropertiesResponse> properties,
 
             Outputs.SystemDataResponse systemData,
 
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            DisplayName = displayName;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
-            State = state;
+            Properties = properties;
             SystemData = systemData;
             Type = type;
         }

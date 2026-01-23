@@ -8,7 +8,6 @@ from enum import Enum
 
 __all__ = [
     'ActionType',
-    'AgentType',
     'AlertDetail',
     'AlertProperty',
     'AlertRuleKind',
@@ -25,7 +24,6 @@ __all__ = [
     'AutomationRulePropertyConditionSupportedProperty',
     'CcpAuthType',
     'ConditionType',
-    'ConfigurationType',
     'ContentType',
     'CustomEntityQueryKind',
     'DataConnectorDefinitionKind',
@@ -43,7 +41,6 @@ __all__ = [
     'FileImportContentType',
     'Flag',
     'HttpMethodVerb',
-    'HttpsConfigurationType',
     'HypothesisStatus',
     'IncidentClassification',
     'IncidentClassificationReason',
@@ -51,11 +48,7 @@ __all__ = [
     'IncidentStatus',
     'IncidentTaskStatus',
     'IngestionMode',
-    'IngestionType',
-    'KeyVaultAuthenticationMode',
     'Kind',
-    'LogStatusType',
-    'LogType',
     'MatchingMethod',
     'MicrosoftSecurityProductName',
     'Mode',
@@ -66,8 +59,6 @@ __all__ = [
     'RepoType',
     'RepositoryAccessKind',
     'RestApiPollerRequestPagingKind',
-    'SapAuthenticationType',
-    'SecretSource',
     'SecurityMLAnalyticsSettingsKind',
     'SettingKind',
     'SettingsStatus',
@@ -75,8 +66,6 @@ __all__ = [
     'SourceType',
     'Status',
     'SupportTier',
-    'SystemConfigurationConnectorType',
-    'SystemStatusType',
     'ThreatIntelligenceResourceInnerKind',
     'TriggerOperator',
     'TriggersOn',
@@ -103,14 +92,6 @@ class ActionType(_builtins.str, Enum):
     """
     Add a task to an incident object
     """
-
-
-@pulumi.type_token("azure-native:securityinsights:AgentType")
-class AgentType(_builtins.str, Enum):
-    """
-    Type of the agent
-    """
-    SAP = "SAP"
 
 
 @pulumi.type_token("azure-native:securityinsights:AlertDetail")
@@ -642,14 +623,6 @@ class ConditionType(_builtins.str, Enum):
     """
 
 
-@pulumi.type_token("azure-native:securityinsights:ConfigurationType")
-class ConfigurationType(_builtins.str, Enum):
-    """
-    Represents the types of configuration for a system.
-    """
-    SAP = "SAP"
-
-
 @pulumi.type_token("azure-native:securityinsights:ContentType")
 class ContentType(_builtins.str, Enum):
     """
@@ -1006,16 +979,6 @@ class HttpMethodVerb(_builtins.str, Enum):
     DELETE = "DELETE"
 
 
-@pulumi.type_token("azure-native:securityinsights:HttpsConfigurationType")
-class HttpsConfigurationType(_builtins.str, Enum):
-    """
-    Represents the types of HTTPS configuration to connect to the SapControl service.
-    """
-    HTTP_ONLY = "HttpOnly"
-    HTTPS_WITH_SSL_VERIFICATION = "HttpsWithSslVerification"
-    HTTPS_WITHOUT_SSL_VERIFICATION = "HttpsWithoutSslVerification"
-
-
 @pulumi.type_token("azure-native:securityinsights:HypothesisStatus")
 class HypothesisStatus(_builtins.str, Enum):
     """
@@ -1148,25 +1111,6 @@ class IngestionMode(_builtins.str, Enum):
     """
 
 
-@pulumi.type_token("azure-native:securityinsights:IngestionType")
-class IngestionType(_builtins.str, Enum):
-    """
-    Types of ingestion.
-    """
-    FULL = "Full"
-    INCREMENTAL = "Incremental"
-
-
-@pulumi.type_token("azure-native:securityinsights:KeyVaultAuthenticationMode")
-class KeyVaultAuthenticationMode(_builtins.str, Enum):
-    """
-    The key mode of the agent.
-    ManagedIdentity|ApplicationIdentity are the options
-    """
-    MANAGED_IDENTITY = "ManagedIdentity"
-    SERVICE_PRINCIPAL = "ServicePrincipal"
-
-
 @pulumi.type_token("azure-native:securityinsights:Kind")
 class Kind(_builtins.str, Enum):
     """
@@ -1189,54 +1133,6 @@ class Kind(_builtins.str, Enum):
     AZURE_FUNCTION = "AzureFunction"
     LOGIC_APPS_CUSTOM_CONNECTOR = "LogicAppsCustomConnector"
     AUTOMATION_RULE = "AutomationRule"
-
-
-@pulumi.type_token("azure-native:securityinsights:LogStatusType")
-class LogStatusType(_builtins.str, Enum):
-    """
-    Types of log status.
-    """
-    ENABLED = "Enabled"
-    DISABLED = "Disabled"
-
-
-@pulumi.type_token("azure-native:securityinsights:LogType")
-class LogType(_builtins.str, Enum):
-    """
-    Types of logs and tables.
-    """
-    ABAP_AUDIT_LOG = "AbapAuditLog"
-    ABAP_JOB_LOG = "AbapJobLog"
-    ABAP_SPOOL_LOG = "AbapSpoolLog"
-    ABAP_SPOOL_OUTPUT_LOG = "AbapSpoolOutputLog"
-    ABAP_CHANGE_DOCS_LOG = "AbapChangeDocsLog"
-    ABAP_APP_LOG = "AbapAppLog"
-    ABAP_WORKFLOW_LOG = "AbapWorkflowLog"
-    ABAP_CR_LOG = "AbapCrLog"
-    ABAP_TABLE_DATA_LOG = "AbapTableDataLog"
-    ABAP_FILES_LOGS = "AbapFilesLogs"
-    JAVA_FILES_LOGS = "JavaFilesLogs"
-    AGRTCODES = "AGRTCODES"
-    USR01 = "USR01"
-    USR02 = "USR02"
-    AGR1251 = "AGR1251"
-    AGRUSERS = "AGRUSERS"
-    AGRPROF = "AGRPROF"
-    UST04 = "UST04"
-    USR21 = "USR21"
-    ADR6 = "ADR6"
-    ADCP = "ADCP"
-    USR05 = "USR05"
-    USGRPUSER = "USGRPUSER"
-    USERADDR = "USERADDR"
-    DEVACCESS = "DEVACCESS"
-    AGRDEFINE = "AGRDEFINE"
-    PAHI = "PAHI"
-    AGRAGRS = "AGRAGRS"
-    USRSTAMP = "USRSTAMP"
-    AGRFLAGS = "AGRFLAGS"
-    SNCSYSACL = "SNCSYSACL"
-    USRACL = "USRACL"
 
 
 @pulumi.type_token("azure-native:securityinsights:MatchingMethod")
@@ -1365,25 +1261,6 @@ class RestApiPollerRequestPagingKind(_builtins.str, Enum):
     COUNT_BASED_PAGING = "CountBasedPaging"
 
 
-@pulumi.type_token("azure-native:securityinsights:SapAuthenticationType")
-class SapAuthenticationType(_builtins.str, Enum):
-    """
-    The authentication type to SAP.
-    """
-    USERNAME_PASSWORD = "UsernamePassword"
-    SNC = "Snc"
-    SNC_WITH_USERNAME_PASSWORD = "SncWithUsernamePassword"
-
-
-@pulumi.type_token("azure-native:securityinsights:SecretSource")
-class SecretSource(_builtins.str, Enum):
-    """
-    The secret source of the agent.
-    AzureKeyVault is the option
-    """
-    AZURE_KEY_VAULT = "AzureKeyVault"
-
-
 @pulumi.type_token("azure-native:securityinsights:SecurityMLAnalyticsSettingsKind")
 class SecurityMLAnalyticsSettingsKind(_builtins.str, Enum):
     """
@@ -1464,24 +1341,6 @@ class SupportTier(_builtins.str, Enum):
     MICROSOFT = "Microsoft"
     PARTNER = "Partner"
     COMMUNITY = "Community"
-
-
-@pulumi.type_token("azure-native:securityinsights:SystemConfigurationConnectorType")
-class SystemConfigurationConnectorType(_builtins.str, Enum):
-    """
-    Represents the types of SAP systems.
-    """
-    RFC = "Rfc"
-    SAP_CONTROL = "SapControl"
-
-
-@pulumi.type_token("azure-native:securityinsights:SystemStatusType")
-class SystemStatusType(_builtins.str, Enum):
-    """
-    The status of the system.
-    """
-    RUNNING = "Running"
-    STOPPED = "Stopped"
 
 
 @pulumi.type_token("azure-native:securityinsights:ThreatIntelligenceResourceInnerKind")

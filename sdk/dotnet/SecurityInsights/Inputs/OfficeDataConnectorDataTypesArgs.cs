@@ -18,20 +18,20 @@ namespace Pulumi.AzureNative.SecurityInsights.Inputs
         /// <summary>
         /// Exchange data type connection.
         /// </summary>
-        [Input("exchange")]
-        public Input<Inputs.OfficeDataConnectorDataTypesExchangeArgs>? Exchange { get; set; }
+        [Input("exchange", required: true)]
+        public Input<Inputs.OfficeDataConnectorDataTypesExchangeArgs> Exchange { get; set; } = null!;
 
         /// <summary>
         /// SharePoint data type connection.
         /// </summary>
-        [Input("sharePoint")]
-        public Input<Inputs.OfficeDataConnectorDataTypesSharePointArgs>? SharePoint { get; set; }
+        [Input("sharePoint", required: true)]
+        public Input<Inputs.OfficeDataConnectorDataTypesSharePointArgs> SharePoint { get; set; } = null!;
 
         /// <summary>
         /// Teams data type connection.
         /// </summary>
-        [Input("teams")]
-        public Input<Inputs.OfficeDataConnectorDataTypesTeamsArgs>? Teams { get; set; }
+        [Input("teams", required: true)]
+        public Input<Inputs.OfficeDataConnectorDataTypesTeamsArgs> Teams { get; set; } = null!;
 
         public OfficeDataConnectorDataTypesArgs()
         {

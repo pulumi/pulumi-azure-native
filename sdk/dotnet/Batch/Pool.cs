@@ -19,9 +19,15 @@ namespace Pulumi.AzureNative.Batch
     [AzureNativeResourceType("azure-native:batch:Pool")]
     public partial class Pool : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Whether the pool is resizing.
+        /// </summary>
         [Output("allocationState")]
         public Output<string> AllocationState { get; private set; } = null!;
 
+        /// <summary>
+        /// The time at which the pool entered its current allocation state.
+        /// </summary>
         [Output("allocationStateTransitionTime")]
         public Output<string> AllocationStateTransitionTime { get; private set; } = null!;
 
@@ -57,18 +63,33 @@ namespace Pulumi.AzureNative.Batch
         [Output("certificates")]
         public Output<ImmutableArray<Outputs.CertificateReferenceResponse>> Certificates { get; private set; } = null!;
 
+        /// <summary>
+        /// The creation time of the pool.
+        /// </summary>
         [Output("creationTime")]
         public Output<string> CreationTime { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of dedicated compute nodes currently in the pool.
+        /// </summary>
         [Output("currentDedicatedNodes")]
         public Output<int> CurrentDedicatedNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// The number of Spot/low-priority compute nodes currently in the pool.
+        /// </summary>
         [Output("currentLowPriorityNodes")]
         public Output<int> CurrentLowPriorityNodes { get; private set; } = null!;
 
+        /// <summary>
+        /// Determines how a pool communicates with the Batch service.
+        /// </summary>
         [Output("currentNodeCommunicationMode")]
         public Output<string> CurrentNodeCommunicationMode { get; private set; } = null!;
 
+        /// <summary>
+        /// Deployment configuration properties.
+        /// </summary>
         [Output("deploymentConfiguration")]
         public Output<Outputs.DeploymentConfigurationResponse?> DeploymentConfiguration { get; private set; } = null!;
 
@@ -115,7 +136,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<ImmutableArray<Outputs.MountConfigurationResponse>> MountConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the resource.
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -126,9 +147,15 @@ namespace Pulumi.AzureNative.Batch
         [Output("networkConfiguration")]
         public Output<Outputs.NetworkConfigurationResponse?> NetworkConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// The current state of the pool.
+        /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 
+        /// <summary>
+        /// The time at which the pool entered its current state.
+        /// </summary>
         [Output("provisioningStateTransitionTime")]
         public Output<string> ProvisioningStateTransitionTime { get; private set; } = null!;
 
@@ -157,6 +184,12 @@ namespace Pulumi.AzureNative.Batch
         public Output<Outputs.StartTaskResponse?> StartTask { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The tags of the resource.
         /// </summary>
         [Output("tags")]
@@ -181,7 +214,7 @@ namespace Pulumi.AzureNative.Batch
         public Output<int?> TaskSlotsPerNode { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -192,6 +225,9 @@ namespace Pulumi.AzureNative.Batch
         [Output("upgradePolicy")]
         public Output<Outputs.UpgradePolicyResponse?> UpgradePolicy { get; private set; } = null!;
 
+        /// <summary>
+        /// The list of user accounts to be created on each node in the pool.
+        /// </summary>
         [Output("userAccounts")]
         public Output<ImmutableArray<Outputs.UserAccountResponse>> UserAccounts { get; private set; } = null!;
 
@@ -266,7 +302,7 @@ namespace Pulumi.AzureNative.Batch
     public sealed class PoolArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Batch account.
+        /// A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
@@ -309,6 +345,9 @@ namespace Pulumi.AzureNative.Batch
             set => _certificates = value;
         }
 
+        /// <summary>
+        /// Deployment configuration properties.
+        /// </summary>
         [Input("deploymentConfiguration")]
         public Input<Inputs.DeploymentConfigurationArgs>? DeploymentConfiguration { get; set; }
 
@@ -367,7 +406,7 @@ namespace Pulumi.AzureNative.Batch
         public Input<string>? PoolName { get; set; }
 
         /// <summary>
-        /// The name of the resource group that contains the Batch account.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -434,6 +473,10 @@ namespace Pulumi.AzureNative.Batch
 
         [Input("userAccounts")]
         private InputList<Inputs.UserAccountArgs>? _userAccounts;
+
+        /// <summary>
+        /// The list of user accounts to be created on each node in the pool.
+        /// </summary>
         public InputList<Inputs.UserAccountArgs> UserAccounts
         {
             get => _userAccounts ?? (_userAccounts = new InputList<Inputs.UserAccountArgs>());

@@ -16,26 +16,26 @@ namespace Pulumi.AzureNative.TrafficManager.Inputs
     public sealed class MonitorConfigArgs : global::Pulumi.ResourceArgs
     {
         [Input("customHeaders")]
-        private InputList<Inputs.MonitorConfigCustomHeadersArgs>? _customHeaders;
+        private InputList<Inputs.MonitorConfigCustomHeadersItemArgs>? _customHeaders;
 
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public InputList<Inputs.MonitorConfigCustomHeadersArgs> CustomHeaders
+        public InputList<Inputs.MonitorConfigCustomHeadersItemArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorConfigCustomHeadersArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.MonitorConfigCustomHeadersItemArgs>());
             set => _customHeaders = value;
         }
 
         [Input("expectedStatusCodeRanges")]
-        private InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs>? _expectedStatusCodeRanges;
+        private InputList<Inputs.MonitorConfigExpectedStatusCodeRangesItemArgs>? _expectedStatusCodeRanges;
 
         /// <summary>
         /// List of expected status code ranges.
         /// </summary>
-        public InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs> ExpectedStatusCodeRanges
+        public InputList<Inputs.MonitorConfigExpectedStatusCodeRangesItemArgs> ExpectedStatusCodeRanges
         {
-            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<Inputs.MonitorConfigExpectedStatusCodeRangesArgs>());
+            get => _expectedStatusCodeRanges ?? (_expectedStatusCodeRanges = new InputList<Inputs.MonitorConfigExpectedStatusCodeRangesItemArgs>());
             set => _expectedStatusCodeRanges = value;
         }
 

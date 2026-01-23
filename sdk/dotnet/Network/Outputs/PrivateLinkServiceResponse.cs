@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Network.Outputs
     public sealed class PrivateLinkServiceResponse
     {
         /// <summary>
+        /// The access mode of the private link service.
+        /// </summary>
+        public readonly string? AccessMode;
+        /// <summary>
         /// The alias of the private link service.
         /// </summary>
         public readonly string Alias;
@@ -91,6 +95,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
         [OutputConstructor]
         private PrivateLinkServiceResponse(
+            string? accessMode,
+
             string alias,
 
             Outputs.PrivateLinkServicePropertiesResponseAutoApproval? autoApproval,
@@ -127,6 +133,7 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             Outputs.PrivateLinkServicePropertiesResponseVisibility? visibility)
         {
+            AccessMode = accessMode;
             Alias = alias;
             AutoApproval = autoApproval;
             DestinationIPAddress = destinationIPAddress;

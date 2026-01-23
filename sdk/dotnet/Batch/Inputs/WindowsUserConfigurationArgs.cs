@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Properties used to create a user account on a Windows node.
+    /// </summary>
     public sealed class WindowsUserConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

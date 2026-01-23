@@ -37,7 +37,7 @@ export interface GetAADDataConnectorArgs {
 }
 
 /**
- * Represents AAD (Azure Active Directory) data connector.
+ * Represents Microsoft Entra ID data connector.
  */
 export interface GetAADDataConnectorResult {
     /**
@@ -72,7 +72,7 @@ export interface GetAADDataConnectorResult {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    readonly tenantId?: string;
+    readonly tenantId: string;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */

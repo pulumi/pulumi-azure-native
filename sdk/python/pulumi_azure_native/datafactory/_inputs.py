@@ -56091,6 +56091,10 @@ if not MYPY:
         """
         The password to access the cluster.
         """
+        cluster_resource_group_auth_type: NotRequired[pulumi.Input[Union[_builtins.str, 'HDInsightOndemandClusterResourceGroupAuthenticationType']]]
+        """
+        HDInsight On-demand cluster resource group authentication type.
+        """
         cluster_ssh_password: NotRequired[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgsDict', 'SecureStringArgsDict']]]
         """
         The password to SSH remotely connect cluster’s node (for Linux).
@@ -56217,6 +56221,7 @@ class HDInsightOnDemandLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 cluster_resource_group_auth_type: Optional[pulumi.Input[Union[_builtins.str, 'HDInsightOndemandClusterResourceGroupAuthenticationType']]] = None,
                  cluster_ssh_password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
                  cluster_ssh_user_name: Optional[Any] = None,
                  cluster_type: Optional[Any] = None,
@@ -56259,6 +56264,7 @@ class HDInsightOnDemandLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_password: The password to access the cluster.
+        :param pulumi.Input[Union[_builtins.str, 'HDInsightOndemandClusterResourceGroupAuthenticationType']] cluster_resource_group_auth_type: HDInsight On-demand cluster resource group authentication type.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
@@ -56303,6 +56309,8 @@ class HDInsightOnDemandLinkedServiceArgs:
             pulumi.set(__self__, "cluster_name_prefix", cluster_name_prefix)
         if cluster_password is not None:
             pulumi.set(__self__, "cluster_password", cluster_password)
+        if cluster_resource_group_auth_type is not None:
+            pulumi.set(__self__, "cluster_resource_group_auth_type", cluster_resource_group_auth_type)
         if cluster_ssh_password is not None:
             pulumi.set(__self__, "cluster_ssh_password", cluster_ssh_password)
         if cluster_ssh_user_name is not None:
@@ -56502,6 +56510,18 @@ class HDInsightOnDemandLinkedServiceArgs:
     @cluster_password.setter
     def cluster_password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
         pulumi.set(self, "cluster_password", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterResourceGroupAuthType")
+    def cluster_resource_group_auth_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'HDInsightOndemandClusterResourceGroupAuthenticationType']]]:
+        """
+        HDInsight On-demand cluster resource group authentication type.
+        """
+        return pulumi.get(self, "cluster_resource_group_auth_type")
+
+    @cluster_resource_group_auth_type.setter
+    def cluster_resource_group_auth_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'HDInsightOndemandClusterResourceGroupAuthenticationType']]]):
+        pulumi.set(self, "cluster_resource_group_auth_type", value)
 
     @_builtins.property
     @pulumi.getter(name="clusterSshPassword")
@@ -64837,9 +64857,13 @@ if not MYPY:
         """
         Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
         """
+        table: NotRequired[Any]
+        """
+        The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        """
         table_name: NotRequired[Any]
         """
-        The table name. Type: string (or Expression with resultType string).
+        This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         """
 elif False:
     JiraObjectDatasetArgsDict: TypeAlias = Mapping[str, Any]
@@ -64855,6 +64879,7 @@ class JiraObjectDatasetArgs:
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
+                 table: Optional[Any] = None,
                  table_name: Optional[Any] = None):
         """
         Jira Service dataset.
@@ -64867,7 +64892,8 @@ class JiraObjectDatasetArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Any table_name: The table name. Type: string (or Expression with resultType string).
+        :param Any table: The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        :param Any table_name: This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'JiraObject')
@@ -64883,6 +64909,8 @@ class JiraObjectDatasetArgs:
             pulumi.set(__self__, "schema", schema)
         if structure is not None:
             pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -64984,10 +65012,22 @@ class JiraObjectDatasetArgs:
         pulumi.set(self, "structure", value)
 
     @_builtins.property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+    @table.setter
+    def table(self, value: Optional[Any]):
+        pulumi.set(self, "table", value)
+
+    @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[Any]:
         """
-        The table name. Type: string (or Expression with resultType string).
+        This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         """
         return pulumi.get(self, "table_name")
 
@@ -75765,6 +75805,10 @@ if not MYPY:
         """
         An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
         """
+        database: NotRequired[Any]
+        """
+        Database name for connection. Type: string.
+        """
         description: NotRequired[pulumi.Input[_builtins.str]]
         """
         Linked service description.
@@ -75777,9 +75821,25 @@ if not MYPY:
         """
         Parameters for linked service.
         """
+        port: NotRequired[Any]
+        """
+        The port for the connection. Type: integer.
+        """
         pwd: NotRequired[pulumi.Input['AzureKeyVaultSecretReferenceArgsDict']]
         """
         The Azure key vault secret reference of password in connection string.
+        """
+        security_level: NotRequired[pulumi.Input[Union[_builtins.str, 'NetezzaSecurityLevelType']]]
+        """
+        Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        """
+        server: NotRequired[Any]
+        """
+        Server name for connection. Type: string.
+        """
+        uid: NotRequired[Any]
+        """
+        Username for authentication. Type: string.
         """
         version: NotRequired[pulumi.Input[_builtins.str]]
         """
@@ -75795,10 +75855,15 @@ class NetezzaLinkedServiceArgs:
                  annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
                  connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
                  connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[pulumi.Input[_builtins.str]] = None,
                  encrypted_credential: Optional[pulumi.Input[_builtins.str]] = None,
                  parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 port: Optional[Any] = None,
                  pwd: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']] = None,
+                 security_level: Optional[pulumi.Input[Union[_builtins.str, 'NetezzaSecurityLevelType']]] = None,
+                 server: Optional[Any] = None,
+                 uid: Optional[Any] = None,
                  version: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Netezza linked service.
@@ -75807,10 +75872,15 @@ class NetezzaLinkedServiceArgs:
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param pulumi.Input[_builtins.str] description: Linked service description.
         :param pulumi.Input[_builtins.str] encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param Any port: The port for the connection. Type: integer.
         :param pulumi.Input['AzureKeyVaultSecretReferenceArgs'] pwd: The Azure key vault secret reference of password in connection string.
+        :param pulumi.Input[Union[_builtins.str, 'NetezzaSecurityLevelType']] security_level: Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        :param Any server: Server name for connection. Type: string.
+        :param Any uid: Username for authentication. Type: string.
         :param pulumi.Input[_builtins.str] version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
@@ -75820,14 +75890,24 @@ class NetezzaLinkedServiceArgs:
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if security_level is not None:
+            pulumi.set(__self__, "security_level", security_level)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -75882,6 +75962,18 @@ class NetezzaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @database.setter
+    def database(self, value: Optional[Any]):
+        pulumi.set(self, "database", value)
+
+    @_builtins.property
+    @pulumi.getter
     def description(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
         Linked service description.
@@ -75918,6 +76010,18 @@ class NetezzaLinkedServiceArgs:
 
     @_builtins.property
     @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: Optional[Any]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
     def pwd(self) -> Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]:
         """
         The Azure key vault secret reference of password in connection string.
@@ -75927,6 +76031,42 @@ class NetezzaLinkedServiceArgs:
     @pwd.setter
     def pwd(self, value: Optional[pulumi.Input['AzureKeyVaultSecretReferenceArgs']]):
         pulumi.set(self, "pwd", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityLevel")
+    def security_level(self) -> Optional[pulumi.Input[Union[_builtins.str, 'NetezzaSecurityLevelType']]]:
+        """
+        Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        """
+        return pulumi.get(self, "security_level")
+
+    @security_level.setter
+    def security_level(self, value: Optional[pulumi.Input[Union[_builtins.str, 'NetezzaSecurityLevelType']]]):
+        pulumi.set(self, "security_level", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "uid")
+
+    @uid.setter
+    def uid(self, value: Optional[Any]):
+        pulumi.set(self, "uid", value)
 
     @_builtins.property
     @pulumi.getter

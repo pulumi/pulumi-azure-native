@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2022-10-27.
  *
- * Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getAppliance(args: GetApplianceArgs, opts?: pulumi.InvokeOptions): Promise<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -56,7 +56,7 @@ export interface GetApplianceResult {
     /**
      * Contains infrastructure information about the Appliance
      */
-    readonly infrastructureConfig?: outputs.resourceconnector.AppliancePropertiesResponseInfrastructureConfig;
+    readonly infrastructureConfig?: outputs.resourceconnector.AppliancePropertiesInfrastructureConfigResponse;
     /**
      * The geo-location where the resource lives
      */
@@ -74,7 +74,7 @@ export interface GetApplianceResult {
      */
     readonly publicKey?: string;
     /**
-     * Appliance’s health and state of connection to on-prem
+     * Appliance’s health and state of connection to on-prem. This list of values is not exhaustive.
      */
     readonly status: string;
     /**
@@ -99,7 +99,7 @@ export interface GetApplianceResult {
  *
  * Uses Azure REST API version 2022-10-27.
  *
- * Other available API versions: 2022-04-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-04-15-preview, 2025-03-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native resourceconnector [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getApplianceOutput(args: GetApplianceOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetApplianceResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

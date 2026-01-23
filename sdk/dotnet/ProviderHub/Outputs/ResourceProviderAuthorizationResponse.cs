@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Managed by authorization.
         /// </summary>
-        public readonly Outputs.ResourceProviderAuthorizationResponseManagedByAuthorization? ManagedByAuthorization;
+        public readonly Outputs.ResourceProviderAuthorizationManagedByAuthorizationResponse? ManagedByAuthorization;
         /// <summary>
         /// The managed by role definition id.
         /// </summary>
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? groupingTag,
 
-            Outputs.ResourceProviderAuthorizationResponseManagedByAuthorization? managedByAuthorization,
+            Outputs.ResourceProviderAuthorizationManagedByAuthorizationResponse? managedByAuthorization,
 
             string? managedByRoleDefinitionId,
 

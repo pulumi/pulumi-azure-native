@@ -50,6 +50,11 @@ export const getGetPrivateDnsZoneSuffixExecute: typeof import("./getGetPrivateDn
 export const getGetPrivateDnsZoneSuffixExecuteOutput: typeof import("./getGetPrivateDnsZoneSuffixExecute").getGetPrivateDnsZoneSuffixExecuteOutput = null as any;
 utilities.lazyLoad(exports, ["getGetPrivateDnsZoneSuffixExecute","getGetPrivateDnsZoneSuffixExecuteOutput"], () => require("./getGetPrivateDnsZoneSuffixExecute"));
 
+export { GetLongRunningBackupArgs, GetLongRunningBackupResult, GetLongRunningBackupOutputArgs } from "./getLongRunningBackup";
+export const getLongRunningBackup: typeof import("./getLongRunningBackup").getLongRunningBackup = null as any;
+export const getLongRunningBackupOutput: typeof import("./getLongRunningBackup").getLongRunningBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getLongRunningBackup","getLongRunningBackupOutput"], () => require("./getLongRunningBackup"));
+
 export { GetPrivateEndpointConnectionArgs, GetPrivateEndpointConnectionResult, GetPrivateEndpointConnectionOutputArgs } from "./getPrivateEndpointConnection";
 export const getPrivateEndpointConnection: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnection = null as any;
 export const getPrivateEndpointConnectionOutput: typeof import("./getPrivateEndpointConnection").getPrivateEndpointConnectionOutput = null as any;
@@ -89,6 +94,11 @@ export { GetSingleServerVirtualNetworkRuleArgs, GetSingleServerVirtualNetworkRul
 export const getSingleServerVirtualNetworkRule: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRule = null as any;
 export const getSingleServerVirtualNetworkRuleOutput: typeof import("./getSingleServerVirtualNetworkRule").getSingleServerVirtualNetworkRuleOutput = null as any;
 utilities.lazyLoad(exports, ["getSingleServerVirtualNetworkRule","getSingleServerVirtualNetworkRuleOutput"], () => require("./getSingleServerVirtualNetworkRule"));
+
+export { LongRunningBackupArgs } from "./longRunningBackup";
+export type LongRunningBackup = import("./longRunningBackup").LongRunningBackup;
+export const LongRunningBackup: typeof import("./longRunningBackup").LongRunningBackup = null as any;
+utilities.lazyLoad(exports, ["LongRunningBackup"], () => require("./longRunningBackup"));
 
 export { PrivateEndpointConnectionArgs } from "./privateEndpointConnection";
 export type PrivateEndpointConnection = import("./privateEndpointConnection").PrivateEndpointConnection;
@@ -146,6 +156,8 @@ const _module = {
                 return new Database(name, <any>undefined, { urn })
             case "azure-native:dbformysql:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
+            case "azure-native:dbformysql:LongRunningBackup":
+                return new LongRunningBackup(name, <any>undefined, { urn })
             case "azure-native:dbformysql:PrivateEndpointConnection":
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:dbformysql:Server":

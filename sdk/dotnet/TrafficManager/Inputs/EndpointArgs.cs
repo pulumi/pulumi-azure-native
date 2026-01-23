@@ -22,14 +22,14 @@ namespace Pulumi.AzureNative.TrafficManager.Inputs
         public InputUnion<string, Pulumi.AzureNative.TrafficManager.AlwaysServe>? AlwaysServe { get; set; }
 
         [Input("customHeaders")]
-        private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
+        private InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs>? _customHeaders;
 
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public InputList<Inputs.EndpointPropertiesCustomHeadersArgs> CustomHeaders
+        public InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesCustomHeadersArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs>());
             set => _customHeaders = value;
         }
 
@@ -100,14 +100,14 @@ namespace Pulumi.AzureNative.TrafficManager.Inputs
         public Input<double>? Priority { get; set; }
 
         [Input("subnets")]
-        private InputList<Inputs.EndpointPropertiesSubnetsArgs>? _subnets;
+        private InputList<Inputs.EndpointPropertiesSubnetsItemArgs>? _subnets;
 
         /// <summary>
         /// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         /// </summary>
-        public InputList<Inputs.EndpointPropertiesSubnetsArgs> Subnets
+        public InputList<Inputs.EndpointPropertiesSubnetsItemArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointPropertiesSubnetsArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointPropertiesSubnetsItemArgs>());
             set => _subnets = value;
         }
 

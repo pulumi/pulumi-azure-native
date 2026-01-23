@@ -25,7 +25,7 @@ __all__ = [
 @pulumi.output_type
 class GetAADDataConnectorResult:
     """
-    Represents AAD (Azure Active Directory) data connector.
+    Represents Microsoft Entra ID data connector.
     """
     def __init__(__self__, azure_api_version=None, data_types=None, etag=None, id=None, kind=None, name=None, system_data=None, tenant_id=None, type=None):
         if azure_api_version and not isinstance(azure_api_version, str):
@@ -115,7 +115,7 @@ class GetAADDataConnectorResult:
 
     @_builtins.property
     @pulumi.getter(name="tenantId")
-    def tenant_id(self) -> Optional[_builtins.str]:
+    def tenant_id(self) -> _builtins.str:
         """
         The tenant id to connect to, and get the data from.
         """

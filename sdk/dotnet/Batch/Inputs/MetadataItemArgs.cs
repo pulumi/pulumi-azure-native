@@ -15,9 +15,15 @@ namespace Pulumi.AzureNative.Batch.Inputs
     /// </summary>
     public sealed class MetadataItemArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The name of the metadata item.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
+        /// <summary>
+        /// The value of the metadata item.
+        /// </summary>
         [Input("value", required: true)]
         public Input<string> Value { get; set; } = null!;
 

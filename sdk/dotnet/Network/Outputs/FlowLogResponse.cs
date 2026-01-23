@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.Network.Outputs
         /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
+        /// Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
+        /// </summary>
+        public readonly string? RecordTypes;
+        /// <summary>
         /// Parameters that define the retention policy for flow log.
         /// </summary>
         public readonly Outputs.RetentionPolicyParametersResponse? RetentionPolicy;
@@ -103,6 +107,8 @@ namespace Pulumi.AzureNative.Network.Outputs
 
             string provisioningState,
 
+            string? recordTypes,
+
             Outputs.RetentionPolicyParametersResponse? retentionPolicy,
 
             string storageId,
@@ -125,6 +131,7 @@ namespace Pulumi.AzureNative.Network.Outputs
             Location = location;
             Name = name;
             ProvisioningState = provisioningState;
+            RecordTypes = recordTypes;
             RetentionPolicy = retentionPolicy;
             StorageId = storageId;
             Tags = tags;

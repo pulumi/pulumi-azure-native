@@ -316,6 +316,7 @@ __all__ = [
     'IntegrationRuntimeSsisCatalogInfoResponse',
     'IntegrationRuntimeSsisPropertiesResponse',
     'IntegrationRuntimeVNetPropertiesResponse',
+    'InteractiveQueryPropertiesResponse',
     'JiraLinkedServiceResponse',
     'JiraObjectDatasetResponse',
     'JiraSourceResponse',
@@ -40376,6 +40377,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             suggest = "cluster_name_prefix"
         elif key == "clusterPassword":
             suggest = "cluster_password"
+        elif key == "clusterResourceGroupAuthType":
+            suggest = "cluster_resource_group_auth_type"
         elif key == "clusterSshPassword":
             suggest = "cluster_ssh_password"
         elif key == "clusterSshUserName":
@@ -40449,6 +40452,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  cluster_name_prefix: Optional[Any] = None,
                  cluster_password: Optional[Any] = None,
+                 cluster_resource_group_auth_type: Optional[_builtins.str] = None,
                  cluster_ssh_password: Optional[Any] = None,
                  cluster_ssh_user_name: Optional[Any] = None,
                  cluster_type: Optional[Any] = None,
@@ -40491,6 +40495,7 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any cluster_name_prefix: The prefix of cluster name, postfix will be distinct with timestamp. Type: string (or Expression with resultType string).
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_password: The password to access the cluster.
+        :param _builtins.str cluster_resource_group_auth_type: HDInsight On-demand cluster resource group authentication type.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] cluster_ssh_password: The password to SSH remotely connect cluster’s node (for Linux).
         :param Any cluster_ssh_user_name: The username to SSH remotely connect to cluster’s node (for Linux). Type: string (or Expression with resultType string).
         :param Any cluster_type: The cluster type. Type: string (or Expression with resultType string).
@@ -40535,6 +40540,8 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
             pulumi.set(__self__, "cluster_name_prefix", cluster_name_prefix)
         if cluster_password is not None:
             pulumi.set(__self__, "cluster_password", cluster_password)
+        if cluster_resource_group_auth_type is not None:
+            pulumi.set(__self__, "cluster_resource_group_auth_type", cluster_resource_group_auth_type)
         if cluster_ssh_password is not None:
             pulumi.set(__self__, "cluster_ssh_password", cluster_ssh_password)
         if cluster_ssh_user_name is not None:
@@ -40686,6 +40693,14 @@ class HDInsightOnDemandLinkedServiceResponse(dict):
         The password to access the cluster.
         """
         return pulumi.get(self, "cluster_password")
+
+    @_builtins.property
+    @pulumi.getter(name="clusterResourceGroupAuthType")
+    def cluster_resource_group_auth_type(self) -> Optional[_builtins.str]:
+        """
+        HDInsight On-demand cluster resource group authentication type.
+        """
+        return pulumi.get(self, "cluster_resource_group_auth_type")
 
     @_builtins.property
     @pulumi.getter(name="clusterSshPassword")
@@ -46503,6 +46518,56 @@ class IntegrationRuntimeVNetPropertiesResponse(dict):
 
 
 @pulumi.output_type
+class InteractiveQueryPropertiesResponse(dict):
+    """
+    Interactive authoring capability type properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "autoTerminationMinutes":
+            suggest = "auto_termination_minutes"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InteractiveQueryPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InteractiveQueryPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InteractiveQueryPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 auto_termination_minutes: _builtins.int,
+                 status: _builtins.str):
+        """
+        Interactive authoring capability type properties.
+        :param _builtins.int auto_termination_minutes: The allowed idle time for interactive authoring.
+        :param _builtins.str status: The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
+        """
+        pulumi.set(__self__, "auto_termination_minutes", auto_termination_minutes)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="autoTerminationMinutes")
+    def auto_termination_minutes(self) -> _builtins.int:
+        """
+        The allowed idle time for interactive authoring.
+        """
+        return pulumi.get(self, "auto_termination_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The interactive authoring capability status. Must be one of InteractiveCapabilityStatus. The default value is 'Enabling'.
+        """
+        return pulumi.get(self, "status")
+
+
+@pulumi.output_type
 class JiraLinkedServiceResponse(dict):
     """
     Jira Service linked service.
@@ -46738,6 +46803,7 @@ class JiraObjectDatasetResponse(dict):
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  schema: Optional[Any] = None,
                  structure: Optional[Any] = None,
+                 table: Optional[Any] = None,
                  table_name: Optional[Any] = None):
         """
         Jira Service dataset.
@@ -46750,7 +46816,8 @@ class JiraObjectDatasetResponse(dict):
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
         :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
         :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
-        :param Any table_name: The table name. Type: string (or Expression with resultType string).
+        :param Any table: The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        :param Any table_name: This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         """
         pulumi.set(__self__, "linked_service_name", linked_service_name)
         pulumi.set(__self__, "type", 'JiraObject')
@@ -46766,6 +46833,8 @@ class JiraObjectDatasetResponse(dict):
             pulumi.set(__self__, "schema", schema)
         if structure is not None:
             pulumi.set(__self__, "structure", structure)
+        if table is not None:
+            pulumi.set(__self__, "table", table)
         if table_name is not None:
             pulumi.set(__self__, "table_name", table_name)
 
@@ -46835,10 +46904,18 @@ class JiraObjectDatasetResponse(dict):
         return pulumi.get(self, "structure")
 
     @_builtins.property
+    @pulumi.getter
+    def table(self) -> Optional[Any]:
+        """
+        The table name of the Jira, applies only for Jira V2 dataset. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "table")
+
+    @_builtins.property
     @pulumi.getter(name="tableName")
     def table_name(self) -> Optional[Any]:
         """
-        The table name. Type: string (or Expression with resultType string).
+        This property is only supported in Jira V1 Dataset, please consider upgrading to V2 dataset.
         """
         return pulumi.get(self, "table_name")
 
@@ -50048,6 +50125,8 @@ class ManagedIntegrationRuntimeResponse(dict):
             suggest = "compute_properties"
         elif key == "customerVirtualNetwork":
             suggest = "customer_virtual_network"
+        elif key == "interactiveQuery":
+            suggest = "interactive_query"
         elif key == "managedVirtualNetwork":
             suggest = "managed_virtual_network"
         elif key == "ssisProperties":
@@ -50070,6 +50149,7 @@ class ManagedIntegrationRuntimeResponse(dict):
                  compute_properties: Optional['outputs.IntegrationRuntimeComputePropertiesResponse'] = None,
                  customer_virtual_network: Optional['outputs.IntegrationRuntimeCustomerVirtualNetworkResponse'] = None,
                  description: Optional[_builtins.str] = None,
+                 interactive_query: Optional['outputs.InteractiveQueryPropertiesResponse'] = None,
                  managed_virtual_network: Optional['outputs.ManagedVirtualNetworkReferenceResponse'] = None,
                  ssis_properties: Optional['outputs.IntegrationRuntimeSsisPropertiesResponse'] = None):
         """
@@ -50080,6 +50160,7 @@ class ManagedIntegrationRuntimeResponse(dict):
         :param 'IntegrationRuntimeComputePropertiesResponse' compute_properties: The compute resource for managed integration runtime.
         :param 'IntegrationRuntimeCustomerVirtualNetworkResponse' customer_virtual_network: The name of virtual network to which Azure-SSIS integration runtime will join
         :param _builtins.str description: Integration runtime description.
+        :param 'InteractiveQueryPropertiesResponse' interactive_query: Interactive authoring capability reference.
         :param 'ManagedVirtualNetworkReferenceResponse' managed_virtual_network: Managed Virtual Network reference.
         :param 'IntegrationRuntimeSsisPropertiesResponse' ssis_properties: SSIS properties for managed integration runtime.
         """
@@ -50091,6 +50172,8 @@ class ManagedIntegrationRuntimeResponse(dict):
             pulumi.set(__self__, "customer_virtual_network", customer_virtual_network)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interactive_query is not None:
+            pulumi.set(__self__, "interactive_query", interactive_query)
         if managed_virtual_network is not None:
             pulumi.set(__self__, "managed_virtual_network", managed_virtual_network)
         if ssis_properties is not None:
@@ -50136,6 +50219,14 @@ class ManagedIntegrationRuntimeResponse(dict):
         Integration runtime description.
         """
         return pulumi.get(self, "description")
+
+    @_builtins.property
+    @pulumi.getter(name="interactiveQuery")
+    def interactive_query(self) -> Optional['outputs.InteractiveQueryPropertiesResponse']:
+        """
+        Interactive authoring capability reference.
+        """
+        return pulumi.get(self, "interactive_query")
 
     @_builtins.property
     @pulumi.getter(name="managedVirtualNetwork")
@@ -55210,6 +55301,8 @@ class NetezzaLinkedServiceResponse(dict):
             suggest = "connection_string"
         elif key == "encryptedCredential":
             suggest = "encrypted_credential"
+        elif key == "securityLevel":
+            suggest = "security_level"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NetezzaLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
@@ -55227,10 +55320,15 @@ class NetezzaLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  connection_string: Optional[Any] = None,
+                 database: Optional[Any] = None,
                  description: Optional[_builtins.str] = None,
                  encrypted_credential: Optional[_builtins.str] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 port: Optional[Any] = None,
                  pwd: Optional['outputs.AzureKeyVaultSecretReferenceResponse'] = None,
+                 security_level: Optional[_builtins.str] = None,
+                 server: Optional[Any] = None,
+                 uid: Optional[Any] = None,
                  version: Optional[_builtins.str] = None):
         """
         Netezza linked service.
@@ -55239,10 +55337,15 @@ class NetezzaLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param Any connection_string: An ODBC connection string. Type: string, SecureString or AzureKeyVaultSecretReference.
+        :param Any database: Database name for connection. Type: string.
         :param _builtins.str description: Linked service description.
         :param _builtins.str encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string.
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Any port: The port for the connection. Type: integer.
         :param 'AzureKeyVaultSecretReferenceResponse' pwd: The Azure key vault secret reference of password in connection string.
+        :param _builtins.str security_level: Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        :param Any server: Server name for connection. Type: string.
+        :param Any uid: Username for authentication. Type: string.
         :param _builtins.str version: Version of the linked service.
         """
         pulumi.set(__self__, "type", 'Netezza')
@@ -55252,14 +55355,24 @@ class NetezzaLinkedServiceResponse(dict):
             pulumi.set(__self__, "connect_via", connect_via)
         if connection_string is not None:
             pulumi.set(__self__, "connection_string", connection_string)
+        if database is not None:
+            pulumi.set(__self__, "database", database)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if encrypted_credential is not None:
             pulumi.set(__self__, "encrypted_credential", encrypted_credential)
         if parameters is not None:
             pulumi.set(__self__, "parameters", parameters)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
         if pwd is not None:
             pulumi.set(__self__, "pwd", pwd)
+        if security_level is not None:
+            pulumi.set(__self__, "security_level", security_level)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if uid is not None:
+            pulumi.set(__self__, "uid", uid)
         if version is not None:
             pulumi.set(__self__, "version", version)
 
@@ -55298,6 +55411,14 @@ class NetezzaLinkedServiceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
+    def database(self) -> Optional[Any]:
+        """
+        Database name for connection. Type: string.
+        """
+        return pulumi.get(self, "database")
+
+    @_builtins.property
+    @pulumi.getter
     def description(self) -> Optional[_builtins.str]:
         """
         Linked service description.
@@ -55322,11 +55443,43 @@ class NetezzaLinkedServiceResponse(dict):
 
     @_builtins.property
     @pulumi.getter
+    def port(self) -> Optional[Any]:
+        """
+        The port for the connection. Type: integer.
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
     def pwd(self) -> Optional['outputs.AzureKeyVaultSecretReferenceResponse']:
         """
         The Azure key vault secret reference of password in connection string.
         """
         return pulumi.get(self, "pwd")
+
+    @_builtins.property
+    @pulumi.getter(name="securityLevel")
+    def security_level(self) -> Optional[_builtins.str]:
+        """
+        Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+        """
+        return pulumi.get(self, "security_level")
+
+    @_builtins.property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Server name for connection. Type: string.
+        """
+        return pulumi.get(self, "server")
+
+    @_builtins.property
+    @pulumi.getter
+    def uid(self) -> Optional[Any]:
+        """
+        Username for authentication. Type: string.
+        """
+        return pulumi.get(self, "uid")
 
     @_builtins.property
     @pulumi.getter

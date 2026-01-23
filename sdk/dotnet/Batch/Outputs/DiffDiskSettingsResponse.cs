@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class DiffDiskSettingsResponse
     {

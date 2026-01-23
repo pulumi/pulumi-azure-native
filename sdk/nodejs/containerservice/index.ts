@@ -25,6 +25,11 @@ export type Fleet = import("./fleet").Fleet;
 export const Fleet: typeof import("./fleet").Fleet = null as any;
 utilities.lazyLoad(exports, ["Fleet"], () => require("./fleet"));
 
+export { FleetManagedNamespaceArgs } from "./fleetManagedNamespace";
+export type FleetManagedNamespace = import("./fleetManagedNamespace").FleetManagedNamespace;
+export const FleetManagedNamespace: typeof import("./fleetManagedNamespace").FleetManagedNamespace = null as any;
+utilities.lazyLoad(exports, ["FleetManagedNamespace"], () => require("./fleetManagedNamespace"));
+
 export { FleetMemberArgs } from "./fleetMember";
 export type FleetMember = import("./fleetMember").FleetMember;
 export const FleetMember: typeof import("./fleetMember").FleetMember = null as any;
@@ -54,6 +59,11 @@ export { GetFleetArgs, GetFleetResult, GetFleetOutputArgs } from "./getFleet";
 export const getFleet: typeof import("./getFleet").getFleet = null as any;
 export const getFleetOutput: typeof import("./getFleet").getFleetOutput = null as any;
 utilities.lazyLoad(exports, ["getFleet","getFleetOutput"], () => require("./getFleet"));
+
+export { GetFleetManagedNamespaceArgs, GetFleetManagedNamespaceResult, GetFleetManagedNamespaceOutputArgs } from "./getFleetManagedNamespace";
+export const getFleetManagedNamespace: typeof import("./getFleetManagedNamespace").getFleetManagedNamespace = null as any;
+export const getFleetManagedNamespaceOutput: typeof import("./getFleetManagedNamespace").getFleetManagedNamespaceOutput = null as any;
+utilities.lazyLoad(exports, ["getFleetManagedNamespace","getFleetManagedNamespaceOutput"], () => require("./getFleetManagedNamespace"));
 
 export { GetFleetMemberArgs, GetFleetMemberResult, GetFleetMemberOutputArgs } from "./getFleetMember";
 export const getFleetMember: typeof import("./getFleetMember").getFleetMember = null as any;
@@ -99,6 +109,11 @@ export { GetManagedNamespaceArgs, GetManagedNamespaceResult, GetManagedNamespace
 export const getManagedNamespace: typeof import("./getManagedNamespace").getManagedNamespace = null as any;
 export const getManagedNamespaceOutput: typeof import("./getManagedNamespace").getManagedNamespaceOutput = null as any;
 utilities.lazyLoad(exports, ["getManagedNamespace","getManagedNamespaceOutput"], () => require("./getManagedNamespace"));
+
+export { GetMeshMembershipArgs, GetMeshMembershipResult, GetMeshMembershipOutputArgs } from "./getMeshMembership";
+export const getMeshMembership: typeof import("./getMeshMembership").getMeshMembership = null as any;
+export const getMeshMembershipOutput: typeof import("./getMeshMembership").getMeshMembershipOutput = null as any;
+utilities.lazyLoad(exports, ["getMeshMembership","getMeshMembershipOutput"], () => require("./getMeshMembership"));
 
 export { GetNamespaceArgs, GetNamespaceResult, GetNamespaceOutputArgs } from "./getNamespace";
 export const getNamespace: typeof import("./getNamespace").getNamespace = null as any;
@@ -200,6 +215,11 @@ export type ManagedNamespace = import("./managedNamespace").ManagedNamespace;
 export const ManagedNamespace: typeof import("./managedNamespace").ManagedNamespace = null as any;
 utilities.lazyLoad(exports, ["ManagedNamespace"], () => require("./managedNamespace"));
 
+export { MeshMembershipArgs } from "./meshMembership";
+export type MeshMembership = import("./meshMembership").MeshMembership;
+export const MeshMembership: typeof import("./meshMembership").MeshMembership = null as any;
+utilities.lazyLoad(exports, ["MeshMembership"], () => require("./meshMembership"));
+
 export { NamespaceArgs } from "./namespace";
 export type Namespace = import("./namespace").Namespace;
 export const Namespace: typeof import("./namespace").Namespace = null as any;
@@ -246,6 +266,8 @@ const _module = {
                 return new DeploymentSafeguard(name, <any>undefined, { urn })
             case "azure-native:containerservice:Fleet":
                 return new Fleet(name, <any>undefined, { urn })
+            case "azure-native:containerservice:FleetManagedNamespace":
+                return new FleetManagedNamespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetMember":
                 return new FleetMember(name, <any>undefined, { urn })
             case "azure-native:containerservice:FleetUpdateStrategy":
@@ -264,6 +286,8 @@ const _module = {
                 return new ManagedClusterSnapshot(name, <any>undefined, { urn })
             case "azure-native:containerservice:ManagedNamespace":
                 return new ManagedNamespace(name, <any>undefined, { urn })
+            case "azure-native:containerservice:MeshMembership":
+                return new MeshMembership(name, <any>undefined, { urn })
             case "azure-native:containerservice:Namespace":
                 return new Namespace(name, <any>undefined, { urn })
             case "azure-native:containerservice:NodeCustomization":

@@ -10,8 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Deployment configuration properties.
+    /// </summary>
     public sealed class DeploymentConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The configuration for compute nodes in a pool based on the Azure Virtual Machines infrastructure.
+        /// </summary>
         [Input("virtualMachineConfiguration")]
         public Input<Inputs.VirtualMachineConfigurationArgs>? VirtualMachineConfiguration { get; set; }
 

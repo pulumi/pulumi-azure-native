@@ -31,6 +31,9 @@ export interface GetCustomRolloutArgs {
     rolloutName: string;
 }
 
+/**
+ * Concrete proxy resource types can be created by aliasing this type using a specific property type.
+ */
 export interface GetCustomRolloutResult {
     /**
      * The Azure API version of the resource.

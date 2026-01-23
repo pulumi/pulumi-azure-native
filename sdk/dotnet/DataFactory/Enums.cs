@@ -1187,6 +1187,38 @@ namespace Pulumi.AzureNative.DataFactory
     }
 
     /// <summary>
+    /// HDInsight On-demand cluster resource group authentication type.
+    /// </summary>
+    [EnumType]
+    public readonly struct HDInsightOndemandClusterResourceGroupAuthenticationType : IEquatable<HDInsightOndemandClusterResourceGroupAuthenticationType>
+    {
+        private readonly string _value;
+
+        private HDInsightOndemandClusterResourceGroupAuthenticationType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType ServicePrincipalKey { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("ServicePrincipalKey");
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType SystemAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("SystemAssignedManagedIdentity");
+        public static HDInsightOndemandClusterResourceGroupAuthenticationType UserAssignedManagedIdentity { get; } = new HDInsightOndemandClusterResourceGroupAuthenticationType("UserAssignedManagedIdentity");
+
+        public static bool operator ==(HDInsightOndemandClusterResourceGroupAuthenticationType left, HDInsightOndemandClusterResourceGroupAuthenticationType right) => left.Equals(right);
+        public static bool operator !=(HDInsightOndemandClusterResourceGroupAuthenticationType left, HDInsightOndemandClusterResourceGroupAuthenticationType right) => !left.Equals(right);
+
+        public static explicit operator string(HDInsightOndemandClusterResourceGroupAuthenticationType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is HDInsightOndemandClusterResourceGroupAuthenticationType other && Equals(other);
+        public bool Equals(HDInsightOndemandClusterResourceGroupAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The authentication method used to access the Hive server.
     /// </summary>
     [EnumType]
@@ -1655,6 +1687,37 @@ namespace Pulumi.AzureNative.DataFactory
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is MongoDbAuthenticationType other && Equals(other);
         public bool Equals(MongoDbAuthenticationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Specifies the security level for the driver connection to the data store. PreferredUnSecured : prefer unsecured, allow fallback to secured connection if required. OnlyUnSecured : strictly unsecured, no fallback.
+    /// </summary>
+    [EnumType]
+    public readonly struct NetezzaSecurityLevelType : IEquatable<NetezzaSecurityLevelType>
+    {
+        private readonly string _value;
+
+        private NetezzaSecurityLevelType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static NetezzaSecurityLevelType PreferredUnSecured { get; } = new NetezzaSecurityLevelType("PreferredUnSecured");
+        public static NetezzaSecurityLevelType OnlyUnSecured { get; } = new NetezzaSecurityLevelType("OnlyUnSecured");
+
+        public static bool operator ==(NetezzaSecurityLevelType left, NetezzaSecurityLevelType right) => left.Equals(right);
+        public static bool operator !=(NetezzaSecurityLevelType left, NetezzaSecurityLevelType right) => !left.Equals(right);
+
+        public static explicit operator string(NetezzaSecurityLevelType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is NetezzaSecurityLevelType other && Equals(other);
+        public bool Equals(NetezzaSecurityLevelType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

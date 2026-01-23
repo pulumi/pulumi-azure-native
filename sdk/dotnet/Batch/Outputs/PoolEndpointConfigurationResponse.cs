@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// The endpoint configuration for a pool.
+    /// </summary>
     [OutputType]
     public sealed class PoolEndpointConfigurationResponse
     {

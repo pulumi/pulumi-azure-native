@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.TrafficManager
         /// List of custom headers.
         /// </summary>
         [Output("customHeaders")]
-        public Output<ImmutableArray<Outputs.EndpointPropertiesResponseCustomHeaders>> CustomHeaders { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointPropertiesCustomHeadersItemResponse>> CustomHeaders { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
@@ -95,7 +95,7 @@ namespace Pulumi.AzureNative.TrafficManager
         /// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         /// </summary>
         [Output("subnets")]
-        public Output<ImmutableArray<Outputs.EndpointPropertiesResponseSubnets>> Subnets { get; private set; } = null!;
+        public Output<ImmutableArray<Outputs.EndpointPropertiesSubnetsItemResponse>> Subnets { get; private set; } = null!;
 
         /// <summary>
         /// The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
@@ -189,14 +189,14 @@ namespace Pulumi.AzureNative.TrafficManager
         public InputUnion<string, Pulumi.AzureNative.TrafficManager.AlwaysServe>? AlwaysServe { get; set; }
 
         [Input("customHeaders")]
-        private InputList<Inputs.EndpointPropertiesCustomHeadersArgs>? _customHeaders;
+        private InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs>? _customHeaders;
 
         /// <summary>
         /// List of custom headers.
         /// </summary>
-        public InputList<Inputs.EndpointPropertiesCustomHeadersArgs> CustomHeaders
+        public InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs> CustomHeaders
         {
-            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesCustomHeadersArgs>());
+            get => _customHeaders ?? (_customHeaders = new InputList<Inputs.EndpointPropertiesCustomHeadersItemArgs>());
             set => _customHeaders = value;
         }
 
@@ -213,7 +213,7 @@ namespace Pulumi.AzureNative.TrafficManager
         public InputUnion<string, Pulumi.AzureNative.TrafficManager.EndpointMonitorStatus>? EndpointMonitorStatus { get; set; }
 
         /// <summary>
-        /// The name of the Traffic Manager endpoint to be created or updated.
+        /// The name of the Traffic Manager endpoint.
         /// </summary>
         [Input("endpointName")]
         public Input<string>? EndpointName { get; set; }
@@ -225,7 +225,7 @@ namespace Pulumi.AzureNative.TrafficManager
         public InputUnion<string, Pulumi.AzureNative.TrafficManager.EndpointStatus>? EndpointStatus { get; set; }
 
         /// <summary>
-        /// The type of the Traffic Manager endpoint to be created or updated.
+        /// The type of the Traffic Manager endpoint.
         /// </summary>
         [Input("endpointType", required: true)]
         public Input<string> EndpointType { get; set; } = null!;
@@ -291,14 +291,14 @@ namespace Pulumi.AzureNative.TrafficManager
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         [Input("subnets")]
-        private InputList<Inputs.EndpointPropertiesSubnetsArgs>? _subnets;
+        private InputList<Inputs.EndpointPropertiesSubnetsItemArgs>? _subnets;
 
         /// <summary>
         /// The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         /// </summary>
-        public InputList<Inputs.EndpointPropertiesSubnetsArgs> Subnets
+        public InputList<Inputs.EndpointPropertiesSubnetsItemArgs> Subnets
         {
-            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointPropertiesSubnetsArgs>());
+            get => _subnets ?? (_subnets = new InputList<Inputs.EndpointPropertiesSubnetsItemArgs>());
             set => _subnets = value;
         }
 

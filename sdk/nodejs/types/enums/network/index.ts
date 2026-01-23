@@ -1713,6 +1713,24 @@ export const SensitivityType = {
  */
 export type SensitivityType = (typeof SensitivityType)[keyof typeof SensitivityType];
 
+export const ServiceGatewaySkuName = {
+    Standard: "Standard",
+} as const;
+
+/**
+ * Name of a service gateway SKU.
+ */
+export type ServiceGatewaySkuName = (typeof ServiceGatewaySkuName)[keyof typeof ServiceGatewaySkuName];
+
+export const ServiceGatewaySkuTier = {
+    Regional: "Regional",
+} as const;
+
+/**
+ * Tier of a service gateway SKU.
+ */
+export type ServiceGatewaySkuTier = (typeof ServiceGatewaySkuTier)[keyof typeof ServiceGatewaySkuTier];
+
 export const ServiceProviderProvisioningState = {
     NotProvisioned: "NotProvisioned",
     Provisioning: "Provisioning",

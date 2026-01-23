@@ -61,6 +61,7 @@ __all__ = [
     'PrivateEndpointConnectionResponse',
     'PrivateEndpointResponse',
     'PrivateLinkServiceConnectionStateResponse',
+    'ProjectCapabilityHostResponse',
     'ProjectPropertiesResponse',
     'QuotaLimitResponse',
     'RaiBlocklistItemPropertiesResponse',
@@ -4361,6 +4362,97 @@ class PrivateLinkServiceConnectionStateResponse(dict):
         Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class ProjectCapabilityHostResponse(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "aiServicesConnections":
+            suggest = "ai_services_connections"
+        elif key == "storageConnections":
+            suggest = "storage_connections"
+        elif key == "threadStorageConnections":
+            suggest = "thread_storage_connections"
+        elif key == "vectorStoreConnections":
+            suggest = "vector_store_connections"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProjectCapabilityHostResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProjectCapabilityHostResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProjectCapabilityHostResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 ai_services_connections: Optional[Sequence[_builtins.str]] = None,
+                 storage_connections: Optional[Sequence[_builtins.str]] = None,
+                 thread_storage_connections: Optional[Sequence[_builtins.str]] = None,
+                 vector_store_connections: Optional[Sequence[_builtins.str]] = None):
+        """
+        :param _builtins.str provisioning_state: Provisioning state for the CapabilityHost.
+        :param Sequence[_builtins.str] ai_services_connections: List of AI services connections.
+        :param Sequence[_builtins.str] storage_connections: List of connection names from those available in the account or project to be used as a storage resource.
+        :param Sequence[_builtins.str] thread_storage_connections: List of connection names from those available in the account or project to be used for Thread storage.
+        :param Sequence[_builtins.str] vector_store_connections: List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ai_services_connections is not None:
+            pulumi.set(__self__, "ai_services_connections", ai_services_connections)
+        if storage_connections is not None:
+            pulumi.set(__self__, "storage_connections", storage_connections)
+        if thread_storage_connections is not None:
+            pulumi.set(__self__, "thread_storage_connections", thread_storage_connections)
+        if vector_store_connections is not None:
+            pulumi.set(__self__, "vector_store_connections", vector_store_connections)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state for the CapabilityHost.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="aiServicesConnections")
+    def ai_services_connections(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of AI services connections.
+        """
+        return pulumi.get(self, "ai_services_connections")
+
+    @_builtins.property
+    @pulumi.getter(name="storageConnections")
+    def storage_connections(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of connection names from those available in the account or project to be used as a storage resource.
+        """
+        return pulumi.get(self, "storage_connections")
+
+    @_builtins.property
+    @pulumi.getter(name="threadStorageConnections")
+    def thread_storage_connections(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of connection names from those available in the account or project to be used for Thread storage.
+        """
+        return pulumi.get(self, "thread_storage_connections")
+
+    @_builtins.property
+    @pulumi.getter(name="vectorStoreConnections")
+    def vector_store_connections(self) -> Optional[Sequence[_builtins.str]]:
+        """
+        List of connection names from those available in the account or project to be used for vector database (e.g. CosmosDB).
+        """
+        return pulumi.get(self, "vector_store_connections")
 
 
 @pulumi.output_type

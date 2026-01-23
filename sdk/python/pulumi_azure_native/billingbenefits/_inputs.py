@@ -16,10 +16,20 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'AutomaticShortfallSuppressReasonArgs',
+    'AutomaticShortfallSuppressReasonArgsDict',
     'CatalogClaimsItemArgs',
     'CatalogClaimsItemArgsDict',
+    'CommitmentArgs',
+    'CommitmentArgsDict',
     'ConditionsItemArgs',
     'ConditionsItemArgsDict',
+    'CreditBreakdownItemArgs',
+    'CreditBreakdownItemArgsDict',
+    'CreditDimensionArgs',
+    'CreditDimensionArgsDict',
+    'CreditPoliciesArgs',
+    'CreditPoliciesArgsDict',
     'CustomPricePropertiesArgs',
     'CustomPricePropertiesArgsDict',
     'DiscountCustomPriceMultiCurrencyArgs',
@@ -36,6 +46,8 @@ __all__ = [
     'EntityTypeAffiliateDiscountArgsDict',
     'EntityTypePrimaryDiscountArgs',
     'EntityTypePrimaryDiscountArgsDict',
+    'MaccMilestoneArgs',
+    'MaccMilestoneArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
     'MarketSetPricesItemsArgs',
@@ -44,11 +56,71 @@ __all__ = [
     'PlanArgsDict',
     'PriceGuaranteePropertiesArgs',
     'PriceGuaranteePropertiesArgsDict',
+    'PriceArgs',
+    'PriceArgsDict',
+    'ShortfallArgs',
+    'ShortfallArgsDict',
     'SkuArgs',
     'SkuArgsDict',
 ]
 
 MYPY = False
+
+if not MYPY:
+    class AutomaticShortfallSuppressReasonArgsDict(TypedDict):
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        """
+        code: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Code for the suppression reason.
+        """
+        message: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Message for suppression reason.
+        """
+elif False:
+    AutomaticShortfallSuppressReasonArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AutomaticShortfallSuppressReasonArgs:
+    def __init__(__self__, *,
+                 code: Optional[pulumi.Input[_builtins.str]] = None,
+                 message: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        :param pulumi.Input[_builtins.str] code: Code for the suppression reason.
+        :param pulumi.Input[_builtins.str] message: Message for suppression reason.
+        """
+        if code is not None:
+            pulumi.set(__self__, "code", code)
+        if message is not None:
+            pulumi.set(__self__, "message", message)
+
+    @_builtins.property
+    @pulumi.getter
+    def code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Code for the suppression reason.
+        """
+        return pulumi.get(self, "code")
+
+    @code.setter
+    def code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def message(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Message for suppression reason.
+        """
+        return pulumi.get(self, "message")
+
+    @message.setter
+    def message(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "message", value)
+
 
 if not MYPY:
     class CatalogClaimsItemArgsDict(TypedDict):
@@ -90,6 +162,75 @@ class CatalogClaimsItemArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class CommitmentArgsDict(TypedDict):
+        """
+        Commitment towards the benefit.
+        """
+        amount: NotRequired[pulumi.Input[_builtins.float]]
+        currency_code: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        grain: NotRequired[pulumi.Input[Union[_builtins.str, 'CommitmentGrain']]]
+        """
+        The grain of the commitment.
+        """
+elif False:
+    CommitmentArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CommitmentArgs:
+    def __init__(__self__, *,
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 currency_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 grain: Optional[pulumi.Input[Union[_builtins.str, 'CommitmentGrain']]] = None):
+        """
+        Commitment towards the benefit.
+        :param pulumi.Input[_builtins.str] currency_code: The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        :param pulumi.Input[Union[_builtins.str, 'CommitmentGrain']] grain: The grain of the commitment.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if currency_code is not None:
+            pulumi.set(__self__, "currency_code", currency_code)
+        if grain is not None:
+            pulumi.set(__self__, "grain", grain)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyCode")
+    def currency_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        return pulumi.get(self, "currency_code")
+
+    @currency_code.setter
+    def currency_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "currency_code", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def grain(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CommitmentGrain']]]:
+        """
+        The grain of the commitment.
+        """
+        return pulumi.get(self, "grain")
+
+    @grain.setter
+    def grain(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CommitmentGrain']]]):
+        pulumi.set(self, "grain", value)
 
 
 if not MYPY:
@@ -152,6 +293,212 @@ class ConditionsItemArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class CreditBreakdownItemArgsDict(TypedDict):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        """
+        allocation: NotRequired[pulumi.Input['CommitmentArgsDict']]
+        """
+        Allocation details including currency and amount for this breakdown item
+        """
+        dimensions: NotRequired[pulumi.Input[Sequence[pulumi.Input['CreditDimensionArgsDict']]]]
+        """
+        Key-value pairs for additional parameters and metadata
+        """
+        end_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        End DateTime in UTC.
+        """
+        start_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Start DateTime.
+        """
+elif False:
+    CreditBreakdownItemArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CreditBreakdownItemArgs:
+    def __init__(__self__, *,
+                 allocation: Optional[pulumi.Input['CommitmentArgs']] = None,
+                 dimensions: Optional[pulumi.Input[Sequence[pulumi.Input['CreditDimensionArgs']]]] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        :param pulumi.Input['CommitmentArgs'] allocation: Allocation details including currency and amount for this breakdown item
+        :param pulumi.Input[Sequence[pulumi.Input['CreditDimensionArgs']]] dimensions: Key-value pairs for additional parameters and metadata
+        :param pulumi.Input[_builtins.str] end_at: End DateTime in UTC.
+        :param pulumi.Input[_builtins.str] start_at: Start DateTime.
+        """
+        if allocation is not None:
+            pulumi.set(__self__, "allocation", allocation)
+        if dimensions is not None:
+            pulumi.set(__self__, "dimensions", dimensions)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+
+    @_builtins.property
+    @pulumi.getter
+    def allocation(self) -> Optional[pulumi.Input['CommitmentArgs']]:
+        """
+        Allocation details including currency and amount for this breakdown item
+        """
+        return pulumi.get(self, "allocation")
+
+    @allocation.setter
+    def allocation(self, value: Optional[pulumi.Input['CommitmentArgs']]):
+        pulumi.set(self, "allocation", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def dimensions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CreditDimensionArgs']]]]:
+        """
+        Key-value pairs for additional parameters and metadata
+        """
+        return pulumi.get(self, "dimensions")
+
+    @dimensions.setter
+    def dimensions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CreditDimensionArgs']]]]):
+        pulumi.set(self, "dimensions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End DateTime in UTC.
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Start DateTime.
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_at", value)
+
+
+if not MYPY:
+    class CreditDimensionArgsDict(TypedDict):
+        """
+        Key-value pair for additional credit parameters and metadata
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        The dimension key (e.g., productFamily, description, creditType)
+        """
+        value: pulumi.Input[_builtins.str]
+        """
+        The dimension value
+        """
+elif False:
+    CreditDimensionArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CreditDimensionArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        Key-value pair for additional credit parameters and metadata
+        :param pulumi.Input[_builtins.str] key: The dimension key (e.g., productFamily, description, creditType)
+        :param pulumi.Input[_builtins.str] value: The dimension value
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        The dimension key (e.g., productFamily, description, creditType)
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The dimension value
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
+    class CreditPoliciesArgsDict(TypedDict):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        """
+        expiration: NotRequired[pulumi.Input[Union[_builtins.str, 'CreditExpirationPolicy']]]
+        """
+        Expiration policy of the Credit
+        """
+        redemption: NotRequired[pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']]]
+        """
+        Redemption policy of the Credit
+        """
+elif False:
+    CreditPoliciesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class CreditPoliciesArgs:
+    def __init__(__self__, *,
+                 expiration: Optional[pulumi.Input[Union[_builtins.str, 'CreditExpirationPolicy']]] = None,
+                 redemption: Optional[pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']]] = None):
+        """
+        Credit breakdown item representing a milestone, line-item, or no-charge service
+        :param pulumi.Input[Union[_builtins.str, 'CreditExpirationPolicy']] expiration: Expiration policy of the Credit
+        :param pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']] redemption: Redemption policy of the Credit
+        """
+        if expiration is not None:
+            pulumi.set(__self__, "expiration", expiration)
+        if redemption is not None:
+            pulumi.set(__self__, "redemption", redemption)
+
+    @_builtins.property
+    @pulumi.getter
+    def expiration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreditExpirationPolicy']]]:
+        """
+        Expiration policy of the Credit
+        """
+        return pulumi.get(self, "expiration")
+
+    @expiration.setter
+    def expiration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreditExpirationPolicy']]]):
+        pulumi.set(self, "expiration", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def redemption(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']]]:
+        """
+        Redemption policy of the Credit
+        """
+        return pulumi.get(self, "redemption")
+
+    @redemption.setter
+    def redemption(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CreditRedemptionPolicy']]]):
+        pulumi.set(self, "redemption", value)
 
 
 if not MYPY:
@@ -1583,6 +1930,162 @@ class EntityTypePrimaryDiscountArgs:
 
 
 if not MYPY:
+    class MaccMilestoneArgsDict(TypedDict):
+        """
+        MACC milestone represents interim targets within the period of MACC.
+        """
+        automatic_shortfall: NotRequired[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]
+        """
+        Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+        """
+        automatic_shortfall_suppress_reason: NotRequired[pulumi.Input['AutomaticShortfallSuppressReasonArgsDict']]
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        """
+        commitment: NotRequired[pulumi.Input['PriceArgsDict']]
+        """
+        Commitment associated with this milestone.
+        """
+        end_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+        """
+        milestone_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Globally unique identifier for the milestone. Format: {guid}
+        """
+        shortfall: NotRequired[pulumi.Input['ShortfallArgsDict']]
+        """
+        Details of the shortfall associated with this milestone.
+        """
+        status: NotRequired[pulumi.Input[Union[_builtins.str, 'MaccMilestoneStatus']]]
+        """
+        Represents the current status of the Milestone.
+        """
+elif False:
+    MaccMilestoneArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MaccMilestoneArgs:
+    def __init__(__self__, *,
+                 automatic_shortfall: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]] = None,
+                 automatic_shortfall_suppress_reason: Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']] = None,
+                 commitment: Optional[pulumi.Input['PriceArgs']] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 milestone_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 shortfall: Optional[pulumi.Input['ShortfallArgs']] = None,
+                 status: Optional[pulumi.Input[Union[_builtins.str, 'MaccMilestoneStatus']]] = None):
+        """
+        MACC milestone represents interim targets within the period of MACC.
+        :param pulumi.Input[Union[_builtins.str, 'EnablementMode']] automatic_shortfall: Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+        :param pulumi.Input['AutomaticShortfallSuppressReasonArgs'] automatic_shortfall_suppress_reason: Optional field to record suppression reason for automatic shortfall.
+        :param pulumi.Input['PriceArgs'] commitment: Commitment associated with this milestone.
+        :param pulumi.Input[_builtins.str] end_at: End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+        :param pulumi.Input[_builtins.str] milestone_id: Globally unique identifier for the milestone. Format: {guid}
+        :param pulumi.Input['ShortfallArgs'] shortfall: Details of the shortfall associated with this milestone.
+        :param pulumi.Input[Union[_builtins.str, 'MaccMilestoneStatus']] status: Represents the current status of the Milestone.
+        """
+        if automatic_shortfall is not None:
+            pulumi.set(__self__, "automatic_shortfall", automatic_shortfall)
+        if automatic_shortfall_suppress_reason is not None:
+            pulumi.set(__self__, "automatic_shortfall_suppress_reason", automatic_shortfall_suppress_reason)
+        if commitment is not None:
+            pulumi.set(__self__, "commitment", commitment)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if milestone_id is not None:
+            pulumi.set(__self__, "milestone_id", milestone_id)
+        if shortfall is not None:
+            pulumi.set(__self__, "shortfall", shortfall)
+        if status is not None:
+            pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticShortfall")
+    def automatic_shortfall(self) -> Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]:
+        """
+        Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+        """
+        return pulumi.get(self, "automatic_shortfall")
+
+    @automatic_shortfall.setter
+    def automatic_shortfall(self, value: Optional[pulumi.Input[Union[_builtins.str, 'EnablementMode']]]):
+        pulumi.set(self, "automatic_shortfall", value)
+
+    @_builtins.property
+    @pulumi.getter(name="automaticShortfallSuppressReason")
+    def automatic_shortfall_suppress_reason(self) -> Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']]:
+        """
+        Optional field to record suppression reason for automatic shortfall.
+        """
+        return pulumi.get(self, "automatic_shortfall_suppress_reason")
+
+    @automatic_shortfall_suppress_reason.setter
+    def automatic_shortfall_suppress_reason(self, value: Optional[pulumi.Input['AutomaticShortfallSuppressReasonArgs']]):
+        pulumi.set(self, "automatic_shortfall_suppress_reason", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def commitment(self) -> Optional[pulumi.Input['PriceArgs']]:
+        """
+        Commitment associated with this milestone.
+        """
+        return pulumi.get(self, "commitment")
+
+    @commitment.setter
+    def commitment(self, value: Optional[pulumi.Input['PriceArgs']]):
+        pulumi.set(self, "commitment", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End date time for the milestone. Timestamp must be in the ISO date format YYYY-MM-DDT23:59:59Z.
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="milestoneId")
+    def milestone_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Globally unique identifier for the milestone. Format: {guid}
+        """
+        return pulumi.get(self, "milestone_id")
+
+    @milestone_id.setter
+    def milestone_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "milestone_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def shortfall(self) -> Optional[pulumi.Input['ShortfallArgs']]:
+        """
+        Details of the shortfall associated with this milestone.
+        """
+        return pulumi.get(self, "shortfall")
+
+    @shortfall.setter
+    def shortfall(self, value: Optional[pulumi.Input['ShortfallArgs']]):
+        pulumi.set(self, "shortfall", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MaccMilestoneStatus']]]:
+        """
+        Represents the current status of the Milestone.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MaccMilestoneStatus']]]):
+        pulumi.set(self, "status", value)
+
+
+if not MYPY:
     class ManagedServiceIdentityArgsDict(TypedDict):
         """
         Managed service identity (system assigned and/or user assigned identities)
@@ -1714,7 +2217,7 @@ if not MYPY:
         """
         product: pulumi.Input[_builtins.str]
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         """
         publisher: pulumi.Input[_builtins.str]
         """
@@ -1742,7 +2245,7 @@ class PlanArgs:
         """
         Plan for the resource.
         :param pulumi.Input[_builtins.str] name: A user defined name of the 3rd Party Artifact that is being procured.
-        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        :param pulumi.Input[_builtins.str] product: The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         :param pulumi.Input[_builtins.str] publisher: The publisher of the 3rd Party Artifact that is being bought. E.g. NewRelic
         :param pulumi.Input[_builtins.str] promotion_code: A publisher provided promotion code as provisioned in Data Market for the said product/artifact.
         :param pulumi.Input[_builtins.str] version: The version of the desired product/artifact.
@@ -1771,7 +2274,7 @@ class PlanArgs:
     @pulumi.getter
     def product(self) -> pulumi.Input[_builtins.str]:
         """
-        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding.
+        The 3rd Party artifact that is being procured. E.g. NewRelic. Product maps to the OfferID specified for the artifact at the time of Data Market onboarding. 
         """
         return pulumi.get(self, "product")
 
@@ -1873,6 +2376,207 @@ class PriceGuaranteePropertiesArgs:
 
 
 if not MYPY:
+    class PriceArgsDict(TypedDict):
+        amount: NotRequired[pulumi.Input[_builtins.float]]
+        currency_code: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+elif False:
+    PriceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PriceArgs:
+    def __init__(__self__, *,
+                 amount: Optional[pulumi.Input[_builtins.float]] = None,
+                 currency_code: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] currency_code: The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        if amount is not None:
+            pulumi.set(__self__, "amount", amount)
+        if currency_code is not None:
+            pulumi.set(__self__, "currency_code", currency_code)
+
+    @_builtins.property
+    @pulumi.getter
+    def amount(self) -> Optional[pulumi.Input[_builtins.float]]:
+        return pulumi.get(self, "amount")
+
+    @amount.setter
+    def amount(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "amount", value)
+
+    @_builtins.property
+    @pulumi.getter(name="currencyCode")
+    def currency_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ISO 4217 3-letter currency code for the currency used by this purchase record.
+        """
+        return pulumi.get(self, "currency_code")
+
+    @currency_code.setter
+    def currency_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "currency_code", value)
+
+
+if not MYPY:
+    class ShortfallArgsDict(TypedDict):
+        """
+        MACC shortfall
+        """
+        balance_version: NotRequired[pulumi.Input[_builtins.float]]
+        """
+        Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+        """
+        charge: NotRequired[pulumi.Input['CommitmentArgsDict']]
+        """
+        Shortfall amount with grain.
+        """
+        end_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        End DateTime in UTC.
+        """
+        product_code: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Represents catalog UPN.
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Fully-qualified resource identifier of the credits associated with the shortfall.
+        """
+        start_at: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Start DateTime.
+        """
+        system_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        This is an identifier of the shortfall which will not change for its lifetime.
+        """
+elif False:
+    ShortfallArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ShortfallArgs:
+    def __init__(__self__, *,
+                 balance_version: Optional[pulumi.Input[_builtins.float]] = None,
+                 charge: Optional[pulumi.Input['CommitmentArgs']] = None,
+                 end_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 product_code: Optional[pulumi.Input[_builtins.str]] = None,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_at: Optional[pulumi.Input[_builtins.str]] = None,
+                 system_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        MACC shortfall
+        :param pulumi.Input[_builtins.float] balance_version: Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+        :param pulumi.Input['CommitmentArgs'] charge: Shortfall amount with grain.
+        :param pulumi.Input[_builtins.str] end_at: End DateTime in UTC.
+        :param pulumi.Input[_builtins.str] product_code: Represents catalog UPN.
+        :param pulumi.Input[_builtins.str] resource_id: Fully-qualified resource identifier of the credits associated with the shortfall.
+        :param pulumi.Input[_builtins.str] start_at: Start DateTime.
+        :param pulumi.Input[_builtins.str] system_id: This is an identifier of the shortfall which will not change for its lifetime.
+        """
+        if balance_version is not None:
+            pulumi.set(__self__, "balance_version", balance_version)
+        if charge is not None:
+            pulumi.set(__self__, "charge", charge)
+        if end_at is not None:
+            pulumi.set(__self__, "end_at", end_at)
+        if product_code is not None:
+            pulumi.set(__self__, "product_code", product_code)
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+        if start_at is not None:
+            pulumi.set(__self__, "start_at", start_at)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+
+    @_builtins.property
+    @pulumi.getter(name="balanceVersion")
+    def balance_version(self) -> Optional[pulumi.Input[_builtins.float]]:
+        """
+        Points to BalanceVersion document that indicates the remaining commitment balance when the credit was created.
+        """
+        return pulumi.get(self, "balance_version")
+
+    @balance_version.setter
+    def balance_version(self, value: Optional[pulumi.Input[_builtins.float]]):
+        pulumi.set(self, "balance_version", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def charge(self) -> Optional[pulumi.Input['CommitmentArgs']]:
+        """
+        Shortfall amount with grain.
+        """
+        return pulumi.get(self, "charge")
+
+    @charge.setter
+    def charge(self, value: Optional[pulumi.Input['CommitmentArgs']]):
+        pulumi.set(self, "charge", value)
+
+    @_builtins.property
+    @pulumi.getter(name="endAt")
+    def end_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        End DateTime in UTC.
+        """
+        return pulumi.get(self, "end_at")
+
+    @end_at.setter
+    def end_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "end_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="productCode")
+    def product_code(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Represents catalog UPN.
+        """
+        return pulumi.get(self, "product_code")
+
+    @product_code.setter
+    def product_code(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "product_code", value)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Fully-qualified resource identifier of the credits associated with the shortfall.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="startAt")
+    def start_at(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Start DateTime.
+        """
+        return pulumi.get(self, "start_at")
+
+    @start_at.setter
+    def start_at(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "start_at", value)
+
+    @_builtins.property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        This is an identifier of the shortfall which will not change for its lifetime.
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "system_id", value)
+
+
+if not MYPY:
     class SkuArgsDict(TypedDict):
         """
         The resource model definition representing SKU
@@ -1891,7 +2595,7 @@ if not MYPY:
         """
         size: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         """
         tier: NotRequired[pulumi.Input['SkuTier']]
         """
@@ -1913,7 +2617,7 @@ class SkuArgs:
         :param pulumi.Input[_builtins.str] name: The name of the SKU. E.g. P3. It is typically a letter+number code
         :param pulumi.Input[_builtins.int] capacity: If the SKU supports scale out/in then the capacity integer should be included. If scale out/in is not possible for the resource this may be omitted.
         :param pulumi.Input[_builtins.str] family: If the service has different generations of hardware, for the same SKU, then that can be captured here.
-        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        :param pulumi.Input[_builtins.str] size: The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         :param pulumi.Input['SkuTier'] tier: This field is required to be implemented by the Resource Provider if the service has more than one tier, but is not required on a PUT.
         """
         pulumi.set(__self__, "name", name)
@@ -1966,7 +2670,7 @@ class SkuArgs:
     @pulumi.getter
     def size(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code.
+        The SKU size. When the name field is the combination of tier and some other value, this would be the standalone code. 
         """
         return pulumi.get(self, "size")
 

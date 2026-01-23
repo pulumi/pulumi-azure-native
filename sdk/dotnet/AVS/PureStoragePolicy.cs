@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.AVS
     /// An instance describing a Pure Storage Policy Based Management policy
     /// 
     /// Uses Azure REST API version 2024-09-01.
+    /// 
+    /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:PureStoragePolicy")]
     public partial class PureStoragePolicy : global::Pulumi.CustomResource
@@ -85,6 +87,7 @@ namespace Pulumi.AzureNative.AVS
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20240901:PureStoragePolicy" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20250901:PureStoragePolicy" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2021-06-01.
  *
- * Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2020-01-01, 2020-04-01, 2020-05-01, 2025-10-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native frontdoor [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class RulesEngine extends pulumi.CustomResource {
     /**
@@ -95,7 +95,7 @@ export class RulesEngine extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20200101:RulesEngine" }, { type: "azure-native:frontdoor/v20200401:RulesEngine" }, { type: "azure-native:frontdoor/v20200501:RulesEngine" }, { type: "azure-native:frontdoor/v20210601:RulesEngine" }, { type: "azure-native:network/v20210601:RulesEngine" }, { type: "azure-native:network:RulesEngine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:frontdoor/v20200101:RulesEngine" }, { type: "azure-native:frontdoor/v20200401:RulesEngine" }, { type: "azure-native:frontdoor/v20200501:RulesEngine" }, { type: "azure-native:frontdoor/v20210601:RulesEngine" }, { type: "azure-native:frontdoor/v20251001:RulesEngine" }, { type: "azure-native:network/v20210601:RulesEngine" }, { type: "azure-native:network:RulesEngine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(RulesEngine.__pulumiType, name, resourceInputs, opts);
     }

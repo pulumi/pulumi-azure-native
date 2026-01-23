@@ -29,6 +29,7 @@ __all__ = [
     'PrivateLinkScopedResourceResponse',
     'RestoredLogsResponse',
     'ResultStatisticsResponse',
+    'RuleDefinitionResponse',
     'SchemaResponse',
     'SearchResultsResponse',
     'StorageAccountResponse',
@@ -917,6 +918,114 @@ class ResultStatisticsResponse(dict):
         Search job: Amount of scanned data.
         """
         return pulumi.get(self, "scanned_gb")
+
+
+@pulumi.output_type
+class RuleDefinitionResponse(dict):
+    """
+    Rule definition parameters.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "binDelay":
+            suggest = "bin_delay"
+        elif key == "binSize":
+            suggest = "bin_size"
+        elif key == "binStartTime":
+            suggest = "bin_start_time"
+        elif key == "destinationTable":
+            suggest = "destination_table"
+        elif key == "timeSelector":
+            suggest = "time_selector"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RuleDefinitionResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RuleDefinitionResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RuleDefinitionResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 bin_delay: Optional[_builtins.int] = None,
+                 bin_size: Optional[_builtins.int] = None,
+                 bin_start_time: Optional[_builtins.str] = None,
+                 destination_table: Optional[_builtins.str] = None,
+                 query: Optional[_builtins.str] = None,
+                 time_selector: Optional[_builtins.str] = None):
+        """
+        Rule definition parameters.
+        :param _builtins.int bin_delay: The minimum delay in seconds before bin processing.
+        :param _builtins.int bin_size: Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+        :param _builtins.str bin_start_time: The start time (UTC) when Summary rule execution starts.
+        :param _builtins.str destination_table: The destination table used for the Summary rule results.
+        :param _builtins.str query: Summary rule query.
+        :param _builtins.str time_selector: The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+        """
+        if bin_delay is not None:
+            pulumi.set(__self__, "bin_delay", bin_delay)
+        if bin_size is not None:
+            pulumi.set(__self__, "bin_size", bin_size)
+        if bin_start_time is not None:
+            pulumi.set(__self__, "bin_start_time", bin_start_time)
+        if destination_table is not None:
+            pulumi.set(__self__, "destination_table", destination_table)
+        if query is not None:
+            pulumi.set(__self__, "query", query)
+        if time_selector is not None:
+            pulumi.set(__self__, "time_selector", time_selector)
+
+    @_builtins.property
+    @pulumi.getter(name="binDelay")
+    def bin_delay(self) -> Optional[_builtins.int]:
+        """
+        The minimum delay in seconds before bin processing.
+        """
+        return pulumi.get(self, "bin_delay")
+
+    @_builtins.property
+    @pulumi.getter(name="binSize")
+    def bin_size(self) -> Optional[_builtins.int]:
+        """
+        Scheduled window in minutes. Allowed values: 20, 30, 60, 120, 180, 360, 720, 1440.
+        """
+        return pulumi.get(self, "bin_size")
+
+    @_builtins.property
+    @pulumi.getter(name="binStartTime")
+    def bin_start_time(self) -> Optional[_builtins.str]:
+        """
+        The start time (UTC) when Summary rule execution starts.
+        """
+        return pulumi.get(self, "bin_start_time")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationTable")
+    def destination_table(self) -> Optional[_builtins.str]:
+        """
+        The destination table used for the Summary rule results.
+        """
+        return pulumi.get(self, "destination_table")
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> Optional[_builtins.str]:
+        """
+        Summary rule query.
+        """
+        return pulumi.get(self, "query")
+
+    @_builtins.property
+    @pulumi.getter(name="timeSelector")
+    def time_selector(self) -> Optional[_builtins.str]:
+        """
+        The time cursor used in Summary rules bins processing, e.g. TimeGenerated.
+        """
+        return pulumi.get(self, "time_selector")
 
 
 @pulumi.output_type

@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.Subscription
         /// The operation to view Initiator Subscription Changed Request
         /// 
         /// Uses Azure REST API version 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetSubscriptionTarDirectoryResult> InvokeAsync(GetSubscriptionTarDirectoryArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.Subscription
         /// The operation to view Initiator Subscription Changed Request
         /// 
         /// Uses Azure REST API version 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.Subscription
         /// The operation to view Initiator Subscription Changed Request
         /// 
         /// Uses Azure REST API version 2024-08-01-preview.
+        /// 
+        /// Other available API versions: 2025-11-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native subscription [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetSubscriptionTarDirectoryResult> Invoke(GetSubscriptionTarDirectoryInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTarDirectoryResult>("azure-native:subscription:getSubscriptionTarDirectory", args ?? new GetSubscriptionTarDirectoryInvokeArgs(), options.WithDefaults());

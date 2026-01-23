@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.AzureStackHCI.Inputs
 {
 
     /// <summary>
-    /// The ARM ID for a Virtual Hard Disk.
+    /// The Azure Resource ID for a Virtual Hard Disk.
     /// </summary>
     public sealed class VirtualHardDiskArmReferenceArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARM ID for a Virtual Hard Disk.
+        /// The Azure Resource ID for a Virtual Hard Disk.
         /// </summary>
         [Input("id")]
         public Input<string>? Id { get; set; }

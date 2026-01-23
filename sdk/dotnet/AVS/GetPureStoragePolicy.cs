@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a PureStoragePolicy
         /// 
         /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetPureStoragePolicyResult> InvokeAsync(GetPureStoragePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPureStoragePolicyResult>("azure-native:avs:getPureStoragePolicy", args ?? new GetPureStoragePolicyArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a PureStoragePolicy
         /// 
         /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPureStoragePolicyResult> Invoke(GetPureStoragePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPureStoragePolicyResult>("azure-native:avs:getPureStoragePolicy", args ?? new GetPureStoragePolicyInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.AVS
         /// Get a PureStoragePolicy
         /// 
         /// Uses Azure REST API version 2024-09-01.
+        /// 
+        /// Other available API versions: 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetPureStoragePolicyResult> Invoke(GetPureStoragePolicyInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetPureStoragePolicyResult>("azure-native:avs:getPureStoragePolicy", args ?? new GetPureStoragePolicyInvokeArgs(), options.WithDefaults());

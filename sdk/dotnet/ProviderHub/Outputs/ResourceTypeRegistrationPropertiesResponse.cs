@@ -60,11 +60,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The availability zone rule.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule? AvailabilityZoneRule;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse? AvailabilityZoneRule;
         /// <summary>
         /// Capacity rule.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseCapacityRule? CapacityRule;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesCapacityRuleResponse? CapacityRule;
         /// <summary>
         /// The category.
         /// </summary>
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The check name availability specifications.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications? CheckNameAvailabilitySpecifications;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse? CheckNameAvailabilitySpecifications;
         /// <summary>
         /// Common API versions for the resource type.
         /// </summary>
@@ -96,7 +96,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The dsts configuration.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseDstsConfiguration? DstsConfiguration;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesDstsConfigurationResponse? DstsConfiguration;
         /// <summary>
         /// Whether async operation is enabled.
         /// </summary>
@@ -116,11 +116,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The extension options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseExtensionOptions? ExtensionOptions;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesExtensionOptionsResponse? ExtensionOptions;
         /// <summary>
         /// The features rule.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseFeaturesRule? FeaturesRule;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesFeaturesRuleResponse? FeaturesRule;
         /// <summary>
         /// The frontdoor request mode.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The identity management.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseIdentityManagement? IdentityManagement;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesIdentityManagementResponse? IdentityManagement;
         /// <summary>
         /// Whether it is pure proxy.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The legacy policy.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseLegacyPolicy? LegacyPolicy;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesLegacyPolicyResponse? LegacyPolicy;
         /// <summary>
         /// The linked access checks.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The resource provider management.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseManagement? Management;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesManagementResponse? Management;
         /// <summary>
         /// Manifest link.
         /// </summary>
@@ -176,7 +176,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Marketplace options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseMarketplaceOptions? MarketplaceOptions;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse? MarketplaceOptions;
         /// <summary>
         /// The marketplace type.
         /// </summary>
@@ -184,7 +184,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The metadata.
         /// </summary>
-        public readonly ImmutableDictionary<string, object>? Metadata;
+        public readonly object? Metadata;
         /// <summary>
         /// The notifications.
         /// </summary>
@@ -216,7 +216,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The request header options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions? RequestHeaderOptions;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse? RequestHeaderOptions;
         /// <summary>
         /// The required features.
         /// </summary>
@@ -224,7 +224,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Resource cache options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceCache? ResourceCache;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceCacheResponse? ResourceCache;
         /// <summary>
         /// The resource concurrency control options.
         /// </summary>
@@ -236,15 +236,15 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The resource graph configuration.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration? ResourceGraphConfiguration;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse? ResourceGraphConfiguration;
         /// <summary>
         /// Resource management options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceManagementOptions? ResourceManagementOptions;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse? ResourceManagementOptions;
         /// <summary>
         /// The resource move policy.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy? ResourceMovePolicy;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceMovePolicyResponse? ResourceMovePolicy;
         /// <summary>
         /// The resource provider authorization rules.
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Resource query management options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceQueryManagement? ResourceQueryManagement;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceQueryManagementResponse? ResourceQueryManagement;
         /// <summary>
         /// The resource sub type.
         /// </summary>
@@ -260,7 +260,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Resource type common attribute management.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement? ResourceTypeCommonAttributeManagement;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse? ResourceTypeCommonAttributeManagement;
         /// <summary>
         /// The resource validation.
         /// </summary>
@@ -268,7 +268,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// Routing rule.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseRoutingRule? RoutingRule;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesRoutingRuleResponse? RoutingRule;
         /// <summary>
         /// The resource routing type.
         /// </summary>
@@ -284,7 +284,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The subscription lifecycle notification specifications.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? SubscriptionLifecycleNotificationSpecifications;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse? SubscriptionLifecycleNotificationSpecifications;
         /// <summary>
         /// The subscription state rules.
         /// </summary>
@@ -300,11 +300,11 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The template deployment options.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions? TemplateDeploymentOptions;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse? TemplateDeploymentOptions;
         /// <summary>
         /// The template deployment policy.
         /// </summary>
-        public readonly Outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy? TemplateDeploymentPolicy;
+        public readonly Outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse? TemplateDeploymentPolicy;
         /// <summary>
         /// The throttling rules.
         /// </summary>
@@ -338,13 +338,13 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.AuthorizationActionMappingResponse> authorizationActionMappings,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseAvailabilityZoneRule? availabilityZoneRule,
+            Outputs.ResourceTypeRegistrationPropertiesAvailabilityZoneRuleResponse? availabilityZoneRule,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseCapacityRule? capacityRule,
+            Outputs.ResourceTypeRegistrationPropertiesCapacityRuleResponse? capacityRule,
 
             string? category,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseCheckNameAvailabilitySpecifications? checkNameAvailabilitySpecifications,
+            Outputs.ResourceTypeRegistrationPropertiesCheckNameAvailabilitySpecificationsResponse? checkNameAvailabilitySpecifications,
 
             ImmutableArray<string> commonApiVersions,
 
@@ -356,7 +356,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<string> disallowedEndUserOperations,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseDstsConfiguration? dstsConfiguration,
+            Outputs.ResourceTypeRegistrationPropertiesDstsConfigurationResponse? dstsConfiguration,
 
             bool? enableAsyncOperation,
 
@@ -366,15 +366,15 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.ExtendedLocationOptionsResponse> extendedLocations,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseExtensionOptions? extensionOptions,
+            Outputs.ResourceTypeRegistrationPropertiesExtensionOptionsResponse? extensionOptions,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseFeaturesRule? featuresRule,
+            Outputs.ResourceTypeRegistrationPropertiesFeaturesRuleResponse? featuresRule,
 
             string? frontdoorRequestMode,
 
             string? groupingTag,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseIdentityManagement? identityManagement,
+            Outputs.ResourceTypeRegistrationPropertiesIdentityManagementResponse? identityManagement,
 
             bool? isPureProxy,
 
@@ -382,7 +382,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<string> legacyNames,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseLegacyPolicy? legacyPolicy,
+            Outputs.ResourceTypeRegistrationPropertiesLegacyPolicyResponse? legacyPolicy,
 
             ImmutableArray<Outputs.LinkedAccessCheckResponse> linkedAccessChecks,
 
@@ -392,15 +392,15 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.LoggingRuleResponse> loggingRules,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseManagement? management,
+            Outputs.ResourceTypeRegistrationPropertiesManagementResponse? management,
 
             string? manifestLink,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseMarketplaceOptions? marketplaceOptions,
+            Outputs.ResourceTypeRegistrationPropertiesMarketplaceOptionsResponse? marketplaceOptions,
 
             string? marketplaceType,
 
-            ImmutableDictionary<string, object>? metadata,
+            object? metadata,
 
             ImmutableArray<Outputs.NotificationResponse> notifications,
 
@@ -416,33 +416,33 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? regionality,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseRequestHeaderOptions? requestHeaderOptions,
+            Outputs.ResourceTypeRegistrationPropertiesRequestHeaderOptionsResponse? requestHeaderOptions,
 
             ImmutableArray<string> requiredFeatures,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceCache? resourceCache,
+            Outputs.ResourceTypeRegistrationPropertiesResourceCacheResponse? resourceCache,
 
             ImmutableDictionary<string, Outputs.ResourceConcurrencyControlOptionResponse>? resourceConcurrencyControlOptions,
 
             string? resourceDeletionPolicy,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceGraphConfiguration? resourceGraphConfiguration,
+            Outputs.ResourceTypeRegistrationPropertiesResourceGraphConfigurationResponse? resourceGraphConfiguration,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceManagementOptions? resourceManagementOptions,
+            Outputs.ResourceTypeRegistrationPropertiesResourceManagementOptionsResponse? resourceManagementOptions,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceMovePolicy? resourceMovePolicy,
+            Outputs.ResourceTypeRegistrationPropertiesResourceMovePolicyResponse? resourceMovePolicy,
 
             Outputs.ResourceProviderAuthorizationRulesResponse? resourceProviderAuthorizationRules,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceQueryManagement? resourceQueryManagement,
+            Outputs.ResourceTypeRegistrationPropertiesResourceQueryManagementResponse? resourceQueryManagement,
 
             string? resourceSubType,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseResourceTypeCommonAttributeManagement? resourceTypeCommonAttributeManagement,
+            Outputs.ResourceTypeRegistrationPropertiesResourceTypeCommonAttributeManagementResponse? resourceTypeCommonAttributeManagement,
 
             string? resourceValidation,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseRoutingRule? routingRule,
+            Outputs.ResourceTypeRegistrationPropertiesRoutingRuleResponse? routingRule,
 
             string? routingType,
 
@@ -450,7 +450,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             string? skuLink,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseSubscriptionLifecycleNotificationSpecifications? subscriptionLifecycleNotificationSpecifications,
+            Outputs.ResourceTypeRegistrationPropertiesSubscriptionLifecycleNotificationSpecificationsResponse? subscriptionLifecycleNotificationSpecifications,
 
             ImmutableArray<Outputs.SubscriptionStateRuleResponse> subscriptionStateRules,
 
@@ -458,9 +458,9 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
 
             ImmutableArray<Outputs.SwaggerSpecificationResponse> swaggerSpecifications,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentOptions? templateDeploymentOptions,
+            Outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentOptionsResponse? templateDeploymentOptions,
 
-            Outputs.ResourceTypeRegistrationPropertiesResponseTemplateDeploymentPolicy? templateDeploymentPolicy,
+            Outputs.ResourceTypeRegistrationPropertiesTemplateDeploymentPolicyResponse? templateDeploymentPolicy,
 
             ImmutableArray<Outputs.ThrottlingRuleResponse> throttlingRules,
 

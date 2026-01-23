@@ -59,17 +59,9 @@ export interface GetDiscoverySourceResult {
      */
     readonly name: string;
     /**
-     * Provisioning state of Discovery Source resource.
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * Source ArmId of Discovery Source resource
-     */
-    readonly sourceId: string;
-    /**
-     * Source type of Discovery Source resource.
-     */
-    readonly sourceType: string;
+    readonly properties: outputs.dependencymap.OffAzureDiscoverySourceResourcePropertiesResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Windows operating system settings to apply to the virtual machine.
+    /// </summary>
     public sealed class WindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>

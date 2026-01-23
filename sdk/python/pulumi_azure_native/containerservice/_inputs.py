@@ -64,6 +64,8 @@ __all__ = [
     'ExtendedLocationArgsDict',
     'FleetHubProfileArgs',
     'FleetHubProfileArgsDict',
+    'FleetManagedNamespacePropertiesArgs',
+    'FleetManagedNamespacePropertiesArgsDict',
     'GPUProfileArgs',
     'GPUProfileArgsDict',
     'IPTagArgs',
@@ -204,10 +206,18 @@ __all__ = [
     'ManagedClusterWorkloadAutoScalerProfileVerticalPodAutoscalerArgsDict',
     'ManagedClusterWorkloadAutoScalerProfileArgs',
     'ManagedClusterWorkloadAutoScalerProfileArgsDict',
+    'ManagedNamespacePropertiesArgs',
+    'ManagedNamespacePropertiesArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
     'ManualScaleProfileArgs',
     'ManualScaleProfileArgsDict',
+    'MeshMembershipPropertiesArgs',
+    'MeshMembershipPropertiesArgsDict',
+    'MetaV1LabelSelectorRequirementArgs',
+    'MetaV1LabelSelectorRequirementArgsDict',
+    'MetaV1LabelSelectorArgs',
+    'MetaV1LabelSelectorArgsDict',
     'NamespacePropertiesArgs',
     'NamespacePropertiesArgsDict',
     'NetworkPoliciesArgs',
@@ -218,6 +228,26 @@ __all__ = [
     'NodeCustomizationScriptArgsDict',
     'NodeImageSelectionArgs',
     'NodeImageSelectionArgsDict',
+    'PlacementProfileArgs',
+    'PlacementProfileArgsDict',
+    'PlacementV1AffinityArgs',
+    'PlacementV1AffinityArgsDict',
+    'PlacementV1ClusterAffinityArgs',
+    'PlacementV1ClusterAffinityArgsDict',
+    'PlacementV1ClusterResourcePlacementSpecArgs',
+    'PlacementV1ClusterResourcePlacementSpecArgsDict',
+    'PlacementV1ClusterSelectorTermArgs',
+    'PlacementV1ClusterSelectorTermArgsDict',
+    'PlacementV1ClusterSelectorArgs',
+    'PlacementV1ClusterSelectorArgsDict',
+    'PlacementV1PlacementPolicyArgs',
+    'PlacementV1PlacementPolicyArgsDict',
+    'PlacementV1PropertySelectorRequirementArgs',
+    'PlacementV1PropertySelectorRequirementArgsDict',
+    'PlacementV1PropertySelectorArgs',
+    'PlacementV1PropertySelectorArgsDict',
+    'PlacementV1TolerationArgs',
+    'PlacementV1TolerationArgsDict',
     'PortRangeArgs',
     'PortRangeArgsDict',
     'PowerStateArgs',
@@ -228,6 +258,8 @@ __all__ = [
     'PrivateLinkResourceArgsDict',
     'PrivateLinkServiceConnectionStateArgs',
     'PrivateLinkServiceConnectionStateArgsDict',
+    'PropagationPolicyArgs',
+    'PropagationPolicyArgsDict',
     'RelativeMonthlyScheduleArgs',
     'RelativeMonthlyScheduleArgsDict',
     'ResourceQuotaArgs',
@@ -1972,6 +2004,100 @@ class FleetHubProfileArgs:
     @dns_prefix.setter
     def dns_prefix(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "dns_prefix", value)
+
+
+if not MYPY:
+    class FleetManagedNamespacePropertiesArgsDict(TypedDict):
+        """
+        The properties of a fleet managed namespace.
+        """
+        adoption_policy: pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]
+        """
+        Action if the managed namespace with the same name already exists. Default is Never.
+        """
+        delete_policy: pulumi.Input[Union[_builtins.str, 'DeletePolicy']]
+        """
+        Delete options of a fleet managed namespace. Default is Keep.
+        """
+        managed_namespace_properties: NotRequired[pulumi.Input['ManagedNamespacePropertiesArgsDict']]
+        """
+        The namespace properties for the fleet managed namespace.
+        """
+        propagation_policy: NotRequired[pulumi.Input['PropagationPolicyArgsDict']]
+        """
+        The profile of the propagation to create the namespace.
+        """
+elif False:
+    FleetManagedNamespacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FleetManagedNamespacePropertiesArgs:
+    def __init__(__self__, *,
+                 adoption_policy: pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']],
+                 delete_policy: pulumi.Input[Union[_builtins.str, 'DeletePolicy']],
+                 managed_namespace_properties: Optional[pulumi.Input['ManagedNamespacePropertiesArgs']] = None,
+                 propagation_policy: Optional[pulumi.Input['PropagationPolicyArgs']] = None):
+        """
+        The properties of a fleet managed namespace.
+        :param pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']] adoption_policy: Action if the managed namespace with the same name already exists. Default is Never.
+        :param pulumi.Input[Union[_builtins.str, 'DeletePolicy']] delete_policy: Delete options of a fleet managed namespace. Default is Keep.
+        :param pulumi.Input['ManagedNamespacePropertiesArgs'] managed_namespace_properties: The namespace properties for the fleet managed namespace.
+        :param pulumi.Input['PropagationPolicyArgs'] propagation_policy: The profile of the propagation to create the namespace.
+        """
+        pulumi.set(__self__, "adoption_policy", adoption_policy)
+        pulumi.set(__self__, "delete_policy", delete_policy)
+        if managed_namespace_properties is not None:
+            pulumi.set(__self__, "managed_namespace_properties", managed_namespace_properties)
+        if propagation_policy is not None:
+            pulumi.set(__self__, "propagation_policy", propagation_policy)
+
+    @_builtins.property
+    @pulumi.getter(name="adoptionPolicy")
+    def adoption_policy(self) -> pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]:
+        """
+        Action if the managed namespace with the same name already exists. Default is Never.
+        """
+        return pulumi.get(self, "adoption_policy")
+
+    @adoption_policy.setter
+    def adoption_policy(self, value: pulumi.Input[Union[_builtins.str, 'AdoptionPolicy']]):
+        pulumi.set(self, "adoption_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="deletePolicy")
+    def delete_policy(self) -> pulumi.Input[Union[_builtins.str, 'DeletePolicy']]:
+        """
+        Delete options of a fleet managed namespace. Default is Keep.
+        """
+        return pulumi.get(self, "delete_policy")
+
+    @delete_policy.setter
+    def delete_policy(self, value: pulumi.Input[Union[_builtins.str, 'DeletePolicy']]):
+        pulumi.set(self, "delete_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="managedNamespaceProperties")
+    def managed_namespace_properties(self) -> Optional[pulumi.Input['ManagedNamespacePropertiesArgs']]:
+        """
+        The namespace properties for the fleet managed namespace.
+        """
+        return pulumi.get(self, "managed_namespace_properties")
+
+    @managed_namespace_properties.setter
+    def managed_namespace_properties(self, value: Optional[pulumi.Input['ManagedNamespacePropertiesArgs']]):
+        pulumi.set(self, "managed_namespace_properties", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propagationPolicy")
+    def propagation_policy(self) -> Optional[pulumi.Input['PropagationPolicyArgs']]:
+        """
+        The profile of the propagation to create the namespace.
+        """
+        return pulumi.get(self, "propagation_policy")
+
+    @propagation_policy.setter
+    def propagation_policy(self, value: Optional[pulumi.Input['PropagationPolicyArgs']]):
+        pulumi.set(self, "propagation_policy", value)
 
 
 if not MYPY:
@@ -7777,6 +7903,102 @@ class ManagedClusterWorkloadAutoScalerProfileArgs:
 
 
 if not MYPY:
+    class ManagedNamespacePropertiesArgsDict(TypedDict):
+        """
+        The namespace properties for the fleet managed namespace.
+        """
+        annotations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        The annotations for the fleet managed namespace.
+        """
+        default_network_policy: NotRequired[pulumi.Input['NetworkPolicy']]
+        """
+        The default network policy for the fleet managed namespace.
+        """
+        default_resource_quota: NotRequired[pulumi.Input['ResourceQuotaArgsDict']]
+        """
+        The default resource quota for the fleet managed namespace.
+        """
+        labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        The labels for the fleet managed namespace.
+        """
+elif False:
+    ManagedNamespacePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ManagedNamespacePropertiesArgs:
+    def __init__(__self__, *,
+                 annotations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 default_network_policy: Optional[pulumi.Input['NetworkPolicy']] = None,
+                 default_resource_quota: Optional[pulumi.Input['ResourceQuotaArgs']] = None,
+                 labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        The namespace properties for the fleet managed namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] annotations: The annotations for the fleet managed namespace.
+        :param pulumi.Input['NetworkPolicy'] default_network_policy: The default network policy for the fleet managed namespace.
+        :param pulumi.Input['ResourceQuotaArgs'] default_resource_quota: The default resource quota for the fleet managed namespace.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] labels: The labels for the fleet managed namespace.
+        """
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if default_network_policy is not None:
+            pulumi.set(__self__, "default_network_policy", default_network_policy)
+        if default_resource_quota is not None:
+            pulumi.set(__self__, "default_resource_quota", default_resource_quota)
+        if labels is not None:
+            pulumi.set(__self__, "labels", labels)
+
+    @_builtins.property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The annotations for the fleet managed namespace.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "annotations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultNetworkPolicy")
+    def default_network_policy(self) -> Optional[pulumi.Input['NetworkPolicy']]:
+        """
+        The default network policy for the fleet managed namespace.
+        """
+        return pulumi.get(self, "default_network_policy")
+
+    @default_network_policy.setter
+    def default_network_policy(self, value: Optional[pulumi.Input['NetworkPolicy']]):
+        pulumi.set(self, "default_network_policy", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultResourceQuota")
+    def default_resource_quota(self) -> Optional[pulumi.Input['ResourceQuotaArgs']]:
+        """
+        The default resource quota for the fleet managed namespace.
+        """
+        return pulumi.get(self, "default_resource_quota")
+
+    @default_resource_quota.setter
+    def default_resource_quota(self, value: Optional[pulumi.Input['ResourceQuotaArgs']]):
+        pulumi.set(self, "default_resource_quota", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The labels for the fleet managed namespace.
+        """
+        return pulumi.get(self, "labels")
+
+    @labels.setter
+    def labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "labels", value)
+
+
+if not MYPY:
     class ManagedServiceIdentityArgsDict(TypedDict):
         """
         Managed service identity (system assigned and/or user assigned identities)
@@ -7885,6 +8107,171 @@ class ManualScaleProfileArgs:
     @size.setter
     def size(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "size", value)
+
+
+if not MYPY:
+    class MeshMembershipPropertiesArgsDict(TypedDict):
+        """
+        Mesh membership properties of a managed cluster.
+        """
+        managed_mesh_id: pulumi.Input[_builtins.str]
+        """
+        The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+elif False:
+    MeshMembershipPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MeshMembershipPropertiesArgs:
+    def __init__(__self__, *,
+                 managed_mesh_id: pulumi.Input[_builtins.str]):
+        """
+        Mesh membership properties of a managed cluster.
+        :param pulumi.Input[_builtins.str] managed_mesh_id: The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+        pulumi.set(__self__, "managed_mesh_id", managed_mesh_id)
+
+    @_builtins.property
+    @pulumi.getter(name="managedMeshID")
+    def managed_mesh_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        The ARM resource id for the managed mesh member. This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppLink/applinks/{appLinkName}/appLinkMembers/{appLinkMemberName}'. Visit https://aka.ms/applink for more information.
+        """
+        return pulumi.get(self, "managed_mesh_id")
+
+    @managed_mesh_id.setter
+    def managed_mesh_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "managed_mesh_id", value)
+
+
+if not MYPY:
+    class MetaV1LabelSelectorRequirementArgsDict(TypedDict):
+        """
+        A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+        """
+        key: pulumi.Input[_builtins.str]
+        """
+        key is the label key that the selector applies to.
+        """
+        operator: pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']]
+        """
+        operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+        """
+        values: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+        """
+elif False:
+    MetaV1LabelSelectorRequirementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MetaV1LabelSelectorRequirementArgs:
+    def __init__(__self__, *,
+                 key: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']],
+                 values: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        A label selector requirement is a selector that contains values, a key, and an operator that relates the key and values.
+        :param pulumi.Input[_builtins.str] key: key is the label key that the selector applies to.
+        :param pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']] operator: operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "operator", operator)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[_builtins.str]:
+        """
+        key is the label key that the selector applies to.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']]:
+        """
+        operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[_builtins.str, 'LabelSelectorOperator']]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        values is an array of string values. If the operator is In or NotIn, the values array must be non-empty. If the operator is Exists or DoesNotExist, the values array must be empty. This array is replaced during a strategic merge patch.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class MetaV1LabelSelectorArgsDict(TypedDict):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+        """
+        match_expressions: NotRequired[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgsDict']]]]
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        match_labels: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        """
+elif False:
+    MetaV1LabelSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class MetaV1LabelSelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]] = None,
+                 match_labels: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+        """
+        A label selector is a label query over a set of resources. The result of matchLabels and matchExpressions are ANDed. An empty label selector matches all objects. A null label selector matches no objects.
+        :param pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]] match_expressions: matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] match_labels: matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        """
+        if match_expressions is not None:
+            pulumi.set(__self__, "match_expressions", match_expressions)
+        if match_labels is not None:
+            pulumi.set(__self__, "match_labels", match_labels)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]:
+        """
+        matchExpressions is a list of label selector requirements. The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['MetaV1LabelSelectorRequirementArgs']]]]):
+        pulumi.set(self, "match_expressions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="matchLabels")
+    def match_labels(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        matchLabels is a map of {key,value} pairs. A single {key,value} in the matchLabels map is equivalent to an element of matchExpressions, whose key field is "key", the operator is "In", and the values array contains only "value". The requirements are ANDed.
+        """
+        return pulumi.get(self, "match_labels")
+
+    @match_labels.setter
+    def match_labels(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "match_labels", value)
 
 
 if not MYPY:
@@ -8297,6 +8684,541 @@ class NodeImageSelectionArgs:
 
 
 if not MYPY:
+    class PlacementProfileArgsDict(TypedDict):
+        """
+        The configuration profile for default ClusterResourcePlacement for placement.
+        """
+        default_cluster_resource_placement: NotRequired[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgsDict']]
+        """
+        The default ClusterResourcePlacement policy configuration.
+        """
+elif False:
+    PlacementProfileArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementProfileArgs:
+    def __init__(__self__, *,
+                 default_cluster_resource_placement: Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']] = None):
+        """
+        The configuration profile for default ClusterResourcePlacement for placement.
+        :param pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs'] default_cluster_resource_placement: The default ClusterResourcePlacement policy configuration.
+        """
+        if default_cluster_resource_placement is not None:
+            pulumi.set(__self__, "default_cluster_resource_placement", default_cluster_resource_placement)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultClusterResourcePlacement")
+    def default_cluster_resource_placement(self) -> Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']]:
+        """
+        The default ClusterResourcePlacement policy configuration.
+        """
+        return pulumi.get(self, "default_cluster_resource_placement")
+
+    @default_cluster_resource_placement.setter
+    def default_cluster_resource_placement(self, value: Optional[pulumi.Input['PlacementV1ClusterResourcePlacementSpecArgs']]):
+        pulumi.set(self, "default_cluster_resource_placement", value)
+
+
+if not MYPY:
+    class PlacementV1AffinityArgsDict(TypedDict):
+        """
+        Affinity is a group of cluster affinity scheduling rules. More to be added.
+        """
+        cluster_affinity: NotRequired[pulumi.Input['PlacementV1ClusterAffinityArgsDict']]
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+elif False:
+    PlacementV1AffinityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1AffinityArgs:
+    def __init__(__self__, *,
+                 cluster_affinity: Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']] = None):
+        """
+        Affinity is a group of cluster affinity scheduling rules. More to be added.
+        :param pulumi.Input['PlacementV1ClusterAffinityArgs'] cluster_affinity: ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+        if cluster_affinity is not None:
+            pulumi.set(__self__, "cluster_affinity", cluster_affinity)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterAffinity")
+    def cluster_affinity(self) -> Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']]:
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+        return pulumi.get(self, "cluster_affinity")
+
+    @cluster_affinity.setter
+    def cluster_affinity(self, value: Optional[pulumi.Input['PlacementV1ClusterAffinityArgs']]):
+        pulumi.set(self, "cluster_affinity", value)
+
+
+if not MYPY:
+    class PlacementV1ClusterAffinityArgsDict(TypedDict):
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        """
+        required_during_scheduling_ignored_during_execution: NotRequired[pulumi.Input['PlacementV1ClusterSelectorArgsDict']]
+        """
+        If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+        """
+elif False:
+    PlacementV1ClusterAffinityArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1ClusterAffinityArgs:
+    def __init__(__self__, *,
+                 required_during_scheduling_ignored_during_execution: Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']] = None):
+        """
+        ClusterAffinity contains cluster affinity scheduling rules for the selected resources.
+        :param pulumi.Input['PlacementV1ClusterSelectorArgs'] required_during_scheduling_ignored_during_execution: If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+        """
+        if required_during_scheduling_ignored_during_execution is not None:
+            pulumi.set(__self__, "required_during_scheduling_ignored_during_execution", required_during_scheduling_ignored_during_execution)
+
+    @_builtins.property
+    @pulumi.getter(name="requiredDuringSchedulingIgnoredDuringExecution")
+    def required_during_scheduling_ignored_during_execution(self) -> Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']]:
+        """
+        If the affinity requirements specified by this field are not met at scheduling time, the resource will not be scheduled onto the cluster. If the affinity requirements specified by this field cease to be met at some point after the placement (e.g. due to an update), the system may or may not try to eventually remove the resource from the cluster.
+        """
+        return pulumi.get(self, "required_during_scheduling_ignored_during_execution")
+
+    @required_during_scheduling_ignored_during_execution.setter
+    def required_during_scheduling_ignored_during_execution(self, value: Optional[pulumi.Input['PlacementV1ClusterSelectorArgs']]):
+        pulumi.set(self, "required_during_scheduling_ignored_during_execution", value)
+
+
+if not MYPY:
+    class PlacementV1ClusterResourcePlacementSpecArgsDict(TypedDict):
+        """
+        ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+        """
+        policy: NotRequired[pulumi.Input['PlacementV1PlacementPolicyArgsDict']]
+        """
+        Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+        """
+elif False:
+    PlacementV1ClusterResourcePlacementSpecArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1ClusterResourcePlacementSpecArgs:
+    def __init__(__self__, *,
+                 policy: Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']] = None):
+        """
+        ClusterResourcePlacementSpec defines the desired state of ClusterResourcePlacement.
+        :param pulumi.Input['PlacementV1PlacementPolicyArgs'] policy: Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+        """
+        if policy is not None:
+            pulumi.set(__self__, "policy", policy)
+
+    @_builtins.property
+    @pulumi.getter
+    def policy(self) -> Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']]:
+        """
+        Policy defines how to select member clusters to place the selected resources. If unspecified, all the joined member clusters are selected.
+        """
+        return pulumi.get(self, "policy")
+
+    @policy.setter
+    def policy(self, value: Optional[pulumi.Input['PlacementV1PlacementPolicyArgs']]):
+        pulumi.set(self, "policy", value)
+
+
+if not MYPY:
+    class PlacementV1ClusterSelectorTermArgsDict(TypedDict):
+        """
+        ClusterSelectorTerm
+        """
+        label_selector: NotRequired[pulumi.Input['MetaV1LabelSelectorArgsDict']]
+        """
+        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        """
+        property_selector: NotRequired[pulumi.Input['PlacementV1PropertySelectorArgsDict']]
+        """
+        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+elif False:
+    PlacementV1ClusterSelectorTermArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1ClusterSelectorTermArgs:
+    def __init__(__self__, *,
+                 label_selector: Optional[pulumi.Input['MetaV1LabelSelectorArgs']] = None,
+                 property_selector: Optional[pulumi.Input['PlacementV1PropertySelectorArgs']] = None):
+        """
+        ClusterSelectorTerm
+        :param pulumi.Input['MetaV1LabelSelectorArgs'] label_selector: LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        :param pulumi.Input['PlacementV1PropertySelectorArgs'] property_selector: PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        if label_selector is not None:
+            pulumi.set(__self__, "label_selector", label_selector)
+        if property_selector is not None:
+            pulumi.set(__self__, "property_selector", property_selector)
+
+    @_builtins.property
+    @pulumi.getter(name="labelSelector")
+    def label_selector(self) -> Optional[pulumi.Input['MetaV1LabelSelectorArgs']]:
+        """
+        LabelSelector is a label query over all the joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd.
+        """
+        return pulumi.get(self, "label_selector")
+
+    @label_selector.setter
+    def label_selector(self, value: Optional[pulumi.Input['MetaV1LabelSelectorArgs']]):
+        pulumi.set(self, "label_selector", value)
+
+    @_builtins.property
+    @pulumi.getter(name="propertySelector")
+    def property_selector(self) -> Optional[pulumi.Input['PlacementV1PropertySelectorArgs']]:
+        """
+        PropertySelector is a property query over all joined member clusters. Clusters matching the query are selected. If you specify both label and property selectors in the same term, the results are AND'd. At this moment, PropertySelector can only be used with `RequiredDuringSchedulingIgnoredDuringExecution` affinity terms. This field is beta-level; it is for the property-based scheduling feature and is only functional when a property provider is enabled in the deployment.
+        """
+        return pulumi.get(self, "property_selector")
+
+    @property_selector.setter
+    def property_selector(self, value: Optional[pulumi.Input['PlacementV1PropertySelectorArgs']]):
+        pulumi.set(self, "property_selector", value)
+
+
+if not MYPY:
+    class PlacementV1ClusterSelectorArgsDict(TypedDict):
+        """
+        ClusterSelector
+        """
+        cluster_selector_terms: pulumi.Input[Sequence[pulumi.Input['PlacementV1ClusterSelectorTermArgsDict']]]
+        """
+        ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+        """
+elif False:
+    PlacementV1ClusterSelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1ClusterSelectorArgs:
+    def __init__(__self__, *,
+                 cluster_selector_terms: pulumi.Input[Sequence[pulumi.Input['PlacementV1ClusterSelectorTermArgs']]]):
+        """
+        ClusterSelector
+        :param pulumi.Input[Sequence[pulumi.Input['PlacementV1ClusterSelectorTermArgs']]] cluster_selector_terms: ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+        """
+        pulumi.set(__self__, "cluster_selector_terms", cluster_selector_terms)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterSelectorTerms")
+    def cluster_selector_terms(self) -> pulumi.Input[Sequence[pulumi.Input['PlacementV1ClusterSelectorTermArgs']]]:
+        """
+        ClusterSelectorTerms is a list of cluster selector terms. The terms are `ORed`.
+        """
+        return pulumi.get(self, "cluster_selector_terms")
+
+    @cluster_selector_terms.setter
+    def cluster_selector_terms(self, value: pulumi.Input[Sequence[pulumi.Input['PlacementV1ClusterSelectorTermArgs']]]):
+        pulumi.set(self, "cluster_selector_terms", value)
+
+
+if not MYPY:
+    class PlacementV1PlacementPolicyArgsDict(TypedDict):
+        """
+        PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
+        """
+        affinity: NotRequired[pulumi.Input['PlacementV1AffinityArgsDict']]
+        """
+        Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+        """
+        cluster_names: NotRequired[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]
+        """
+        ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
+        """
+        placement_type: NotRequired[pulumi.Input[Union[_builtins.str, 'PlacementType']]]
+        """
+        Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+        """
+        tolerations: NotRequired[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgsDict']]]]
+        """
+        If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+        """
+elif False:
+    PlacementV1PlacementPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1PlacementPolicyArgs:
+    def __init__(__self__, *,
+                 affinity: Optional[pulumi.Input['PlacementV1AffinityArgs']] = None,
+                 cluster_names: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 placement_type: Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]] = None,
+                 tolerations: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]] = None):
+        """
+        PlacementPolicy contains the rules to select target member clusters to place the selected resources. Note that only clusters that are both joined and satisfying the rules will be selected. You can only specify at most one of the two fields: ClusterNames and Affinity. If none is specified, all the joined clusters are selected.
+        :param pulumi.Input['PlacementV1AffinityArgs'] affinity: Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] cluster_names: ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
+        :param pulumi.Input[Union[_builtins.str, 'PlacementType']] placement_type: Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+        :param pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]] tolerations: If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+        """
+        if affinity is not None:
+            pulumi.set(__self__, "affinity", affinity)
+        if cluster_names is not None:
+            pulumi.set(__self__, "cluster_names", cluster_names)
+        if placement_type is not None:
+            pulumi.set(__self__, "placement_type", placement_type)
+        if tolerations is not None:
+            pulumi.set(__self__, "tolerations", tolerations)
+
+    @_builtins.property
+    @pulumi.getter
+    def affinity(self) -> Optional[pulumi.Input['PlacementV1AffinityArgs']]:
+        """
+        Affinity contains cluster affinity scheduling rules. Defines which member clusters to place the selected resources. Only valid if the placement type is "PickAll" or "PickN".
+        """
+        return pulumi.get(self, "affinity")
+
+    @affinity.setter
+    def affinity(self, value: Optional[pulumi.Input['PlacementV1AffinityArgs']]):
+        pulumi.set(self, "affinity", value)
+
+    @_builtins.property
+    @pulumi.getter(name="clusterNames")
+    def cluster_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        ClusterNames contains a list of names of MemberCluster to place the selected resources. Only valid if the placement type is "PickFixed"
+        """
+        return pulumi.get(self, "cluster_names")
+
+    @cluster_names.setter
+    def cluster_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "cluster_names", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementType")
+    def placement_type(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]]:
+        """
+        Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+        """
+        return pulumi.get(self, "placement_type")
+
+    @placement_type.setter
+    def placement_type(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PlacementType']]]):
+        pulumi.set(self, "placement_type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def tolerations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]:
+        """
+        If specified, the ClusterResourcePlacement's Tolerations. Tolerations cannot be updated or deleted. This field is beta-level and is for the taints and tolerations feature.
+        """
+        return pulumi.get(self, "tolerations")
+
+    @tolerations.setter
+    def tolerations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PlacementV1TolerationArgs']]]]):
+        pulumi.set(self, "tolerations", value)
+
+
+if not MYPY:
+    class PlacementV1PropertySelectorRequirementArgsDict(TypedDict):
+        """
+        PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        Name is the name of the property; it should be a Kubernetes label name.
+        """
+        operator: pulumi.Input[Union[_builtins.str, 'PropertySelectorOperator']]
+        """
+        Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+        """
+        values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+        """
+        Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+        """
+elif False:
+    PlacementV1PropertySelectorRequirementArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1PropertySelectorRequirementArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 operator: pulumi.Input[Union[_builtins.str, 'PropertySelectorOperator']],
+                 values: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        PropertySelectorRequirement is a specific property requirement when picking clusters for resource placement.
+        :param pulumi.Input[_builtins.str] name: Name is the name of the property; it should be a Kubernetes label name.
+        :param pulumi.Input[Union[_builtins.str, 'PropertySelectorOperator']] operator: Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "operator", operator)
+        pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name is the name of the property; it should be a Kubernetes label name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> pulumi.Input[Union[_builtins.str, 'PropertySelectorOperator']]:
+        """
+        Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: pulumi.Input[Union[_builtins.str, 'PropertySelectorOperator']]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        Values are a list of values of the specified property which Fleet will compare against the observed values of individual member clusters in accordance with the given operator. At this moment, each value should be a Kubernetes quantity. For more information, see https://pkg.go.dev/k8s.io/apimachinery/pkg/api/resource#Quantity. If the operator is Gt (greater than), Ge (greater than or equal to), Lt (less than), or `Le` (less than or equal to), Eq (equal to), or Ne (ne), exactly one value must be specified in the list.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "values", value)
+
+
+if not MYPY:
+    class PlacementV1PropertySelectorArgsDict(TypedDict):
+        """
+        PropertySelector helps user specify property requirements when picking clusters for resource placement.
+        """
+        match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgsDict']]]
+        """
+        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+elif False:
+    PlacementV1PropertySelectorArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1PropertySelectorArgs:
+    def __init__(__self__, *,
+                 match_expressions: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
+        """
+        PropertySelector helps user specify property requirements when picking clusters for resource placement.
+        :param pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]] match_expressions: MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        pulumi.set(__self__, "match_expressions", match_expressions)
+
+    @_builtins.property
+    @pulumi.getter(name="matchExpressions")
+    def match_expressions(self) -> pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]:
+        """
+        MatchExpressions is an array of PropertySelectorRequirements. The requirements are AND'd.
+        """
+        return pulumi.get(self, "match_expressions")
+
+    @match_expressions.setter
+    def match_expressions(self, value: pulumi.Input[Sequence[pulumi.Input['PlacementV1PropertySelectorRequirementArgs']]]):
+        pulumi.set(self, "match_expressions", value)
+
+
+if not MYPY:
+    class PlacementV1TolerationArgsDict(TypedDict):
+        """
+        Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+        """
+        effect: NotRequired[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]
+        """
+        Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        """
+        key: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+        """
+        operator: NotRequired[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]
+        """
+        Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+        """
+        value: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+        """
+elif False:
+    PlacementV1TolerationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PlacementV1TolerationArgs:
+    def __init__(__self__, *,
+                 effect: Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]] = None,
+                 key: Optional[pulumi.Input[_builtins.str]] = None,
+                 operator: Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]] = None,
+                 value: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        Toleration allows ClusterResourcePlacement to tolerate any taint that matches the triple <key,value,effect> using the matching operator <operator>.
+        :param pulumi.Input[Union[_builtins.str, 'TaintEffect']] effect: Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        :param pulumi.Input[_builtins.str] key: Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+        :param pulumi.Input[Union[_builtins.str, 'TolerationOperator']] operator: Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+        :param pulumi.Input[_builtins.str] value: Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+        """
+        if effect is not None:
+            pulumi.set(__self__, "effect", effect)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if operator is not None:
+            pulumi.set(__self__, "operator", operator)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def effect(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]:
+        """
+        Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+        """
+        return pulumi.get(self, "effect")
+
+    @effect.setter
+    def effect(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TaintEffect']]]):
+        pulumi.set(self, "effect", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Key is the taint key that the toleration applies to. Empty means match all taint keys. If the key is empty, operator must be Exists; this combination means to match all values and all keys.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def operator(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]:
+        """
+        Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+        """
+        return pulumi.get(self, "operator")
+
+    @operator.setter
+    def operator(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TolerationOperator']]]):
+        pulumi.set(self, "operator", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Value is the taint value the toleration matches to. If the operator is Exists, the value should be empty, otherwise just a regular string.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "value", value)
+
+
+if not MYPY:
     class PortRangeArgsDict(TypedDict):
         """
         The port range.
@@ -8614,6 +9536,61 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+if not MYPY:
+    class PropagationPolicyArgsDict(TypedDict):
+        """
+        The propagation to be used for provisioning the namespace among the fleet.
+        """
+        type: pulumi.Input[Union[_builtins.str, 'PropagationType']]
+        """
+        The type of the policy to be used. Default is Placement.
+        """
+        placement_profile: NotRequired[pulumi.Input['PlacementProfileArgsDict']]
+        """
+        The profile to be used for propagation via placement.
+        """
+elif False:
+    PropagationPolicyArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PropagationPolicyArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[_builtins.str, 'PropagationType']],
+                 placement_profile: Optional[pulumi.Input['PlacementProfileArgs']] = None):
+        """
+        The propagation to be used for provisioning the namespace among the fleet.
+        :param pulumi.Input[Union[_builtins.str, 'PropagationType']] type: The type of the policy to be used. Default is Placement.
+        :param pulumi.Input['PlacementProfileArgs'] placement_profile: The profile to be used for propagation via placement.
+        """
+        pulumi.set(__self__, "type", type)
+        if placement_profile is not None:
+            pulumi.set(__self__, "placement_profile", placement_profile)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[_builtins.str, 'PropagationType']]:
+        """
+        The type of the policy to be used. Default is Placement.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[_builtins.str, 'PropagationType']]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="placementProfile")
+    def placement_profile(self) -> Optional[pulumi.Input['PlacementProfileArgs']]:
+        """
+        The profile to be used for propagation via placement.
+        """
+        return pulumi.get(self, "placement_profile")
+
+    @placement_profile.setter
+    def placement_profile(self, value: Optional[pulumi.Input['PlacementProfileArgs']]):
+        pulumi.set(self, "placement_profile", value)
 
 
 if not MYPY:

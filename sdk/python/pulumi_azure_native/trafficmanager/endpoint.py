@@ -26,7 +26,7 @@ class EndpointInitArgs:
                  profile_name: pulumi.Input[_builtins.str],
                  resource_group_name: pulumi.Input[_builtins.str],
                  always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]] = None,
                  endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -38,21 +38,21 @@ class EndpointInitArgs:
                  min_child_endpoints_i_pv6: Optional[pulumi.Input[_builtins.float]] = None,
                  name: Optional[pulumi.Input[_builtins.str]] = None,
                  priority: Optional[pulumi.Input[_builtins.float]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
                  weight: Optional[pulumi.Input[_builtins.float]] = None):
         """
         The set of arguments for constructing a Endpoint resource.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[_builtins.str] endpoint_type: The type of the Traffic Manager endpoint.
         :param pulumi.Input[_builtins.str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union[_builtins.str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]] custom_headers: List of custom headers.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]] custom_headers: List of custom headers.
         :param pulumi.Input[_builtins.str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint.
         :param pulumi.Input[Union[_builtins.str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[_builtins.str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
@@ -61,7 +61,7 @@ class EndpointInitArgs:
         :param pulumi.Input[_builtins.float] min_child_endpoints_i_pv6: The minimum number of IPv6 (DNS record type AAAA) endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
         :param pulumi.Input[_builtins.str] name: The name of the resource
         :param pulumi.Input[_builtins.float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
-        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param pulumi.Input[_builtins.str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[_builtins.str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[_builtins.str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
@@ -111,7 +111,7 @@ class EndpointInitArgs:
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the Traffic Manager endpoint to be created or updated.
+        The type of the Traffic Manager endpoint.
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -157,14 +157,14 @@ class EndpointInitArgs:
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]]:
+    def custom_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]:
         """
         List of custom headers.
         """
         return pulumi.get(self, "custom_headers")
 
     @custom_headers.setter
-    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersArgs']]]]):
+    def custom_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesCustomHeadersItemArgs']]]]):
         pulumi.set(self, "custom_headers", value)
 
     @_builtins.property
@@ -195,7 +195,7 @@ class EndpointInitArgs:
     @pulumi.getter(name="endpointName")
     def endpoint_name(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The name of the Traffic Manager endpoint to be created or updated.
+        The name of the Traffic Manager endpoint.
         """
         return pulumi.get(self, "endpoint_name")
 
@@ -301,14 +301,14 @@ class EndpointInitArgs:
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]]:
+    def subnets(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """
         return pulumi.get(self, "subnets")
 
     @subnets.setter
-    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsArgs']]]]):
+    def subnets(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EndpointPropertiesSubnetsItemArgs']]]]):
         pulumi.set(self, "subnets", value)
 
     @_builtins.property
@@ -367,7 +367,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -382,7 +382,7 @@ class Endpoint(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.float]] = None,
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -398,12 +398,12 @@ class Endpoint(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[_builtins.str, 'AlwaysServe']] always_serve: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]] custom_headers: List of custom headers.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]] custom_headers: List of custom headers.
         :param pulumi.Input[_builtins.str] endpoint_location: Specifies the location of the external or nested endpoints when using the 'Performance' traffic routing method.
         :param pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']] endpoint_monitor_status: The monitoring status of the endpoint.
-        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[_builtins.str] endpoint_name: The name of the Traffic Manager endpoint.
         :param pulumi.Input[Union[_builtins.str, 'EndpointStatus']] endpoint_status: The status of the endpoint. If the endpoint is Enabled, it is probed for endpoint health and is included in the traffic routing method.
-        :param pulumi.Input[_builtins.str] endpoint_type: The type of the Traffic Manager endpoint to be created or updated.
+        :param pulumi.Input[_builtins.str] endpoint_type: The type of the Traffic Manager endpoint.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] geo_mapping: The list of countries/regions mapped to this endpoint when using the 'Geographic' traffic routing method. Please consult Traffic Manager Geographic documentation for a full list of accepted values.
         :param pulumi.Input[_builtins.str] id: Fully qualified resource Id for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/trafficManagerProfiles/{resourceName}
         :param pulumi.Input[_builtins.float] min_child_endpoints: The minimum number of endpoints that must be available in the child profile in order for the parent profile to be considered available. Only applicable to endpoint of type 'NestedEndpoints'.
@@ -413,7 +413,7 @@ class Endpoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.float] priority: The priority of this endpoint when using the 'Priority' traffic routing method. Possible values are from 1 to 1000, lower values represent higher priority. This is an optional parameter.  If specified, it must be specified on all endpoints, and no two endpoints can share the same priority value.
         :param pulumi.Input[_builtins.str] profile_name: The name of the Traffic Manager profile.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]] subnets: The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         :param pulumi.Input[_builtins.str] target: The fully-qualified DNS name or IP address of the endpoint. Traffic Manager returns this value in DNS responses to direct traffic to this endpoint.
         :param pulumi.Input[_builtins.str] target_resource_id: The Azure Resource URI of the of the endpoint. Not applicable to endpoints of type 'ExternalEndpoints'.
         :param pulumi.Input[_builtins.str] type: The type of the resource. Ex- Microsoft.Network/trafficManagerProfiles.
@@ -448,7 +448,7 @@ class Endpoint(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  always_serve: Optional[pulumi.Input[Union[_builtins.str, 'AlwaysServe']]] = None,
-                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersArgs', 'EndpointPropertiesCustomHeadersArgsDict']]]]] = None,
+                 custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesCustomHeadersItemArgs', 'EndpointPropertiesCustomHeadersItemArgsDict']]]]] = None,
                  endpoint_location: Optional[pulumi.Input[_builtins.str]] = None,
                  endpoint_monitor_status: Optional[pulumi.Input[Union[_builtins.str, 'EndpointMonitorStatus']]] = None,
                  endpoint_name: Optional[pulumi.Input[_builtins.str]] = None,
@@ -463,7 +463,7 @@ class Endpoint(pulumi.CustomResource):
                  priority: Optional[pulumi.Input[_builtins.float]] = None,
                  profile_name: Optional[pulumi.Input[_builtins.str]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsArgs', 'EndpointPropertiesSubnetsArgsDict']]]]] = None,
+                 subnets: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EndpointPropertiesSubnetsItemArgs', 'EndpointPropertiesSubnetsItemArgsDict']]]]] = None,
                  target: Optional[pulumi.Input[_builtins.str]] = None,
                  target_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  type: Optional[pulumi.Input[_builtins.str]] = None,
@@ -566,7 +566,7 @@ class Endpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="customHeaders")
-    def custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointPropertiesResponseCustomHeaders']]]:
+    def custom_headers(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointPropertiesCustomHeadersItemResponse']]]:
         """
         List of custom headers.
         """
@@ -646,7 +646,7 @@ class Endpoint(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointPropertiesResponseSubnets']]]:
+    def subnets(self) -> pulumi.Output[Optional[Sequence['outputs.EndpointPropertiesSubnetsItemResponse']]]:
         """
         The list of subnets, IP addresses, and/or address ranges mapped to this endpoint when using the 'Subnet' traffic routing method. An empty list will match all ranges not covered by other endpoints.
         """

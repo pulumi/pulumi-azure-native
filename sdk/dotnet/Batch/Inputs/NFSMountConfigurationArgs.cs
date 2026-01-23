@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Information used to connect to an NFS file system.
+    /// </summary>
     public sealed class NFSMountConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
@@ -24,6 +27,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("relativeMountPath", required: true)]
         public Input<string> RelativeMountPath { get; set; } = null!;
 
+        /// <summary>
+        /// The URI of the file system to mount.
+        /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
 

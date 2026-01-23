@@ -10,13 +10,28 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Settings for the operating system disk of the virtual machine.
+    /// </summary>
     [OutputType]
     public sealed class OSDiskResponse
     {
+        /// <summary>
+        /// The type of caching to enable for the disk.
+        /// </summary>
         public readonly string? Caching;
+        /// <summary>
+        /// The initial disk size in GB when creating new OS disk.
+        /// </summary>
         public readonly int? DiskSizeGB;
+        /// <summary>
+        /// Specifies the ephemeral Disk Settings for the operating system disk used by the virtual machine.
+        /// </summary>
         public readonly Outputs.DiffDiskSettingsResponse? EphemeralOSDiskSettings;
         public readonly Outputs.ManagedDiskResponse? ManagedDisk;
+        /// <summary>
+        /// Specifies whether writeAccelerator should be enabled or disabled on the disk.
+        /// </summary>
         public readonly bool? WriteAcceleratorEnabled;
 
         [OutputConstructor]

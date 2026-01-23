@@ -5,6 +5,9 @@
   "Cloudngfw": [
     "2025-05-23"
   ],
+  "ComputeLimit": [
+    "2025-08-15"
+  ],
   "ContainerStorage": [
     "2023-07-01-preview"
   ],
@@ -56,6 +59,9 @@
   "ManagedNetwork": [
     "2019-06-01-preview"
   ],
+  "ManagedOps": [
+    "2025-07-28-preview"
+  ],
   "ManagementPartner": [
     "2018-02-01"
   ],
@@ -88,9 +94,6 @@
   ],
   "VMwareCloudSimple": [
     "2019-04-01"
-  ],
-  "VideoAnalyzer": [
-    "2021-11-01-preview"
   ],
   "Widget": [
     "2021-11-01"

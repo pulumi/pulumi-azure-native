@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// An environment variable to be set on a task process.
+    /// </summary>
     [OutputType]
     public sealed class EnvironmentSettingResponse
     {
+        /// <summary>
+        /// The name of the environment variable.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The value of the environment variable.
+        /// </summary>
         public readonly string? Value;
 
         [OutputConstructor]

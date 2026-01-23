@@ -10,11 +10,20 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// Information used to connect to an Azure Fileshare.
+    /// </summary>
     public sealed class AzureFileShareConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// The Azure Storage account key.
+        /// </summary>
         [Input("accountKey", required: true)]
         public Input<string> AccountKey { get; set; } = null!;
 
+        /// <summary>
+        /// The Azure Storage account name.
+        /// </summary>
         [Input("accountName", required: true)]
         public Input<string> AccountName { get; set; } = null!;
 

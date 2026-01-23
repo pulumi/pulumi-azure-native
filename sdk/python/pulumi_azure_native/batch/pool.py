@@ -47,13 +47,14 @@ class PoolArgs:
                  vm_size: Optional[pulumi.Input[_builtins.str]] = None):
         """
         The set of arguments for constructing a Pool resource.
-        :param pulumi.Input[_builtins.str] account_name: The name of the Batch account.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationPackageReferenceArgs']]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         :param pulumi.Input[Sequence[pulumi.Input['CertificateReferenceArgs']]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
                
                Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
+        :param pulumi.Input['DeploymentConfigurationArgs'] deployment_configuration: Deployment configuration properties.
         :param pulumi.Input[_builtins.str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input['BatchPoolIdentityArgs'] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -69,6 +70,7 @@ class PoolArgs:
         :param pulumi.Input['TaskSchedulingPolicyArgs'] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[_builtins.int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input['UpgradePolicyArgs'] upgrade_policy: Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]] user_accounts: The list of user accounts to be created on each node in the pool.
         :param pulumi.Input[_builtins.str] vm_size: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -122,7 +124,7 @@ class PoolArgs:
     @pulumi.getter(name="accountName")
     def account_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the Batch account.
+        A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         """
         return pulumi.get(self, "account_name")
 
@@ -134,7 +136,7 @@ class PoolArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the resource group that contains the Batch account.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -183,6 +185,9 @@ class PoolArgs:
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> Optional[pulumi.Input['DeploymentConfigurationArgs']]:
+        """
+        Deployment configuration properties.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @deployment_configuration.setter
@@ -372,6 +377,9 @@ class PoolArgs:
     @_builtins.property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['UserAccountArgs']]]]:
+        """
+        The list of user accounts to be created on each node in the pool.
+        """
         return pulumi.get(self, "user_accounts")
 
     @user_accounts.setter
@@ -430,12 +438,13 @@ class Pool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] account_name: The name of the Batch account.
+        :param pulumi.Input[_builtins.str] account_name: A name for the Batch account which must be unique within the region. Batch account names must be between 3 and 24 characters in length and must use only numbers and lowercase letters. This name is used as part of the DNS name that is used to access the Batch service in the region in which the account is created. For example: http://accountname.region.batch.azure.com/.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] application_licenses: The list of application licenses must be a subset of available Batch service application licenses. If a license is requested which is not supported, pool creation will fail.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ApplicationPackageReferenceArgs', 'ApplicationPackageReferenceArgsDict']]]] application_packages: Changes to application package references affect all new compute nodes joining the pool, but do not affect compute nodes that are already in the pool until they are rebooted or reimaged. There is a maximum of 10 application package references on any given pool.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CertificateReferenceArgs', 'CertificateReferenceArgsDict']]]] certificates: For Windows compute nodes, the Batch service installs the certificates to the specified certificate store and location. For Linux compute nodes, the certificates are stored in a directory inside the task working directory and an environment variable AZ_BATCH_CERTIFICATES_DIR is supplied to the task to query for this location. For certificates with visibility of 'remoteUser', a 'certs' directory is created in the user's home directory (e.g., /home/{user-name}/certs) and certificates are placed in that directory.
                
                Warning: This property is deprecated and will be removed after February, 2024. Please use the [Azure KeyVault Extension](https://learn.microsoft.com/azure/batch/batch-certificate-migration-guide) instead.
+        :param pulumi.Input[Union['DeploymentConfigurationArgs', 'DeploymentConfigurationArgsDict']] deployment_configuration: Deployment configuration properties.
         :param pulumi.Input[_builtins.str] display_name: The display name need not be unique and can contain any Unicode characters up to a maximum length of 1024.
         :param pulumi.Input[Union['BatchPoolIdentityArgs', 'BatchPoolIdentityArgsDict']] identity: The type of identity used for the Batch Pool.
         :param pulumi.Input['InterNodeCommunicationState'] inter_node_communication: This imposes restrictions on which nodes can be assigned to the pool. Enabling this value can reduce the chance of the requested number of nodes to be allocated in the pool. If not specified, this value defaults to 'Disabled'.
@@ -443,7 +452,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['MountConfigurationArgs', 'MountConfigurationArgsDict']]]] mount_configuration: This supports Azure Files, NFS, CIFS/SMB, and Blobfuse.
         :param pulumi.Input[Union['NetworkConfigurationArgs', 'NetworkConfigurationArgsDict']] network_configuration: The network configuration for a pool.
         :param pulumi.Input[_builtins.str] pool_name: The pool name. This must be unique within the account.
-        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group that contains the Batch account.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: The user-defined tags to be associated with the Azure Batch Pool. When specified, these tags are propagated to the backing Azure resources associated with the pool. This property can only be specified when the Batch account was created with the poolAllocationMode property set to 'UserSubscription'.
         :param pulumi.Input[Union['ScaleSettingsArgs', 'ScaleSettingsArgsDict']] scale_settings: Defines the desired size of the pool. This can either be 'fixedScale' where the requested targetDedicatedNodes is specified, or 'autoScale' which defines a formula which is periodically reevaluated. If this property is not specified, the pool will have a fixed scale with 0 targetDedicatedNodes.
         :param pulumi.Input[Union['StartTaskArgs', 'StartTaskArgsDict']] start_task: In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
@@ -452,6 +461,7 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[Union['TaskSchedulingPolicyArgs', 'TaskSchedulingPolicyArgsDict']] task_scheduling_policy: If not specified, the default is spread.
         :param pulumi.Input[_builtins.int] task_slots_per_node: The default value is 1. The maximum value is the smaller of 4 times the number of cores of the vmSize of the pool or 256.
         :param pulumi.Input[Union['UpgradePolicyArgs', 'UpgradePolicyArgsDict']] upgrade_policy: Describes an upgrade policy - automatic, manual, or rolling.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['UserAccountArgs', 'UserAccountArgsDict']]]] user_accounts: The list of user accounts to be created on each node in the pool.
         :param pulumi.Input[_builtins.str] vm_size: For information about available VM sizes, see Sizes for Virtual Machines in Azure (https://learn.microsoft.com/azure/virtual-machines/sizes/overview). Batch supports all Azure VM sizes except STANDARD_A0 and those with premium storage (STANDARD_GS, STANDARD_DS, and STANDARD_DSV2 series).
         """
         ...
@@ -557,6 +567,7 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["provisioning_state_transition_time"] = None
             __props__.__dict__["resize_operation_status"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:batch/v20170901:Pool"), pulumi.Alias(type_="azure-native:batch/v20181201:Pool"), pulumi.Alias(type_="azure-native:batch/v20190401:Pool"), pulumi.Alias(type_="azure-native:batch/v20190801:Pool"), pulumi.Alias(type_="azure-native:batch/v20200301:Pool"), pulumi.Alias(type_="azure-native:batch/v20200501:Pool"), pulumi.Alias(type_="azure-native:batch/v20200901:Pool"), pulumi.Alias(type_="azure-native:batch/v20210101:Pool"), pulumi.Alias(type_="azure-native:batch/v20210601:Pool"), pulumi.Alias(type_="azure-native:batch/v20220101:Pool"), pulumi.Alias(type_="azure-native:batch/v20220601:Pool"), pulumi.Alias(type_="azure-native:batch/v20221001:Pool"), pulumi.Alias(type_="azure-native:batch/v20230501:Pool"), pulumi.Alias(type_="azure-native:batch/v20231101:Pool"), pulumi.Alias(type_="azure-native:batch/v20240201:Pool"), pulumi.Alias(type_="azure-native:batch/v20240701:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -609,6 +620,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["resource_tags"] = None
         __props__.__dict__["scale_settings"] = None
         __props__.__dict__["start_task"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["target_node_communication_mode"] = None
         __props__.__dict__["task_scheduling_policy"] = None
@@ -622,11 +634,17 @@ class Pool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="allocationState")
     def allocation_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        Whether the pool is resizing.
+        """
         return pulumi.get(self, "allocation_state")
 
     @_builtins.property
     @pulumi.getter(name="allocationStateTransitionTime")
     def allocation_state_transition_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The time at which the pool entered its current allocation state.
+        """
         return pulumi.get(self, "allocation_state_transition_time")
 
     @_builtins.property
@@ -674,26 +692,41 @@ class Pool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="creationTime")
     def creation_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The creation time of the pool.
+        """
         return pulumi.get(self, "creation_time")
 
     @_builtins.property
     @pulumi.getter(name="currentDedicatedNodes")
     def current_dedicated_nodes(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of dedicated compute nodes currently in the pool.
+        """
         return pulumi.get(self, "current_dedicated_nodes")
 
     @_builtins.property
     @pulumi.getter(name="currentLowPriorityNodes")
     def current_low_priority_nodes(self) -> pulumi.Output[_builtins.int]:
+        """
+        The number of Spot/low-priority compute nodes currently in the pool.
+        """
         return pulumi.get(self, "current_low_priority_nodes")
 
     @_builtins.property
     @pulumi.getter(name="currentNodeCommunicationMode")
     def current_node_communication_mode(self) -> pulumi.Output[_builtins.str]:
+        """
+        Determines how a pool communicates with the Batch service.
+        """
         return pulumi.get(self, "current_node_communication_mode")
 
     @_builtins.property
     @pulumi.getter(name="deploymentConfiguration")
     def deployment_configuration(self) -> pulumi.Output[Optional['outputs.DeploymentConfigurationResponse']]:
+        """
+        Deployment configuration properties.
+        """
         return pulumi.get(self, "deployment_configuration")
 
     @_builtins.property
@@ -756,7 +789,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the resource.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -771,11 +804,17 @@ class Pool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[_builtins.str]:
+        """
+        The current state of the pool.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @_builtins.property
     @pulumi.getter(name="provisioningStateTransitionTime")
     def provisioning_state_transition_time(self) -> pulumi.Output[_builtins.str]:
+        """
+        The time at which the pool entered its current state.
+        """
         return pulumi.get(self, "provisioning_state_transition_time")
 
     @_builtins.property
@@ -809,6 +848,14 @@ class Pool(pulumi.CustomResource):
         In an PATCH (update) operation, this property can be set to an empty object to remove the start task from the pool.
         """
         return pulumi.get(self, "start_task")
+
+    @_builtins.property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @_builtins.property
     @pulumi.getter
@@ -846,7 +893,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the resource.
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -861,6 +908,9 @@ class Pool(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="userAccounts")
     def user_accounts(self) -> pulumi.Output[Optional[Sequence['outputs.UserAccountResponse']]]:
+        """
+        The list of user accounts to be created on each node in the pool.
+        """
         return pulumi.get(self, "user_accounts")
 
     @_builtins.property

@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.CognitiveServices
 {
     /// <summary>
-    /// Azure Resource Manager resource envelope.
+    /// Azure Resource Manager resource envelope for Project CapabilityHost.
     /// 
     /// Uses Azure REST API version 2025-04-01-preview.
     /// 
-    /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2025-06-01, 2025-07-01-preview, 2025-09-01, 2025-10-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native cognitiveservices [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:cognitiveservices:ProjectCapabilityHost")]
     public partial class ProjectCapabilityHost : global::Pulumi.CustomResource
@@ -26,16 +26,16 @@ namespace Pulumi.AzureNative.CognitiveServices
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// [Required] Additional attributes of the entity.
-        /// </summary>
-        [Output("capabilityHostProperties")]
-        public Output<Outputs.CapabilityHostResponse> CapabilityHostProperties { get; private set; } = null!;
-
-        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// [Required] Additional attributes of the entity.
+        /// </summary>
+        [Output("projectCapabilityHostProperties")]
+        public Output<Outputs.ProjectCapabilityHostResponse> ProjectCapabilityHostProperties { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.CognitiveServices
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250601:ProjectCapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250701preview:ProjectCapabilityHost" },
                     new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20250901:ProjectCapabilityHost" },
+                    new global::Pulumi.Alias { Type = "azure-native:cognitiveservices/v20251001preview:ProjectCapabilityHost" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -110,8 +111,8 @@ namespace Pulumi.AzureNative.CognitiveServices
         /// <summary>
         /// [Required] Additional attributes of the entity.
         /// </summary>
-        [Input("capabilityHostProperties", required: true)]
-        public Input<Inputs.CapabilityHostArgs> CapabilityHostProperties { get; set; } = null!;
+        [Input("projectCapabilityHostProperties", required: true)]
+        public Input<Inputs.ProjectCapabilityHostArgs> ProjectCapabilityHostProperties { get; set; } = null!;
 
         /// <summary>
         /// The name of Cognitive Services account's project.

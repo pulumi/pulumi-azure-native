@@ -14,17 +14,11 @@ namespace Pulumi.AzureNative.AVS
     /// 
     /// Uses Azure REST API version 2023-09-01. In version 2.x of the Azure Native provider, it used API version 2022-05-01.
     /// 
-    /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:avs:Addon")]
     public partial class Addon : global::Pulumi.CustomResource
     {
-        /// <summary>
-        /// Addon type
-        /// </summary>
-        [Output("addonType")]
-        public Output<string> AddonType { get; private set; } = null!;
-
         /// <summary>
         /// The Azure API version of the resource.
         /// </summary>
@@ -38,10 +32,10 @@ namespace Pulumi.AzureNative.AVS
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The state of the addon provisioning
+        /// The resource-specific properties for this resource.
         /// </summary>
-        [Output("provisioningState")]
-        public Output<string> ProvisioningState { get; private set; } = null!;
+        [Output("properties")]
+        public Output<object> Properties { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -88,6 +82,7 @@ namespace Pulumi.AzureNative.AVS
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230301:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20230901:Addon" },
                     new global::Pulumi.Alias { Type = "azure-native:avs/v20240901:Addon" },
+                    new global::Pulumi.Alias { Type = "azure-native:avs/v20250901:Addon" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -118,16 +113,16 @@ namespace Pulumi.AzureNative.AVS
         public Input<string>? AddonName { get; set; }
 
         /// <summary>
-        /// Addon type
-        /// </summary>
-        [Input("addonType", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.AVS.AddonType> AddonType { get; set; } = null!;
-
-        /// <summary>
         /// Name of the private cloud
         /// </summary>
         [Input("privateCloudName", required: true)]
         public Input<string> PrivateCloudName { get; set; } = null!;
+
+        /// <summary>
+        /// The resource-specific properties for this resource.
+        /// </summary>
+        [Input("properties")]
+        public object? Properties { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

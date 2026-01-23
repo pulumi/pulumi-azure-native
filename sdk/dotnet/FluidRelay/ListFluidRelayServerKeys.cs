@@ -15,6 +15,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// The set of available keys for this server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<ListFluidRelayServerKeysResult> InvokeAsync(ListFluidRelayServerKeysArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysArgs(), options.WithDefaults());
@@ -23,6 +25,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// The set of available keys for this server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());
@@ -31,6 +35,8 @@ namespace Pulumi.AzureNative.FluidRelay
         /// The set of available keys for this server.
         /// 
         /// Uses Azure REST API version 2022-06-01.
+        /// 
+        /// Other available API versions: 2025-06-20-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native fluidrelay [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<ListFluidRelayServerKeysResult> Invoke(ListFluidRelayServerKeysInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<ListFluidRelayServerKeysResult>("azure-native:fluidrelay:listFluidRelayServerKeys", args ?? new ListFluidRelayServerKeysInvokeArgs(), options.WithDefaults());

@@ -353,6 +353,30 @@ export const KubernetesSupportPlan = {
  */
 export type KubernetesSupportPlan = (typeof KubernetesSupportPlan)[keyof typeof KubernetesSupportPlan];
 
+export const LabelSelectorOperator = {
+    /**
+     * Label Selector Operator In
+     */
+    In: "In",
+    /**
+     * Label Selector Operator NotIn
+     */
+    NotIn: "NotIn",
+    /**
+     * Label Selector Operator Exists
+     */
+    Exists: "Exists",
+    /**
+     * Label Selector Operator DoesNotExist
+     */
+    DoesNotExist: "DoesNotExist",
+} as const;
+
+/**
+ * operator represents a key's relationship to a set of values. Valid operators are In, NotIn, Exists and DoesNotExist.
+ */
+export type LabelSelectorOperator = (typeof LabelSelectorOperator)[keyof typeof LabelSelectorOperator];
+
 export const LicenseType = {
     /**
      * No additional licensing is applied.
@@ -761,6 +785,22 @@ export const OutboundType = {
  */
 export type OutboundType = (typeof OutboundType)[keyof typeof OutboundType];
 
+export const PlacementType = {
+    /**
+     * PickAll picks all clusters that satisfy the rules.
+     */
+    PickAll: "PickAll",
+    /**
+     * PickFixed picks a fixed set of clusters.
+     */
+    PickFixed: "PickFixed",
+} as const;
+
+/**
+ * Type of placement. Can be "PickAll", "PickN" or "PickFixed". Default is PickAll.
+ */
+export type PlacementType = (typeof PlacementType)[keyof typeof PlacementType];
+
 export const PodIPAllocationMode = {
     /**
      * Each node gets allocated with a non-contiguous list of IP addresses assignable to pods. This is better for maximizing a small to medium subnet of size /16 or smaller. The Azure CNI cluster with dynamic IP allocation defaults to this mode if the customer does not explicitly specify a podIPAllocationMode
@@ -796,6 +836,50 @@ export const PolicyRule = {
  * Ingress policy for the network.
  */
 export type PolicyRule = (typeof PolicyRule)[keyof typeof PolicyRule];
+
+export const PropagationType = {
+    /**
+     * Using ClusterResourcePlacement.
+     */
+    Placement: "Placement",
+} as const;
+
+/**
+ * The type of the policy to be used. Default is Placement.
+ */
+export type PropagationType = (typeof PropagationType)[keyof typeof PropagationType];
+
+export const PropertySelectorOperator = {
+    /**
+     * Gt dictates Fleet to select cluster if its observed value of a given property is greater than the value specified in the requirement.
+     */
+    Gt: "Gt",
+    /**
+     * Ge dictates Fleet to select cluster if its observed value of a given property is greater than or equal to the value specified in the requirement.
+     */
+    Ge: "Ge",
+    /**
+     * Eq dictates Fleet to select cluster if its observed value of a given property is equal to the values specified in the requirement.
+     */
+    Eq: "Eq",
+    /**
+     * Ne dictates Fleet to select cluster if its observed value of a given property is not equal to the values specified in the requirement.
+     */
+    Ne: "Ne",
+    /**
+     * Lt dictates Fleet to select cluster if its observed value of a given property is less than the value specified in the requirement.
+     */
+    Lt: "Lt",
+    /**
+     * Le dictates Fleet to select cluster if its observed value of a given property is less than or equal to the value specified in the requirement.
+     */
+    Le: "Le",
+} as const;
+
+/**
+ * Operator specifies the relationship between a cluster's observed value of the specified property and the values given in the requirement.
+ */
+export type PropertySelectorOperator = (typeof PropertySelectorOperator)[keyof typeof PropertySelectorOperator];
 
 export const Protocol = {
     /**
@@ -950,6 +1034,34 @@ export const SnapshotType = {
  * The type of a snapshot. The default is NodePool.
  */
 export type SnapshotType = (typeof SnapshotType)[keyof typeof SnapshotType];
+
+export const TaintEffect = {
+    /**
+     * Do not allow new pods to schedule onto the node unless they tolerate the taint, but allow all pods submitted to Kubelet without going through the scheduler to start, and allow all already-running pods to continue running. Enforced by the scheduler.
+     */
+    NoSchedule: "NoSchedule",
+} as const;
+
+/**
+ * Effect indicates the taint effect to match. Empty means match all taint effects. When specified, only allowed value is NoSchedule.
+ */
+export type TaintEffect = (typeof TaintEffect)[keyof typeof TaintEffect];
+
+export const TolerationOperator = {
+    /**
+     * Toleration Operator Exists
+     */
+    Exists: "Exists",
+    /**
+     * Toleration Operator Equal
+     */
+    Equal: "Equal",
+} as const;
+
+/**
+ * Operator represents a key's relationship to the value. Valid operators are Exists and Equal. Defaults to Equal. Exists is equivalent to wildcard for value, so that a ClusterResourcePlacement can tolerate all taints of a particular category.
+ */
+export type TolerationOperator = (typeof TolerationOperator)[keyof typeof TolerationOperator];
 
 export const Type = {
     /**

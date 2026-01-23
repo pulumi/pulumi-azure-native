@@ -10,10 +10,19 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Information used to connect to an Azure Fileshare.
+    /// </summary>
     [OutputType]
     public sealed class AzureFileShareConfigurationResponse
     {
+        /// <summary>
+        /// The Azure Storage account key.
+        /// </summary>
         public readonly string AccountKey;
+        /// <summary>
+        /// The Azure Storage account name.
+        /// </summary>
         public readonly string AccountName;
         /// <summary>
         /// This is of the form 'https://{account}.file.core.windows.net/'.

@@ -10,10 +10,10 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Attestation.Inputs
 {
 
-    public sealed class JSONWebKeySetArgs : global::Pulumi.ResourceArgs
+    public sealed class JsonWebKeySetArgs : global::Pulumi.ResourceArgs
     {
         [Input("keys")]
-        private InputList<Inputs.JSONWebKeyArgs>? _keys;
+        private InputList<Inputs.JsonWebKeyArgs>? _keys;
 
         /// <summary>
         /// The value of the "keys" parameter is an array of JWK values.  By
@@ -22,15 +22,15 @@ namespace Pulumi.AzureNative.Attestation.Inputs
         /// can choose to assign a meaning to the order for their purposes, if
         /// desired.
         /// </summary>
-        public InputList<Inputs.JSONWebKeyArgs> Keys
+        public InputList<Inputs.JsonWebKeyArgs> Keys
         {
-            get => _keys ?? (_keys = new InputList<Inputs.JSONWebKeyArgs>());
+            get => _keys ?? (_keys = new InputList<Inputs.JsonWebKeyArgs>());
             set => _keys = value;
         }
 
-        public JSONWebKeySetArgs()
+        public JsonWebKeySetArgs()
         {
         }
-        public static new JSONWebKeySetArgs Empty => new JSONWebKeySetArgs();
+        public static new JsonWebKeySetArgs Empty => new JsonWebKeySetArgs();
     }
 }

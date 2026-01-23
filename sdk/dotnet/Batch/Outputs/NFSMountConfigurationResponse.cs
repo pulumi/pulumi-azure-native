@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Outputs
 {
 
+    /// <summary>
+    /// Information used to connect to an NFS file system.
+    /// </summary>
     [OutputType]
     public sealed class NFSMountConfigurationResponse
     {
@@ -21,6 +24,9 @@ namespace Pulumi.AzureNative.Batch.Outputs
         /// All file systems are mounted relative to the Batch mounts directory, accessible via the AZ_BATCH_NODE_MOUNTS_DIR environment variable.
         /// </summary>
         public readonly string RelativeMountPath;
+        /// <summary>
+        /// The URI of the file system to mount.
+        /// </summary>
         public readonly string Source;
 
         [OutputConstructor]

@@ -20,6 +20,10 @@ __all__ = [
     'AdapterPropertyOverridesArgsDict',
     'ArcConnectivityPropertiesArgs',
     'ArcConnectivityPropertiesArgsDict',
+    'BackendAddressPoolPropertiesArgs',
+    'BackendAddressPoolPropertiesArgsDict',
+    'BackendAddressPoolArgs',
+    'BackendAddressPoolArgsDict',
     'ClusterDesiredPropertiesArgs',
     'ClusterDesiredPropertiesArgsDict',
     'DeploymentClusterArgs',
@@ -36,6 +40,10 @@ __all__ = [
     'EceDeploymentSecretsArgsDict',
     'ExtendedLocationArgs',
     'ExtendedLocationArgsDict',
+    'FrontendIPConfigurationPropertiesArgs',
+    'FrontendIPConfigurationPropertiesArgsDict',
+    'FrontendIPConfigurationArgs',
+    'FrontendIPConfigurationArgsDict',
     'GalleryImageIdentifierArgs',
     'GalleryImageIdentifierArgsDict',
     'GalleryImageVersionArgs',
@@ -52,6 +60,8 @@ __all__ = [
     'HostNetworkArgsDict',
     'HttpProxyConfigurationArgs',
     'HttpProxyConfigurationArgsDict',
+    'IPConfigurationArmReferenceArgs',
+    'IPConfigurationArmReferenceArgsDict',
     'IPConfigurationPropertiesArgs',
     'IPConfigurationPropertiesArgsDict',
     'IPConfigurationArgs',
@@ -62,6 +72,10 @@ __all__ = [
     'IdentityArgsDict',
     'ImageArmReferenceArgs',
     'ImageArmReferenceArgsDict',
+    'InboundNATRulePropertiesArgs',
+    'InboundNATRulePropertiesArgsDict',
+    'InboundNATRuleArgs',
+    'InboundNATRuleArgsDict',
     'InfrastructureNetworkArgs',
     'InfrastructureNetworkArgsDict',
     'IntentsArgs',
@@ -70,12 +84,32 @@ __all__ = [
     'InterfaceDNSSettingsArgsDict',
     'IpPoolsArgs',
     'IpPoolsArgsDict',
+    'LoadBalancerBackendAddressPoolReferenceArgs',
+    'LoadBalancerBackendAddressPoolReferenceArgsDict',
+    'LoadBalancerBackendAddressPropertiesArgs',
+    'LoadBalancerBackendAddressPropertiesArgsDict',
+    'LoadBalancerBackendAddressArgs',
+    'LoadBalancerBackendAddressArgsDict',
+    'LoadBalancerFrontendIPConfigurationReferenceArgs',
+    'LoadBalancerFrontendIPConfigurationReferenceArgsDict',
+    'LoadBalancerProbeReferenceArgs',
+    'LoadBalancerProbeReferenceArgsDict',
+    'LoadBalancerPropertiesArgs',
+    'LoadBalancerPropertiesArgsDict',
+    'LoadBalancerRulePropertiesArgs',
+    'LoadBalancerRulePropertiesArgsDict',
+    'LoadBalancerRuleArgs',
+    'LoadBalancerRuleArgsDict',
     'LogicalNetworkArmReferenceArgs',
     'LogicalNetworkArmReferenceArgsDict',
     'LogicalNetworkPropertiesDhcpOptionsArgs',
     'LogicalNetworkPropertiesDhcpOptionsArgsDict',
     'ManagedServiceIdentityArgs',
     'ManagedServiceIdentityArgsDict',
+    'NatGatewayArmReferenceArgs',
+    'NatGatewayArmReferenceArgsDict',
+    'NatGatewayPropertiesArgs',
+    'NatGatewayPropertiesArgsDict',
     'NetworkControllerArgs',
     'NetworkControllerArgsDict',
     'NetworkInterfaceArmReferenceArgs',
@@ -90,6 +124,14 @@ __all__ = [
     'OptionalServicesArgsDict',
     'PhysicalNodesArgs',
     'PhysicalNodesArgsDict',
+    'ProbePropertiesArgs',
+    'ProbePropertiesArgsDict',
+    'ProbeArgs',
+    'ProbeArgsDict',
+    'PublicIPAddressArmReferenceArgs',
+    'PublicIPAddressArmReferenceArgsDict',
+    'PublicIPAddressPropertiesArgs',
+    'PublicIPAddressPropertiesArgsDict',
     'QosPolicyOverridesArgs',
     'QosPolicyOverridesArgsDict',
     'RouteTableArgs',
@@ -192,6 +234,8 @@ __all__ = [
     'VirtualMachinePropertiesUefiSettingsArgsDict',
     'VirtualMachinePropertiesWindowsConfigurationArgs',
     'VirtualMachinePropertiesWindowsConfigurationArgsDict',
+    'VirtualNetworkArmReferenceArgs',
+    'VirtualNetworkArmReferenceArgsDict',
     'VirtualNetworkPropertiesDhcpOptionsArgs',
     'VirtualNetworkPropertiesDhcpOptionsArgsDict',
     'VirtualNetworkPropertiesIpConfigurationReferencesArgs',
@@ -202,10 +246,12 @@ __all__ = [
     'VirtualNetworkPropertiesRoutesArgsDict',
     'VirtualNetworkPropertiesSubnetsArgs',
     'VirtualNetworkPropertiesSubnetsArgsDict',
+    'VirtualNetworkSubnetArmReferenceArgs',
+    'VirtualNetworkSubnetArmReferenceArgsDict',
+    'VirtualNetworkSubnetPropertiesArgs',
+    'VirtualNetworkSubnetPropertiesArgsDict',
     'VirtualSwitchConfigurationOverridesArgs',
     'VirtualSwitchConfigurationOverridesArgsDict',
-    'VmImageRepositoryCredentialsArgs',
-    'VmImageRepositoryCredentialsArgsDict',
 ]
 
 MYPY = False
@@ -340,6 +386,136 @@ class ArcConnectivityPropertiesArgs:
     @service_configurations.setter
     def service_configurations(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceConfigurationArgs']]]]):
         pulumi.set(self, "service_configurations", value)
+
+
+if not MYPY:
+    class BackendAddressPoolPropertiesArgsDict(TypedDict):
+        """
+        Backend address pool for the load balancer.
+        """
+        load_balancer_backend_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgsDict']]]]
+        """
+        List of backend addresses for the backend pool
+        """
+        logical_network: NotRequired[pulumi.Input['LogicalNetworkArmReferenceArgsDict']]
+        """
+        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        """
+        virtual_network: NotRequired[pulumi.Input['VirtualNetworkArmReferenceArgsDict']]
+        """
+        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+elif False:
+    BackendAddressPoolPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendAddressPoolPropertiesArgs:
+    def __init__(__self__, *,
+                 load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
+                 logical_network: Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']] = None,
+                 virtual_network: Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']] = None):
+        """
+        Backend address pool for the load balancer.
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: List of backend addresses for the backend pool
+        :param pulumi.Input['LogicalNetworkArmReferenceArgs'] logical_network: Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        :param pulumi.Input['VirtualNetworkArmReferenceArgs'] virtual_network: Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        if load_balancer_backend_addresses is not None:
+            pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if logical_network is not None:
+            pulumi.set(__self__, "logical_network", logical_network)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerBackendAddresses")
+    def load_balancer_backend_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]:
+        """
+        List of backend addresses for the backend pool
+        """
+        return pulumi.get(self, "load_balancer_backend_addresses")
+
+    @load_balancer_backend_addresses.setter
+    def load_balancer_backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]):
+        pulumi.set(self, "load_balancer_backend_addresses", value)
+
+    @_builtins.property
+    @pulumi.getter(name="logicalNetwork")
+    def logical_network(self) -> Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']]:
+        """
+        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        """
+        return pulumi.get(self, "logical_network")
+
+    @logical_network.setter
+    def logical_network(self, value: Optional[pulumi.Input['LogicalNetworkArmReferenceArgs']]):
+        pulumi.set(self, "logical_network", value)
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']]:
+        """
+        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @virtual_network.setter
+    def virtual_network(self, value: Optional[pulumi.Input['VirtualNetworkArmReferenceArgs']]):
+        pulumi.set(self, "virtual_network", value)
+
+
+if not MYPY:
+    class BackendAddressPoolArgsDict(TypedDict):
+        """
+        Backend address pool for the load balancer.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend pool.
+        """
+        properties: pulumi.Input['BackendAddressPoolPropertiesArgsDict']
+        """
+        properties for the backend pool
+        """
+elif False:
+    BackendAddressPoolArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class BackendAddressPoolArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['BackendAddressPoolPropertiesArgs']):
+        """
+        Backend address pool for the load balancer.
+        :param pulumi.Input[_builtins.str] name: name of the backend pool.
+        :param pulumi.Input['BackendAddressPoolPropertiesArgs'] properties: properties for the backend pool
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend pool.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['BackendAddressPoolPropertiesArgs']:
+        """
+        properties for the backend pool
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['BackendAddressPoolPropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -1290,6 +1466,156 @@ class ExtendedLocationArgs:
 
 
 if not MYPY:
+    class FrontendIPConfigurationPropertiesArgsDict(TypedDict):
+        """
+        FrontendIP Configuration object for a load balancer.
+        """
+        private_ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        """
+        private_ip_allocation_method: NotRequired[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]
+        """
+        privateIPAllocationMethod - set to Static for requesting a specific IP
+        """
+        public_ip_address: NotRequired[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]
+        """
+        Public IP 
+        """
+        subnet: NotRequired[pulumi.Input['VirtualNetworkSubnetArmReferenceArgsDict']]
+        """
+        subnet - the subnet from which to allocate the private IP
+        """
+elif False:
+    FrontendIPConfigurationPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontendIPConfigurationPropertiesArgs:
+    def __init__(__self__, *,
+                 private_ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 private_ip_allocation_method: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]] = None,
+                 public_ip_address: Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']] = None,
+                 subnet: Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']] = None):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param pulumi.Input[_builtins.str] private_ip_address: Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        :param pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']] private_ip_allocation_method: privateIPAllocationMethod - set to Static for requesting a specific IP
+        :param pulumi.Input['PublicIPAddressArmReferenceArgs'] public_ip_address: Public IP 
+        :param pulumi.Input['VirtualNetworkSubnetArmReferenceArgs'] subnet: subnet - the subnet from which to allocate the private IP
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @private_ip_address.setter
+    def private_ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "private_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]:
+        """
+        privateIPAllocationMethod - set to Static for requesting a specific IP
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @private_ip_allocation_method.setter
+    def private_ip_allocation_method(self, value: Optional[pulumi.Input[Union[_builtins.str, 'IpAllocationMethodEnum']]]):
+        pulumi.set(self, "private_ip_allocation_method", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']]:
+        """
+        Public IP 
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: Optional[pulumi.Input['PublicIPAddressArmReferenceArgs']]):
+        pulumi.set(self, "public_ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']]:
+        """
+        subnet - the subnet from which to allocate the private IP
+        """
+        return pulumi.get(self, "subnet")
+
+    @subnet.setter
+    def subnet(self, value: Optional[pulumi.Input['VirtualNetworkSubnetArmReferenceArgs']]):
+        pulumi.set(self, "subnet", value)
+
+
+if not MYPY:
+    class FrontendIPConfigurationArgsDict(TypedDict):
+        """
+        FrontendIP Configuration object for a load balancer.
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name for the frontend IP configuration.
+        """
+        properties: pulumi.Input['FrontendIPConfigurationPropertiesArgsDict']
+        """
+        properties for this frontendIPConfiguration
+        """
+elif False:
+    FrontendIPConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class FrontendIPConfigurationArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['FrontendIPConfigurationPropertiesArgs']):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param pulumi.Input[_builtins.str] name: name for the frontend IP configuration.
+        :param pulumi.Input['FrontendIPConfigurationPropertiesArgs'] properties: properties for this frontendIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name for the frontend IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['FrontendIPConfigurationPropertiesArgs']:
+        """
+        properties for this frontendIPConfiguration
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['FrontendIPConfigurationPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
     class GalleryImageIdentifierArgsDict(TypedDict):
         """
         This is the gallery image definition identifier.
@@ -1898,6 +2224,42 @@ class HttpProxyConfigurationArgs:
 
 
 if not MYPY:
+    class IPConfigurationArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+elif False:
+    IPConfigurationArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class IPConfigurationArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID of an IPConfiguration resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
     class IPConfigurationPropertiesArgsDict(TypedDict):
         """
         InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
@@ -2144,11 +2506,11 @@ class IdentityArgs:
 if not MYPY:
     class ImageArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Gallery Image.
+        The Azure Resource ID for a Gallery Image.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for an image resource used by the virtual machine instance.
         """
 elif False:
     ImageArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2158,8 +2520,8 @@ class ImageArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Gallery Image.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for a Gallery Image.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2168,13 +2530,178 @@ class ImageArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         return pulumi.get(self, "id")
 
     @id.setter
     def id(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "id", value)
+
+
+if not MYPY:
+    class InboundNATRulePropertiesArgsDict(TypedDict):
+        """
+        Inbound nat rule properties
+        """
+        backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgsDict']
+        """
+        IP configuration for the target backend.
+        """
+        backend_port: pulumi.Input[_builtins.int]
+        """
+        backend Port for the inbound rule
+        """
+        frontend_port: pulumi.Input[_builtins.int]
+        """
+        Frontend Port for the inbound rule
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]
+        """
+        Protocol for the NAT rule
+        """
+        public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgsDict']
+        """
+        Public IP Address for this NAT rule
+        """
+elif False:
+    InboundNATRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InboundNATRulePropertiesArgs:
+    def __init__(__self__, *,
+                 backend_ip_configuration: pulumi.Input['IPConfigurationArmReferenceArgs'],
+                 backend_port: pulumi.Input[_builtins.int],
+                 frontend_port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']],
+                 public_ip_address: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        """
+        Inbound nat rule properties
+        :param pulumi.Input['IPConfigurationArmReferenceArgs'] backend_ip_configuration: IP configuration for the target backend.
+        :param pulumi.Input[_builtins.int] backend_port: backend Port for the inbound rule
+        :param pulumi.Input[_builtins.int] frontend_port: Frontend Port for the inbound rule
+        :param pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']] protocol: Protocol for the NAT rule
+        :param pulumi.Input['PublicIPAddressArmReferenceArgs'] public_ip_address: Public IP Address for this NAT rule
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> pulumi.Input['IPConfigurationArmReferenceArgs']:
+        """
+        IP configuration for the target backend.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @backend_ip_configuration.setter
+    def backend_ip_configuration(self, value: pulumi.Input['IPConfigurationArmReferenceArgs']):
+        pulumi.set(self, "backend_ip_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        backend Port for the inbound rule
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "backend_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Frontend Port for the inbound rule
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]:
+        """
+        Protocol for the NAT rule
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'InboundNATRuleProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> pulumi.Input['PublicIPAddressArmReferenceArgs']:
+        """
+        Public IP Address for this NAT rule
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @public_ip_address.setter
+    def public_ip_address(self, value: pulumi.Input['PublicIPAddressArmReferenceArgs']):
+        pulumi.set(self, "public_ip_address", value)
+
+
+if not MYPY:
+    class InboundNATRuleArgsDict(TypedDict):
+        """
+        Inbound nat rule properties
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the inbound nat rule
+        """
+        properties: pulumi.Input['InboundNATRulePropertiesArgsDict']
+        """
+        properties of the inbound nat rule
+        """
+elif False:
+    InboundNATRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class InboundNATRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['InboundNATRulePropertiesArgs']):
+        """
+        Inbound nat rule properties
+        :param pulumi.Input[_builtins.str] name: name of the inbound nat rule
+        :param pulumi.Input['InboundNATRulePropertiesArgs'] properties: properties of the inbound nat rule
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the inbound nat rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['InboundNATRulePropertiesArgs']:
+        """
+        properties of the inbound nat rule
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['InboundNATRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
 
 
 if not MYPY:
@@ -2588,13 +3115,550 @@ class IpPoolsArgs:
 
 
 if not MYPY:
+    class LoadBalancerBackendAddressPoolReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer backend address pool reference
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend address pool
+        """
+elif False:
+    LoadBalancerBackendAddressPoolReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPoolReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer backend address pool reference
+        :param pulumi.Input[_builtins.str] name: name of the backend address pool
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend address pool
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerBackendAddressPropertiesArgsDict(TypedDict):
+        """
+        LoadBalancer Backend Address properties
+        """
+        admin_state: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]
+        """
+        admin state - if set to false, the address is removed from the pool
+        """
+        network_interface_ip_configuration: NotRequired[pulumi.Input['IPConfigurationArmReferenceArgsDict']]
+        """
+        Nic Based backend-ip association
+        """
+elif False:
+    LoadBalancerBackendAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressPropertiesArgs:
+    def __init__(__self__, *,
+                 admin_state: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]] = None,
+                 network_interface_ip_configuration: Optional[pulumi.Input['IPConfigurationArmReferenceArgs']] = None):
+        """
+        LoadBalancer Backend Address properties
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']] admin_state: admin state - if set to false, the address is removed from the pool
+        :param pulumi.Input['IPConfigurationArmReferenceArgs'] network_interface_ip_configuration: Nic Based backend-ip association
+        """
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
+        if network_interface_ip_configuration is not None:
+            pulumi.set(__self__, "network_interface_ip_configuration", network_interface_ip_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]:
+        """
+        admin state - if set to false, the address is removed from the pool
+        """
+        return pulumi.get(self, "admin_state")
+
+    @admin_state.setter
+    def admin_state(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerBackendAddressAdminState']]]):
+        pulumi.set(self, "admin_state", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceIPConfiguration")
+    def network_interface_ip_configuration(self) -> Optional[pulumi.Input['IPConfigurationArmReferenceArgs']]:
+        """
+        Nic Based backend-ip association
+        """
+        return pulumi.get(self, "network_interface_ip_configuration")
+
+    @network_interface_ip_configuration.setter
+    def network_interface_ip_configuration(self, value: Optional[pulumi.Input['IPConfigurationArmReferenceArgs']]):
+        pulumi.set(self, "network_interface_ip_configuration", value)
+
+
+if not MYPY:
+    class LoadBalancerBackendAddressArgsDict(TypedDict):
+        """
+        LoadBalancer Backend Address
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the backend address
+        """
+        properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgsDict']
+        """
+        backend address properties
+        """
+elif False:
+    LoadBalancerBackendAddressArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerBackendAddressArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']):
+        """
+        LoadBalancer Backend Address
+        :param pulumi.Input[_builtins.str] name: name of the backend address
+        :param pulumi.Input['LoadBalancerBackendAddressPropertiesArgs'] properties: backend address properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the backend address
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']:
+        """
+        backend address properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LoadBalancerBackendAddressPropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class LoadBalancerFrontendIPConfigurationReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer Frontend IPConfiguration
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the frontnedIPConfiguration
+        """
+elif False:
+    LoadBalancerFrontendIPConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerFrontendIPConfigurationReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer Frontend IPConfiguration
+        :param pulumi.Input[_builtins.str] name: name of the frontnedIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the frontnedIPConfiguration
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerProbeReferenceArgsDict(TypedDict):
+        """
+        Reference to a LoadBalancer health probe
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the health probe
+        """
+elif False:
+    LoadBalancerProbeReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerProbeReferenceArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str]):
+        """
+        Reference to a LoadBalancer health probe
+        :param pulumi.Input[_builtins.str] name: name of the health probe
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the health probe
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class LoadBalancerPropertiesArgsDict(TypedDict):
+        """
+        Load Balancer resource properties
+        """
+        frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgsDict']]]
+        """
+        Frontend IPs for the loadbalancer.
+        """
+        backend_address_pools: NotRequired[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgsDict']]]]
+        """
+        backendAddressPools for the loadbalancer
+        """
+        load_balancing_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgsDict']]]]
+        """
+        load balancer rules
+        """
+        probes: NotRequired[pulumi.Input[Sequence[pulumi.Input['ProbeArgsDict']]]]
+        """
+        load balancer health probes
+        """
+elif False:
+    LoadBalancerPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerPropertiesArgs:
+    def __init__(__self__, *,
+                 frontend_ip_configurations: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]],
+                 backend_address_pools: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]] = None,
+                 load_balancing_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]] = None,
+                 probes: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]] = None):
+        """
+        Load Balancer resource properties
+        :param pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]] frontend_ip_configurations: Frontend IPs for the loadbalancer.
+        :param pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]] backend_address_pools: backendAddressPools for the loadbalancer
+        :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]] load_balancing_rules: load balancer rules
+        :param pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]] probes: load balancer health probes
+        """
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if load_balancing_rules is not None:
+            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]:
+        """
+        Frontend IPs for the loadbalancer.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @frontend_ip_configurations.setter
+    def frontend_ip_configurations(self, value: pulumi.Input[Sequence[pulumi.Input['FrontendIPConfigurationArgs']]]):
+        pulumi.set(self, "frontend_ip_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]:
+        """
+        backendAddressPools for the loadbalancer
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @backend_address_pools.setter
+    def backend_address_pools(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['BackendAddressPoolArgs']]]]):
+        pulumi.set(self, "backend_address_pools", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]]:
+        """
+        load balancer rules
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @load_balancing_rules.setter
+    def load_balancing_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerRuleArgs']]]]):
+        pulumi.set(self, "load_balancing_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def probes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]:
+        """
+        load balancer health probes
+        """
+        return pulumi.get(self, "probes")
+
+    @probes.setter
+    def probes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ProbeArgs']]]]):
+        pulumi.set(self, "probes", value)
+
+
+if not MYPY:
+    class LoadBalancerRulePropertiesArgsDict(TypedDict):
+        """
+        Properties for LoadBalancerRules
+        """
+        backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgsDict']
+        """
+        arm reference to backend pool being used by ths pool
+        """
+        backend_port: pulumi.Input[_builtins.int]
+        """
+        backendPort to forward connections
+        """
+        frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgsDict']
+        """
+        arm reference to frontend IP being used by this LB
+        """
+        frontend_port: pulumi.Input[_builtins.int]
+        """
+        Frontend port to accept connections
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]
+        """
+        IP Protocol that the rule must load-balance
+        """
+        idle_timeout_in_minutes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Time for which connections are preserved before being torn down.
+        """
+        load_distribution: NotRequired[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]
+        """
+        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        """
+        probe: NotRequired[pulumi.Input['LoadBalancerProbeReferenceArgsDict']]
+        """
+        Reference for the health probe for this connection
+        """
+elif False:
+    LoadBalancerRulePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerRulePropertiesArgs:
+    def __init__(__self__, *,
+                 backend_address_pool: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs'],
+                 backend_port: pulumi.Input[_builtins.int],
+                 frontend_ip_configuration: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs'],
+                 frontend_port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']],
+                 idle_timeout_in_minutes: Optional[pulumi.Input[_builtins.int]] = None,
+                 load_distribution: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]] = None,
+                 probe: Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']] = None):
+        """
+        Properties for LoadBalancerRules
+        :param pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs'] backend_address_pool: arm reference to backend pool being used by ths pool
+        :param pulumi.Input[_builtins.int] backend_port: backendPort to forward connections
+        :param pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs'] frontend_ip_configuration: arm reference to frontend IP being used by this LB
+        :param pulumi.Input[_builtins.int] frontend_port: Frontend port to accept connections
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']] protocol: IP Protocol that the rule must load-balance
+        :param pulumi.Input[_builtins.int] idle_timeout_in_minutes: Time for which connections are preserved before being torn down.
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']] load_distribution: SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        :param pulumi.Input['LoadBalancerProbeReferenceArgs'] probe: Reference for the health probe for this connection
+        """
+        pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if load_distribution is None:
+            load_distribution = 'Default'
+        if load_distribution is not None:
+            pulumi.set(__self__, "load_distribution", load_distribution)
+        if probe is not None:
+            pulumi.set(__self__, "probe", probe)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']:
+        """
+        arm reference to backend pool being used by ths pool
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @backend_address_pool.setter
+    def backend_address_pool(self, value: pulumi.Input['LoadBalancerBackendAddressPoolReferenceArgs']):
+        pulumi.set(self, "backend_address_pool", value)
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        backendPort to forward connections
+        """
+        return pulumi.get(self, "backend_port")
+
+    @backend_port.setter
+    def backend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "backend_port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs']:
+        """
+        arm reference to frontend IP being used by this LB
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @frontend_ip_configuration.setter
+    def frontend_ip_configuration(self, value: pulumi.Input['LoadBalancerFrontendIPConfigurationReferenceArgs']):
+        pulumi.set(self, "frontend_ip_configuration", value)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Frontend port to accept connections
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @frontend_port.setter
+    def frontend_port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "frontend_port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]:
+        """
+        IP Protocol that the rule must load-balance
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleTransportProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Time for which connections are preserved before being torn down.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @idle_timeout_in_minutes.setter
+    def idle_timeout_in_minutes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "idle_timeout_in_minutes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="loadDistribution")
+    def load_distribution(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]:
+        """
+        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        """
+        return pulumi.get(self, "load_distribution")
+
+    @load_distribution.setter
+    def load_distribution(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LoadBalancerRuleSessionPersistenceType']]]):
+        pulumi.set(self, "load_distribution", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def probe(self) -> Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']]:
+        """
+        Reference for the health probe for this connection
+        """
+        return pulumi.get(self, "probe")
+
+    @probe.setter
+    def probe(self, value: Optional[pulumi.Input['LoadBalancerProbeReferenceArgs']]):
+        pulumi.set(self, "probe", value)
+
+
+if not MYPY:
+    class LoadBalancerRuleArgsDict(TypedDict):
+        """
+        LoadBalancer Rules
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the load balancer rule
+        """
+        properties: pulumi.Input['LoadBalancerRulePropertiesArgsDict']
+        """
+        load balancer rule properties
+        """
+elif False:
+    LoadBalancerRuleArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class LoadBalancerRuleArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['LoadBalancerRulePropertiesArgs']):
+        """
+        LoadBalancer Rules
+        :param pulumi.Input[_builtins.str] name: name of the load balancer rule
+        :param pulumi.Input['LoadBalancerRulePropertiesArgs'] properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the load balancer rule
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['LoadBalancerRulePropertiesArgs']:
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['LoadBalancerRulePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
     class LogicalNetworkArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
 elif False:
     LogicalNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2604,8 +3668,8 @@ class LogicalNetworkArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Logical Network.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Logical Network.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2614,7 +3678,7 @@ class LogicalNetworkArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
         return pulumi.get(self, "id")
 
@@ -2715,6 +3779,98 @@ class ManagedServiceIdentityArgs:
 
 
 if not MYPY:
+    class NatGatewayArmReferenceArgsDict(TypedDict):
+        """
+        The ARM ID for a Network Security Group.
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The ARM ID for a Network Security Group.
+        """
+elif False:
+    NatGatewayArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatGatewayArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The ARM ID for a Network Security Group.
+        :param pulumi.Input[_builtins.str] resource_id: The ARM ID for a Network Security Group.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The ARM ID for a Network Security Group.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class NatGatewayPropertiesArgsDict(TypedDict):
+        """
+        Nat Gateway resource properties
+        """
+        inbound_nat_rules: NotRequired[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgsDict']]]]
+        """
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        """
+        public_ip_addresses: NotRequired[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgsDict']]]]
+        """
+        List of public ip addresses that the gateway can use for NAT.
+        """
+elif False:
+    NatGatewayPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class NatGatewayPropertiesArgs:
+    def __init__(__self__, *,
+                 inbound_nat_rules: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]] = None,
+                 public_ip_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]] = None):
+        """
+        Nat Gateway resource properties
+        :param pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        :param pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]] public_ip_addresses: List of public ip addresses that the gateway can use for NAT.
+        """
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="inboundNATRules")
+    def inbound_nat_rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]]:
+        """
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @inbound_nat_rules.setter
+    def inbound_nat_rules(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['InboundNATRuleArgs']]]]):
+        pulumi.set(self, "inbound_nat_rules", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]]:
+        """
+        List of public ip addresses that the gateway can use for NAT.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+    @public_ip_addresses.setter
+    def public_ip_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['PublicIPAddressArmReferenceArgs']]]]):
+        pulumi.set(self, "public_ip_addresses", value)
+
+
+if not MYPY:
     class NetworkControllerArgsDict(TypedDict):
         """
         network controller config for SDN Integration to deploy AzureStackHCI Cluster.
@@ -2793,11 +3949,11 @@ class NetworkControllerArgs:
 if not MYPY:
     class NetworkInterfaceArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
 elif False:
     NetworkInterfaceArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2807,8 +3963,8 @@ class NetworkInterfaceArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Interface.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2817,7 +3973,7 @@ class NetworkInterfaceArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -2829,11 +3985,11 @@ class NetworkInterfaceArmReferenceArgs:
 if not MYPY:
     class NetworkSecurityGroupArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
 elif False:
     NetworkSecurityGroupArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -2843,8 +3999,8 @@ class NetworkSecurityGroupArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Security Group.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Security Group.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -2853,7 +4009,7 @@ class NetworkSecurityGroupArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
         return pulumi.get(self, "id")
 
@@ -3230,6 +4386,290 @@ class PhysicalNodesArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+
+if not MYPY:
+    class ProbePropertiesArgsDict(TypedDict):
+        """
+        properties for LoadBalancer health probes
+        """
+        port: pulumi.Input[_builtins.int]
+        """
+        Port on the backend address to probe
+        """
+        protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]
+        """
+        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        """
+        interval_in_seconds: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        Probe interval in seconds (5-300) default 15
+        """
+        number_of_probes: NotRequired[pulumi.Input[_builtins.int]]
+        """
+        number of consecutive probe failures before marking unhealthy (1-20) default 2
+        """
+        request_path: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        For http probes, specify the request path e.g. /health
+        """
+elif False:
+    ProbePropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProbePropertiesArgs:
+    def __init__(__self__, *,
+                 port: pulumi.Input[_builtins.int],
+                 protocol: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']],
+                 interval_in_seconds: Optional[pulumi.Input[_builtins.int]] = None,
+                 number_of_probes: Optional[pulumi.Input[_builtins.int]] = None,
+                 request_path: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        properties for LoadBalancer health probes
+        :param pulumi.Input[_builtins.int] port: Port on the backend address to probe
+        :param pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']] protocol: Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        :param pulumi.Input[_builtins.int] interval_in_seconds: Probe interval in seconds (5-300) default 15
+        :param pulumi.Input[_builtins.int] number_of_probes: number of consecutive probe failures before marking unhealthy (1-20) default 2
+        :param pulumi.Input[_builtins.str] request_path: For http probes, specify the request path e.g. /health
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        if interval_in_seconds is None:
+            interval_in_seconds = 15
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if number_of_probes is None:
+            number_of_probes = 2
+        if number_of_probes is not None:
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[_builtins.int]:
+        """
+        Port on the backend address to probe
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]:
+        """
+        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: pulumi.Input[Union[_builtins.str, 'LoadBalancerProbeProtocol']]):
+        pulumi.set(self, "protocol", value)
+
+    @_builtins.property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        Probe interval in seconds (5-300) default 15
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @interval_in_seconds.setter
+    def interval_in_seconds(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "interval_in_seconds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfProbes")
+    def number_of_probes(self) -> Optional[pulumi.Input[_builtins.int]]:
+        """
+        number of consecutive probe failures before marking unhealthy (1-20) default 2
+        """
+        return pulumi.get(self, "number_of_probes")
+
+    @number_of_probes.setter
+    def number_of_probes(self, value: Optional[pulumi.Input[_builtins.int]]):
+        pulumi.set(self, "number_of_probes", value)
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        For http probes, specify the request path e.g. /health
+        """
+        return pulumi.get(self, "request_path")
+
+    @request_path.setter
+    def request_path(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "request_path", value)
+
+
+if not MYPY:
+    class ProbeArgsDict(TypedDict):
+        """
+        Load balancer health probes
+        """
+        name: pulumi.Input[_builtins.str]
+        """
+        name of the load balancer health probe
+        """
+        properties: pulumi.Input['ProbePropertiesArgsDict']
+        """
+        load balancer rule properties
+        """
+elif False:
+    ProbeArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class ProbeArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 properties: pulumi.Input['ProbePropertiesArgs']):
+        """
+        Load balancer health probes
+        :param pulumi.Input[_builtins.str] name: name of the load balancer health probe
+        :param pulumi.Input['ProbePropertiesArgs'] properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        name of the load balancer health probe
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> pulumi.Input['ProbePropertiesArgs']:
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: pulumi.Input['ProbePropertiesArgs']):
+        pulumi.set(self, "properties", value)
+
+
+if not MYPY:
+    class PublicIPAddressArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+elif False:
+    PublicIPAddressArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicIPAddressArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID of a Public IP resource
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID of a Public IP resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class PublicIPAddressPropertiesArgsDict(TypedDict):
+        """
+        Public IP Properties resource.
+        """
+        ip_address: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        """
+        ip_allocation_scope: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        """
+        public_ip_address_version: NotRequired[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]
+        """
+        Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+elif False:
+    PublicIPAddressPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class PublicIPAddressPropertiesArgs:
+    def __init__(__self__, *,
+                 ip_address: Optional[pulumi.Input[_builtins.str]] = None,
+                 ip_allocation_scope: Optional[pulumi.Input[_builtins.str]] = None,
+                 public_ip_address_version: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]] = None):
+        """
+        Public IP Properties resource.
+        :param pulumi.Input[_builtins.str] ip_address: IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        :param pulumi.Input[_builtins.str] ip_allocation_scope: ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        :param pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']] public_ip_address_version: Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_allocation_scope is not None:
+            pulumi.set(__self__, "ip_allocation_scope", ip_allocation_scope)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @ip_address.setter
+    def ip_address(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_address", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocationScope")
+    def ip_allocation_scope(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        """
+        return pulumi.get(self, "ip_allocation_scope")
+
+    @ip_allocation_scope.setter
+    def ip_allocation_scope(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "ip_allocation_scope", value)
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]:
+        """
+        Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        return pulumi.get(self, "public_ip_address_version")
+
+    @public_ip_address_version.setter
+    def public_ip_address_version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PublicIPAddressType']]]):
+        pulumi.set(self, "public_ip_address_version", value)
 
 
 if not MYPY:
@@ -4426,11 +5866,11 @@ class StorageArgs:
 if not MYPY:
     class SubnetIpConfigurationReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
 elif False:
     SubnetIpConfigurationReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -4440,8 +5880,8 @@ class SubnetIpConfigurationReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Network Interface.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -4450,7 +5890,7 @@ class SubnetIpConfigurationReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -4770,11 +6210,11 @@ class VMDiskSecurityProfileArgs:
 if not MYPY:
     class VirtualHardDiskArmReferenceArgsDict(TypedDict):
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
 elif False:
     VirtualHardDiskArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
@@ -4784,8 +6224,8 @@ class VirtualHardDiskArmReferenceArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[_builtins.str]] = None):
         """
-        The ARM ID for a Virtual Hard Disk.
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Virtual Hard Disk.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -4794,7 +6234,7 @@ class VirtualHardDiskArmReferenceArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -5603,7 +7043,7 @@ if not MYPY:
         """
         id: NotRequired[pulumi.Input[_builtins.str]]
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         managed_disk: NotRequired[pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgsDict']]
         """
@@ -5624,7 +7064,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
                  os_type: Optional[pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']]] = None):
         """
         VHD to attach as OS disk
-        :param pulumi.Input[_builtins.str] id: The ARM ID for a Virtual Hard Disk.
+        :param pulumi.Input[_builtins.str] id: The Azure Resource ID for a Virtual Hard Disk.
         :param pulumi.Input['VirtualMachineInstanceManagedDiskParametersArgs'] managed_disk: The managed disk parameters.
         :param pulumi.Input[Union[_builtins.str, 'OperatingSystemTypes']] os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
         """
@@ -5639,7 +7079,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskArgs:
     @pulumi.getter
     def id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -6741,6 +8181,42 @@ class VirtualMachinePropertiesWindowsConfigurationArgs:
 
 
 if not MYPY:
+    class VirtualNetworkArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID for a Virtual Network
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID for a Virtual Network.
+        """
+elif False:
+    VirtualNetworkArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID for a Virtual Network
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID for a Virtual Network.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID for a Virtual Network.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
     class VirtualNetworkPropertiesDhcpOptionsArgsDict(TypedDict):
         """
         DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
@@ -7141,6 +8617,137 @@ class VirtualNetworkPropertiesSubnetsArgs:
 
 
 if not MYPY:
+    class VirtualNetworkSubnetArmReferenceArgsDict(TypedDict):
+        """
+        The Azure Resource ID for a Virtual Network subnet
+        """
+        resource_id: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The Azure Resource ID for a Virtual Network subnet.
+        """
+elif False:
+    VirtualNetworkSubnetArmReferenceArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkSubnetArmReferenceArgs:
+    def __init__(__self__, *,
+                 resource_id: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The Azure Resource ID for a Virtual Network subnet
+        :param pulumi.Input[_builtins.str] resource_id: The Azure Resource ID for a Virtual Network subnet.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The Azure Resource ID for a Virtual Network subnet.
+        """
+        return pulumi.get(self, "resource_id")
+
+    @resource_id.setter
+    def resource_id(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "resource_id", value)
+
+
+if not MYPY:
+    class VirtualNetworkSubnetPropertiesArgsDict(TypedDict):
+        """
+        VirtualNetwork subnet resource
+        """
+        address_prefix: pulumi.Input[_builtins.str]
+        """
+        Subnet CIDR
+        """
+        nat_gateway: NotRequired[pulumi.Input['NatGatewayArmReferenceArgsDict']]
+        """
+        Nat Gateway attached to the subnet for non-vnet traffic.
+        """
+        network_security_group: NotRequired[pulumi.Input['NetworkSecurityGroupArmReferenceArgsDict']]
+        """
+        Network Security Group attached to the subnet.
+        """
+        route_table: NotRequired[pulumi.Input['RouteTableArgsDict']]
+        """
+        RouteTable defining custom routes for the subnet.
+        """
+elif False:
+    VirtualNetworkSubnetPropertiesArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class VirtualNetworkSubnetPropertiesArgs:
+    def __init__(__self__, *,
+                 address_prefix: pulumi.Input[_builtins.str],
+                 nat_gateway: Optional[pulumi.Input['NatGatewayArmReferenceArgs']] = None,
+                 network_security_group: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']] = None,
+                 route_table: Optional[pulumi.Input['RouteTableArgs']] = None):
+        """
+        VirtualNetwork subnet resource
+        :param pulumi.Input[_builtins.str] address_prefix: Subnet CIDR
+        :param pulumi.Input['NatGatewayArmReferenceArgs'] nat_gateway: Nat Gateway attached to the subnet for non-vnet traffic.
+        :param pulumi.Input['NetworkSecurityGroupArmReferenceArgs'] network_security_group: Network Security Group attached to the subnet.
+        :param pulumi.Input['RouteTableArgs'] route_table: RouteTable defining custom routes for the subnet.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> pulumi.Input[_builtins.str]:
+        """
+        Subnet CIDR
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @address_prefix.setter
+    def address_prefix(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "address_prefix", value)
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional[pulumi.Input['NatGatewayArmReferenceArgs']]:
+        """
+        Nat Gateway attached to the subnet for non-vnet traffic.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @nat_gateway.setter
+    def nat_gateway(self, value: Optional[pulumi.Input['NatGatewayArmReferenceArgs']]):
+        pulumi.set(self, "nat_gateway", value)
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]:
+        """
+        Network Security Group attached to the subnet.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @network_security_group.setter
+    def network_security_group(self, value: Optional[pulumi.Input['NetworkSecurityGroupArmReferenceArgs']]):
+        pulumi.set(self, "network_security_group", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional[pulumi.Input['RouteTableArgs']]:
+        """
+        RouteTable defining custom routes for the subnet.
+        """
+        return pulumi.get(self, "route_table")
+
+    @route_table.setter
+    def route_table(self, value: Optional[pulumi.Input['RouteTableArgs']]):
+        pulumi.set(self, "route_table", value)
+
+
+if not MYPY:
     class VirtualSwitchConfigurationOverridesArgsDict(TypedDict):
         """
         The VirtualSwitchConfigurationOverrides of a cluster.
@@ -7194,59 +8801,5 @@ class VirtualSwitchConfigurationOverridesArgs:
     @load_balancing_algorithm.setter
     def load_balancing_algorithm(self, value: Optional[pulumi.Input[_builtins.str]]):
         pulumi.set(self, "load_balancing_algorithm", value)
-
-
-if not MYPY:
-    class VmImageRepositoryCredentialsArgsDict(TypedDict):
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        """
-        password: pulumi.Input[_builtins.str]
-        """
-        Password for accessing image repository
-        """
-        username: pulumi.Input[_builtins.str]
-        """
-        Username for accessing image repository
-        """
-elif False:
-    VmImageRepositoryCredentialsArgsDict: TypeAlias = Mapping[str, Any]
-
-@pulumi.input_type
-class VmImageRepositoryCredentialsArgs:
-    def __init__(__self__, *,
-                 password: pulumi.Input[_builtins.str],
-                 username: pulumi.Input[_builtins.str]):
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        :param pulumi.Input[_builtins.str] password: Password for accessing image repository
-        :param pulumi.Input[_builtins.str] username: Username for accessing image repository
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-
-    @_builtins.property
-    @pulumi.getter
-    def password(self) -> pulumi.Input[_builtins.str]:
-        """
-        Password for accessing image repository
-        """
-        return pulumi.get(self, "password")
-
-    @password.setter
-    def password(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "password", value)
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[_builtins.str]:
-        """
-        Username for accessing image repository
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "username", value)
 
 

@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Marketplace Subscription and Organization details to which resource gets billed into.
  *
  * Uses Azure REST API version 2023-10-20.
+ *
+ * Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBillingInfo(args: GetBillingInfoArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -48,6 +50,8 @@ export interface GetBillingInfoResult {
  * Marketplace Subscription and Organization details to which resource gets billed into.
  *
  * Uses Azure REST API version 2023-10-20.
+ *
+ * Other available API versions: 2024-03-01, 2025-01-07, 2025-06-11, 2025-11-03-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native datadog [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getBillingInfoOutput(args: GetBillingInfoOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetBillingInfoResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

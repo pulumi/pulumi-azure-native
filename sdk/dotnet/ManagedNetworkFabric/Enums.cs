@@ -133,6 +133,96 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
     }
 
     /// <summary>
+    /// Export Policy for the BMP Configuration.
+    /// </summary>
+    [EnumType]
+    public readonly struct BmpExportPolicy : IEquatable<BmpExportPolicy>
+    {
+        private readonly string _value;
+
+        private BmpExportPolicy(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// BMP ExportPolicy Pre-Policy
+        /// </summary>
+        public static BmpExportPolicy PrePolicy { get; } = new BmpExportPolicy("Pre-Policy");
+        /// <summary>
+        /// BMP ExportPolicy Post-Policy
+        /// </summary>
+        public static BmpExportPolicy PostPolicy { get; } = new BmpExportPolicy("Post-Policy");
+        /// <summary>
+        /// BMP ExportPolicy All
+        /// </summary>
+        public static BmpExportPolicy All { get; } = new BmpExportPolicy("All");
+
+        public static bool operator ==(BmpExportPolicy left, BmpExportPolicy right) => left.Equals(right);
+        public static bool operator !=(BmpExportPolicy left, BmpExportPolicy right) => !left.Equals(right);
+
+        public static explicit operator string(BmpExportPolicy value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BmpExportPolicy other && Equals(other);
+        public bool Equals(BmpExportPolicy other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Monitored Address Family.
+    /// </summary>
+    [EnumType]
+    public readonly struct BmpMonitoredAddressFamily : IEquatable<BmpMonitoredAddressFamily>
+    {
+        private readonly string _value;
+
+        private BmpMonitoredAddressFamily(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// IPv4 Unicast
+        /// </summary>
+        public static BmpMonitoredAddressFamily Ipv4Unicast { get; } = new BmpMonitoredAddressFamily("ipv4Unicast");
+        /// <summary>
+        /// IPv6 Unicast
+        /// </summary>
+        public static BmpMonitoredAddressFamily Ipv6Unicast { get; } = new BmpMonitoredAddressFamily("ipv6Unicast");
+        /// <summary>
+        /// VPN IPv4
+        /// </summary>
+        public static BmpMonitoredAddressFamily VpnIpv4 { get; } = new BmpMonitoredAddressFamily("vpnIpv4");
+        /// <summary>
+        /// VPN IPv6
+        /// </summary>
+        public static BmpMonitoredAddressFamily VpnIpv6 { get; } = new BmpMonitoredAddressFamily("vpnIpv6");
+        /// <summary>
+        /// All Address Families
+        /// </summary>
+        public static BmpMonitoredAddressFamily All { get; } = new BmpMonitoredAddressFamily("All");
+
+        public static bool operator ==(BmpMonitoredAddressFamily left, BmpMonitoredAddressFamily right) => left.Equals(right);
+        public static bool operator !=(BmpMonitoredAddressFamily left, BmpMonitoredAddressFamily right) => !left.Equals(right);
+
+        public static explicit operator string(BmpMonitoredAddressFamily value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is BmpMonitoredAddressFamily other && Equals(other);
+        public bool Equals(BmpMonitoredAddressFamily other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Based on this option layer3 parameters are mandatory. Example: True/False
     /// </summary>
     [EnumType]
@@ -936,6 +1026,80 @@ namespace Pulumi.AzureNative.ManagedNetworkFabric
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SourceDestinationType other && Equals(other);
         public bool Equals(SourceDestinationType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Enabling a station. Either True/False.
+    /// </summary>
+    [EnumType]
+    public readonly struct StationConfigurationState : IEquatable<StationConfigurationState>
+    {
+        private readonly string _value;
+
+        private StationConfigurationState(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// StationConfigurationState Enabled
+        /// </summary>
+        public static StationConfigurationState Enabled { get; } = new StationConfigurationState("Enabled");
+        /// <summary>
+        /// StationConfigurationState Disabled
+        /// </summary>
+        public static StationConfigurationState Disabled { get; } = new StationConfigurationState("Disabled");
+
+        public static bool operator ==(StationConfigurationState left, StationConfigurationState right) => left.Equals(right);
+        public static bool operator !=(StationConfigurationState left, StationConfigurationState right) => !left.Equals(right);
+
+        public static explicit operator string(StationConfigurationState value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StationConfigurationState other && Equals(other);
+        public bool Equals(StationConfigurationState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Station Connection Mode.
+    /// </summary>
+    [EnumType]
+    public readonly struct StationConnectionMode : IEquatable<StationConnectionMode>
+    {
+        private readonly string _value;
+
+        private StationConnectionMode(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// StationConnectionMode Active
+        /// </summary>
+        public static StationConnectionMode Active { get; } = new StationConnectionMode("Active");
+        /// <summary>
+        /// StationConnectionMode Passive
+        /// </summary>
+        public static StationConnectionMode Passive { get; } = new StationConnectionMode("Passive");
+
+        public static bool operator ==(StationConnectionMode left, StationConnectionMode right) => left.Equals(right);
+        public static bool operator !=(StationConnectionMode left, StationConnectionMode right) => !left.Equals(right);
+
+        public static explicit operator string(StationConnectionMode value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StationConnectionMode other && Equals(other);
+        public bool Equals(StationConnectionMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

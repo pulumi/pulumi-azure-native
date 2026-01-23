@@ -11,6 +11,8 @@ import * as utilities from "../utilities";
  * Get Network Tap Rule resource details.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkTapRule(args: GetNetworkTapRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkTapRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -112,6 +114,8 @@ export interface GetNetworkTapRuleResult {
  * Get Network Tap Rule resource details.
  *
  * Uses Azure REST API version 2023-06-15.
+ *
+ * Other available API versions: 2024-02-15-preview, 2024-06-15-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native managednetworkfabric [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getNetworkTapRuleOutput(args: GetNetworkTapRuleOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetNetworkTapRuleResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

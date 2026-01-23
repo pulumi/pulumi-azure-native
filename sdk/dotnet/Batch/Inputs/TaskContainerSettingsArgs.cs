@@ -10,6 +10,9 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Batch.Inputs
 {
 
+    /// <summary>
+    /// The container settings for a task.
+    /// </summary>
     public sealed class TaskContainerSettingsArgs : global::Pulumi.ResourceArgs
     {
         [Input("containerHostBatchBindMounts")]
@@ -42,6 +45,9 @@ namespace Pulumi.AzureNative.Batch.Inputs
         [Input("registry")]
         public Input<Inputs.ContainerRegistryArgs>? Registry { get; set; }
 
+        /// <summary>
+        /// A flag to indicate where the container task working directory is. The default is 'taskWorkingDirectory'.
+        /// </summary>
         [Input("workingDirectory")]
         public Input<Pulumi.AzureNative.Batch.ContainerWorkingDirectory>? WorkingDirectory { get; set; }
 

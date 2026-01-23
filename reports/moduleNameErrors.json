@@ -160,19 +160,114 @@
     "Error": "resolved module name mismatch: file: KeyVault, uri: Resources"
   },
   {
-    "FilePath": "specification/keyvault/resource-manager/Microsoft.KeyVault/stable/2025-05-01/openapi.json",
-    "Path": "/subscriptions/{subscriptionId}/resources",
-    "Error": "resolved module name mismatch: file: KeyVault, uri: Resources"
-  },
-  {
-    "FilePath": "specification/maps/resource-manager/Microsoft.Maps/stable/2017-01-01-preview/maps-management.json",
+    "FilePath": "specification/maps/resource-manager/Microsoft.Maps/Maps/stable/2017-01-01-preview/maps-management.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Maps, uri: Resources"
   },
   {
-    "FilePath": "specification/maps/resource-manager/Microsoft.Maps/stable/2018-05-01/maps-management.json",
+    "FilePath": "specification/maps/resource-manager/Microsoft.Maps/Maps/stable/2018-05-01/maps-management.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
     "Error": "resolved module name mismatch: file: Maps, uri: Resources"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Keys/Keys/stable/2023-01-01-preview/discoveryKeys.json",
+    "Path": "/providers/Microsoft.Marketplace/operations",
+    "Error": "resolved module name mismatch: file: Keys, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Keys/Keys/stable/2023-01-01-preview/discoveryKeys.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Marketplace/keys",
+    "Error": "resolved module name mismatch: file: Keys, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Keys/Keys/stable/2023-01-01-preview/discoveryKeys.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Marketplace/keys/{apiKeyAlias}/create",
+    "Error": "resolved module name mismatch: file: Keys, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Keys/Keys/stable/2023-01-01-preview/discoveryKeys.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Marketplace/keys/{apiKeyAlias}/revoke",
+    "Error": "resolved module name mismatch: file: Keys, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Marketplace/products",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/providers/Microsoft.Marketplace/products/{productId}",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Marketplace/products",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/providers/Microsoft.Marketplace/products/{productId}",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Marketplace/operations",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Marketplace/products",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/providers/Microsoft.Marketplace/products/{productId}",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Marketplace/products",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Products/Products/stable/2025-05-01/openapi.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Marketplace/products/{productId}",
+    "Error": "resolved module name mismatch: file: Products, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Reviews/Reviews/preview/2023-01-01-preview/reviews.json",
+    "Path": "/providers/Microsoft.Marketplace/operations",
+    "Error": "resolved module name mismatch: file: Reviews, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Reviews/Reviews/preview/2023-01-01-preview/reviews.json",
+    "Path": "/providers/Microsoft.Marketplace/products/{uniqueProductId}/checkUserHasReview",
+    "Error": "resolved module name mismatch: file: Reviews, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Search/Search/stable/2022-02-02/search.json",
+    "Path": "/providers/Microsoft.Marketplace/operations",
+    "Error": "resolved module name mismatch: file: Search, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Search/Search/stable/2022-02-02/search.json",
+    "Path": "/providers/Microsoft.Marketplace/search",
+    "Error": "resolved module name mismatch: file: Search, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Solutions/Solutions/preview/2023-03-01-preview/solutions.json",
+    "Path": "/providers/Microsoft.Marketplace/mysolutions",
+    "Error": "resolved module name mismatch: file: Solutions, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Solutions/Solutions/preview/2023-03-01-preview/solutions.json",
+    "Path": "/providers/Microsoft.Marketplace/mysolutions/{solutionId}",
+    "Error": "resolved module name mismatch: file: Solutions, uri: Marketplace"
+  },
+  {
+    "FilePath": "specification/marketplacecatalog/resource-manager/Microsoft.Solutions/Solutions/preview/2023-03-01-preview/solutions.json",
+    "Path": "/providers/Microsoft.Marketplace/operations",
+    "Error": "resolved module name mismatch: file: Solutions, uri: Marketplace"
   },
   {
     "FilePath": "specification/network/resource-manager/Microsoft.Network/preview/2015-05-01-preview/network.json",
@@ -2925,6 +3020,216 @@
     "Error": "resolved module name mismatch: file: Network, uri: Compute"
   },
   {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-01-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-03-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServiceNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/cloudServicePublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/cloudServices/{cloudServiceName}/roleInstances/{roleInstanceName}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssNetworkInterface.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipConfigurations/{ipConfigurationName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
+    "FilePath": "specification/network/resource-manager/Microsoft.Network/stable/2025-05-01/vmssPublicIpAddress.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachineScaleSets/{virtualMachineScaleSetName}/virtualMachines/{virtualmachineIndex}/networkInterfaces/{networkInterfaceName}/ipconfigurations/{ipConfigurationName}/publicipaddresses/{publicIpAddressName}",
+    "Error": "resolved module name mismatch: file: Network, uri: Compute"
+  },
+  {
     "FilePath": "specification/notificationhubs/resource-manager/Microsoft.NotificationHubs/NotificationHubs/stable/2014-09-01/notificationhubs.json",
     "Path": "/{operationStatusLink}",
     "Error": "resolved module name mismatch: file: NotificationHubs, uri: "
@@ -2935,492 +3240,487 @@
     "Error": "resolved module name mismatch: file: PowerBI, uri: Resources"
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/preview/2015-10-01-preview/policy.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/preview/2015-10-01-preview/policy.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/preview/2017-06-01-preview/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/preview/2017-06-01-preview/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2016-04-01/policy.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2016-04-01/policy.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2016-12-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2016-12-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2018-03-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2018-03-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2018-05-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2018-05-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2019-01-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2019-01-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2019-06-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2019-06-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2019-09-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2019-09-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2020-03-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2020-03-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2020-09-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2020-09-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2021-06-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2021-06-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2022-06-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2022-06-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2023-04-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2023-04-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2024-04-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2024-04-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2024-05-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2024-05-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2025-01-01/policyAssignments.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/policy/stable/2025-01-01/policyAssignments.json",
     "Path": "/{policyAssignmentId}",
     "Error": "resolved module name mismatch: file: Authorization, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Authorization/stable/2025-03-01/policyAssignments.json",
-    "Path": "/{policyAssignmentId}",
-    "Error": "resolved module name mismatch: file: Authorization, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policydefinitions/{policyDefinitionName}",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}providers/Microsoft.Authorization/policyAssignments",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/{policyAssignmentId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/{scope}/providers/Microsoft.Authorization/policyAssignments",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/resources.json",
-    "Path": "/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
-    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/subscriptions.json",
-    "Path": "/subscriptions",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2015-11-01/subscriptions.json",
-    "Path": "/tenants",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2016-06-01/subscriptions.json",
-    "Path": "/subscriptions",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2016-06-01/subscriptions.json",
-    "Path": "/tenants",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2016-09-01/links.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/links/stable/2016-09-01/links.json",
     "Path": "/{linkId}",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2016-09-01/resources.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policyAssignments",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policydefinitions/{policyDefinitionName}",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{parentResourcePath}/{resourceType}/{resourceName}providers/Microsoft.Authorization/policyAssignments",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/{policyAssignmentId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/{scope}/providers/Microsoft.Authorization/policyAssignments",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2015-11-01/resources.json",
+    "Path": "/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
+    "Error": "resolved module name mismatch: file: Resources, uri: Authorization"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2016-09-01/resources.json",
     "Path": "/{resourceId}",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2017-05-10/resources.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2017-05-10/resources.json",
     "Path": "/{resourceId}",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2018-02-01/resources.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2018-02-01/resources.json",
     "Path": "/{resourceId}",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2018-05-01/resources.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2018-05-01/resources.json",
     "Path": "/{resourceId}",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2018-06-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-03-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-05-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-05-10/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-05-10/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-07-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-07-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-08-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-08-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-10-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2019-10-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-06-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-06-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-06-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-08-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-08-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-10-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-10-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2020-10-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-01-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-01-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-01-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-04-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-04-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2021-04-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2022-09-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2022-09-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2022-09-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2023-07-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2023-07-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2023-07-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-03-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-03-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-03-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-07-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-07-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-07-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-11-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-11-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2024-11-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-03-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-03-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-03-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-04-01/resources.json",
+    "Path": "/providers",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-04-01/resources.json",
+    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
+    "Error": "resolved module name mismatch: file: Resources, uri: Management"
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/resources/stable/2025-04-01/resources.json",
+    "Path": "/{resourceId}",
+    "Error": "resolved module name mismatch: file: Resources, uri: "
+  },
+  {
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2015-11-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2018-06-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2015-11-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-03-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-05-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-05-10/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-05-10/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-06-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2016-06-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-06-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2016-06-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-07-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-07-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-08-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-10-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-10-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-11-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2018-06-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2019-11-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2018-06-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-01-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2019-06-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-01-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2019-06-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-06-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-06-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-06-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-08-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-08-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-10-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-10-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2020-10-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-01-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-01-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-01-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-01-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2019-11-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-01-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2019-11-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-04-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-04-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2021-04-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2022-09-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2022-09-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2022-09-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2022-12-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2020-01-01/subscriptions.json",
     "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2022-12-01/subscriptions.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2020-01-01/subscriptions.json",
     "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2023-07-01/resources.json",
-    "Path": "/providers",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2021-01-01/subscriptions.json",
+    "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2023-07-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2023-07-01/resources.json",
-    "Path": "/{resourceId}",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2021-01-01/subscriptions.json",
+    "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-03-01/resources.json",
-    "Path": "/providers",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2022-12-01/subscriptions.json",
+    "Path": "/subscriptions",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-03-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-03-01/resources.json",
-    "Path": "/{resourceId}",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/subscriptions/stable/2022-12-01/subscriptions.json",
+    "Path": "/tenants",
     "Error": "resolved module name mismatch: file: Resources, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-07-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-07-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-07-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-11-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-11-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2024-11-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-03-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-04-01/resources.json",
-    "Path": "/providers",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-04-01/resources.json",
-    "Path": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/{resourceProviderNamespace}/register",
-    "Error": "resolved module name mismatch: file: Resources, uri: Management"
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Resources/stable/2025-04-01/resources.json",
-    "Path": "/{resourceId}",
-    "Error": "resolved module name mismatch: file: Resources, uri: "
-  },
-  {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/preview/2016-09-01-preview/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/preview/2016-09-01-preview/managedapplications.json",
     "Path": "/{applianceDefinitionId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/preview/2016-09-01-preview/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/preview/2016-09-01-preview/managedapplications.json",
     "Path": "/{applianceId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/preview/2020-08-21-preview/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/preview/2020-08-21-preview/managedapplications.json",
     "Path": "/{applicationId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/stable/2017-09-01/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/stable/2017-09-01/managedapplications.json",
     "Path": "/{applicationDefinitionId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/stable/2017-09-01/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/stable/2017-09-01/managedapplications.json",
     "Path": "/{applicationId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/stable/2018-06-01/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/stable/2018-06-01/managedapplications.json",
     "Path": "/{applicationId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
   {
-    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/stable/2019-07-01/managedapplications.json",
+    "FilePath": "specification/resources/resource-manager/Microsoft.Solutions/managedapplications/stable/2019-07-01/managedapplications.json",
     "Path": "/{applicationId}",
     "Error": "resolved module name mismatch: file: Solutions, uri: "
   },
@@ -3781,6 +4081,16 @@
   },
   {
     "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2024-11-01/ResourceProvider.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-03-01/openapi.json",
+    "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/moveResources",
+    "Error": "resolved module name mismatch: file: Web, uri: Resources"
+  },
+  {
+    "FilePath": "specification/web/resource-manager/Microsoft.Web/AppService/stable/2025-03-01/openapi.json",
     "Path": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/validateMoveResources",
     "Error": "resolved module name mismatch: file: Web, uri: Resources"
   }

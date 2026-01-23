@@ -9,13 +9,9 @@ import typing
 from ._enums import *
 from .application import *
 from .cluster import *
-from .cluster_pool import *
-from .cluster_pool_cluster import *
 from .get_application import *
 from .get_cluster import *
 from .get_cluster_gateway_settings import *
-from .get_cluster_pool import *
-from .get_cluster_pool_cluster import *
 from .get_private_endpoint_connection import *
 from .private_endpoint_connection import *
 from ._inputs import *

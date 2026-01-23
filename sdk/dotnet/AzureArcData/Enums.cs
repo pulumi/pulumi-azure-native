@@ -270,75 +270,6 @@ namespace Pulumi.AzureNative.AzureArcData
     }
 
     /// <summary>
-    /// Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabaseCreateMode : IEquatable<DatabaseCreateMode>
-    {
-        private readonly string _value;
-
-        private DatabaseCreateMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabaseCreateMode Default { get; } = new DatabaseCreateMode("Default");
-        public static DatabaseCreateMode PointInTimeRestore { get; } = new DatabaseCreateMode("PointInTimeRestore");
-
-        public static bool operator ==(DatabaseCreateMode left, DatabaseCreateMode right) => left.Equals(right);
-        public static bool operator !=(DatabaseCreateMode left, DatabaseCreateMode right) => !left.Equals(right);
-
-        public static explicit operator string(DatabaseCreateMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseCreateMode other && Equals(other);
-        public bool Equals(DatabaseCreateMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// State of the database.
-    /// </summary>
-    [EnumType]
-    public readonly struct DatabaseState : IEquatable<DatabaseState>
-    {
-        private readonly string _value;
-
-        private DatabaseState(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DatabaseState Online { get; } = new DatabaseState("Online");
-        public static DatabaseState Restoring { get; } = new DatabaseState("Restoring");
-        public static DatabaseState Recovering { get; } = new DatabaseState("Recovering");
-        public static DatabaseState RecoveryPending { get; } = new DatabaseState("RecoveryPending");
-        public static DatabaseState Suspect { get; } = new DatabaseState("Suspect");
-        public static DatabaseState Emergency { get; } = new DatabaseState("Emergency");
-        public static DatabaseState Offline { get; } = new DatabaseState("Offline");
-        public static DatabaseState Copying { get; } = new DatabaseState("Copying");
-        public static DatabaseState OfflineSecondary { get; } = new DatabaseState("OfflineSecondary");
-
-        public static bool operator ==(DatabaseState left, DatabaseState right) => left.Equals(right);
-        public static bool operator !=(DatabaseState left, DatabaseState right) => !left.Equals(right);
-
-        public static explicit operator string(DatabaseState value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DatabaseState other && Equals(other);
-        public bool Equals(DatabaseState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
     /// SQL Server edition.
     /// </summary>
     [EnumType]
@@ -707,38 +638,6 @@ namespace Pulumi.AzureNative.AzureArcData
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrimaryAllowConnections other && Equals(other);
         public bool Equals(PrimaryAllowConnections other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    /// <summary>
-    /// Status of the database.
-    /// </summary>
-    [EnumType]
-    public readonly struct RecoveryMode : IEquatable<RecoveryMode>
-    {
-        private readonly string _value;
-
-        private RecoveryMode(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static RecoveryMode Full { get; } = new RecoveryMode("Full");
-        public static RecoveryMode Bulk_logged { get; } = new RecoveryMode("Bulk-logged");
-        public static RecoveryMode Simple { get; } = new RecoveryMode("Simple");
-
-        public static bool operator ==(RecoveryMode left, RecoveryMode right) => left.Equals(right);
-        public static bool operator !=(RecoveryMode left, RecoveryMode right) => !left.Equals(right);
-
-        public static explicit operator string(RecoveryMode value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is RecoveryMode other && Equals(other);
-        public bool Equals(RecoveryMode other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

@@ -17,6 +17,7 @@ from ._enums import *
 
 __all__ = [
     'AccountSkuResponse',
+    'CertificateResponse',
     'SystemDataResponse',
 ]
 
@@ -40,6 +41,191 @@ class AccountSkuResponse(dict):
         Name of the SKU.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class CertificateResponse(dict):
+    """
+    Properties of the certificate.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdDate":
+            suggest = "created_date"
+        elif key == "effectiveAt":
+            suggest = "effective_at"
+        elif key == "enhancedKeyUsage":
+            suggest = "enhanced_key_usage"
+        elif key == "expiryDate":
+            suggest = "expiry_date"
+        elif key == "failureReason":
+            suggest = "failure_reason"
+        elif key == "requestedAt":
+            suggest = "requested_at"
+        elif key == "serialNumber":
+            suggest = "serial_number"
+        elif key == "subjectName":
+            suggest = "subject_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CertificateResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CertificateResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CertificateResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 created_date: Optional[_builtins.str] = None,
+                 effective_at: Optional[_builtins.str] = None,
+                 enhanced_key_usage: Optional[_builtins.str] = None,
+                 expiry_date: Optional[_builtins.str] = None,
+                 failure_reason: Optional[_builtins.str] = None,
+                 reason: Optional[_builtins.str] = None,
+                 remarks: Optional[_builtins.str] = None,
+                 requested_at: Optional[_builtins.str] = None,
+                 serial_number: Optional[_builtins.str] = None,
+                 subject_name: Optional[_builtins.str] = None,
+                 thumbprint: Optional[_builtins.str] = None):
+        """
+        Properties of the certificate.
+        :param _builtins.str status: Status of the certificate.
+        :param _builtins.str created_date: Certificate created date.
+        :param _builtins.str effective_at: The timestamp when the revocation is effective.
+        :param _builtins.str enhanced_key_usage: Enhanced key usage of the certificate.
+        :param _builtins.str expiry_date: Certificate expiry date.
+        :param _builtins.str failure_reason: Reason for the revocation failure.
+        :param _builtins.str reason: Reason for revocation.
+        :param _builtins.str remarks: Remarks for the revocation.
+        :param _builtins.str requested_at: The timestamp when the revocation is requested.
+        :param _builtins.str serial_number: Serial number of the certificate.
+        :param _builtins.str subject_name: Subject name of the certificate.
+        :param _builtins.str thumbprint: Thumbprint of the certificate.
+        """
+        pulumi.set(__self__, "status", status)
+        if created_date is not None:
+            pulumi.set(__self__, "created_date", created_date)
+        if effective_at is not None:
+            pulumi.set(__self__, "effective_at", effective_at)
+        if enhanced_key_usage is not None:
+            pulumi.set(__self__, "enhanced_key_usage", enhanced_key_usage)
+        if expiry_date is not None:
+            pulumi.set(__self__, "expiry_date", expiry_date)
+        if failure_reason is not None:
+            pulumi.set(__self__, "failure_reason", failure_reason)
+        if reason is not None:
+            pulumi.set(__self__, "reason", reason)
+        if remarks is not None:
+            pulumi.set(__self__, "remarks", remarks)
+        if requested_at is not None:
+            pulumi.set(__self__, "requested_at", requested_at)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
+        if subject_name is not None:
+            pulumi.set(__self__, "subject_name", subject_name)
+        if thumbprint is not None:
+            pulumi.set(__self__, "thumbprint", thumbprint)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        Status of the certificate.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="createdDate")
+    def created_date(self) -> Optional[_builtins.str]:
+        """
+        Certificate created date.
+        """
+        return pulumi.get(self, "created_date")
+
+    @_builtins.property
+    @pulumi.getter(name="effectiveAt")
+    def effective_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp when the revocation is effective.
+        """
+        return pulumi.get(self, "effective_at")
+
+    @_builtins.property
+    @pulumi.getter(name="enhancedKeyUsage")
+    def enhanced_key_usage(self) -> Optional[_builtins.str]:
+        """
+        Enhanced key usage of the certificate.
+        """
+        return pulumi.get(self, "enhanced_key_usage")
+
+    @_builtins.property
+    @pulumi.getter(name="expiryDate")
+    def expiry_date(self) -> Optional[_builtins.str]:
+        """
+        Certificate expiry date.
+        """
+        return pulumi.get(self, "expiry_date")
+
+    @_builtins.property
+    @pulumi.getter(name="failureReason")
+    def failure_reason(self) -> Optional[_builtins.str]:
+        """
+        Reason for the revocation failure.
+        """
+        return pulumi.get(self, "failure_reason")
+
+    @_builtins.property
+    @pulumi.getter
+    def reason(self) -> Optional[_builtins.str]:
+        """
+        Reason for revocation.
+        """
+        return pulumi.get(self, "reason")
+
+    @_builtins.property
+    @pulumi.getter
+    def remarks(self) -> Optional[_builtins.str]:
+        """
+        Remarks for the revocation.
+        """
+        return pulumi.get(self, "remarks")
+
+    @_builtins.property
+    @pulumi.getter(name="requestedAt")
+    def requested_at(self) -> Optional[_builtins.str]:
+        """
+        The timestamp when the revocation is requested.
+        """
+        return pulumi.get(self, "requested_at")
+
+    @_builtins.property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[_builtins.str]:
+        """
+        Serial number of the certificate.
+        """
+        return pulumi.get(self, "serial_number")
+
+    @_builtins.property
+    @pulumi.getter(name="subjectName")
+    def subject_name(self) -> Optional[_builtins.str]:
+        """
+        Subject name of the certificate.
+        """
+        return pulumi.get(self, "subject_name")
+
+    @_builtins.property
+    @pulumi.getter
+    def thumbprint(self) -> Optional[_builtins.str]:
+        """
+        Thumbprint of the certificate.
+        """
+        return pulumi.get(self, "thumbprint")
 
 
 @pulumi.output_type

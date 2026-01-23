@@ -24,6 +24,8 @@ from .gallery_image import *
 from .gallery_image_version import *
 from .gallery_in_vm_access_control_profile import *
 from .gallery_in_vm_access_control_profile_version import *
+from .gallery_script import *
+from .gallery_script_version import *
 from .get_availability_set import *
 from .get_capacity_reservation import *
 from .get_capacity_reservation_group import *
@@ -41,6 +43,8 @@ from .get_gallery_image import *
 from .get_gallery_image_version import *
 from .get_gallery_in_vm_access_control_profile import *
 from .get_gallery_in_vm_access_control_profile_version import *
+from .get_gallery_script import *
+from .get_gallery_script_version import *
 from .get_image import *
 from .get_log_analytic_export_request_rate_by_interval import *
 from .get_log_analytic_export_throttled_requests import *

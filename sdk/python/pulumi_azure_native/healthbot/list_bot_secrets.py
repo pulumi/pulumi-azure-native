@@ -58,7 +58,7 @@ def list_bot_secrets(bot_name: Optional[_builtins.str] = None,
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-05-01, 2025-05-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2025-05-25, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str bot_name: The name of the Bot resource.
@@ -80,7 +80,7 @@ def list_bot_secrets_output(bot_name: Optional[pulumi.Input[_builtins.str]] = No
 
     Uses Azure REST API version 2024-02-01.
 
-    Other available API versions: 2023-05-01, 2025-05-25. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2023-05-01, 2025-05-25, 2025-11-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native healthbot [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str bot_name: The name of the Bot resource.

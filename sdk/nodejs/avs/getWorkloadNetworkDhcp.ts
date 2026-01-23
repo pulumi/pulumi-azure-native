@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadNetworkDhcp(args: GetWorkloadNetworkDhcpArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkloadNetworkDhcpResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -47,14 +47,6 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly azureApiVersion: string;
     /**
-     * Type of DHCP: SERVER or RELAY.
-     */
-    readonly dhcpType: string;
-    /**
-     * Display name of the DHCP entity.
-     */
-    readonly displayName?: string;
-    /**
      * Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
      */
     readonly id: string;
@@ -63,17 +55,9 @@ export interface GetWorkloadNetworkDhcpResult {
      */
     readonly name: string;
     /**
-     * The provisioning state
+     * The resource-specific properties for this resource.
      */
-    readonly provisioningState: string;
-    /**
-     * NSX revision number.
-     */
-    readonly revision?: number;
-    /**
-     * NSX Segments consuming DHCP.
-     */
-    readonly segments: string[];
+    readonly properties: outputs.avs.WorkloadNetworkDhcpRelayResponse | outputs.avs.WorkloadNetworkDhcpServerResponse;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
@@ -88,7 +72,7 @@ export interface GetWorkloadNetworkDhcpResult {
  *
  * Uses Azure REST API version 2023-09-01.
  *
- * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-05-01, 2023-03-01, 2024-09-01, 2025-09-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native avs [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getWorkloadNetworkDhcpOutput(args: GetWorkloadNetworkDhcpOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetWorkloadNetworkDhcpResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});

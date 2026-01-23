@@ -104,10 +104,6 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// The FQDN host name of the server to use in the connection string when connecting to a target. For example, for an Azure SQL logical server in the Azure commercial cloud, the value might be 'sql-logical-server-22092780.database.windows.net'; for an Azure SQL managed instance in the Azure commercial cloud, the value might be 'sql-mi-39441134.767d5869f605.database.windows.net'. Port number and instance name must be specified separately.
-        /// </summary>
-        public readonly string ConnectionServerName;
-        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -116,25 +112,13 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The provisioning state of the resource.
+        /// The resource-specific properties for this resource.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly object Properties;
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
-        /// <summary>
-        /// The type of authentication to use when connecting to a target.
-        /// </summary>
-        public readonly string TargetAuthenticationType;
-        /// <summary>
-        /// Discriminator property for TargetProperties.
-        /// </summary>
-        public readonly string TargetType;
-        /// <summary>
-        /// To use SQL authentication when connecting to targets, specify the vault where the login name and password secrets are stored.
-        /// </summary>
-        public readonly Outputs.VaultSecretResponse? TargetVault;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -144,33 +128,21 @@ namespace Pulumi.AzureNative.DatabaseWatcher
         private GetTargetResult(
             string azureApiVersion,
 
-            string connectionServerName,
-
             string id,
 
             string name,
 
-            string provisioningState,
+            object properties,
 
             Outputs.SystemDataResponse systemData,
-
-            string targetAuthenticationType,
-
-            string targetType,
-
-            Outputs.VaultSecretResponse? targetVault,
 
             string type)
         {
             AzureApiVersion = azureApiVersion;
-            ConnectionServerName = connectionServerName;
             Id = id;
             Name = name;
-            ProvisioningState = provisioningState;
+            Properties = properties;
             SystemData = systemData;
-            TargetAuthenticationType = targetAuthenticationType;
-            TargetType = targetType;
-            TargetVault = targetVault;
             Type = type;
         }
     }

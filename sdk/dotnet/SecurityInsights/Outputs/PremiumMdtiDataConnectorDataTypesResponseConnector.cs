@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
 {
 
     /// <summary>
-    /// Data type for Premium Microsoft Defender for Threat Intelligence data connector.
+    /// Data type for Microsoft Defender for Threat Intelligence Premium data connector.
     /// </summary>
     [OutputType]
     public sealed class PremiumMdtiDataConnectorDataTypesResponseConnector
@@ -19,10 +19,10 @@ namespace Pulumi.AzureNative.SecurityInsights.Outputs
         /// <summary>
         /// Describe whether this data type connection is enabled or not.
         /// </summary>
-        public readonly string? State;
+        public readonly string State;
 
         [OutputConstructor]
-        private PremiumMdtiDataConnectorDataTypesResponseConnector(string? state)
+        private PremiumMdtiDataConnectorDataTypesResponseConnector(string state)
         {
             State = state;
         }

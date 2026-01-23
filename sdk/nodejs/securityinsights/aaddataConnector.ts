@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Represents AAD (Azure Active Directory) data connector.
+ * Represents Microsoft Entra ID data connector.
  *
  * Uses Azure REST API version 2024-09-01. In version 2.x of the Azure Native provider, it used API version 2023-02-01.
  */
@@ -67,7 +67,7 @@ export class AADDataConnector extends pulumi.CustomResource {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    declare public readonly tenantId: pulumi.Output<string | undefined>;
+    declare public readonly tenantId: pulumi.Output<string>;
     /**
      * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
@@ -89,6 +89,9 @@ export class AADDataConnector extends pulumi.CustomResource {
             }
             if (args?.resourceGroupName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
+            }
+            if (args?.tenantId === undefined && !opts.urn) {
+                throw new Error("Missing required property 'tenantId'");
             }
             if (args?.workspaceName === undefined && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
@@ -145,7 +148,7 @@ export interface AADDataConnectorArgs {
     /**
      * The tenant id to connect to, and get the data from.
      */
-    tenantId?: pulumi.Input<string>;
+    tenantId: pulumi.Input<string>;
     /**
      * The name of the workspace.
      */

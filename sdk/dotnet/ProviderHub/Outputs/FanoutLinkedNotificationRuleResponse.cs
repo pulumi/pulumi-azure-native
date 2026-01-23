@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The dsts configuration.
         /// </summary>
-        public readonly Outputs.FanoutLinkedNotificationRuleResponseDstsConfiguration? DstsConfiguration;
+        public readonly Outputs.FanoutLinkedNotificationRuleDstsConfigurationResponse? DstsConfiguration;
         /// <summary>
         /// The endpoints.
         /// </summary>
@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         private FanoutLinkedNotificationRuleResponse(
             ImmutableArray<string> actions,
 
-            Outputs.FanoutLinkedNotificationRuleResponseDstsConfiguration? dstsConfiguration,
+            Outputs.FanoutLinkedNotificationRuleDstsConfigurationResponse? dstsConfiguration,
 
             ImmutableArray<Outputs.ResourceProviderEndpointResponse> endpoints,
 

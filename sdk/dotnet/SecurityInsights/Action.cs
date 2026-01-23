@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         public Output<string> AzureApiVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Etag of the action.
+        /// ETag of the action.
         /// </summary>
         [Output("etag")]
         public Output<string?> Etag { get; private set; } = null!;

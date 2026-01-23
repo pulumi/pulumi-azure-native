@@ -32,7 +32,7 @@ namespace Pulumi.AzureNative.Management
         public Output<string?> DisplayName { get; private set; } = null!;
 
         /// <summary>
-        /// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -50,13 +50,19 @@ namespace Pulumi.AzureNative.Management
         public Output<string?> State { get; private set; } = null!;
 
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+
+        /// <summary>
         /// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
         /// </summary>
         [Output("tenant")]
         public Output<string?> Tenant { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the resource.  For example, Microsoft.Management/managementGroups/subscriptions
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -119,12 +125,6 @@ namespace Pulumi.AzureNative.Management
         /// </summary>
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
-
-        /// <summary>
-        /// Subscription ID.
-        /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
 
         public ManagementGroupSubscriptionArgs()
         {

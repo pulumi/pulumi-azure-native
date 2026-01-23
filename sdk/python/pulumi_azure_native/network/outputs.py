@@ -300,6 +300,7 @@ __all__ = [
     'RouteResponse',
     'RouteSourceDetailsResponse',
     'RouteTableResponse',
+    'RouteTargetAddressPropertiesFormatResponse',
     'RoutingConfigurationResponse',
     'RoutingPolicyResponse',
     'RoutingRuleNextHopResponse',
@@ -310,6 +311,7 @@ __all__ = [
     'ServiceEndpointPolicyDefinitionResponse',
     'ServiceEndpointPolicyResponse',
     'ServiceEndpointPropertiesFormatResponse',
+    'ServiceGatewaySkuResponse',
     'SharedKeyPropertiesResponse',
     'SingleQueryResultResponse',
     'SkuResponse',
@@ -338,6 +340,7 @@ __all__ = [
     'VirtualHubRouteTableResponse',
     'VirtualHubRouteTableV2Response',
     'VirtualHubRouteV2Response',
+    'VirtualNetworkApplianceIpConfigurationResponse',
     'VirtualNetworkBgpCommunitiesResponse',
     'VirtualNetworkEncryptionResponse',
     'VirtualNetworkGatewayAutoScaleBoundsResponse',
@@ -349,6 +352,7 @@ __all__ = [
     'VirtualNetworkGatewayResponse',
     'VirtualNetworkGatewaySkuResponse',
     'VirtualNetworkPeeringResponse',
+    'VirtualNetworkResponse',
     'VirtualNetworkTapResponse',
     'VirtualRouterAutoScaleConfigurationResponse',
     'VnetRouteResponse',
@@ -15872,6 +15876,8 @@ class FlowLogResponse(dict):
             suggest = "enabled_filtering_criteria"
         elif key == "flowAnalyticsConfiguration":
             suggest = "flow_analytics_configuration"
+        elif key == "recordTypes":
+            suggest = "record_types"
         elif key == "retentionPolicy":
             suggest = "retention_policy"
 
@@ -15901,6 +15907,7 @@ class FlowLogResponse(dict):
                  id: Optional[_builtins.str] = None,
                  identity: Optional['outputs.ManagedServiceIdentityResponse'] = None,
                  location: Optional[_builtins.str] = None,
+                 record_types: Optional[_builtins.str] = None,
                  retention_policy: Optional['outputs.RetentionPolicyParametersResponse'] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None):
         """
@@ -15919,6 +15926,7 @@ class FlowLogResponse(dict):
         :param _builtins.str id: Resource ID.
         :param 'ManagedServiceIdentityResponse' identity: FlowLog resource Managed Identity
         :param _builtins.str location: Resource location.
+        :param _builtins.str record_types: Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
         :param 'RetentionPolicyParametersResponse' retention_policy: Parameters that define the retention policy for flow log.
         :param Mapping[str, _builtins.str] tags: Resource tags.
         """
@@ -15943,6 +15951,8 @@ class FlowLogResponse(dict):
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
+        if record_types is not None:
+            pulumi.set(__self__, "record_types", record_types)
         if retention_policy is not None:
             pulumi.set(__self__, "retention_policy", retention_policy)
         if tags is not None:
@@ -16059,6 +16069,14 @@ class FlowLogResponse(dict):
         Resource location.
         """
         return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="recordTypes")
+    def record_types(self) -> Optional[_builtins.str]:
+        """
+        Optional field to filter network traffic logs based on flow states. Value of this field could be any comma separated combination string of letters B,C,E or D. B represents Begin, when a flow is created. C represents Continue for an ongoing flow generated at every five-minute interval. E represents End, when a flow is terminated. D represents Deny, when a flow is denied. If not specified, all network traffic will be logged.
+        """
+        return pulumi.get(self, "record_types")
 
     @_builtins.property
     @pulumi.getter(name="retentionPolicy")
@@ -19820,8 +19838,16 @@ class NatGatewayResponse(dict):
             suggest = "idle_timeout_in_minutes"
         elif key == "publicIpAddresses":
             suggest = "public_ip_addresses"
+        elif key == "publicIpAddressesV6":
+            suggest = "public_ip_addresses_v6"
         elif key == "publicIpPrefixes":
             suggest = "public_ip_prefixes"
+        elif key == "publicIpPrefixesV6":
+            suggest = "public_ip_prefixes_v6"
+        elif key == "serviceGateway":
+            suggest = "service_gateway"
+        elif key == "sourceVirtualNetwork":
+            suggest = "source_virtual_network"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in NatGatewayResponse. Access the value via the '{suggest}' property getter instead.")
@@ -19845,8 +19871,12 @@ class NatGatewayResponse(dict):
                  idle_timeout_in_minutes: Optional[_builtins.int] = None,
                  location: Optional[_builtins.str] = None,
                  public_ip_addresses: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 public_ip_addresses_v6: Optional[Sequence['outputs.SubResourceResponse']] = None,
                  public_ip_prefixes: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 public_ip_prefixes_v6: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 service_gateway: Optional['outputs.SubResourceResponse'] = None,
                  sku: Optional['outputs.NatGatewaySkuResponse'] = None,
+                 source_virtual_network: Optional['outputs.SubResourceResponse'] = None,
                  tags: Optional[Mapping[str, _builtins.str]] = None,
                  zones: Optional[Sequence[_builtins.str]] = None):
         """
@@ -19861,8 +19891,12 @@ class NatGatewayResponse(dict):
         :param _builtins.int idle_timeout_in_minutes: The idle timeout of the nat gateway.
         :param _builtins.str location: Resource location.
         :param Sequence['SubResourceResponse'] public_ip_addresses: An array of public ip addresses associated with the nat gateway resource.
+        :param Sequence['SubResourceResponse'] public_ip_addresses_v6: An array of public ip addresses V6 associated with the nat gateway resource.
         :param Sequence['SubResourceResponse'] public_ip_prefixes: An array of public ip prefixes associated with the nat gateway resource.
+        :param Sequence['SubResourceResponse'] public_ip_prefixes_v6: An array of public ip prefixes V6 associated with the nat gateway resource.
+        :param 'SubResourceResponse' service_gateway: Reference to an existing service gateway.
         :param 'NatGatewaySkuResponse' sku: The nat gateway SKU.
+        :param 'SubResourceResponse' source_virtual_network: A reference to the source virtual network using this nat gateway resource.
         :param Mapping[str, _builtins.str] tags: Resource tags.
         :param Sequence[_builtins.str] zones: A list of availability zones denoting the zone in which Nat Gateway should be deployed.
         """
@@ -19880,10 +19914,18 @@ class NatGatewayResponse(dict):
             pulumi.set(__self__, "location", location)
         if public_ip_addresses is not None:
             pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+        if public_ip_addresses_v6 is not None:
+            pulumi.set(__self__, "public_ip_addresses_v6", public_ip_addresses_v6)
         if public_ip_prefixes is not None:
             pulumi.set(__self__, "public_ip_prefixes", public_ip_prefixes)
+        if public_ip_prefixes_v6 is not None:
+            pulumi.set(__self__, "public_ip_prefixes_v6", public_ip_prefixes_v6)
+        if service_gateway is not None:
+            pulumi.set(__self__, "service_gateway", service_gateway)
         if sku is not None:
             pulumi.set(__self__, "sku", sku)
+        if source_virtual_network is not None:
+            pulumi.set(__self__, "source_virtual_network", source_virtual_network)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zones is not None:
@@ -19970,6 +20012,14 @@ class NatGatewayResponse(dict):
         return pulumi.get(self, "public_ip_addresses")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpAddressesV6")
+    def public_ip_addresses_v6(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        An array of public ip addresses V6 associated with the nat gateway resource.
+        """
+        return pulumi.get(self, "public_ip_addresses_v6")
+
+    @_builtins.property
     @pulumi.getter(name="publicIpPrefixes")
     def public_ip_prefixes(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
         """
@@ -19978,12 +20028,36 @@ class NatGatewayResponse(dict):
         return pulumi.get(self, "public_ip_prefixes")
 
     @_builtins.property
+    @pulumi.getter(name="publicIpPrefixesV6")
+    def public_ip_prefixes_v6(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        An array of public ip prefixes V6 associated with the nat gateway resource.
+        """
+        return pulumi.get(self, "public_ip_prefixes_v6")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGateway")
+    def service_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to an existing service gateway.
+        """
+        return pulumi.get(self, "service_gateway")
+
+    @_builtins.property
     @pulumi.getter
     def sku(self) -> Optional['outputs.NatGatewaySkuResponse']:
         """
         The nat gateway SKU.
         """
         return pulumi.get(self, "sku")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceVirtualNetwork")
+    def source_virtual_network(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        A reference to the source virtual network using this nat gateway resource.
+        """
+        return pulumi.get(self, "source_virtual_network")
 
     @_builtins.property
     @pulumi.getter
@@ -24887,6 +24961,8 @@ class PrivateEndpointResponse(dict):
             suggest = "extended_location"
         elif key == "ipConfigurations":
             suggest = "ip_configurations"
+        elif key == "ipVersionType":
+            suggest = "ip_version_type"
         elif key == "manualPrivateLinkServiceConnections":
             suggest = "manual_private_link_service_connections"
         elif key == "privateLinkServiceConnections":
@@ -24915,6 +24991,7 @@ class PrivateEndpointResponse(dict):
                  extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
                  id: Optional[_builtins.str] = None,
                  ip_configurations: Optional[Sequence['outputs.PrivateEndpointIPConfigurationResponse']] = None,
+                 ip_version_type: Optional[_builtins.str] = None,
                  location: Optional[_builtins.str] = None,
                  manual_private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
                  private_link_service_connections: Optional[Sequence['outputs.PrivateLinkServiceConnectionResponse']] = None,
@@ -24933,6 +25010,7 @@ class PrivateEndpointResponse(dict):
         :param 'ExtendedLocationResponse' extended_location: The extended location of the load balancer.
         :param _builtins.str id: Resource ID.
         :param Sequence['PrivateEndpointIPConfigurationResponse'] ip_configurations: A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
+        :param _builtins.str ip_version_type: Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
         :param _builtins.str location: Resource location.
         :param Sequence['PrivateLinkServiceConnectionResponse'] manual_private_link_service_connections: A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource.
         :param Sequence['PrivateLinkServiceConnectionResponse'] private_link_service_connections: A grouping of information about the connection to the remote resource.
@@ -24956,6 +25034,10 @@ class PrivateEndpointResponse(dict):
             pulumi.set(__self__, "id", id)
         if ip_configurations is not None:
             pulumi.set(__self__, "ip_configurations", ip_configurations)
+        if ip_version_type is None:
+            ip_version_type = 'IPv4'
+        if ip_version_type is not None:
+            pulumi.set(__self__, "ip_version_type", ip_version_type)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if manual_private_link_service_connections is not None:
@@ -25054,6 +25136,14 @@ class PrivateEndpointResponse(dict):
         A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints.
         """
         return pulumi.get(self, "ip_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="ipVersionType")
+    def ip_version_type(self) -> Optional[_builtins.str]:
+        """
+        Specifies the IP version type for the private IPs of the private endpoint. If not defined, this defaults to IPv4.
+        """
+        return pulumi.get(self, "ip_version_type")
 
     @_builtins.property
     @pulumi.getter
@@ -25512,6 +25602,8 @@ class PrivateLinkServiceResponse(dict):
             suggest = "private_endpoint_connections"
         elif key == "provisioningState":
             suggest = "provisioning_state"
+        elif key == "accessMode":
+            suggest = "access_mode"
         elif key == "autoApproval":
             suggest = "auto_approval"
         elif key == "destinationIPAddress":
@@ -25544,6 +25636,7 @@ class PrivateLinkServiceResponse(dict):
                  private_endpoint_connections: Sequence['outputs.PrivateEndpointConnectionResponse'],
                  provisioning_state: _builtins.str,
                  type: _builtins.str,
+                 access_mode: Optional[_builtins.str] = None,
                  auto_approval: Optional['outputs.PrivateLinkServicePropertiesResponseAutoApproval'] = None,
                  destination_ip_address: Optional[_builtins.str] = None,
                  enable_proxy_protocol: Optional[_builtins.bool] = None,
@@ -25564,6 +25657,7 @@ class PrivateLinkServiceResponse(dict):
         :param Sequence['PrivateEndpointConnectionResponse'] private_endpoint_connections: An array of list about connections to the private endpoint.
         :param _builtins.str provisioning_state: The provisioning state of the private link service resource.
         :param _builtins.str type: Resource type.
+        :param _builtins.str access_mode: The access mode of the private link service.
         :param 'PrivateLinkServicePropertiesResponseAutoApproval' auto_approval: The auto-approval list of the private link service.
         :param _builtins.str destination_ip_address: The destination IP address of the private link service.
         :param _builtins.bool enable_proxy_protocol: Whether the private link service is enabled for proxy protocol or not.
@@ -25583,6 +25677,8 @@ class PrivateLinkServiceResponse(dict):
         pulumi.set(__self__, "private_endpoint_connections", private_endpoint_connections)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
+        if access_mode is not None:
+            pulumi.set(__self__, "access_mode", access_mode)
         if auto_approval is not None:
             pulumi.set(__self__, "auto_approval", auto_approval)
         if destination_ip_address is not None:
@@ -25661,6 +25757,14 @@ class PrivateLinkServiceResponse(dict):
         Resource type.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="accessMode")
+    def access_mode(self) -> Optional[_builtins.str]:
+        """
+        The access mode of the private link service.
+        """
+        return pulumi.get(self, "access_mode")
 
     @_builtins.property
     @pulumi.getter(name="autoApproval")
@@ -27866,6 +27970,72 @@ class RouteTableResponse(dict):
 
 
 @pulumi.output_type
+class RouteTargetAddressPropertiesFormatResponse(dict):
+    """
+    Properties of route target address
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in RouteTargetAddressPropertiesFormatResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        RouteTargetAddressPropertiesFormatResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        RouteTargetAddressPropertiesFormatResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_ip_address: Optional[_builtins.str] = None,
+                 private_ip_allocation_method: Optional[_builtins.str] = None,
+                 subnet: Optional['outputs.SubnetResponse'] = None):
+        """
+        Properties of route target address
+        :param _builtins.str private_ip_address: The private IPv4 or IPv6 address of the service gateway route target address.
+        :param _builtins.str private_ip_allocation_method: The Private IP allocation method.
+        :param 'SubnetResponse' subnet: The reference to the subnet resource.
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[_builtins.str]:
+        """
+        The private IPv4 or IPv6 address of the service gateway route target address.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[_builtins.str]:
+        """
+        The Private IP allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.SubnetResponse']:
+        """
+        The reference to the subnet resource.
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
 class RoutingConfigurationResponse(dict):
     """
     Routing Configuration indicating the associated and propagated route tables for this connection.
@@ -28970,6 +29140,41 @@ class ServiceEndpointPropertiesFormatResponse(dict):
 
 
 @pulumi.output_type
+class ServiceGatewaySkuResponse(dict):
+    """
+    SKU of a service gateway.
+    """
+    def __init__(__self__, *,
+                 name: Optional[_builtins.str] = None,
+                 tier: Optional[_builtins.str] = None):
+        """
+        SKU of a service gateway.
+        :param _builtins.str name: Name of a service gateway SKU.
+        :param _builtins.str tier: Tier of a service gateway SKU.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if tier is not None:
+            pulumi.set(__self__, "tier", tier)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        Name of a service gateway SKU.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def tier(self) -> Optional[_builtins.str]:
+        """
+        Tier of a service gateway SKU.
+        """
+        return pulumi.get(self, "tier")
+
+
+@pulumi.output_type
 class SharedKeyPropertiesResponse(dict):
     """
     Parameters for SharedKey.
@@ -29457,6 +29662,8 @@ class SubnetResponse(dict):
             suggest = "service_endpoint_policies"
         elif key == "serviceEndpoints":
             suggest = "service_endpoints"
+        elif key == "serviceGateway":
+            suggest = "service_gateway"
         elif key == "sharingScope":
             suggest = "sharing_scope"
 
@@ -29497,6 +29704,7 @@ class SubnetResponse(dict):
                  route_table: Optional['outputs.RouteTableResponse'] = None,
                  service_endpoint_policies: Optional[Sequence['outputs.ServiceEndpointPolicyResponse']] = None,
                  service_endpoints: Optional[Sequence['outputs.ServiceEndpointPropertiesFormatResponse']] = None,
+                 service_gateway: Optional['outputs.SubResourceResponse'] = None,
                  sharing_scope: Optional[_builtins.str] = None,
                  type: Optional[_builtins.str] = None):
         """
@@ -29526,6 +29734,7 @@ class SubnetResponse(dict):
         :param 'RouteTableResponse' route_table: The reference to the RouteTable resource.
         :param Sequence['ServiceEndpointPolicyResponse'] service_endpoint_policies: An array of service endpoint policies.
         :param Sequence['ServiceEndpointPropertiesFormatResponse'] service_endpoints: An array of service endpoints.
+        :param 'SubResourceResponse' service_gateway: Reference to an existing service gateway.
         :param _builtins.str sharing_scope: Set this property to Tenant to allow sharing subnet with other subscriptions in your AAD tenant. This property can only be set if defaultOutboundAccess is set to false, both properties can only be set if subnet is empty.
         :param _builtins.str type: Resource type.
         """
@@ -29575,6 +29784,8 @@ class SubnetResponse(dict):
             pulumi.set(__self__, "service_endpoint_policies", service_endpoint_policies)
         if service_endpoints is not None:
             pulumi.set(__self__, "service_endpoints", service_endpoints)
+        if service_gateway is not None:
+            pulumi.set(__self__, "service_gateway", service_gateway)
         if sharing_scope is not None:
             pulumi.set(__self__, "sharing_scope", sharing_scope)
         if type is not None:
@@ -29779,6 +29990,14 @@ class SubnetResponse(dict):
         An array of service endpoints.
         """
         return pulumi.get(self, "service_endpoints")
+
+    @_builtins.property
+    @pulumi.getter(name="serviceGateway")
+    def service_gateway(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        Reference to an existing service gateway.
+        """
+        return pulumi.get(self, "service_gateway")
 
     @_builtins.property
     @pulumi.getter(name="sharingScope")
@@ -30948,6 +31167,145 @@ class VirtualHubRouteV2Response(dict):
         NextHops ip address.
         """
         return pulumi.get(self, "next_hops")
+
+
+@pulumi.output_type
+class VirtualNetworkApplianceIpConfigurationResponse(dict):
+    """
+    The virtual network appliance ip configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAddressVersion":
+            suggest = "private_ip_address_version"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkApplianceIpConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkApplianceIpConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkApplianceIpConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 etag: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 type: _builtins.str,
+                 id: Optional[_builtins.str] = None,
+                 name: Optional[_builtins.str] = None,
+                 primary: Optional[_builtins.bool] = None,
+                 private_ip_address: Optional[_builtins.str] = None,
+                 private_ip_address_version: Optional[_builtins.str] = None,
+                 private_ip_allocation_method: Optional[_builtins.str] = None):
+        """
+        The virtual network appliance ip configuration.
+        :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
+        :param _builtins.str provisioning_state: The provisioning state of the private link service IP configuration resource.
+        :param _builtins.str type: The resource type.
+        :param _builtins.str id: Resource ID.
+        :param _builtins.str name: The name of virtual network appliance ip configuration.
+        :param _builtins.bool primary: Whether the ip configuration is primary or not.
+        :param _builtins.str private_ip_address: The private IP address of the IP configuration.
+        :param _builtins.str private_ip_address_version: Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        :param _builtins.str private_ip_allocation_method: The private IP address allocation method.
+        """
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "type", type)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if primary is not None:
+            pulumi.set(__self__, "primary", primary)
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_address_version is not None:
+            pulumi.set(__self__, "private_ip_address_version", private_ip_address_version)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> _builtins.str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the private link service IP configuration resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        The resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[_builtins.str]:
+        """
+        The name of virtual network appliance ip configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def primary(self) -> Optional[_builtins.bool]:
+        """
+        Whether the ip configuration is primary or not.
+        """
+        return pulumi.get(self, "primary")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[_builtins.str]:
+        """
+        The private IP address of the IP configuration.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddressVersion")
+    def private_ip_address_version(self) -> Optional[_builtins.str]:
+        """
+        Whether the specific IP configuration is IPv4 or IPv6. Default is IPv4.
+        """
+        return pulumi.get(self, "private_ip_address_version")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[_builtins.str]:
+        """
+        The private IP address allocation method.
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
 
 
 @pulumi.output_type
@@ -32420,6 +32778,335 @@ class VirtualNetworkPeeringResponse(dict):
         If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway.
         """
         return pulumi.get(self, "use_remote_gateways")
+
+
+@pulumi.output_type
+class VirtualNetworkResponse(dict):
+    """
+    Virtual Network resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "defaultPublicNatGateway":
+            suggest = "default_public_nat_gateway"
+        elif key == "flowLogs":
+            suggest = "flow_logs"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "resourceGuid":
+            suggest = "resource_guid"
+        elif key == "addressSpace":
+            suggest = "address_space"
+        elif key == "bgpCommunities":
+            suggest = "bgp_communities"
+        elif key == "ddosProtectionPlan":
+            suggest = "ddos_protection_plan"
+        elif key == "dhcpOptions":
+            suggest = "dhcp_options"
+        elif key == "enableDdosProtection":
+            suggest = "enable_ddos_protection"
+        elif key == "enableVmProtection":
+            suggest = "enable_vm_protection"
+        elif key == "extendedLocation":
+            suggest = "extended_location"
+        elif key == "flowTimeoutInMinutes":
+            suggest = "flow_timeout_in_minutes"
+        elif key == "ipAllocations":
+            suggest = "ip_allocations"
+        elif key == "privateEndpointVNetPolicies":
+            suggest = "private_endpoint_v_net_policies"
+        elif key == "virtualNetworkPeerings":
+            suggest = "virtual_network_peerings"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 default_public_nat_gateway: 'outputs.SubResourceResponse',
+                 etag: _builtins.str,
+                 flow_logs: Sequence['outputs.FlowLogResponse'],
+                 name: _builtins.str,
+                 provisioning_state: _builtins.str,
+                 resource_guid: _builtins.str,
+                 type: _builtins.str,
+                 address_space: Optional['outputs.AddressSpaceResponse'] = None,
+                 bgp_communities: Optional['outputs.VirtualNetworkBgpCommunitiesResponse'] = None,
+                 ddos_protection_plan: Optional['outputs.SubResourceResponse'] = None,
+                 dhcp_options: Optional['outputs.DhcpOptionsResponse'] = None,
+                 enable_ddos_protection: Optional[_builtins.bool] = None,
+                 enable_vm_protection: Optional[_builtins.bool] = None,
+                 encryption: Optional['outputs.VirtualNetworkEncryptionResponse'] = None,
+                 extended_location: Optional['outputs.ExtendedLocationResponse'] = None,
+                 flow_timeout_in_minutes: Optional[_builtins.int] = None,
+                 id: Optional[_builtins.str] = None,
+                 ip_allocations: Optional[Sequence['outputs.SubResourceResponse']] = None,
+                 location: Optional[_builtins.str] = None,
+                 private_endpoint_v_net_policies: Optional[_builtins.str] = None,
+                 subnets: Optional[Sequence['outputs.SubnetResponse']] = None,
+                 tags: Optional[Mapping[str, _builtins.str]] = None,
+                 virtual_network_peerings: Optional[Sequence['outputs.VirtualNetworkPeeringResponse']] = None):
+        """
+        Virtual Network resource.
+        :param 'SubResourceResponse' default_public_nat_gateway: A reference to the default public nat gateway being used by this virtual network resource.
+        :param _builtins.str etag: A unique read-only string that changes whenever the resource is updated.
+        :param Sequence['FlowLogResponse'] flow_logs: A collection of references to flow log resources.
+        :param _builtins.str name: Resource name.
+        :param _builtins.str provisioning_state: The provisioning state of the virtual network resource.
+        :param _builtins.str resource_guid: The resourceGuid property of the Virtual Network resource.
+        :param _builtins.str type: Resource type.
+        :param 'AddressSpaceResponse' address_space: The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        :param 'VirtualNetworkBgpCommunitiesResponse' bgp_communities: Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        :param 'SubResourceResponse' ddos_protection_plan: The DDoS protection plan associated with the virtual network.
+        :param 'DhcpOptionsResponse' dhcp_options: The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        :param _builtins.bool enable_ddos_protection: Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        :param _builtins.bool enable_vm_protection: Indicates if VM protection is enabled for all the subnets in the virtual network.
+        :param 'VirtualNetworkEncryptionResponse' encryption: Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        :param 'ExtendedLocationResponse' extended_location: The extended location of the virtual network.
+        :param _builtins.int flow_timeout_in_minutes: The FlowTimeout value (in minutes) for the Virtual Network
+        :param _builtins.str id: Resource ID.
+        :param Sequence['SubResourceResponse'] ip_allocations: Array of IpAllocation which reference this VNET.
+        :param _builtins.str location: Resource location.
+        :param _builtins.str private_endpoint_v_net_policies: Private Endpoint VNet Policies.
+        :param Sequence['SubnetResponse'] subnets: A list of subnets in a Virtual Network.
+        :param Mapping[str, _builtins.str] tags: Resource tags.
+        :param Sequence['VirtualNetworkPeeringResponse'] virtual_network_peerings: A list of peerings in a Virtual Network.
+        """
+        pulumi.set(__self__, "default_public_nat_gateway", default_public_nat_gateway)
+        pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "flow_logs", flow_logs)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "resource_guid", resource_guid)
+        pulumi.set(__self__, "type", type)
+        if address_space is not None:
+            pulumi.set(__self__, "address_space", address_space)
+        if bgp_communities is not None:
+            pulumi.set(__self__, "bgp_communities", bgp_communities)
+        if ddos_protection_plan is not None:
+            pulumi.set(__self__, "ddos_protection_plan", ddos_protection_plan)
+        if dhcp_options is not None:
+            pulumi.set(__self__, "dhcp_options", dhcp_options)
+        if enable_ddos_protection is None:
+            enable_ddos_protection = False
+        if enable_ddos_protection is not None:
+            pulumi.set(__self__, "enable_ddos_protection", enable_ddos_protection)
+        if enable_vm_protection is None:
+            enable_vm_protection = False
+        if enable_vm_protection is not None:
+            pulumi.set(__self__, "enable_vm_protection", enable_vm_protection)
+        if encryption is not None:
+            pulumi.set(__self__, "encryption", encryption)
+        if extended_location is not None:
+            pulumi.set(__self__, "extended_location", extended_location)
+        if flow_timeout_in_minutes is not None:
+            pulumi.set(__self__, "flow_timeout_in_minutes", flow_timeout_in_minutes)
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+        if ip_allocations is not None:
+            pulumi.set(__self__, "ip_allocations", ip_allocations)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if private_endpoint_v_net_policies is not None:
+            pulumi.set(__self__, "private_endpoint_v_net_policies", private_endpoint_v_net_policies)
+        if subnets is not None:
+            pulumi.set(__self__, "subnets", subnets)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+        if virtual_network_peerings is not None:
+            pulumi.set(__self__, "virtual_network_peerings", virtual_network_peerings)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultPublicNatGateway")
+    def default_public_nat_gateway(self) -> 'outputs.SubResourceResponse':
+        """
+        A reference to the default public nat gateway being used by this virtual network resource.
+        """
+        return pulumi.get(self, "default_public_nat_gateway")
+
+    @_builtins.property
+    @pulumi.getter
+    def etag(self) -> _builtins.str:
+        """
+        A unique read-only string that changes whenever the resource is updated.
+        """
+        return pulumi.get(self, "etag")
+
+    @_builtins.property
+    @pulumi.getter(name="flowLogs")
+    def flow_logs(self) -> Sequence['outputs.FlowLogResponse']:
+        """
+        A collection of references to flow log resources.
+        """
+        return pulumi.get(self, "flow_logs")
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        Resource name.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the virtual network resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="resourceGuid")
+    def resource_guid(self) -> _builtins.str:
+        """
+        The resourceGuid property of the Virtual Network resource.
+        """
+        return pulumi.get(self, "resource_guid")
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> _builtins.str:
+        """
+        Resource type.
+        """
+        return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="addressSpace")
+    def address_space(self) -> Optional['outputs.AddressSpaceResponse']:
+        """
+        The AddressSpace that contains an array of IP address ranges that can be used by subnets.
+        """
+        return pulumi.get(self, "address_space")
+
+    @_builtins.property
+    @pulumi.getter(name="bgpCommunities")
+    def bgp_communities(self) -> Optional['outputs.VirtualNetworkBgpCommunitiesResponse']:
+        """
+        Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET.
+        """
+        return pulumi.get(self, "bgp_communities")
+
+    @_builtins.property
+    @pulumi.getter(name="ddosProtectionPlan")
+    def ddos_protection_plan(self) -> Optional['outputs.SubResourceResponse']:
+        """
+        The DDoS protection plan associated with the virtual network.
+        """
+        return pulumi.get(self, "ddos_protection_plan")
+
+    @_builtins.property
+    @pulumi.getter(name="dhcpOptions")
+    def dhcp_options(self) -> Optional['outputs.DhcpOptionsResponse']:
+        """
+        The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network.
+        """
+        return pulumi.get(self, "dhcp_options")
+
+    @_builtins.property
+    @pulumi.getter(name="enableDdosProtection")
+    def enable_ddos_protection(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource.
+        """
+        return pulumi.get(self, "enable_ddos_protection")
+
+    @_builtins.property
+    @pulumi.getter(name="enableVmProtection")
+    def enable_vm_protection(self) -> Optional[_builtins.bool]:
+        """
+        Indicates if VM protection is enabled for all the subnets in the virtual network.
+        """
+        return pulumi.get(self, "enable_vm_protection")
+
+    @_builtins.property
+    @pulumi.getter
+    def encryption(self) -> Optional['outputs.VirtualNetworkEncryptionResponse']:
+        """
+        Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet.
+        """
+        return pulumi.get(self, "encryption")
+
+    @_builtins.property
+    @pulumi.getter(name="extendedLocation")
+    def extended_location(self) -> Optional['outputs.ExtendedLocationResponse']:
+        """
+        The extended location of the virtual network.
+        """
+        return pulumi.get(self, "extended_location")
+
+    @_builtins.property
+    @pulumi.getter(name="flowTimeoutInMinutes")
+    def flow_timeout_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        The FlowTimeout value (in minutes) for the Virtual Network
+        """
+        return pulumi.get(self, "flow_timeout_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocations")
+    def ip_allocations(self) -> Optional[Sequence['outputs.SubResourceResponse']]:
+        """
+        Array of IpAllocation which reference this VNET.
+        """
+        return pulumi.get(self, "ip_allocations")
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> Optional[_builtins.str]:
+        """
+        Resource location.
+        """
+        return pulumi.get(self, "location")
+
+    @_builtins.property
+    @pulumi.getter(name="privateEndpointVNetPolicies")
+    def private_endpoint_v_net_policies(self) -> Optional[_builtins.str]:
+        """
+        Private Endpoint VNet Policies.
+        """
+        return pulumi.get(self, "private_endpoint_v_net_policies")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Optional[Sequence['outputs.SubnetResponse']]:
+        """
+        A list of subnets in a Virtual Network.
+        """
+        return pulumi.get(self, "subnets")
+
+    @_builtins.property
+    @pulumi.getter
+    def tags(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        Resource tags.
+        """
+        return pulumi.get(self, "tags")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetworkPeerings")
+    def virtual_network_peerings(self) -> Optional[Sequence['outputs.VirtualNetworkPeeringResponse']]:
+        """
+        A list of peerings in a Virtual Network.
+        """
+        return pulumi.get(self, "virtual_network_peerings")
 
 
 @pulumi.output_type

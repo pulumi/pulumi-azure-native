@@ -155,6 +155,8 @@ __all__ = [
     'SecurityRuleDirection',
     'SecurityRuleProtocol',
     'SensitivityType',
+    'ServiceGatewaySkuName',
+    'ServiceGatewaySkuTier',
     'ServiceProviderProvisioningState',
     'SharingScope',
     'SyncMode',
@@ -1755,6 +1757,22 @@ class SensitivityType(_builtins.str, Enum):
     LOW = "Low"
     MEDIUM = "Medium"
     HIGH = "High"
+
+
+@pulumi.type_token("azure-native:network:ServiceGatewaySkuName")
+class ServiceGatewaySkuName(_builtins.str, Enum):
+    """
+    Name of a service gateway SKU.
+    """
+    STANDARD = "Standard"
+
+
+@pulumi.type_token("azure-native:network:ServiceGatewaySkuTier")
+class ServiceGatewaySkuTier(_builtins.str, Enum):
+    """
+    Tier of a service gateway SKU.
+    """
+    REGIONAL = "Regional"
 
 
 @pulumi.type_token("azure-native:network:ServiceProviderProvisioningState")

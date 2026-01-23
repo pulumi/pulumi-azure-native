@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The available data types for the connector.
         /// </summary>
-        public readonly Outputs.OfficeDataConnectorDataTypesResponse? DataTypes;
+        public readonly Outputs.OfficeDataConnectorDataTypesResponse DataTypes;
         /// <summary>
         /// Etag of the azure resource
         /// </summary>
@@ -125,7 +125,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The tenant id to connect to, and get the data from.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
@@ -135,7 +135,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         private GetOfficeDataConnectorResult(
             string azureApiVersion,
 
-            Outputs.OfficeDataConnectorDataTypesResponse? dataTypes,
+            Outputs.OfficeDataConnectorDataTypesResponse dataTypes,
 
             string? etag,
 
@@ -147,7 +147,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             Outputs.SystemDataResponse systemData,
 
-            string? tenantId,
+            string tenantId,
 
             string type)
         {

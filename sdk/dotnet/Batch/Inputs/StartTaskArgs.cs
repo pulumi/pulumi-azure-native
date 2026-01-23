@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
         [Input("environmentSettings")]
         private InputList<Inputs.EnvironmentSettingArgs>? _environmentSettings;
+
+        /// <summary>
+        /// A list of environment variable settings for the start task.
+        /// </summary>
         public InputList<Inputs.EnvironmentSettingArgs> EnvironmentSettings
         {
             get => _environmentSettings ?? (_environmentSettings = new InputList<Inputs.EnvironmentSettingArgs>());
@@ -43,6 +47,10 @@ namespace Pulumi.AzureNative.Batch.Inputs
 
         [Input("resourceFiles")]
         private InputList<Inputs.ResourceFileArgs>? _resourceFiles;
+
+        /// <summary>
+        /// A list of files that the Batch service will download to the compute node before running the command line.
+        /// </summary>
         public InputList<Inputs.ResourceFileArgs> ResourceFiles
         {
             get => _resourceFiles ?? (_resourceFiles = new InputList<Inputs.ResourceFileArgs>());

@@ -96,33 +96,6 @@ export const ConnectionAuth = {
  */
 export type ConnectionAuth = (typeof ConnectionAuth)[keyof typeof ConnectionAuth];
 
-export const DatabaseCreateMode = {
-    Default: "Default",
-    PointInTimeRestore: "PointInTimeRestore",
-} as const;
-
-/**
- * Database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. sourceDatabaseId and restorePointInTime must be specified.
- */
-export type DatabaseCreateMode = (typeof DatabaseCreateMode)[keyof typeof DatabaseCreateMode];
-
-export const DatabaseState = {
-    Online: "Online",
-    Restoring: "Restoring",
-    Recovering: "Recovering",
-    RecoveryPending: "RecoveryPending",
-    Suspect: "Suspect",
-    Emergency: "Emergency",
-    Offline: "Offline",
-    Copying: "Copying",
-    OfflineSecondary: "OfflineSecondary",
-} as const;
-
-/**
- * State of the database.
- */
-export type DatabaseState = (typeof DatabaseState)[keyof typeof DatabaseState];
-
 export const EditionType = {
     Evaluation: "Evaluation",
     Enterprise: "Enterprise",
@@ -267,17 +240,6 @@ export const PrimaryAllowConnections = {
  * Whether the primary replica should allow all connections or only READ_WRITE connections (disallowing ReadOnly connections)
  */
 export type PrimaryAllowConnections = (typeof PrimaryAllowConnections)[keyof typeof PrimaryAllowConnections];
-
-export const RecoveryMode = {
-    Full: "Full",
-    Bulk_logged: "Bulk-logged",
-    Simple: "Simple",
-} as const;
-
-/**
- * Status of the database.
- */
-export type RecoveryMode = (typeof RecoveryMode)[keyof typeof RecoveryMode];
 
 export const ScopeType = {
     Tenant: "Tenant",

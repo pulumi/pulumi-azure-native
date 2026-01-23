@@ -104,6 +104,10 @@ namespace Pulumi.AzureNative.CodeSigning
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
+        /// List of renewed certificates.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.CertificateResponse> Certificates;
+        /// <summary>
         /// Fully qualified resource ID for the resource. E.g. "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}"
         /// </summary>
         public readonly string Id;
@@ -160,6 +164,8 @@ namespace Pulumi.AzureNative.CodeSigning
         private GetCertificateProfileResult(
             string azureApiVersion,
 
+            ImmutableArray<Outputs.CertificateResponse> certificates,
+
             string id,
 
             string identityValidationId,
@@ -187,6 +193,7 @@ namespace Pulumi.AzureNative.CodeSigning
             string type)
         {
             AzureApiVersion = azureApiVersion;
+            Certificates = certificates;
             Id = id;
             IdentityValidationId = identityValidationId;
             IncludeCity = includeCity;

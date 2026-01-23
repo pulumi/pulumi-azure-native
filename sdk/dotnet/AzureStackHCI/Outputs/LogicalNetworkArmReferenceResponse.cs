@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The ARM ID for a Logical Network.
+    /// The Azure Resource ID for a Logical Network.
     /// </summary>
     [OutputType]
     public sealed class LogicalNetworkArmReferenceResponse
     {
         /// <summary>
-        /// The ARM ID for a Logical Network.
+        /// The Azure Resource ID for a Logical Network.
         /// </summary>
         public readonly string? Id;
 

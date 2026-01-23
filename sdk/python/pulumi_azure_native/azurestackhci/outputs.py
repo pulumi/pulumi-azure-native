@@ -19,6 +19,8 @@ from ._enums import *
 __all__ = [
     'AdapterPropertyOverridesResponse',
     'ArcConnectivityPropertiesResponse',
+    'BackendAddressPoolPropertiesResponse',
+    'BackendAddressPoolResponse',
     'ClusterDesiredPropertiesResponse',
     'ClusterNodeResponse',
     'ClusterReportedPropertiesResponse',
@@ -39,6 +41,8 @@ __all__ = [
     'ExtensionInstanceViewResponseStatus',
     'ExtensionProfileResponse',
     'ExtensionResponse',
+    'FrontendIPConfigurationPropertiesResponse',
+    'FrontendIPConfigurationResponse',
     'GalleryImageIdentifierResponse',
     'GalleryImageStatusDownloadStatusResponse',
     'GalleryImageStatusProvisioningStatusResponse',
@@ -58,18 +62,31 @@ __all__ = [
     'HciReportedPropertiesResponse',
     'HostNetworkResponse',
     'HttpProxyConfigurationResponse',
+    'IPConfigurationArmReferenceResponse',
     'IPConfigurationPropertiesResponse',
     'IPConfigurationResponse',
     'IPPoolInfoResponse',
     'IPPoolResponse',
     'IdentityResponse',
     'ImageArmReferenceResponse',
+    'InboundNATRulePropertiesResponse',
+    'InboundNATRuleResponse',
     'InfrastructureNetworkResponse',
     'InstanceViewStatusResponse',
     'IntentsResponse',
     'InterfaceDNSSettingsResponse',
     'IpPoolsResponse',
     'IsolatedVmAttestationConfigurationResponse',
+    'LoadBalancerBackendAddressPoolReferenceResponse',
+    'LoadBalancerBackendAddressPropertiesResponse',
+    'LoadBalancerBackendAddressResponse',
+    'LoadBalancerFrontendIPConfigurationReferenceResponse',
+    'LoadBalancerProbeReferenceResponse',
+    'LoadBalancerPropertiesResponse',
+    'LoadBalancerRulePropertiesResponse',
+    'LoadBalancerRuleResponse',
+    'LoadBalancerStatusProvisioningStatusResponse',
+    'LoadBalancerStatusResponse',
     'LogCollectionErrorResponse',
     'LogCollectionJobSessionResponse',
     'LogCollectionPropertiesResponse',
@@ -85,6 +102,10 @@ __all__ = [
     'MarketplaceGalleryImageStatusDownloadStatusResponse',
     'MarketplaceGalleryImageStatusProvisioningStatusResponse',
     'MarketplaceGalleryImageStatusResponse',
+    'NatGatewayArmReferenceResponse',
+    'NatGatewayPropertiesResponse',
+    'NatGatewayStatusProvisioningStatusResponse',
+    'NatGatewayStatusResponse',
     'NetworkControllerResponse',
     'NetworkInterfaceArmReferenceResponse',
     'NetworkInterfaceStatusProvisioningStatusResponse',
@@ -99,6 +120,10 @@ __all__ = [
     'PerNodeRemoteSupportSessionResponse',
     'PerNodeStateResponse',
     'PhysicalNodesResponse',
+    'ProbePropertiesResponse',
+    'ProbeResponse',
+    'PublicIPAddressArmReferenceResponse',
+    'PublicIPAddressPropertiesResponse',
     'QosPolicyOverridesResponse',
     'RemoteSupportJobNodeSettingsResponse',
     'RemoteSupportJobReportedPropertiesResponse',
@@ -173,6 +198,7 @@ __all__ = [
     'VirtualMachinePropertiesResponseWindowsConfiguration',
     'VirtualMachineStatusResponse',
     'VirtualMachineStatusResponseProvisioningStatus',
+    'VirtualNetworkArmReferenceResponse',
     'VirtualNetworkPropertiesResponseDhcpOptions',
     'VirtualNetworkPropertiesResponseIpConfigurationReferences',
     'VirtualNetworkPropertiesResponseRouteTable',
@@ -180,8 +206,12 @@ __all__ = [
     'VirtualNetworkPropertiesResponseSubnets',
     'VirtualNetworkStatusResponse',
     'VirtualNetworkStatusResponseProvisioningStatus',
+    'VirtualNetworkSubnetArmReferenceResponse',
+    'VirtualNetworkSubnetIpConfigurationReferenceResponse',
+    'VirtualNetworkSubnetPropertiesResponse',
+    'VirtualNetworkSubnetStatusProvisioningStatusResponse',
+    'VirtualNetworkSubnetStatusResponse',
     'VirtualSwitchConfigurationOverridesResponse',
-    'VmImageRepositoryCredentialsResponse',
 ]
 
 @pulumi.output_type
@@ -299,6 +329,107 @@ class ArcConnectivityPropertiesResponse(dict):
         Service configurations associated with the connectivity resource. They are only processed by the server if 'enabled' property is set to 'true'.
         """
         return pulumi.get(self, "service_configurations")
+
+
+@pulumi.output_type
+class BackendAddressPoolPropertiesResponse(dict):
+    """
+    Backend address pool for the load balancer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "loadBalancerBackendAddresses":
+            suggest = "load_balancer_backend_addresses"
+        elif key == "logicalNetwork":
+            suggest = "logical_network"
+        elif key == "virtualNetwork":
+            suggest = "virtual_network"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in BackendAddressPoolPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        BackendAddressPoolPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        BackendAddressPoolPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
+                 logical_network: Optional['outputs.LogicalNetworkArmReferenceResponse'] = None,
+                 virtual_network: Optional['outputs.VirtualNetworkArmReferenceResponse'] = None):
+        """
+        Backend address pool for the load balancer.
+        :param Sequence['LoadBalancerBackendAddressResponse'] load_balancer_backend_addresses: List of backend addresses for the backend pool
+        :param 'LogicalNetworkArmReferenceResponse' logical_network: Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        :param 'VirtualNetworkArmReferenceResponse' virtual_network: Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        if load_balancer_backend_addresses is not None:
+            pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
+        if logical_network is not None:
+            pulumi.set(__self__, "logical_network", logical_network)
+        if virtual_network is not None:
+            pulumi.set(__self__, "virtual_network", virtual_network)
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancerBackendAddresses")
+    def load_balancer_backend_addresses(self) -> Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']]:
+        """
+        List of backend addresses for the backend pool
+        """
+        return pulumi.get(self, "load_balancer_backend_addresses")
+
+    @_builtins.property
+    @pulumi.getter(name="logicalNetwork")
+    def logical_network(self) -> Optional['outputs.LogicalNetworkArmReferenceResponse']:
+        """
+        Reference to the logical network for this backend pool. Mutually exclusive with virtualNetwork
+        """
+        return pulumi.get(self, "logical_network")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> Optional['outputs.VirtualNetworkArmReferenceResponse']:
+        """
+        Reference to the virtual network for this backend pool. Mutually exclusive with logicalNetwork
+        """
+        return pulumi.get(self, "virtual_network")
+
+
+@pulumi.output_type
+class BackendAddressPoolResponse(dict):
+    """
+    Backend address pool for the load balancer.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.BackendAddressPoolPropertiesResponse'):
+        """
+        Backend address pool for the load balancer.
+        :param _builtins.str name: name of the backend pool.
+        :param 'BackendAddressPoolPropertiesResponse' properties: properties for the backend pool
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the backend pool.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.BackendAddressPoolPropertiesResponse':
+        """
+        properties for the backend pool
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -2110,6 +2241,119 @@ class ExtensionResponse(dict):
 
 
 @pulumi.output_type
+class FrontendIPConfigurationPropertiesResponse(dict):
+    """
+    FrontendIP Configuration object for a load balancer.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "privateIPAddress":
+            suggest = "private_ip_address"
+        elif key == "privateIPAllocationMethod":
+            suggest = "private_ip_allocation_method"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FrontendIPConfigurationPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FrontendIPConfigurationPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FrontendIPConfigurationPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 private_ip_address: Optional[_builtins.str] = None,
+                 private_ip_allocation_method: Optional[_builtins.str] = None,
+                 public_ip_address: Optional['outputs.PublicIPAddressArmReferenceResponse'] = None,
+                 subnet: Optional['outputs.VirtualNetworkSubnetArmReferenceResponse'] = None):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param _builtins.str private_ip_address: Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        :param _builtins.str private_ip_allocation_method: privateIPAllocationMethod - set to Static for requesting a specific IP
+        :param 'PublicIPAddressArmReferenceResponse' public_ip_address: Public IP 
+        :param 'VirtualNetworkSubnetArmReferenceResponse' subnet: subnet - the subnet from which to allocate the private IP
+        """
+        if private_ip_address is not None:
+            pulumi.set(__self__, "private_ip_address", private_ip_address)
+        if private_ip_allocation_method is not None:
+            pulumi.set(__self__, "private_ip_allocation_method", private_ip_allocation_method)
+        if public_ip_address is not None:
+            pulumi.set(__self__, "public_ip_address", public_ip_address)
+        if subnet is not None:
+            pulumi.set(__self__, "subnet", subnet)
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAddress")
+    def private_ip_address(self) -> Optional[_builtins.str]:
+        """
+        Private IP Address that was allocated (dynamic) or is to be allocated (static) from the subnet.
+        """
+        return pulumi.get(self, "private_ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="privateIPAllocationMethod")
+    def private_ip_allocation_method(self) -> Optional[_builtins.str]:
+        """
+        privateIPAllocationMethod - set to Static for requesting a specific IP
+        """
+        return pulumi.get(self, "private_ip_allocation_method")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> Optional['outputs.PublicIPAddressArmReferenceResponse']:
+        """
+        Public IP 
+        """
+        return pulumi.get(self, "public_ip_address")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> Optional['outputs.VirtualNetworkSubnetArmReferenceResponse']:
+        """
+        subnet - the subnet from which to allocate the private IP
+        """
+        return pulumi.get(self, "subnet")
+
+
+@pulumi.output_type
+class FrontendIPConfigurationResponse(dict):
+    """
+    FrontendIP Configuration object for a load balancer.
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.FrontendIPConfigurationPropertiesResponse'):
+        """
+        FrontendIP Configuration object for a load balancer.
+        :param _builtins.str name: name for the frontend IP configuration.
+        :param 'FrontendIPConfigurationPropertiesResponse' properties: properties for this frontendIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name for the frontend IP configuration.
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.FrontendIPConfigurationPropertiesResponse':
+        """
+        properties for this frontendIPConfiguration
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
 class GalleryImageIdentifierResponse(dict):
     """
     This is the gallery image definition identifier.
@@ -3661,6 +3905,46 @@ class HttpProxyConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class IPConfigurationArmReferenceResponse(dict):
+    """
+    The Azure Resource ID of an IPConfiguration resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in IPConfigurationArmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        IPConfigurationArmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        IPConfigurationArmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        :param _builtins.str resource_id: The Azure Resource ID of an IPConfiguration resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource ID of an IPConfiguration resource
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class IPConfigurationPropertiesResponse(dict):
     """
     InterfaceIPConfigurationPropertiesFormat properties of IP configuration.
@@ -3959,13 +4243,13 @@ class IdentityResponse(dict):
 @pulumi.output_type
 class ImageArmReferenceResponse(dict):
     """
-    The ARM ID for a Gallery Image.
+    The Azure Resource ID for a Gallery Image.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Gallery Image.
-        :param _builtins.str id: The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for a Gallery Image.
+        :param _builtins.str id: The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -3974,9 +4258,131 @@ class ImageArmReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for an image resource used by the virtual machine instance.
+        The Azure Resource ID for an image resource used by the virtual machine instance.
         """
         return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class InboundNATRulePropertiesResponse(dict):
+    """
+    Inbound nat rule properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendIPConfiguration":
+            suggest = "backend_ip_configuration"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "publicIPAddress":
+            suggest = "public_ip_address"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in InboundNATRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        InboundNATRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        InboundNATRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_ip_configuration: 'outputs.IPConfigurationArmReferenceResponse',
+                 backend_port: _builtins.int,
+                 frontend_port: _builtins.int,
+                 protocol: _builtins.str,
+                 public_ip_address: 'outputs.PublicIPAddressArmReferenceResponse'):
+        """
+        Inbound nat rule properties
+        :param 'IPConfigurationArmReferenceResponse' backend_ip_configuration: IP configuration for the target backend.
+        :param _builtins.int backend_port: backend Port for the inbound rule
+        :param _builtins.int frontend_port: Frontend Port for the inbound rule
+        :param _builtins.str protocol: Protocol for the NAT rule
+        :param 'PublicIPAddressArmReferenceResponse' public_ip_address: Public IP Address for this NAT rule
+        """
+        pulumi.set(__self__, "backend_ip_configuration", backend_ip_configuration)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        pulumi.set(__self__, "public_ip_address", public_ip_address)
+
+    @_builtins.property
+    @pulumi.getter(name="backendIPConfiguration")
+    def backend_ip_configuration(self) -> 'outputs.IPConfigurationArmReferenceResponse':
+        """
+        IP configuration for the target backend.
+        """
+        return pulumi.get(self, "backend_ip_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> _builtins.int:
+        """
+        backend Port for the inbound rule
+        """
+        return pulumi.get(self, "backend_port")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> _builtins.int:
+        """
+        Frontend Port for the inbound rule
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        Protocol for the NAT rule
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddress")
+    def public_ip_address(self) -> 'outputs.PublicIPAddressArmReferenceResponse':
+        """
+        Public IP Address for this NAT rule
+        """
+        return pulumi.get(self, "public_ip_address")
+
+
+@pulumi.output_type
+class InboundNATRuleResponse(dict):
+    """
+    Inbound nat rule properties
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.InboundNATRulePropertiesResponse'):
+        """
+        Inbound nat rule properties
+        :param _builtins.str name: name of the inbound nat rule
+        :param 'InboundNATRulePropertiesResponse' properties: properties of the inbound nat rule
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the inbound nat rule
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.InboundNATRulePropertiesResponse':
+        """
+        properties of the inbound nat rule
+        """
+        return pulumi.get(self, "properties")
 
 
 @pulumi.output_type
@@ -4604,6 +5010,595 @@ class IsolatedVmAttestationConfigurationResponse(dict):
 
 
 @pulumi.output_type
+class LoadBalancerBackendAddressPoolReferenceResponse(dict):
+    """
+    Reference to a LoadBalancer backend address pool reference
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        Reference to a LoadBalancer backend address pool reference
+        :param _builtins.str name: name of the backend address pool
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the backend address pool
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LoadBalancerBackendAddressPropertiesResponse(dict):
+    """
+    LoadBalancer Backend Address properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "logicalNetwork":
+            suggest = "logical_network"
+        elif key == "virtualNetwork":
+            suggest = "virtual_network"
+        elif key == "adminState":
+            suggest = "admin_state"
+        elif key == "networkInterfaceIPConfiguration":
+            suggest = "network_interface_ip_configuration"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerBackendAddressPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerBackendAddressPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerBackendAddressPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_address: _builtins.str,
+                 logical_network: 'outputs.LogicalNetworkArmReferenceResponse',
+                 subnet: 'outputs.VirtualNetworkSubnetArmReferenceResponse',
+                 virtual_network: 'outputs.VirtualNetworkArmReferenceResponse',
+                 admin_state: Optional[_builtins.str] = None,
+                 network_interface_ip_configuration: Optional['outputs.IPConfigurationArmReferenceResponse'] = None):
+        """
+        LoadBalancer Backend Address properties
+        :param _builtins.str ip_address: IP address of the backend target. Populated automatically from the referenced IP configuration.
+        :param 'LogicalNetworkArmReferenceResponse' logical_network: Reference to the logical network containing this backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with subnet and virtualNetwork.
+        :param 'VirtualNetworkSubnetArmReferenceResponse' subnet: Reference to the subnet containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+        :param 'VirtualNetworkArmReferenceResponse' virtual_network: Reference to the virtual network containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+        :param _builtins.str admin_state: admin state - if set to false, the address is removed from the pool
+        :param 'IPConfigurationArmReferenceResponse' network_interface_ip_configuration: Nic Based backend-ip association
+        """
+        pulumi.set(__self__, "ip_address", ip_address)
+        pulumi.set(__self__, "logical_network", logical_network)
+        pulumi.set(__self__, "subnet", subnet)
+        pulumi.set(__self__, "virtual_network", virtual_network)
+        if admin_state is not None:
+            pulumi.set(__self__, "admin_state", admin_state)
+        if network_interface_ip_configuration is not None:
+            pulumi.set(__self__, "network_interface_ip_configuration", network_interface_ip_configuration)
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> _builtins.str:
+        """
+        IP address of the backend target. Populated automatically from the referenced IP configuration.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="logicalNetwork")
+    def logical_network(self) -> 'outputs.LogicalNetworkArmReferenceResponse':
+        """
+        Reference to the logical network containing this backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with subnet and virtualNetwork.
+        """
+        return pulumi.get(self, "logical_network")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnet(self) -> 'outputs.VirtualNetworkSubnetArmReferenceResponse':
+        """
+        Reference to the subnet containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+        """
+        return pulumi.get(self, "subnet")
+
+    @_builtins.property
+    @pulumi.getter(name="virtualNetwork")
+    def virtual_network(self) -> 'outputs.VirtualNetworkArmReferenceResponse':
+        """
+        Reference to the virtual network containing the backend address. Populated automatically from the referenced IP configuration. Mutually exclusive with logicalNetwork.
+        """
+        return pulumi.get(self, "virtual_network")
+
+    @_builtins.property
+    @pulumi.getter(name="adminState")
+    def admin_state(self) -> Optional[_builtins.str]:
+        """
+        admin state - if set to false, the address is removed from the pool
+        """
+        return pulumi.get(self, "admin_state")
+
+    @_builtins.property
+    @pulumi.getter(name="networkInterfaceIPConfiguration")
+    def network_interface_ip_configuration(self) -> Optional['outputs.IPConfigurationArmReferenceResponse']:
+        """
+        Nic Based backend-ip association
+        """
+        return pulumi.get(self, "network_interface_ip_configuration")
+
+
+@pulumi.output_type
+class LoadBalancerBackendAddressResponse(dict):
+    """
+    LoadBalancer Backend Address
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.LoadBalancerBackendAddressPropertiesResponse'):
+        """
+        LoadBalancer Backend Address
+        :param _builtins.str name: name of the backend address
+        :param 'LoadBalancerBackendAddressPropertiesResponse' properties: backend address properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the backend address
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.LoadBalancerBackendAddressPropertiesResponse':
+        """
+        backend address properties
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class LoadBalancerFrontendIPConfigurationReferenceResponse(dict):
+    """
+    Reference to a LoadBalancer Frontend IPConfiguration
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        Reference to a LoadBalancer Frontend IPConfiguration
+        :param _builtins.str name: name of the frontnedIPConfiguration
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the frontnedIPConfiguration
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LoadBalancerProbeReferenceResponse(dict):
+    """
+    Reference to a LoadBalancer health probe
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str):
+        """
+        Reference to a LoadBalancer health probe
+        :param _builtins.str name: name of the health probe
+        """
+        pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the health probe
+        """
+        return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class LoadBalancerPropertiesResponse(dict):
+    """
+    Load Balancer resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "frontendIPConfigurations":
+            suggest = "frontend_ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "backendAddressPools":
+            suggest = "backend_address_pools"
+        elif key == "loadBalancingRules":
+            suggest = "load_balancing_rules"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 frontend_ip_configurations: Sequence['outputs.FrontendIPConfigurationResponse'],
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.LoadBalancerStatusResponse',
+                 backend_address_pools: Optional[Sequence['outputs.BackendAddressPoolResponse']] = None,
+                 load_balancing_rules: Optional[Sequence['outputs.LoadBalancerRuleResponse']] = None,
+                 probes: Optional[Sequence['outputs.ProbeResponse']] = None):
+        """
+        Load Balancer resource properties
+        :param Sequence['FrontendIPConfigurationResponse'] frontend_ip_configurations: Frontend IPs for the loadbalancer.
+        :param _builtins.str provisioning_state: Provisioning state of the Load Balancer
+        :param 'LoadBalancerStatusResponse' status: observed state of the load balancer
+        :param Sequence['BackendAddressPoolResponse'] backend_address_pools: backendAddressPools for the loadbalancer
+        :param Sequence['LoadBalancerRuleResponse'] load_balancing_rules: load balancer rules
+        :param Sequence['ProbeResponse'] probes: load balancer health probes
+        """
+        pulumi.set(__self__, "frontend_ip_configurations", frontend_ip_configurations)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        if backend_address_pools is not None:
+            pulumi.set(__self__, "backend_address_pools", backend_address_pools)
+        if load_balancing_rules is not None:
+            pulumi.set(__self__, "load_balancing_rules", load_balancing_rules)
+        if probes is not None:
+            pulumi.set(__self__, "probes", probes)
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfigurations")
+    def frontend_ip_configurations(self) -> Sequence['outputs.FrontendIPConfigurationResponse']:
+        """
+        Frontend IPs for the loadbalancer.
+        """
+        return pulumi.get(self, "frontend_ip_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the Load Balancer
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.LoadBalancerStatusResponse':
+        """
+        observed state of the load balancer
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPools")
+    def backend_address_pools(self) -> Optional[Sequence['outputs.BackendAddressPoolResponse']]:
+        """
+        backendAddressPools for the loadbalancer
+        """
+        return pulumi.get(self, "backend_address_pools")
+
+    @_builtins.property
+    @pulumi.getter(name="loadBalancingRules")
+    def load_balancing_rules(self) -> Optional[Sequence['outputs.LoadBalancerRuleResponse']]:
+        """
+        load balancer rules
+        """
+        return pulumi.get(self, "load_balancing_rules")
+
+    @_builtins.property
+    @pulumi.getter
+    def probes(self) -> Optional[Sequence['outputs.ProbeResponse']]:
+        """
+        load balancer health probes
+        """
+        return pulumi.get(self, "probes")
+
+
+@pulumi.output_type
+class LoadBalancerRulePropertiesResponse(dict):
+    """
+    Properties for LoadBalancerRules
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "backendAddressPool":
+            suggest = "backend_address_pool"
+        elif key == "backendPort":
+            suggest = "backend_port"
+        elif key == "frontendIPConfiguration":
+            suggest = "frontend_ip_configuration"
+        elif key == "frontendPort":
+            suggest = "frontend_port"
+        elif key == "idleTimeoutInMinutes":
+            suggest = "idle_timeout_in_minutes"
+        elif key == "loadDistribution":
+            suggest = "load_distribution"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerRulePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerRulePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerRulePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 backend_address_pool: 'outputs.LoadBalancerBackendAddressPoolReferenceResponse',
+                 backend_port: _builtins.int,
+                 frontend_ip_configuration: 'outputs.LoadBalancerFrontendIPConfigurationReferenceResponse',
+                 frontend_port: _builtins.int,
+                 protocol: _builtins.str,
+                 idle_timeout_in_minutes: Optional[_builtins.int] = None,
+                 load_distribution: Optional[_builtins.str] = None,
+                 probe: Optional['outputs.LoadBalancerProbeReferenceResponse'] = None):
+        """
+        Properties for LoadBalancerRules
+        :param 'LoadBalancerBackendAddressPoolReferenceResponse' backend_address_pool: arm reference to backend pool being used by ths pool
+        :param _builtins.int backend_port: backendPort to forward connections
+        :param 'LoadBalancerFrontendIPConfigurationReferenceResponse' frontend_ip_configuration: arm reference to frontend IP being used by this LB
+        :param _builtins.int frontend_port: Frontend port to accept connections
+        :param _builtins.str protocol: IP Protocol that the rule must load-balance
+        :param _builtins.int idle_timeout_in_minutes: Time for which connections are preserved before being torn down.
+        :param _builtins.str load_distribution: SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        :param 'LoadBalancerProbeReferenceResponse' probe: Reference for the health probe for this connection
+        """
+        pulumi.set(__self__, "backend_address_pool", backend_address_pool)
+        pulumi.set(__self__, "backend_port", backend_port)
+        pulumi.set(__self__, "frontend_ip_configuration", frontend_ip_configuration)
+        pulumi.set(__self__, "frontend_port", frontend_port)
+        pulumi.set(__self__, "protocol", protocol)
+        if idle_timeout_in_minutes is not None:
+            pulumi.set(__self__, "idle_timeout_in_minutes", idle_timeout_in_minutes)
+        if load_distribution is None:
+            load_distribution = 'Default'
+        if load_distribution is not None:
+            pulumi.set(__self__, "load_distribution", load_distribution)
+        if probe is not None:
+            pulumi.set(__self__, "probe", probe)
+
+    @_builtins.property
+    @pulumi.getter(name="backendAddressPool")
+    def backend_address_pool(self) -> 'outputs.LoadBalancerBackendAddressPoolReferenceResponse':
+        """
+        arm reference to backend pool being used by ths pool
+        """
+        return pulumi.get(self, "backend_address_pool")
+
+    @_builtins.property
+    @pulumi.getter(name="backendPort")
+    def backend_port(self) -> _builtins.int:
+        """
+        backendPort to forward connections
+        """
+        return pulumi.get(self, "backend_port")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendIPConfiguration")
+    def frontend_ip_configuration(self) -> 'outputs.LoadBalancerFrontendIPConfigurationReferenceResponse':
+        """
+        arm reference to frontend IP being used by this LB
+        """
+        return pulumi.get(self, "frontend_ip_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="frontendPort")
+    def frontend_port(self) -> _builtins.int:
+        """
+        Frontend port to accept connections
+        """
+        return pulumi.get(self, "frontend_port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        IP Protocol that the rule must load-balance
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="idleTimeoutInMinutes")
+    def idle_timeout_in_minutes(self) -> Optional[_builtins.int]:
+        """
+        Time for which connections are preserved before being torn down.
+        """
+        return pulumi.get(self, "idle_timeout_in_minutes")
+
+    @_builtins.property
+    @pulumi.getter(name="loadDistribution")
+    def load_distribution(self) -> Optional[_builtins.str]:
+        """
+        SessionPersistence: Default (5-tuple), SourceIP(2-tuple), sourceIPProtocol(3-tuple)
+        """
+        return pulumi.get(self, "load_distribution")
+
+    @_builtins.property
+    @pulumi.getter
+    def probe(self) -> Optional['outputs.LoadBalancerProbeReferenceResponse']:
+        """
+        Reference for the health probe for this connection
+        """
+        return pulumi.get(self, "probe")
+
+
+@pulumi.output_type
+class LoadBalancerRuleResponse(dict):
+    """
+    LoadBalancer Rules
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.LoadBalancerRulePropertiesResponse'):
+        """
+        LoadBalancer Rules
+        :param _builtins.str name: name of the load balancer rule
+        :param 'LoadBalancerRulePropertiesResponse' properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the load balancer rule
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.LoadBalancerRulePropertiesResponse':
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class LoadBalancerStatusProvisioningStatusResponse(dict):
+    """
+    Status of load balancer operations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Status of load balancer operations
+        :param _builtins.str status: The status of the operation performed on the loadbalancer [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the load balancer
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the loadbalancer [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the load balancer
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class LoadBalancerStatusResponse(dict):
+    """
+    The observed status of the virtual network
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in LoadBalancerStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        LoadBalancerStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        LoadBalancerStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.LoadBalancerStatusProvisioningStatusResponse'] = None):
+        """
+        The observed status of the virtual network
+        :param _builtins.str error_code: LoadBalancer provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'LoadBalancerStatusProvisioningStatusResponse' provisioning_status: virtual network provisioning status
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        LoadBalancer provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.LoadBalancerStatusProvisioningStatusResponse']:
+        """
+        virtual network provisioning status
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
 class LogCollectionErrorResponse(dict):
     """
     Log Collection Error details of the cluster.
@@ -5055,13 +6050,13 @@ class LogCollectionSessionResponse(dict):
 @pulumi.output_type
 class LogicalNetworkArmReferenceResponse(dict):
     """
-    The ARM ID for a Logical Network.
+    The Azure Resource ID for a Logical Network.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Logical Network.
-        :param _builtins.str id: The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
+        :param _builtins.str id: The Azure Resource ID for a Logical Network.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5070,7 +6065,7 @@ class LogicalNetworkArmReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Logical Network.
+        The Azure Resource ID for a Logical Network.
         """
         return pulumi.get(self, "id")
 
@@ -5655,6 +6650,254 @@ class MarketplaceGalleryImageStatusResponse(dict):
 
 
 @pulumi.output_type
+class NatGatewayArmReferenceResponse(dict):
+    """
+    The ARM ID for a Network Security Group.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayArmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayArmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayArmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        The ARM ID for a Network Security Group.
+        :param _builtins.str resource_id: The ARM ID for a Network Security Group.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The ARM ID for a Network Security Group.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class NatGatewayPropertiesResponse(dict):
+    """
+    Nat Gateway resource properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "inboundNATRules":
+            suggest = "inbound_nat_rules"
+        elif key == "publicIPAddresses":
+            suggest = "public_ip_addresses"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.NatGatewayStatusResponse',
+                 subnets: Sequence['outputs.VirtualNetworkSubnetArmReferenceResponse'],
+                 inbound_nat_rules: Optional[Sequence['outputs.InboundNATRuleResponse']] = None,
+                 public_ip_addresses: Optional[Sequence['outputs.PublicIPAddressArmReferenceResponse']] = None):
+        """
+        Nat Gateway resource properties
+        :param _builtins.str provisioning_state: Provisioning state of the public IP
+        :param 'NatGatewayStatusResponse' status: The observed state of Nat Gateway
+        :param Sequence['VirtualNetworkSubnetArmReferenceResponse'] subnets: List of subnets associated with the nat gateway. These can only be vnet subnets and must be from the same vnet
+        :param Sequence['InboundNATRuleResponse'] inbound_nat_rules: List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        :param Sequence['PublicIPAddressArmReferenceResponse'] public_ip_addresses: List of public ip addresses that the gateway can use for NAT.
+        """
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        pulumi.set(__self__, "subnets", subnets)
+        if inbound_nat_rules is not None:
+            pulumi.set(__self__, "inbound_nat_rules", inbound_nat_rules)
+        if public_ip_addresses is not None:
+            pulumi.set(__self__, "public_ip_addresses", public_ip_addresses)
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the public IP
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.NatGatewayStatusResponse':
+        """
+        The observed state of Nat Gateway
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter
+    def subnets(self) -> Sequence['outputs.VirtualNetworkSubnetArmReferenceResponse']:
+        """
+        List of subnets associated with the nat gateway. These can only be vnet subnets and must be from the same vnet
+        """
+        return pulumi.get(self, "subnets")
+
+    @_builtins.property
+    @pulumi.getter(name="inboundNATRules")
+    def inbound_nat_rules(self) -> Optional[Sequence['outputs.InboundNATRuleResponse']]:
+        """
+        List of inbound NAT rules. InboundNATRules can only be set after the NAT Gateway has been associated with a vnet
+        """
+        return pulumi.get(self, "inbound_nat_rules")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddresses")
+    def public_ip_addresses(self) -> Optional[Sequence['outputs.PublicIPAddressArmReferenceResponse']]:
+        """
+        List of public ip addresses that the gateway can use for NAT.
+        """
+        return pulumi.get(self, "public_ip_addresses")
+
+
+@pulumi.output_type
+class NatGatewayStatusProvisioningStatusResponse(dict):
+    """
+    Provisioning status of Nat Gateway 
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Provisioning status of Nat Gateway 
+        :param _builtins.str status: The status of the operation performed on the nat gateway [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the nat gateway
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the nat gateway [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the nat gateway
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class NatGatewayStatusResponse(dict):
+    """
+    Nat Gateway resource status
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in NatGatewayStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        NatGatewayStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        NatGatewayStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.NatGatewayStatusProvisioningStatusResponse'] = None):
+        """
+        Nat Gateway resource status
+        :param _builtins.str error_code: NatGateway provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'NatGatewayStatusProvisioningStatusResponse' provisioning_status: NatGateway provisioning status
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        NatGateway provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.NatGatewayStatusProvisioningStatusResponse']:
+        """
+        NatGateway provisioning status
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
 class NetworkControllerResponse(dict):
     """
     network controller config for SDN Integration to deploy AzureStackHCI Cluster.
@@ -5725,13 +6968,13 @@ class NetworkControllerResponse(dict):
 @pulumi.output_type
 class NetworkInterfaceArmReferenceResponse(dict):
     """
-    The ARM ID for a Network Interface.
+    The Azure Resource ID for a Network Interface.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Network Interface.
-        :param _builtins.str id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param _builtins.str id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5740,7 +6983,7 @@ class NetworkInterfaceArmReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -5867,13 +7110,13 @@ class NetworkInterfaceStatusResponse(dict):
 @pulumi.output_type
 class NetworkSecurityGroupArmReferenceResponse(dict):
     """
-    The ARM ID for a Network Security Group.
+    The Azure Resource ID for a Network Security Group.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Network Security Group.
-        :param _builtins.str id: The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
+        :param _builtins.str id: The Azure Resource ID for a Network Security Group.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -5882,7 +7125,7 @@ class NetworkSecurityGroupArmReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Network Security Group.
+        The Azure Resource ID for a Network Security Group.
         """
         return pulumi.get(self, "id")
 
@@ -6570,6 +7813,280 @@ class PhysicalNodesResponse(dict):
         NETBIOS name of each physical server on your Azure Stack HCI cluster.
         """
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class ProbePropertiesResponse(dict):
+    """
+    properties for LoadBalancer health probes
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "intervalInSeconds":
+            suggest = "interval_in_seconds"
+        elif key == "numberOfProbes":
+            suggest = "number_of_probes"
+        elif key == "requestPath":
+            suggest = "request_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ProbePropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ProbePropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ProbePropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port: _builtins.int,
+                 protocol: _builtins.str,
+                 interval_in_seconds: Optional[_builtins.int] = None,
+                 number_of_probes: Optional[_builtins.int] = None,
+                 request_path: Optional[_builtins.str] = None):
+        """
+        properties for LoadBalancer health probes
+        :param _builtins.int port: Port on the backend address to probe
+        :param _builtins.str protocol: Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        :param _builtins.int interval_in_seconds: Probe interval in seconds (5-300) default 15
+        :param _builtins.int number_of_probes: number of consecutive probe failures before marking unhealthy (1-20) default 2
+        :param _builtins.str request_path: For http probes, specify the request path e.g. /health
+        """
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "protocol", protocol)
+        if interval_in_seconds is None:
+            interval_in_seconds = 15
+        if interval_in_seconds is not None:
+            pulumi.set(__self__, "interval_in_seconds", interval_in_seconds)
+        if number_of_probes is None:
+            number_of_probes = 2
+        if number_of_probes is not None:
+            pulumi.set(__self__, "number_of_probes", number_of_probes)
+        if request_path is not None:
+            pulumi.set(__self__, "request_path", request_path)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> _builtins.int:
+        """
+        Port on the backend address to probe
+        """
+        return pulumi.get(self, "port")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> _builtins.str:
+        """
+        Protocol for this probe: Can be Tcp or Http - Diverges from Azure where Https is also an option
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="intervalInSeconds")
+    def interval_in_seconds(self) -> Optional[_builtins.int]:
+        """
+        Probe interval in seconds (5-300) default 15
+        """
+        return pulumi.get(self, "interval_in_seconds")
+
+    @_builtins.property
+    @pulumi.getter(name="numberOfProbes")
+    def number_of_probes(self) -> Optional[_builtins.int]:
+        """
+        number of consecutive probe failures before marking unhealthy (1-20) default 2
+        """
+        return pulumi.get(self, "number_of_probes")
+
+    @_builtins.property
+    @pulumi.getter(name="requestPath")
+    def request_path(self) -> Optional[_builtins.str]:
+        """
+        For http probes, specify the request path e.g. /health
+        """
+        return pulumi.get(self, "request_path")
+
+
+@pulumi.output_type
+class ProbeResponse(dict):
+    """
+    Load balancer health probes
+    """
+    def __init__(__self__, *,
+                 name: _builtins.str,
+                 properties: 'outputs.ProbePropertiesResponse'):
+        """
+        Load balancer health probes
+        :param _builtins.str name: name of the load balancer health probe
+        :param 'ProbePropertiesResponse' properties: load balancer rule properties
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "properties", properties)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> _builtins.str:
+        """
+        name of the load balancer health probe
+        """
+        return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter
+    def properties(self) -> 'outputs.ProbePropertiesResponse':
+        """
+        load balancer rule properties
+        """
+        return pulumi.get(self, "properties")
+
+
+@pulumi.output_type
+class PublicIPAddressArmReferenceResponse(dict):
+    """
+    The Azure Resource ID of a Public IP resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressArmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressArmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressArmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        The Azure Resource ID of a Public IP resource
+        :param _builtins.str resource_id: The Azure Resource ID of a Public IP resource
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource ID of a Public IP resource
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class PublicIPAddressPropertiesResponse(dict):
+    """
+    Public IP Properties resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "ipConfiguration":
+            suggest = "ip_configuration"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "ipAddress":
+            suggest = "ip_address"
+        elif key == "ipAllocationScope":
+            suggest = "ip_allocation_scope"
+        elif key == "publicIPAddressVersion":
+            suggest = "public_ip_address_version"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PublicIPAddressPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PublicIPAddressPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PublicIPAddressPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip_configuration: 'outputs.IPConfigurationArmReferenceResponse',
+                 nat_gateway: 'outputs.NatGatewayArmReferenceResponse',
+                 provisioning_state: _builtins.str,
+                 ip_address: Optional[_builtins.str] = None,
+                 ip_allocation_scope: Optional[_builtins.str] = None,
+                 public_ip_address_version: Optional[_builtins.str] = None):
+        """
+        Public IP Properties resource.
+        :param 'IPConfigurationArmReferenceResponse' ip_configuration: network interface or LoadBalancer frontendIPconfiguration using this public IP
+        :param 'NatGatewayArmReferenceResponse' nat_gateway: natGateway using this public IP
+        :param _builtins.str provisioning_state: Provisioning state of the public IP
+        :param _builtins.str ip_address: IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        :param _builtins.str ip_allocation_scope: ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        :param _builtins.str public_ip_address_version: Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        pulumi.set(__self__, "ip_configuration", ip_configuration)
+        pulumi.set(__self__, "nat_gateway", nat_gateway)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if ip_address is not None:
+            pulumi.set(__self__, "ip_address", ip_address)
+        if ip_allocation_scope is not None:
+            pulumi.set(__self__, "ip_allocation_scope", ip_allocation_scope)
+        if public_ip_address_version is not None:
+            pulumi.set(__self__, "public_ip_address_version", public_ip_address_version)
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfiguration")
+    def ip_configuration(self) -> 'outputs.IPConfigurationArmReferenceResponse':
+        """
+        network interface or LoadBalancer frontendIPconfiguration using this public IP
+        """
+        return pulumi.get(self, "ip_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> 'outputs.NatGatewayArmReferenceResponse':
+        """
+        natGateway using this public IP
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        Provisioning state of the public IP
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAddress")
+    def ip_address(self) -> Optional[_builtins.str]:
+        """
+        IP Address. This is static. If the user specifies, we allocate that otherwise allocate from logical network address space.
+        """
+        return pulumi.get(self, "ip_address")
+
+    @_builtins.property
+    @pulumi.getter(name="ipAllocationScope")
+    def ip_allocation_scope(self) -> Optional[_builtins.str]:
+        """
+        ipAllocationScope: Azure Reference to a particular IP Pool (ALM) or a LogicalNetwork (ALL) for allocating public IP
+        """
+        return pulumi.get(self, "ip_allocation_scope")
+
+    @_builtins.property
+    @pulumi.getter(name="publicIPAddressVersion")
+    def public_ip_address_version(self) -> Optional[_builtins.str]:
+        """
+        Whether the public IP is v4 or v6. Defaults to IPv4
+        """
+        return pulumi.get(self, "public_ip_address_version")
 
 
 @pulumi.output_type
@@ -8436,13 +9953,13 @@ class StorageResponse(dict):
 @pulumi.output_type
 class SubnetIpConfigurationReferenceResponse(dict):
     """
-    The ARM ID for a Network Interface.
+    The Azure Resource ID for a Network Interface.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Network Interface.
-        :param _builtins.str id: The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
+        :param _builtins.str id: The Azure Resource ID for a Network Interface.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -8451,7 +9968,7 @@ class SubnetIpConfigurationReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Network Interface.
+        The Azure Resource ID for a Network Interface.
         """
         return pulumi.get(self, "id")
 
@@ -9003,13 +10520,13 @@ class VMDiskSecurityProfileResponse(dict):
 @pulumi.output_type
 class VirtualHardDiskArmReferenceResponse(dict):
     """
-    The ARM ID for a Virtual Hard Disk.
+    The Azure Resource ID for a Virtual Hard Disk.
     """
     def __init__(__self__, *,
                  id: Optional[_builtins.str] = None):
         """
-        The ARM ID for a Virtual Hard Disk.
-        :param _builtins.str id: The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
+        :param _builtins.str id: The Azure Resource ID for a Virtual Hard Disk.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
@@ -9018,7 +10535,7 @@ class VirtualHardDiskArmReferenceResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -10097,7 +11614,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskResponse(dict):
                  os_type: Optional[_builtins.str] = None):
         """
         VHD to attach as OS disk
-        :param _builtins.str id: The ARM ID for a Virtual Hard Disk.
+        :param _builtins.str id: The Azure Resource ID for a Virtual Hard Disk.
         :param 'VirtualMachineInstanceManagedDiskParametersResponse' managed_disk: The managed disk parameters.
         :param _builtins.str os_type: This property allows you to specify the type of the OS that is included in the disk if creating a VM from user-image or a specialized VHD. Possible values are: Windows, Linux.
         """
@@ -10112,7 +11629,7 @@ class VirtualMachineInstancePropertiesStorageProfileOsDiskResponse(dict):
     @pulumi.getter
     def id(self) -> Optional[_builtins.str]:
         """
-        The ARM ID for a Virtual Hard Disk.
+        The Azure Resource ID for a Virtual Hard Disk.
         """
         return pulumi.get(self, "id")
 
@@ -11355,6 +12872,46 @@ class VirtualMachineStatusResponseProvisioningStatus(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkArmReferenceResponse(dict):
+    """
+    The Azure Resource ID for a Virtual Network
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkArmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkArmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkArmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        The Azure Resource ID for a Virtual Network
+        :param _builtins.str resource_id: The Azure Resource ID for a Virtual Network.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource ID for a Virtual Network.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
 class VirtualNetworkPropertiesResponseDhcpOptions(dict):
     """
     DhcpOptions contains an array of DNS servers available to VMs deployed in the virtual network. Standard DHCP option for a subnet overrides VNET DHCP options.
@@ -11775,6 +13332,306 @@ class VirtualNetworkStatusResponseProvisioningStatus(dict):
 
 
 @pulumi.output_type
+class VirtualNetworkSubnetArmReferenceResponse(dict):
+    """
+    The Azure Resource ID for a Virtual Network subnet
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "resourceId":
+            suggest = "resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetArmReferenceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetArmReferenceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetArmReferenceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 resource_id: Optional[_builtins.str] = None):
+        """
+        The Azure Resource ID for a Virtual Network subnet
+        :param _builtins.str resource_id: The Azure Resource ID for a Virtual Network subnet.
+        """
+        if resource_id is not None:
+            pulumi.set(__self__, "resource_id", resource_id)
+
+    @_builtins.property
+    @pulumi.getter(name="resourceId")
+    def resource_id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource ID for a Virtual Network subnet.
+        """
+        return pulumi.get(self, "resource_id")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetIpConfigurationReferenceResponse(dict):
+    """
+    The Azure Resource ID for a resource consuming IP on a subnet
+    """
+    def __init__(__self__, *,
+                 id: Optional[_builtins.str] = None):
+        """
+        The Azure Resource ID for a resource consuming IP on a subnet
+        :param _builtins.str id: The Azure Resource ID for a Network Interface.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @_builtins.property
+    @pulumi.getter
+    def id(self) -> Optional[_builtins.str]:
+        """
+        The Azure Resource ID for a Network Interface.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetPropertiesResponse(dict):
+    """
+    VirtualNetwork subnet resource
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "addressPrefix":
+            suggest = "address_prefix"
+        elif key == "ipConfigurations":
+            suggest = "ip_configurations"
+        elif key == "provisioningState":
+            suggest = "provisioning_state"
+        elif key == "natGateway":
+            suggest = "nat_gateway"
+        elif key == "networkSecurityGroup":
+            suggest = "network_security_group"
+        elif key == "routeTable":
+            suggest = "route_table"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 address_prefix: _builtins.str,
+                 ip_configurations: Sequence['outputs.VirtualNetworkSubnetIpConfigurationReferenceResponse'],
+                 provisioning_state: _builtins.str,
+                 status: 'outputs.VirtualNetworkSubnetStatusResponse',
+                 nat_gateway: Optional['outputs.NatGatewayArmReferenceResponse'] = None,
+                 network_security_group: Optional['outputs.NetworkSecurityGroupArmReferenceResponse'] = None,
+                 route_table: Optional['outputs.RouteTableResponse'] = None):
+        """
+        VirtualNetwork subnet resource
+        :param _builtins.str address_prefix: Subnet CIDR
+        :param Sequence['VirtualNetworkSubnetIpConfigurationReferenceResponse'] ip_configurations: List of ip configurations for the subnet
+        :param _builtins.str provisioning_state: The provisioning state of the virtual network subnet resource.
+        :param 'VirtualNetworkSubnetStatusResponse' status: The observed status of the virtual network subnet resource.
+        :param 'NatGatewayArmReferenceResponse' nat_gateway: Nat Gateway attached to the subnet for non-vnet traffic.
+        :param 'NetworkSecurityGroupArmReferenceResponse' network_security_group: Network Security Group attached to the subnet.
+        :param 'RouteTableResponse' route_table: RouteTable defining custom routes for the subnet.
+        """
+        pulumi.set(__self__, "address_prefix", address_prefix)
+        pulumi.set(__self__, "ip_configurations", ip_configurations)
+        pulumi.set(__self__, "provisioning_state", provisioning_state)
+        pulumi.set(__self__, "status", status)
+        if nat_gateway is not None:
+            pulumi.set(__self__, "nat_gateway", nat_gateway)
+        if network_security_group is not None:
+            pulumi.set(__self__, "network_security_group", network_security_group)
+        if route_table is not None:
+            pulumi.set(__self__, "route_table", route_table)
+
+    @_builtins.property
+    @pulumi.getter(name="addressPrefix")
+    def address_prefix(self) -> _builtins.str:
+        """
+        Subnet CIDR
+        """
+        return pulumi.get(self, "address_prefix")
+
+    @_builtins.property
+    @pulumi.getter(name="ipConfigurations")
+    def ip_configurations(self) -> Sequence['outputs.VirtualNetworkSubnetIpConfigurationReferenceResponse']:
+        """
+        List of ip configurations for the subnet
+        """
+        return pulumi.get(self, "ip_configurations")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> _builtins.str:
+        """
+        The provisioning state of the virtual network subnet resource.
+        """
+        return pulumi.get(self, "provisioning_state")
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> 'outputs.VirtualNetworkSubnetStatusResponse':
+        """
+        The observed status of the virtual network subnet resource.
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="natGateway")
+    def nat_gateway(self) -> Optional['outputs.NatGatewayArmReferenceResponse']:
+        """
+        Nat Gateway attached to the subnet for non-vnet traffic.
+        """
+        return pulumi.get(self, "nat_gateway")
+
+    @_builtins.property
+    @pulumi.getter(name="networkSecurityGroup")
+    def network_security_group(self) -> Optional['outputs.NetworkSecurityGroupArmReferenceResponse']:
+        """
+        Network Security Group attached to the subnet.
+        """
+        return pulumi.get(self, "network_security_group")
+
+    @_builtins.property
+    @pulumi.getter(name="routeTable")
+    def route_table(self) -> Optional['outputs.RouteTableResponse']:
+        """
+        RouteTable defining custom routes for the subnet.
+        """
+        return pulumi.get(self, "route_table")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetStatusProvisioningStatusResponse(dict):
+    """
+    Status of virtual network subnet operations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "operationId":
+            suggest = "operation_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetStatusProvisioningStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetStatusProvisioningStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetStatusProvisioningStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 status: _builtins.str,
+                 operation_id: Optional[_builtins.str] = None):
+        """
+        Status of virtual network subnet operations
+        :param _builtins.str status: The status of the operation performed on the virtual network subnet [Succeeded, Failed, InProgress]
+        :param _builtins.str operation_id: The ID of the operation performed on the virtual network subnet
+        """
+        pulumi.set(__self__, "status", status)
+        if operation_id is not None:
+            pulumi.set(__self__, "operation_id", operation_id)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> _builtins.str:
+        """
+        The status of the operation performed on the virtual network subnet [Succeeded, Failed, InProgress]
+        """
+        return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="operationId")
+    def operation_id(self) -> Optional[_builtins.str]:
+        """
+        The ID of the operation performed on the virtual network subnet
+        """
+        return pulumi.get(self, "operation_id")
+
+
+@pulumi.output_type
+class VirtualNetworkSubnetStatusResponse(dict):
+    """
+    Status of virtual network subnet operations
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "errorCode":
+            suggest = "error_code"
+        elif key == "errorMessage":
+            suggest = "error_message"
+        elif key == "provisioningStatus":
+            suggest = "provisioning_status"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in VirtualNetworkSubnetStatusResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        VirtualNetworkSubnetStatusResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        VirtualNetworkSubnetStatusResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 error_code: Optional[_builtins.str] = None,
+                 error_message: Optional[_builtins.str] = None,
+                 provisioning_status: Optional['outputs.VirtualNetworkSubnetStatusProvisioningStatusResponse'] = None):
+        """
+        Status of virtual network subnet operations
+        :param _builtins.str error_code: VirtualNetworkSubnet provisioning error code
+        :param _builtins.str error_message: Descriptive error message
+        :param 'VirtualNetworkSubnetStatusProvisioningStatusResponse' provisioning_status: Public IP provisioning status
+        """
+        if error_code is not None:
+            pulumi.set(__self__, "error_code", error_code)
+        if error_message is not None:
+            pulumi.set(__self__, "error_message", error_message)
+        if provisioning_status is not None:
+            pulumi.set(__self__, "provisioning_status", provisioning_status)
+
+    @_builtins.property
+    @pulumi.getter(name="errorCode")
+    def error_code(self) -> Optional[_builtins.str]:
+        """
+        VirtualNetworkSubnet provisioning error code
+        """
+        return pulumi.get(self, "error_code")
+
+    @_builtins.property
+    @pulumi.getter(name="errorMessage")
+    def error_message(self) -> Optional[_builtins.str]:
+        """
+        Descriptive error message
+        """
+        return pulumi.get(self, "error_message")
+
+    @_builtins.property
+    @pulumi.getter(name="provisioningStatus")
+    def provisioning_status(self) -> Optional['outputs.VirtualNetworkSubnetStatusProvisioningStatusResponse']:
+        """
+        Public IP provisioning status
+        """
+        return pulumi.get(self, "provisioning_status")
+
+
+@pulumi.output_type
 class VirtualSwitchConfigurationOverridesResponse(dict):
     """
     The VirtualSwitchConfigurationOverrides of a cluster.
@@ -11824,38 +13681,5 @@ class VirtualSwitchConfigurationOverridesResponse(dict):
         Load Balancing Algorithm for Virtual Switch
         """
         return pulumi.get(self, "load_balancing_algorithm")
-
-
-@pulumi.output_type
-class VmImageRepositoryCredentialsResponse(dict):
-    """
-    The credentials used to login to the image repository that has access to the specified image
-    """
-    def __init__(__self__, *,
-                 password: _builtins.str,
-                 username: _builtins.str):
-        """
-        The credentials used to login to the image repository that has access to the specified image
-        :param _builtins.str password: Password for accessing image repository
-        :param _builtins.str username: Username for accessing image repository
-        """
-        pulumi.set(__self__, "password", password)
-        pulumi.set(__self__, "username", username)
-
-    @_builtins.property
-    @pulumi.getter
-    def password(self) -> _builtins.str:
-        """
-        Password for accessing image repository
-        """
-        return pulumi.get(self, "password")
-
-    @_builtins.property
-    @pulumi.getter
-    def username(self) -> _builtins.str:
-        """
-        Username for accessing image repository
-        """
-        return pulumi.get(self, "username")
 
 

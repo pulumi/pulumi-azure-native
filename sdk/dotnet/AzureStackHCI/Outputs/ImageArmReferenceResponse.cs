@@ -11,13 +11,13 @@ namespace Pulumi.AzureNative.AzureStackHCI.Outputs
 {
 
     /// <summary>
-    /// The ARM ID for a Gallery Image.
+    /// The Azure Resource ID for a Gallery Image.
     /// </summary>
     [OutputType]
     public sealed class ImageArmReferenceResponse
     {
         /// <summary>
-        /// The ARM ID for an image resource used by the virtual machine instance.
+        /// The Azure Resource ID for an image resource used by the virtual machine instance.
         /// </summary>
         public readonly string? Id;
 

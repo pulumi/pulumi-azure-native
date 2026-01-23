@@ -886,11 +886,44 @@ if not MYPY:
         """
         repeating_time_intervals: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
         """
-        Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
+        Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+
+        Supported ISO 8601 Time Formats
+
+        The following time formats were verified to be successfully parsed and supported:
+        - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+        - T14:30:45 → Thh:mm:ss (standard time format)
+        - T14:30 → Thh:mm (hour and minute only)
+
+        All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+
+        Examples of supported timestamps:
+        - 2023-10-15T14:30:45Z
+        - 2023-10-15T14:30:45.123+05:30
+        - 2023-10-15T14:30Z
+
+        Unsupported or partially supported formats:
+        - T143045.123 or T143045 (no colons)
+        - T14.500 (decimal hours)
+        - T14 (hour only)
+        - T14:30.500 (minute fractions)
+        - T24:00:00 (invalid)
+        - T23:59:60 (leap second)
         """
         time_zone: NotRequired[pulumi.Input[_builtins.str]]
         """
-        Time zone for a schedule. Example: Pacific Standard Time
+        Time Zone for a schedule.
+
+        Supported timezone indicators include:
+        - 'Z' for UTC
+        - '+00:00'
+        - '+05:30'
+        - '-08:00'
+
+        Examples:
+        - 2023-10-15T14:30:45Z
+        - 2023-10-15T14:30:45.123+05:30
+        - 2023-10-15T14:30-08:00
         """
 elif False:
     BackupScheduleArgsDict: TypeAlias = Mapping[str, Any]
@@ -902,8 +935,41 @@ class BackupScheduleArgs:
                  time_zone: Optional[pulumi.Input[_builtins.str]] = None):
         """
         Schedule for backup
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repeating_time_intervals: Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
-        :param pulumi.Input[_builtins.str] time_zone: Time zone for a schedule. Example: Pacific Standard Time
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] repeating_time_intervals: Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+               
+               Supported ISO 8601 Time Formats
+               
+               The following time formats were verified to be successfully parsed and supported:
+               - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+               - T14:30:45 → Thh:mm:ss (standard time format)
+               - T14:30 → Thh:mm (hour and minute only)
+               
+               All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+               
+               Examples of supported timestamps:
+               - 2023-10-15T14:30:45Z
+               - 2023-10-15T14:30:45.123+05:30
+               - 2023-10-15T14:30Z
+               
+               Unsupported or partially supported formats:
+               - T143045.123 or T143045 (no colons)
+               - T14.500 (decimal hours)
+               - T14 (hour only)
+               - T14:30.500 (minute fractions)
+               - T24:00:00 (invalid)
+               - T23:59:60 (leap second)
+        :param pulumi.Input[_builtins.str] time_zone: Time Zone for a schedule.
+               
+               Supported timezone indicators include:
+               - 'Z' for UTC
+               - '+00:00'
+               - '+05:30'
+               - '-08:00'
+               
+               Examples:
+               - 2023-10-15T14:30:45Z
+               - 2023-10-15T14:30:45.123+05:30
+               - 2023-10-15T14:30-08:00
         """
         pulumi.set(__self__, "repeating_time_intervals", repeating_time_intervals)
         if time_zone is not None:
@@ -913,7 +979,29 @@ class BackupScheduleArgs:
     @pulumi.getter(name="repeatingTimeIntervals")
     def repeating_time_intervals(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        Repeating time interval which only support the following ISO 8601 format [R/startDateTime/Duration]. Example: R/2007-03-01T13:00:00Z/P1Y2M10DT2H30M
+        Repeating time interval which supports the ISO 8601 format and unsupported or partially supported formats.
+
+        Supported ISO 8601 Time Formats
+
+        The following time formats were verified to be successfully parsed and supported:
+        - T14:30:45.123 → Thh:mm:ss.sss (with milliseconds)
+        - T14:30:45 → Thh:mm:ss (standard time format)
+        - T14:30 → Thh:mm (hour and minute only)
+
+        All of the above may include time zone indicators like 'Z', '+05:30', '-08:00'.
+
+        Examples of supported timestamps:
+        - 2023-10-15T14:30:45Z
+        - 2023-10-15T14:30:45.123+05:30
+        - 2023-10-15T14:30Z
+
+        Unsupported or partially supported formats:
+        - T143045.123 or T143045 (no colons)
+        - T14.500 (decimal hours)
+        - T14 (hour only)
+        - T14:30.500 (minute fractions)
+        - T24:00:00 (invalid)
+        - T23:59:60 (leap second)
         """
         return pulumi.get(self, "repeating_time_intervals")
 
@@ -925,7 +1013,18 @@ class BackupScheduleArgs:
     @pulumi.getter(name="timeZone")
     def time_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Time zone for a schedule. Example: Pacific Standard Time
+        Time Zone for a schedule.
+
+        Supported timezone indicators include:
+        - 'Z' for UTC
+        - '+00:00'
+        - '+05:30'
+        - '-08:00'
+
+        Examples:
+        - 2023-10-15T14:30:45Z
+        - 2023-10-15T14:30:45.123+05:30
+        - 2023-10-15T14:30-08:00
         """
         return pulumi.get(self, "time_zone")
 

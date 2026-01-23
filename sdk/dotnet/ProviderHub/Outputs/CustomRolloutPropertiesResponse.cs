@@ -20,19 +20,19 @@ namespace Pulumi.AzureNative.ProviderHub.Outputs
         /// <summary>
         /// The specification.
         /// </summary>
-        public readonly Outputs.CustomRolloutPropertiesResponseSpecification Specification;
+        public readonly Outputs.CustomRolloutPropertiesSpecificationResponse Specification;
         /// <summary>
         /// The status.
         /// </summary>
-        public readonly Outputs.CustomRolloutPropertiesResponseStatus? Status;
+        public readonly Outputs.CustomRolloutPropertiesStatusResponse? Status;
 
         [OutputConstructor]
         private CustomRolloutPropertiesResponse(
             string provisioningState,
 
-            Outputs.CustomRolloutPropertiesResponseSpecification specification,
+            Outputs.CustomRolloutPropertiesSpecificationResponse specification,
 
-            Outputs.CustomRolloutPropertiesResponseStatus? status)
+            Outputs.CustomRolloutPropertiesStatusResponse? status)
         {
             ProvisioningState = provisioningState;
             Specification = specification;

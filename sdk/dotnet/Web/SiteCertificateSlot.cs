@@ -13,6 +13,8 @@ namespace Pulumi.AzureNative.Web
     /// SSL certificate for an app.
     /// 
     /// Uses Azure REST API version 2024-11-01.
+    /// 
+    /// Other available API versions: 2025-03-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native web [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:web:SiteCertificateSlot")]
     public partial class SiteCertificateSlot : global::Pulumi.CustomResource
@@ -205,6 +207,7 @@ namespace Pulumi.AzureNative.Web
                 Aliases =
                 {
                     new global::Pulumi.Alias { Type = "azure-native:web/v20241101:SiteCertificateSlot" },
+                    new global::Pulumi.Alias { Type = "azure-native:web/v20250301:SiteCertificateSlot" },
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

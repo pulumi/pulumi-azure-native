@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.SecurityInsights
         /// <summary>
         /// The available data types for the connector.
         /// </summary>
-        public readonly Outputs.AwsCloudTrailDataConnectorDataTypesResponse? DataTypes;
+        public readonly Outputs.AwsCloudTrailDataConnectorDataTypesResponse DataTypes;
         /// <summary>
         /// Etag of the azure resource
         /// </summary>
@@ -137,7 +137,7 @@ namespace Pulumi.AzureNative.SecurityInsights
 
             string azureApiVersion,
 
-            Outputs.AwsCloudTrailDataConnectorDataTypesResponse? dataTypes,
+            Outputs.AwsCloudTrailDataConnectorDataTypesResponse dataTypes,
 
             string? etag,
 

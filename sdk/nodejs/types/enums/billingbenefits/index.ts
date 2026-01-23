@@ -13,6 +13,124 @@ export const ApplyDiscountOn = {
  */
 export type ApplyDiscountOn = (typeof ApplyDiscountOn)[keyof typeof ApplyDiscountOn];
 
+export const CommitmentGrain = {
+    Unknown: "Unknown",
+    Hourly: "Hourly",
+    FullTerm: "FullTerm",
+} as const;
+
+/**
+ * The grain of the commitment.
+ */
+export type CommitmentGrain = (typeof CommitmentGrain)[keyof typeof CommitmentGrain];
+
+export const ConditionalCreditEntityType = {
+    Primary: "Primary",
+    Contributor: "Contributor",
+} as const;
+
+/**
+ * Type of conditional credit entity
+ */
+export type ConditionalCreditEntityType = (typeof ConditionalCreditEntityType)[keyof typeof ConditionalCreditEntityType];
+
+export const ConditionalCreditStatus = {
+    Unknown: "Unknown",
+    Scheduled: "Scheduled",
+    Active: "Active",
+    Pending: "Pending",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Completed: "Completed",
+    Stopped: "Stopped",
+    PendingSettlement: "PendingSettlement",
+} as const;
+
+/**
+ * The status of the conditional credit
+ */
+export type ConditionalCreditStatus = (typeof ConditionalCreditStatus)[keyof typeof ConditionalCreditStatus];
+
+export const CreditExpirationPolicy = {
+    /**
+     * No policy applied to the expiration of this credit
+     */
+    None: "None",
+    /**
+     * Billing profile is suspended when the credit expires
+     */
+    SuspendBillingProfile: "SuspendBillingProfile",
+} as const;
+
+/**
+ * Expiration policy of the Credit
+ */
+export type CreditExpirationPolicy = (typeof CreditExpirationPolicy)[keyof typeof CreditExpirationPolicy];
+
+export const CreditRedemptionPolicy = {
+    /**
+     * Redemption policy is not applicable for this credit
+     */
+    NotApplicable: "NotApplicable",
+    /**
+     * Credit is automatically redeemed
+     */
+    AutoRedeem: "AutoRedeem",
+    /**
+     * Credit is manually redeemed
+     */
+    ManualRedeem: "ManualRedeem",
+} as const;
+
+/**
+ * Redemption policy of the Credit
+ */
+export type CreditRedemptionPolicy = (typeof CreditRedemptionPolicy)[keyof typeof CreditRedemptionPolicy];
+
+export const CreditStatus = {
+    /**
+     * Credit status is unknown
+     */
+    Unknown: "Unknown",
+    /**
+     * Credit is pending activation
+     */
+    Pending: "Pending",
+    /**
+     * Credit is active and available for use
+     */
+    Active: "Active",
+    /**
+     * Credit operation succeeded
+     */
+    Succeeded: "Succeeded",
+    /**
+     * Credit has been cancelled
+     */
+    Canceled: "Canceled",
+    /**
+     * Credit operation failed
+     */
+    Failed: "Failed",
+    /**
+     * Credit has expired
+     */
+    Expired: "Expired",
+    /**
+     * Credit has been fully consumed
+     */
+    Exhausted: "Exhausted",
+    /**
+     * Credit application has not started yet
+     */
+    NotStarted: "NotStarted",
+} as const;
+
+/**
+ * Status of the credit
+ */
+export type CreditStatus = (typeof CreditStatus)[keyof typeof CreditStatus];
+
 export const DiscountAppliedScopeType = {
     BillingAccount: "BillingAccount",
     BillingProfile: "BillingProfile",
@@ -67,6 +185,65 @@ export const DiscountType = {
  * Defines the type of discount. Supported values are ProductFamily, Product, Sku, CustomPrice, and CustomPriceMultiCurrency.
  */
 export type DiscountType = (typeof DiscountType)[keyof typeof DiscountType];
+
+export const EnablementMode = {
+    Unknown: "Unknown",
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Setting this to 'Enable' enables automatic shortfall invoicing when milestone commitment is not met.
+ */
+export type EnablementMode = (typeof EnablementMode)[keyof typeof EnablementMode];
+
+export const MaccEntityType = {
+    Primary: "Primary",
+    Contributor: "Contributor",
+} as const;
+
+/**
+ * Represents type of the object being operated on. Possible values are primary or contributor.
+ */
+export type MaccEntityType = (typeof MaccEntityType)[keyof typeof MaccEntityType];
+
+export const MaccMilestoneStatus = {
+    Unknown: "Unknown",
+    Scheduled: "Scheduled",
+    Active: "Active",
+    Pending: "Pending",
+    Failed: "Failed",
+    Completed: "Completed",
+    Canceled: "Canceled",
+    Removed: "Removed",
+    PendingSettlement: "PendingSettlement",
+    ShortfallCharged: "ShortfallCharged",
+    ShortfallWaived: "ShortfallWaived",
+} as const;
+
+/**
+ * Represents the current status of the Milestone.
+ */
+export type MaccMilestoneStatus = (typeof MaccMilestoneStatus)[keyof typeof MaccMilestoneStatus];
+
+export const MaccStatus = {
+    Unknown: "Unknown",
+    Scheduled: "Scheduled",
+    Active: "Active",
+    Pending: "Pending",
+    Failed: "Failed",
+    Canceled: "Canceled",
+    Completed: "Completed",
+    Stopped: "Stopped",
+    PendingSettlement: "PendingSettlement",
+    ShortfallCharged: "ShortfallCharged",
+    ShortfallWaived: "ShortfallWaived",
+} as const;
+
+/**
+ * Represents the current status of the MACC.
+ */
+export type MaccStatus = (typeof MaccStatus)[keyof typeof MaccStatus];
 
 export const ManagedServiceIdentityType = {
     None: "None",
