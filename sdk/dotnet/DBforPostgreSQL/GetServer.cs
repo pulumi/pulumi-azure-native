@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetServer
     {
         /// <summary>
-        /// Gets information about an existing flexible server.
+        /// Gets information about an existing server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetServerResult> InvokeAsync(GetServerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about an existing flexible server.
+        /// Gets information about an existing server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about an existing flexible server.
+        /// Gets information about an existing server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetServerResult> Invoke(GetServerInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerResult>("azure-native:dbforpostgresql:getServer", args ?? new GetServerInvokeArgs(), options.WithDefaults());
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? AdministratorLogin;
         /// <summary>
-        /// Authentication configuration properties of a flexible server.
+        /// Authentication configuration properties of a server.
         /// </summary>
         public readonly Outputs.AuthConfigResponse? AuthConfig;
         /// <summary>
-        /// Availability zone of a flexible server.
+        /// Availability zone of a server.
         /// </summary>
         public readonly string? AvailabilityZone;
         /// <summary>
@@ -104,19 +104,23 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Backup properties of a flexible server.
+        /// Backup properties of a server.
         /// </summary>
         public readonly Outputs.BackupResponse? Backup;
         /// <summary>
-        /// Data encryption properties of a flexible server.
+        /// Cluster properties of a server.
+        /// </summary>
+        public readonly Outputs.ClusterResponse? Cluster;
+        /// <summary>
+        /// Data encryption properties of a server.
         /// </summary>
         public readonly Outputs.DataEncryptionResponse? DataEncryption;
         /// <summary>
-        /// Fully qualified domain name of a flexible server.
+        /// Fully qualified domain name of a server.
         /// </summary>
         public readonly string FullyQualifiedDomainName;
         /// <summary>
-        /// High availability properties of a flexible server.
+        /// High availability properties of a server.
         /// </summary>
         public readonly Outputs.HighAvailabilityResponse? HighAvailability;
         /// <summary>
@@ -124,7 +128,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// User assigned managed identities assigned to the flexible server.
+        /// User assigned managed identities assigned to the server.
         /// </summary>
         public readonly Outputs.UserAssignedIdentityResponse? Identity;
         /// <summary>
@@ -132,7 +136,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Maintenance window properties of a flexible server.
+        /// Maintenance window properties of a server.
         /// </summary>
         public readonly Outputs.MaintenanceWindowResponse? MaintenanceWindow;
         /// <summary>
@@ -144,19 +148,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        /// Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         /// </summary>
         public readonly Outputs.NetworkResponse? Network;
         /// <summary>
-        /// List of private endpoint connections associated with the specified flexible server.
+        /// List of private endpoint connections associated with the specified server.
         /// </summary>
         public readonly ImmutableArray<Outputs.PrivateEndpointConnectionResponse> PrivateEndpointConnections;
         /// <summary>
-        /// Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        /// Read replica properties of a server. Required only in case that you want to promote a server.
         /// </summary>
         public readonly Outputs.ReplicaResponse? Replica;
         /// <summary>
-        /// Maximum number of read replicas allowed for a flexible server.
+        /// Maximum number of read replicas allowed for a server.
         /// </summary>
         public readonly int ReplicaCapacity;
         /// <summary>
@@ -164,19 +168,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string? ReplicationRole;
         /// <summary>
-        /// Compute tier and size of a flexible server.
+        /// Compute tier and size of a server.
         /// </summary>
         public readonly Outputs.SkuResponse? Sku;
         /// <summary>
-        /// Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        /// Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         /// </summary>
         public readonly string? SourceServerResourceId;
         /// <summary>
-        /// Possible states of a flexible server.
+        /// Possible states of a server.
         /// </summary>
         public readonly string State;
         /// <summary>
-        /// Storage properties of a flexible server.
+        /// Storage properties of a server.
         /// </summary>
         public readonly Outputs.StorageResponse? Storage;
         /// <summary>
@@ -207,6 +211,8 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             string azureApiVersion,
 
             Outputs.BackupResponse? backup,
+
+            Outputs.ClusterResponse? cluster,
 
             Outputs.DataEncryptionResponse? dataEncryption,
 
@@ -257,6 +263,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
             AvailabilityZone = availabilityZone;
             AzureApiVersion = azureApiVersion;
             Backup = backup;
+            Cluster = cluster;
             DataEncryption = dataEncryption;
             FullyQualifiedDomainName = fullyQualifiedDomainName;
             HighAvailability = highAvailability;

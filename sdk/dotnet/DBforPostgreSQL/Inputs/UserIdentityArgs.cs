@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// User assigned managed identity associated with a flexible server.
+    /// User assigned managed identity associated with a server.
     /// </summary>
     public sealed class UserIdentityArgs : global::Pulumi.ResourceArgs
     {

@@ -36,6 +36,10 @@ __all__ = [
     'AutoscaleTimeAndCapacityArgsDict',
     'AutoscaleArgs',
     'AutoscaleArgsDict',
+    'AzureMonitorSelectedConfigurationsArgs',
+    'AzureMonitorSelectedConfigurationsArgsDict',
+    'AzureMonitorTableConfigurationArgs',
+    'AzureMonitorTableConfigurationArgsDict',
     'CatalogOptionsArgs',
     'CatalogOptionsArgsDict',
     'ClientGroupInfoArgs',
@@ -1063,6 +1067,118 @@ class AutoscaleArgs:
     @recurrence.setter
     def recurrence(self, value: Optional[pulumi.Input['AutoscaleRecurrenceArgs']]):
         pulumi.set(self, "recurrence", value)
+
+
+if not MYPY:
+    class AzureMonitorSelectedConfigurationsArgsDict(TypedDict):
+        """
+        The selected configurations for azure monitor.
+        """
+        configuration_version: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The configuration version.
+        """
+        global_configurations: NotRequired[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]
+        """
+        The global configurations of selected configurations.
+        """
+        table_list: NotRequired[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgsDict']]]]
+        """
+        The table list.
+        """
+elif False:
+    AzureMonitorSelectedConfigurationsArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureMonitorSelectedConfigurationsArgs:
+    def __init__(__self__, *,
+                 configuration_version: Optional[pulumi.Input[_builtins.str]] = None,
+                 global_configurations: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 table_list: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]] = None):
+        """
+        The selected configurations for azure monitor.
+        :param pulumi.Input[_builtins.str] configuration_version: The configuration version.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] global_configurations: The global configurations of selected configurations.
+        :param pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]] table_list: The table list.
+        """
+        if configuration_version is not None:
+            pulumi.set(__self__, "configuration_version", configuration_version)
+        if global_configurations is not None:
+            pulumi.set(__self__, "global_configurations", global_configurations)
+        if table_list is not None:
+            pulumi.set(__self__, "table_list", table_list)
+
+    @_builtins.property
+    @pulumi.getter(name="configurationVersion")
+    def configuration_version(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The configuration version.
+        """
+        return pulumi.get(self, "configuration_version")
+
+    @configuration_version.setter
+    def configuration_version(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "configuration_version", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalConfigurations")
+    def global_configurations(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]:
+        """
+        The global configurations of selected configurations.
+        """
+        return pulumi.get(self, "global_configurations")
+
+    @global_configurations.setter
+    def global_configurations(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "global_configurations", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tableList")
+    def table_list(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]:
+        """
+        The table list.
+        """
+        return pulumi.get(self, "table_list")
+
+    @table_list.setter
+    def table_list(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AzureMonitorTableConfigurationArgs']]]]):
+        pulumi.set(self, "table_list", value)
+
+
+if not MYPY:
+    class AzureMonitorTableConfigurationArgsDict(TypedDict):
+        """
+        The table configuration for the Log Analytics integration.
+        """
+        name: NotRequired[pulumi.Input[_builtins.str]]
+        """
+        The name.
+        """
+elif False:
+    AzureMonitorTableConfigurationArgsDict: TypeAlias = Mapping[str, Any]
+
+@pulumi.input_type
+class AzureMonitorTableConfigurationArgs:
+    def __init__(__self__, *,
+                 name: Optional[pulumi.Input[_builtins.str]] = None):
+        """
+        The table configuration for the Log Analytics integration.
+        :param pulumi.Input[_builtins.str] name: The name.
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> Optional[pulumi.Input[_builtins.str]]:
+        """
+        The name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: Optional[pulumi.Input[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 if not MYPY:

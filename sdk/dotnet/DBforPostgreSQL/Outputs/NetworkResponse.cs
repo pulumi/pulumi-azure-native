@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Network properties of a flexible server.
+    /// Network properties of a server.
     /// </summary>
     [OutputType]
     public sealed class NetworkResponse
@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
         /// </summary>
         public readonly string? PrivateDnsZoneArmResourceId;
         /// <summary>
-        /// Indicates if public network access is enabled or not.
+        /// Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
         /// </summary>
         public readonly string? PublicNetworkAccess;
 

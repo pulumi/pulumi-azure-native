@@ -10,11 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DBforPostgreSQL
 {
     /// <summary>
-    /// Migration.
+    /// Properties of a migration.
     /// 
-    /// Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
+    /// Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
     /// 
-    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    /// Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
     /// </summary>
     [AzureNativeResourceType("azure-native:dbforpostgresql:Migration")]
     public partial class Migration : global::Pulumi.CustomResource
@@ -116,7 +116,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Output<string?> OverwriteDbsInTarget { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        /// Indicates whether to setup logical replication on source server, if needed.
         /// </summary>
         [Output("setupLogicalReplicationOnSourceDbIfNeeded")]
         public Output<string?> SetupLogicalReplicationOnSourceDbIfNeeded { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Indicates if cancel must be triggered for the entire migration.
         /// </summary>
         [Input("cancel")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.CancelEnum>? Cancel { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.Cancel>? Cancel { get; set; }
 
         [Input("dbsToCancelMigrationOn")]
         private InputList<string>? _dbsToCancelMigrationOn;
@@ -310,7 +310,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Indicates if roles and permissions must be migrated.
         /// </summary>
         [Input("migrateRoles")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrateRolesEnum>? MigrateRoles { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.MigrateRolesAndPermissions>? MigrateRoles { get; set; }
 
         /// <summary>
         /// Identifier of the private endpoint migration instance.
@@ -352,10 +352,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         /// </summary>
         [Input("overwriteDbsInTarget")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.OverwriteDbsInTargetEnum>? OverwriteDbsInTarget { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.OverwriteDatabasesOnTargetServer>? OverwriteDbsInTarget { get; set; }
 
         /// <summary>
-        /// Name of resource group of target database server.
+        /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
@@ -367,10 +367,16 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<Inputs.MigrationSecretParametersArgs>? SecretParameters { get; set; }
 
         /// <summary>
-        /// Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        /// The name of the server.
+        /// </summary>
+        [Input("serverName", required: true)]
+        public Input<string> ServerName { get; set; } = null!;
+
+        /// <summary>
+        /// Indicates whether to setup logical replication on source server, if needed.
         /// </summary>
         [Input("setupLogicalReplicationOnSourceDbIfNeeded")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.LogicalReplicationOnSourceDbEnum>? SetupLogicalReplicationOnSourceDbIfNeeded { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.LogicalReplicationOnSourceServer>? SetupLogicalReplicationOnSourceDbIfNeeded { get; set; }
 
         /// <summary>
         /// Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
@@ -400,13 +406,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// Indicates if data migration must start right away.
         /// </summary>
         [Input("startDataMigration")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StartDataMigrationEnum>? StartDataMigration { get; set; }
-
-        /// <summary>
-        /// Identifier of subscription of target database server.
-        /// </summary>
-        [Input("subscriptionId")]
-        public Input<string>? SubscriptionId { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.StartDataMigration>? StartDataMigration { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -427,16 +427,10 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         public Input<string>? TargetDbServerFullyQualifiedDomainName { get; set; }
 
         /// <summary>
-        /// Name of target database server.
-        /// </summary>
-        [Input("targetDbServerName", required: true)]
-        public Input<string> TargetDbServerName { get; set; } = null!;
-
-        /// <summary>
         /// Indicates if cutover must be triggered for the entire migration.
         /// </summary>
         [Input("triggerCutover")]
-        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.TriggerCutoverEnum>? TriggerCutover { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.TriggerCutover>? TriggerCutover { get; set; }
 
         public MigrationArgs()
         {

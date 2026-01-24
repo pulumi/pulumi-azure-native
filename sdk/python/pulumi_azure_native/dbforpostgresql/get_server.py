@@ -25,9 +25,9 @@ __all__ = [
 @pulumi.output_type
 class GetServerResult:
     """
-    Flexible server.
+    Properties of a server.
     """
-    def __init__(__self__, administrator_login=None, auth_config=None, availability_zone=None, azure_api_version=None, backup=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, private_endpoint_connections=None, replica=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
+    def __init__(__self__, administrator_login=None, auth_config=None, availability_zone=None, azure_api_version=None, backup=None, cluster=None, data_encryption=None, fully_qualified_domain_name=None, high_availability=None, id=None, identity=None, location=None, maintenance_window=None, minor_version=None, name=None, network=None, private_endpoint_connections=None, replica=None, replica_capacity=None, replication_role=None, sku=None, source_server_resource_id=None, state=None, storage=None, system_data=None, tags=None, type=None, version=None):
         if administrator_login and not isinstance(administrator_login, str):
             raise TypeError("Expected argument 'administrator_login' to be a str")
         pulumi.set(__self__, "administrator_login", administrator_login)
@@ -43,6 +43,9 @@ class GetServerResult:
         if backup and not isinstance(backup, dict):
             raise TypeError("Expected argument 'backup' to be a dict")
         pulumi.set(__self__, "backup", backup)
+        if cluster and not isinstance(cluster, dict):
+            raise TypeError("Expected argument 'cluster' to be a dict")
+        pulumi.set(__self__, "cluster", cluster)
         if data_encryption and not isinstance(data_encryption, dict):
             raise TypeError("Expected argument 'data_encryption' to be a dict")
         pulumi.set(__self__, "data_encryption", data_encryption)
@@ -122,7 +125,7 @@ class GetServerResult:
     @pulumi.getter(name="authConfig")
     def auth_config(self) -> Optional['outputs.AuthConfigResponse']:
         """
-        Authentication configuration properties of a flexible server.
+        Authentication configuration properties of a server.
         """
         return pulumi.get(self, "auth_config")
 
@@ -130,7 +133,7 @@ class GetServerResult:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[_builtins.str]:
         """
-        Availability zone of a flexible server.
+        Availability zone of a server.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -146,15 +149,23 @@ class GetServerResult:
     @pulumi.getter
     def backup(self) -> Optional['outputs.BackupResponse']:
         """
-        Backup properties of a flexible server.
+        Backup properties of a server.
         """
         return pulumi.get(self, "backup")
+
+    @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> Optional['outputs.ClusterResponse']:
+        """
+        Cluster properties of a server.
+        """
+        return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter(name="dataEncryption")
     def data_encryption(self) -> Optional['outputs.DataEncryptionResponse']:
         """
-        Data encryption properties of a flexible server.
+        Data encryption properties of a server.
         """
         return pulumi.get(self, "data_encryption")
 
@@ -162,7 +173,7 @@ class GetServerResult:
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> _builtins.str:
         """
-        Fully qualified domain name of a flexible server.
+        Fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
@@ -170,7 +181,7 @@ class GetServerResult:
     @pulumi.getter(name="highAvailability")
     def high_availability(self) -> Optional['outputs.HighAvailabilityResponse']:
         """
-        High availability properties of a flexible server.
+        High availability properties of a server.
         """
         return pulumi.get(self, "high_availability")
 
@@ -186,7 +197,7 @@ class GetServerResult:
     @pulumi.getter
     def identity(self) -> Optional['outputs.UserAssignedIdentityResponse']:
         """
-        User assigned managed identities assigned to the flexible server.
+        User assigned managed identities assigned to the server.
         """
         return pulumi.get(self, "identity")
 
@@ -202,7 +213,7 @@ class GetServerResult:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional['outputs.MaintenanceWindowResponse']:
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -226,7 +237,7 @@ class GetServerResult:
     @pulumi.getter
     def network(self) -> Optional['outputs.NetworkResponse']:
         """
-        Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         """
         return pulumi.get(self, "network")
 
@@ -234,7 +245,7 @@ class GetServerResult:
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Sequence['outputs.PrivateEndpointConnectionResponse']:
         """
-        List of private endpoint connections associated with the specified flexible server.
+        List of private endpoint connections associated with the specified server.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -242,7 +253,7 @@ class GetServerResult:
     @pulumi.getter
     def replica(self) -> Optional['outputs.ReplicaResponse']:
         """
-        Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        Read replica properties of a server. Required only in case that you want to promote a server.
         """
         return pulumi.get(self, "replica")
 
@@ -250,7 +261,7 @@ class GetServerResult:
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> _builtins.int:
         """
-        Maximum number of read replicas allowed for a flexible server.
+        Maximum number of read replicas allowed for a server.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -266,7 +277,7 @@ class GetServerResult:
     @pulumi.getter
     def sku(self) -> Optional['outputs.SkuResponse']:
         """
-        Compute tier and size of a flexible server.
+        Compute tier and size of a server.
         """
         return pulumi.get(self, "sku")
 
@@ -274,7 +285,7 @@ class GetServerResult:
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> Optional[_builtins.str]:
         """
-        Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         """
         return pulumi.get(self, "source_server_resource_id")
 
@@ -282,7 +293,7 @@ class GetServerResult:
     @pulumi.getter
     def state(self) -> _builtins.str:
         """
-        Possible states of a flexible server.
+        Possible states of a server.
         """
         return pulumi.get(self, "state")
 
@@ -290,7 +301,7 @@ class GetServerResult:
     @pulumi.getter
     def storage(self) -> Optional['outputs.StorageResponse']:
         """
-        Storage properties of a flexible server.
+        Storage properties of a server.
         """
         return pulumi.get(self, "storage")
 
@@ -338,6 +349,7 @@ class AwaitableGetServerResult(GetServerResult):
             availability_zone=self.availability_zone,
             azure_api_version=self.azure_api_version,
             backup=self.backup,
+            cluster=self.cluster,
             data_encryption=self.data_encryption,
             fully_qualified_domain_name=self.fully_qualified_domain_name,
             high_availability=self.high_availability,
@@ -366,11 +378,11 @@ def get_server(resource_group_name: Optional[_builtins.str] = None,
                server_name: Optional[_builtins.str] = None,
                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServerResult:
     """
-    Gets information about an existing flexible server.
+    Gets information about an existing server.
 
-    Uses Azure REST API version 2024-08-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -388,6 +400,7 @@ def get_server(resource_group_name: Optional[_builtins.str] = None,
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
         azure_api_version=pulumi.get(__ret__, 'azure_api_version'),
         backup=pulumi.get(__ret__, 'backup'),
+        cluster=pulumi.get(__ret__, 'cluster'),
         data_encryption=pulumi.get(__ret__, 'data_encryption'),
         fully_qualified_domain_name=pulumi.get(__ret__, 'fully_qualified_domain_name'),
         high_availability=pulumi.get(__ret__, 'high_availability'),
@@ -414,11 +427,11 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[_builtins.str]]
                       server_name: Optional[pulumi.Input[_builtins.str]] = None,
                       opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetServerResult]:
     """
-    Gets information about an existing flexible server.
+    Gets information about an existing server.
 
-    Uses Azure REST API version 2024-08-01.
+    Uses Azure REST API version 2025-08-01.
 
-    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+    Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
 
     :param _builtins.str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -435,6 +448,7 @@ def get_server_output(resource_group_name: Optional[pulumi.Input[_builtins.str]]
         availability_zone=pulumi.get(__response__, 'availability_zone'),
         azure_api_version=pulumi.get(__response__, 'azure_api_version'),
         backup=pulumi.get(__response__, 'backup'),
+        cluster=pulumi.get(__response__, 'cluster'),
         data_encryption=pulumi.get(__response__, 'data_encryption'),
         fully_qualified_domain_name=pulumi.get(__response__, 'fully_qualified_domain_name'),
         high_availability=pulumi.get(__response__, 'high_availability'),

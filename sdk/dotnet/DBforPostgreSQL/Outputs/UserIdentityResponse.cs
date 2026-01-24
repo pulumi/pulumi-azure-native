@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// User assigned managed identity associated with a flexible server.
+    /// User assigned managed identity associated with a server.
     /// </summary>
     [OutputType]
     public sealed class UserIdentityResponse

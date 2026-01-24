@@ -11,33 +11,33 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Storage properties of a flexible server.
+    /// Storage properties of a server.
     /// </summary>
     [OutputType]
     public sealed class StorageResponse
     {
         /// <summary>
-        /// Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+        /// Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
         /// </summary>
         public readonly string? AutoGrow;
         /// <summary>
-        /// Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+        /// Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// Size of storage assigned to a flexible server.
+        /// Size of storage assigned to a server.
         /// </summary>
         public readonly int? StorageSizeGB;
         /// <summary>
-        /// Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+        /// Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
         /// </summary>
         public readonly int? Throughput;
         /// <summary>
-        /// Storage tier of a flexible server.
+        /// Storage tier of a server.
         /// </summary>
         public readonly string? Tier;
         /// <summary>
-        /// Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+        /// Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
         /// </summary>
         public readonly string? Type;
 

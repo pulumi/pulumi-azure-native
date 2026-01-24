@@ -8,11 +8,11 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Server parameter.
+ * Configuration (also known as server parameter).
  *
- * Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+ * Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export class Configuration extends pulumi.CustomResource {
     /**
@@ -42,7 +42,7 @@ export class Configuration extends pulumi.CustomResource {
     }
 
     /**
-     * Allowed values of the server parameter.
+     * Allowed values of the configuration (also known as server parameter).
      */
     declare public /*out*/ readonly allowedValues: pulumi.Output<string>;
     /**
@@ -50,31 +50,31 @@ export class Configuration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly azureApiVersion: pulumi.Output<string>;
     /**
-     * Data type of the server parameter.
+     * Data type of the configuration (also known as server parameter).
      */
     declare public /*out*/ readonly dataType: pulumi.Output<string>;
     /**
-     * Value assigned by default to the server parameter.
+     * Value assigned by default to the configuration (also known as server parameter).
      */
     declare public /*out*/ readonly defaultValue: pulumi.Output<string>;
     /**
-     * Description of the server parameter.
+     * Description of the configuration (also known as server parameter).
      */
     declare public /*out*/ readonly description: pulumi.Output<string>;
     /**
-     * Link pointing to the documentation of the server parameter.
+     * Link pointing to the documentation of the configuration (also known as server parameter).
      */
     declare public /*out*/ readonly documentationLink: pulumi.Output<string>;
     /**
-     * Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
+     * Indicates if the value assigned to the configuration (also known as server parameter) is pending a server restart for it to take effect.
      */
     declare public /*out*/ readonly isConfigPendingRestart: pulumi.Output<boolean>;
     /**
-     * Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
+     * Indicates if it's a dynamic (true) or static (false) configuration (also known as server parameter). Static server parameters require a server restart after changing the value assigned to them, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to them, for the change to take effect.
      */
     declare public /*out*/ readonly isDynamicConfig: pulumi.Output<boolean>;
     /**
-     * Indicates if it's a read-only (true) or modifiable (false) server parameter.
+     * Indicates if it's a read-only (true) or modifiable (false) configuration (also known as server parameter).
      */
     declare public /*out*/ readonly isReadOnly: pulumi.Output<boolean>;
     /**
@@ -82,7 +82,7 @@ export class Configuration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly name: pulumi.Output<string>;
     /**
-     * Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+     * Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     declare public readonly source: pulumi.Output<string | undefined>;
     /**
@@ -94,11 +94,11 @@ export class Configuration extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly type: pulumi.Output<string>;
     /**
-     * Units in which the server parameter value is expressed.
+     * Units in which the configuration (also known as server parameter) value is expressed.
      */
     declare public /*out*/ readonly unit: pulumi.Output<string>;
     /**
-     * Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+     * Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     declare public readonly value: pulumi.Output<string | undefined>;
 
@@ -166,7 +166,7 @@ export class Configuration extends pulumi.CustomResource {
  */
 export interface ConfigurationArgs {
     /**
-     * Name of the server parameter.
+     * Name of the configuration (also known as server parameter).
      */
     configurationName?: pulumi.Input<string>;
     /**
@@ -178,11 +178,11 @@ export interface ConfigurationArgs {
      */
     serverName: pulumi.Input<string>;
     /**
-     * Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+     * Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     source?: pulumi.Input<string>;
     /**
-     * Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+     * Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
      */
     value?: pulumi.Input<string>;
 }

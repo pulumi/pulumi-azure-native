@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
 {
 
     /// <summary>
-    /// Authentication configuration properties of a flexible server.
+    /// Authentication configuration properties of a server.
     /// </summary>
     [OutputType]
     public sealed class AuthConfigResponse

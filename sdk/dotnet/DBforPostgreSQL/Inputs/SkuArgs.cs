@@ -11,18 +11,18 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Compute information of a flexible server.
+    /// Compute information of a server.
     /// </summary>
     public sealed class SkuArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name by which is known a given compute size assigned to a flexible server.
+        /// Name by which is known a given compute size assigned to a server.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Tier of the compute assigned to a flexible server.
+        /// Tier of the compute assigned to a server.
         /// </summary>
         [Input("tier", required: true)]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.SkuTier> Tier { get; set; } = null!;

@@ -23,62 +23,60 @@ __all__ = ['MigrationArgs', 'Migration']
 class MigrationArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[_builtins.str],
-                 target_db_server_name: pulumi.Input[_builtins.str],
-                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'CancelEnum']]] = None,
+                 server_name: pulumi.Input[_builtins.str],
+                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'Cancel']]] = None,
                  dbs_to_cancel_migration_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_trigger_cutover_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']]] = None,
+                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']]] = None,
                  migration_instance_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_mode: Optional[pulumi.Input[Union[_builtins.str, 'MigrationMode']]] = None,
                  migration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_option: Optional[pulumi.Input[Union[_builtins.str, 'MigrationOption']]] = None,
                  migration_window_end_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_window_start_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']]] = None,
+                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']]] = None,
                  secret_parameters: Optional[pulumi.Input['MigrationSecretParametersArgs']] = None,
-                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']]] = None,
+                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']]] = None,
                  source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
                  ssl_mode: Optional[pulumi.Input[Union[_builtins.str, 'SslMode']]] = None,
-                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigration']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']]] = None):
+                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]] = None):
         """
         The set of arguments for constructing a Migration resource.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of resource group of target database server.
-        :param pulumi.Input[_builtins.str] target_db_server_name: Name of target database server.
-        :param pulumi.Input[Union[_builtins.str, 'CancelEnum']] cancel: Indicates if cancel must be triggered for the entire migration.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[Union[_builtins.str, 'Cancel']] cancel: Indicates if cancel must be triggered for the entire migration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_cancel_migration_on: When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_migrate: Names of databases to migrate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_trigger_cutover_on: When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']] migrate_roles: Indicates if roles and permissions must be migrated.
+        :param pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']] migrate_roles: Indicates if roles and permissions must be migrated.
         :param pulumi.Input[_builtins.str] migration_instance_resource_id: Identifier of the private endpoint migration instance.
         :param pulumi.Input[Union[_builtins.str, 'MigrationMode']] migration_mode: Mode used to perform the migration: Online or Offline.
         :param pulumi.Input[_builtins.str] migration_name: Name of migration.
         :param pulumi.Input[Union[_builtins.str, 'MigrationOption']] migration_option: Supported option for a migration.
         :param pulumi.Input[_builtins.str] migration_window_end_time_in_utc: End time (UTC) for migration window.
         :param pulumi.Input[_builtins.str] migration_window_start_time_in_utc: Start time (UTC) for migration window.
-        :param pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']] overwrite_dbs_in_target: Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
+        :param pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']] overwrite_dbs_in_target: Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         :param pulumi.Input['MigrationSecretParametersArgs'] secret_parameters: Migration secret parameters.
-        :param pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']] setup_logical_replication_on_source_db_if_needed: Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        :param pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']] setup_logical_replication_on_source_db_if_needed: Indicates whether to setup logical replication on source server, if needed.
         :param pulumi.Input[_builtins.str] source_db_server_fully_qualified_domain_name: Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
         :param pulumi.Input[_builtins.str] source_db_server_resource_id: Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
         :param pulumi.Input[Union[_builtins.str, 'SourceType']] source_type: Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
         :param pulumi.Input[Union[_builtins.str, 'SslMode']] ssl_mode: SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
-        :param pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']] start_data_migration: Indicates if data migration must start right away.
-        :param pulumi.Input[_builtins.str] subscription_id: Identifier of subscription of target database server.
+        :param pulumi.Input[Union[_builtins.str, 'StartDataMigration']] start_data_migration: Indicates if data migration must start right away.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] target_db_server_fully_qualified_domain_name: Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
-        :param pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']] trigger_cutover: Indicates if cutover must be triggered for the entire migration.
+        :param pulumi.Input[Union[_builtins.str, 'TriggerCutover']] trigger_cutover: Indicates if cutover must be triggered for the entire migration.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        pulumi.set(__self__, "target_db_server_name", target_db_server_name)
+        pulumi.set(__self__, "server_name", server_name)
         if cancel is not None:
             pulumi.set(__self__, "cancel", cancel)
         if dbs_to_cancel_migration_on is not None:
@@ -119,8 +117,6 @@ class MigrationArgs:
             pulumi.set(__self__, "ssl_mode", ssl_mode)
         if start_data_migration is not None:
             pulumi.set(__self__, "start_data_migration", start_data_migration)
-        if subscription_id is not None:
-            pulumi.set(__self__, "subscription_id", subscription_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if target_db_server_fully_qualified_domain_name is not None:
@@ -132,7 +128,7 @@ class MigrationArgs:
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of resource group of target database server.
+        The name of the resource group. The name is case insensitive.
         """
         return pulumi.get(self, "resource_group_name")
 
@@ -141,27 +137,27 @@ class MigrationArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @_builtins.property
-    @pulumi.getter(name="targetDbServerName")
-    def target_db_server_name(self) -> pulumi.Input[_builtins.str]:
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of target database server.
+        The name of the server.
         """
-        return pulumi.get(self, "target_db_server_name")
+        return pulumi.get(self, "server_name")
 
-    @target_db_server_name.setter
-    def target_db_server_name(self, value: pulumi.Input[_builtins.str]):
-        pulumi.set(self, "target_db_server_name", value)
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "server_name", value)
 
     @_builtins.property
     @pulumi.getter
-    def cancel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CancelEnum']]]:
+    def cancel(self) -> Optional[pulumi.Input[Union[_builtins.str, 'Cancel']]]:
         """
         Indicates if cancel must be triggered for the entire migration.
         """
         return pulumi.get(self, "cancel")
 
     @cancel.setter
-    def cancel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'CancelEnum']]]):
+    def cancel(self, value: Optional[pulumi.Input[Union[_builtins.str, 'Cancel']]]):
         pulumi.set(self, "cancel", value)
 
     @_builtins.property
@@ -214,14 +210,14 @@ class MigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="migrateRoles")
-    def migrate_roles(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']]]:
+    def migrate_roles(self) -> Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']]]:
         """
         Indicates if roles and permissions must be migrated.
         """
         return pulumi.get(self, "migrate_roles")
 
     @migrate_roles.setter
-    def migrate_roles(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']]]):
+    def migrate_roles(self, value: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']]]):
         pulumi.set(self, "migrate_roles", value)
 
     @_builtins.property
@@ -298,14 +294,14 @@ class MigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="overwriteDbsInTarget")
-    def overwrite_dbs_in_target(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']]]:
+    def overwrite_dbs_in_target(self) -> Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']]]:
         """
         Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
         """
         return pulumi.get(self, "overwrite_dbs_in_target")
 
     @overwrite_dbs_in_target.setter
-    def overwrite_dbs_in_target(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']]]):
+    def overwrite_dbs_in_target(self, value: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']]]):
         pulumi.set(self, "overwrite_dbs_in_target", value)
 
     @_builtins.property
@@ -322,14 +318,14 @@ class MigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="setupLogicalReplicationOnSourceDbIfNeeded")
-    def setup_logical_replication_on_source_db_if_needed(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']]]:
+    def setup_logical_replication_on_source_db_if_needed(self) -> Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']]]:
         """
-        Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        Indicates whether to setup logical replication on source server, if needed.
         """
         return pulumi.get(self, "setup_logical_replication_on_source_db_if_needed")
 
     @setup_logical_replication_on_source_db_if_needed.setter
-    def setup_logical_replication_on_source_db_if_needed(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']]]):
+    def setup_logical_replication_on_source_db_if_needed(self, value: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']]]):
         pulumi.set(self, "setup_logical_replication_on_source_db_if_needed", value)
 
     @_builtins.property
@@ -382,27 +378,15 @@ class MigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="startDataMigration")
-    def start_data_migration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']]]:
+    def start_data_migration(self) -> Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigration']]]:
         """
         Indicates if data migration must start right away.
         """
         return pulumi.get(self, "start_data_migration")
 
     @start_data_migration.setter
-    def start_data_migration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']]]):
+    def start_data_migration(self, value: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigration']]]):
         pulumi.set(self, "start_data_migration", value)
-
-    @_builtins.property
-    @pulumi.getter(name="subscriptionId")
-    def subscription_id(self) -> Optional[pulumi.Input[_builtins.str]]:
-        """
-        Identifier of subscription of target database server.
-        """
-        return pulumi.get(self, "subscription_id")
-
-    @subscription_id.setter
-    def subscription_id(self, value: Optional[pulumi.Input[_builtins.str]]):
-        pulumi.set(self, "subscription_id", value)
 
     @_builtins.property
     @pulumi.getter
@@ -430,14 +414,14 @@ class MigrationArgs:
 
     @_builtins.property
     @pulumi.getter(name="triggerCutover")
-    def trigger_cutover(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']]]:
+    def trigger_cutover(self) -> Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]]:
         """
         Indicates if cutover must be triggered for the entire migration.
         """
         return pulumi.get(self, "trigger_cutover")
 
     @trigger_cutover.setter
-    def trigger_cutover(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']]]):
+    def trigger_cutover(self, value: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]]):
         pulumi.set(self, "trigger_cutover", value)
 
 
@@ -447,68 +431,66 @@ class Migration(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'CancelEnum']]] = None,
+                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'Cancel']]] = None,
                  dbs_to_cancel_migration_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_trigger_cutover_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']]] = None,
+                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']]] = None,
                  migration_instance_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_mode: Optional[pulumi.Input[Union[_builtins.str, 'MigrationMode']]] = None,
                  migration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_option: Optional[pulumi.Input[Union[_builtins.str, 'MigrationOption']]] = None,
                  migration_window_end_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_window_start_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']]] = None,
+                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
-                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']]] = None,
                  source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
                  ssl_mode: Optional[pulumi.Input[Union[_builtins.str, 'SslMode']]] = None,
-                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigration']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']]] = None,
+                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]] = None,
                  __props__=None):
         """
-        Migration.
+        Properties of a migration.
 
-        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
+        Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union[_builtins.str, 'CancelEnum']] cancel: Indicates if cancel must be triggered for the entire migration.
+        :param pulumi.Input[Union[_builtins.str, 'Cancel']] cancel: Indicates if cancel must be triggered for the entire migration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_cancel_migration_on: When you want to trigger cancel for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_migrate: Names of databases to migrate.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] dbs_to_trigger_cutover_on: When you want to trigger cutover for specific databases set 'triggerCutover' to 'True' and the names of the specific databases in this array.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']] migrate_roles: Indicates if roles and permissions must be migrated.
+        :param pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']] migrate_roles: Indicates if roles and permissions must be migrated.
         :param pulumi.Input[_builtins.str] migration_instance_resource_id: Identifier of the private endpoint migration instance.
         :param pulumi.Input[Union[_builtins.str, 'MigrationMode']] migration_mode: Mode used to perform the migration: Online or Offline.
         :param pulumi.Input[_builtins.str] migration_name: Name of migration.
         :param pulumi.Input[Union[_builtins.str, 'MigrationOption']] migration_option: Supported option for a migration.
         :param pulumi.Input[_builtins.str] migration_window_end_time_in_utc: End time (UTC) for migration window.
         :param pulumi.Input[_builtins.str] migration_window_start_time_in_utc: Start time (UTC) for migration window.
-        :param pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']] overwrite_dbs_in_target: Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
-        :param pulumi.Input[_builtins.str] resource_group_name: Name of resource group of target database server.
+        :param pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']] overwrite_dbs_in_target: Indicates if databases on the target server can be overwritten when already present. If set to 'False', when the migration workflow detects that the database already exists on the target server, it will wait for a confirmation.
+        :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']] secret_parameters: Migration secret parameters.
-        :param pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']] setup_logical_replication_on_source_db_if_needed: Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        :param pulumi.Input[_builtins.str] server_name: The name of the server.
+        :param pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']] setup_logical_replication_on_source_db_if_needed: Indicates whether to setup logical replication on source server, if needed.
         :param pulumi.Input[_builtins.str] source_db_server_fully_qualified_domain_name: Fully qualified domain name (FQDN) or IP address of the source server. This property is optional. When provided, the migration service will always use it to connect to the source server.
         :param pulumi.Input[_builtins.str] source_db_server_resource_id: Identifier of the source database server resource, when 'sourceType' is 'PostgreSQLSingleServer'. For other source types this must be set to ipaddress:port@username or hostname:port@username.
         :param pulumi.Input[Union[_builtins.str, 'SourceType']] source_type: Source server type used for the migration: ApsaraDB_RDS, AWS, AWS_AURORA, AWS_EC2, AWS_RDS, AzureVM, Crunchy_PostgreSQL, Digital_Ocean_Droplets, Digital_Ocean_PostgreSQL, EDB, EDB_Oracle_Server, EDB_PostgreSQL, GCP, GCP_AlloyDB, GCP_CloudSQL, GCP_Compute, Heroku_PostgreSQL, Huawei_Compute, Huawei_RDS, OnPremises, PostgreSQLCosmosDB, PostgreSQLFlexibleServer, PostgreSQLSingleServer, or Supabase_PostgreSQL
         :param pulumi.Input[Union[_builtins.str, 'SslMode']] ssl_mode: SSL mode used by a migration. Default SSL mode for 'PostgreSQLSingleServer' is 'VerifyFull'. Default SSL mode for other source types is 'Prefer'.
-        :param pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']] start_data_migration: Indicates if data migration must start right away.
-        :param pulumi.Input[_builtins.str] subscription_id: Identifier of subscription of target database server.
+        :param pulumi.Input[Union[_builtins.str, 'StartDataMigration']] start_data_migration: Indicates if data migration must start right away.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
         :param pulumi.Input[_builtins.str] target_db_server_fully_qualified_domain_name: Fully qualified domain name (FQDN) or IP address of the target server. This property is optional. When provided, the migration service will always use it to connect to the target server.
-        :param pulumi.Input[_builtins.str] target_db_server_name: Name of target database server.
-        :param pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']] trigger_cutover: Indicates if cutover must be triggered for the entire migration.
+        :param pulumi.Input[Union[_builtins.str, 'TriggerCutover']] trigger_cutover: Indicates if cutover must be triggered for the entire migration.
         """
         ...
     @overload
@@ -517,11 +499,11 @@ class Migration(pulumi.CustomResource):
                  args: MigrationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Migration.
+        Properties of a migration.
 
-        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
+        Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2023-03-01-preview.
 
-        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param MigrationArgs args: The arguments to use to populate this resource's properties.
@@ -538,32 +520,31 @@ class Migration(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'CancelEnum']]] = None,
+                 cancel: Optional[pulumi.Input[Union[_builtins.str, 'Cancel']]] = None,
                  dbs_to_cancel_migration_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_migrate: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  dbs_to_trigger_cutover_on: Optional[pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  location: Optional[pulumi.Input[_builtins.str]] = None,
-                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesEnum']]] = None,
+                 migrate_roles: Optional[pulumi.Input[Union[_builtins.str, 'MigrateRolesAndPermissions']]] = None,
                  migration_instance_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_mode: Optional[pulumi.Input[Union[_builtins.str, 'MigrationMode']]] = None,
                  migration_name: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_option: Optional[pulumi.Input[Union[_builtins.str, 'MigrationOption']]] = None,
                  migration_window_end_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
                  migration_window_start_time_in_utc: Optional[pulumi.Input[_builtins.str]] = None,
-                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDbsInTargetEnum']]] = None,
+                 overwrite_dbs_in_target: Optional[pulumi.Input[Union[_builtins.str, 'OverwriteDatabasesOnTargetServer']]] = None,
                  resource_group_name: Optional[pulumi.Input[_builtins.str]] = None,
                  secret_parameters: Optional[pulumi.Input[Union['MigrationSecretParametersArgs', 'MigrationSecretParametersArgsDict']]] = None,
-                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceDbEnum']]] = None,
+                 server_name: Optional[pulumi.Input[_builtins.str]] = None,
+                 setup_logical_replication_on_source_db_if_needed: Optional[pulumi.Input[Union[_builtins.str, 'LogicalReplicationOnSourceServer']]] = None,
                  source_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
                  source_db_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  source_type: Optional[pulumi.Input[Union[_builtins.str, 'SourceType']]] = None,
                  ssl_mode: Optional[pulumi.Input[Union[_builtins.str, 'SslMode']]] = None,
-                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigrationEnum']]] = None,
-                 subscription_id: Optional[pulumi.Input[_builtins.str]] = None,
+                 start_data_migration: Optional[pulumi.Input[Union[_builtins.str, 'StartDataMigration']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  target_db_server_fully_qualified_domain_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 target_db_server_name: Optional[pulumi.Input[_builtins.str]] = None,
-                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutoverEnum']]] = None,
+                 trigger_cutover: Optional[pulumi.Input[Union[_builtins.str, 'TriggerCutover']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -590,18 +571,17 @@ class Migration(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["secret_parameters"] = secret_parameters
+            if server_name is None and not opts.urn:
+                raise TypeError("Missing required property 'server_name'")
+            __props__.__dict__["server_name"] = server_name
             __props__.__dict__["setup_logical_replication_on_source_db_if_needed"] = setup_logical_replication_on_source_db_if_needed
             __props__.__dict__["source_db_server_fully_qualified_domain_name"] = source_db_server_fully_qualified_domain_name
             __props__.__dict__["source_db_server_resource_id"] = source_db_server_resource_id
             __props__.__dict__["source_type"] = source_type
             __props__.__dict__["ssl_mode"] = ssl_mode
             __props__.__dict__["start_data_migration"] = start_data_migration
-            __props__.__dict__["subscription_id"] = subscription_id
             __props__.__dict__["tags"] = tags
             __props__.__dict__["target_db_server_fully_qualified_domain_name"] = target_db_server_fully_qualified_domain_name
-            if target_db_server_name is None and not opts.urn:
-                raise TypeError("Missing required property 'target_db_server_name'")
-            __props__.__dict__["target_db_server_name"] = target_db_server_name
             __props__.__dict__["trigger_cutover"] = trigger_cutover
             __props__.__dict__["azure_api_version"] = None
             __props__.__dict__["current_status"] = None
@@ -800,7 +780,7 @@ class Migration(pulumi.CustomResource):
     @pulumi.getter(name="setupLogicalReplicationOnSourceDbIfNeeded")
     def setup_logical_replication_on_source_db_if_needed(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Indicates whether to setup LogicalReplicationOnSourceDb, if needed.
+        Indicates whether to setup logical replication on source server, if needed.
         """
         return pulumi.get(self, "setup_logical_replication_on_source_db_if_needed")
 

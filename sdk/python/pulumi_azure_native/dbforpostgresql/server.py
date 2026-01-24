@@ -28,6 +28,7 @@ class ServerArgs:
                  auth_config: Optional[pulumi.Input['AuthConfigArgs']] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  backup: Optional[pulumi.Input['BackupArgs']] = None,
+                 cluster: Optional[pulumi.Input['ClusterArgs']] = None,
                  create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input['DataEncryptionArgs']] = None,
                  high_availability: Optional[pulumi.Input['HighAvailabilityArgs']] = None,
@@ -43,31 +44,32 @@ class ServerArgs:
                  source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage: Optional[pulumi.Input['StorageArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None):
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']]] = None):
         """
         The set of arguments for constructing a Server resource.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] administrator_login: Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
         :param pulumi.Input[_builtins.str] administrator_login_password: Password assigned to the administrator login. As long as password authentication is enabled, this password can be changed at any time.
-        :param pulumi.Input['AuthConfigArgs'] auth_config: Authentication configuration properties of a flexible server.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone of a flexible server.
-        :param pulumi.Input['BackupArgs'] backup: Backup properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Creation mode of a new flexible server.
-        :param pulumi.Input['DataEncryptionArgs'] data_encryption: Data encryption properties of a flexible server.
-        :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability properties of a flexible server.
-        :param pulumi.Input['UserAssignedIdentityArgs'] identity: User assigned managed identities assigned to the flexible server.
+        :param pulumi.Input['AuthConfigArgs'] auth_config: Authentication configuration properties of a server.
+        :param pulumi.Input[_builtins.str] availability_zone: Availability zone of a server.
+        :param pulumi.Input['BackupArgs'] backup: Backup properties of a server.
+        :param pulumi.Input['ClusterArgs'] cluster: Cluster properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Creation mode of a new server.
+        :param pulumi.Input['DataEncryptionArgs'] data_encryption: Data encryption properties of a server.
+        :param pulumi.Input['HighAvailabilityArgs'] high_availability: High availability properties of a server.
+        :param pulumi.Input['UserAssignedIdentityArgs'] identity: User assigned managed identities assigned to the server.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a flexible server.
-        :param pulumi.Input['NetworkArgs'] network: Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
-        :param pulumi.Input[_builtins.str] point_in_time_utc: Creation time (in ISO8601 format) of the backup which you want to restore in the new flexible server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
-        :param pulumi.Input['ReplicaArgs'] replica: Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        :param pulumi.Input['MaintenanceWindowArgs'] maintenance_window: Maintenance window properties of a server.
+        :param pulumi.Input['NetworkArgs'] network: Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        :param pulumi.Input[_builtins.str] point_in_time_utc: Creation time (in ISO8601 format) of the backup which you want to restore in the new server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
+        :param pulumi.Input['ReplicaArgs'] replica: Read replica properties of a server. Required only in case that you want to promote a server.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationRole']] replication_role: Role of the server in a replication set.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input['SkuArgs'] sku: Compute tier and size of a flexible server.
-        :param pulumi.Input[_builtins.str] source_server_resource_id: Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
-        :param pulumi.Input['StorageArgs'] storage: Storage properties of a flexible server.
+        :param pulumi.Input['SkuArgs'] sku: Compute tier and size of a server.
+        :param pulumi.Input[_builtins.str] source_server_resource_id: Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
+        :param pulumi.Input['StorageArgs'] storage: Storage properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Union[_builtins.str, 'ServerVersion']] version: Major version of PostgreSQL database engine.
+        :param pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']] version: Major version of PostgreSQL database engine.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if administrator_login is not None:
@@ -82,6 +84,8 @@ class ServerArgs:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup is not None:
             pulumi.set(__self__, "backup", backup)
+        if cluster is not None:
+            pulumi.set(__self__, "cluster", cluster)
         if create_mode is not None:
             pulumi.set(__self__, "create_mode", create_mode)
         if data_encryption is not None:
@@ -155,7 +159,7 @@ class ServerArgs:
     @pulumi.getter(name="authConfig")
     def auth_config(self) -> Optional[pulumi.Input['AuthConfigArgs']]:
         """
-        Authentication configuration properties of a flexible server.
+        Authentication configuration properties of a server.
         """
         return pulumi.get(self, "auth_config")
 
@@ -167,7 +171,7 @@ class ServerArgs:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Availability zone of a flexible server.
+        Availability zone of a server.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -179,7 +183,7 @@ class ServerArgs:
     @pulumi.getter
     def backup(self) -> Optional[pulumi.Input['BackupArgs']]:
         """
-        Backup properties of a flexible server.
+        Backup properties of a server.
         """
         return pulumi.get(self, "backup")
 
@@ -188,10 +192,22 @@ class ServerArgs:
         pulumi.set(self, "backup", value)
 
     @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> Optional[pulumi.Input['ClusterArgs']]:
+        """
+        Cluster properties of a server.
+        """
+        return pulumi.get(self, "cluster")
+
+    @cluster.setter
+    def cluster(self, value: Optional[pulumi.Input['ClusterArgs']]):
+        pulumi.set(self, "cluster", value)
+
+    @_builtins.property
     @pulumi.getter(name="createMode")
     def create_mode(self) -> Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]]:
         """
-        Creation mode of a new flexible server.
+        Creation mode of a new server.
         """
         return pulumi.get(self, "create_mode")
 
@@ -203,7 +219,7 @@ class ServerArgs:
     @pulumi.getter(name="dataEncryption")
     def data_encryption(self) -> Optional[pulumi.Input['DataEncryptionArgs']]:
         """
-        Data encryption properties of a flexible server.
+        Data encryption properties of a server.
         """
         return pulumi.get(self, "data_encryption")
 
@@ -215,7 +231,7 @@ class ServerArgs:
     @pulumi.getter(name="highAvailability")
     def high_availability(self) -> Optional[pulumi.Input['HighAvailabilityArgs']]:
         """
-        High availability properties of a flexible server.
+        High availability properties of a server.
         """
         return pulumi.get(self, "high_availability")
 
@@ -227,7 +243,7 @@ class ServerArgs:
     @pulumi.getter
     def identity(self) -> Optional[pulumi.Input['UserAssignedIdentityArgs']]:
         """
-        User assigned managed identities assigned to the flexible server.
+        User assigned managed identities assigned to the server.
         """
         return pulumi.get(self, "identity")
 
@@ -251,7 +267,7 @@ class ServerArgs:
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> Optional[pulumi.Input['MaintenanceWindowArgs']]:
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -263,7 +279,7 @@ class ServerArgs:
     @pulumi.getter
     def network(self) -> Optional[pulumi.Input['NetworkArgs']]:
         """
-        Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         """
         return pulumi.get(self, "network")
 
@@ -275,7 +291,7 @@ class ServerArgs:
     @pulumi.getter(name="pointInTimeUTC")
     def point_in_time_utc(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Creation time (in ISO8601 format) of the backup which you want to restore in the new flexible server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
+        Creation time (in ISO8601 format) of the backup which you want to restore in the new server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
         """
         return pulumi.get(self, "point_in_time_utc")
 
@@ -287,7 +303,7 @@ class ServerArgs:
     @pulumi.getter
     def replica(self) -> Optional[pulumi.Input['ReplicaArgs']]:
         """
-        Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        Read replica properties of a server. Required only in case that you want to promote a server.
         """
         return pulumi.get(self, "replica")
 
@@ -323,7 +339,7 @@ class ServerArgs:
     @pulumi.getter
     def sku(self) -> Optional[pulumi.Input['SkuArgs']]:
         """
-        Compute tier and size of a flexible server.
+        Compute tier and size of a server.
         """
         return pulumi.get(self, "sku")
 
@@ -335,7 +351,7 @@ class ServerArgs:
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> Optional[pulumi.Input[_builtins.str]]:
         """
-        Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         """
         return pulumi.get(self, "source_server_resource_id")
 
@@ -347,7 +363,7 @@ class ServerArgs:
     @pulumi.getter
     def storage(self) -> Optional[pulumi.Input['StorageArgs']]:
         """
-        Storage properties of a flexible server.
+        Storage properties of a server.
         """
         return pulumi.get(self, "storage")
 
@@ -369,14 +385,14 @@ class ServerArgs:
 
     @_builtins.property
     @pulumi.getter
-    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]]:
+    def version(self) -> Optional[pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']]]:
         """
         Major version of PostgreSQL database engine.
         """
         return pulumi.get(self, "version")
 
     @version.setter
-    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]]):
+    def version(self, value: Optional[pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']]]):
         pulumi.set(self, "version", value)
 
 
@@ -391,6 +407,7 @@ class Server(pulumi.CustomResource):
                  auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
+                 cluster: Optional[pulumi.Input[Union['ClusterArgs', 'ClusterArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
@@ -407,39 +424,40 @@ class Server(pulumi.CustomResource):
                  source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None,
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']]] = None,
                  __props__=None):
         """
-        Flexible server.
+        Properties of a server.
 
-        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+        Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administrator_login: Name of the login designated as the first password based administrator assigned to your instance of PostgreSQL. Must be specified the first time that you enable password based authentication on a server. Once set to a given value, it cannot be changed for the rest of the life of a server. If you disable password based authentication on a server which had it enabled, this password based role isn't deleted.
         :param pulumi.Input[_builtins.str] administrator_login_password: Password assigned to the administrator login. As long as password authentication is enabled, this password can be changed at any time.
-        :param pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']] auth_config: Authentication configuration properties of a flexible server.
-        :param pulumi.Input[_builtins.str] availability_zone: Availability zone of a flexible server.
-        :param pulumi.Input[Union['BackupArgs', 'BackupArgsDict']] backup: Backup properties of a flexible server.
-        :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Creation mode of a new flexible server.
-        :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: Data encryption properties of a flexible server.
-        :param pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']] high_availability: High availability properties of a flexible server.
-        :param pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']] identity: User assigned managed identities assigned to the flexible server.
+        :param pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']] auth_config: Authentication configuration properties of a server.
+        :param pulumi.Input[_builtins.str] availability_zone: Availability zone of a server.
+        :param pulumi.Input[Union['BackupArgs', 'BackupArgsDict']] backup: Backup properties of a server.
+        :param pulumi.Input[Union['ClusterArgs', 'ClusterArgsDict']] cluster: Cluster properties of a server.
+        :param pulumi.Input[Union[_builtins.str, 'CreateMode']] create_mode: Creation mode of a new server.
+        :param pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']] data_encryption: Data encryption properties of a server.
+        :param pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']] high_availability: High availability properties of a server.
+        :param pulumi.Input[Union['UserAssignedIdentityArgs', 'UserAssignedIdentityArgsDict']] identity: User assigned managed identities assigned to the server.
         :param pulumi.Input[_builtins.str] location: The geo-location where the resource lives
-        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window properties of a flexible server.
-        :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
-        :param pulumi.Input[_builtins.str] point_in_time_utc: Creation time (in ISO8601 format) of the backup which you want to restore in the new flexible server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
-        :param pulumi.Input[Union['ReplicaArgs', 'ReplicaArgsDict']] replica: Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        :param pulumi.Input[Union['MaintenanceWindowArgs', 'MaintenanceWindowArgsDict']] maintenance_window: Maintenance window properties of a server.
+        :param pulumi.Input[Union['NetworkArgs', 'NetworkArgsDict']] network: Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        :param pulumi.Input[_builtins.str] point_in_time_utc: Creation time (in ISO8601 format) of the backup which you want to restore in the new server. It's required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', or 'ReviveDropped'.
+        :param pulumi.Input[Union['ReplicaArgs', 'ReplicaArgsDict']] replica: Read replica properties of a server. Required only in case that you want to promote a server.
         :param pulumi.Input[Union[_builtins.str, 'ReplicationRole']] replication_role: Role of the server in a replication set.
         :param pulumi.Input[_builtins.str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[_builtins.str] server_name: The name of the server.
-        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Compute tier and size of a flexible server.
-        :param pulumi.Input[_builtins.str] source_server_resource_id: Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
-        :param pulumi.Input[Union['StorageArgs', 'StorageArgsDict']] storage: Storage properties of a flexible server.
+        :param pulumi.Input[Union['SkuArgs', 'SkuArgsDict']] sku: Compute tier and size of a server.
+        :param pulumi.Input[_builtins.str] source_server_resource_id: Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
+        :param pulumi.Input[Union['StorageArgs', 'StorageArgsDict']] storage: Storage properties of a server.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Resource tags.
-        :param pulumi.Input[Union[_builtins.str, 'ServerVersion']] version: Major version of PostgreSQL database engine.
+        :param pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']] version: Major version of PostgreSQL database engine.
         """
         ...
     @overload
@@ -448,11 +466,11 @@ class Server(pulumi.CustomResource):
                  args: ServerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Flexible server.
+        Properties of a server.
 
-        Uses Azure REST API version 2024-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
+        Uses Azure REST API version 2025-08-01. In version 2.x of the Azure Native provider, it used API version 2022-12-01.
 
-        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.
@@ -474,6 +492,7 @@ class Server(pulumi.CustomResource):
                  auth_config: Optional[pulumi.Input[Union['AuthConfigArgs', 'AuthConfigArgsDict']]] = None,
                  availability_zone: Optional[pulumi.Input[_builtins.str]] = None,
                  backup: Optional[pulumi.Input[Union['BackupArgs', 'BackupArgsDict']]] = None,
+                 cluster: Optional[pulumi.Input[Union['ClusterArgs', 'ClusterArgsDict']]] = None,
                  create_mode: Optional[pulumi.Input[Union[_builtins.str, 'CreateMode']]] = None,
                  data_encryption: Optional[pulumi.Input[Union['DataEncryptionArgs', 'DataEncryptionArgsDict']]] = None,
                  high_availability: Optional[pulumi.Input[Union['HighAvailabilityArgs', 'HighAvailabilityArgsDict']]] = None,
@@ -490,7 +509,7 @@ class Server(pulumi.CustomResource):
                  source_server_resource_id: Optional[pulumi.Input[_builtins.str]] = None,
                  storage: Optional[pulumi.Input[Union['StorageArgs', 'StorageArgsDict']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
-                 version: Optional[pulumi.Input[Union[_builtins.str, 'ServerVersion']]] = None,
+                 version: Optional[pulumi.Input[Union[_builtins.str, 'PostgresMajorVersion']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -507,6 +526,7 @@ class Server(pulumi.CustomResource):
                 availability_zone = ''
             __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup"] = backup
+            __props__.__dict__["cluster"] = cluster
             __props__.__dict__["create_mode"] = create_mode
             __props__.__dict__["data_encryption"] = data_encryption
             __props__.__dict__["high_availability"] = high_availability
@@ -564,6 +584,7 @@ class Server(pulumi.CustomResource):
         __props__.__dict__["availability_zone"] = None
         __props__.__dict__["azure_api_version"] = None
         __props__.__dict__["backup"] = None
+        __props__.__dict__["cluster"] = None
         __props__.__dict__["data_encryption"] = None
         __props__.__dict__["fully_qualified_domain_name"] = None
         __props__.__dict__["high_availability"] = None
@@ -599,7 +620,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="authConfig")
     def auth_config(self) -> pulumi.Output[Optional['outputs.AuthConfigResponse']]:
         """
-        Authentication configuration properties of a flexible server.
+        Authentication configuration properties of a server.
         """
         return pulumi.get(self, "auth_config")
 
@@ -607,7 +628,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Availability zone of a flexible server.
+        Availability zone of a server.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -623,15 +644,23 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def backup(self) -> pulumi.Output[Optional['outputs.BackupResponse']]:
         """
-        Backup properties of a flexible server.
+        Backup properties of a server.
         """
         return pulumi.get(self, "backup")
+
+    @_builtins.property
+    @pulumi.getter
+    def cluster(self) -> pulumi.Output[Optional['outputs.ClusterResponse']]:
+        """
+        Cluster properties of a server.
+        """
+        return pulumi.get(self, "cluster")
 
     @_builtins.property
     @pulumi.getter(name="dataEncryption")
     def data_encryption(self) -> pulumi.Output[Optional['outputs.DataEncryptionResponse']]:
         """
-        Data encryption properties of a flexible server.
+        Data encryption properties of a server.
         """
         return pulumi.get(self, "data_encryption")
 
@@ -639,7 +668,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="fullyQualifiedDomainName")
     def fully_qualified_domain_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Fully qualified domain name of a flexible server.
+        Fully qualified domain name of a server.
         """
         return pulumi.get(self, "fully_qualified_domain_name")
 
@@ -647,7 +676,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="highAvailability")
     def high_availability(self) -> pulumi.Output[Optional['outputs.HighAvailabilityResponse']]:
         """
-        High availability properties of a flexible server.
+        High availability properties of a server.
         """
         return pulumi.get(self, "high_availability")
 
@@ -655,7 +684,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[Optional['outputs.UserAssignedIdentityResponse']]:
         """
-        User assigned managed identities assigned to the flexible server.
+        User assigned managed identities assigned to the server.
         """
         return pulumi.get(self, "identity")
 
@@ -671,7 +700,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="maintenanceWindow")
     def maintenance_window(self) -> pulumi.Output[Optional['outputs.MaintenanceWindowResponse']]:
         """
-        Maintenance window properties of a flexible server.
+        Maintenance window properties of a server.
         """
         return pulumi.get(self, "maintenance_window")
 
@@ -695,7 +724,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def network(self) -> pulumi.Output[Optional['outputs.NetworkResponse']]:
         """
-        Network properties of a flexible server. Only required if you want your server to be integrated into a virtual network provided by customer.
+        Network properties of a server. Only required if you want your server to be integrated into a virtual network provided by customer.
         """
         return pulumi.get(self, "network")
 
@@ -703,7 +732,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> pulumi.Output[Sequence['outputs.PrivateEndpointConnectionResponse']]:
         """
-        List of private endpoint connections associated with the specified flexible server.
+        List of private endpoint connections associated with the specified server.
         """
         return pulumi.get(self, "private_endpoint_connections")
 
@@ -711,7 +740,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def replica(self) -> pulumi.Output[Optional['outputs.ReplicaResponse']]:
         """
-        Read replica properties of a flexible server. Required only in case that you want to promote a server.
+        Read replica properties of a server. Required only in case that you want to promote a server.
         """
         return pulumi.get(self, "replica")
 
@@ -719,7 +748,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="replicaCapacity")
     def replica_capacity(self) -> pulumi.Output[_builtins.int]:
         """
-        Maximum number of read replicas allowed for a flexible server.
+        Maximum number of read replicas allowed for a server.
         """
         return pulumi.get(self, "replica_capacity")
 
@@ -735,7 +764,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def sku(self) -> pulumi.Output[Optional['outputs.SkuResponse']]:
         """
-        Compute tier and size of a flexible server.
+        Compute tier and size of a server.
         """
         return pulumi.get(self, "sku")
 
@@ -743,7 +772,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter(name="sourceServerResourceId")
     def source_server_resource_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier of the flexible server to be used as the source of the new flexible server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target flexible server is a read replica.
+        Identifier of the server to be used as the source of the new server. Required when 'createMode' is 'PointInTimeRestore', 'GeoRestore', 'Replica', or 'ReviveDropped'. This property is returned only when the target server is a read replica.
         """
         return pulumi.get(self, "source_server_resource_id")
 
@@ -751,7 +780,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def state(self) -> pulumi.Output[_builtins.str]:
         """
-        Possible states of a flexible server.
+        Possible states of a server.
         """
         return pulumi.get(self, "state")
 
@@ -759,7 +788,7 @@ class Server(pulumi.CustomResource):
     @pulumi.getter
     def storage(self) -> pulumi.Output[Optional['outputs.StorageResponse']]:
         """
-        Storage properties of a flexible server.
+        Storage properties of a server.
         """
         return pulumi.get(self, "storage")
 

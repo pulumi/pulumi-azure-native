@@ -12,31 +12,31 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public static class GetConfiguration
     {
         /// <summary>
-        /// Gets information about a specific server parameter of a flexible server.
+        /// Gets information about a specific configuration (also known as server parameter) of a server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Task<GetConfigurationResult> InvokeAsync(GetConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a specific server parameter of a flexible server.
+        /// Gets information about a specific configuration (also known as server parameter) of a server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Gets information about a specific server parameter of a flexible server.
+        /// Gets information about a specific configuration (also known as server parameter) of a server.
         /// 
-        /// Uses Azure REST API version 2024-08-01.
+        /// Uses Azure REST API version 2025-08-01.
         /// 
-        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+        /// Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
         /// </summary>
         public static Output<GetConfigurationResult> Invoke(GetConfigurationInvokeArgs args, InvokeOutputOptions options)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationResult>("azure-native:dbforpostgresql:getConfiguration", args ?? new GetConfigurationInvokeArgs(), options.WithDefaults());
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetConfigurationArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the server parameter.
+        /// Name of the configuration (also known as server parameter).
         /// </summary>
         [Input("configurationName", required: true)]
         public string ConfigurationName { get; set; } = null!;
@@ -72,7 +72,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetConfigurationInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the server parameter.
+        /// Name of the configuration (also known as server parameter).
         /// </summary>
         [Input("configurationName", required: true)]
         public Input<string> ConfigurationName { get; set; } = null!;
@@ -100,7 +100,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
     public sealed class GetConfigurationResult
     {
         /// <summary>
-        /// Allowed values of the server parameter.
+        /// Allowed values of the configuration (also known as server parameter).
         /// </summary>
         public readonly string AllowedValues;
         /// <summary>
@@ -108,19 +108,19 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string AzureApiVersion;
         /// <summary>
-        /// Data type of the server parameter.
+        /// Data type of the configuration (also known as server parameter).
         /// </summary>
         public readonly string DataType;
         /// <summary>
-        /// Value assigned by default to the server parameter.
+        /// Value assigned by default to the configuration (also known as server parameter).
         /// </summary>
         public readonly string DefaultValue;
         /// <summary>
-        /// Description of the server parameter.
+        /// Description of the configuration (also known as server parameter).
         /// </summary>
         public readonly string Description;
         /// <summary>
-        /// Link pointing to the documentation of the server parameter.
+        /// Link pointing to the documentation of the configuration (also known as server parameter).
         /// </summary>
         public readonly string DocumentationLink;
         /// <summary>
@@ -128,15 +128,15 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Indicates if the value assigned to the server parameter is pending a server restart for the value to take effect.
+        /// Indicates if the value assigned to the configuration (also known as server parameter) is pending a server restart for it to take effect.
         /// </summary>
         public readonly bool IsConfigPendingRestart;
         /// <summary>
-        /// Indicates if it's a dynamic (true) or static (false) server parameter. Static server parameters require a server restart after changing the value assigned to it, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to it, for the change to take effect.
+        /// Indicates if it's a dynamic (true) or static (false) configuration (also known as server parameter). Static server parameters require a server restart after changing the value assigned to them, for the change to take effect. Dynamic server parameters do not require a server restart after changing the value assigned to them, for the change to take effect.
         /// </summary>
         public readonly bool IsDynamicConfig;
         /// <summary>
-        /// Indicates if it's a read-only (true) or modifiable (false) server parameter.
+        /// Indicates if it's a read-only (true) or modifiable (false) configuration (also known as server parameter).
         /// </summary>
         public readonly bool IsReadOnly;
         /// <summary>
@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Source of the value assigned to the server parameter. Required to update the value assigned to a specific modifiable server parameter.
+        /// Source of the value assigned to the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         public readonly string? Source;
         /// <summary>
@@ -156,11 +156,11 @@ namespace Pulumi.AzureNative.DBforPostgreSQL
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// Units in which the server parameter value is expressed.
+        /// Units in which the configuration (also known as server parameter) value is expressed.
         /// </summary>
         public readonly string Unit;
         /// <summary>
-        /// Value of the server parameter (also known as configuration). Required to update the value assigned to a specific modifiable server parameter.
+        /// Value of the configuration (also known as server parameter). Required to update the value assigned to a specific modifiable configuration.
         /// </summary>
         public readonly string? Value;
 

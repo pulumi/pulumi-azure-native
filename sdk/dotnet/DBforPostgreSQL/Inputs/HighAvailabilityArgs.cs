@@ -11,12 +11,12 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// High availability properties of a flexible server.
+    /// High availability properties of a server.
     /// </summary>
     public sealed class HighAvailabilityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// High availability mode for a flexible server.
+        /// High availability mode for a server.
         /// </summary>
         [Input("mode")]
         public InputUnion<string, Pulumi.AzureNative.DBforPostgreSQL.HighAvailabilityMode>? Mode { get; set; }

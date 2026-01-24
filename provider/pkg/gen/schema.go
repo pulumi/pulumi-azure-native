@@ -930,6 +930,17 @@ func (g *packageGenerator) genResourceVariant(apiSpec *openapi.ResourceSpec, res
 	}
 
 	if resourceResponse == nil || len(resourceResponse.specs) == 0 {
+		// PUT/PATCH returned no usable response schema (e.g., 202-only async operations).
+		// For long-running operations, fall back to the GET operation's response schema.
+		if g.getAsyncStyle(updateOp) != "" && path.Get != nil {
+			resourceResponse, err = gen.genResponse(path.Get.Responses.StatusCodeResponses, swagger.ReferenceContext, nil, true)
+			if err != nil {
+				return errors.Wrapf(err, "failed to generate '%s': fallback response type from GET", resourceTok)
+			}
+		}
+	}
+
+	if resourceResponse == nil || len(resourceResponse.specs) == 0 {
 		// Response is specified empty, do not generate a resource for it.
 		return nil
 	}

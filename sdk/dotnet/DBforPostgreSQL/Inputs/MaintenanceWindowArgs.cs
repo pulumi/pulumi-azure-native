@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Inputs
 {
 
     /// <summary>
-    /// Maintenance window properties of a flexible server.
+    /// Maintenance window properties of a server.
     /// </summary>
     public sealed class MaintenanceWindowArgs : global::Pulumi.ResourceArgs
     {

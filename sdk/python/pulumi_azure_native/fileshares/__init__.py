@@ -8,9 +8,11 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .file_share import *
+from .file_share_snapshot import *
 from .get_file_share import *
 from .get_file_share_limits import *
 from .get_file_share_provisioning_recommendation import *
+from .get_file_share_snapshot import *
 from .get_file_share_usage_data import *
 from ._inputs import *
 from . import outputs

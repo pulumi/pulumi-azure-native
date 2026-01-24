@@ -14,23 +14,23 @@ namespace Pulumi.AzureNative.DBforPostgreSQL.Outputs
     /// Details of migration substate.
     /// </summary>
     [OutputType]
-    public sealed class MigrationSubStateDetailsResponse
+    public sealed class MigrationSubstateDetailsResponse
     {
         /// <summary>
         /// Substate of migration.
         /// </summary>
         public readonly string CurrentSubState;
-        public readonly ImmutableDictionary<string, Outputs.DbMigrationStatusResponse>? DbDetails;
+        public readonly ImmutableDictionary<string, Outputs.DatabaseMigrationStateResponse>? DbDetails;
         /// <summary>
         /// Details for the validation for migration.
         /// </summary>
         public readonly Outputs.ValidationDetailsResponse? ValidationDetails;
 
         [OutputConstructor]
-        private MigrationSubStateDetailsResponse(
+        private MigrationSubstateDetailsResponse(
             string currentSubState,
 
-            ImmutableDictionary<string, Outputs.DbMigrationStatusResponse>? dbDetails,
+            ImmutableDictionary<string, Outputs.DatabaseMigrationStateResponse>? dbDetails,
 
             Outputs.ValidationDetailsResponse? validationDetails)
         {

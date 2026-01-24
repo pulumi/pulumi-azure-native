@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Gets information about an existing database.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -25,7 +25,7 @@ export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetDatabaseArgs {
     /**
-     * Name of the database.
+     * Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
      */
     databaseName: string;
     /**
@@ -39,7 +39,7 @@ export interface GetDatabaseArgs {
 }
 
 /**
- * Represents a Database.
+ * Represents a database.
  */
 export interface GetDatabaseResult {
     /**
@@ -74,9 +74,9 @@ export interface GetDatabaseResult {
 /**
  * Gets information about an existing database.
  *
- * Uses Azure REST API version 2024-08-01.
+ * Uses Azure REST API version 2025-08-01.
  *
- * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview, 2025-08-01. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
+ * Other available API versions: 2022-12-01, 2023-03-01-preview, 2023-06-01-preview, 2023-12-01-preview, 2024-03-01-preview, 2024-08-01, 2024-11-01-preview, 2025-01-01-preview, 2025-06-01-preview. These can be accessed by generating a local SDK package using the CLI command `pulumi package add azure-native dbforpostgresql [ApiVersion]`. See the [version guide](../../../version-guide/#accessing-any-api-version-via-local-packages) for details.
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetDatabaseResult> {
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -89,7 +89,7 @@ export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.Inv
 
 export interface GetDatabaseOutputArgs {
     /**
-     * Name of the database.
+     * Name of the database (case-sensitive). Exact database names can be retrieved by getting the list of all existing databases in a server.
      */
     databaseName: pulumi.Input<string>;
     /**

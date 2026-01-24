@@ -94363,17 +94363,17 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Authentication configuration properties of a flexible server.
+     * Authentication configuration properties of a server.
      */
     export interface AuthConfigArgs {
         /**
          * Indicates if the server supports Microsoft Entra authentication.
          */
-        activeDirectoryAuth?: pulumi.Input<string | enums.dbforpostgresql.ActiveDirectoryAuthEnum>;
+        activeDirectoryAuth?: pulumi.Input<string | enums.dbforpostgresql.MicrosoftEntraAuth>;
         /**
          * Indicates if the server supports password based authentication.
          */
-        passwordAuth?: pulumi.Input<string | enums.dbforpostgresql.PasswordAuthEnum>;
+        passwordAuth?: pulumi.Input<string | enums.dbforpostgresql.PasswordBasedAuth>;
         /**
          * Identifier of the tenant of the delegated resource.
          */
@@ -94391,17 +94391,17 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Backup properties of a flexible server.
+     * Backup properties of a server.
      */
     export interface BackupArgs {
         /**
-         * Backup retention days for the flexible server.
+         * Backup retention days for the server.
          */
         backupRetentionDays?: pulumi.Input<number>;
         /**
          * Indicates if the server is configured to create geographically redundant backups.
          */
-        geoRedundantBackup?: pulumi.Input<string | enums.dbforpostgresql.GeoRedundantBackupEnum>;
+        geoRedundantBackup?: pulumi.Input<string | enums.dbforpostgresql.GeographicallyRedundantBackup>;
     }
     /**
      * backupArgsProvideDefaults sets the appropriate defaults for BackupArgs
@@ -94415,45 +94415,68 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Data encryption properties of a flexible server.
+     * Cluster properties of a server.
      */
-    export interface DataEncryptionArgs {
+    export interface ClusterArgs {
         /**
-         * Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+         * Number of nodes assigned to the elastic cluster.
          */
-        geoBackupEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.KeyStatusEnum>;
+        clusterSize?: pulumi.Input<number>;
         /**
-         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
+         * Default database name for the elastic cluster.
          */
-        geoBackupKeyURI?: pulumi.Input<string>;
-        /**
-         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a flexible server that is configured to support geographically redundant backups.
-         */
-        geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
-        /**
-         * Status of key used by a flexible server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
-         */
-        primaryEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.KeyStatusEnum>;
-        /**
-         * URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a flexible server.
-         */
-        primaryKeyURI?: pulumi.Input<string>;
-        /**
-         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a flexible server.
-         */
-        primaryUserAssignedIdentityId?: pulumi.Input<string>;
-        /**
-         * Data encryption type used by a flexible server.
-         */
-        type?: pulumi.Input<string | enums.dbforpostgresql.ArmServerKeyType>;
+        defaultDatabaseName?: pulumi.Input<string>;
+    }
+    /**
+     * clusterArgsProvideDefaults sets the appropriate defaults for ClusterArgs
+     */
+    export function clusterArgsProvideDefaults(val: ClusterArgs): ClusterArgs {
+        return {
+            ...val,
+            clusterSize: (val.clusterSize) ?? 0,
+        };
     }
 
     /**
-     * High availability properties of a flexible server.
+     * Data encryption properties of a server.
+     */
+    export interface DataEncryptionArgs {
+        /**
+         * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the geographically redundant storage associated to the server when it is configured to support geographically redundant backups.
+         */
+        geoBackupEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.EncryptionKeyStatus>;
+        /**
+         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+         */
+        geoBackupKeyURI?: pulumi.Input<string>;
+        /**
+         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the geographically redundant storage associated to a server that is configured to support geographically redundant backups.
+         */
+        geoBackupUserAssignedIdentityId?: pulumi.Input<string>;
+        /**
+         * Status of key used by a server configured with data encryption based on customer managed key, to encrypt the primary storage associated to the server.
+         */
+        primaryEncryptionKeyStatus?: pulumi.Input<string | enums.dbforpostgresql.EncryptionKeyStatus>;
+        /**
+         * URI of the key in Azure Key Vault used for data encryption of the primary storage associated to a server.
+         */
+        primaryKeyURI?: pulumi.Input<string>;
+        /**
+         * Identifier of the user assigned managed identity used to access the key in Azure Key Vault for data encryption of the primary storage associated to a server.
+         */
+        primaryUserAssignedIdentityId?: pulumi.Input<string>;
+        /**
+         * Data encryption type used by a server.
+         */
+        type?: pulumi.Input<string | enums.dbforpostgresql.DataEncryptionType>;
+    }
+
+    /**
+     * High availability properties of a server.
      */
     export interface HighAvailabilityArgs {
         /**
-         * High availability mode for a flexible server.
+         * High availability mode for a server.
          */
         mode?: pulumi.Input<string | enums.dbforpostgresql.HighAvailabilityMode>;
         /**
@@ -94484,7 +94507,7 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Maintenance window properties of a flexible server.
+     * Maintenance window properties of a server.
      */
     export interface MaintenanceWindowArgs {
         /**
@@ -94536,7 +94559,7 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Network properties of a flexible server.
+     * Network properties of a server.
      */
     export interface NetworkArgs {
         /**
@@ -94548,7 +94571,7 @@ export namespace dbforpostgresql {
          */
         privateDnsZoneArmResourceId?: pulumi.Input<string>;
         /**
-         * Indicates if public network access is enabled or not.
+         * Indicates if public network access is enabled or not. This is only supported for servers that are not integrated into a virtual network which is owned and provided by customer when server is deployed.
          */
         publicNetworkAccess?: pulumi.Input<string | enums.dbforpostgresql.ServerPublicNetworkAccessState>;
     }
@@ -94572,7 +94595,7 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Replica properties of a flexible server.
+     * Replica properties of a server.
      */
     export interface ReplicaArgs {
         /**
@@ -94580,9 +94603,9 @@ export namespace dbforpostgresql {
          */
         promoteMode?: pulumi.Input<string | enums.dbforpostgresql.ReadReplicaPromoteMode>;
         /**
-         * Data synchronization option to use when processing the operation specified in the promoteMode property This property is write only. Planned means that the operation will wait for data in the read replica to be fully synchronized with its source server before it initiates the operation. Forced means that the operation will not wait for data in the read replica to be synchronized with its source server before it initiates the operation.
+         * Data synchronization option to use when processing the operation specified in the promoteMode property. This property is write only.
          */
-        promoteOption?: pulumi.Input<string | enums.dbforpostgresql.ReplicationPromoteOption>;
+        promoteOption?: pulumi.Input<string | enums.dbforpostgresql.ReadReplicaPromoteOption>;
         /**
          * Role of the server in a replication set.
          */
@@ -94835,45 +94858,45 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Compute information of a flexible server.
+     * Compute information of a server.
      */
     export interface SkuArgs {
         /**
-         * Name by which is known a given compute size assigned to a flexible server.
+         * Name by which is known a given compute size assigned to a server.
          */
         name: pulumi.Input<string>;
         /**
-         * Tier of the compute assigned to a flexible server.
+         * Tier of the compute assigned to a server.
          */
         tier: pulumi.Input<string | enums.dbforpostgresql.SkuTier>;
     }
 
     /**
-     * Storage properties of a flexible server.
+     * Storage properties of a server.
      */
     export interface StorageArgs {
         /**
-         * Flag to enable or disable the automatic growth of storage size of a flexible server when available space is nearing zero and conditions allow for automatically growing storage size.
+         * Flag to enable or disable the automatic growth of storage size of a server when available space is nearing zero and conditions allow for automatically growing storage size.
          */
         autoGrow?: pulumi.Input<string | enums.dbforpostgresql.StorageAutoGrow>;
         /**
-         * Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS.
+         * Maximum IOPS supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
          */
         iops?: pulumi.Input<number>;
         /**
-         * Size of storage assigned to a flexible server.
+         * Size of storage assigned to a server.
          */
         storageSizeGB?: pulumi.Input<number>;
         /**
-         * Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS.
+         * Maximum throughput supported for storage. Required when type of storage is PremiumV2_LRS or UltraSSD_LRS.
          */
         throughput?: pulumi.Input<number>;
         /**
-         * Storage tier of a flexible server.
+         * Storage tier of a server.
          */
-        tier?: pulumi.Input<string | enums.dbforpostgresql.AzureManagedDiskPerformanceTiers>;
+        tier?: pulumi.Input<string | enums.dbforpostgresql.AzureManagedDiskPerformanceTier>;
         /**
-         * Type of storage assigned to a flexible server. Allowed values are Premium_LRS or PremiumV2_LRS. If not specified, it defaults to Premium_LRS.
+         * Type of storage assigned to a server. Allowed values are Premium_LRS, PremiumV2_LRS, or UltraSSD_LRS. If not specified, it defaults to Premium_LRS.
          */
         type?: pulumi.Input<string | enums.dbforpostgresql.StorageType>;
     }
@@ -94901,7 +94924,7 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * Identities associated with a flexible server.
+     * Identities associated with a server.
      */
     export interface UserAssignedIdentityArgs {
         /**
@@ -94909,7 +94932,7 @@ export namespace dbforpostgresql {
          */
         principalId?: pulumi.Input<string>;
         /**
-         * Types of identities associated with a flexible server.
+         * Types of identities associated with a server.
          */
         type: pulumi.Input<string | enums.dbforpostgresql.IdentityType>;
         /**
@@ -94919,7 +94942,7 @@ export namespace dbforpostgresql {
     }
 
     /**
-     * User assigned managed identity associated with a flexible server.
+     * User assigned managed identity associated with a server.
      */
     export interface UserIdentityArgs {
         /**
@@ -102721,6 +102744,16 @@ export namespace fileshares {
     }
 
     /**
+     * FileShareSnapshot properties
+     */
+    export interface FileShareSnapshotPropertiesArgs {
+        /**
+         * The metadata
+         */
+        metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    }
+
+    /**
      * Properties specific to the NFS protocol.
      */
     export interface NfsProtocolPropertiesArgs {
@@ -103905,6 +103938,34 @@ export namespace hdinsight {
          * 24-hour time in the form xx:xx
          */
         time?: pulumi.Input<string>;
+    }
+
+    /**
+     * The selected configurations for azure monitor.
+     */
+    export interface AzureMonitorSelectedConfigurationsArgs {
+        /**
+         * The configuration version.
+         */
+        configurationVersion?: pulumi.Input<string>;
+        /**
+         * The global configurations of selected configurations.
+         */
+        globalConfigurations?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * The table list.
+         */
+        tableList?: pulumi.Input<pulumi.Input<inputs.hdinsight.AzureMonitorTableConfigurationArgs>[]>;
+    }
+
+    /**
+     * The table configuration for the Log Analytics integration.
+     */
+    export interface AzureMonitorTableConfigurationArgs {
+        /**
+         * The name.
+         */
+        name?: pulumi.Input<string>;
     }
 
     /**

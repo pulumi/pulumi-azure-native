@@ -22,6 +22,7 @@ __all__ = [
     'FileSharePropertiesResponse',
     'FileShareProvisioningConstantsResponse',
     'FileShareProvisioningRecommendationOutputResponse',
+    'FileShareSnapshotPropertiesResponse',
     'FileShareUsageDataOutputResponse',
     'LiveSharesUsageDataResponse',
     'NfsProtocolPropertiesResponse',
@@ -549,6 +550,70 @@ class FileShareProvisioningRecommendationOutputResponse(dict):
         The recommended value of provisioned throughput / sec of the share.
         """
         return pulumi.get(self, "provisioned_throughput_mi_b_per_sec")
+
+
+@pulumi.output_type
+class FileShareSnapshotPropertiesResponse(dict):
+    """
+    FileShareSnapshot properties
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "initiatorId":
+            suggest = "initiator_id"
+        elif key == "snapshotTime":
+            suggest = "snapshot_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FileShareSnapshotPropertiesResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FileShareSnapshotPropertiesResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FileShareSnapshotPropertiesResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 initiator_id: _builtins.str,
+                 snapshot_time: _builtins.str,
+                 metadata: Optional[Mapping[str, _builtins.str]] = None):
+        """
+        FileShareSnapshot properties
+        :param _builtins.str initiator_id: The initiator of the FileShareSnapshot. This is a user-defined value.
+        :param _builtins.str snapshot_time: The FileShareSnapshot time in UTC in string representation
+        :param Mapping[str, _builtins.str] metadata: The metadata
+        """
+        pulumi.set(__self__, "initiator_id", initiator_id)
+        pulumi.set(__self__, "snapshot_time", snapshot_time)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+
+    @_builtins.property
+    @pulumi.getter(name="initiatorId")
+    def initiator_id(self) -> _builtins.str:
+        """
+        The initiator of the FileShareSnapshot. This is a user-defined value.
+        """
+        return pulumi.get(self, "initiator_id")
+
+    @_builtins.property
+    @pulumi.getter(name="snapshotTime")
+    def snapshot_time(self) -> _builtins.str:
+        """
+        The FileShareSnapshot time in UTC in string representation
+        """
+        return pulumi.get(self, "snapshot_time")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional[Mapping[str, _builtins.str]]:
+        """
+        The metadata
+        """
+        return pulumi.get(self, "metadata")
 
 
 @pulumi.output_type
